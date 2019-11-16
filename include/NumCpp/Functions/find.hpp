@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -47,7 +47,7 @@ namespace nc
     ///
     inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max()) noexcept
     {
-        NdArray<uint32> indices = mask.nonzero();
+        NdArray<uint32> indices = mask.flatnonzero();
 
         if (indices.size() <= n)
         {

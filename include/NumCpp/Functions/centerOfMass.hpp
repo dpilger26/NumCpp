@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -56,17 +55,21 @@ namespace nc
                 double inten = 0.0;
                 std::for_each(inArray.begin(), inArray.end(),
                     [&inten](dtype value) -> void
-                    { inten += static_cast<double>(value); });
+                    {
+                        inten += static_cast<double>(value);
+                    });
 
                 // first get the row center
                 double row = 0;
                 for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                 {
                     double rowSum = 0;
-                    for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
-                    {
-                        rowSum += static_cast<double>(inArray(rowIdx, colIdx));
-                    }
+                    std::for_each(inArray.begin(rowIdx), inArray.end(rowIdx),
+                        [&rowSum](dtype value) -> void
+                        {
+                            rowSum += static_cast<double>(value);
+                        });
+
                     row += rowSum * static_cast<double>(rowIdx);
                 }
 

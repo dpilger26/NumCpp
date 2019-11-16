@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,11 +30,11 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include "boost/math/special_functions/prime.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -75,9 +75,11 @@ namespace nc
         {
             NdArray<uint32> returnArray(inArray.shape());
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> uint32
-                { return prime(inValue); });
+                { 
+                    return prime(inValue); 
+                });
 
             return returnArray;
         }

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inSquareSize) noexcept
     {
-        return full(inSquareSize, static_cast<dtype>(0));
+        return full(inSquareSize, dtype{ 0 });
     }
 
     //============================================================================
@@ -66,7 +66,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols) noexcept
     {
-        return full(inNumRows, inNumCols, static_cast<dtype>(0));
+        return full(inNumRows, inNumCols, dtype{ 0 });
     }
 
     //============================================================================
@@ -83,6 +83,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> zeros(const Shape& inShape) noexcept
     {
-        return full(inShape, static_cast<dtype>(0));
+        return full(inShape, dtype{ 0 });
     }
 }

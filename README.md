@@ -2,7 +2,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 1.1
+## Version: 1.2
 
 ## License
 
@@ -150,7 +150,7 @@ Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
 |                                                          | ```a == b```                                             |
 | ```np.not_equal(a, b)```                                 | ```nc::not_equal(a, b)```                                |
 |                                                          | ```a != b```                                             |
-| ```np.nonzero(a)```                                      | ```nc::nonzero(a)```                                     |
+| ```rows, cols = np.nonzero(a)```                         | ```auto [rows, cols] = nc::nonzero(a)```                 |
 
 ### MINIMUM, MAXIMUM, SORTING
 

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -57,7 +57,7 @@ namespace nc
             uint32 place = 0;
             for (auto value : inArray)
             {
-                if (value != static_cast<dtype>(0))
+                if (value != dtype{ 0 })
                 {
                     break;
                 }
@@ -73,7 +73,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, inArray.size() - place);
-            std::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
 
             return returnArray;
         }
@@ -82,7 +82,7 @@ namespace nc
             uint32 place = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (inArray[i] != dtype{ 0 })
                 {
                     break;
                 }
@@ -98,7 +98,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, place);
-            std::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
 
             return returnArray;
         }
@@ -107,7 +107,7 @@ namespace nc
             uint32 placeBegin = 0;
             for (auto value : inArray)
             {
-                if (value != static_cast<dtype>(0))
+                if (value != dtype{ 0 })
                 {
                     break;
                 }
@@ -125,7 +125,7 @@ namespace nc
             uint32 placeEnd = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (inArray[i] != dtype{ 0 })
                 {
                     break;
                 }
@@ -141,7 +141,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, placeEnd - placeBegin);
-            std::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
 
             return returnArray;
         }

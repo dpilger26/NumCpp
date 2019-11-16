@@ -8,52 +8,52 @@
     <includes local="no">string</includes>
     <includedby refid="_core_8hpp" local="yes">Core.hpp</includedby>
     <incdepgraph>
-      <node id="16941">
+      <node id="18061">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="16942" relation="include">
+        <childnode refid="18062" relation="include">
         </childnode>
       </node>
-      <node id="16942">
+      <node id="18062">
         <label>cstdint</label>
       </node>
-      <node id="16945">
+      <node id="18065">
         <label>string</label>
       </node>
-      <node id="16940">
+      <node id="18060">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16941" relation="include">
+        <childnode refid="18061" relation="include">
         </childnode>
-        <childnode refid="16943" relation="include">
+        <childnode refid="18063" relation="include">
         </childnode>
-        <childnode refid="16944" relation="include">
+        <childnode refid="18064" relation="include">
         </childnode>
-        <childnode refid="16945" relation="include">
+        <childnode refid="18065" relation="include">
         </childnode>
       </node>
-      <node id="16944">
+      <node id="18064">
         <label>iostream</label>
       </node>
-      <node id="16943">
+      <node id="18063">
         <label>chrono</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16948">
+      <node id="18068">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="16947">
+      <node id="18067">
         <label>Core.hpp</label>
         <link refid="_core_8hpp"/>
-        <childnode refid="16948" relation="include">
+        <childnode refid="18068" relation="include">
         </childnode>
       </node>
-      <node id="16946">
+      <node id="18066">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16947" relation="include">
+        <childnode refid="18067" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -63,7 +63,7 @@
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
 </para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
@@ -160,7 +160,7 @@
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
 <codeline lineno="133" refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref><sp/><ref refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" kindref="member">toc</ref>()<sp/>noexcept</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::chrono::duration_cast&lt;TimeUnit&gt;(ChronoClock::now()<sp/>-<sp/>start_).count());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::chrono::duration_cast&lt;TimeUnit&gt;(ChronoClock::now()<sp/>-<sp/>start_).<ref refid="namespacenc_1_1stl__algorithms_1ae1e1834ec458e90544d643b4b1e68735" kindref="member">count</ref>());</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>name_<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Elapsed<sp/>Time<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>duration<sp/>&lt;&lt;<sp/>unit_<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>duration;</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

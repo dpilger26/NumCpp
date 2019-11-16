@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
-#include <algorithm>
 #include <cmath>
 #include <string>
 
@@ -64,9 +64,11 @@ namespace nc
         }
 
         NdArray<bool> returnArray(inArray1.shape());
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
-            { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
+            { 
+                return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); 
+            });
 
         return returnArray;
     }

@@ -815,7 +815,7 @@ def doTest():
     for col in range(data.shape[1]):
         coms.append(np.round(meas.center_of_mass(data[:, col])[0], 9))
 
-    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.ROW).flatten(), 9), coms):
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.ROW).flatten(), 9), np.round(coms, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -831,7 +831,7 @@ def doTest():
     for row in range(data.shape[0]):
         coms.append(np.round(meas.center_of_mass(data[row, :])[0], 9))
 
-    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.COL).flatten(), 9), coms):
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.COL).flatten(), 9), np.round(coms, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3518,13 +3518,50 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing none: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if NumCpp.none(cArray, NumCpp.Axis.NONE).astype(np.bool).item() == np.logical_not(np.any(data).item()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing none: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.none(cArray, NumCpp.Axis.ROW).flatten().astype(np.bool), np.logical_not(np.any(data, axis=0))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing none: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.none(cArray, NumCpp.Axis.COL).flatten().astype(np.bool), np.logical_not(np.any(data, axis=1))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing nonzero', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(NumCpp.nonzero(cArray).getNumpyArray().flatten(), data.flatten().nonzero()[0]):
+    row, col = np.nonzero(data)
+    rowCol = NumCpp.nonzero(cArray)
+    rowC = rowCol.first.getNumpyArray().flatten()
+    colC = rowCol.second.getNumpyArray().flatten()
+    if np.array_equal(rowC, row) and np.array_equal(colC, col):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4104,6 +4141,21 @@ def doTest():
     res = NumCpp.remainderArray(cArray1, cArray2)
     res[res < 0] = res[res < 0] + data2[res < 0]
     if np.array_equal(np.round(res, 9), np.round(np.remainder(data1, data2), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing replace', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    oldValue = np.random.randint(1, 100, 1).item()
+    newValue = np.random.randint(1, 100, 1).item()
+    dataCopy = data.copy()
+    dataCopy[dataCopy == oldValue] = newValue
+    if np.array_equal(NumCpp.replace(cArray, oldValue, newValue), dataCopy):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

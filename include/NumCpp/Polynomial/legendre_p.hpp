@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,11 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/legendre.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -94,9 +93,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n](dtype x) -> double
-                { return legendre_p(n, x); });
+            auto function = [n](dtype x) -> double
+            {
+                return legendre_p(n, x);
+            };
+
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -116,9 +118,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n, m](dtype x) -> double
-                { return legendre_p(n, m, x); });
+            auto function = [n, m](dtype x) -> double
+            {
+                return legendre_p(n, m, x);
+            };
+
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }

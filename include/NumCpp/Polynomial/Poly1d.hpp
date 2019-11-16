@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,12 +30,12 @@
 
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -291,8 +291,8 @@ namespace nc
                 const uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
                 std::vector<dtype> coeffsA(finalCoefficientsSize, 0);
                 std::vector<dtype> coeffsB(finalCoefficientsSize, 0);
-                std::copy(coefficients_.begin(), coefficients_.end(), coeffsA.begin());
-                std::copy(inOtherPoly.coefficients_.cbegin(), inOtherPoly.coefficients_.cend(), coeffsB.begin());
+                stl_algorithms::copy(coefficients_.begin(), coefficients_.end(), coeffsA.begin());
+                stl_algorithms::copy(inOtherPoly.coefficients_.cbegin(), inOtherPoly.coefficients_.cend(), coeffsB.begin());
 
                 // now multiply out the coefficients
                 std::vector<dtype> finalCoefficients(finalCoefficientsSize, 0);

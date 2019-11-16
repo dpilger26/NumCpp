@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,11 +30,11 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -71,9 +71,11 @@ namespace nc
     NdArray<double> powerf(const NdArray<dtype>& inArray, double inExponent) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> double
-            { return powerf(inValue, inExponent); });
+            {
+                return powerf(inValue, inExponent); 
+            });
 
         return returnArray;
     }
@@ -98,9 +100,11 @@ namespace nc
         }
 
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, double inExponent) noexcept -> double
-            { return powerf(inValue, inExponent); });
+            {
+                return powerf(inValue, inExponent);
+            });
 
         return returnArray;
     }

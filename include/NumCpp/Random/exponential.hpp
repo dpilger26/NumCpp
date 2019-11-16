@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,12 +29,11 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/exponential_distribution.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -59,9 +58,11 @@ namespace nc
 
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                {
+                    value = dist(generator_); 
+                });
 
             return returnArray;
         }

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -77,7 +77,7 @@ namespace nc
                 }
                 else
                 {
-                    return static_cast<dtype>(0);
+                    return dtype{ 0 };
                 }
             }
 

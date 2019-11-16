@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,8 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -54,6 +53,6 @@ namespace nc
             return false;
         }
 
-        return std::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
+        return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
     }
 }

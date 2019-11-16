@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,6 +30,8 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <utility>
+
 namespace nc
 {
     //============================================================================
@@ -46,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nonzero(const NdArray<dtype>& inArray) noexcept
+    std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.nonzero();
     }

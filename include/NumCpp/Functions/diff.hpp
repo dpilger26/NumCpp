@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -64,9 +64,11 @@ namespace nc
                 }
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
-                std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
+                stl_algorithms::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
                     [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                    { return inValue2 - inValue1; });
+                    {
+                        return inValue2 - inValue1; 
+                    });
 
                 return returnArray;
             }
@@ -80,9 +82,11 @@ namespace nc
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols - 1);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    std::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
+                    stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
                         [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                        { return inValue2 - inValue1; });
+                        {
+                            return inValue2 - inValue1;
+                        });
                 }
 
                 return returnArray;
@@ -99,9 +103,11 @@ namespace nc
                 NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
-                    std::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
+                    stl_algorithms::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
                         [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                        { return inValue2 - inValue1; });
+                        { 
+                            return inValue2 - inValue1; 
+                        });
                 }
 
                 return returnArray.transpose();

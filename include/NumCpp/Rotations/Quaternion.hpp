@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Functions/argmax.hpp"
@@ -41,7 +42,6 @@
 #include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
-#include <algorithm>
 #include <array>
 #include <cmath>
 #include <iostream>
@@ -67,14 +67,14 @@ namespace nc
             void normalize() noexcept
             {
                 double sumOfSquares = 0.0;
-                std::for_each(components_.begin(), components_.end(),
+                stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&sumOfSquares](double component) -> void
                     {
                         sumOfSquares += utils::sqr(component);
                     });
 
                 const double norm = std::sqrt(sumOfSquares);
-                std::for_each(components_.begin(), components_.end(),
+                stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&norm](double& component) -> void
                     {
                         component /= norm;
@@ -225,7 +225,7 @@ namespace nc
                 else if (inArray.size() == 4)
                 {
                     // quaternion i, j, k, s components
-                    std::copy(inArray.cbegin(), inArray.cend(), components_.begin());
+                    stl_algorithms::copy(inArray.cbegin(), inArray.cend(), components_.begin());
                     normalize();
                 }
                 else if (inArray.size() == 9)
@@ -424,7 +424,7 @@ namespace nc
                 const double oneMinus = 1.0 - inPercent;
                 std::array<double, 4> newComponents;
 
-                std::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
+                stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
                     [inPercent, oneMinus](double component1, double component2)
                     {
@@ -724,7 +724,7 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
-                return std::equal(components_.begin(), components_.end(),
+                return stl_algorithms::equal(components_.begin(), components_.end(),
                     inRhs.components_.begin(),
                     static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
             }
@@ -768,7 +768,7 @@ namespace nc
             ///
             Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(),
+                stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::plus<double>());
 
                 normalize();
@@ -813,7 +813,7 @@ namespace nc
             ///
             Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(),
+                stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::minus<double>());
 
                 normalize();
@@ -941,8 +941,11 @@ namespace nc
             ///
             Quaternion& operator*=(double inScalar) noexcept
             {
-                std::for_each(components_.begin(), components_.end(),
-                    [&inScalar](double& component) { component *= inScalar; });
+                stl_algorithms::for_each(components_.begin(), components_.end(),
+                    [&inScalar](double& component)
+                    {
+                        component *= inScalar; 
+                    });
 
                 normalize();
 

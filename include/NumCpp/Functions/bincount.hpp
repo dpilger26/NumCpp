@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -79,7 +79,9 @@ namespace nc
         outArray.zeros();
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray](dtype value) noexcept -> void
-            { ++outArray[value]; });
+            { 
+                ++outArray[value];
+            });
 
         return outArray;
     }
@@ -135,7 +137,9 @@ namespace nc
         uint32 counter = 0;
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray, &inWeights, &counter](dtype value) noexcept -> void
-            { outArray[value] += inWeights[counter++]; });
+            {
+                outArray[value] += inWeights[counter++];
+            });
 
         return outArray;
     }

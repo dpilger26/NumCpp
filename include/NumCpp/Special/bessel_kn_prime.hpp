@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/bessel_prime.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -67,9 +66,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype2 inX) -> double
-                { return bessel_kn_prime(inV, inX); });
+                {
+                    return bessel_kn_prime(inV, inX); 
+                });
 
             return returnArray;
         }

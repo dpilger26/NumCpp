@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,11 +30,11 @@
 
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/max.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <cmath>
 #include <vector>
 
@@ -69,7 +69,7 @@ namespace nc
                 }
 
                 const uint32 middle = static_cast<uint32>(values.size()) / 2;
-                std::nth_element(values.begin(), values.begin() + middle, values.end());
+                stl_algorithms::nth_element(values.begin(), values.begin() + middle, values.end());
                 NdArray<dtype> returnArray = { values[middle] };
 
                 return returnArray;
@@ -90,7 +90,7 @@ namespace nc
                     }
 
                     const uint32 middle = static_cast<uint32>(values.size()) / 2;
-                    std::nth_element(values.begin(), values.begin() + middle, values.end());
+                    stl_algorithms::nth_element(values.begin(), values.begin() + middle, values.end());
                     returnArray(0, row) = values[middle];
                 }
 
@@ -113,7 +113,7 @@ namespace nc
                     }
 
                     const uint32 middle = static_cast<uint32>(values.size()) / 2;
-                    std::nth_element(values.begin(), values.begin() + middle, values.end());
+                    stl_algorithms::nth_element(values.begin(), values.begin() + middle, values.end());
                     returnArray(0, row) = values[middle];
                 }
 

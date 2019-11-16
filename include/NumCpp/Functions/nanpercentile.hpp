@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/Functions/clip.hpp"
@@ -125,7 +126,7 @@ namespace nc
                 const int32 i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
                 const uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, numNonNan - 2));
 
-                std::sort(arrayCopy.begin(), arrayCopy.end());
+                stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
                 {

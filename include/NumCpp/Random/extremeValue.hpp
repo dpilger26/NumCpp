@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,13 +29,13 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include <boost/random/extreme_value_distribution.hpp>
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -70,9 +70,11 @@ namespace nc
 
             const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                { 
+                    value = dist(generator_); 
+                });
 
             return returnArray;
         }

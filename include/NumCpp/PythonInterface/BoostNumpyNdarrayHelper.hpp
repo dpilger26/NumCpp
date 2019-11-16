@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,10 +30,10 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
-#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <vector>
@@ -270,7 +270,7 @@ namespace nc
                     return false;
                 }
 
-                return std::equal(shape_.begin(), shape_.end(), otherNdarrayHelper.shape_.begin());
+                return stl_algorithms::equal(shape_.begin(), shape_.end(), otherNdarrayHelper.shape_.begin());
             }
 
             //============================================================================

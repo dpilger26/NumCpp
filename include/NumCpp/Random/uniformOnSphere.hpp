@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -31,13 +31,13 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/uniform_on_sphere.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -65,13 +65,10 @@ namespace nc
             boost::random::uniform_on_sphere<dtype> dist(inDims);
 
             NdArray<dtype> returnArray(inNumPoints, inDims);
-            for (uint32 i = 0; i < inNumPoints; ++i)
+            for (uint32 row = 0; row < inNumPoints; ++row)
             {
                 std::vector<dtype> point = dist(generator_);
-                for (uint32 dim = 0; dim < inDims; ++dim)
-                {
-                    returnArray(i, dim) = point[dim];
-                }
+                stl_algorithms::copy(returnArray.begin(row), returnArray.end(row), point.begin());
             }
 
             return returnArray;

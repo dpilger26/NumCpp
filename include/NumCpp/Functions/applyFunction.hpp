@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,8 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
-#include <algorithm>
 #include <functional>
 
 namespace nc
@@ -48,6 +48,6 @@ namespace nc
     template<typename dtype>
     void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc) noexcept
     {
-        std::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
+        stl_algorithms::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
     }
 }

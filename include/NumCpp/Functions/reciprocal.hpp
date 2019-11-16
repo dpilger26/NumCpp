@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -28,10 +28,9 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -57,7 +56,9 @@ namespace nc
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
             [&returnArray, &counter](dtype value) noexcept -> void
-            { returnArray[counter++] = 1.0 / static_cast<double>(value); });
+            { 
+                returnArray[counter++] = 1.0 / static_cast<double>(value);
+            });
 
         return returnArray;
     }

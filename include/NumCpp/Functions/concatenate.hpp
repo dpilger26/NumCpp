@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,11 +29,11 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
 
-#include <algorithm>
 #include <initializer_list>
 
 namespace nc
@@ -66,7 +66,7 @@ namespace nc
                 uint32 offset = 0;
                 for (auto& ndarray : inArrayList)
                 {
-                    std::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);
+                    stl_algorithms::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);
                     offset += ndarray.size();
                 }
 

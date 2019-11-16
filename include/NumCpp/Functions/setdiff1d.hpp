@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -52,10 +52,10 @@ namespace nc
     NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         std::vector<dtype> res(inArray1.size() + inArray2.size());
-        std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
-        std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
+        const std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+        const std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        const typename std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
+        const auto iter = std::set_difference(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());
         res.resize(iter - res.begin());
         return NdArray<dtype>(res);

@@ -323,11 +323,14 @@
     <member refid="classnc_1_1_nd_array_1a7d9b39b306a8ab172ebabb8575acd055" kind="function"><name>end</name></member>
     <member refid="classnc_1_1_nd_array_1a12ffea3b6227328c008e1a6befab091c" kind="function"><name>endianess</name></member>
     <member refid="classnc_1_1_nd_array_1aa63fbc6b80a19e4bd1a9f2da76d6ab7f" kind="function"><name>fill</name></member>
+    <member refid="classnc_1_1_nd_array_1aa0b3a378c7cf4e30b7ad287bd7e935b9" kind="function"><name>flatnonzero</name></member>
     <member refid="classnc_1_1_nd_array_1a5169b9ad613ce03c7cb748b05e978028" kind="function"><name>flatten</name></member>
     <member refid="classnc_1_1_nd_array_1a5173e2d0a9fe983213193d8a4dfde21c" kind="function"><name>front</name></member>
     <member refid="classnc_1_1_nd_array_1a0d2475dc8c8f5edb2e4c2887078b890a" kind="function"><name>getByIndices</name></member>
     <member refid="classnc_1_1_nd_array_1a2dfd7ac740d1830363949f27511b7ecc" kind="function"><name>getByMask</name></member>
     <member refid="classnc_1_1_nd_array_1a626fd6565a7a5cf7cf60cece6d24b9c7" kind="function"><name>isempty</name></member>
+    <member refid="classnc_1_1_nd_array_1a86612718fff113e3f4398bea80035a63" kind="function"><name>isflat</name></member>
+    <member refid="classnc_1_1_nd_array_1a07864281508378503c26354e190394f1" kind="function"><name>issorted</name></member>
     <member refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" kind="function"><name>item</name></member>
     <member refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kind="function"><name>max</name></member>
     <member refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" kind="function"><name>mean</name></member>
@@ -336,7 +339,8 @@
     <member refid="classnc_1_1_nd_array_1acdec037f14a431cb6a29f3782f087bcd" kind="function"><name>nans</name></member>
     <member refid="classnc_1_1_nd_array_1ade202c90305ccd24781a9b0f8bf601a8" kind="function"><name>nbytes</name></member>
     <member refid="classnc_1_1_nd_array_1a7f0ba5d000ef7d60d51ead3d16f7046d" kind="function"><name>newbyteorder</name></member>
-    <member refid="classnc_1_1_nd_array_1ad092326b66dc867003251e80d649a771" kind="function"><name>nonzero</name></member>
+    <member refid="classnc_1_1_nd_array_1a715f5529043d874c8970b3dfa91e859d" kind="function"><name>none</name></member>
+    <member refid="classnc_1_1_nd_array_1abe7dd1118afeb7725b224a612a03b6ba" kind="function"><name>nonzero</name></member>
     <member refid="classnc_1_1_nd_array_1a9a8b5063ec64c9d0d9afdce057db77ea" kind="function"><name>norm</name></member>
     <member refid="classnc_1_1_nd_array_1a13ddcb6c2ace15a7a4ada6982bc9c982" kind="function"><name>numCols</name></member>
     <member refid="classnc_1_1_nd_array_1ab0e399408388daf11ac4877c6e9d4e69" kind="function"><name>numRows</name></member>
@@ -380,8 +384,8 @@
     <member refid="classnc_1_1_nd_array_1ac1130c6a443457ba43fc17fd7d2f7cff" kind="function"><name>operator/</name></member>
     <member refid="classnc_1_1_nd_array_1a49aad23b831a9becaa290f12d1967aca" kind="function"><name>operator/=</name></member>
     <member refid="classnc_1_1_nd_array_1a0e6a612dae7632b812b4ec3a3bd71e22" kind="function"><name>operator/=</name></member>
-    <member refid="classnc_1_1_nd_array_1a7f16311f0f40732c3d752e21d458f650" kind="function"><name>operator&lt;</name></member>
     <member refid="classnc_1_1_nd_array_1ad964b305a18868ac79eddf5a14dc6eda" kind="function"><name>operator&lt;</name></member>
+    <member refid="classnc_1_1_nd_array_1a7f16311f0f40732c3d752e21d458f650" kind="function"><name>operator&lt;</name></member>
     <member refid="classnc_1_1_nd_array_1a5aa843523df76ebce9ba3d06ed3781ef" kind="function"><name>operator&lt;&lt;=</name></member>
     <member refid="classnc_1_1_nd_array_1a501b3af93ae33b596c04cee9f7644900" kind="function"><name>operator&lt;=</name></member>
     <member refid="classnc_1_1_nd_array_1ab62598fdae08e17f824595e86fd5849e" kind="function"><name>operator&lt;=</name></member>
@@ -433,6 +437,7 @@
     <member refid="classnc_1_1_nd_array_1aa813af00184616e608feecf30b7aa016" kind="function"><name>ravel</name></member>
     <member refid="classnc_1_1_nd_array_1ada6c26cecef37f5db019011b458a6c12" kind="function"><name>repeat</name></member>
     <member refid="classnc_1_1_nd_array_1a775b416ccd90497951c25029ad932c2c" kind="function"><name>repeat</name></member>
+    <member refid="classnc_1_1_nd_array_1ab0997e00f0db88832d9c18e45373af3b" kind="function"><name>replace</name></member>
     <member refid="classnc_1_1_nd_array_1a59dbd6d99cded00a36b2dec0ecbfb4b7" kind="function"><name>reshape</name></member>
     <member refid="classnc_1_1_nd_array_1a9a78c31c9d0ce4ed5d1a28aba9e79285" kind="function"><name>reshape</name></member>
     <member refid="classnc_1_1_nd_array_1a6024995920906797ada4c2484a5c0f41" kind="function"><name>reshape</name></member>
@@ -872,7 +877,8 @@
     <member refid="namespacenc_1a8f1c7a73200dc72efb67995ee60bb76d" kind="function"><name>negative</name></member>
     <member refid="namespacenc_1aa9e935b20cfc837317372b5466338963" kind="function"><name>newbyteorder</name></member>
     <member refid="namespacenc_1ac2f8fda6236a8f2c6a8eb259dad5399b" kind="function"><name>newbyteorder</name></member>
-    <member refid="namespacenc_1a6fcb2b43990a7d3bfd76b3d873032d53" kind="function"><name>nonzero</name></member>
+    <member refid="namespacenc_1a368ccbde67adc66eb0523686457c5948" kind="function"><name>none</name></member>
+    <member refid="namespacenc_1adda26afad96d27aed7db0fa5ec818d4f" kind="function"><name>nonzero</name></member>
     <member refid="namespacenc_1acd0cb71d7333dddc7cfa8a091768e94a" kind="function"><name>norm</name></member>
     <member refid="namespacenc_1ac6c0da616068bc667891c0a460431de3" kind="function"><name>not_equal</name></member>
     <member refid="namespacenc_1a60a5797687e15e70c20c947d90f40fec" kind="function"><name>ones</name></member>
@@ -928,6 +934,7 @@
     <member refid="namespacenc_1a14fb9f7c88fca02b0ef3f5ebd04d9099" kind="function"><name>remainder</name></member>
     <member refid="namespacenc_1a4a9e4142d273ff96f0805f97c2670019" kind="function"><name>repeat</name></member>
     <member refid="namespacenc_1a13e275a43c542c5512c62183dce5ed7e" kind="function"><name>repeat</name></member>
+    <member refid="namespacenc_1a06736b24cd39421f02662d37ab62e954" kind="function"><name>replace</name></member>
     <member refid="namespacenc_1a5fb8d978dec93ab8a07849b5dc0d2b06" kind="function"><name>reshape</name></member>
     <member refid="namespacenc_1a6858d6bf094cfeaa724b78133668d13d" kind="function"><name>reshape</name></member>
     <member refid="namespacenc_1a45d9fc095ecf7a127211c507c03d95db" kind="function"><name>reshape</name></member>
@@ -1239,6 +1246,33 @@
     <member refid="namespacenc_1_1special_1a0aa8bb9125689a9b522ebabe98170c2a" kind="function"><name>spherical_hankel_2</name></member>
     <member refid="namespacenc_1_1special_1aab92fe0af9e9cec601ff68ebb6eeee04" kind="function"><name>trigamma</name></member>
     <member refid="namespacenc_1_1special_1ac6f6ac0fade4babd204d8c39836402ef" kind="function"><name>trigamma</name></member>
+  </compound>
+  <compound refid="namespacenc_1_1stl__algorithms" kind="namespace"><name>nc::stl_algorithms</name>
+    <member refid="namespacenc_1_1stl__algorithms_1a74975591483e3e27b6de4c63bf5ff897" kind="function"><name>all_of</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a86175072e60e0fabc931a8acd6329c77" kind="function"><name>any_of</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1afc0a193758bfb62333c4ed53ada9537d" kind="function"><name>copy</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ae1e1834ec458e90544d643b4b1e68735" kind="function"><name>count</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a3de9f1dd54e8db8997e7928322e098f4" kind="function"><name>equal</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ae3ace3ed68934f4acde48334a7ff7724" kind="function"><name>equal</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1abbc2e8d742b76f4c2bead6ae894bc4e3" kind="function"><name>fill</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ab372e4e815977d16f647cdcfea3f1ea5" kind="function"><name>find</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kind="function"><name>for_each</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a42bf8acb4c60400df32819dfd2507b33" kind="function"><name>is_sorted</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a8f91b4c9610973486b45eab8a5f04d3f" kind="function"><name>max_element</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ab886383a0452b7240cf97d80b569e858" kind="function"><name>min_element</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ae2ab2d36f54efc167ea074348b0319fa" kind="function"><name>minmax_element</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1aa8f79e15f5d691cc61bf56bd4299afed" kind="function"><name>none_of</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a946075f627d142f66626b03c30de8a16" kind="function"><name>nth_element</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a8674f754c02402908901506e8681839f" kind="function"><name>replace</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a51eb1633787552e33ebede44bf5557a2" kind="function"><name>reverse</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a79bd84376c57067a06ea0302f4fc261a" kind="function"><name>rotate</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a8cc83e2fb7a3d8302db0f4b19513ddd9" kind="function"><name>set_difference</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a6d7aea8b69f7e1a1129daad900a4917d" kind="function"><name>set_intersection</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1adda22e93ced5035c66f63532ee1408b4" kind="function"><name>set_union</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a4987a29c6a989094d647f5a6de75cc6f" kind="function"><name>sort</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a0a7faa16f597cc09d2540b2edf467fee" kind="function"><name>stable_sort</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kind="function"><name>transform</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" kind="function"><name>transform</name></member>
   </compound>
   <compound refid="namespacenc_1_1utils" kind="namespace"><name>nc::utils</name>
     <member refid="namespacenc_1_1utils_1a46e88717d4d32003bb449fd5cefd401c" kind="function"><name>cube</name></member>
@@ -1767,6 +1801,8 @@
   </compound>
   <compound refid="non_central_chi_squared_8hpp" kind="file"><name>nonCentralChiSquared.hpp</name>
   </compound>
+  <compound refid="none_8hpp" kind="file"><name>none.hpp</name>
+  </compound>
   <compound refid="nonzero_8hpp" kind="file"><name>nonzero.hpp</name>
   </compound>
   <compound refid="norm_8hpp" kind="file"><name>norm.hpp</name>
@@ -1871,6 +1907,8 @@
   </compound>
   <compound refid="repeat_8hpp" kind="file"><name>repeat.hpp</name>
   </compound>
+  <compound refid="replace_8hpp" kind="file"><name>replace.hpp</name>
+  </compound>
   <compound refid="reshape_8hpp" kind="file"><name>reshape.hpp</name>
   </compound>
   <compound refid="resize_fast_8hpp" kind="file"><name>resizeFast.hpp</name>
@@ -1946,6 +1984,8 @@
   <compound refid="standard_normal_8hpp" kind="file"><name>standardNormal.hpp</name>
   </compound>
   <compound refid="stdev_8hpp" kind="file"><name>stdev.hpp</name>
+  </compound>
+  <compound refid="_stl_algorithms_8hpp" kind="file"><name>StlAlgorithms.hpp</name>
   </compound>
   <compound refid="student_t_8hpp" kind="file"><name>studentT.hpp</name>
   </compound>

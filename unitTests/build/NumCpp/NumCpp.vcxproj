@@ -35,6 +35,7 @@
     <ClInclude Include="..\..\..\include\NumCpp\Core\DtypeInfo.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Error.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Filesystem.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Core\StlAlgorithms.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Shape.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Slice.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Timer.hpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="..\..\..\include\NumCpp\Functions\nbytes.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\negative.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\newbyteorder.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\none.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\nonzero.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\norm.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\not_equal.hpp" />
@@ -242,6 +244,7 @@
     <ClInclude Include="..\..\..\include\NumCpp\Functions\reciprocal.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\remainder.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\repeat.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\replace.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\reshape.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\resizeFast.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\resizeSlow.hpp" />
@@ -487,6 +490,7 @@
       <AdditionalIncludeDirectories>C:\GitHub\NumC\src;$(PYTHON_INCLUDES);$(BOOST_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>BOOST_PYTHON_STATIC_LIB;BOOST_NUMPY_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -517,7 +521,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnablePREfast>false</EnablePREfast>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

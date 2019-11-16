@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,11 +29,11 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include "boost/math/special_functions/factorials.hpp"
 
-#include <algorithm>
 #include <limits>
 
 namespace nc
@@ -74,9 +74,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> double
-                { return factorial(inValue); });
+                { 
+                    return factorial(inValue); 
+                });
 
             return returnArray;
         }

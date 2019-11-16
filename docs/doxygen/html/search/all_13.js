@@ -24,6 +24,7 @@ var searchData=
   ['tostring',['toString',['../classnc_1_1_vec2.html#aae1fa965b6d2d58638ae98c3e2cd834b',1,'nc::Vec2::toString()'],['../classnc_1_1_vec3.html#a3af99e8df35bad1893f2d2a1a6082e21',1,'nc::Vec3::toString()']]],
   ['trace',['trace',['../classnc_1_1_nd_array.html#af46899aa9486c6189a0db53228774f76',1,'nc::NdArray::trace()'],['../namespacenc.html#a4a75035db8c766b2cececb1f3e4d5b74',1,'nc::trace()']]],
   ['trace_2ehpp',['trace.hpp',['../trace_8hpp.html',1,'']]],
+  ['transform',['transform',['../namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4',1,'nc::stl_algorithms::transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)'],['../namespacenc_1_1stl__algorithms.html#af358fec5563ae500162b310fe263a36d',1,'nc::stl_algorithms::transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)']]],
   ['transpose',['transpose',['../classnc_1_1_nd_array.html#aae29c9fbae3e92ce432703ffd7722d8b',1,'nc::NdArray::transpose()'],['../namespacenc.html#a4f2a0ece915add7cde89fcfefa30088d',1,'nc::transpose()']]],
   ['transpose_2ehpp',['transpose.hpp',['../transpose_8hpp.html',1,'']]],
   ['trapz',['trapz',['../namespacenc.html#a829410fad89d9845f8edee22ad643b3a',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArray, double dx=1.0, Axis inAxis=Axis::NONE) noexcept'],['../namespacenc.html#a956571b2c934b75025e9168e2ed408f5',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArrayY, const NdArray&lt; dtype &gt; &amp;inArrayX, Axis inAxis=Axis::NONE)']]],

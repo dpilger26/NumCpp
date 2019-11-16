@@ -31,12 +31,12 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/uniform_int_distribution.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -75,9 +75,11 @@ namespace nc
 
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                { 
+                    value = dist(generator_); 
+                });
 
             return returnArray;
         }

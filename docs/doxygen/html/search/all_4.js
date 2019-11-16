@@ -11,7 +11,7 @@ var searchData=
   ['endianess_2ehpp',['endianess.hpp',['../endianess_8hpp.html',1,'']]],
   ['eod',['eod',['../classnc_1_1image_processing_1_1_centroid.html#a098ee235ea6fcf22df2a7a0d80d53e44',1,'nc::imageProcessing::Centroid::eod()'],['../classnc_1_1image_processing_1_1_cluster.html#a461863af036452bdb1813dfff33c7c42',1,'nc::imageProcessing::Cluster::eod()']]],
   ['epsilon',['epsilon',['../classnc_1_1_dtype_info.html#a845cc6986a3912805ab68960bc2b2318',1,'nc::DtypeInfo']]],
-  ['equal',['equal',['../namespacenc.html#a7440518ae70823ac15ea1711d8df7bfc',1,'nc']]],
+  ['equal',['equal',['../namespacenc_1_1stl__algorithms.html#a3de9f1dd54e8db8997e7928322e098f4',1,'nc::stl_algorithms::equal(InputIt1 first1, InputIt1 last1, InputIt2 first2)'],['../namespacenc_1_1stl__algorithms.html#ae3ace3ed68934f4acde48334a7ff7724',1,'nc::stl_algorithms::equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p)'],['../namespacenc.html#a7440518ae70823ac15ea1711d8df7bfc',1,'nc::equal()']]],
   ['equal_2ehpp',['equal.hpp',['../equal_8hpp.html',1,'']]],
   ['erf',['erf',['../namespacenc_1_1special.html#a0e700f032bbd8f0dc233f1bd0599a693',1,'nc::special::erf(dtype inValue) noexcept'],['../namespacenc_1_1special.html#a3e7e24a6a8f6c8a7b4767c01ecd086ef',1,'nc::special::erf(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['erf_2ehpp',['erf.hpp',['../erf_8hpp.html',1,'']]],

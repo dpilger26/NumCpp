@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -186,6 +186,7 @@
 #include "NumCpp/Functions/nbytes.hpp"
 #include "NumCpp/Functions/negative.hpp"
 #include "NumCpp/Functions/newbyteorder.hpp"
+#include "NumCpp/Functions/none.hpp"
 #include "NumCpp/Functions/nonzero.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/not_equal.hpp"
@@ -210,6 +211,7 @@
 #include "NumCpp/Functions/reciprocal.hpp"
 #include "NumCpp/Functions/remainder.hpp"
 #include "NumCpp/Functions/repeat.hpp"
+#include "NumCpp/Functions/replace.hpp"
 #include "NumCpp/Functions/reshape.hpp"
 #include "NumCpp/Functions/resizeFast.hpp"
 #include "NumCpp/Functions/resizeSlow.hpp"

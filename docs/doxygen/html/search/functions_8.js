@@ -8,13 +8,16 @@ var searchData=
   ['inv',['inv',['../namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc',1,'nc::linalg']]],
   ['inverse',['inverse',['../classnc_1_1rotations_1_1_quaternion.html#a9b0634474b2ff27f9443ba256ea00ab1',1,'nc::rotations::Quaternion']]],
   ['invert',['invert',['../namespacenc.html#a3c647b96f5357e343ac9c72faaf65b18',1,'nc']]],
+  ['is_5fsorted',['is_sorted',['../namespacenc_1_1stl__algorithms.html#a42bf8acb4c60400df32819dfd2507b33',1,'nc::stl_algorithms']]],
   ['isclose',['isclose',['../namespacenc.html#ae80bdb1c4ce59e2a74cad2d518f50e1e',1,'nc']]],
   ['isempty',['isempty',['../classnc_1_1_data_cube.html#ac569e0c62a9e5cbf21228b85128a53a5',1,'nc::DataCube::isempty()'],['../classnc_1_1_nd_array.html#a626fd6565a7a5cf7cf60cece6d24b9c7',1,'nc::NdArray::isempty()']]],
+  ['isflat',['isflat',['../classnc_1_1_nd_array.html#a86612718fff113e3f4398bea80035a63',1,'nc::NdArray']]],
   ['isinf',['isinf',['../namespacenc.html#ac2770d614de64c300c2f10cb39a299c0',1,'nc::isinf(dtype inValue) noexcept'],['../namespacenc.html#af8a02aaa65404b7609cf4829c9fbdf9f',1,'nc::isinf(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['isinteger',['isInteger',['../classnc_1_1_dtype_info.html#a10b60bd27123b5c724e2a52526fe8cfe',1,'nc::DtypeInfo']]],
   ['isnan',['isnan',['../namespacenc.html#ac28569da874c0b37a4c50c86b31a98ab',1,'nc::isnan(dtype inValue) noexcept'],['../namespacenc.html#a5f04fbed6aa9fd7491646d0c1cae051e',1,'nc::isnan(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['isnull',['isnull',['../classnc_1_1_shape.html#a1f0b70fbb2cbd47d34023762c5651a28',1,'nc::Shape']]],
   ['issigned',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo']]],
+  ['issorted',['issorted',['../classnc_1_1_nd_array.html#a07864281508378503c26354e190394f1',1,'nc::NdArray']]],
   ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab229737433b6c93522aa38f0ad94ca50',1,'nc::rotations::DCM']]],
   ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]]
 ];

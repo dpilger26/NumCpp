@@ -25,6 +25,7 @@ var searchData=
   ['stack_2ehpp',['stack.hpp',['../stack_8hpp.html',1,'']]],
   ['standardnormal_2ehpp',['standardNormal.hpp',['../standard_normal_8hpp.html',1,'']]],
   ['stdev_2ehpp',['stdev.hpp',['../stdev_8hpp.html',1,'']]],
+  ['stlalgorithms_2ehpp',['StlAlgorithms.hpp',['../_stl_algorithms_8hpp.html',1,'']]],
   ['studentt_2ehpp',['studentT.hpp',['../student_t_8hpp.html',1,'']]],
   ['subtract_2ehpp',['subtract.hpp',['../subtract_8hpp.html',1,'']]],
   ['sum_2ehpp',['sum.hpp',['../sum_8hpp.html',1,'']]],

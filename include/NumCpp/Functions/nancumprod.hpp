@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/cumprod.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <cmath>
 
 namespace nc
@@ -52,9 +52,11 @@ namespace nc
     NdArray<dtype> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         NdArray<dtype> arrayCopy(inArray);
-        std::for_each(arrayCopy.begin(), arrayCopy.end(),
+        stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void
-            { if (std::isnan(value)) { value = static_cast<dtype>(1); }; });
+            { 
+                if (std::isnan(value)) { value = dtype{ 1 }; };
+            });
 
         return cumprod(arrayCopy, inAxis);
     }

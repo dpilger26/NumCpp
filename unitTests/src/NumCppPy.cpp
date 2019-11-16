@@ -215,6 +215,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray flatnonzero(const NdArray<dtype>& self)
+    {
+        return nc2Boost(self.flatnonzero());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray flatten(const NdArray<dtype>& self)
     {
         return nc2Boost(self.flatten());
@@ -288,6 +296,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray issorted(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(self.issorted(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray max(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.max(inAxis));
@@ -328,9 +344,18 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray nonzero(const NdArray<dtype>& self)
+    np::ndarray none(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return nc2Boost(self.nonzero());
+        return nc2Boost(self.none(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bp::tuple nonzero(const NdArray<dtype>& self)
+    {
+        auto rowCol = self.nonzero();
+        return bp::make_tuple(nc2Boost(rowCol.first), nc2Boost(rowCol.second));
     }
 
     //================================================================================
@@ -538,6 +563,15 @@ namespace NdArrayInterface
     np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
     {
         self.reshape({ inShape.rows, inShape.cols });
+        return nc2Boost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray replace(NdArray<dtype>& self, dtype oldValue, dtype newValue)
+    {
+        self.replace(oldValue, newValue);
         return nc2Boost(self);
     }
 
@@ -1916,6 +1950,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray noneArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(none(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype lcmScaler(dtype inValue1, dtype inValue2) noexcept
     {
         return lcm(inValue1, inValue2);
@@ -2152,6 +2194,15 @@ namespace MethodsInterface
     {
         return nc2Boost(remainder(inArray1, inArray2));
     }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray replace(NdArray<dtype>& inArray, dtype oldValue, dtype newValue)
+    {
+        return nc2Boost(nc::replace(inArray, oldValue, newValue));
+    }
+
 
     //================================================================================
 
@@ -3575,6 +3626,11 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def_readonly("first", &doublePair::first)
         .def_readonly("second", &doublePair::second);
 
+    typedef std::pair<NdArray<uint32>, NdArray<uint32> > uint32Pair;
+    bp::class_<uint32Pair>("uint32Pair")
+        .def_readonly("first", &uint32Pair::first)
+        .def_readonly("second", &uint32Pair::second);
+
     // Constants.hpp
     bp::scope().attr("c") = constants::c;
     bp::scope().attr("e") = constants::e;
@@ -3678,6 +3734,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("dot", &NdArrayInterface::dot<double>)
         .def("dump", &NdArrayDouble::dump)
         .def("fill", &NdArrayInterface::fill<double>)
+        .def("flatnonzero", &NdArrayInterface::flatnonzero<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
         .def("front", &NdArrayDouble::front)
         .def("get", &NdArrayInterface::getValueFlat<double>)
@@ -3688,6 +3745,9 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
         .def("getByIndices", &NdArrayInterface::getByIndices<double>)
         .def("getByMask", &NdArrayInterface::getByMask<double>)
+        .def("isempty", &NdArrayDouble::isempty)
+        .def("isflat", &NdArrayDouble::isflat)
+        .def("issorted", &NdArrayInterface::issorted<double>)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
@@ -3695,6 +3755,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("median", &NdArrayInterface::median<double>)
         .def("nans", &NdArrayDouble::nans, bp::return_internal_reference<>())
         .def("nbytes", &NdArrayDouble::nbytes)
+        .def("none", &NdArrayInterface::none<double>)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
         .def("norm", &NdArrayInterface::norm<double>)
         .def("numRows", &NdArrayDouble::numCols)
@@ -3722,6 +3783,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("reshape", &NdArrayInterface::reshapeValues<double>)
         .def("reshape", &NdArrayInterface::reshapeShape<double>)
         .def("reshapeList", &NdArrayInterface::reshapeList<double>)
+        .def("replace", &NdArrayInterface::replace<double>)
         .def("resizeFast", &NdArrayInterface::resizeFast<double>)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
         .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
@@ -3805,6 +3867,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("size", &NdArrayInt32::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
         .def("endianess", &NdArrayInt32::endianess)
+        .def("replace", &NdArrayInterface::replace<int32>)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
     typedef NdArray<uint32> NdArrayUInt32;
@@ -4077,6 +4140,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("newbyteorderScaler", &MethodsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>);
     bp::def("negative", &negative<double>);
+    bp::def("none", &MethodsInterface::noneArray<double>);
     bp::def("nonzero", &nonzero<double>);
     bp::def("norm", &norm<double>);
     bp::def("not_equal", &not_equal<double>);
@@ -4104,6 +4168,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("reciprocal", &reciprocal<double>);
     bp::def("remainderScaler", &MethodsInterface::remainderScaler<double>);
     bp::def("remainderArray", &MethodsInterface::remainderArray<double>);
+    bp::def("replace", &MethodsInterface::replace<double>);
     bp::def("reshape", &MethodsInterface::reshapeInt<double>, bp::return_internal_reference<>());
     bp::def("reshape", &MethodsInterface::reshapeShape<double>, bp::return_internal_reference<>());
     bp::def("reshape", &MethodsInterface::reshapeValues<double>, bp::return_internal_reference<>());

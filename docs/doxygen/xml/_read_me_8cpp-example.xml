@@ -8,7 +8,7 @@
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
 <para>A C++ Implementation of the Python Numpy Library</para><para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink></para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
 </para></sect1>
 <sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
@@ -103,7 +103,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a37<sp/>=<sp/>a<sp/>==<sp/>b;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a38<sp/>=<sp/><ref refid="namespacenc_1ac6c0da616068bc667891c0a460431de3" kindref="member">nc::not_equal</ref>(a,<sp/>b);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a39<sp/>=<sp/>a<sp/>!=<sp/>b;</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a40<sp/>=<sp/><ref refid="namespacenc_1a6fcb2b43990a7d3bfd76b3d873032d53" kindref="member">nc::nonzero</ref>(a);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[rows,<sp/>cols]<sp/>=<sp/><ref refid="namespacenc_1adda26afad96d27aed7db0fa5ec818d4f" kindref="member">nc::nonzero</ref>(a);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Minimum,<sp/>Maximum,<sp/>Sorting</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value1<sp/>=<sp/><ref refid="namespacenc_1a1dcd97ed6259f6a019ff8b59f2ae1adc" kindref="member">nc::min</ref>(a);</highlight></codeline>

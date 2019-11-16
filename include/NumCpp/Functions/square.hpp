@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,9 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -67,9 +66,11 @@ namespace nc
     NdArray<dtype> square(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> dtype
-            { return square(inValue); });
+            { 
+                return square(inValue);
+            });
 
         return returnArray;
     }

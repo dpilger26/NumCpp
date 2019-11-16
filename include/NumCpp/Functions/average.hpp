@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -30,10 +30,10 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -80,7 +80,7 @@ namespace nc
                 }
 
                 NdArray<double> weightedArray(inArray.shape());
-                std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
+                stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
                     weightedArray.begin(), std::multiplies<double>());
 
                 double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
@@ -101,7 +101,7 @@ namespace nc
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, arrayShape.cols);
-                    std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
+                    stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
                     double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
@@ -125,7 +125,7 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, transShape.cols);
-                    std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
+                    stl_algorithms::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
                     double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);

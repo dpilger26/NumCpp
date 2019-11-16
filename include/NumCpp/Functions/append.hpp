@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.1
+/// @version 1.2
 ///
 /// @section License
 /// Copyright 2019 David Pilger
@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -59,8 +59,8 @@ namespace nc
             case Axis::NONE:
             {
                 NdArray<dtype> returnArray(1, inArray.size() + inAppendValues.size());
-                std::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
-                std::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
+                stl_algorithms::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
+                stl_algorithms::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
 
                 return returnArray;
             }
@@ -74,8 +74,8 @@ namespace nc
                 }
 
                 NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
-                std::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
-                std::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
+                stl_algorithms::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
+                stl_algorithms::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
 
                 return returnArray;
             }
@@ -91,8 +91,8 @@ namespace nc
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);
                 for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                 {
-                    std::copy(inArray.cbegin(row), inArray.cend(row), returnArray.begin(row));
-                    std::copy(inAppendValues.cbegin(row), inAppendValues.cend(row), returnArray.begin(row) + inShape.cols);
+                    stl_algorithms::copy(inArray.cbegin(row), inArray.cend(row), returnArray.begin(row));
+                    stl_algorithms::copy(inAppendValues.cbegin(row), inAppendValues.cend(row), returnArray.begin(row) + inShape.cols);
                 }
 
                 return returnArray;
