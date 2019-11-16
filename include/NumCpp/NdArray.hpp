@@ -2485,25 +2485,7 @@ namespace nc
         ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
         ///             column indices
         ///
-        auto nonzero() const noexcept
-        {
-            std::vector<uint32> rowIndices;
-            std::vector<uint32> colIndices;
-            
-            for (uint32 row = 0; row < shape_.rows; ++row)
-            {
-                for (uint32 col = 0; col < shape_.cols; ++col)
-                {
-                    if (operator()(row, col) != dtype{ 0 })
-                    {
-                        rowIndices.push_back(row);
-                        colIndices.push_back(col);
-                    }
-                }
-            }
-
-            return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
-        }
+        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const noexcept;
 
         //============================================================================
         // Method Description:
@@ -5098,4 +5080,27 @@ namespace nc
             return inOStream;
         }
     };
+
+    // NOTE: this needs to be defined outside of the class to get rid of a compiler
+    // error in Visual Studio
+    template<typename dtype>
+    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype>::nonzero() const noexcept
+    {
+        std::vector<uint32> rowIndices;
+        std::vector<uint32> colIndices;
+
+        for (uint32 row = 0; row < shape_.rows; ++row)
+        {
+            for (uint32 col = 0; col < shape_.cols; ++col)
+            {
+                if (operator()(row, col) != dtype{ 0 })
+                {
+                    rowIndices.push_back(row);
+                    colIndices.push_back(col);
+                }
+            }
+        }
+
+        return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
+    }
 }
