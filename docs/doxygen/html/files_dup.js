@@ -333,6 +333,7 @@ var files_dup =
     [ "reflect2d.hpp", "reflect2d_8hpp.html", "reflect2d_8hpp" ],
     [ "remainder.hpp", "remainder_8hpp.html", "remainder_8hpp" ],
     [ "repeat.hpp", "repeat_8hpp.html", "repeat_8hpp" ],
+    [ "replace.hpp", "replace_8hpp.html", "replace_8hpp" ],
     [ "reshape.hpp", "reshape_8hpp.html", "reshape_8hpp" ],
     [ "resizeFast.hpp", "resize_fast_8hpp.html", "resize_fast_8hpp" ],
     [ "resizeSlow.hpp", "resize_slow_8hpp.html", "resize_slow_8hpp" ],

@@ -2439,7 +2439,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" bodystart="47" bodyend="137"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" bodystart="47" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a6f71d75583176a599a64647109170a08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -7688,7 +7688,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nanpercentile.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nanpercentile.hpp" bodystart="61" bodyend="242"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nanpercentile.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nanpercentile.hpp" bodystart="62" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ae267cf53b8571f5d257c6cacbfd649a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -8171,14 +8171,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/none.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/none.hpp" bodystart="48" bodyend="51"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a6fcb2b43990a7d3bfd76b3d873032d53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1adda26afad96d27aed7db0fa5ec818d4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
-        <definition>NdArray&lt;uint32&gt; nc::nonzero</definition>
+        <type>std::pair&lt; <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;, <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt; &gt;</type>
+        <definition>std::pair&lt;NdArray&lt;uint32&gt;, NdArray&lt;uint32&gt; &gt; nc::nonzero</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</argsstring>
         <name>nonzero</name>
         <param>
@@ -8200,7 +8200,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nonzero.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nonzero.hpp" bodystart="49" bodyend="52"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nonzero.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/nonzero.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1acd0cb71d7333dddc7cfa8a091768e94a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -9443,7 +9443,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" line="64" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" bodystart="64" bodyend="198"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" line="65" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" bodystart="65" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a1f059635ecfc805979db6973dfa29008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -10337,6 +10337,59 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/repeat.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/repeat.hpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1a06736b24cd39421f02662d37ab62e954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::replace</definition>
+        <argsstring>(NdArray&lt; dtype &gt; &amp;inArray, dtype oldValue, dtype newValue) noexcept</argsstring>
+        <name>replace</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>oldValue</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change shape and size of array in-place. All previous data of the array is lost.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.resize.html">https://www.numpy.org/devdocs/reference/generated/numpy.resize.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>oldValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to replace </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to replace with</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/replace.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/replace.hpp" bodystart="49" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a5fb8d978dec93ab8a07849b5dc0d2b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

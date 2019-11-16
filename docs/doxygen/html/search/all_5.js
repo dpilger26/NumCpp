@@ -17,7 +17,7 @@ var searchData=
   ['find_2ehpp',['find.hpp',['../find_8hpp.html',1,'']]],
   ['fix',['fix',['../namespacenc.html#af259d081804c4be2d33e3a00e937b79c',1,'nc::fix(dtype inValue) noexcept'],['../namespacenc.html#aeb3a5457d4bf208d05fc25fdd01edadd',1,'nc::fix(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['fix_2ehpp',['fix.hpp',['../fix_8hpp.html',1,'']]],
-  ['flatnonzero',['flatnonzero',['../namespacenc.html#aa8b4954fc86ff8cca5ee2bac092b3319',1,'nc']]],
+  ['flatnonzero',['flatnonzero',['../classnc_1_1_nd_array.html#aa0b3a378c7cf4e30b7ad287bd7e935b9',1,'nc::NdArray::flatnonzero()'],['../namespacenc.html#aa8b4954fc86ff8cca5ee2bac092b3319',1,'nc::flatnonzero()']]],
   ['flatnonzero_2ehpp',['flatnonzero.hpp',['../flatnonzero_8hpp.html',1,'']]],
   ['flatten',['flatten',['../classnc_1_1_nd_array.html#a5169b9ad613ce03c7cb748b05e978028',1,'nc::NdArray::flatten()'],['../namespacenc.html#af862c04e509137d3a2631b8c19ebb9d7',1,'nc::flatten()']]],
   ['flatten_2ehpp',['flatten.hpp',['../flatten_8hpp.html',1,'']]],

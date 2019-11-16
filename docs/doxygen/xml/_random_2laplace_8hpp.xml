@@ -9,269 +9,269 @@
     <includes local="yes">boost/random/laplace_distribution.hpp</includes>
     <includedby refid="_random_8hpp" local="yes">Random.hpp</includedby>
     <incdepgraph>
-      <node id="8819">
+      <node id="8824">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="8797">
+      <node id="8802">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="8798" relation="include">
-        </childnode>
-      </node>
-      <node id="8823">
-        <label>functional</label>
-      </node>
-      <node id="8809">
-        <label>limits</label>
-      </node>
-      <node id="8804">
-        <label>iterator</label>
-      </node>
-      <node id="8810">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="8809" relation="include">
-        </childnode>
-      </node>
-      <node id="8829">
-        <label>NumCpp/Random/generator.hpp</label>
-        <link refid="generator_8hpp"/>
-        <childnode refid="8797" relation="include">
-        </childnode>
-        <childnode refid="8830" relation="include">
-        </childnode>
-      </node>
-      <node id="8816">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="8797" relation="include">
-        </childnode>
-      </node>
-      <node id="8798">
-        <label>cstdint</label>
-      </node>
-      <node id="8808">
-        <label>cmath</label>
-      </node>
-      <node id="8812">
-        <label>stdexcept</label>
-      </node>
-      <node id="8825">
-        <label>numeric</label>
-      </node>
-      <node id="8800">
-        <label>string</label>
-      </node>
-      <node id="8817">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="8815">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="8811" relation="include">
-        </childnode>
-        <childnode refid="8797" relation="include">
-        </childnode>
-        <childnode refid="8799" relation="include">
-        </childnode>
         <childnode refid="8803" relation="include">
-        </childnode>
-        <childnode refid="8801" relation="include">
-        </childnode>
-        <childnode refid="8800" relation="include">
-        </childnode>
-      </node>
-      <node id="8814">
-        <label>fstream</label>
-      </node>
-      <node id="8813">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="8814" relation="include">
-        </childnode>
-        <childnode refid="8800" relation="include">
-        </childnode>
-      </node>
-      <node id="8807">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="8808" relation="include">
-        </childnode>
-        <childnode refid="8809" relation="include">
-        </childnode>
-        <childnode refid="8800" relation="include">
-        </childnode>
-      </node>
-      <node id="8830">
-        <label>random</label>
-      </node>
-      <node id="8818">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="8796">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="8797" relation="include">
-        </childnode>
-        <childnode refid="8799" relation="include">
-        </childnode>
-        <childnode refid="8801" relation="include">
-        </childnode>
-        <childnode refid="8800" relation="include">
         </childnode>
       </node>
       <node id="8828">
-        <label>vector</label>
+        <label>functional</label>
       </node>
-      <node id="8806">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="8807" relation="include">
+      <node id="8814">
+        <label>limits</label>
+      </node>
+      <node id="8809">
+        <label>iterator</label>
+      </node>
+      <node id="8815">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="8814" relation="include">
         </childnode>
-        <childnode refid="8810" relation="include">
+      </node>
+      <node id="8834">
+        <label>NumCpp/Random/generator.hpp</label>
+        <link refid="generator_8hpp"/>
+        <childnode refid="8802" relation="include">
         </childnode>
-        <childnode refid="8811" relation="include">
+        <childnode refid="8835" relation="include">
         </childnode>
-        <childnode refid="8813" relation="include">
+      </node>
+      <node id="8821">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="8802" relation="include">
+        </childnode>
+      </node>
+      <node id="8803">
+        <label>cstdint</label>
+      </node>
+      <node id="8813">
+        <label>cmath</label>
+      </node>
+      <node id="8817">
+        <label>stdexcept</label>
+      </node>
+      <node id="8830">
+        <label>numeric</label>
+      </node>
+      <node id="8805">
+        <label>string</label>
+      </node>
+      <node id="8822">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="8820">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="8816" relation="include">
         </childnode>
         <childnode refid="8802" relation="include">
         </childnode>
-        <childnode refid="8796" relation="include">
+        <childnode refid="8804" relation="include">
+        </childnode>
+        <childnode refid="8808" relation="include">
+        </childnode>
+        <childnode refid="8806" relation="include">
+        </childnode>
+        <childnode refid="8805" relation="include">
+        </childnode>
+      </node>
+      <node id="8819">
+        <label>fstream</label>
+      </node>
+      <node id="8818">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="8819" relation="include">
+        </childnode>
+        <childnode refid="8805" relation="include">
+        </childnode>
+      </node>
+      <node id="8812">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="8813" relation="include">
+        </childnode>
+        <childnode refid="8814" relation="include">
+        </childnode>
+        <childnode refid="8805" relation="include">
+        </childnode>
+      </node>
+      <node id="8835">
+        <label>random</label>
+      </node>
+      <node id="8823">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="8801">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="8802" relation="include">
+        </childnode>
+        <childnode refid="8804" relation="include">
+        </childnode>
+        <childnode refid="8806" relation="include">
+        </childnode>
+        <childnode refid="8805" relation="include">
+        </childnode>
+      </node>
+      <node id="8833">
+        <label>vector</label>
+      </node>
+      <node id="8811">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="8812" relation="include">
         </childnode>
         <childnode refid="8815" relation="include">
         </childnode>
-        <childnode refid="8797" relation="include">
-        </childnode>
-        <childnode refid="8799" relation="include">
-        </childnode>
         <childnode refid="8816" relation="include">
-        </childnode>
-        <childnode refid="8817" relation="include">
         </childnode>
         <childnode refid="8818" relation="include">
         </childnode>
-        <childnode refid="8819" relation="include">
+        <childnode refid="8807" relation="include">
+        </childnode>
+        <childnode refid="8801" relation="include">
         </childnode>
         <childnode refid="8820" relation="include">
         </childnode>
-        <childnode refid="8821" relation="include">
+        <childnode refid="8802" relation="include">
         </childnode>
-        <childnode refid="8808" relation="include">
+        <childnode refid="8804" relation="include">
+        </childnode>
+        <childnode refid="8821" relation="include">
         </childnode>
         <childnode refid="8822" relation="include">
         </childnode>
         <childnode refid="8823" relation="include">
         </childnode>
-        <childnode refid="8814" relation="include">
-        </childnode>
         <childnode refid="8824" relation="include">
-        </childnode>
-        <childnode refid="8801" relation="include">
         </childnode>
         <childnode refid="8825" relation="include">
         </childnode>
         <childnode refid="8826" relation="include">
         </childnode>
-        <childnode refid="8800" relation="include">
+        <childnode refid="8813" relation="include">
         </childnode>
         <childnode refid="8827" relation="include">
         </childnode>
-        <childnode refid="8805" relation="include">
-        </childnode>
         <childnode refid="8828" relation="include">
         </childnode>
+        <childnode refid="8819" relation="include">
+        </childnode>
+        <childnode refid="8829" relation="include">
+        </childnode>
+        <childnode refid="8806" relation="include">
+        </childnode>
+        <childnode refid="8830" relation="include">
+        </childnode>
+        <childnode refid="8831" relation="include">
+        </childnode>
+        <childnode refid="8805" relation="include">
+        </childnode>
+        <childnode refid="8832" relation="include">
+        </childnode>
+        <childnode refid="8810" relation="include">
+        </childnode>
+        <childnode refid="8833" relation="include">
+        </childnode>
       </node>
-      <node id="8811">
+      <node id="8816">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="8797" relation="include">
-        </childnode>
-        <childnode refid="8801" relation="include">
-        </childnode>
-        <childnode refid="8809" relation="include">
-        </childnode>
-        <childnode refid="8812" relation="include">
-        </childnode>
-        <childnode refid="8800" relation="include">
-        </childnode>
-      </node>
-      <node id="8795">
-        <label>laplace.hpp</label>
-        <link refid="_random_2laplace_8hpp"/>
-        <childnode refid="8796" relation="include">
-        </childnode>
         <childnode refid="8802" relation="include">
         </childnode>
         <childnode refid="8806" relation="include">
         </childnode>
-        <childnode refid="8829" relation="include">
+        <childnode refid="8814" relation="include">
         </childnode>
-        <childnode refid="8831" relation="include">
-        </childnode>
-      </node>
-      <node id="8805">
-        <label>utility</label>
-      </node>
-      <node id="8821">
-        <label>array</label>
-      </node>
-      <node id="8799">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="8800" relation="include">
-        </childnode>
-      </node>
-      <node id="8802">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="8803" relation="include">
-        </childnode>
-        <childnode refid="8804" relation="include">
+        <childnode refid="8817" relation="include">
         </childnode>
         <childnode refid="8805" relation="include">
         </childnode>
       </node>
-      <node id="8801">
-        <label>iostream</label>
+      <node id="8800">
+        <label>laplace.hpp</label>
+        <link refid="_random_2laplace_8hpp"/>
+        <childnode refid="8801" relation="include">
+        </childnode>
+        <childnode refid="8807" relation="include">
+        </childnode>
+        <childnode refid="8811" relation="include">
+        </childnode>
+        <childnode refid="8834" relation="include">
+        </childnode>
+        <childnode refid="8836" relation="include">
+        </childnode>
       </node>
-      <node id="8822">
-        <label>deque</label>
-      </node>
-      <node id="8820">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
-      <node id="8827">
-        <label>type_traits</label>
+      <node id="8810">
+        <label>utility</label>
       </node>
       <node id="8826">
-        <label>set</label>
+        <label>array</label>
       </node>
-      <node id="8803">
-        <label>algorithm</label>
+      <node id="8804">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="8805" relation="include">
+        </childnode>
+      </node>
+      <node id="8807">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="8808" relation="include">
+        </childnode>
+        <childnode refid="8809" relation="include">
+        </childnode>
+        <childnode refid="8810" relation="include">
+        </childnode>
+      </node>
+      <node id="8806">
+        <label>iostream</label>
+      </node>
+      <node id="8827">
+        <label>deque</label>
+      </node>
+      <node id="8825">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="8832">
+        <label>type_traits</label>
       </node>
       <node id="8831">
+        <label>set</label>
+      </node>
+      <node id="8808">
+        <label>algorithm</label>
+      </node>
+      <node id="8836">
         <label>boost/random/laplace_distribution.hpp</label>
       </node>
-      <node id="8824">
+      <node id="8829">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="8834">
+      <node id="8839">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="8833">
+      <node id="8838">
         <label>Random.hpp</label>
         <link refid="_random_8hpp"/>
-        <childnode refid="8834" relation="include">
+        <childnode refid="8839" relation="include">
         </childnode>
       </node>
-      <node id="8832">
+      <node id="8837">
         <label>laplace.hpp</label>
         <link refid="_random_2laplace_8hpp"/>
-        <childnode refid="8833" relation="include">
+        <childnode refid="8838" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -281,7 +281,7 @@
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
 </para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>

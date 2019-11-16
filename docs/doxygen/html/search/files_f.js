@@ -21,6 +21,7 @@ var searchData=
   ['reflect2d_2ehpp',['reflect2d.hpp',['../reflect2d_8hpp.html',1,'']]],
   ['remainder_2ehpp',['remainder.hpp',['../remainder_8hpp.html',1,'']]],
   ['repeat_2ehpp',['repeat.hpp',['../repeat_8hpp.html',1,'']]],
+  ['replace_2ehpp',['replace.hpp',['../replace_8hpp.html',1,'']]],
   ['reshape_2ehpp',['reshape.hpp',['../reshape_8hpp.html',1,'']]],
   ['resizefast_2ehpp',['resizeFast.hpp',['../resize_fast_8hpp.html',1,'']]],
   ['resizeslow_2ehpp',['resizeSlow.hpp',['../resize_slow_8hpp.html',1,'']]],

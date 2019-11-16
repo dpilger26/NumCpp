@@ -9,109 +9,109 @@
     <includedby refid="_cluster_8hpp" local="yes">Cluster.hpp</includedby>
     <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
     <incdepgraph>
-      <node id="13081">
+      <node id="13089">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="13082" relation="include">
+        <childnode refid="13090" relation="include">
         </childnode>
       </node>
-      <node id="13082">
+      <node id="13090">
         <label>cstdint</label>
       </node>
-      <node id="13084">
+      <node id="13092">
         <label>string</label>
       </node>
-      <node id="13083">
+      <node id="13091">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="13084" relation="include">
+        <childnode refid="13092" relation="include">
         </childnode>
       </node>
-      <node id="13085">
+      <node id="13093">
         <label>iostream</label>
       </node>
-      <node id="13080">
+      <node id="13088">
         <label>Pixel.hpp</label>
         <link refid="_pixel_8hpp"/>
-        <childnode refid="13081" relation="include">
+        <childnode refid="13089" relation="include">
         </childnode>
-        <childnode refid="13083" relation="include">
+        <childnode refid="13091" relation="include">
         </childnode>
-        <childnode refid="13085" relation="include">
+        <childnode refid="13093" relation="include">
         </childnode>
-        <childnode refid="13084" relation="include">
+        <childnode refid="13092" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13089">
+      <node id="13097">
         <label>centroidClusters.hpp</label>
         <link refid="centroid_clusters_8hpp"/>
-        <childnode refid="13090" relation="include">
+        <childnode refid="13098" relation="include">
         </childnode>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
-      <node id="13092">
+      <node id="13100">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13093">
+      <node id="13101">
         <label>ClusterMaker.hpp</label>
         <link refid="_cluster_maker_8hpp"/>
-        <childnode refid="13094" relation="include">
+        <childnode refid="13102" relation="include">
         </childnode>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
-      <node id="13088">
+      <node id="13096">
         <label>Centroid.hpp</label>
         <link refid="_centroid_8hpp"/>
-        <childnode refid="13089" relation="include">
+        <childnode refid="13097" relation="include">
         </childnode>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
-      <node id="13090">
+      <node id="13098">
         <label>generateCentroids.hpp</label>
         <link refid="generate_centroids_8hpp"/>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
-      <node id="13087">
+      <node id="13095">
         <label>Cluster.hpp</label>
         <link refid="_cluster_8hpp"/>
-        <childnode refid="13088" relation="include">
+        <childnode refid="13096" relation="include">
         </childnode>
-        <childnode refid="13089" relation="include">
+        <childnode refid="13097" relation="include">
         </childnode>
-        <childnode refid="13093" relation="include">
+        <childnode refid="13101" relation="include">
         </childnode>
-        <childnode refid="13094" relation="include">
+        <childnode refid="13102" relation="include">
         </childnode>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
-      <node id="13091">
+      <node id="13099">
         <label>ImageProcessing.hpp</label>
         <link refid="_image_processing_8hpp"/>
-        <childnode refid="13092" relation="include">
+        <childnode refid="13100" relation="include">
+        </childnode>
+      </node>
+      <node id="13102">
+        <label>clusterPixels.hpp</label>
+        <link refid="cluster_pixels_8hpp"/>
+        <childnode refid="13098" relation="include">
+        </childnode>
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
       <node id="13094">
-        <label>clusterPixels.hpp</label>
-        <link refid="cluster_pixels_8hpp"/>
-        <childnode refid="13090" relation="include">
-        </childnode>
-        <childnode refid="13091" relation="include">
-        </childnode>
-      </node>
-      <node id="13086">
         <label>Pixel.hpp</label>
         <link refid="_pixel_8hpp"/>
-        <childnode refid="13087" relation="include">
+        <childnode refid="13095" relation="include">
         </childnode>
-        <childnode refid="13091" relation="include">
+        <childnode refid="13099" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -122,7 +122,7 @@
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
 </para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>

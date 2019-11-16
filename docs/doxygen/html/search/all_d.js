@@ -69,7 +69,7 @@ var searchData=
   ['none',['none',['../classnc_1_1_nd_array.html#a715f5529043d874c8970b3dfa91e859d',1,'nc::NdArray::none()'],['../namespacenc.html#a368ccbde67adc66eb0523686457c5948',1,'nc::none(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE) noexcept'],['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693',1,'nc::NONE()']]],
   ['none_2ehpp',['none.hpp',['../none_8hpp.html',1,'']]],
   ['none_5fof',['none_of',['../namespacenc_1_1stl__algorithms.html#aa8f79e15f5d691cc61bf56bd4299afed',1,'nc::stl_algorithms']]],
-  ['nonzero',['nonzero',['../classnc_1_1_nd_array.html#ad092326b66dc867003251e80d649a771',1,'nc::NdArray::nonzero()'],['../namespacenc.html#a6fcb2b43990a7d3bfd76b3d873032d53',1,'nc::nonzero()']]],
+  ['nonzero',['nonzero',['../classnc_1_1_nd_array.html#abe7dd1118afeb7725b224a612a03b6ba',1,'nc::NdArray::nonzero()'],['../namespacenc.html#adda26afad96d27aed7db0fa5ec818d4f',1,'nc::nonzero()']]],
   ['nonzero_2ehpp',['nonzero.hpp',['../nonzero_8hpp.html',1,'']]],
   ['norm',['norm',['../classnc_1_1_nd_array.html#a9a8b5063ec64c9d0d9afdce057db77ea',1,'nc::NdArray::norm()'],['../classnc_1_1_vec2.html#ab6922f6c089b20e9d019301fddc6dc0a',1,'nc::Vec2::norm()'],['../classnc_1_1_vec3.html#a6c177e1f5c00584279a0527d3053dee8',1,'nc::Vec3::norm()'],['../namespacenc.html#acd0cb71d7333dddc7cfa8a091768e94a',1,'nc::norm()']]],
   ['norm_2ehpp',['norm.hpp',['../norm_8hpp.html',1,'']]],
