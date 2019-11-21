@@ -40,7 +40,7 @@ namespace nc
     {
         constexpr double        c = 3.0e8; ///< speed of light
         constexpr double        e = 2.718281828459045;  ///< eulers number
-        constexpr double        inf = std::numeric_limits<double>::infinity();
+        constexpr double        inf = std::numeric_limits<double>::infinity(); ///< infinity
         constexpr double        pi = 3.14159265358979323846; ///< Pi
         const double            nan = std::nan("1"); ///< NaN
 
@@ -55,6 +55,6 @@ namespace nc
         constexpr double        MILLISECONDS_PER_DAY = SECONDS_PER_DAY * MILLISECONDS_PER_SECOND; ///< Number of milliseconds in a day
         constexpr double        SECONDS_PER_WEEK = SECONDS_PER_DAY * DAYS_PER_WEEK; ///< Number of seconds in a week
 
-        const std::string       VERSION = "1.0"; ///< Current NumCpp version number
+        const std::string       VERSION = "1.2"; ///< Current NumCpp version number
     }
 }
