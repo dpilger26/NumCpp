@@ -1811,8 +1811,7 @@ namespace nc
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///
-        /// @param
-        ///				inFilename
+        /// @param  inFilename
         ///
         void dump(const std::string& inFilename) const
         {

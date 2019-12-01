@@ -3690,6 +3690,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<MicroTimer>
         ("Timer", bp::init<>())
         .def(bp::init<std::string>())
+        .def("sleep", &MicroTimer::sleep)
         .def("tic", &MicroTimer::tic)
         .def("toc", &MicroTimer::toc);
 
