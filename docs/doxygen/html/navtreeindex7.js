@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"permutation_8hpp.html#ae0b8066f06a5f5b5a0baee76c5030892":[4,0,268,0],
 "permutation_8hpp_source.html":[4,0,268],
 "pnr_8hpp.html":[4,0,270],
 "pnr_8hpp.html#ad24badd4fad228e42db56cad017747bc":[4,0,270,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "tri_8hpp.html":[4,0,360],
 "tri_8hpp.html#a1fb506ce5644321b766a774447c14faf":[4,0,360,5],
 "tri_8hpp.html#a5c7a36b3e13fbf9f38a3b77692888b6c":[4,0,360,2],
-"tri_8hpp.html#a653a2564e609728da8b1240a478a5625":[4,0,360,1],
-"tri_8hpp.html#a9464c274ad7737a74f70afe33a5b2f72":[4,0,360,4]
+"tri_8hpp.html#a653a2564e609728da8b1240a478a5625":[4,0,360,1]
 };

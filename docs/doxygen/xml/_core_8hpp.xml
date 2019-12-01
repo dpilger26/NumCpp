@@ -105,6 +105,8 @@
         </childnode>
         <childnode refid="3761" relation="include">
         </childnode>
+        <childnode refid="3794" relation="include">
+        </childnode>
       </node>
       <node id="3778">
         <label>NumCpp/Core/Slice.hpp</label>
@@ -267,6 +269,9 @@
       <node id="3793">
         <label>chrono</label>
       </node>
+      <node id="3794">
+        <label>thread</label>
+      </node>
       <node id="3790">
         <label>type_traits</label>
       </node>
@@ -281,14 +286,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3795">
+      <node id="3796">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="3794">
+      <node id="3795">
         <label>Core.hpp</label>
         <link refid="_core_8hpp"/>
-        <childnode refid="3795" relation="include">
+        <childnode refid="3796" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

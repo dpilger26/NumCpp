@@ -6,7 +6,7 @@ var searchData=
   ['tic',['tic',['../classnc_1_1_timer.html#a4a08ec3e6ba7a7979cb9e72d0cf3f2f7',1,'nc::Timer']]],
   ['tile',['tile',['../namespacenc.html#a958af86507643fc8ef0c9c3e2c3d882c',1,'nc::tile(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#ab5604a013c8d5f7fff4d93af8b78bf71',1,'nc::tile(const NdArray&lt; dtype &gt; &amp;inArray, const Shape &amp;inReps) noexcept']]],
   ['timer',['Timer',['../classnc_1_1_timer.html#abe4f1d945b159d71211b86d7c7152147',1,'nc::Timer::Timer() noexcept'],['../classnc_1_1_timer.html#a2aa595ac4946f888bad3ebe0a2fd7468',1,'nc::Timer::Timer(const std::string &amp;inName) noexcept']]],
-  ['toc',['toc',['../classnc_1_1_timer.html#a7c64b31bb98c3e037a587416f3d51015',1,'nc::Timer']]],
+  ['toc',['toc',['../classnc_1_1_timer.html#a6ec08309801c2926a136537558fb1c57',1,'nc::Timer']]],
   ['todcm',['toDCM',['../classnc_1_1rotations_1_1_quaternion.html#a32d6c7cf2ff12d988e169fd936aaf397',1,'nc::rotations::Quaternion']]],
   ['tofile',['tofile',['../classnc_1_1_nd_array.html#aa94662d12c0f3558fa78344c8cfe95cd',1,'nc::NdArray::tofile()'],['../namespacenc.html#a4a3f6b571a0b4761515a67f98957de2a',1,'nc::tofile()']]],
   ['tondarray',['toNdArray',['../classnc_1_1rotations_1_1_quaternion.html#a4a11c1c0daf982f9367e4541e5735e71',1,'nc::rotations::Quaternion::toNdArray()'],['../classnc_1_1_vec2.html#a774f9304228506198344275ea5ecad48',1,'nc::Vec2::toNdArray()'],['../classnc_1_1_vec3.html#a6b598b3ea3e950081df48026b5132459',1,'nc::Vec3::toNdArray()']]],

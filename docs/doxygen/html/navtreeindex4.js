@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classnc_1_1rotations_1_1_quaternion.html#a687155cd6469c095941b94a738119da9":[3,0,0,7,1,38],
 "classnc_1_1rotations_1_1_quaternion.html#a6b7cbc0cd1087f742488b555aef19c10":[3,0,0,7,1,46],
 "classnc_1_1rotations_1_1_quaternion.html#a7a39f199e4d1ad773b93c69e66ae0415":[3,0,0,7,1,37],
 "classnc_1_1rotations_1_1_quaternion.html#a7a76d280d13d7c7542c6f815ed5dbd22":[3,0,0,7,1,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "fmax_8hpp.html":[4,0,148],
 "fmax_8hpp.html#a99c7f7c680632be6a42ebd6b923df328":[4,0,148,1],
 "fmax_8hpp.html#aebbd1fbc64f00fdeaae6c8cfdf6a7f59":[4,0,148,0],
-"fmax_8hpp_source.html":[4,0,148],
-"fmin_8hpp.html":[4,0,149]
+"fmax_8hpp_source.html":[4,0,148]
 };
