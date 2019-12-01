@@ -33,6 +33,7 @@
 #include <chrono>
 #include <iostream>
 #include <string>
+#include <thread>
 
 namespace nc
 {
@@ -86,6 +87,7 @@ namespace nc
 
     public:
         //============================================================================
+        // Method Description:
         ///						Constructor
         ///
         Timer() noexcept :
@@ -95,6 +97,7 @@ namespace nc
         }
 
         //============================================================================
+        // Method Description:
         ///						Constructor
         ///
         /// @param      inName
@@ -107,6 +110,7 @@ namespace nc
         }
 
         //============================================================================
+        // Method Description:
         ///						Sets/changes the timer name
         ///
         /// @param      inName
@@ -117,6 +121,18 @@ namespace nc
         }
 
         //============================================================================
+        // Method Description:
+        ///						Sleeps the current thread
+        ///
+        /// @param length: the length of time to sleep
+        ///
+        void sleep(uint32 length)
+        {
+            std::this_thread::sleep_for(TimeUnit(length));
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Starts the timer
         ///
         void tic() noexcept
@@ -125,15 +141,22 @@ namespace nc
         }
 
         //============================================================================
-        /// Method Description:
+        // Method Description:
         ///						Stops the timer
         ///
+        /// @param      printElapsedTime: bool whether or not to print the elapsed time to 
+        ///             the console
         /// @return     ellapsed time in specified time units
         ///
-        uint64 toc() noexcept
+        uint64 toc(bool printElapsedTime = true) noexcept
         {
             const auto duration = static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
-            std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
+
+            if (printElapsedTime)
+            {
+                std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
+            }
+
             return duration;
         }
     };

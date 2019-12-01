@@ -116,10 +116,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2aa595ac4946f888bad3ebe0a2fd7468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836e409a7c47556092849d56d8d3267b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_timer.html#a836e409a7c47556092849d56d8d3267b">setName</a> (const std::string &amp;inName) noexcept</td></tr>
 <tr class="separator:a836e409a7c47556092849d56d8d3267b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fec514ed605a11c6e1c321041960d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_timer.html#a9fec514ed605a11c6e1c321041960d7e">sleep</a> (<a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> length)</td></tr>
+<tr class="separator:a9fec514ed605a11c6e1c321041960d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a08ec3e6ba7a7979cb9e72d0cf3f2f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_timer.html#a4a08ec3e6ba7a7979cb9e72d0cf3f2f7">tic</a> () noexcept</td></tr>
 <tr class="separator:a4a08ec3e6ba7a7979cb9e72d0cf3f2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c64b31bb98c3e037a587416f3d51015"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a25da52a834e7af0e341d1503ebb62dcd">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_timer.html#a7c64b31bb98c3e037a587416f3d51015">toc</a> () noexcept</td></tr>
-<tr class="separator:a7c64b31bb98c3e037a587416f3d51015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec08309801c2926a136537558fb1c57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#a25da52a834e7af0e341d1503ebb62dcd">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_timer.html#a6ec08309801c2926a136537558fb1c57">toc</a> (bool printElapsedTime=true) noexcept</td></tr>
+<tr class="separator:a6ec08309801c2926a136537558fb1c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename TimeUnit = std::chrono::milliseconds&gt;<br />
@@ -259,6 +261,41 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
 
 </div>
 </div>
+<a id="a9fec514ed605a11c6e1c321041960d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fec514ed605a11c6e1c321041960d7e">&#9670;&nbsp;</a></span>sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classnc_1_1_timer.html">nc::Timer</a>&lt; TimeUnit &gt;::sleep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a>&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sleeps the current thread</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>the length of time to sleep </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4a08ec3e6ba7a7979cb9e72d0cf3f2f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a08ec3e6ba7a7979cb9e72d0cf3f2f7">&#9670;&nbsp;</a></span>tic()</h2>
 
@@ -287,8 +324,8 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
 
 </div>
 </div>
-<a id="a7c64b31bb98c3e037a587416f3d51015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c64b31bb98c3e037a587416f3d51015">&#9670;&nbsp;</a></span>toc()</h2>
+<a id="a6ec08309801c2926a136537558fb1c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec08309801c2926a136537558fb1c57">&#9670;&nbsp;</a></span>toc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,7 +338,8 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="namespacenc.html#a25da52a834e7af0e341d1503ebb62dcd">uint64</a> <a class="el" href="classnc_1_1_timer.html">nc::Timer</a>&lt; TimeUnit &gt;::toc </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>printElapsedTime</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -311,7 +349,13 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method Description: Stops the timer</p>
+<p>Stops the timer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">printElapsedTime</td><td>bool whether or not to print the elapsed time to the console </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>ellapsed time in specified time units </dd></dl>
 
 </div>
