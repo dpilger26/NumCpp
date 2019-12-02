@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="namespacenc_1_1polynomial" kind="namespace" language="C++">
     <compoundname>nc::polynomial</compoundname>
     <innerclass refid="classnc_1_1polynomial_1_1_poly1d" prot="public">nc::polynomial::Poly1d</innerclass>
@@ -25,26 +25,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Chebyshev Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Chebyshev Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the chebyshev polynomial </para></parameterdescription>
+<para>the order of the chebyshev polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" bodystart="50" bodyend="53"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a078793b666bab0bd2add2b139f989df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -67,26 +72,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Chebyshev Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Chebyshev Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the chebyshev polynomial </para></parameterdescription>
+<para>the order of the chebyshev polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="65" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" bodystart="65" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="65" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" bodystart="65" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -109,26 +119,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Chebyshev Polynomial of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Chebyshev Polynomial of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the chebyshev polynomial </para></parameterdescription>
+<para>the order of the chebyshev polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" bodystart="50" bodyend="53"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1aed39a034f0126aaeccbeb0718dea3c8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -151,26 +166,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Chebyshev Polynomial of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Chebyshev Polynomial of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the chebyshev polynomial </para></parameterdescription>
+<para>the order of the chebyshev polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" line="65" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" bodystart="65" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" line="65" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp" bodystart="65" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -193,26 +213,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Hermite Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Hermite Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the hermite polynomial </para></parameterdescription>
+<para>the order of the hermite polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" bodystart="50" bodyend="53"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1ab1427f4d365eb6cfde7d1633e4c4233b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -235,26 +260,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Hermite Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Hermite Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the hermite polynomial </para></parameterdescription>
+<para>the order of the hermite polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" line="65" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" bodystart="65" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" line="65" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp" bodystart="65" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a09b2c967d4e541797a00451a497951ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -277,26 +307,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Laguerre Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Laguerre Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the leguerre polynomial </para></parameterdescription>
+<para>the order of the leguerre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="50" bodyend="53"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1aefe4861199729125ab86c64521789a77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -323,33 +358,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Associated Laguerre Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Associated Laguerre Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the leguerre polynomial </para></parameterdescription>
+<para>the order of the leguerre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the degree of the legendre polynomial </para></parameterdescription>
+<para>the degree of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="66" bodyend="69"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="66" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a935b8c6209c506b9bba00276d072b11b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -372,26 +413,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Laguerre Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Laguerre Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the leguerre polynomial </para></parameterdescription>
+<para>the order of the leguerre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="81" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="81" bodyend="93"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="81" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="81" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1ae5e4a468915bd710060b8515ff35baf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -418,33 +464,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Associated Laguerre Polynomial</para><para><parameterlist kind="param"><parameteritem>
+<para>Associated Laguerre Polynomial</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the leguerre polynomial </para></parameterdescription>
+<para>the order of the leguerre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the degree of the legendre polynomial </para></parameterdescription>
+<para>the degree of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="106" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="106" bodyend="118"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" line="106" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/laguerre.hpp" bodystart="106" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a0c7d0ac956ba2c60ea8190aa8cb31570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -467,26 +519,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Legendre Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Legendre Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="51" bodyend="59"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="51" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a33f41165cd6e8dd2d7cfb21fa8ed4c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -513,33 +570,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Associated Legendre Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Associated Legendre Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the degree of the legendre polynomial </para></parameterdescription>
+<para>the degree of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="72" bodyend="80"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="72" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="72" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a01b91c2b39784adf9cc483f70e7fb6dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -562,26 +625,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Legendre Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Legendre Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="92" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="92" bodyend="104"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="92" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="92" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a827b13f0771bab049d9fe9beab85e3f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -608,33 +676,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Associated Legendre Polynomial of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Associated Legendre Polynomial of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the degree of the legendre polynomial </para></parameterdescription>
+<para>the degree of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="117" bodyend="129"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" line="117" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_p.hpp" bodystart="117" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1af6777e9b7531f6b085869caf34bb6570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -657,26 +731,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Legendre Polynomial of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Legendre Polynomial of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" bodystart="50" bodyend="58"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" bodystart="50" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1aa61279477eb9616d0440429b9eff2680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -699,26 +778,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Legendre Polynomial of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Legendre Polynomial of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the legendre polynomial </para></parameterdescription>
+<para>the order of the legendre polynomial </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value. Requires -1 &lt;= x &lt;= 1 </para></parameterdescription>
+<para>the input value. Requires -1 &lt;= x &lt;= 1 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" bodystart="70" bodyend="82"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" line="70" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/legendre_q.hpp" bodystart="70" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a3a27bfe54dde95c234714104c25f3ad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -752,40 +836,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the value of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the value of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>order of the harmonic </para></parameterdescription>
+<para>order of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>degree of the harmonic </para></parameterdescription>
+<para>degree of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>theta</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para></parameterdescription>
+<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>phi</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para></parameterdescription>
+<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="56" bodyend="59"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="56" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="56" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a2793e853d45d1461ece38b426d82c22e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -819,40 +910,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the imaginary part of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the imaginary part of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>order of the harmonic </para></parameterdescription>
+<para>order of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>degree of the harmonic </para></parameterdescription>
+<para>degree of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>theta</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para></parameterdescription>
+<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>phi</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para></parameterdescription>
+<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="96" bodyend="99"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="96" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="96" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1polynomial_1a522a573355aeafa0ca73d9244618682c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -886,46 +984,53 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the real part of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the real part of the Spherical Harmonic Ynm(theta, phi). The spherical harmonics Ynm(theta, phi) are the angular portion of the solution to Laplace&apos;s equation in spherical coordinates where azimuthal symmetry is not present.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>order of the harmonic </para></parameterdescription>
+<para>order of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>m</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>degree of the harmonic </para></parameterdescription>
+<para>degree of the harmonic </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>theta</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para></parameterdescription>
+<para>Azimuthal (longitudinal) coordinate; must be in [0, 2*pi]. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>phi</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para></parameterdescription>
+<para>Polar (colatitudinal) coordinate; must be in [0, pi]. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="76" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="76" bodyend="79"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" line="76" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Polynomial/spherical_harmonic.hpp" bodystart="76" bodyend="79"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="39" column="1"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_t.hpp" line="39" column="1"/>
   </compounddef>
 </doxygen>

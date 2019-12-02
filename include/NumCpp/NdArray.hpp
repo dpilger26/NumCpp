@@ -439,7 +439,7 @@ namespace nc
         ///						Move operator, performs a deep move
         ///
         /// @param
-        ///				inOtherArray
+        ///				rhs
         /// @return
         ///				NdArray<dtype>
         ///

@@ -53,43 +53,25 @@ namespace nc
             case Axis::NONE:
             {
                 double inten = 0.0;
-                std::for_each(inArray.begin(), inArray.end(),
-                    [&inten](dtype value) -> void
-                    {
-                        inten += static_cast<double>(value);
-                    });
-
-                // first get the row center
-                double row = 0.0;
-                for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
+                double rowCenter = 0.0;
+                double colCenter = 0.0;
+                
+                for (uint32 row = 0; row < shape.rows; ++row)
                 {
-                    double rowSum = 0.0;
-                    std::for_each(inArray.begin(rowIdx), inArray.end(rowIdx),
-                        [&rowSum](dtype value) -> void
-                        {
-                            rowSum += static_cast<double>(value);
-                        });
-
-                    row += rowSum * static_cast<double>(rowIdx);
-                }
-
-                row /= inten;
-
-                // then get the column center
-                double col = 0.0;
-                for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
-                {
-                    double colSum = 0.0;
-                    for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
+                    for (uint32 col = 0; col < shape.cols; ++col)
                     {
-                        colSum += static_cast<double>(inArray(rowIdx, colIdx));
+                        const double pixelValue = static_cast<double>(inArray(row, col));
+
+                        inten += pixelValue;
+                        rowCenter += pixelValue * static_cast<double>(row);
+                        colCenter += pixelValue * static_cast<double>(col);
                     }
-                    col += colSum * static_cast<double>(colIdx);
                 }
 
-                col /= inten;
+                rowCenter /= inten;
+                colCenter /= inten;
 
-                return { row, col };
+                return { rowCenter, colCenter };
             }
             case Axis::ROW:
             {

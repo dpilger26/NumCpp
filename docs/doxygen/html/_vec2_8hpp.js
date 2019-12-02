@@ -1,9 +1,9 @@
 var _vec2_8hpp =
 [
     [ "Vec2", "classnc_1_1_vec2.html", "classnc_1_1_vec2" ],
-    [ "operator*", "_vec2_8hpp.html#a8248dae03ae96d459320f42d60fdf424", null ],
-    [ "operator*", "_vec2_8hpp.html#a1769d68f44f9c98d94dd412bc32a9bb5", null ],
-    [ "operator*", "_vec2_8hpp.html#ace6d6bf5d703e886d8f137cf73be5021", null ],
+    [ "operator *", "_vec2_8hpp.html#a3464868481c1997dff4117d88456b492", null ],
+    [ "operator *", "_vec2_8hpp.html#a49bf659cc8480de8a7c7dd53db04ef92", null ],
+    [ "operator *", "_vec2_8hpp.html#a3a2bb570a80b12ade33148dec83f1506", null ],
     [ "operator+", "_vec2_8hpp.html#a9f50afa50b63aea110be8b9b477d1cb4", null ],
     [ "operator+", "_vec2_8hpp.html#a43fad0472de9a72d2680623200138907", null ],
     [ "operator+", "_vec2_8hpp.html#ab769651a09123be0a13a54a82aaa088a", null ],

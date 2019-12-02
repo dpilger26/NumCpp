@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -226,42 +227,15 @@ namespace nc
 
                 const uint32 rowMin = inCluster.rowMin();
                 const uint32 colMin = inCluster.colMin();
-                const dtype inten = inCluster.intensity();
 
                 for (auto& pixel : inCluster)
                 {
                     clusterArray(pixel.row - rowMin, pixel.col - colMin) = pixel.intensity;
                 }
 
-                // first get the row center
-                row_ = 0;
-                uint32 theRow = rowMin;
-                for (uint32 rowIdx = 0; rowIdx < clusterShape.rows; ++rowIdx)
-                {
-                    double rowSum = 0;
-                    for (uint32 colIdx = 0; colIdx < clusterShape.cols; ++colIdx)
-                    {
-                        rowSum += static_cast<double>(clusterArray(rowIdx, colIdx));
-                    }
-                    row_ += rowSum * static_cast<double>(theRow++);
-                }
-
-                row_ /= static_cast<double>(inten);
-
-                // then get the column center
-                col_ = 0;
-                uint32 theCol = colMin;
-                for (uint32 colIdx = 0; colIdx < clusterShape.cols; ++colIdx)
-                {
-                    double colSum = 0;
-                    for (uint32 rowIdx = 0; rowIdx < clusterShape.rows; ++rowIdx)
-                    {
-                        colSum += static_cast<double>(clusterArray(rowIdx, colIdx));
-                    }
-                    col_ += colSum * static_cast<double>(theCol++);
-                }
-
-                col_ /= static_cast<double>(inten);
+                auto rowCol = nc::centerOfMass(clusterArray);
+                row_ = rowCol.front() + rowMin;
+                col_ = rowCol.back() + colMin;
             }
         };
     }
