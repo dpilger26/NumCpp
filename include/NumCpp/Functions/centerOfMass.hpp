@@ -41,7 +41,7 @@ namespace nc
     ///
     /// @param      inArray
     /// @param      inAxis (Optional, default NONE which is a 2d center of mass)
-    /// @return     NdArray: if axis is NONE than a 1x2 array of the centroid row/col is returned.
+    /// @return     NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
     ///
     template<typename dtype>
     NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
