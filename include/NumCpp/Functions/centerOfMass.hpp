@@ -60,10 +60,10 @@ namespace nc
                     });
 
                 // first get the row center
-                double row = 0;
+                double row = 0.0;
                 for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                 {
-                    double rowSum = 0;
+                    double rowSum = 0.0;
                     std::for_each(inArray.begin(rowIdx), inArray.end(rowIdx),
                         [&rowSum](dtype value) -> void
                         {
@@ -76,10 +76,10 @@ namespace nc
                 row /= inten;
 
                 // then get the column center
-                double col = 0;
+                double col = 0.0;
                 for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
                 {
-                    double colSum = 0;
+                    double colSum = 0.0;
                     for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                     {
                         colSum += static_cast<double>(inArray(rowIdx, colIdx));
