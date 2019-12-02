@@ -400,16 +400,19 @@ namespace nc
         ///						Assignment operator, performs a deep copy
         ///
         /// @param
-        ///				inOtherArray
+        ///				rhs
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(const NdArray<dtype>& inOtherArray) noexcept
+        NdArray<dtype>& operator=(const NdArray<dtype>& rhs) noexcept
         {
-            newArray(inOtherArray.shape_);
-            endianess_ = inOtherArray.endianess_;
+            if (&rhs != this)
+            {
+                newArray(rhs.shape_);
+                endianess_ = rhs.endianess_;
 
-            stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+                stl_algorithms::copy(rhs.cbegin(), rhs.cend(), begin());
+            }
 
             return *this;
         }
@@ -440,20 +443,20 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(NdArray<dtype>&& inOtherArray) noexcept
+        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept
         {
-            if (&inOtherArray != this)
+            if (&rhs != this)
             {
                 deleteArray();
-                shape_ = inOtherArray.shape_;
-                size_ = inOtherArray.size_;
-                endianess_ = inOtherArray.endianess_;
-                array_ = inOtherArray.array_;
-                ownsPtr_ = inOtherArray.ownsPtr_;
+                shape_ = rhs.shape_;
+                size_ = rhs.size_;
+                endianess_ = rhs.endianess_;
+                array_ = rhs.array_;
+                ownsPtr_ = rhs.ownsPtr_;
 
-                inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
-                inOtherArray.array_ = nullptr;
-                inOtherArray.ownsPtr_ = false;
+                rhs.shape_.rows = rhs.shape_.cols = rhs.size_ = 0;
+                rhs.array_ = nullptr;
+                rhs.ownsPtr_ = false;
             }
 
             return *this;
