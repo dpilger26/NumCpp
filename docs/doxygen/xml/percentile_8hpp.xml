@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="percentile_8hpp" kind="file" language="C++">
     <compoundname>percentile.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -17,330 +17,338 @@
     <includedby refid="percentile_filter_8hpp" local="yes">percentileFilter.hpp</includedby>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="12932">
+      <node id="12940">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="12909">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="12910" relation="include">
+      <node id="12923">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="12917" relation="include">
         </childnode>
-      </node>
-      <node id="12936">
-        <label>functional</label>
-      </node>
-      <node id="12912">
-        <label>limits</label>
-      </node>
-      <node id="12919">
-        <label>iterator</label>
-      </node>
-      <node id="12925">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="12912" relation="include">
+        <childnode refid="12924" relation="include">
         </childnode>
-      </node>
-      <node id="12929">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="12909" relation="include">
-        </childnode>
-      </node>
-      <node id="12910">
-        <label>cstdint</label>
-      </node>
-      <node id="12924">
-        <label>cmath</label>
-      </node>
-      <node id="12913">
-        <label>stdexcept</label>
-      </node>
-      <node id="12938">
-        <label>numeric</label>
-      </node>
-      <node id="12914">
-        <label>string</label>
-      </node>
-      <node id="12930">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="12928">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="12908" relation="include">
-        </childnode>
-        <childnode refid="12909" relation="include">
-        </childnode>
-        <childnode refid="12916" relation="include">
-        </childnode>
-        <childnode refid="12918" relation="include">
-        </childnode>
-        <childnode refid="12911" relation="include">
-        </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
-      </node>
-      <node id="12927">
-        <label>fstream</label>
-      </node>
-      <node id="12921">
-        <label>NumCpp/Functions/argmin.hpp</label>
-        <link refid="argmin_8hpp"/>
-        <childnode refid="12909" relation="include">
+        <childnode refid="12919" relation="include">
         </childnode>
         <childnode refid="12922" relation="include">
         </childnode>
       </node>
-      <node id="12926">
+      <node id="12944">
+        <label>functional</label>
+      </node>
+      <node id="12920">
+        <label>limits</label>
+      </node>
+      <node id="12927">
+        <label>iterator</label>
+      </node>
+      <node id="12934">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="12927" relation="include">
+        <childnode refid="12935" relation="include">
         </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
-      </node>
-      <node id="12923">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="12924" relation="include">
-        </childnode>
-        <childnode refid="12912" relation="include">
-        </childnode>
-        <childnode refid="12914" relation="include">
+        <childnode refid="12922" relation="include">
         </childnode>
       </node>
-      <node id="12931">
-        <label>boost/algorithm/clamp.hpp</label>
+      <node id="12918">
+        <label>cstdint</label>
       </node>
-      <node id="12915">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="12909" relation="include">
-        </childnode>
-        <childnode refid="12916" relation="include">
-        </childnode>
-        <childnode refid="12911" relation="include">
-        </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
-      </node>
-      <node id="12943">
-        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
-        <link refid="essentially_equal_8hpp"/>
-        <childnode refid="12925" relation="include">
-        </childnode>
-        <childnode refid="12924" relation="include">
-        </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
-      </node>
-      <node id="12941">
-        <label>vector</label>
-      </node>
-      <node id="12922">
+      <node id="12930">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="12923" relation="include">
-        </childnode>
-        <childnode refid="12925" relation="include">
-        </childnode>
-        <childnode refid="12908" relation="include">
-        </childnode>
-        <childnode refid="12926" relation="include">
-        </childnode>
-        <childnode refid="12917" relation="include">
-        </childnode>
-        <childnode refid="12915" relation="include">
-        </childnode>
-        <childnode refid="12928" relation="include">
-        </childnode>
-        <childnode refid="12909" relation="include">
-        </childnode>
-        <childnode refid="12916" relation="include">
-        </childnode>
-        <childnode refid="12929" relation="include">
-        </childnode>
-        <childnode refid="12930" relation="include">
-        </childnode>
         <childnode refid="12931" relation="include">
-        </childnode>
-        <childnode refid="12932" relation="include">
         </childnode>
         <childnode refid="12933" relation="include">
         </childnode>
+        <childnode refid="12916" relation="include">
+        </childnode>
         <childnode refid="12934" relation="include">
         </childnode>
-        <childnode refid="12924" relation="include">
+        <childnode refid="12925" relation="include">
         </childnode>
-        <childnode refid="12935" relation="include">
+        <childnode refid="12923" relation="include">
         </childnode>
         <childnode refid="12936" relation="include">
         </childnode>
-        <childnode refid="12927" relation="include">
+        <childnode refid="12917" relation="include">
+        </childnode>
+        <childnode refid="12924" relation="include">
         </childnode>
         <childnode refid="12937" relation="include">
-        </childnode>
-        <childnode refid="12911" relation="include">
         </childnode>
         <childnode refid="12938" relation="include">
         </childnode>
         <childnode refid="12939" relation="include">
         </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
         <childnode refid="12940" relation="include">
-        </childnode>
-        <childnode refid="12920" relation="include">
         </childnode>
         <childnode refid="12941" relation="include">
         </childnode>
-      </node>
-      <node id="12908">
-        <label>NumCpp/Core/Error.hpp</label>
-        <link refid="_error_8hpp"/>
-        <childnode refid="12909" relation="include">
-        </childnode>
-        <childnode refid="12911" relation="include">
-        </childnode>
-        <childnode refid="12912" relation="include">
-        </childnode>
-        <childnode refid="12913" relation="include">
-        </childnode>
-        <childnode refid="12914" relation="include">
-        </childnode>
-      </node>
-      <node id="12920">
-        <label>utility</label>
-      </node>
-      <node id="12934">
-        <label>array</label>
-      </node>
-      <node id="12907">
-        <label>percentile.hpp</label>
-        <link refid="percentile_8hpp"/>
-        <childnode refid="12908" relation="include">
-        </childnode>
-        <childnode refid="12915" relation="include">
-        </childnode>
-        <childnode refid="12917" relation="include">
-        </childnode>
-        <childnode refid="12909" relation="include">
-        </childnode>
-        <childnode refid="12921" relation="include">
-        </childnode>
         <childnode refid="12942" relation="include">
         </childnode>
-        <childnode refid="12922" relation="include">
+        <childnode refid="12932" relation="include">
         </childnode>
         <childnode refid="12943" relation="include">
         </childnode>
-        <childnode refid="12918" relation="include">
+        <childnode refid="12944" relation="include">
+        </childnode>
+        <childnode refid="12935" relation="include">
+        </childnode>
+        <childnode refid="12945" relation="include">
+        </childnode>
+        <childnode refid="12919" relation="include">
+        </childnode>
+        <childnode refid="12946" relation="include">
+        </childnode>
+        <childnode refid="12947" relation="include">
+        </childnode>
+        <childnode refid="12922" relation="include">
+        </childnode>
+        <childnode refid="12948" relation="include">
+        </childnode>
+        <childnode refid="12928" relation="include">
+        </childnode>
+        <childnode refid="12949" relation="include">
+        </childnode>
+      </node>
+      <node id="12936">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="12916" relation="include">
+        </childnode>
+        <childnode refid="12917" relation="include">
         </childnode>
         <childnode refid="12924" relation="include">
         </childnode>
-        <childnode refid="12914" relation="include">
+        <childnode refid="12926" relation="include">
         </childnode>
-      </node>
-      <node id="12942">
-        <label>NumCpp/Functions/clip.hpp</label>
-        <link refid="clip_8hpp"/>
+        <childnode refid="12919" relation="include">
+        </childnode>
         <childnode refid="12922" relation="include">
         </childnode>
-        <childnode refid="12931" relation="include">
-        </childnode>
       </node>
-      <node id="12916">
+      <node id="12932">
+        <label>cmath</label>
+      </node>
+      <node id="12924">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="12914" relation="include">
+        <childnode refid="12922" relation="include">
         </childnode>
       </node>
-      <node id="12917">
+      <node id="12921">
+        <label>stdexcept</label>
+      </node>
+      <node id="12946">
+        <label>numeric</label>
+      </node>
+      <node id="12950">
+        <label>NumCpp/Functions/clip.hpp</label>
+        <link refid="clip_8hpp"/>
+        <childnode refid="12930" relation="include">
+        </childnode>
+        <childnode refid="12939" relation="include">
+        </childnode>
+      </node>
+      <node id="12922">
+        <label>string</label>
+      </node>
+      <node id="12915">
+        <label>percentile.hpp</label>
+        <link refid="percentile_8hpp"/>
+        <childnode refid="12916" relation="include">
+        </childnode>
+        <childnode refid="12923" relation="include">
+        </childnode>
+        <childnode refid="12925" relation="include">
+        </childnode>
+        <childnode refid="12917" relation="include">
+        </childnode>
+        <childnode refid="12929" relation="include">
+        </childnode>
+        <childnode refid="12950" relation="include">
+        </childnode>
+        <childnode refid="12930" relation="include">
+        </childnode>
+        <childnode refid="12951" relation="include">
+        </childnode>
+        <childnode refid="12926" relation="include">
+        </childnode>
+        <childnode refid="12932" relation="include">
+        </childnode>
+        <childnode refid="12922" relation="include">
+        </childnode>
+      </node>
+      <node id="12925">
         <label>NumCpp/Core/StlAlgorithms.hpp</label>
         <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="12926" relation="include">
+        </childnode>
+        <childnode refid="12927" relation="include">
+        </childnode>
+        <childnode refid="12928" relation="include">
+        </childnode>
+      </node>
+      <node id="12935">
+        <label>fstream</label>
+      </node>
+      <node id="12929">
+        <label>NumCpp/Functions/argmin.hpp</label>
+        <link refid="argmin_8hpp"/>
+        <childnode refid="12917" relation="include">
+        </childnode>
+        <childnode refid="12930" relation="include">
+        </childnode>
+      </node>
+      <node id="12937">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="12917" relation="include">
+        </childnode>
+      </node>
+      <node id="12931">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="12932" relation="include">
+        </childnode>
+        <childnode refid="12920" relation="include">
+        </childnode>
+        <childnode refid="12922" relation="include">
+        </childnode>
+      </node>
+      <node id="12951">
+        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
+        <link refid="essentially_equal_8hpp"/>
+        <childnode refid="12933" relation="include">
+        </childnode>
+        <childnode refid="12932" relation="include">
+        </childnode>
+        <childnode refid="12922" relation="include">
+        </childnode>
+      </node>
+      <node id="12933">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="12920" relation="include">
+        </childnode>
+      </node>
+      <node id="12939">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="12949">
+        <label>vector</label>
+      </node>
+      <node id="12928">
+        <label>utility</label>
+      </node>
+      <node id="12942">
+        <label>array</label>
+      </node>
+      <node id="12938">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="12917">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
         <childnode refid="12918" relation="include">
+        </childnode>
+      </node>
+      <node id="12919">
+        <label>iostream</label>
+      </node>
+      <node id="12943">
+        <label>deque</label>
+      </node>
+      <node id="12941">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="12916">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="12917" relation="include">
         </childnode>
         <childnode refid="12919" relation="include">
         </childnode>
         <childnode refid="12920" relation="include">
         </childnode>
+        <childnode refid="12921" relation="include">
+        </childnode>
+        <childnode refid="12922" relation="include">
+        </childnode>
       </node>
-      <node id="12911">
-        <label>iostream</label>
-      </node>
-      <node id="12935">
-        <label>deque</label>
-      </node>
-      <node id="12933">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
-      <node id="12940">
+      <node id="12948">
         <label>type_traits</label>
       </node>
-      <node id="12939">
+      <node id="12947">
         <label>set</label>
       </node>
-      <node id="12918">
+      <node id="12926">
         <label>algorithm</label>
       </node>
-      <node id="12937">
+      <node id="12945">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="12947">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
-      <node id="12948">
-        <label>percentileFilter.hpp</label>
-        <link refid="percentile_filter_8hpp"/>
-        <childnode refid="12946" relation="include">
-        </childnode>
-      </node>
-      <node id="12946">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="12947" relation="include">
-        </childnode>
-      </node>
-      <node id="12945">
-        <label>percentileFilter1d.hpp</label>
-        <link refid="percentile_filter1d_8hpp"/>
-        <childnode refid="12946" relation="include">
-        </childnode>
-      </node>
-      <node id="12949">
+      <node id="12957">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="12947" relation="include">
+        <childnode refid="12955" relation="include">
         </childnode>
       </node>
-      <node id="12944">
+      <node id="12952">
         <label>percentile.hpp</label>
         <link refid="percentile_8hpp"/>
-        <childnode refid="12945" relation="include">
+        <childnode refid="12953" relation="include">
         </childnode>
-        <childnode refid="12948" relation="include">
+        <childnode refid="12956" relation="include">
         </childnode>
-        <childnode refid="12949" relation="include">
+        <childnode refid="12957" relation="include">
         </childnode>
+      </node>
+      <node id="12954">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="12955" relation="include">
+        </childnode>
+      </node>
+      <node id="12953">
+        <label>percentileFilter1d.hpp</label>
+        <link refid="percentile_filter1d_8hpp"/>
+        <childnode refid="12954" relation="include">
+        </childnode>
+      </node>
+      <node id="12956">
+        <label>percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
+        <childnode refid="12954" relation="include">
+        </childnode>
+      </node>
+      <node id="12955">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.2</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.2</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para></sect1>
+<para>Functions for working with NdArrays </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -397,17 +405,17 @@
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>i<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="namespacenc_1a832da7fc615ea4e1da7bed94a4488ea6" kindref="member">std::floor</ref>(static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1)<sp/>*<sp/>inPercentile<sp/>/<sp/>100.0));</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>indexLower<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(clip&lt;uint32&gt;(i,<sp/>0,<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>2));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>i<sp/>=<sp/>static_cast&lt;int32&gt;(<ref refid="namespacenc_1a832da7fc615ea4e1da7bed94a4488ea6" kindref="member">std::floor</ref>(static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1)<sp/>*<sp/>inPercentile<sp/>/<sp/>100.0));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>indexLower<sp/>=<sp/>static_cast&lt;uint32&gt;(clip&lt;uint32&gt;(i,<sp/>0,<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>2));</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"></highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>arrayCopy<sp/>=<sp/>inArray.template<sp/>astype&lt;double&gt;();</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a4987a29c6a989094d647f5a6de75cc6f" kindref="member">stl_algorithms::sort</ref>(arrayCopy.<ref refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kindref="member">begin</ref>(),<sp/>arrayCopy.<ref refid="classnc_1_1_nd_array_1a217adf4a530aa2bba221d89c3c5a96be" kindref="member">end</ref>());</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inInterpMethod.compare(</highlight><highlight class="stringliteral">&quot;linear&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percentI<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(indexLower)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percentI<sp/>=<sp/>static_cast&lt;double&gt;(indexLower)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fraction<sp/>=<sp/>(inPercentile<sp/>/<sp/>100.0<sp/>-<sp/>percentI)<sp/>/</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(static_cast&lt;double&gt;(indexLower<sp/>+<sp/>1)<sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1)<sp/>-<sp/>percentI);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(static_cast&lt;double&gt;(indexLower<sp/>+<sp/>1)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1)<sp/>-<sp/>percentI);</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>returnValue<sp/>=<sp/>arrayCopy[indexLower]<sp/>+<sp/>(arrayCopy[indexLower<sp/>+<sp/>1]<sp/>-<sp/>arrayCopy[indexLower])<sp/>*<sp/>fraction;</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/>returnValue<sp/>};</highlight></codeline>
@@ -426,8 +434,8 @@
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inInterpMethod.compare(</highlight><highlight class="stringliteral">&quot;nearest&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent<sp/>=<sp/>inPercentile<sp/>/<sp/>100.0;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent1<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(indexLower)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent2<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(indexLower<sp/>+<sp/>1)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent1<sp/>=<sp/>static_cast&lt;double&gt;(indexLower)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent2<sp/>=<sp/>static_cast&lt;double&gt;(indexLower<sp/>+<sp/>1)<sp/>/<sp/>static_cast&lt;double&gt;(inArray.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1);</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diff1<sp/>=<sp/>percent<sp/>-<sp/>percent1;</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diff2<sp/>=<sp/>percent2<sp/>-<sp/>percent;</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
@@ -447,7 +455,7 @@
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inInterpMethod.compare(</highlight><highlight class="stringliteral">&quot;midpoint&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">dtype</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">((arrayCopy[indexLower]<sp/>+<sp/>arrayCopy[indexLower<sp/>+<sp/>1])<sp/>/<sp/>2.0)<sp/>};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/>static_cast&lt;dtype&gt;((arrayCopy[indexLower]<sp/>+<sp/>arrayCopy[indexLower<sp/>+<sp/>1])<sp/>/<sp/>2.0)<sp/>};</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
@@ -500,6 +508,6 @@
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp"/>
   </compounddef>
 </doxygen>

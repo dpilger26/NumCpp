@@ -24,8 +24,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
-    [ "Installation", "md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org\">Python NumPy Library</a>", "index.html", null ],
+    [ "Installation", "md__c_1__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,7 +65,7 @@ var NAVTREEINDEX =
 "abs_8hpp.html#ae8445c38053ae358e2588b45a8b0ba9b",
 "classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1",
 "classnc_1_1_vec2.html#a271ca2cae96a1df44486fbcc2c0f890f",
-"classnc_1_1rotations_1_1_quaternion.html#a687155cd6469c095941b94a738119da9",
+"classnc_1_1rotations_1_1_quaternion.html#a60f1f33144c887cde1338fd80183638f",
 "fmin_8hpp.html",
 "lstsq_8hpp_source.html",
 "permutation_8hpp.html#ae0b8066f06a5f5b5a0baee76c5030892",

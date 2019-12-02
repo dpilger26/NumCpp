@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="classnc_1_1_vec3" kind="class" language="C++" prot="public">
     <compoundname>nc::Vec3</compoundname>
     <includes refid="_vec3_8hpp" local="no">Vec3.hpp</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="54" bodyend="-1"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="54" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_vec3_1a969dd1c195f4c78fc3a93292391e29c1" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="55" bodyend="-1"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="55" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_vec3_1a0896ee691f46ce0bd669b869fe6acb41" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="56" bodyend="-1"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="56" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="56" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -56,10 +56,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default Constructor </para>        </detaileddescription>
+<para>Default Constructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="62" column="1"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="62" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a6b0bc18cc9594a7d81361c518d543130" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -81,32 +82,37 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the x component </para></parameterdescription>
+<para>the x component </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inY</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the y component </para></parameterdescription>
+<para>the y component </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inZ</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the y component </para></parameterdescription>
+<para>the y component </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="72" bodyend="76"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="72" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="72" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a4056d1e369726710d6f1049b277486dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -120,18 +126,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inList</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="84" bodyend="94"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="84" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="84" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a4668419f4c870900466d4aa198247767" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -145,18 +154,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>ndArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="102" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="102" bodyend="112"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="102" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="102" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a523ca42cbdd088851cc5a299da988cee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -170,19 +182,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the angle between the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the angle between the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the angle in radians </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the angle in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="121" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="121" bodyend="131"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="121" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="121" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a4f3cfcbd67a402820cc8e0576dccd2e4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -196,19 +212,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns a copy of the vector with its magnitude clamped to maxLength</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns a copy of the vector with its magnitude clamped to maxLength</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>maxLength</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="152" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="152" bodyend="165"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="152" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="152" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1af8173f6e61e9a63beae3092fd8dc4378" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -222,19 +242,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the cross product of the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the cross product of the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the dot product </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the dot product </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="174" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="174" bodyend="181"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="174" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="174" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a301f3edcb8cb17e7e3e5dbdd5255bdd2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -248,19 +272,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the distance between the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the distance between the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the distance (equivalent to (a - b).<ref refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" kindref="member">norm()</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the distance (equivalent to (a - b).<ref refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" kindref="member">norm()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="190" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="190" bodyend="193"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="190" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="190" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1ac9f2bf549a4b800f140de060a0281a7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -274,19 +302,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the dot product of the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the dot product of the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the dot product </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the dot product </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="202" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="202" bodyend="205"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="202" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="202" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -304,26 +336,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Linearly interpolates between two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Linearly interpolates between two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>t</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the amount to interpolate by (clamped from [0, 1]); </para></parameterdescription>
+<para>the amount to interpolate by (clamped from [0, 1]); </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="248" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="248" bodyend="259"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="248" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="248" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -333,11 +370,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the magnitude of the vector</para><para><simplesect kind="return"><para>magnitude of the vector </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the magnitude of the vector</para>
+<para><simplesect kind="return"><para>magnitude of the vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="267" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="267" bodyend="270"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="267" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="267" bodyend="270"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -347,11 +387,44 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns a new normalized <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns a new normalized <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="278" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="278" bodyend="281"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="278" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+        <definition>Vec3&amp; nc::Vec3::operator *=</definition>
+        <argsstring>(double scaler) noexcept</argsstring>
+        <name>operator *=</name>
+        <param>
+          <type>double</type>
+          <declname>scaler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar mulitplication</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="436" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="436" bodyend="442"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1aad142760da8d2b3493462b4542e42673" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -365,45 +438,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Not Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<para>Not Equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>rhs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="364" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="364" bodyend="367"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
-        <definition>Vec3&amp; nc::Vec3::operator*=</definition>
-        <argsstring>(double scaler) noexcept</argsstring>
-        <name>operator*=</name>
-        <param>
-          <type>double</type>
-          <declname>scaler</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Scalar mulitplication</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>scaler</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="436" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="436" bodyend="442"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="364" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="364" bodyend="367"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1afef859d21f4332089843c5d337c1ce01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -417,19 +468,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Adds the scaler to the vector</para><para><parameterlist kind="param"><parameteritem>
+<para>Adds the scaler to the vector</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>scaler</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="376" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="376" bodyend="382"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="376" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="376" bodyend="382"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a2b1c4e63a7233fb56e2f037807dffb68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -443,19 +498,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Adds the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Adds the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>rhs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="391" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="391" bodyend="397"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="391" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="391" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a70251860269c7cb5becbe988a0b2c48e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -469,19 +528,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtracts the scaler from the vector</para><para><parameterlist kind="param"><parameteritem>
+<para>Subtracts the scaler from the vector</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>scaler</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="406" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="406" bodyend="412"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="406" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="406" bodyend="412"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a208820649ed763a5dcc9405c4aa481f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -495,19 +558,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtracts the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Subtracts the two vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>rhs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="421" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="421" bodyend="427"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="421" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="421" bodyend="427"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a431b2ac6af51bf59d804adbe5c8a7700" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -521,19 +588,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Scalar division</para><para><parameterlist kind="param"><parameteritem>
+<para>Scalar division</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>scaler</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="451" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="451" bodyend="457"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="451" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="451" bodyend="457"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a2cc63855706091881f765b63dcf52c44" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -547,19 +618,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<para>Equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>rhs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="350" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="350" bodyend="355"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="350" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="350" bodyend="355"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1aaba2a76701fbf17582641cefeb513f1c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -573,19 +648,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Projects the vector onto the input vector</para><para><parameterlist kind="param"><parameteritem>
+<para>Projects the vector onto the input vector</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="290" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="290" bodyend="294"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="290" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="290" bodyend="294"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a6b598b3ea3e950081df48026b5132459" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -595,11 +674,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref></para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="326" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="326" bodyend="330"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="326" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="326" bodyend="330"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a3af99e8df35bad1893f2d2a1a6082e21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -609,11 +691,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as a string</para><para><simplesect kind="return"><para>std::string </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as a string</para>
+<para><simplesect kind="return"><para>std::string </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="313" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="313" bodyend="318"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="313" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="313" bodyend="318"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -625,11 +710,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [0, 0, -1]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [0, 0, -1]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="139" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="139" bodyend="142"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="139" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="139" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a4ea0c82948117391c6c42a99e3093f91" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -639,11 +727,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [0, -1, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [0, -1, 0]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="213" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="213" bodyend="216"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="213" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="213" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1ac5a33c96c05a8c856b774c24f4a1965d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -653,11 +744,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [0, 0, 1]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [0, 0, 1]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="224" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="224" bodyend="227"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="224" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="224" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1a7e6730d945972ecda1815c1d41f5074c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -667,11 +761,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [-1, 0, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [-1, 0, 0]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="235" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="235" bodyend="238"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="235" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="235" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1af8862aed471260a45c7691c7c5c6b016" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -681,11 +778,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [1, 0, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [1, 0, 0]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="302" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="302" bodyend="305"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="302" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="302" bodyend="305"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_vec3_1aafc14ccae575994733d664eb3f4a6e66" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -695,15 +795,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the unit vector [0, 1, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the unit vector [0, 1, 0]</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="338" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="338" bodyend="341"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="338" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="338" bodyend="341"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Holds a 3D vector. </para>    </briefdescription>
+<para>Holds a 3D vector. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
@@ -712,7 +816,7 @@
         <link refid="classnc_1_1_vec3"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="50" bodyend="458"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="50" bodyend="458"/>
     <listofallmembers>
       <member refid="classnc_1_1_vec3_1a523ca42cbdd088851cc5a299da988cee" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>angle</name></member>
       <member refid="classnc_1_1_vec3_1a44e50b4b49011ec94548558600c0b17c" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>back</name></member>
@@ -726,8 +830,8 @@
       <member refid="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>lerp</name></member>
       <member refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>norm</name></member>
       <member refid="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>normalize</name></member>
+      <member refid="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator *=</name></member>
       <member refid="classnc_1_1_vec3_1aad142760da8d2b3493462b4542e42673" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator!=</name></member>
-      <member refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator*=</name></member>
       <member refid="classnc_1_1_vec3_1afef859d21f4332089843c5d337c1ce01" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator+=</name></member>
       <member refid="classnc_1_1_vec3_1a2b1c4e63a7233fb56e2f037807dffb68" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator+=</name></member>
       <member refid="classnc_1_1_vec3_1a70251860269c7cb5becbe988a0b2c48e" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator-=</name></member>

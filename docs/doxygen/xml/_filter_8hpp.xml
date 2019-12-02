@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="_filter_8hpp" kind="file" language="C++">
     <compoundname>Filter.hpp</compoundname>
     <includes refid="_boundary_8hpp" local="yes">NumCpp/Filter/Boundaries/Boundary.hpp</includes>
@@ -24,496 +24,21 @@
     <includes refid="uniform_filter_8hpp" local="yes">NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="6586">
-        <label>boost/predef/other/endian.h</label>
-      </node>
-      <node id="6560">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="6561" relation="include">
+      <node id="6609">
+        <label>NumCpp/Functions/dot.hpp</label>
+        <link refid="dot_8hpp"/>
+        <childnode refid="6579" relation="include">
         </childnode>
-      </node>
-      <node id="6590">
-        <label>functional</label>
-      </node>
-      <node id="6566">
-        <label>limits</label>
-      </node>
-      <node id="6599">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp</label>
-        <link refid="nearest1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6580">
-        <label>iterator</label>
-      </node>
-      <node id="6576">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="6566" relation="include">
-        </childnode>
-      </node>
-      <node id="6583">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-      </node>
-      <node id="6561">
-        <label>cstdint</label>
-      </node>
-      <node id="6558">
-        <label>NumCpp/Filter/Boundaries/Boundary.hpp</label>
-        <link refid="_boundary_8hpp"/>
-      </node>
-      <node id="6624">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp</label>
-        <link refid="reflect2d_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6623" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6618">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp</label>
-        <link refid="add_boundary2d_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6619" relation="include">
-        </childnode>
-        <childnode refid="6621" relation="include">
-        </childnode>
-        <childnode refid="6622" relation="include">
-        </childnode>
-        <childnode refid="6624" relation="include">
-        </childnode>
-        <childnode refid="6625" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6627">
-        <label>NumCpp/Functions/rot90.hpp</label>
-        <link refid="rot90_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6598" relation="include">
-        </childnode>
-        <childnode refid="6623" relation="include">
-        </childnode>
-        <childnode refid="6597" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6623">
-        <label>NumCpp/Functions/flipud.hpp</label>
-        <link refid="flipud_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6598" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6575">
-        <label>cmath</label>
-      </node>
-      <node id="6632">
-        <label>NumCpp/Filter/Filters/Filters2d/minimumFilter.hpp</label>
-        <link refid="minimum_filter_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6567">
-        <label>stdexcept</label>
       </node>
       <node id="6592">
-        <label>numeric</label>
+        <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="6559">
-        <label>NumCpp/Filter/Filters/Filters1d/complementaryMedianFilter1d.hpp</label>
-        <link refid="complementary_median_filter1d_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6562" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6604">
-        <label>NumCpp/Filter/Filters/Filters1d/gaussianFilter1d.hpp</label>
-        <link refid="gaussian_filter1d_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6602" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6605" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6568">
-        <label>string</label>
-      </node>
-      <node id="6633">
-        <label>NumCpp/Filter/Filters/Filters2d/percentileFilter.hpp</label>
-        <link refid="percentile_filter_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6609" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6584">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="6563">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6569" relation="include">
-        </childnode>
-        <childnode refid="6570" relation="include">
-        </childnode>
-        <childnode refid="6565" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6630">
-        <label>NumCpp/Filter/Filters/Filters2d/laplace.hpp</label>
-        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
-        <childnode refid="6626" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6622">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/mirror2d.hpp</label>
-        <link refid="mirror2d_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6623" relation="include">
-        </childnode>
-      </node>
-      <node id="6578">
-        <label>fstream</label>
-      </node>
-      <node id="6619">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/constant2d.hpp</label>
-        <link refid="constant2d_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6620" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6557">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6559" relation="include">
-        </childnode>
-        <childnode refid="6602" relation="include">
-        </childnode>
-        <childnode refid="6604" relation="include">
-        </childnode>
-        <childnode refid="6606" relation="include">
-        </childnode>
-        <childnode refid="6562" relation="include">
-        </childnode>
-        <childnode refid="6607" relation="include">
-        </childnode>
-        <childnode refid="6608" relation="include">
-        </childnode>
-        <childnode refid="6613" relation="include">
-        </childnode>
-        <childnode refid="6615" relation="include">
-        </childnode>
-        <childnode refid="6616" relation="include">
-        </childnode>
-        <childnode refid="6626" relation="include">
-        </childnode>
-        <childnode refid="6628" relation="include">
-        </childnode>
-        <childnode refid="6630" relation="include">
-        </childnode>
-        <childnode refid="6631" relation="include">
-        </childnode>
-        <childnode refid="6617" relation="include">
-        </childnode>
-        <childnode refid="6632" relation="include">
-        </childnode>
-        <childnode refid="6633" relation="include">
-        </childnode>
-        <childnode refid="6634" relation="include">
-        </childnode>
-        <childnode refid="6635" relation="include">
-        </childnode>
-      </node>
-      <node id="6616">
-        <label>NumCpp/Filter/Filters/Filters2d/complementaryMedianFilter.hpp</label>
-        <link refid="complementary_median_filter_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6617" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6610">
-        <label>NumCpp/Functions/argmin.hpp</label>
-        <link refid="argmin_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6577">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="6578" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6614">
-        <label>NumCpp/Functions/sort.hpp</label>
-        <link refid="sort_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6574">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="6575" relation="include">
-        </childnode>
-        <childnode refid="6566" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6597">
-        <label>NumCpp/Functions/fliplr.hpp</label>
-        <link refid="fliplr_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6598" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6571">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp</label>
-        <link refid="add_boundary1d_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6572" relation="include">
-        </childnode>
-        <childnode refid="6596" relation="include">
-        </childnode>
-        <childnode refid="6599" relation="include">
-        </childnode>
-        <childnode refid="6600" relation="include">
-        </childnode>
-        <childnode refid="6601" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6617">
-        <label>NumCpp/Filter/Filters/Filters2d/medianFilter.hpp</label>
-        <link refid="median_filter_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6606">
-        <label>NumCpp/Filter/Filters/Filters1d/maximumFilter1d.hpp</label>
-        <link refid="maximum_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6605">
-        <label>NumCpp/Utils/gaussian1d.hpp</label>
-        <link refid="gaussian1d_8hpp"/>
-        <childnode refid="6584" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-      </node>
-      <node id="6615">
+      <node id="6621">
         <label>NumCpp/Filter/Filters/Filters1d/uniformFilter1d.hpp</label>
         <link refid="uniform_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6608">
-        <label>NumCpp/Filter/Filters/Filters1d/percentileFilter1d.hpp</label>
-        <link refid="percentile_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6609" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6585">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="6582">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="6560" relation="include">
-        </childnode>
         <childnode refid="6569" relation="include">
         </childnode>
-        <childnode refid="6565" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6562">
-        <label>NumCpp/Filter/Filters/Filters1d/medianFilter1d.hpp</label>
-        <link refid="median_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6612">
-        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
-        <link refid="essentially_equal_8hpp"/>
-        <childnode refid="6576" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6595">
-        <label>vector</label>
-      </node>
-      <node id="6600">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp</label>
-        <link refid="reflect1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6597" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6573">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="6574" relation="include">
-        </childnode>
-        <childnode refid="6576" relation="include">
+        <childnode refid="6566" relation="include">
         </childnode>
         <childnode refid="6564" relation="include">
         </childnode>
@@ -521,25 +46,161 @@
         </childnode>
         <childnode refid="6579" relation="include">
         </childnode>
-        <childnode refid="6582" relation="include">
+      </node>
+      <node id="6588">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="6566" relation="include">
         </childnode>
-        <childnode refid="6563" relation="include">
+        <childnode refid="6575" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6571" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6596">
+        <label>functional</label>
+      </node>
+      <node id="6636">
+        <label>NumCpp/Filter/Filters/Filters2d/laplace.hpp</label>
+        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
+        <childnode refid="6632" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6641">
+        <label>NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</label>
+        <link refid="uniform_filter_8hpp"/>
+        <childnode refid="6588" relation="include">
         </childnode>
         <childnode refid="6569" relation="include">
         </childnode>
-        <childnode refid="6583" relation="include">
+        <childnode refid="6566" relation="include">
         </childnode>
+        <childnode refid="6624" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6572">
+        <label>limits</label>
+      </node>
+      <node id="6578">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp</label>
+        <link refid="constant1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6620">
+        <label>NumCpp/Functions/sort.hpp</label>
+        <link refid="sort_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6610">
+        <label>NumCpp/Filter/Filters/Filters1d/gaussianFilter1d.hpp</label>
+        <link refid="gaussian_filter1d_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6608" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6611" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6586">
+        <label>iterator</label>
+      </node>
+      <node id="6628">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/mirror2d.hpp</label>
+        <link refid="mirror2d_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6629" relation="include">
+        </childnode>
+      </node>
+      <node id="6583">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
         <childnode refid="6584" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6567">
+        <label>cstdint</label>
+      </node>
+      <node id="6608">
+        <label>NumCpp/Filter/Filters/Filters1d/convolve1d.hpp</label>
+        <link refid="convolve1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6609" relation="include">
+        </childnode>
+        <childnode refid="6603" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6602">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp</label>
+        <link refid="mirror1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6603" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6579">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="6580" relation="include">
+        </childnode>
+        <childnode refid="6582" relation="include">
+        </childnode>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6583" relation="include">
         </childnode>
         <childnode refid="6585" relation="include">
         </childnode>
-        <childnode refid="6586" relation="include">
-        </childnode>
-        <childnode refid="6587" relation="include">
-        </childnode>
         <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
         </childnode>
         <childnode refid="6575" relation="include">
         </childnode>
@@ -547,17 +208,11 @@
         </childnode>
         <childnode refid="6590" relation="include">
         </childnode>
-        <childnode refid="6578" relation="include">
-        </childnode>
         <childnode refid="6591" relation="include">
-        </childnode>
-        <childnode refid="6565" relation="include">
         </childnode>
         <childnode refid="6592" relation="include">
         </childnode>
         <childnode refid="6593" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
         </childnode>
         <childnode refid="6594" relation="include">
         </childnode>
@@ -565,360 +220,713 @@
         </childnode>
         <childnode refid="6595" relation="include">
         </childnode>
-      </node>
-      <node id="6564">
-        <label>NumCpp/Core/Error.hpp</label>
-        <link refid="_error_8hpp"/>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6596" relation="include">
         </childnode>
-        <childnode refid="6565" relation="include">
+        <childnode refid="6584" relation="include">
+        </childnode>
+        <childnode refid="6597" relation="include">
+        </childnode>
+        <childnode refid="6571" relation="include">
+        </childnode>
+        <childnode refid="6598" relation="include">
+        </childnode>
+        <childnode refid="6599" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+        <childnode refid="6600" relation="include">
+        </childnode>
+        <childnode refid="6587" relation="include">
+        </childnode>
+        <childnode refid="6601" relation="include">
+        </childnode>
+      </node>
+      <node id="6632">
+        <label>NumCpp/Filter/Filters/Filters2d/convolve.hpp</label>
+        <link refid="convolve_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
         </childnode>
         <childnode refid="6566" relation="include">
         </childnode>
-        <childnode refid="6567" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6581">
-        <label>utility</label>
-      </node>
-      <node id="6588">
-        <label>array</label>
-      </node>
-      <node id="6631">
-        <label>NumCpp/Filter/Filters/Filters2d/maximumFilter.hpp</label>
-        <link refid="maximum_filter_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6625">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp</label>
-        <link refid="wrap2d_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6620" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6635">
-        <label>NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</label>
-        <link refid="uniform_filter_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6628">
-        <label>NumCpp/Filter/Filters/Filters2d/gaussianFilter.hpp</label>
-        <link refid="gaussian_filter_8hpp"/>
         <childnode refid="6564" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6626" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6629" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-        <childnode refid="6581" relation="include">
-        </childnode>
-      </node>
-      <node id="6609">
-        <label>NumCpp/Functions/percentile.hpp</label>
-        <link refid="percentile_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6582" relation="include">
+        <childnode refid="6624" relation="include">
         </childnode>
         <childnode refid="6579" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6609" relation="include">
         </childnode>
-        <childnode refid="6610" relation="include">
+        <childnode refid="6633" relation="include">
         </childnode>
-        <childnode refid="6611" relation="include">
+        <childnode refid="6590" relation="include">
         </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6612" relation="include">
-        </childnode>
-        <childnode refid="6570" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
+        <childnode refid="6574" relation="include">
         </childnode>
       </node>
-      <node id="6611">
-        <label>NumCpp/Functions/clip.hpp</label>
-        <link refid="clip_8hpp"/>
-        <childnode refid="6573" relation="include">
+      <node id="6604">
+        <label>NumCpp/Functions/flip.hpp</label>
+        <link refid="flip_8hpp"/>
+        <childnode refid="6579" relation="include">
         </childnode>
         <childnode refid="6585" relation="include">
         </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
       </node>
       <node id="6569">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6579">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
         <childnode refid="6570" relation="include">
         </childnode>
-        <childnode refid="6580" relation="include">
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6575" relation="include">
+        </childnode>
+        <childnode refid="6576" relation="include">
+        </childnode>
+        <childnode refid="6571" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6581">
+        <label>cmath</label>
+      </node>
+      <node id="6575">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6573">
+        <label>stdexcept</label>
+      </node>
+      <node id="6564">
+        <label>NumCpp/Filter/Boundaries/Boundary.hpp</label>
+        <link refid="_boundary_8hpp"/>
+      </node>
+      <node id="6598">
+        <label>numeric</label>
+      </node>
+      <node id="6617">
+        <label>NumCpp/Functions/clip.hpp</label>
+        <link refid="clip_8hpp"/>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6591" relation="include">
+        </childnode>
+      </node>
+      <node id="6625">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/constant2d.hpp</label>
+        <link refid="constant2d_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6626" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6574">
+        <label>string</label>
+      </node>
+      <node id="6624">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp</label>
+        <link refid="add_boundary2d_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6625" relation="include">
+        </childnode>
+        <childnode refid="6627" relation="include">
+        </childnode>
+        <childnode refid="6628" relation="include">
+        </childnode>
+        <childnode refid="6630" relation="include">
+        </childnode>
+        <childnode refid="6631" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6612">
+        <label>NumCpp/Filter/Filters/Filters1d/maximumFilter1d.hpp</label>
+        <link refid="maximum_filter1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6629">
+        <label>NumCpp/Functions/flipud.hpp</label>
+        <link refid="flipud_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6604" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6615">
+        <label>NumCpp/Functions/percentile.hpp</label>
+        <link refid="percentile_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6585" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6616" relation="include">
+        </childnode>
+        <childnode refid="6617" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6618" relation="include">
+        </childnode>
+        <childnode refid="6576" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6585">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="6576" relation="include">
+        </childnode>
+        <childnode refid="6586" relation="include">
+        </childnode>
+        <childnode refid="6587" relation="include">
+        </childnode>
+      </node>
+      <node id="6584">
+        <label>fstream</label>
+      </node>
+      <node id="6637">
+        <label>NumCpp/Filter/Filters/Filters2d/maximumFilter.hpp</label>
+        <link refid="maximum_filter_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6624" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6616">
+        <label>NumCpp/Functions/argmin.hpp</label>
+        <link refid="argmin_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6577">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp</label>
+        <link refid="add_boundary1d_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6578" relation="include">
+        </childnode>
+        <childnode refid="6602" relation="include">
+        </childnode>
+        <childnode refid="6605" relation="include">
+        </childnode>
+        <childnode refid="6606" relation="include">
+        </childnode>
+        <childnode refid="6607" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6626">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp</label>
+        <link refid="fill_corners_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6622">
+        <label>NumCpp/Filter/Filters/Filters2d/complementaryMedianFilter.hpp</label>
+        <link refid="complementary_median_filter_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6623" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6589">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+      </node>
+      <node id="6563">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6565" relation="include">
+        </childnode>
+        <childnode refid="6608" relation="include">
+        </childnode>
+        <childnode refid="6610" relation="include">
+        </childnode>
+        <childnode refid="6612" relation="include">
+        </childnode>
+        <childnode refid="6568" relation="include">
+        </childnode>
+        <childnode refid="6613" relation="include">
+        </childnode>
+        <childnode refid="6614" relation="include">
+        </childnode>
+        <childnode refid="6619" relation="include">
+        </childnode>
+        <childnode refid="6621" relation="include">
+        </childnode>
+        <childnode refid="6622" relation="include">
+        </childnode>
+        <childnode refid="6632" relation="include">
+        </childnode>
+        <childnode refid="6634" relation="include">
+        </childnode>
+        <childnode refid="6636" relation="include">
+        </childnode>
+        <childnode refid="6637" relation="include">
+        </childnode>
+        <childnode refid="6623" relation="include">
+        </childnode>
+        <childnode refid="6638" relation="include">
+        </childnode>
+        <childnode refid="6639" relation="include">
+        </childnode>
+        <childnode refid="6640" relation="include">
+        </childnode>
+        <childnode refid="6641" relation="include">
+        </childnode>
+      </node>
+      <node id="6580">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6572" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6565">
+        <label>NumCpp/Filter/Filters/Filters1d/complementaryMedianFilter1d.hpp</label>
+        <link refid="complementary_median_filter1d_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6568" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6606">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp</label>
+        <link refid="reflect1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6603" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6618">
+        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
+        <link refid="essentially_equal_8hpp"/>
+        <childnode refid="6582" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6582">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="6572" relation="include">
+        </childnode>
+      </node>
+      <node id="6591">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="6568">
+        <label>NumCpp/Filter/Filters/Filters1d/medianFilter1d.hpp</label>
+        <link refid="median_filter1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6631">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp</label>
+        <link refid="wrap2d_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6626" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6601">
+        <label>vector</label>
+      </node>
+      <node id="6603">
+        <label>NumCpp/Functions/fliplr.hpp</label>
+        <link refid="fliplr_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6604" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6607">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp</label>
+        <link refid="wrap1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6587">
+        <label>utility</label>
+      </node>
+      <node id="6594">
+        <label>array</label>
+      </node>
+      <node id="6590">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="6634">
+        <label>NumCpp/Filter/Filters/Filters2d/gaussianFilter.hpp</label>
+        <link refid="gaussian_filter_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6632" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6635" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+        <childnode refid="6587" relation="include">
+        </childnode>
+      </node>
+      <node id="6566">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="6567" relation="include">
+        </childnode>
+      </node>
+      <node id="6614">
+        <label>NumCpp/Filter/Filters/Filters1d/percentileFilter1d.hpp</label>
+        <link refid="percentile_filter1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6615" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6571">
+        <label>iostream</label>
+      </node>
+      <node id="6595">
+        <label>deque</label>
+      </node>
+      <node id="6605">
+        <label>NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp</label>
+        <link refid="nearest1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6623">
+        <label>NumCpp/Filter/Filters/Filters2d/medianFilter.hpp</label>
+        <link refid="median_filter_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6624" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6593">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="6638">
+        <label>NumCpp/Filter/Filters/Filters2d/minimumFilter.hpp</label>
+        <link refid="minimum_filter_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6624" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6619">
+        <label>NumCpp/Filter/Filters/Filters1d/rankFilter1d.hpp</label>
+        <link refid="rank_filter1d_8hpp"/>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6620" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6630">
+        <label>NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp</label>
+        <link refid="reflect2d_8hpp"/>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6629" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6570">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6571" relation="include">
+        </childnode>
+        <childnode refid="6572" relation="include">
+        </childnode>
+        <childnode refid="6573" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+      </node>
+      <node id="6600">
+        <label>type_traits</label>
+      </node>
+      <node id="6599">
+        <label>set</label>
+      </node>
+      <node id="6611">
+        <label>NumCpp/Utils/gaussian1d.hpp</label>
+        <link refid="gaussian1d_8hpp"/>
+        <childnode refid="6590" relation="include">
         </childnode>
         <childnode refid="6581" relation="include">
         </childnode>
       </node>
-      <node id="6596">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp</label>
-        <link refid="mirror1d_8hpp"/>
-        <childnode refid="6563" relation="include">
+      <node id="6639">
+        <label>NumCpp/Filter/Filters/Filters2d/percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
+        <childnode refid="6588" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6569" relation="include">
         </childnode>
-        <childnode refid="6597" relation="include">
+        <childnode refid="6566" relation="include">
         </childnode>
-        <childnode refid="6573" relation="include">
+        <childnode refid="6624" relation="include">
         </childnode>
-      </node>
-      <node id="6634">
-        <label>NumCpp/Filter/Filters/Filters2d/rankFilter.hpp</label>
-        <link refid="rank_filter_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6614" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6565">
-        <label>iostream</label>
-      </node>
-      <node id="6598">
-        <label>NumCpp/Functions/flip.hpp</label>
-        <link refid="flip_8hpp"/>
-        <childnode refid="6573" relation="include">
+        <childnode refid="6615" relation="include">
         </childnode>
         <childnode refid="6579" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
       </node>
-      <node id="6589">
-        <label>deque</label>
-      </node>
-      <node id="6629">
-        <label>NumCpp/Utils/gaussian.hpp</label>
-        <link refid="gaussian_8hpp"/>
-        <childnode refid="6584" relation="include">
-        </childnode>
-        <childnode refid="6575" relation="include">
-        </childnode>
-      </node>
-      <node id="6587">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
-      <node id="6613">
-        <label>NumCpp/Filter/Filters/Filters1d/rankFilter1d.hpp</label>
-        <link refid="rank_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6614" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6603">
-        <label>NumCpp/Functions/dot.hpp</label>
-        <link refid="dot_8hpp"/>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6602">
-        <label>NumCpp/Filter/Filters/Filters1d/convolve1d.hpp</label>
-        <link refid="convolve1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6571" relation="include">
-        </childnode>
-        <childnode refid="6603" relation="include">
-        </childnode>
-        <childnode refid="6597" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6594">
-        <label>type_traits</label>
-      </node>
-      <node id="6593">
-        <label>set</label>
-      </node>
-      <node id="6626">
-        <label>NumCpp/Filter/Filters/Filters2d/convolve.hpp</label>
-        <link refid="convolve_8hpp"/>
-        <childnode refid="6564" relation="include">
-        </childnode>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6558" relation="include">
-        </childnode>
-        <childnode refid="6618" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-        <childnode refid="6603" relation="include">
-        </childnode>
-        <childnode refid="6627" relation="include">
-        </childnode>
-        <childnode refid="6584" relation="include">
-        </childnode>
-        <childnode refid="6568" relation="include">
-        </childnode>
-      </node>
-      <node id="6620">
-        <label>NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp</label>
-        <link refid="fill_corners_8hpp"/>
-        <childnode refid="6582" relation="include">
-        </childnode>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6572">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp</label>
-        <link refid="constant1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6570">
-        <label>algorithm</label>
-      </node>
-      <node id="6621">
+      <node id="6627">
         <label>NumCpp/Filter/Boundaries/Boundaries2d/nearest2d.hpp</label>
         <link refid="nearest2d_8hpp"/>
-        <childnode refid="6582" relation="include">
+        <childnode refid="6588" relation="include">
         </childnode>
-        <childnode refid="6563" relation="include">
+        <childnode refid="6569" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6626" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6576">
+        <label>algorithm</label>
+      </node>
+      <node id="6597">
+        <label>initializer_list</label>
+      </node>
+      <node id="6640">
+        <label>NumCpp/Filter/Filters/Filters2d/rankFilter.hpp</label>
+        <link refid="rank_filter_8hpp"/>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6624" relation="include">
         </childnode>
         <childnode refid="6620" relation="include">
         </childnode>
-        <childnode refid="6573" relation="include">
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
         </childnode>
       </node>
-      <node id="6591">
-        <label>initializer_list</label>
-      </node>
-      <node id="6601">
-        <label>NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp</label>
-        <link refid="wrap1d_8hpp"/>
-        <childnode refid="6563" relation="include">
-        </childnode>
-        <childnode refid="6560" relation="include">
-        </childnode>
-        <childnode refid="6573" relation="include">
-        </childnode>
-      </node>
-      <node id="6607">
+      <node id="6613">
         <label>NumCpp/Filter/Filters/Filters1d/minimumFilter1d.hpp</label>
         <link refid="minimum_filter1d_8hpp"/>
-        <childnode refid="6563" relation="include">
+        <childnode refid="6569" relation="include">
         </childnode>
-        <childnode refid="6560" relation="include">
+        <childnode refid="6566" relation="include">
         </childnode>
-        <childnode refid="6558" relation="include">
+        <childnode refid="6564" relation="include">
         </childnode>
-        <childnode refid="6571" relation="include">
+        <childnode refid="6577" relation="include">
         </childnode>
-        <childnode refid="6573" relation="include">
+        <childnode refid="6579" relation="include">
+        </childnode>
+      </node>
+      <node id="6635">
+        <label>NumCpp/Utils/gaussian.hpp</label>
+        <link refid="gaussian_8hpp"/>
+        <childnode refid="6590" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+      </node>
+      <node id="6633">
+        <label>NumCpp/Functions/rot90.hpp</label>
+        <link refid="rot90_8hpp"/>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6604" relation="include">
+        </childnode>
+        <childnode refid="6629" relation="include">
+        </childnode>
+        <childnode refid="6603" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6637">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
-      <node id="6636">
+      <node id="6642">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="6637" relation="include">
+        <childnode refid="6643" relation="include">
         </childnode>
+      </node>
+      <node id="6643">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
       </node>
     </invincdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.2</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.2</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Image and signal filtering module </para></sect1>
+<para>Image and signal filtering module </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -946,6 +954,6 @@
 <codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rank_filter_8hpp" kindref="compound">NumCpp/Filter/Filters/Filters2d/rankFilter.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="uniform_filter_8hpp" kindref="compound">NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Filter.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Filter.hpp"/>
   </compounddef>
 </doxygen>

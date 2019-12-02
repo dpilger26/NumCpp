@@ -8,7 +8,7 @@ var searchData=
   ['filesystem',['filesystem',['../namespacenc_1_1filesystem.html',1,'nc']]],
   ['filter',['filter',['../namespacenc_1_1filter.html',1,'nc']]],
   ['imageprocessing',['imageProcessing',['../namespacenc_1_1image_processing.html',1,'nc']]],
-  ['numcpp_3a_20a_20templatized_20header_20only_20c_2b_2b_20implementation_20of_20the_20_5bpython_20numpy_20library_5d_28http_3a_2f_2fwww_2enumpy_2eorg_29',['NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)',['../index.html',1,'']]],
+  ['numcpp_3a_20a_20templatized_20header_20only_20c_2b_2b_20implementation_20of_20the_20_3ca_20href_3d_22http_3a_2f_2fwww_2enumpy_2eorg_22_3epython_20numpy_20library_3c_2fa_3e',['NumCpp: A Templatized Header Only C++ Implementation of the &lt;a href=&quot;http://www.numpy.org&quot;&gt;Python NumPy Library&lt;/a&gt;',['../index.html',1,'']]],
   ['linalg',['linalg',['../namespacenc_1_1linalg.html',1,'nc']]],
   ['name',['name',['../classnc_1_1filesystem_1_1_file.html#a29fd40eb720c1caad3dcef59e2f215a4',1,'nc::filesystem::File']]],
   ['nan',['nan',['../namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac',1,'nc::constants']]],
