@@ -304,7 +304,7 @@ namespace nc
                 q(3, 2) = -inQuat2.k();
 
                 NdArray<double> omega = q.transpose().dot(qDot.transpose());
-                return omega *= 2;
+                return omega *= 2.0;
             }
 
             //============================================================================
