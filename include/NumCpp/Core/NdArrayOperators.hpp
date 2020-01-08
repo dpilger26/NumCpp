@@ -214,7 +214,9 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator-(dtype inScalar, const NdArray<dtype>& inArray) noexcept
     {
-        return -inArray += inScalar;
+        auto returnArray = -inArray;
+        returnArray += inScalar;
+        return returnArray;
     }
 
     //============================================================================
@@ -227,7 +229,7 @@ namespace nc
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) noexcept
     {
         auto returnArray = NdArray<dtype>(inArray);
-        returnArray -= static_cast<dtype>(-1);
+        returnArray *= static_cast<dtype>(-1);
         return returnArray;
     }
 
@@ -408,7 +410,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator/(dtype inScalar, const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape);
+        NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
             [inScalar](dtype value) -> dtype
             {
@@ -505,7 +507,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator%(dtype inScalar, const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape);
+        NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
             [inScalar](dtype value) noexcept -> dtype
             {
@@ -587,7 +589,7 @@ namespace nc
     NdArray<dtype> operator|(const NdArray<dtype>& inArray, dtype inScalar) noexcept
     {
         auto returnArray = NdArray<dtype>(inArray);
-        returnArray %= inScalar;
+        returnArray |= inScalar;
         return returnArray;
     }
 
@@ -731,7 +733,7 @@ namespace nc
     {
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
-            return value &= inScalar;
+            return value ^= inScalar;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -783,6 +785,26 @@ namespace nc
     NdArray<dtype> operator^(dtype inScalar, const NdArray<dtype>& inArray) noexcept
     {
         return inArray ^ inScalar;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Takes the bitwise not of the array
+    ///
+    /// @param      inArray
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator~(const NdArray<dtype>& inArray) noexcept
+    {
+        STATIC_ASSERT_INTEGER(dtype);
+
+        NdArray<dtype> returnArray(inArray.shape());
+
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+            returnArray.begin(), std::bit_not<dtype>());
+
+        return returnArray;
     }
 
     //============================================================================
@@ -919,26 +941,6 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the bitwise not of the array
-    ///
-    /// @param      inArray
-    /// @return     NdArray
-    ///
-    template<typename dtype>
-    NdArray<dtype> operator~(const NdArray<dtype>& inArray) noexcept
-    {
-        STATIC_ASSERT_INTEGER(dtype);
-
-        NdArray<dtype> returnArray(inArray.shape());
-
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
-            returnArray.begin(), std::bit_not<dtype>);
-
-        return returnArray;
-    }
-
-    //============================================================================
-    // Method Description:
     ///						Takes the not of the array
     ///
     /// @param      inArray
@@ -1045,7 +1047,7 @@ namespace nc
         NdArray<bool> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), 
-            inArray2.cbegin(), returnArray.begin(), !std::equal_to<dtype>());
+            inArray2.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
 
         return returnArray;
     }
@@ -1110,7 +1112,7 @@ namespace nc
         NdArray<bool> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray1.cbegin(), inArray2.begin(), std::less<dtype>());
+            inArray2.cbegin(), returnArray.begin(), std::less<dtype>());
 
         return returnArray;
     }
@@ -1185,7 +1187,7 @@ namespace nc
         NdArray<bool> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray1.cbegin(), inArray2.begin(), std::greater<dtype>());
+            inArray2.cbegin(), returnArray.begin(), std::greater<dtype>());
 
         return returnArray;
     }
@@ -1260,7 +1262,7 @@ namespace nc
         NdArray<bool> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray1.cbegin(), inArray2.begin(), std::less_equal<dtype>());
+            inArray2.cbegin(), returnArray.begin(), std::less_equal<dtype>());
 
         return returnArray;
     }
@@ -1335,7 +1337,7 @@ namespace nc
         NdArray<bool> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray1.cbegin(), inArray2.begin(), std::greater_equal<dtype>());
+            inArray2.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
 
         return returnArray;
     }
@@ -1439,7 +1441,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator>>=(const NdArray<dtype>& inArray, uint8 inNumBits) noexcept
+    NdArray<dtype>& operator>>=(NdArray<dtype>& inArray, uint8 inNumBits) noexcept
     {
         auto function = [inNumBits](dtype& value) noexcept -> void
         {
@@ -1485,7 +1487,23 @@ namespace nc
 
         stl_algorithms::for_each(rhs.begin(), rhs.end(), function);
 
-        return *this;
+        return rhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						postfix increments the elements of an array
+    ///
+    /// @param      lhs
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator++(NdArray<dtype>& lhs, int) noexcept
+    {
+        auto copy = NdArray<dtype>(lhs);
+        ++lhs;
+        return copy;
     }
 
     //============================================================================
@@ -1505,23 +1523,7 @@ namespace nc
 
         stl_algorithms::for_each(rhs.begin(), rhs.end(), function);
 
-        return *this;
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						postfix increments the elements of an array
-    ///
-    /// @param      lhs
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype>
-    NdArray<dtype> operator++(const NdArray<dtype>& lhs, int) noexcept
-    {
-        auto copy = NdArray<dtype>(lhs);
-        ++lhs;
-        return copy;
+        return rhs;
     }
 
     //============================================================================
@@ -1533,7 +1535,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator--(const NdArray<dtype>& lhs, int) noexcept
+    NdArray<dtype> operator--(NdArray<dtype>& lhs, int) noexcept
     {
         auto copy = NdArray<dtype>(lhs);
         --lhs;
