@@ -35,8 +35,6 @@
     <ClInclude Include="..\..\..\include\NumCpp\Core\DtypeInfo.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Error.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Filesystem.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Core\NdArrayCore.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Core\NdArrayOperators.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\StlAlgorithms.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Shape.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Slice.hpp" />
@@ -313,6 +311,8 @@
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\svd.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\svd\SVDClass.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\NdArray.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\NdArray\NdArrayCore.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\NdArray\NdArrayOperators.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Polynomial.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Polynomial\chebyshev_t.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Polynomial\chebyshev_u.hpp" />
@@ -523,7 +523,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnablePREfast>false</EnablePREfast>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

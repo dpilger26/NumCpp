@@ -29,8 +29,8 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/NdArrayCore.hpp"
 #include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/NdArray/NdArrayCore.hpp"
 
 #include <algorithm>
 #include <functional>
@@ -1540,21 +1540,5 @@ namespace nc
         auto copy = NdArray<dtype>(lhs);
         --lhs;
         return copy;
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						io operator for the NdArray class
-    ///
-    /// @param      inOStream
-    /// @param      inArray
-    /// @return
-    ///				std::ostream
-    ///
-    template<typename dtype>
-    std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) noexcept
-    {
-        inOStream << inArray.str();
-        return inOStream;
     }
 }

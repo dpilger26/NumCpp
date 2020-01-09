@@ -28,6 +28,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/NdArrayCore.hpp"
-#include "NumCpp/Core/NdArrayOperators.hpp"
+#include "NumCpp/NdArray/NdArrayCore.hpp"
+#include "NumCpp/NdArray/NdArrayOperators.hpp"
 

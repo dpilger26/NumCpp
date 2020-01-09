@@ -887,6 +887,54 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorLogicalAndArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    {
+        return nc2Boost(self && inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLogicalAndScalar(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(self && inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLogicalAndScalarReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue && self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLogicalOrArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    {
+        return nc2Boost(self || inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLogicalOrScalar(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(self || inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLogicalOrScalarReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue || self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorNot(const NdArray<dtype>& self)
     {
         return nc2Boost(!self);
@@ -903,6 +951,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorEqualityScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue == self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
         return nc2Boost(self == inOtherArray);
@@ -911,9 +967,41 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(self != inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorNotEqualityScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue != self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorNotEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    {
+        return nc2Boost(self != inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorLessScaler(const NdArray<dtype>& self, dtype inValue)
     {
         return nc2Boost(self < inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue < self);
     }
 
     //================================================================================
@@ -935,6 +1023,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorGreaterScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue > self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorGreaterArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
         return nc2Boost(self > inOtherArray);
@@ -946,6 +1042,14 @@ namespace NdArrayInterface
     np::ndarray operatorLessEqualScaler(const NdArray<dtype>& self, dtype inValue)
     {
         return nc2Boost(self <= inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessEqualScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue <= self);
     }
 
     //================================================================================
@@ -967,25 +1071,17 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorGreaterEqualScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    {
+        return nc2Boost(inValue >= self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorGreaterEqualArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
         return nc2Boost(self >= inOtherArray);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& self, dtype inValue)
-    {
-        return nc2Boost(self != inValue);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray operatorNotEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
-    {
-        return nc2Boost(self != inOtherArray);
     }
 
     //================================================================================
@@ -3882,17 +3978,23 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("operatorDivideScalerReversed", &NdArrayInterface::operatorDivideScalerReversed<double>)
         .def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
         .def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<double>)
+        .def("operatorEqualityReversed", &NdArrayInterface::operatorEqualityScalerReversed<double>)
         .def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
+        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>)
+        .def("operatorNotEqualityReversed", &NdArrayInterface::operatorNotEqualityScalerReversed<double>)
+        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
         .def("operatorLess", &NdArrayInterface::operatorLessScaler<double>)
+        .def("operatorLessReversed", &NdArrayInterface::operatorLessScalerReversed<double>)
         .def("operatorLess", &NdArrayInterface::operatorLessArray<double>)
         .def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<double>)
+        .def("operatorGreaterReversed", &NdArrayInterface::operatorGreaterScalerReversed<double>)
         .def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>)
         .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<double>)
+        .def("operatorLessEqualReversed", &NdArrayInterface::operatorLessEqualScalerReversed<double>)
         .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>)
         .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<double>)
+        .def("operatorGreaterEqualReversed", &NdArrayInterface::operatorGreaterEqualScalerReversed<double>)
         .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>)
-        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>)
-        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
         .def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
         .def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
         .def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
@@ -3925,6 +4027,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("operatorBitwiseXorScalerReversed", &NdArrayInterface::operatorBitwiseXorScalerReversed<uint32>)
         .def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
         .def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
+        .def("operatorLogicalAndArray", &NdArrayInterface::operatorLogicalAndArray<uint32>)
+        .def("operatorLogicalAndScalar", &NdArrayInterface::operatorLogicalAndScalar<uint32>)
+        .def("operatorLogicalAndScalarReversed", &NdArrayInterface::operatorLogicalAndScalarReversed<uint32>)
+        .def("operatorLogicalOrArray", &NdArrayInterface::operatorLogicalOrArray<uint32>)
+        .def("operatorLogicalOrScalar", &NdArrayInterface::operatorLogicalOrScalar<uint32>)
+        .def("operatorLogicalOrScalarReversed", &NdArrayInterface::operatorLogicalOrScalarReversed<uint32>)
         .def("operatorNot", &NdArrayInterface::operatorNot<uint32>)
         .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
         .def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);

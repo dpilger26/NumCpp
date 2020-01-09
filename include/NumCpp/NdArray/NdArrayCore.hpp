@@ -3911,4 +3911,20 @@ namespace nc
 
         return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
     }
+
+    //============================================================================
+    // Method Description:
+    ///						io operator for the NdArray class
+    ///
+    /// @param      inOStream
+    /// @param      inArray
+    /// @return
+    ///				std::ostream
+    ///
+    template<typename dtype>
+    std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) noexcept
+    {
+        inOStream << inArray.str();
+        return inOStream;
+    }
 }

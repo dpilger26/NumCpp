@@ -1961,16 +1961,92 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    # print(colored('Testing operator !', 'cyan'))
-    # shapeInput = np.random.randint(1, 100, [2, ])
-    # shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    # cArray = NumCpp.NdArrayInt(shape)
-    # data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
-    # cArray.setArray(data)
-    # if np.array_equal(cArray.operatorNot(), ~data):
-    #     print(colored('\tPASS', 'green'))
-    # else:
-    #     print(colored('\tFAIL', 'red'))
+    print(colored('Testing operator && array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArrayInt(shape)
+    cArray2 = NumCpp.NdArrayInt(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorLogicalAndArray(cArray2), np.logical_and(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator && scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    randScalar = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(cArray.operatorLogicalAndScalar(randScalar), np.logical_and(data, randScalar)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator && scalar reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    randScalar = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(cArray.operatorLogicalAndScalarReversed(randScalar), np.logical_and(data, randScalar)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator || array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArrayInt(shape)
+    cArray2 = NumCpp.NdArrayInt(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorLogicalOrArray(cArray2), np.logical_or(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator || scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    randScalar = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(cArray.operatorLogicalOrScalar(randScalar), np.logical_or(data, randScalar)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator || scalar reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    randScalar = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(cArray.operatorLogicalOrScalarReversed(randScalar), np.logical_or(data, randScalar)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator !', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorNot(), np.logical_not(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
     print(colored('Testing operator == scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -1980,6 +2056,18 @@ def doTest():
     value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
     cArray.setArray(data)
     if np.array_equal(cArray.operatorEquality(value), data == value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator == scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorEqualityReversed(value), data == value):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2010,6 +2098,18 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing operator != scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorNotEqualityReversed(value), data != value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing operator != array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2032,6 +2132,18 @@ def doTest():
     value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
     cArray.setArray(data)
     if np.array_equal(cArray.operatorLess(value), data < value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator < scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorLessReversed(value), value < data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2062,6 +2174,18 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing operator > scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorGreaterReversed(value), value > data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing operator > array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2088,6 +2212,18 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing operator <= scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorLessEqualReversed(value), value <= data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing operator <= array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2110,6 +2246,18 @@ def doTest():
     value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
     cArray.setArray(data)
     if np.array_equal(cArray.operatorGreaterEqual(value), data >= value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator >= scaler reversed', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorGreaterEqualReversed(value), value >= data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

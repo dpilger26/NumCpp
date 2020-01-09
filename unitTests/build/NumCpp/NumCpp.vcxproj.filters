@@ -76,6 +76,9 @@
     <Filter Include="Header Files\NumCpp\Polynomial">
       <UniqueIdentifier>{9243c851-d4d8-40d5-930d-9337a8ac1797}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\NumCpp\NdArray">
+      <UniqueIdentifier>{06062690-1172-4cd6-bdd1-1a1e79948275}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NumCppPy.cpp">
@@ -1247,11 +1250,11 @@
     <ClInclude Include="..\..\..\include\NumCpp\Functions\replace.hpp">
       <Filter>Header Files\NumCpp\Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\NdArrayCore.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
+    <ClInclude Include="..\..\..\include\NumCpp\NdArray\NdArrayOperators.hpp">
+      <Filter>Header Files\NumCpp\NdArray</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\NdArrayOperators.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
+    <ClInclude Include="..\..\..\include\NumCpp\NdArray\NdArrayCore.hpp">
+      <Filter>Header Files\NumCpp\NdArray</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
