@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_read_me_8cpp-example" kind="example">
     <compoundname>ReadMe.cpp</compoundname>
     <briefdescription>
@@ -7,21 +7,13 @@
     <detaileddescription>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>A C++ Implementation of the Python Numpy Library</para>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink></para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-</sect1>
+<para>A C++ Implementation of the Python Numpy Library</para><para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink></para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
+</para></sect1>
 <sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
-<sect1 id="C:/GitHub/NumCpp/include/NumCpp.hpp_1Testing">
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<sect1 id="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp.hpp_1Testing">
 <title>Testing</title>
 <para>Compiled and tested with Visual Studio 2017/2019, and g++ 7.3.0/8.0, clang 6.0, with Boost version 1.68 and 1.70. Examples from the Quick Start Guide in README.md at <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> <programlisting filename="ReadMe.cpp"><codeline><highlight class="preprocessor">#include&quot;<ref refid="_num_cpp_8hpp" kindref="compound">NumCpp.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -54,9 +46,9 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a14<sp/>=<sp/>nc::random::randInt&lt;int&gt;({<sp/>10,<sp/>10<sp/>},<sp/>0,<sp/>100);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>a14(2,<sp/>3);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>slice<sp/>=<sp/>a14({<sp/>2,<sp/>5<sp/>},<sp/>{<sp/>2,<sp/>5<sp/>});</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rowSlice<sp/>=<sp/>a14(a14.rSlice(),<sp/>7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rowSlice<sp/>=<sp/>a14(a14.<ref refid="classnc_1_1_nd_array_1aea1061c8c6954ca960412a7f4b323405" kindref="member">rSlice</ref>(),<sp/>7);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>values<sp/>=<sp/>a14[a14<sp/>&gt;<sp/>50];</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>a14.putMask(a14<sp/>&gt;<sp/>50,<sp/>666);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>a14.<ref refid="classnc_1_1_nd_array_1a15899cfb75a560409f474826d960fec2" kindref="member">putMask</ref>(a14<sp/>&gt;<sp/>50,<sp/>666);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>random</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1random_1ae71a0895ba1f3bff56f78300e3d8538a" kindref="member">nc::random::seed</ref>(666);</highlight></codeline>
@@ -205,8 +197,7 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline><highlight class="normal">}</highlight></codeline>
-</programlisting> </para>
-</sect1>
+</programlisting> </para></sect1>
     </detaileddescription>
   </compounddef>
 </doxygen>

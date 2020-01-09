@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="sinc_8hpp" kind="file" language="C++">
     <compoundname>sinc.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
@@ -7,274 +7,286 @@
     <includes local="no">cmath</includes>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="16054">
+      <node id="17466">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="16048">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="16038" relation="include">
-        </childnode>
-        <childnode refid="16049" relation="include">
-        </childnode>
-        <childnode refid="16040" relation="include">
-        </childnode>
-        <childnode refid="16035" relation="include">
+      <node id="17450">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="17451" relation="include">
         </childnode>
       </node>
-      <node id="16058">
+      <node id="17476">
         <label>functional</label>
       </node>
-      <node id="16030">
-        <label>sinc.hpp</label>
-        <link refid="sinc_8hpp"/>
-        <childnode refid="16031" relation="include">
-        </childnode>
-        <childnode refid="16044" relation="include">
-        </childnode>
-        <childnode refid="16033" relation="include">
-        </childnode>
-      </node>
-      <node id="16034">
+      <node id="17446">
         <label>limits</label>
       </node>
-      <node id="16046">
+      <node id="17458">
         <label>iterator</label>
       </node>
-      <node id="16042">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="16043" relation="include">
-        </childnode>
-        <childnode refid="16035" relation="include">
-        </childnode>
-      </node>
-      <node id="16039">
-        <label>cstdint</label>
-      </node>
-      <node id="16031">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="16032" relation="include">
-        </childnode>
-        <childnode refid="16036" relation="include">
-        </childnode>
-        <childnode refid="16037" relation="include">
-        </childnode>
-        <childnode refid="16042" relation="include">
-        </childnode>
-        <childnode refid="16044" relation="include">
-        </childnode>
-        <childnode refid="16048" relation="include">
-        </childnode>
-        <childnode refid="16050" relation="include">
-        </childnode>
-        <childnode refid="16038" relation="include">
-        </childnode>
-        <childnode refid="16049" relation="include">
-        </childnode>
-        <childnode refid="16051" relation="include">
-        </childnode>
-        <childnode refid="16052" relation="include">
-        </childnode>
-        <childnode refid="16053" relation="include">
-        </childnode>
-        <childnode refid="16054" relation="include">
-        </childnode>
-        <childnode refid="16055" relation="include">
-        </childnode>
-        <childnode refid="16056" relation="include">
-        </childnode>
-        <childnode refid="16033" relation="include">
-        </childnode>
-        <childnode refid="16057" relation="include">
-        </childnode>
-        <childnode refid="16058" relation="include">
-        </childnode>
-        <childnode refid="16043" relation="include">
-        </childnode>
-        <childnode refid="16059" relation="include">
-        </childnode>
-        <childnode refid="16040" relation="include">
-        </childnode>
-        <childnode refid="16060" relation="include">
-        </childnode>
-        <childnode refid="16061" relation="include">
-        </childnode>
-        <childnode refid="16035" relation="include">
-        </childnode>
-        <childnode refid="16062" relation="include">
-        </childnode>
-        <childnode refid="16047" relation="include">
-        </childnode>
-        <childnode refid="16063" relation="include">
-        </childnode>
-      </node>
-      <node id="16050">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="16037" relation="include">
-        </childnode>
-        <childnode refid="16038" relation="include">
-        </childnode>
-        <childnode refid="16049" relation="include">
-        </childnode>
-        <childnode refid="16045" relation="include">
-        </childnode>
-        <childnode refid="16040" relation="include">
-        </childnode>
-        <childnode refid="16035" relation="include">
-        </childnode>
-      </node>
-      <node id="16033">
-        <label>cmath</label>
-      </node>
-      <node id="16049">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="16035" relation="include">
-        </childnode>
-      </node>
-      <node id="16041">
-        <label>stdexcept</label>
-      </node>
-      <node id="16060">
-        <label>numeric</label>
-      </node>
-      <node id="16035">
-        <label>string</label>
-      </node>
-      <node id="16044">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="16045" relation="include">
-        </childnode>
-        <childnode refid="16046" relation="include">
-        </childnode>
-        <childnode refid="16047" relation="include">
-        </childnode>
-      </node>
-      <node id="16043">
-        <label>fstream</label>
-      </node>
-      <node id="16051">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="16038" relation="include">
-        </childnode>
-      </node>
-      <node id="16032">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="16033" relation="include">
-        </childnode>
-        <childnode refid="16034" relation="include">
-        </childnode>
-        <childnode refid="16035" relation="include">
-        </childnode>
-      </node>
-      <node id="16036">
+      <node id="17448">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="16034" relation="include">
+        <childnode refid="17446" relation="include">
         </childnode>
       </node>
-      <node id="16053">
-        <label>boost/algorithm/clamp.hpp</label>
+      <node id="17463">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="17450" relation="include">
+        </childnode>
       </node>
-      <node id="16063">
-        <label>vector</label>
+      <node id="17451">
+        <label>cstdint</label>
       </node>
-      <node id="16047">
-        <label>utility</label>
+      <node id="17445">
+        <label>cmath</label>
       </node>
-      <node id="16056">
-        <label>array</label>
+      <node id="17453">
+        <label>stdexcept</label>
       </node>
-      <node id="16052">
+      <node id="17471">
+        <label>numeric</label>
+      </node>
+      <node id="17447">
+        <label>string</label>
+      </node>
+      <node id="17475">
+        <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
+        <link refid="_nd_array_operators_8hpp"/>
+        <childnode refid="17449" relation="include">
+        </childnode>
+        <childnode refid="17456" relation="include">
+        </childnode>
+        <childnode refid="17443" relation="include">
+        </childnode>
+        <childnode refid="17457" relation="include">
+        </childnode>
+        <childnode refid="17476" relation="include">
+        </childnode>
+      </node>
+      <node id="17464">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="16038">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="16039" relation="include">
+      <node id="17462">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="17449" relation="include">
+        </childnode>
+        <childnode refid="17450" relation="include">
+        </childnode>
+        <childnode refid="17461" relation="include">
+        </childnode>
+        <childnode refid="17457" relation="include">
+        </childnode>
+        <childnode refid="17452" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
         </childnode>
       </node>
-      <node id="16040">
-        <label>iostream</label>
+      <node id="17441">
+        <label>sinc.hpp</label>
+        <link refid="sinc_8hpp"/>
+        <childnode refid="17442" relation="include">
+        </childnode>
+        <childnode refid="17456" relation="include">
+        </childnode>
+        <childnode refid="17445" relation="include">
+        </childnode>
       </node>
-      <node id="16057">
-        <label>deque</label>
+      <node id="17455">
+        <label>fstream</label>
       </node>
-      <node id="16055">
-        <label>boost/endian/conversion.hpp</label>
+      <node id="17443">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="17444" relation="include">
+        </childnode>
+        <childnode refid="17448" relation="include">
+        </childnode>
+        <childnode refid="17449" relation="include">
+        </childnode>
+        <childnode refid="17454" relation="include">
+        </childnode>
+        <childnode refid="17456" relation="include">
+        </childnode>
+        <childnode refid="17460" relation="include">
+        </childnode>
+        <childnode refid="17462" relation="include">
+        </childnode>
+        <childnode refid="17450" relation="include">
+        </childnode>
+        <childnode refid="17461" relation="include">
+        </childnode>
+        <childnode refid="17463" relation="include">
+        </childnode>
+        <childnode refid="17464" relation="include">
+        </childnode>
+        <childnode refid="17465" relation="include">
+        </childnode>
+        <childnode refid="17466" relation="include">
+        </childnode>
+        <childnode refid="17467" relation="include">
+        </childnode>
+        <childnode refid="17468" relation="include">
+        </childnode>
+        <childnode refid="17445" relation="include">
+        </childnode>
+        <childnode refid="17469" relation="include">
+        </childnode>
+        <childnode refid="17455" relation="include">
+        </childnode>
+        <childnode refid="17470" relation="include">
+        </childnode>
+        <childnode refid="17452" relation="include">
+        </childnode>
+        <childnode refid="17471" relation="include">
+        </childnode>
+        <childnode refid="17472" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
+        </childnode>
+        <childnode refid="17473" relation="include">
+        </childnode>
+        <childnode refid="17459" relation="include">
+        </childnode>
+        <childnode refid="17474" relation="include">
+        </childnode>
       </node>
-      <node id="16037">
+      <node id="17454">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="17455" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
+        </childnode>
+      </node>
+      <node id="17444">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="17445" relation="include">
+        </childnode>
+        <childnode refid="17446" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
+        </childnode>
+      </node>
+      <node id="17465">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="17460">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="17450" relation="include">
+        </childnode>
+        <childnode refid="17461" relation="include">
+        </childnode>
+        <childnode refid="17452" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
+        </childnode>
+      </node>
+      <node id="17474">
+        <label>vector</label>
+      </node>
+      <node id="17442">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="17443" relation="include">
+        </childnode>
+        <childnode refid="17475" relation="include">
+        </childnode>
+      </node>
+      <node id="17449">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="16038" relation="include">
+        <childnode refid="17450" relation="include">
         </childnode>
-        <childnode refid="16040" relation="include">
+        <childnode refid="17452" relation="include">
         </childnode>
-        <childnode refid="16034" relation="include">
+        <childnode refid="17446" relation="include">
         </childnode>
-        <childnode refid="16041" relation="include">
+        <childnode refid="17453" relation="include">
         </childnode>
-        <childnode refid="16035" relation="include">
+        <childnode refid="17447" relation="include">
         </childnode>
       </node>
-      <node id="16062">
+      <node id="17459">
+        <label>utility</label>
+      </node>
+      <node id="17468">
+        <label>array</label>
+      </node>
+      <node id="17461">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="17447" relation="include">
+        </childnode>
+      </node>
+      <node id="17456">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="17457" relation="include">
+        </childnode>
+        <childnode refid="17458" relation="include">
+        </childnode>
+        <childnode refid="17459" relation="include">
+        </childnode>
+      </node>
+      <node id="17452">
+        <label>iostream</label>
+      </node>
+      <node id="17469">
+        <label>deque</label>
+      </node>
+      <node id="17467">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="17473">
         <label>type_traits</label>
       </node>
-      <node id="16061">
+      <node id="17472">
         <label>set</label>
       </node>
-      <node id="16045">
+      <node id="17457">
         <label>algorithm</label>
       </node>
-      <node id="16059">
+      <node id="17470">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16064">
-        <label>sinc.hpp</label>
-        <link refid="sinc_8hpp"/>
-        <childnode refid="16065" relation="include">
-        </childnode>
-      </node>
-      <node id="16065">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="16066" relation="include">
-        </childnode>
-      </node>
-      <node id="16066">
+      <node id="17479">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="17477">
+        <label>sinc.hpp</label>
+        <link refid="sinc_8hpp"/>
+        <childnode refid="17478" relation="include">
+        </childnode>
+      </node>
+      <node id="17478">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="17479" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para>
-</sect1>
+<para>Functions for working with NdArrays </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -291,7 +303,7 @@
 <codeline lineno="51"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
 <codeline lineno="52" refid="namespacenc_1a72cc296d28dc1e45c0c2b5b323d5b668" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a72cc296d28dc1e45c0c2b5b323d5b668" kindref="member">sinc</ref>(dtype<sp/>inValue)<sp/>noexcept</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>input<sp/>=<sp/>static_cast&lt;double&gt;(inValue);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>input<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inValue);</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a0d66dc207eb871bba26bff4838992fef" kindref="member">std::sin</ref>(<ref refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" kindref="member">constants::pi</ref><sp/>*<sp/>input)<sp/>/<sp/>(<ref refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" kindref="member">constants::pi</ref><sp/>*<sp/>input);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
@@ -311,6 +323,6 @@
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/sinc.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/sinc.hpp"/>
   </compounddef>
 </doxygen>

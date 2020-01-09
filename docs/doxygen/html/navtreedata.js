@@ -24,8 +24,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org\">Python NumPy Library</a>", "index.html", null ],
-    [ "Installation", "md__c_1__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
+    [ "Installation", "md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -62,14 +62,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_interface_8hpp.html",
-"abs_8hpp.html#ae8445c38053ae358e2588b45a8b0ba9b",
-"classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1",
-"classnc_1_1_vec2.html#a271ca2cae96a1df44486fbcc2c0f890f",
-"classnc_1_1rotations_1_1_quaternion.html#a60f1f33144c887cde1338fd80183638f",
-"fmin_8hpp.html",
-"lstsq_8hpp_source.html",
-"permutation_8hpp.html#ae0b8066f06a5f5b5a0baee76c5030892",
-"tri_8hpp.html#a9464c274ad7737a74f70afe33a5b2f72"
+"_stl_algorithms_8hpp.html#a8cc83e2fb7a3d8302db0f4b19513ddd9",
+"binary_repr_8hpp_source.html",
+"classnc_1_1_slice.html#a91177c7ea9b87318232b8d916a487d38",
+"classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315",
+"flip_8hpp.html#a99283060a7a0cdfeb339a22e6c073f40",
+"log__gamma_8hpp.html#a0cb1312c9f5ba140d36b2c6565556c20",
+"ones__like_8hpp.html#a19b8942c347b6887f5d9e8bf66c4fc93",
+"to_stl_vector_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
