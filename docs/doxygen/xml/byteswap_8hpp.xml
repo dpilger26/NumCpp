@@ -1,274 +1,286 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="byteswap_8hpp" kind="file" language="C++">
     <compoundname>byteswap.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="2192">
+      <node id="2303">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="2186">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="2176" relation="include">
-        </childnode>
-        <childnode refid="2187" relation="include">
-        </childnode>
-        <childnode refid="2178" relation="include">
-        </childnode>
-        <childnode refid="2173" relation="include">
+      <node id="2287">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="2288" relation="include">
         </childnode>
       </node>
-      <node id="2196">
+      <node id="2313">
         <label>functional</label>
       </node>
-      <node id="2172">
+      <node id="2283">
         <label>limits</label>
       </node>
-      <node id="2184">
+      <node id="2295">
         <label>iterator</label>
       </node>
-      <node id="2180">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="2181" relation="include">
-        </childnode>
-        <childnode refid="2173" relation="include">
-        </childnode>
-      </node>
-      <node id="2177">
-        <label>cstdint</label>
-      </node>
-      <node id="2169">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="2170" relation="include">
-        </childnode>
-        <childnode refid="2174" relation="include">
-        </childnode>
-        <childnode refid="2175" relation="include">
-        </childnode>
-        <childnode refid="2180" relation="include">
-        </childnode>
-        <childnode refid="2182" relation="include">
-        </childnode>
-        <childnode refid="2186" relation="include">
-        </childnode>
-        <childnode refid="2188" relation="include">
-        </childnode>
-        <childnode refid="2176" relation="include">
-        </childnode>
-        <childnode refid="2187" relation="include">
-        </childnode>
-        <childnode refid="2189" relation="include">
-        </childnode>
-        <childnode refid="2190" relation="include">
-        </childnode>
-        <childnode refid="2191" relation="include">
-        </childnode>
-        <childnode refid="2192" relation="include">
-        </childnode>
-        <childnode refid="2193" relation="include">
-        </childnode>
-        <childnode refid="2194" relation="include">
-        </childnode>
-        <childnode refid="2171" relation="include">
-        </childnode>
-        <childnode refid="2195" relation="include">
-        </childnode>
-        <childnode refid="2196" relation="include">
-        </childnode>
-        <childnode refid="2181" relation="include">
-        </childnode>
-        <childnode refid="2197" relation="include">
-        </childnode>
-        <childnode refid="2178" relation="include">
-        </childnode>
-        <childnode refid="2198" relation="include">
-        </childnode>
-        <childnode refid="2199" relation="include">
-        </childnode>
-        <childnode refid="2173" relation="include">
-        </childnode>
-        <childnode refid="2200" relation="include">
-        </childnode>
-        <childnode refid="2185" relation="include">
-        </childnode>
-        <childnode refid="2201" relation="include">
-        </childnode>
-      </node>
-      <node id="2188">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="2175" relation="include">
-        </childnode>
-        <childnode refid="2176" relation="include">
-        </childnode>
-        <childnode refid="2187" relation="include">
-        </childnode>
-        <childnode refid="2183" relation="include">
-        </childnode>
-        <childnode refid="2178" relation="include">
-        </childnode>
-        <childnode refid="2173" relation="include">
-        </childnode>
-      </node>
-      <node id="2171">
-        <label>cmath</label>
-      </node>
-      <node id="2187">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="2173" relation="include">
-        </childnode>
-      </node>
-      <node id="2179">
-        <label>stdexcept</label>
-      </node>
-      <node id="2198">
-        <label>numeric</label>
-      </node>
-      <node id="2173">
-        <label>string</label>
-      </node>
-      <node id="2182">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="2183" relation="include">
-        </childnode>
-        <childnode refid="2184" relation="include">
-        </childnode>
-        <childnode refid="2185" relation="include">
-        </childnode>
-      </node>
-      <node id="2181">
-        <label>fstream</label>
-      </node>
-      <node id="2189">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="2176" relation="include">
-        </childnode>
-      </node>
-      <node id="2170">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="2171" relation="include">
-        </childnode>
-        <childnode refid="2172" relation="include">
-        </childnode>
-        <childnode refid="2173" relation="include">
-        </childnode>
-      </node>
-      <node id="2174">
+      <node id="2285">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="2172" relation="include">
+        <childnode refid="2283" relation="include">
         </childnode>
       </node>
-      <node id="2191">
-        <label>boost/algorithm/clamp.hpp</label>
+      <node id="2300">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="2287" relation="include">
+        </childnode>
       </node>
-      <node id="2201">
-        <label>vector</label>
+      <node id="2288">
+        <label>cstdint</label>
       </node>
-      <node id="2185">
-        <label>utility</label>
+      <node id="2282">
+        <label>cmath</label>
       </node>
-      <node id="2194">
-        <label>array</label>
+      <node id="2290">
+        <label>stdexcept</label>
       </node>
-      <node id="2190">
+      <node id="2308">
+        <label>numeric</label>
+      </node>
+      <node id="2284">
+        <label>string</label>
+      </node>
+      <node id="2312">
+        <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
+        <link refid="_nd_array_operators_8hpp"/>
+        <childnode refid="2286" relation="include">
+        </childnode>
+        <childnode refid="2293" relation="include">
+        </childnode>
+        <childnode refid="2280" relation="include">
+        </childnode>
+        <childnode refid="2294" relation="include">
+        </childnode>
+        <childnode refid="2313" relation="include">
+        </childnode>
+      </node>
+      <node id="2301">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="2168">
-        <label>byteswap.hpp</label>
-        <link refid="byteswap_8hpp"/>
-        <childnode refid="2169" relation="include">
+      <node id="2299">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="2286" relation="include">
+        </childnode>
+        <childnode refid="2287" relation="include">
+        </childnode>
+        <childnode refid="2298" relation="include">
+        </childnode>
+        <childnode refid="2294" relation="include">
+        </childnode>
+        <childnode refid="2289" relation="include">
+        </childnode>
+        <childnode refid="2284" relation="include">
         </childnode>
       </node>
-      <node id="2176">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="2177" relation="include">
+      <node id="2292">
+        <label>fstream</label>
+      </node>
+      <node id="2280">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="2281" relation="include">
+        </childnode>
+        <childnode refid="2285" relation="include">
+        </childnode>
+        <childnode refid="2286" relation="include">
+        </childnode>
+        <childnode refid="2291" relation="include">
+        </childnode>
+        <childnode refid="2293" relation="include">
+        </childnode>
+        <childnode refid="2297" relation="include">
+        </childnode>
+        <childnode refid="2299" relation="include">
+        </childnode>
+        <childnode refid="2287" relation="include">
+        </childnode>
+        <childnode refid="2298" relation="include">
+        </childnode>
+        <childnode refid="2300" relation="include">
+        </childnode>
+        <childnode refid="2301" relation="include">
+        </childnode>
+        <childnode refid="2302" relation="include">
+        </childnode>
+        <childnode refid="2303" relation="include">
+        </childnode>
+        <childnode refid="2304" relation="include">
+        </childnode>
+        <childnode refid="2305" relation="include">
+        </childnode>
+        <childnode refid="2282" relation="include">
+        </childnode>
+        <childnode refid="2306" relation="include">
+        </childnode>
+        <childnode refid="2292" relation="include">
+        </childnode>
+        <childnode refid="2307" relation="include">
+        </childnode>
+        <childnode refid="2289" relation="include">
+        </childnode>
+        <childnode refid="2308" relation="include">
+        </childnode>
+        <childnode refid="2309" relation="include">
+        </childnode>
+        <childnode refid="2284" relation="include">
+        </childnode>
+        <childnode refid="2310" relation="include">
+        </childnode>
+        <childnode refid="2296" relation="include">
+        </childnode>
+        <childnode refid="2311" relation="include">
         </childnode>
       </node>
-      <node id="2178">
-        <label>iostream</label>
+      <node id="2291">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="2292" relation="include">
+        </childnode>
+        <childnode refid="2284" relation="include">
+        </childnode>
       </node>
-      <node id="2195">
-        <label>deque</label>
+      <node id="2281">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="2282" relation="include">
+        </childnode>
+        <childnode refid="2283" relation="include">
+        </childnode>
+        <childnode refid="2284" relation="include">
+        </childnode>
       </node>
-      <node id="2193">
-        <label>boost/endian/conversion.hpp</label>
+      <node id="2302">
+        <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="2175">
+      <node id="2297">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="2287" relation="include">
+        </childnode>
+        <childnode refid="2298" relation="include">
+        </childnode>
+        <childnode refid="2289" relation="include">
+        </childnode>
+        <childnode refid="2284" relation="include">
+        </childnode>
+      </node>
+      <node id="2311">
+        <label>vector</label>
+      </node>
+      <node id="2279">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="2280" relation="include">
+        </childnode>
+        <childnode refid="2312" relation="include">
+        </childnode>
+      </node>
+      <node id="2286">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="2176" relation="include">
+        <childnode refid="2287" relation="include">
         </childnode>
-        <childnode refid="2178" relation="include">
+        <childnode refid="2289" relation="include">
         </childnode>
-        <childnode refid="2172" relation="include">
+        <childnode refid="2283" relation="include">
         </childnode>
-        <childnode refid="2179" relation="include">
+        <childnode refid="2290" relation="include">
         </childnode>
-        <childnode refid="2173" relation="include">
+        <childnode refid="2284" relation="include">
         </childnode>
       </node>
-      <node id="2200">
+      <node id="2278">
+        <label>byteswap.hpp</label>
+        <link refid="byteswap_8hpp"/>
+        <childnode refid="2279" relation="include">
+        </childnode>
+      </node>
+      <node id="2296">
+        <label>utility</label>
+      </node>
+      <node id="2305">
+        <label>array</label>
+      </node>
+      <node id="2298">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="2284" relation="include">
+        </childnode>
+      </node>
+      <node id="2293">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="2294" relation="include">
+        </childnode>
+        <childnode refid="2295" relation="include">
+        </childnode>
+        <childnode refid="2296" relation="include">
+        </childnode>
+      </node>
+      <node id="2289">
+        <label>iostream</label>
+      </node>
+      <node id="2306">
+        <label>deque</label>
+      </node>
+      <node id="2304">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="2310">
         <label>type_traits</label>
       </node>
-      <node id="2199">
+      <node id="2309">
         <label>set</label>
       </node>
-      <node id="2183">
+      <node id="2294">
         <label>algorithm</label>
       </node>
-      <node id="2197">
+      <node id="2307">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2203">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="2204" relation="include">
-        </childnode>
-      </node>
-      <node id="2202">
-        <label>byteswap.hpp</label>
-        <link refid="byteswap_8hpp"/>
-        <childnode refid="2203" relation="include">
-        </childnode>
-      </node>
-      <node id="2204">
+      <node id="2316">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="2314">
+        <label>byteswap.hpp</label>
+        <link refid="byteswap_8hpp"/>
+        <childnode refid="2315" relation="include">
+        </childnode>
+      </node>
+      <node id="2315">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="2316" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para>
-</sect1>
+<para>Functions for working with NdArrays </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -288,6 +300,6 @@
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="52"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/byteswap.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/byteswap.hpp"/>
   </compounddef>
 </doxygen>

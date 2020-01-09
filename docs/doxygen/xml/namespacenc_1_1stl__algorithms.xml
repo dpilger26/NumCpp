@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="namespacenc_1_1stl__algorithms" kind="namespace" language="C++">
     <compoundname>nc::stl_algorithms</compoundname>
       <sectiondef kind="func">
@@ -31,39 +31,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Tests if all of the elements of a range satisy a predicate</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Tests if all of the elements of a range satisy a predicate</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>p</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>unary predicate function </para>
-</parameterdescription>
+<para>unary predicate function </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="54" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="54" bodyend="61"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="54" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a86175072e60e0fabc931a8acd6329c77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -93,39 +87,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Tests if any of the elements of a range satisy a predicate</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Tests if any of the elements of a range satisy a predicate</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>p</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>unary predicate function </para>
-</parameterdescription>
+<para>unary predicate function </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="73" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="73" bodyend="80"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="73" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="73" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1afc0a193758bfb62333c4ed53ada9537d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -155,39 +143,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Copies from one container to another</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Copies from one container to another</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="92" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="92" bodyend="99"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="92" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="92" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ae1e1834ec458e90544d643b4b1e68735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -217,39 +199,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Counts the values in the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Counts the values in the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of container </para>
-</parameterdescription>
+<para>the first iterator of container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of container </para>
-</parameterdescription>
+<para>the last iterator of container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the initial value </para>
-</parameterdescription>
+<para>the initial value </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>count </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>count </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="112" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="112" bodyend="119"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="112" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="112" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a3de9f1dd54e8db8997e7928322e098f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -279,39 +255,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Test if two ranges are equal</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Test if two ranges are equal</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of first container </para>
-</parameterdescription>
+<para>the first iterator of first container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of first container </para>
-</parameterdescription>
+<para>the last iterator of first container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of second container </para>
-</parameterdescription>
+<para>the first iterator of second container </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="131" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="131" bodyend="139"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="131" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="131" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ae3ace3ed68934f4acde48334a7ff7724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -348,47 +318,40 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Test if two ranges are equal</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Test if two ranges are equal</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of first container </para>
-</parameterdescription>
+<para>the first iterator of first container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of first container </para>
-</parameterdescription>
+<para>the last iterator of first container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of second container </para>
-</parameterdescription>
+<para>the first iterator of second container </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>p</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>binary predicate to compare the elements </para>
-</parameterdescription>
+<para>binary predicate to compare the elements </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="152" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="152" bodyend="160"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="152" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="152" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1abbc2e8d742b76f4c2bead6ae894bc4e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -418,37 +381,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Fills the range with the value</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Fills the range with the value</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="171" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="171" bodyend="178"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="171" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="171" bodyend="178"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ab372e4e815977d16f647cdcfea3f1ea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -478,39 +436,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the first element in the range [first, last) that satisfies specific criteria:</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns the first element in the range [first, last) that satisfies specific criteria:</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the value to find </para>
-</parameterdescription>
+<para>the value to find </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>InputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>InputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="191" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="191" bodyend="198"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="191" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="191" bodyend="198"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -540,37 +492,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Runs the function on each element of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Runs the function on each element of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="209" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="209" bodyend="216"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="209" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="209" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a42bf8acb4c60400df32819dfd2507b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -593,31 +540,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns true if the array is sorted</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns true if the array is sorted</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool true if sorted </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool true if sorted </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="227" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="227" bodyend="234"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="227" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="227" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a8f91b4c9610973486b45eab8a5f04d3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -640,31 +582,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Runs the maximum element of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Runs the maximum element of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>ForwordIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>ForwordIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="245" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="245" bodyend="252"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="245" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="245" bodyend="252"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ab886383a0452b7240cf97d80b569e858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -687,31 +624,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Runs the minimum element of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Runs the minimum element of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>ForwardIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>ForwardIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="262" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="262" bodyend="269"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="262" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="262" bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ae2ab2d36f54efc167ea074348b0319fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -734,31 +666,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Runs the minimum and maximum elements of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Runs the minimum and maximum elements of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::pair </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>std::pair </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="281" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="281" bodyend="288"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="281" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="281" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1aa8f79e15f5d691cc61bf56bd4299afed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -788,39 +715,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Tests if none of the elements of a range satisy a predicate</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Tests if none of the elements of a range satisy a predicate</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>p</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>unary predicate function </para>
-</parameterdescription>
+<para>unary predicate function </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="300" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="300" bodyend="307"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="300" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="300" bodyend="307"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a946075f627d142f66626b03c30de8a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -847,37 +768,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Sorts up to the nth element</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Sorts up to the nth element</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the range </para>
-</parameterdescription>
+<para>the first iterator of the range </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>nth</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the element that should be sorted </para>
-</parameterdescription>
+<para>the element that should be sorted </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the range </para>
-</parameterdescription>
+<para>the last iterator of the range </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="318" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="318" bodyend="325"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="318" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="318" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a8674f754c02402908901506e8681839f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -911,45 +827,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>replaces a value in the range with another value</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>replaces a value in the range with another value</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>oldValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the value to replace </para>
-</parameterdescription>
+<para>the value to replace </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>newValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the replacement value </para>
-</parameterdescription>
+<para>the replacement value </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="337" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="337" bodyend="345"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="337" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="337" bodyend="345"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a51eb1633787552e33ebede44bf5557a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -972,29 +882,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>reverses the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>reverses the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="355" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="355" bodyend="362"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="355" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="355" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a79bd84376c57067a06ea0302f4fc261a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1021,37 +927,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Rotates the elements of a range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Rotates the elements of a range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the range </para>
-</parameterdescription>
+<para>the first iterator of the range </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>firstN</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the element that should appear at the beginning of the rotated range </para>
-</parameterdescription>
+<para>the element that should appear at the beginning of the rotated range </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the range </para>
-</parameterdescription>
+<para>the last iterator of the range </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="373" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="373" bodyend="380"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="373" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="373" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a8cc83e2fb7a3d8302db0f4b19513ddd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1092,55 +993,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>finds the difference of two ranges</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>finds the difference of two ranges</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the second source </para>
-</parameterdescription>
+<para>the first iterator of the second source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="394" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="394" bodyend="404"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="394" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="394" bodyend="404"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a6d7aea8b69f7e1a1129daad900a4917d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1181,55 +1074,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>finds the intersection of two ranges</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>finds the intersection of two ranges</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the second source </para>
-</parameterdescription>
+<para>the first iterator of the second source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="418" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="418" bodyend="428"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="418" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="418" bodyend="428"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1adda22e93ced5035c66f63532ee1408b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1270,55 +1155,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>finds the union of two ranges</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>finds the union of two ranges</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the second source </para>
-</parameterdescription>
+<para>the first iterator of the second source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="442" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="442" bodyend="452"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="442" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="442" bodyend="452"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a4987a29c6a989094d647f5a6de75cc6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1341,29 +1218,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Sorts the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Sorts the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="462" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="462" bodyend="469"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="462" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="462" bodyend="469"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a0a7faa16f597cc09d2540b2edf467fee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1393,37 +1266,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Sorts the range preserving order</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Sorts the range preserving order</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>comp</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the comparitor function </para>
-</parameterdescription>
+<para>the comparitor function </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="480" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="480" bodyend="487"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="480" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="480" bodyend="487"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1460,47 +1328,40 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Transforms the elements of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Transforms the elements of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>unaryFunction</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="500" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="500" bodyend="508"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="500" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="500" bodyend="508"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1544,61 +1405,53 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Transforms the elements of the range</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Transforms the elements of the range</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>first1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the source </para>
-</parameterdescription>
+<para>the first iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>last1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the last iterator of the source </para>
-</parameterdescription>
+<para>the last iterator of the source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>first2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the second source </para>
-</parameterdescription>
+<para>the first iterator of the second source </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the first iterator of the destination </para>
-</parameterdescription>
+<para>the first iterator of the destination </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>unaryFunction</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to apply to the input iterators </para>
-</parameterdescription>
+<para>the function to apply to the input iterators </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OutputIt </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>OutputIt </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="522" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="522" bodyend="531"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="522" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="522" bodyend="531"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="43" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="43" column="1"/>
   </compounddef>
 </doxygen>

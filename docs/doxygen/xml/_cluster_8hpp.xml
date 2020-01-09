@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_cluster_8hpp" kind="file" language="C++">
     <compoundname>Cluster.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -19,170 +19,170 @@
     <includedby refid="cluster_pixels_8hpp" local="yes">clusterPixels.hpp</includedby>
     <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
     <incdepgraph>
-      <node id="2658">
-        <label>NumCpp/ImageProcessing/Pixel.hpp</label>
-        <link refid="_pixel_8hpp"/>
-        <childnode refid="2648" relation="include">
-        </childnode>
-        <childnode refid="2659" relation="include">
-        </childnode>
-        <childnode refid="2650" relation="include">
-        </childnode>
-        <childnode refid="2653" relation="include">
-        </childnode>
-      </node>
-      <node id="2651">
-        <label>limits</label>
-      </node>
-      <node id="2656">
-        <label>iterator</label>
-      </node>
-      <node id="2646">
-        <label>Cluster.hpp</label>
-        <link refid="_cluster_8hpp"/>
-        <childnode refid="2647" relation="include">
-        </childnode>
-        <childnode refid="2654" relation="include">
-        </childnode>
-        <childnode refid="2648" relation="include">
-        </childnode>
-        <childnode refid="2658" relation="include">
-        </childnode>
-        <childnode refid="2659" relation="include">
-        </childnode>
-        <childnode refid="2655" relation="include">
-        </childnode>
-        <childnode refid="2650" relation="include">
-        </childnode>
-        <childnode refid="2651" relation="include">
-        </childnode>
-        <childnode refid="2653" relation="include">
-        </childnode>
-        <childnode refid="2657" relation="include">
-        </childnode>
-        <childnode refid="2660" relation="include">
-        </childnode>
-      </node>
-      <node id="2649">
-        <label>cstdint</label>
-      </node>
-      <node id="2659">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="2653" relation="include">
-        </childnode>
-      </node>
-      <node id="2652">
-        <label>stdexcept</label>
-      </node>
-      <node id="2653">
-        <label>string</label>
-      </node>
-      <node id="2654">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="2655" relation="include">
-        </childnode>
-        <childnode refid="2656" relation="include">
-        </childnode>
-        <childnode refid="2657" relation="include">
-        </childnode>
-      </node>
-      <node id="2660">
-        <label>vector</label>
-      </node>
-      <node id="2657">
-        <label>utility</label>
-      </node>
-      <node id="2648">
+      <node id="2782">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="2649" relation="include">
+        <childnode refid="2783" relation="include">
         </childnode>
       </node>
-      <node id="2650">
-        <label>iostream</label>
+      <node id="2785">
+        <label>limits</label>
       </node>
-      <node id="2647">
+      <node id="2790">
+        <label>iterator</label>
+      </node>
+      <node id="2783">
+        <label>cstdint</label>
+      </node>
+      <node id="2786">
+        <label>stdexcept</label>
+      </node>
+      <node id="2787">
+        <label>string</label>
+      </node>
+      <node id="2780">
+        <label>Cluster.hpp</label>
+        <link refid="_cluster_8hpp"/>
+        <childnode refid="2781" relation="include">
+        </childnode>
+        <childnode refid="2788" relation="include">
+        </childnode>
+        <childnode refid="2782" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2789" relation="include">
+        </childnode>
+        <childnode refid="2784" relation="include">
+        </childnode>
+        <childnode refid="2785" relation="include">
+        </childnode>
+        <childnode refid="2787" relation="include">
+        </childnode>
+        <childnode refid="2791" relation="include">
+        </childnode>
+        <childnode refid="2794" relation="include">
+        </childnode>
+      </node>
+      <node id="2794">
+        <label>vector</label>
+      </node>
+      <node id="2781">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="2648" relation="include">
+        <childnode refid="2782" relation="include">
         </childnode>
-        <childnode refid="2650" relation="include">
+        <childnode refid="2784" relation="include">
         </childnode>
-        <childnode refid="2651" relation="include">
+        <childnode refid="2785" relation="include">
         </childnode>
-        <childnode refid="2652" relation="include">
+        <childnode refid="2786" relation="include">
         </childnode>
-        <childnode refid="2653" relation="include">
+        <childnode refid="2787" relation="include">
         </childnode>
       </node>
-      <node id="2655">
+      <node id="2791">
+        <label>utility</label>
+      </node>
+      <node id="2793">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="2787" relation="include">
+        </childnode>
+      </node>
+      <node id="2788">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="2789" relation="include">
+        </childnode>
+        <childnode refid="2790" relation="include">
+        </childnode>
+        <childnode refid="2791" relation="include">
+        </childnode>
+      </node>
+      <node id="2784">
+        <label>iostream</label>
+      </node>
+      <node id="2792">
+        <label>NumCpp/ImageProcessing/Pixel.hpp</label>
+        <link refid="_pixel_8hpp"/>
+        <childnode refid="2782" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2784" relation="include">
+        </childnode>
+        <childnode refid="2787" relation="include">
+        </childnode>
+      </node>
+      <node id="2789">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2668">
-        <label>clusterPixels.hpp</label>
-        <link refid="cluster_pixels_8hpp"/>
-        <childnode refid="2664" relation="include">
-        </childnode>
-        <childnode refid="2665" relation="include">
-        </childnode>
-      </node>
-      <node id="2661">
-        <label>Cluster.hpp</label>
-        <link refid="_cluster_8hpp"/>
-        <childnode refid="2662" relation="include">
-        </childnode>
-        <childnode refid="2663" relation="include">
-        </childnode>
-        <childnode refid="2667" relation="include">
-        </childnode>
-        <childnode refid="2668" relation="include">
-        </childnode>
-        <childnode refid="2665" relation="include">
-        </childnode>
-      </node>
-      <node id="2664">
-        <label>generateCentroids.hpp</label>
-        <link refid="generate_centroids_8hpp"/>
-        <childnode refid="2665" relation="include">
-        </childnode>
-      </node>
-      <node id="2667">
-        <label>ClusterMaker.hpp</label>
-        <link refid="_cluster_maker_8hpp"/>
-        <childnode refid="2668" relation="include">
-        </childnode>
-        <childnode refid="2665" relation="include">
-        </childnode>
-      </node>
-      <node id="2662">
-        <label>Centroid.hpp</label>
-        <link refid="_centroid_8hpp"/>
-        <childnode refid="2663" relation="include">
-        </childnode>
-        <childnode refid="2665" relation="include">
-        </childnode>
-      </node>
-      <node id="2665">
-        <label>ImageProcessing.hpp</label>
-        <link refid="_image_processing_8hpp"/>
-        <childnode refid="2666" relation="include">
-        </childnode>
-      </node>
-      <node id="2663">
+      <node id="2797">
         <label>centroidClusters.hpp</label>
         <link refid="centroid_clusters_8hpp"/>
-        <childnode refid="2664" relation="include">
+        <childnode refid="2798" relation="include">
         </childnode>
-        <childnode refid="2665" relation="include">
+        <childnode refid="2799" relation="include">
         </childnode>
       </node>
-      <node id="2666">
+      <node id="2800">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="2801">
+        <label>ClusterMaker.hpp</label>
+        <link refid="_cluster_maker_8hpp"/>
+        <childnode refid="2802" relation="include">
+        </childnode>
+        <childnode refid="2799" relation="include">
+        </childnode>
+      </node>
+      <node id="2796">
+        <label>Centroid.hpp</label>
+        <link refid="_centroid_8hpp"/>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2799" relation="include">
+        </childnode>
+      </node>
+      <node id="2798">
+        <label>generateCentroids.hpp</label>
+        <link refid="generate_centroids_8hpp"/>
+        <childnode refid="2799" relation="include">
+        </childnode>
+      </node>
+      <node id="2795">
+        <label>Cluster.hpp</label>
+        <link refid="_cluster_8hpp"/>
+        <childnode refid="2796" relation="include">
+        </childnode>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2801" relation="include">
+        </childnode>
+        <childnode refid="2802" relation="include">
+        </childnode>
+        <childnode refid="2799" relation="include">
+        </childnode>
+      </node>
+      <node id="2799">
+        <label>ImageProcessing.hpp</label>
+        <link refid="_image_processing_8hpp"/>
+        <childnode refid="2800" relation="include">
+        </childnode>
+      </node>
+      <node id="2802">
+        <label>clusterPixels.hpp</label>
+        <link refid="cluster_pixels_8hpp"/>
+        <childnode refid="2798" relation="include">
+        </childnode>
+        <childnode refid="2799" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classnc_1_1image_processing_1_1_cluster" prot="public">nc::imageProcessing::Cluster</innerclass>
@@ -191,22 +191,14 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.2</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Holds the information for a cluster of pixels </para>
-</sect1>
+<para>Holds the information for a cluster of pixels </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
@@ -319,7 +311,7 @@
 <codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Description:</highlight></codeline>
 <codeline lineno="192" refid="classnc_1_1image_processing_1_1_cluster_1ae89900f4557d6273fc49b330417e324e" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="classnc_1_1image_processing_1_1_cluster_1ae89900f4557d6273fc49b330417e324e" kindref="member">size</ref>()<sp/>const<sp/>noexcept</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>static_cast&lt;uint32&gt;(pixels_.size());</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(pixels_.size());</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"></highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -407,7 +399,7 @@
 <codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peakPixelIntensity_<sp/>=<sp/><ref refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kindref="member">std::max</ref>(peakPixelIntensity_,<sp/>inPixel.<ref refid="classnc_1_1image_processing_1_1_pixel_1a2ffea8fff18945da4971ab4c847a49bd" kindref="member">intensity</ref>);</highlight></codeline>
 <codeline lineno="335"><highlight class="normal"></highlight></codeline>
 <codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calculate<sp/>the<sp/>energy<sp/>on<sp/>detector<sp/>estimate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eod_<sp/>=<sp/>static_cast&lt;double&gt;(peakPixelIntensity_)<sp/>/<sp/>static_cast&lt;double&gt;(intensity_);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eod_<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(peakPixelIntensity_)<sp/>/<sp/>static_cast&lt;double&gt;(intensity_);</highlight></codeline>
 <codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="339"><highlight class="normal"></highlight></codeline>
 <codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -433,15 +425,15 @@
 <codeline lineno="368"><highlight class="normal"></highlight></codeline>
 <codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Description:</highlight></codeline>
-<codeline lineno="378" refid="classnc_1_1image_processing_1_1_cluster_1a1b1adec296082d83ee2f87484bfe07cb" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream&amp;<sp/><ref refid="classnc_1_1image_processing_1_1_cluster_1a1b1adec296082d83ee2f87484bfe07cb" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>inStream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster&lt;dtype&gt;</ref>&amp;<sp/>inCluster)</highlight></codeline>
+<codeline lineno="378" refid="classnc_1_1image_processing_1_1_cluster_1a1b1adec296082d83ee2f87484bfe07cb" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>inStream,<sp/>const<sp/>Cluster&lt;dtype&gt;&amp;<sp/>inCluster)</highlight></codeline>
 <codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inStream<sp/>&lt;&lt;<sp/>inCluster.<ref refid="classnc_1_1image_processing_1_1_cluster_1aaa1ee55d0c47196847b8bb1a76258bd3" kindref="member">str</ref>();</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inStream<sp/>&lt;&lt;<sp/>inCluster.str();</highlight></codeline>
 <codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inStream;</highlight></codeline>
 <codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="385"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/ImageProcessing/Cluster.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Cluster.hpp"/>
   </compounddef>
 </doxygen>

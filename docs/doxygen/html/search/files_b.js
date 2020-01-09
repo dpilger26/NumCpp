@@ -17,6 +17,8 @@ var searchData=
   ['nanvar_2ehpp',['nanvar.hpp',['../nanvar_8hpp.html',1,'']]],
   ['nbytes_2ehpp',['nbytes.hpp',['../nbytes_8hpp.html',1,'']]],
   ['ndarray_2ehpp',['NdArray.hpp',['../_nd_array_8hpp.html',1,'']]],
+  ['ndarraycore_2ehpp',['NdArrayCore.hpp',['../_nd_array_core_8hpp.html',1,'']]],
+  ['ndarrayoperators_2ehpp',['NdArrayOperators.hpp',['../_nd_array_operators_8hpp.html',1,'']]],
   ['nearest1d_2ehpp',['nearest1d.hpp',['../nearest1d_8hpp.html',1,'']]],
   ['nearest2d_2ehpp',['nearest2d.hpp',['../nearest2d_8hpp.html',1,'']]],
   ['negative_2ehpp',['negative.hpp',['../negative_8hpp.html',1,'']]],

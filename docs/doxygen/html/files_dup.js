@@ -265,9 +265,9 @@ var files_dup =
     [ "nansum.hpp", "nansum_8hpp.html", "nansum_8hpp" ],
     [ "nanvar.hpp", "nanvar_8hpp.html", "nanvar_8hpp" ],
     [ "nbytes.hpp", "nbytes_8hpp.html", "nbytes_8hpp" ],
-    [ "NdArray.hpp", "_nd_array_8hpp.html", [
-      [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ]
-    ] ],
+    [ "NdArray.hpp", "_nd_array_8hpp.html", null ],
+    [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", "_nd_array_core_8hpp" ],
+    [ "NdArrayOperators.hpp", "_nd_array_operators_8hpp.html", "_nd_array_operators_8hpp" ],
     [ "nearest1d.hpp", "nearest1d_8hpp.html", "nearest1d_8hpp" ],
     [ "nearest2d.hpp", "nearest2d_8hpp.html", "nearest2d_8hpp" ],
     [ "negative.hpp", "negative_8hpp.html", "negative_8hpp" ],
