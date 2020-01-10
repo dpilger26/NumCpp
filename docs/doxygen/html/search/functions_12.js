@@ -43,5 +43,6 @@ var searchData=
   ['subtract',['subtract',['../namespacenc.html#ae4be1086253a0b121695d9cabfcb86ce',1,'nc']]],
   ['sum',['sum',['../classnc_1_1_nd_array.html#ab1dfe260680abf6a8cc4fdf56c1b15c2',1,'nc::NdArray::sum()'],['../namespacenc.html#a23d451164e54a93142bf3dc456f7cac3',1,'nc::sum()']]],
   ['svd',['SVD',['../classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba',1,'nc::linalg::SVD::SVD()'],['../namespacenc_1_1linalg.html#aa2a95731baaa5ff4d5837c601987af22',1,'nc::linalg::svd()']]],
+  ['swap',['swap',['../namespacenc.html#a39da0502565b913855379ea1439047e1',1,'nc']]],
   ['swapaxes',['swapaxes',['../classnc_1_1_nd_array.html#a843ebed50d1fae2993e4716e0adf17ed',1,'nc::NdArray::swapaxes()'],['../namespacenc.html#a81e14e3820dbc4709253de34600cd473',1,'nc::swapaxes()']]]
 ];

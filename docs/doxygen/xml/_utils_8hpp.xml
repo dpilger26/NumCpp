@@ -13,118 +13,118 @@
     <includes refid="sqr_8hpp" local="yes">NumCpp/Utils/sqr.hpp</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="20699">
+      <node id="20749">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="20700" relation="include">
+        <childnode refid="20750" relation="include">
         </childnode>
       </node>
-      <node id="20690">
+      <node id="20740">
         <label>limits</label>
       </node>
-      <node id="20689">
+      <node id="20739">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="20690" relation="include">
+        <childnode refid="20740" relation="include">
         </childnode>
       </node>
-      <node id="20698">
+      <node id="20748">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="20699" relation="include">
+        <childnode refid="20749" relation="include">
         </childnode>
       </node>
-      <node id="20700">
+      <node id="20750">
         <label>cstdint</label>
       </node>
-      <node id="20687">
+      <node id="20737">
         <label>NumCpp/Utils/cube.hpp</label>
         <link refid="_utils_2cube_8hpp"/>
       </node>
-      <node id="20691">
+      <node id="20741">
         <label>cmath</label>
       </node>
-      <node id="20692">
+      <node id="20742">
         <label>string</label>
       </node>
-      <node id="20694">
+      <node id="20744">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="20686">
+      <node id="20736">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="20687" relation="include">
+        <childnode refid="20737" relation="include">
         </childnode>
-        <childnode refid="20688" relation="include">
+        <childnode refid="20738" relation="include">
         </childnode>
-        <childnode refid="20693" relation="include">
+        <childnode refid="20743" relation="include">
         </childnode>
-        <childnode refid="20695" relation="include">
+        <childnode refid="20745" relation="include">
         </childnode>
-        <childnode refid="20696" relation="include">
+        <childnode refid="20746" relation="include">
         </childnode>
-        <childnode refid="20697" relation="include">
+        <childnode refid="20747" relation="include">
         </childnode>
-        <childnode refid="20698" relation="include">
+        <childnode refid="20748" relation="include">
         </childnode>
-        <childnode refid="20701" relation="include">
+        <childnode refid="20751" relation="include">
         </childnode>
-        <childnode refid="20694" relation="include">
+        <childnode refid="20744" relation="include">
         </childnode>
       </node>
-      <node id="20696">
+      <node id="20746">
         <label>NumCpp/Utils/interp.hpp</label>
         <link refid="_utils_2interp_8hpp"/>
       </node>
-      <node id="20695">
+      <node id="20745">
         <label>NumCpp/Utils/gaussian1d.hpp</label>
         <link refid="gaussian1d_8hpp"/>
-        <childnode refid="20694" relation="include">
+        <childnode refid="20744" relation="include">
         </childnode>
-        <childnode refid="20691" relation="include">
+        <childnode refid="20741" relation="include">
         </childnode>
       </node>
-      <node id="20688">
+      <node id="20738">
         <label>NumCpp/Utils/essentiallyEqual.hpp</label>
         <link refid="essentially_equal_8hpp"/>
-        <childnode refid="20689" relation="include">
+        <childnode refid="20739" relation="include">
         </childnode>
-        <childnode refid="20691" relation="include">
+        <childnode refid="20741" relation="include">
         </childnode>
-        <childnode refid="20692" relation="include">
+        <childnode refid="20742" relation="include">
         </childnode>
       </node>
-      <node id="20697">
+      <node id="20747">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="20692" relation="include">
+        <childnode refid="20742" relation="include">
         </childnode>
       </node>
-      <node id="20693">
+      <node id="20743">
         <label>NumCpp/Utils/gaussian.hpp</label>
         <link refid="gaussian_8hpp"/>
-        <childnode refid="20694" relation="include">
+        <childnode refid="20744" relation="include">
         </childnode>
-        <childnode refid="20691" relation="include">
+        <childnode refid="20741" relation="include">
         </childnode>
       </node>
-      <node id="20701">
+      <node id="20751">
         <label>NumCpp/Utils/powerf.hpp</label>
         <link refid="_utils_2powerf_8hpp"/>
-        <childnode refid="20691" relation="include">
+        <childnode refid="20741" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="20703">
+      <node id="20753">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="20702">
+      <node id="20752">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="20703" relation="include">
+        <childnode refid="20753" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -31,5 +31,6 @@ var searchData=
   ['sum_2ehpp',['sum.hpp',['../sum_8hpp.html',1,'']]],
   ['svd_2ehpp',['svd.hpp',['../svd_8hpp.html',1,'']]],
   ['svdclass_2ehpp',['SVDClass.hpp',['../_s_v_d_class_8hpp.html',1,'']]],
+  ['swap_2ehpp',['swap.hpp',['../swap_8hpp.html',1,'']]],
   ['swapaxes_2ehpp',['swapaxes.hpp',['../swapaxes_8hpp.html',1,'']]]
 ];

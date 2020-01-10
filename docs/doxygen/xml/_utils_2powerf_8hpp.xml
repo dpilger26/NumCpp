@@ -6,45 +6,45 @@
     <includedby refid="_functions_2powerf_8hpp" local="yes">powerf.hpp</includedby>
     <includedby refid="_utils_8hpp" local="yes">Utils.hpp</includedby>
     <incdepgraph>
-      <node id="15077">
+      <node id="15086">
         <label>cmath</label>
       </node>
-      <node id="15076">
+      <node id="15085">
         <label>powerf.hpp</label>
         <link refid="_utils_2powerf_8hpp"/>
-        <childnode refid="15077" relation="include">
+        <childnode refid="15086" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="15081">
+      <node id="15090">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="15082">
+      <node id="15091">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="15081" relation="include">
+        <childnode refid="15090" relation="include">
         </childnode>
       </node>
-      <node id="15080">
+      <node id="15089">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="15081" relation="include">
+        <childnode refid="15090" relation="include">
         </childnode>
       </node>
-      <node id="15079">
+      <node id="15088">
         <label>powerf.hpp</label>
         <link refid="_functions_2powerf_8hpp"/>
-        <childnode refid="15080" relation="include">
+        <childnode refid="15089" relation="include">
         </childnode>
       </node>
-      <node id="15078">
+      <node id="15087">
         <label>powerf.hpp</label>
         <link refid="_utils_2powerf_8hpp"/>
-        <childnode refid="15079" relation="include">
+        <childnode refid="15088" relation="include">
         </childnode>
-        <childnode refid="15082" relation="include">
+        <childnode refid="15091" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

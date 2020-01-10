@@ -384,6 +384,7 @@ var files_dup =
     [ "SVDClass.hpp", "_s_v_d_class_8hpp.html", [
       [ "SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ]
     ] ],
+    [ "swap.hpp", "swap_8hpp.html", "swap_8hpp" ],
     [ "swapaxes.hpp", "swapaxes_8hpp.html", "swapaxes_8hpp" ],
     [ "tan.hpp", "tan_8hpp.html", "tan_8hpp" ],
     [ "tanh.hpp", "tanh_8hpp.html", "tanh_8hpp" ],
