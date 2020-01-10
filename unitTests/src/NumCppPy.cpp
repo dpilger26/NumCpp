@@ -4389,6 +4389,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("subtract", &MethodsInterface::subtractArrays<double>);
     bp::def("sum", &sum<double>);
     bp::def("swapaxes", &swapaxes<double>);
+    bp::def("swap", &nc::swap<double>);
     bp::def("tanScaler", &MethodsInterface::tanScaler<double>);
     bp::def("tanArray", &MethodsInterface::tanArray<double>);
     bp::def("tanhScaler", &MethodsInterface::tanhScaler<double>);

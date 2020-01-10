@@ -4725,6 +4725,24 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing swap', 'cyan'))
+    shapeInput1 = np.random.randint(20, 100, [2, ])
+    shapeInput2 = np.random.randint(20, 100, [2, ])
+    shape1 = NumCpp.Shape(shapeInput1[0].item(), shapeInput1[1].item())
+    shape2 = NumCpp.Shape(shapeInput2[0].item(), shapeInput2[1].item())
+    cArray1 = NumCpp.NdArray(shape1)
+    cArray2 = NumCpp.NdArray(shape2)
+    data1 = np.random.randint(0, 100, [shape1.rows, shape1.cols]).astype(np.double)
+    data2 = np.random.randint(0, 100, [shape2.rows, shape2.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    NumCpp.swap(cArray1, cArray2)
+    if (np.array_equal(cArray1.getNumpyArray(), data2) and
+            np.array_equal(cArray2.getNumpyArray(), data1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing swapaxes', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

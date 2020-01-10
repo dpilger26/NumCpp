@@ -19,7 +19,7 @@ var searchData=
   ['shapeequal',['shapeEqual',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#ab0e47d83edf0a6b6247b30e930e5e8e4',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],
   ['shuffle',['shuffle',['../namespacenc_1_1random.html#a2de486e39f23c66f769b64326d7f3103',1,'nc::random']]],
   ['shuffle_2ehpp',['shuffle.hpp',['../shuffle_8hpp.html',1,'']]],
-  ['sign',['sign',['../classnc_1_1coordinates_1_1_dec.html#ac551f7b1f2728f20fbdbd79dd00919f7',1,'nc::coordinates::Dec::sign()'],['../namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9',1,'nc::sign(dtype inValue) noexcept'],['../namespacenc.html#a3037cf38efbcd863fc1c10d6697ee7fc',1,'nc::sign(const NdArray&lt; dtype &gt; &amp;inArray) noexcept'],['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates::Sign()']]],
+  ['sign',['sign',['../classnc_1_1coordinates_1_1_dec.html#ac551f7b1f2728f20fbdbd79dd00919f7',1,'nc::coordinates::Dec::sign()'],['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates::Sign()'],['../namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9',1,'nc::sign(dtype inValue) noexcept'],['../namespacenc.html#a3037cf38efbcd863fc1c10d6697ee7fc',1,'nc::sign(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['sign_2ehpp',['sign.hpp',['../sign_8hpp.html',1,'']]],
   ['signbit',['signbit',['../namespacenc.html#af6dcbdfea85cdc84b4ddcf6c978b71f1',1,'nc::signbit(dtype inValue) noexcept'],['../namespacenc.html#abf6ca72fd57b3037c2d719d49efc226d',1,'nc::signbit(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['signbit_2ehpp',['signbit.hpp',['../signbit_8hpp.html',1,'']]],
@@ -84,6 +84,8 @@ var searchData=
   ['svd',['SVD',['../classnc_1_1linalg_1_1_s_v_d.html',1,'nc::linalg::SVD'],['../classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba',1,'nc::linalg::SVD::SVD()'],['../namespacenc_1_1linalg.html#aa2a95731baaa5ff4d5837c601987af22',1,'nc::linalg::svd()']]],
   ['svd_2ehpp',['svd.hpp',['../svd_8hpp.html',1,'']]],
   ['svdclass_2ehpp',['SVDClass.hpp',['../_s_v_d_class_8hpp.html',1,'']]],
+  ['swap',['swap',['../namespacenc.html#a39da0502565b913855379ea1439047e1',1,'nc']]],
+  ['swap_2ehpp',['swap.hpp',['../swap_8hpp.html',1,'']]],
   ['swapaxes',['swapaxes',['../classnc_1_1_nd_array.html#a843ebed50d1fae2993e4716e0adf17ed',1,'nc::NdArray::swapaxes()'],['../namespacenc.html#a81e14e3820dbc4709253de34600cd473',1,'nc::swapaxes()']]],
   ['swapaxes_2ehpp',['swapaxes.hpp',['../swapaxes_8hpp.html',1,'']]]
 ];

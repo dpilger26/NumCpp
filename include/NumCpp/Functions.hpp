@@ -238,6 +238,7 @@
 #include "NumCpp/Functions/stdev.hpp"
 #include "NumCpp/Functions/subtract.hpp"
 #include "NumCpp/Functions/sum.hpp"
+#include "NumCpp/Functions/swap.hpp"
 #include "NumCpp/Functions/swapaxes.hpp"
 
 #include "NumCpp/Functions/tan.hpp"
