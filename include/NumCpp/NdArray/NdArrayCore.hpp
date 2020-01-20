@@ -2193,10 +2193,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the median along a given axis. Does NOT average
-        ///						if array has even number of elements and the dtype is integral!
+        ///						Return the median along a given axis. 
         ///                     If the dtype is floating point then the middle elements will be
         ///                     averaged for arrays of even number of elements. 
+        ///                     If the dtype is integral then the middle elements will be intager
+        ///                     averaged (rounded down to integer) for arrays of even number of elements. 
         ///
         /// @param
         ///				inAxis (Optional, default NONE)
@@ -2205,6 +2206,11 @@ namespace nc
         ///
         NdArray<dtype> median(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (size_ == 0)
+            {
+                THROW_RUNTIME_ERROR("Median is undefined for an array of size = 0.");
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2215,11 +2221,11 @@ namespace nc
                     stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middleIdx, copyArray.end());
 
                     dtype medianValue = copyArray.array_[middleIdx];
-                    if (!DtypeInfo<dtype>::isInteger() && size_ % 2 == 0)
+                    if (size_ % 2 == 0)
                     {
                         const uint32 lhsIndex = middleIdx - 1;
                         stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + lhsIndex, copyArray.end());
-                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / static_cast<dtype>(2.0);
+                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / static_cast<dtype>(2); // potentially integer division, ok
                     }
 
                     return { medianValue };
@@ -2229,7 +2235,7 @@ namespace nc
                     NdArray<dtype> copyArray(*this);
                     NdArray<dtype> returnArray(1, shape_.rows);
 
-                    const bool isEven = !DtypeInfo<dtype>::isInteger() && shape_.cols % 2 == 0;
+                    const bool isEven = shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         uint32 middleIdx = shape_.cols / 2;  // integer division
@@ -2240,7 +2246,7 @@ namespace nc
                         {
                             const uint32 lhsIndex = middleIdx - 1;
                             stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + lhsIndex, copyArray.end(row));
-                            medianValue = (medianValue + copyArray(row, lhsIndex)) / static_cast<dtype>(2.0);
+                            medianValue = (medianValue + copyArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;
@@ -2253,7 +2259,7 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
 
-                    const bool isEven = !DtypeInfo<dtype>::isInteger() && shape_.rows % 2 == 0;
+                    const bool isEven = shape_.rows % 2 == 0;
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         const uint32 middleIdx = transposedArray.shape_.cols / 2;  // integer division
@@ -2264,7 +2270,7 @@ namespace nc
                         {
                             const uint32 lhsIndex = middleIdx - 1;
                             stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + lhsIndex, transposedArray.end(row));
-                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / static_cast<dtype>(2.0);
+                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="essentially_equal_8hpp" kind="file" language="C++">
     <compoundname>essentiallyEqual.hpp</compoundname>
     <includes refid="_dtype_info_8hpp" local="yes">NumCpp/Core/DtypeInfo.hpp</includes>
@@ -20,12 +20,6 @@
       <node id="6010">
         <label>limits</label>
       </node>
-      <node id="6009">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="6010" relation="include">
-        </childnode>
-      </node>
       <node id="6011">
         <label>cmath</label>
       </node>
@@ -42,15 +36,45 @@
         <childnode refid="6012" relation="include">
         </childnode>
       </node>
+      <node id="6009">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="6010" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6018">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
+      <node id="6032">
+        <label>Random.hpp</label>
+        <link refid="_random_8hpp"/>
+        <childnode refid="6018" relation="include">
+        </childnode>
       </node>
-      <node id="6034">
-        <label>Rotations.hpp</label>
-        <link refid="_rotations_8hpp"/>
+      <node id="6022">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="6018" relation="include">
+        </childnode>
+      </node>
+      <node id="6031">
+        <label>uniform.hpp</label>
+        <link refid="uniform_8hpp"/>
+        <childnode refid="6032" relation="include">
+        </childnode>
+      </node>
+      <node id="6015">
+        <label>Coordinate.hpp</label>
+        <link refid="_coordinate_8hpp"/>
+        <childnode refid="6016" relation="include">
+        </childnode>
+        <childnode refid="6019" relation="include">
+        </childnode>
+        <childnode refid="6017" relation="include">
+        </childnode>
+      </node>
+      <node id="6038">
+        <label>Vector.hpp</label>
+        <link refid="_vector_8hpp"/>
         <childnode refid="6018" relation="include">
         </childnode>
       </node>
@@ -60,32 +84,20 @@
         <childnode refid="6022" relation="include">
         </childnode>
       </node>
-      <node id="6042">
-        <label>rodriguesRotation.hpp</label>
-        <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="6034" relation="include">
+      <node id="6037">
+        <label>Vec2.hpp</label>
+        <link refid="_vec2_8hpp"/>
+        <childnode refid="6038" relation="include">
         </childnode>
       </node>
-      <node id="6035">
-        <label>Quaternion.hpp</label>
-        <link refid="_quaternion_8hpp"/>
-        <childnode refid="6033" relation="include">
+      <node id="6023">
+        <label>percentile.hpp</label>
+        <link refid="percentile_8hpp"/>
+        <childnode refid="6024" relation="include">
         </childnode>
-        <childnode refid="6034" relation="include">
+        <childnode refid="6026" relation="include">
         </childnode>
-      </node>
-      <node id="6038">
-        <label>Vector.hpp</label>
-        <link refid="_vector_8hpp"/>
-        <childnode refid="6018" relation="include">
-        </childnode>
-      </node>
-      <node id="6014">
-        <label>Dec.hpp</label>
-        <link refid="_dec_8hpp"/>
-        <childnode refid="6015" relation="include">
-        </childnode>
-        <childnode refid="6017" relation="include">
+        <childnode refid="6022" relation="include">
         </childnode>
       </node>
       <node id="6041">
@@ -94,18 +106,52 @@
         <childnode refid="6018" relation="include">
         </childnode>
       </node>
-      <node id="6026">
-        <label>percentileFilter.hpp</label>
-        <link refid="percentile_filter_8hpp"/>
-        <childnode refid="6025" relation="include">
+      <node id="6033">
+        <label>DCM.hpp</label>
+        <link refid="_d_c_m_8hpp"/>
+        <childnode refid="6034" relation="include">
         </childnode>
       </node>
-      <node id="6020">
-        <label>RA.hpp</label>
-        <link refid="_r_a_8hpp"/>
-        <childnode refid="6015" relation="include">
+      <node id="6039">
+        <label>Vec3.hpp</label>
+        <link refid="_vec3_8hpp"/>
+        <childnode refid="6040" relation="include">
         </childnode>
-        <childnode refid="6017" relation="include">
+        <childnode refid="6033" relation="include">
+        </childnode>
+        <childnode refid="6035" relation="include">
+        </childnode>
+        <childnode refid="6042" relation="include">
+        </childnode>
+        <childnode refid="6038" relation="include">
+        </childnode>
+      </node>
+      <node id="6027">
+        <label>generateThreshold.hpp</label>
+        <link refid="generate_threshold_8hpp"/>
+        <childnode refid="6028" relation="include">
+        </childnode>
+        <childnode refid="6029" relation="include">
+        </childnode>
+      </node>
+      <node id="6034">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
+        <childnode refid="6018" relation="include">
+        </childnode>
+      </node>
+      <node id="6030">
+        <label>randFloat.hpp</label>
+        <link refid="rand_float_8hpp"/>
+        <childnode refid="6031" relation="include">
+        </childnode>
+        <childnode refid="6032" relation="include">
+        </childnode>
+      </node>
+      <node id="6028">
+        <label>generateCentroids.hpp</label>
+        <link refid="generate_centroids_8hpp"/>
+        <childnode refid="6029" relation="include">
         </childnode>
       </node>
       <node id="6036">
@@ -120,36 +166,12 @@
         <childnode refid="6018" relation="include">
         </childnode>
       </node>
-      <node id="6033">
-        <label>DCM.hpp</label>
-        <link refid="_d_c_m_8hpp"/>
-        <childnode refid="6034" relation="include">
+      <node id="6020">
+        <label>RA.hpp</label>
+        <link refid="_r_a_8hpp"/>
+        <childnode refid="6015" relation="include">
         </childnode>
-      </node>
-      <node id="6040">
-        <label>hat.hpp</label>
-        <link refid="hat_8hpp"/>
-        <childnode refid="6041" relation="include">
-        </childnode>
-        <childnode refid="6035" relation="include">
-        </childnode>
-      </node>
-      <node id="6028">
-        <label>generateCentroids.hpp</label>
-        <link refid="generate_centroids_8hpp"/>
-        <childnode refid="6029" relation="include">
-        </childnode>
-      </node>
-      <node id="6032">
-        <label>Random.hpp</label>
-        <link refid="_random_8hpp"/>
-        <childnode refid="6018" relation="include">
-        </childnode>
-      </node>
-      <node id="6024">
-        <label>percentileFilter1d.hpp</label>
-        <link refid="percentile_filter1d_8hpp"/>
-        <childnode refid="6025" relation="include">
+        <childnode refid="6017" relation="include">
         </childnode>
       </node>
       <node id="6013">
@@ -178,60 +200,12 @@
         <childnode refid="6039" relation="include">
         </childnode>
       </node>
-      <node id="6019">
-        <label>radianSeperation.hpp</label>
-        <link refid="radian_seperation_8hpp"/>
-        <childnode refid="6017" relation="include">
+      <node id="6040">
+        <label>hat.hpp</label>
+        <link refid="hat_8hpp"/>
+        <childnode refid="6041" relation="include">
         </childnode>
-      </node>
-      <node id="6030">
-        <label>randFloat.hpp</label>
-        <link refid="rand_float_8hpp"/>
-        <childnode refid="6031" relation="include">
-        </childnode>
-        <childnode refid="6032" relation="include">
-        </childnode>
-      </node>
-      <node id="6027">
-        <label>generateThreshold.hpp</label>
-        <link refid="generate_threshold_8hpp"/>
-        <childnode refid="6028" relation="include">
-        </childnode>
-        <childnode refid="6029" relation="include">
-        </childnode>
-      </node>
-      <node id="6016">
-        <label>degreeSeperation.hpp</label>
-        <link refid="degree_seperation_8hpp"/>
-        <childnode refid="6017" relation="include">
-        </childnode>
-      </node>
-      <node id="6037">
-        <label>Vec2.hpp</label>
-        <link refid="_vec2_8hpp"/>
-        <childnode refid="6038" relation="include">
-        </childnode>
-      </node>
-      <node id="6022">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="6018" relation="include">
-        </childnode>
-      </node>
-      <node id="6017">
-        <label>Coordinates.hpp</label>
-        <link refid="_coordinates_8hpp"/>
-        <childnode refid="6018" relation="include">
-        </childnode>
-      </node>
-      <node id="6023">
-        <label>percentile.hpp</label>
-        <link refid="percentile_8hpp"/>
-        <childnode refid="6024" relation="include">
-        </childnode>
-        <childnode refid="6026" relation="include">
-        </childnode>
-        <childnode refid="6022" relation="include">
+        <childnode refid="6035" relation="include">
         </childnode>
       </node>
       <node id="6029">
@@ -240,33 +214,59 @@
         <childnode refid="6018" relation="include">
         </childnode>
       </node>
-      <node id="6031">
-        <label>uniform.hpp</label>
-        <link refid="uniform_8hpp"/>
-        <childnode refid="6032" relation="include">
+      <node id="6014">
+        <label>Dec.hpp</label>
+        <link refid="_dec_8hpp"/>
+        <childnode refid="6015" relation="include">
+        </childnode>
+        <childnode refid="6017" relation="include">
         </childnode>
       </node>
-      <node id="6039">
-        <label>Vec3.hpp</label>
-        <link refid="_vec3_8hpp"/>
-        <childnode refid="6040" relation="include">
+      <node id="6016">
+        <label>degreeSeperation.hpp</label>
+        <link refid="degree_seperation_8hpp"/>
+        <childnode refid="6017" relation="include">
         </childnode>
+      </node>
+      <node id="6035">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
         <childnode refid="6033" relation="include">
         </childnode>
-        <childnode refid="6035" relation="include">
-        </childnode>
-        <childnode refid="6042" relation="include">
-        </childnode>
-        <childnode refid="6038" relation="include">
+        <childnode refid="6034" relation="include">
         </childnode>
       </node>
-      <node id="6015">
-        <label>Coordinate.hpp</label>
-        <link refid="_coordinate_8hpp"/>
-        <childnode refid="6016" relation="include">
+      <node id="6024">
+        <label>percentileFilter1d.hpp</label>
+        <link refid="percentile_filter1d_8hpp"/>
+        <childnode refid="6025" relation="include">
         </childnode>
-        <childnode refid="6019" relation="include">
+      </node>
+      <node id="6017">
+        <label>Coordinates.hpp</label>
+        <link refid="_coordinates_8hpp"/>
+        <childnode refid="6018" relation="include">
         </childnode>
+      </node>
+      <node id="6042">
+        <label>rodriguesRotation.hpp</label>
+        <link refid="rodrigues_rotation_8hpp"/>
+        <childnode refid="6034" relation="include">
+        </childnode>
+      </node>
+      <node id="6026">
+        <label>percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
+        <childnode refid="6025" relation="include">
+        </childnode>
+      </node>
+      <node id="6018">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="6019">
+        <label>radianSeperation.hpp</label>
+        <link refid="radian_seperation_8hpp"/>
         <childnode refid="6017" relation="include">
         </childnode>
       </node>
@@ -276,14 +276,22 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.2</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.2</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>tests that 2 floating point values are &quot;essentially equal&quot; </para></sect1>
+<para>tests that 2 floating point values are &quot;essentially equal&quot; </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -316,6 +324,6 @@
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="72"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp"/>
   </compounddef>
 </doxygen>

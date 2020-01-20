@@ -39,7 +39,7 @@ var NAVTREEINDEX6 =
 "maximum_filter_8hpp.html":[4,0,215],
 "maximum_filter_8hpp.html#a237010b21fd77fa3b72c1fda0360f6a9":[4,0,215,0],
 "maximum_filter_8hpp_source.html":[4,0,215],
-"md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html":[1],
+"md__c_1__git_hub__num_cpp_install__r_e_a_d_m_e.html":[1],
 "mean_8hpp.html":[4,0,217],
 "mean_8hpp.html#aff3ef2c818346b63714ca4f3493f0ec9":[4,0,217,0],
 "mean_8hpp_source.html":[4,0,217],
