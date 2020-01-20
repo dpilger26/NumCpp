@@ -2194,7 +2194,9 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Return the median along a given axis. Does NOT average
-        ///						if array has even number of elements!
+        ///						if array has even number of elements and the dtype is integral!
+        ///                     If the dtype is floating point then the middle elements will be
+        ///                     averaged for arrays of even number of elements. 
         ///
         /// @param
         ///				inAxis (Optional, default NONE)
@@ -2209,21 +2211,39 @@ namespace nc
                 {
                     NdArray<dtype> copyArray(*this);
 
-                    uint32 middle = size_ / 2;
-                    stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
-                    NdArray<dtype> returnArray = { copyArray.array_[middle] };
+                    const uint32 middleIdx = size_ / 2;  // integer division
+                    stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middleIdx, copyArray.end());
 
-                    return returnArray;
+                    dtype medianValue = copyArray.array_[middleIdx];
+                    if (!DtypeInfo<dtype>::isInteger() && size_ % 2 == 0)
+                    {
+                        const uint32 lhsIndex = middleIdx - 1;
+                        stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + lhsIndex, copyArray.end());
+                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / static_cast<dtype>(2.0);
+                    }
+
+                    return { medianValue };
                 }
                 case Axis::COL:
                 {
                     NdArray<dtype> copyArray(*this);
                     NdArray<dtype> returnArray(1, shape_.rows);
+
+                    const bool isEven = !DtypeInfo<dtype>::isInteger() && shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        uint32 middle = shape_.cols / 2;
-                        stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
-                        returnArray(0, row) = copyArray(row, middle);
+                        uint32 middleIdx = shape_.cols / 2;  // integer division
+                        stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middleIdx, copyArray.end(row));
+
+                        dtype medianValue = copyArray(row, middleIdx);
+                        if (isEven)
+                        {
+                            const uint32 lhsIndex = middleIdx - 1;
+                            stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + lhsIndex, copyArray.end(row));
+                            medianValue = (medianValue + copyArray(row, lhsIndex)) / static_cast<dtype>(2.0);
+                        }
+
+                        returnArray(0, row) = medianValue;
                     }
 
                     return returnArray;
@@ -2232,11 +2252,22 @@ namespace nc
                 {
                     NdArray<dtype> transposedArray = transpose();
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+
+                    const bool isEven = !DtypeInfo<dtype>::isInteger() && shape_.rows % 2 == 0;
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        uint32 middle = transposedArray.shape_.cols / 2;
-                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
-                        returnArray(0, row) = transposedArray(row, middle);
+                        const uint32 middleIdx = transposedArray.shape_.cols / 2;  // integer division
+                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middleIdx, transposedArray.end(row));
+
+                        dtype medianValue = transposedArray(row, middleIdx);
+                        if (isEven)
+                        {
+                            const uint32 lhsIndex = middleIdx - 1;
+                            stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + lhsIndex, transposedArray.end(row));
+                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / static_cast<dtype>(2.0);
+                        }
+
+                        returnArray(0, row) = medianValue;
                     }
 
                     return returnArray;
