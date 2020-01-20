@@ -2948,7 +2948,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the median along a given axis. Does NOT average if array has even number of elements!</p>
+<p>Return the median along a given axis. Does NOT average if array has even number of elements and the dtype is integral! If the dtype is floating point then the middle elements will be averaged for arrays of even number of elements.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
