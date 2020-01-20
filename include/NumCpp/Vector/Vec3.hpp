@@ -306,14 +306,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the Vec2 as a string
+        ///						Returns the Vec3 as a string
         ///
         /// @return     std::string
         ///
         std::string toString() const noexcept
         {
             std::stringstream stream;
-            stream << "Vec2[" << x << ", " << y << ", " << z << "]";
+            stream << "Vec3[" << x << ", " << y << ", " << z << "]";
             return stream.str();
         }
 
