@@ -65,6 +65,39 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing lstsq', 'cyan'))
+    shapeInput = np.random.randint(5, 50, [2,])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(1, shape.rows)
+    aData = np.random.randint(1, 100, [shape.rows, shape.cols])
+    bData = np.random.randint(1, 100, [shape.rows,])
+    aArray.setArray(aData)
+    bArray.setArray(bData)
+    x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
+    if np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing lu_decompostion', 'cyan'))
+    sizeInput = np.random.randint(5, 50)
+    shape = NumCpp.Shape(sizeInput)
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+
+    lu = NumCpp.lu_decomposition(cArray)
+    l = lu.first
+    u = lu.second
+    p = np.round(np.dot(l.getNumpyArray(), u.getNumpyArray())).astype(np.int)
+    if np.array_equal(p, data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
+
     print(colored('Testing matrix_power: power = 0', 'cyan'))
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
@@ -141,21 +174,6 @@ def doTest():
     cArray3.setArray(data3)
     cArray4.setArray(data4)
     if np.array_equal(np.round(NumCpp.multi_dot(cArray1, cArray2, cArray3, cArray4), 9), np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing lstsq', 'cyan'))
-    shapeInput = np.random.randint(5, 50, [2,])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    aArray = NumCpp.NdArray(shape)
-    bArray = NumCpp.NdArray(1, shape.rows)
-    aData = np.random.randint(1, 100, [shape.rows, shape.cols])
-    bData = np.random.randint(1, 100, [shape.rows,])
-    aArray.setArray(aData)
-    bArray.setArray(bData)
-    x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
-    if np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

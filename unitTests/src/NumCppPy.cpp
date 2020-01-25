@@ -2840,7 +2840,7 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return nc2Boost(linalg::multi_dot({ inArray1 ,inArray2, inArray3, inArray4 }));
+        return nc2Boost(linalg::multi_dot({ inArray1, inArray2, inArray3, inArray4 }));
     }
 }
 
@@ -3909,7 +3909,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("isempty", &NdArrayDouble::isempty)
         .def("isflat", &NdArrayDouble::isflat)
         .def("issorted", &NdArrayInterface::issorted<double>)
-        .def("isSquare", &NdArrayDouble::isSquare)
+        .def("issquare", &NdArrayDouble::issquare)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
@@ -4329,7 +4329,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("onesSquare", &MethodsInterface::onesSquare<double>);
     bp::def("onesRowCol", &MethodsInterface::onesRowCol<double>);
     bp::def("onesShape", &MethodsInterface::onesShape<double>);
-    bp::def("ones_like", &ones_like<double>);
+    bp::def("ones_like", &ones_like<double, double>);
     bp::def("pad", &pad<double>);
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double>);
@@ -4424,7 +4424,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("zerosRowCol", &MethodsInterface::zerosRowCol<double>);
     bp::def("zerosShape", &MethodsInterface::zerosShape<double>);
     bp::def("zerosList", &MethodsInterface::zerosList<double>);
-    bp::def("zeros_like", &zeros_like<double>);
+    bp::def("zeros_like", &zeros_like<double, double>);
 
     // Utils.hpp
     bp::def("num2str", &utils::num2str<double>);
@@ -4527,6 +4527,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("hat", &LinalgInterface::hatArray<double>);
     bp::def("inv", &linalg::inv<double>);
     bp::def("lstsq", &linalg::lstsq<double>);
+    bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
     bp::def("matrix_power", &linalg::matrix_power<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
     bp::def("svd", &linalg::svd<double>);

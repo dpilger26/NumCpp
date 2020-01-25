@@ -24,17 +24,30 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Module for doing linear algebra operations
+/// matrix pivot LU decomposition
 ///
 #pragma once
 
-//#include "NumCpp/Linalg/cholesky.hpp"
-#include "NumCpp/Linalg/det.hpp"
-#include "NumCpp/Linalg/hat.hpp"
-#include "NumCpp/Linalg/inv.hpp"
-#include "NumCpp/Linalg/lstsq.hpp"
-#include "NumCpp/Linalg/lu_decomposition.hpp"
-#include "NumCpp/Linalg/matrix_power.hpp"
-#include "NumCpp/Linalg/multi_dot.hpp"
-//#include "NumCpp/Linalg/pivotLU_decomposition.hpp"
-#include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/NdArray.hpp"
+
+#include <utility>
+
+namespace nc
+{
+    namespace linalg
+    {
+        //============================================================================
+        // Method Description:
+        ///						matrix pivot LU decomposition PA = LU
+        ///
+        /// @param				inMatrix: NdArray to be decomposed
+        ///
+        /// @return             std::tuple<NdArray, NdArray, NdArray,> of the decomposed P, L, and U matrices
+        ///
+        template<typename dtype>
+        std::tuple<NdArray<double>, NdArray<double>, NdArray<double> > pivotLU_decomposition(const NdArray<dtype>& inMatrix)
+        {
+
+        }
+    }
+}

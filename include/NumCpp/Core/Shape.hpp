@@ -121,7 +121,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool isSquare() const noexcept
+        constexpr bool issquare() const noexcept
         {
             return rows == cols;
         }

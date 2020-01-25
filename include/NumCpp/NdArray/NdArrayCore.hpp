@@ -1941,9 +1941,9 @@ namespace nc
         /// @param inAxis
         /// @return boolean
         ///
-        bool isSquare() const noexcept
+        bool issquare() const noexcept
         {
-            return shape_.isSquare();
+            return shape_.issquare();
         }
 
         //============================================================================

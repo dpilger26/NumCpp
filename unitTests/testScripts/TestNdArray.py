@@ -677,7 +677,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing isSquare', 'cyan'))
+    print(colored('Testing issquare', 'cyan'))
     while True:
         shapeInput = np.random.randint(2, 100, [2, ])
         if np.prod(shapeInput) != np.square(shapeInput[0]):
@@ -687,7 +687,7 @@ def doTest():
     shape2 = NumCpp.Shape(sizeInput, sizeInput)
     cArray1 = NumCpp.NdArray(shape1)
     cArray2 = NumCpp.NdArray(shape2)
-    if not cArray1.isSquare() and cArray2.isSquare():
+    if not cArray1.issquare() and cArray2.issquare():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

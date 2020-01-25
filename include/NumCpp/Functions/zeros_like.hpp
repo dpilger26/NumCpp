@@ -43,10 +43,10 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> zeros_like(const NdArray<dtype>& inArray) noexcept
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape());
+        NdArray<dtypeOut> returnArray(inArray.shape());
         returnArray.zeros();
         return returnArray;
     }

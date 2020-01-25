@@ -24,15 +24,17 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// matrix svd
+/// matrix pivot LU decomposition
 ///
 #pragma once
 
-#include "NumCpp/Linalg/svd/SVDClass.hpp"
-#include "NumCpp/Functions/diagFlat.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Functions/zeros_like.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
-#include <utility>
+#include <cmath>
+#include <tuple>
 
 namespace nc
 {
@@ -40,26 +42,47 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix svd
+        ///						matrix LU decomposition A = LU
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
+        /// @param				inMatrix: NdArray to be decomposed
         ///
-        /// @param				inArray: NdArray to be SVDed
-        /// @param				outU: NdArray output U
-        /// @param				outS: NdArray output S
-        /// @param				outVt: NdArray output V transpose
+        /// @return             std::pair<NdArray, NdArray> of the decomposed L and U matrices
         ///
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
+        std::pair<NdArray<double>, NdArray<double> > lu_decomposition(const NdArray<dtype>& inMatrix)
         {
-            SVD svdSolver(inArray.template astype<double>());
-            outU = std::move(svdSolver.u());
+            if(!inMatrix.issquare()) 
+            {
+                THROW_RUNTIME_ERROR("Input matrix should be square.");
+            }
 
-            NdArray<double> vt = svdSolver.v().transpose();
-            outVt = std::move(vt);
+            NdArray<double> lMatrix = zeros_like<double>(inMatrix);
+            NdArray<double> uMatrix = inMatrix.astype<double>();
 
-            NdArray<double> s = diagflat(svdSolver.s());
-            outS = std::move(s);
+            auto shape = inMatrix.shape();
+
+            for(uint32 col = 0; col < shape.cols; ++col)
+            {
+                lMatrix(col, col) = 1;
+
+                for(uint32 row = col + 1; row < shape.rows; ++row)
+                {
+                    const double& divisor = uMatrix(col, col);
+                    if (utils::essentiallyEqual(divisor, double{0.0}))
+                    {
+                        THROW_RUNTIME_ERROR("Division by 0.");
+                    }
+
+                    lMatrix(row, col) = uMatrix(row, col) / divisor;
+
+                    for(uint32 col2 = col; col2 < shape.cols; ++col2) 
+                    {
+                        uMatrix(row, col2) -= lMatrix(row, col) * uMatrix(col, col2);
+                    }
+                }
+            }
+
+            return std::make_pair(lMatrix, uMatrix);
         }
     }
 }

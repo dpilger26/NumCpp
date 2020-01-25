@@ -24,17 +24,30 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Module for doing linear algebra operations
+/// matrix cholesky decomposition
 ///
 #pragma once
 
-//#include "NumCpp/Linalg/cholesky.hpp"
-#include "NumCpp/Linalg/det.hpp"
-#include "NumCpp/Linalg/hat.hpp"
-#include "NumCpp/Linalg/inv.hpp"
-#include "NumCpp/Linalg/lstsq.hpp"
-#include "NumCpp/Linalg/lu_decomposition.hpp"
-#include "NumCpp/Linalg/matrix_power.hpp"
-#include "NumCpp/Linalg/multi_dot.hpp"
-//#include "NumCpp/Linalg/pivotLU_decomposition.hpp"
-#include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/NdArray.hpp"
+
+namespace nc
+{
+    namespace linalg
+    {
+        //============================================================================
+        // Method Description:
+        ///						matrix cholesky decomposition
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
+        ///
+        /// @param				inMatrix: NdArray to be decomposed
+        ///
+        /// @return             NdArray of the decomposed L matrix
+        ///
+        template<typename dtype>
+        NdArray<double> cholesky(const NdArray<dtype>& inMatrix)
+        {
+
+        }
+    }
+}
