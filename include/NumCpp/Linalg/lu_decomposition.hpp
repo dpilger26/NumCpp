@@ -34,7 +34,7 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
-#include <tuple>
+#include <utility>
 
 namespace nc
 {
@@ -57,7 +57,7 @@ namespace nc
             }
 
             NdArray<double> lMatrix = zeros_like<double>(inMatrix);
-            NdArray<double> uMatrix = inMatrix.astype<double>();
+            NdArray<double> uMatrix = inMatrix.template astype<double>();
 
             auto shape = inMatrix.shape();
 

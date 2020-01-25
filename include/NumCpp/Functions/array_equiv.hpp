@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
@@ -56,6 +57,18 @@ namespace nc
             return false;
         }
 
-        return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
+        if (DtypeInfo<dtype>::isInteger())
+        {
+            return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
+        }
+        else
+        {
+            auto b = [](dtype value1, dtype value2) -> bool
+            {
+                return utils::essentiallyEqual(value1, value2);
+            };
+
+            return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), b);
+        }
     }
 }

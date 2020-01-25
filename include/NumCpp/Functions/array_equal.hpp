@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Functions/array_equiv.hpp"
 
 namespace nc
 {
@@ -53,6 +53,6 @@ namespace nc
             return false;
         }
 
-        return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
+        return array_equiv(inArray1, inArray2);
     }
 }

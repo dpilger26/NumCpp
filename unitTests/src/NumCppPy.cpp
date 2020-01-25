@@ -2842,6 +2842,16 @@ namespace LinalgInterface
     {
         return nc2Boost(linalg::multi_dot({ inArray1, inArray2, inArray3, inArray4 }));
     }
+
+    template<typename dtype>
+    bp::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
+    {
+        auto lup = linalg::pivotLU_decomposition(inArray);
+        auto& l = std::get<0>(lup);
+        auto& u = std::get<1>(lup);
+        auto& p = std::get<2>(lup);
+        return bp::make_tuple(nc2Boost(l), nc2Boost(u), nc2Boost(p));
+    }
 }
 
 namespace RotationsInterface
@@ -4530,6 +4540,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
     bp::def("matrix_power", &linalg::matrix_power<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
+    bp::def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     bp::def("svd", &linalg::svd<double>);
 
     // Rotations.hpp
