@@ -616,6 +616,18 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+        
+    print(colored('Testing isflat', 'cyan'))
+    shapeInput = np.random.randint(2, 100, [2, ])
+    sizeInput = np.random.randint(2, 100, [1, ]).item()
+    shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumCpp.Shape(1, sizeInput)
+    cArray1 = NumCpp.NdArray(shape1)
+    cArray2 = NumCpp.NdArray(shape2)
+    if not cArray1.isflat() and cArray2.isflat():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
     print(colored('Testing issorted: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -662,6 +674,21 @@ def doTest():
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing isSquare', 'cyan'))
+    while True:
+        shapeInput = np.random.randint(2, 100, [2, ])
+        if np.prod(shapeInput) != np.square(shapeInput[0]):
+            break
+    sizeInput = np.random.randint(2, 100, [1, ]).item()
+    shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumCpp.Shape(sizeInput, sizeInput)
+    cArray1 = NumCpp.NdArray(shape1)
+    cArray2 = NumCpp.NdArray(shape2)
+    if not cArray1.isSquare() and cArray2.isSquare():
+        print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 

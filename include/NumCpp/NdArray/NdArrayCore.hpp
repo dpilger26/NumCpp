@@ -1390,12 +1390,19 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            auto function = [](dtype value) noexcept -> dtypeOut
+            if (std::is_same<dtypeOut, dtype>::value)
             {
-                return static_cast<dtypeOut>(value);
-            };
+                std::copy(cbegin(), cend(), outArray.begin());
+            }
+            else
+            {
+                auto function = [](dtype value) noexcept -> dtypeOut
+                {
+                    return static_cast<dtypeOut>(value);
+                };
 
-            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+            }
 
             return outArray;
         }
@@ -1925,6 +1932,18 @@ namespace nc
                     return NdArray<bool>(0);
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return if the NdArray is sorted.
+        ///
+        /// @param inAxis
+        /// @return boolean
+        ///
+        bool isSquare() const noexcept
+        {
+            return shape_.isSquare();
         }
 
         //============================================================================

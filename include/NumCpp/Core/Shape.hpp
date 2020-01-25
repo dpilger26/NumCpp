@@ -117,6 +117,16 @@ namespace nc
         }
 
         //============================================================================
+        ///						Returns whether the shape is square or not.
+        ///
+        /// @return     bool
+        ///
+        constexpr bool isSquare() const noexcept
+        {
+            return rows == cols;
+        }
+
+        //============================================================================
         ///						Returns the shape as a string representation
         ///
         /// @return     std::string
