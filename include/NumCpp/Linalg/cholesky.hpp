@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Error.hpp"
 
 namespace nc
 {
@@ -36,7 +37,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix cholesky decomposition
+        ///						matrix cholesky decomposition A = L * L.transpose()
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
         ///
@@ -47,7 +48,47 @@ namespace nc
         template<typename dtype>
         NdArray<double> cholesky(const NdArray<dtype>& inMatrix)
         {
+            auto shape = inMatrix.shape();
+            if(!shape.issquare()) 
+            {
+                THROW_RUNTIME_ERROR("Input matrix should be square.");
+            }
 
+            auto lMatrix = inMatrix.template astype<double>();
+
+            for(uint32 row = 0; row < shape.rows; ++row) 
+            {
+                for(uint32 col = row + 1; col < shape.cols; ++col)
+                {
+                    lMatrix(row, col) = 0.0;
+                }
+            }
+
+            for(uint32 k = 0; k < shape.cols; ++k)
+            {
+                const double& a_kk = lMatrix(k, k);
+
+                if(a_kk > 0) 
+                {
+                    lMatrix(k, k) = std::sqrt(a_kk);
+
+                    for(uint32 i = k + 1; i < shape.rows; ++i)
+                    {
+                        lMatrix(i, k) /= lMatrix(k, k);
+
+                        for(uint32 j = k + 1; j <= i; ++j)
+                        { 
+                            lMatrix(i, j) -= lMatrix(i, k) * lMatrix(j, k);
+                        }
+                    }
+                }
+                else 
+                {
+                    THROW_RUNTIME_ERROR("Matrix is not positive definite.");
+                }
+            }
+
+            return lMatrix;
         }
     }
 }

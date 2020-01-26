@@ -11,6 +11,19 @@ import NumCpp
 def doTest():
     print(colored('Testing Linalg Module', 'magenta'))
 
+    print(colored('Testing cholesky', 'cyan'))
+    shapeInput = np.random.randint(5, 50, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    a = np.random.randint(1, 100, [shape.rows, shape.cols]).flatten()
+    aL = np.tril(a)
+    b = aL.dot(aL.transpose())
+    cArray.setArray(b)
+    if np.array_equal(np.round(NumCpp.cholesky(cArray).getNumpyArray()), np.round(aL)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing det: 2x2', 'cyan'))
     order = 2
     shape = NumCpp.Shape(order)

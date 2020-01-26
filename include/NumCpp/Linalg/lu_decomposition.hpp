@@ -51,15 +51,14 @@ namespace nc
         template<typename dtype>
         std::pair<NdArray<double>, NdArray<double> > lu_decomposition(const NdArray<dtype>& inMatrix)
         {
-            if(!inMatrix.issquare()) 
+            auto shape = inMatrix.shape();
+            if(!shape.issquare()) 
             {
                 THROW_RUNTIME_ERROR("Input matrix should be square.");
             }
 
             NdArray<double> lMatrix = zeros_like<double>(inMatrix);
             NdArray<double> uMatrix = inMatrix.template astype<double>();
-
-            auto shape = inMatrix.shape();
 
             for(uint32 col = 0; col < shape.cols; ++col)
             {

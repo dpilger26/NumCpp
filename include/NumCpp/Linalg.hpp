@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-//#include "NumCpp/Linalg/cholesky.hpp"
+#include "NumCpp/Linalg/cholesky.hpp"
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Linalg/inv.hpp"

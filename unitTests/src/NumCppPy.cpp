@@ -4533,6 +4533,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("weibull", &random::weibull<double>);
 
     // Linalg.hpp
+    bp::def("cholesky", &linalg::cholesky<double>);
     bp::def("det", &linalg::det<double>);
     bp::def("hat", &LinalgInterface::hatArray<double>);
     bp::def("inv", &linalg::inv<double>);
