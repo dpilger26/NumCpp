@@ -36,6 +36,7 @@
 #include "NumCpp/Filter.hpp"
 #include "NumCpp/Functions.hpp"
 #include "NumCpp/ImageProcessing.hpp"
+#include "NumCpp/Integrate.hpp"
 #include "NumCpp/Linalg.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Polynomial.hpp"

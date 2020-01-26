@@ -34,31 +34,34 @@
 
 namespace nc
 {
-    //============================================================================
-    // Method Description:
-    ///						Performs Newton-Cotes trapazoidal integration of the input function
-    ///
-    /// @param				low: the lower bound of the integration
-    /// @param              high: the upper bound of the integration
-    /// @param				n: the number of subdivisions
-    /// @param              f: the function to integrate over
-    ///
-    /// @return             double
-    ///
-    inline double integrate_trapazoidal(const double low, const double high, const uint32 n,
-        const std::function<double (double)>& f)
+    namespace integrate
     {
-        const double width = (high - low) / static_cast<double>(n);
-
-        double trapezoidal_integral = 0.0;
-        for(uint32 step = 0; step < n; ++step)
+        //============================================================================
+        // Method Description:
+        ///						Performs Newton-Cotes Simpson integration of the input function
+        ///
+        /// @param				low: the lower bound of the integration
+        /// @param              high: the upper bound of the integration
+        /// @param				n: the number of subdivisions
+        /// @param              function: the function to integrate over
+        ///
+        /// @return             double
+        ///
+        inline double simpson(const double low, const double high, const uint32 n,
+            const std::function<double(double)>& f)
         {
-            const double x1 = low + static_cast<double>(step) * width;
-            const double x2 = low + static_cast<double>(step + 1) * width;
+            const double width = (high - low) / static_cast<double>(n);
 
-            trapezoidal_integral += 0.5 * (x2 - x1) * (f(x1) + f(x2));
+            double simpson_integral = 0.0;
+            for (uint32 step = 0; step < n; ++step)
+            {
+                const double x1 = low + static_cast<double>(step) * width;
+                const double x2 = low + static_cast<double>(step + 1) * width;
+
+                simpson_integral += (x2 - x1) / 6.0 * (f(x1) + 4.0 * f(0.5 * (x1 + x2)) + f(x2));
+            }
+
+            return simpson_integral;
         }
-
-        return trapezoidal_integral;
     }
 }
