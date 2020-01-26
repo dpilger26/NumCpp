@@ -1,0 +1,64 @@
+/// @file
+/// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
+/// @version 1.2
+///
+/// @section License
+/// Copyright 2019 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section Description
+/// Functions for working with NdArrays
+///
+#pragma once
+
+#include "NumCpp/Core/Types.hpp"
+
+#include <functional>
+
+namespace nc
+{
+    //============================================================================
+    // Method Description:
+    ///						Performs Newton-Cotes Simpson integration of the input function
+    ///
+    /// @param				low: the lower bound of the integration
+    /// @param              high: the upper bound of the integration
+    /// @param				n: the number of subdivisions
+    /// @param              function: the function to integrate over
+    ///
+    /// @return             double
+    ///
+    inline double integrate_simpson(const double low, const double high, const uint32 n,
+        const std::function<double (double)>& f)
+    {
+        const double width = (high - low) / static_cast<double>(n);
+
+        double simpson_integral = 0.0;
+        for(uint32 step = 0; step < n; ++step)
+        {
+            const double x1 = low + static_cast<double>(step) * width;
+            const double x2 = low + static_cast<double>(step + 1) * width;
+
+            simpson_integral += (x2 - x1) / 6.0 * (f(x1) + 4.0 * f(0.5 * (x1 + x2)) + f(x2));
+        }
+
+        return simpson_integral;
+    }
+}

@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -68,7 +69,7 @@ namespace nc
             {
                 const double& a_kk = lMatrix(k, k);
 
-                if(a_kk > 0) 
+                if(a_kk > 0.0) 
                 {
                     lMatrix(k, k) = std::sqrt(a_kk);
 

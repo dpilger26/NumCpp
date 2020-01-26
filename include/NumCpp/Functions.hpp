@@ -132,6 +132,10 @@
 #include "NumCpp/Functions/hypot.hpp"
 
 #include "NumCpp/Functions/identity.hpp"
+#include "NumCpp/Functions/integrate_trapazoidal.hpp"
+#include "NumCpp/Functions/integrate_simpson.hpp"
+#include "NumCpp/Functions/integrate_romberg.hpp"
+#include "NumCpp/Functions/integrate_gauss_legendre.hpp"
 #include "NumCpp/Functions/interp.hpp"
 #include "NumCpp/Functions/intersect1d.hpp"
 #include "NumCpp/Functions/invert.hpp"
