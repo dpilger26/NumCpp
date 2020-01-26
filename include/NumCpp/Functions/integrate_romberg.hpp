@@ -28,7 +28,6 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/integrate_trapazoidal.hpp"
 #include "NumCpp/Utils/power.hpp"
@@ -49,7 +48,7 @@ namespace nc
     ///
     /// @return             double
     ///
-    inline NdArray<double> integrate_romberg(const double low, const double high, const uint8 n,
+    inline double integrate_romberg(const double low, const double high, const uint8 n,
         const std::function<double (double)>& f)
     {
         NdArray<double> rombergIntegral(n);
@@ -71,16 +70,19 @@ namespace nc
                 trapezoidal_integration += f(low + deltaX);
             }
 
-            rombergIntegral(step, 0) = 0.5 * rombergIntegral(step - 1, 0) + trapezoidal_integration * h;
+            rombergIntegral(step, 0) = 0.5 * rombergIntegral(step - 1, 0);
+            rombergIntegral(step, 0) += trapezoidal_integration * h;
 
             //R(m,n) Romberg integration with R(m,1) -> Simpson rule, R(m,2) -> Boole's rule
             for(uint8 rbStep = 1; rbStep <= step; ++rbStep)
             {
                 const double k = utils::power(4, rbStep);
-                rombergIntegral(step, rbStep) = (k * rombergIntegral(step, rbStep - 1) - rombergIntegral(step - 1, rbStep - 1)) / (k - 1.0);
+                rombergIntegral(step, rbStep) = k * rombergIntegral(step, rbStep - 1);
+                rombergIntegral(step, rbStep) -= rombergIntegral(step - 1, rbStep - 1);
+                rombergIntegral(step, rbStep) /= (k - 1.0);
             }
         }
 
-        return rombergIntegral;
+        return rombergIntegral.back();
     }
 }
