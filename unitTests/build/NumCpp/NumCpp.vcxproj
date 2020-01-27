@@ -173,10 +173,6 @@
     <ClInclude Include="..\..\..\include\NumCpp\Functions\hstack.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\hypot.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\identity.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Functions\integrate_gauss_legendre.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Functions\integrate_romberg.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Functions\integrate_simpson.hpp" />
-    <ClInclude Include="..\..\..\include\NumCpp\Functions\integrate_trapazoidal.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\interp.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\intersect1d.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Functions\invert.hpp" />
@@ -306,6 +302,11 @@
     <ClInclude Include="..\..\..\include\NumCpp\ImageProcessing\generateThreshold.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\ImageProcessing\Pixel.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\ImageProcessing\windowExceedances.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Integrate.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Integrate\gauss_legendre.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Integrate\romberg.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Integrate\simpson.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Integrate\trapazoidal.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Linalg.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\cholesky.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\det.hpp" />
@@ -366,6 +367,10 @@
     <ClInclude Include="..\..\..\include\NumCpp\Random\uniform.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Random\uniformOnSphere.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Random\weibull.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Roots.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Roots\Bisection.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Roots\Brent.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Roots\Iteration.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Rotations.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Rotations\DCM.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Rotations\Quaternion.hpp" />

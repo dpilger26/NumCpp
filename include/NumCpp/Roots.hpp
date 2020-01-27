@@ -29,3 +29,4 @@
 #pragma once
 
 #include "NumCpp/Roots/Bisection.hpp"
+#include "NumCpp/Roots/Brent.hpp"
