@@ -49,10 +49,15 @@ namespace nc
         template<typename dtype>
         constexpr bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
         {
-            STATIC_ASSERT_FLOAT(dtype);
-
-            return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
-                std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
+            if (DtypeInfo<dtype>::isInteger())
+            {
+                return inValue1 == inValue2;
+            }
+            else
+            {
+                return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
+                    std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
+            }
         }
 
         //============================================================================
