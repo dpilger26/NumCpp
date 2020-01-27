@@ -54,7 +54,8 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param f: the function 
             ///
-            Brent(const double epsilon, const std::function<double(double)>& f) noexcept :
+            Brent(const double epsilon,
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -64,9 +65,12 @@ namespace nc
             ///	Constructor
             ///
             /// @param epsilon: the epsilon value
+            /// @param maxNumberIterations: the maximum number of iterations to perform
             /// @param f: the function 
             ///
-            Brent(const double epsilon, const uint32 maxNumIterations, const std::function<double(double)>& f) noexcept :
+            Brent(const double epsilon,
+                const uint32 maxNumIterations, 
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -141,6 +145,8 @@ namespace nc
                     lastFb = fb;
                     fb = f_(b);
                     checkAndFixAlgorithmCriteria(a, b, fa, fb);
+
+                    incrementNumberOfIterations();
                 }
 
                 return fb < fs ? b : s;

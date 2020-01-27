@@ -41,9 +41,9 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Bisection root finding method
+        ///	Newton root finding method
         ///
-        class Bisection : public Iteration
+        class Newton : public Iteration
         {
         public:
             //============================================================================
@@ -52,11 +52,14 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
+            /// @param fPrime: the derivative of the function 
             ///
-            Bisection(const double epsilon, 
-                const std::function<double(double)>& f) noexcept :
+            Newton(const double epsilon,
+                const std::function<double(double)>& f,
+                const std::function<double(double)>& fPrime) noexcept :
                 Iteration(epsilon),
-                f_(f)
+                f_(f),
+                fPrime_(fPrime)
             {}
 
             //============================================================================
@@ -66,12 +69,15 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param maxNumberIterations: the maximum number of iterations to perform
             /// @param f: the function 
+            /// @param fPrime: the derivative of the function 
             ///
-            Bisection(const double epsilon, 
+            Newton(const double epsilon,
                 const uint32 maxNumIterations,
-                const std::function<double(double)>& f) noexcept :
+                const std::function<double(double)>& f,
+                const std::function<double(double)>& fPrime) noexcept :
                 Iteration(epsilon, maxNumIterations),
-                f_(f)
+                f_(f),
+                fPrime_(fPrime)
             {}
 
             //============================================================================
@@ -81,28 +87,28 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param f: the function 
             ///
-            ~Bisection() noexcept override = default;
+            ~Newton() noexcept override = default;
 
             //============================================================================
             // Method Description:
             ///	Solves for the root in the range [a, b]
             ///
-            /// @param a: the lower bound
-            /// @param b: the upper bound
-            /// @return root between the bound
+            /// @param x: the starting point
+            /// @return root nearest the starting point
             ///
-            double solve(double a, double b)
+            double solve(double x)
             {
                 resetNumberOfIterations();
-                checkAndFixAlgorithmCriteria(a, b);
 
-                double x = 0.5 * (a + b);
                 double fx = f_(x);
+                double fxPrime = fPrime_(x);
 
-                while (std::fabs(fx) >= epsilon_)
+                while (fabs(fx) >= epsilon_)
                 {
-                    x = calculateX(x, a, b, fx);
+                    x = calculateX(x, fx, fxPrime);
+
                     fx = f_(x);
+                    fxPrime = fPrime_(x);
 
                     incrementNumberOfIterations();
                 }
@@ -113,45 +119,19 @@ namespace nc
         private:
             //============================================================================
             const std::function<double(double)> f_;
+            const std::function<double(double)> fPrime_;
 
             //============================================================================
             // Method Description:
-            ///	Checks the bounds criteria
+            ///	Calculates x
             ///
-            /// @param a: the lower bound
-            /// @param b: the upper bound
+            /// @param x: the current x value
+            /// @param fx: the function evaluated at the current x value
+            /// @param fxPrime: the derivate of the function evaluated at the current x value
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b) const noexcept
+            double calculateX(double x, double fx, double fxPrime)
             {
-                //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
-                if (f_(a) < f_(b))
-                {
-                    std::swap(a, b);
-                }
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Calculates the bisection point
-            ///
-            /// @param x: the evaluation point
-            /// @param a: the lower bound
-            /// @param b: the upper bound
-            /// @param fx: the function evaluated at x
-            /// @return x
-            ///
-            double calculateX(double x, double &a, double &b, double fx) noexcept
-            {
-                if (fx < 0)
-                {
-                    b = x;
-                }
-                else
-                {
-                    a = x;
-                }
-
-                return 0.5 * (a + b);
+                return x - fx / fxPrime;
             }
         };
     }

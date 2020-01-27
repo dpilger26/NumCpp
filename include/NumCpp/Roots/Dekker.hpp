@@ -53,7 +53,8 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param f: the function 
             ///
-            Dekker(const double epsilon, const std::function<double(double)>& f) noexcept :
+            Dekker(const double epsilon,
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -63,9 +64,12 @@ namespace nc
             ///	Constructor
             ///
             /// @param epsilon: the epsilon value
+            /// @param maxNumberIterations: the maximum number of iterations to perform
             /// @param f: the function 
             ///
-            Dekker(const double epsilon, const uint32 maxNumIterations, const std::function<double(double)>& f) noexcept :
+            Dekker(const double epsilon, 
+                const uint32 maxNumIterations, 
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -118,6 +122,8 @@ namespace nc
 
                     fa = f_(a);
                     checkAndFixAlgorithmCriteria(a, b, fa, fb);
+
+                    incrementNumberOfIterations();
                 }
 
                 return b;
