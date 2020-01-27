@@ -188,7 +188,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing lu_decompostion', 'cyan'))
+    print(colored('Testing pivotlu_decompostion', 'cyan'))
     sizeInput = np.random.randint(5, 50)
     shape = NumCpp.Shape(sizeInput)
     cArray = NumCpp.NdArray(shape)

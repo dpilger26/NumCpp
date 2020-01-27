@@ -3154,6 +3154,52 @@ namespace PolynomialInterface
     }
 }
 
+namespace RootsInterface
+{
+    constexpr double EPSILON = 1e-10;
+
+    //================================================================================
+
+    double bisection(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Bisection(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double brent(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Brent(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double dekker(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Dekker(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double newton(const polynomial::Poly1d<double>p, double x)
+    {
+        auto pPrime = p.deriv();
+        auto rootFinder = roots::Newton(EPSILON, p, pPrime);
+        return rootFinder.solve(x);
+    }
+
+    //================================================================================
+
+    double secant(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Secant(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+}
+
 namespace Vec2Interface
 {
     np::ndarray toNdArray(const Vec2& self)
@@ -4817,6 +4863,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("spherical_harmonic", &PolynomialInterface::spherical_harmonic<double>);
     bp::def("spherical_harmonic_r", &polynomial::spherical_harmonic_r<double, double>);
     bp::def("spherical_harmonic_i", &polynomial::spherical_harmonic_i<double, double>);
+
+    // Roots.hpp
+    bp::def("bisection_roots", &RootsInterface::bisection);
+    bp::def("brent_roots", &RootsInterface::brent);
+    bp::def("dekker_roots", &RootsInterface::dekker);
+    bp::def("newton_roots", &RootsInterface::newton);
+    bp::def("secant_roots", &RootsInterface::secant);
 
     // Vec2.hpp
     bp::class_<Vec2>
