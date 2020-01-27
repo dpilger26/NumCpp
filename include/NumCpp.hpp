@@ -42,6 +42,7 @@
 #include "NumCpp/Polynomial.hpp"
 #include "NumCpp/PythonInterface.hpp"
 #include "NumCpp/Random.hpp"
+#include "NumCpp/Roots.hpp"
 #include "NumCpp/Rotations.hpp"
 #include "NumCpp/Special.hpp"
 #include "NumCpp/Utils.hpp"
