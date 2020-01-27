@@ -28,12 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
 
 #include <cmath>
 #include <functional>
-#include <limits>
 #include <utility>
 
 namespace nc
@@ -103,8 +103,8 @@ namespace nc
 
                 double lastB = a; // b_{k-1}
                 double lastFb = fa;
-                double s = std::numeric_limits<double>::max();
-                double fs = std::numeric_limits<double>::max();
+                double s = DtypeInfo<double>::max();
+                double fs = DtypeInfo<double>::max();
                 double penultimateB = a; // b_{k-2}
 
                 bool bisection = true;
@@ -247,7 +247,7 @@ namespace nc
             /// @param lastB: the previous upper bound
             /// @param penultimateB:
             /// @param s: 
-            /// @return the inverse quadratic interpolation
+            /// @return bool
             ///
             bool useBisection(const bool bisection, const double b, const double lastB,
                 const double penultimateB, const double s) const

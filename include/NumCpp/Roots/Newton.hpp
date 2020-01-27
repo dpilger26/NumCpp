@@ -33,7 +33,6 @@
 
 #include <cmath>
 #include <functional>
-#include <utility>
 
 namespace nc
 {
@@ -103,7 +102,7 @@ namespace nc
                 double fx = f_(x);
                 double fxPrime = fPrime_(x);
 
-                while (fabs(fx) >= epsilon_)
+                while (std::fabs(fx) >= epsilon_)
                 {
                     x = calculateX(x, fx, fxPrime);
 
@@ -128,6 +127,7 @@ namespace nc
             /// @param x: the current x value
             /// @param fx: the function evaluated at the current x value
             /// @param fxPrime: the derivate of the function evaluated at the current x value
+            /// @return x
             ///
             double calculateX(double x, double fx, double fxPrime)
             {

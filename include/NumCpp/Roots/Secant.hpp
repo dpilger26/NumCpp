@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
 
@@ -41,9 +42,9 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Dekker root finding method
+        ///	Secant root finding method
         ///
-        class Dekker : public Iteration
+        class Secant : public Iteration
         {
         public:
             //============================================================================
@@ -53,7 +54,7 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param f: the function 
             ///
-            Dekker(const double epsilon,
+            Secant(const double epsilon,
                 const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon),
                 f_(f)
@@ -67,8 +68,8 @@ namespace nc
             /// @param maxNumberIterations: the maximum number of iterations to perform
             /// @param f: the function 
             ///
-            Dekker(const double epsilon, 
-                const uint32 maxNumIterations, 
+            Secant(const double epsilon,
+                const uint32 maxNumIterations,
                 const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
@@ -81,7 +82,7 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param f: the function 
             ///
-            ~Dekker() noexcept override = default;
+            ~Secant() noexcept override = default;
 
             //============================================================================
             // Method Description:
@@ -95,38 +96,30 @@ namespace nc
             {
                 resetNumberOfIterations();
 
-                double fa = f_(a);
-                double fb = f_(b);
-
-                checkAndFixAlgorithmCriteria(a, b, fa, fb);
-
-                double lastB = a;
-                double lastFb = fa;
-
-                while (std::fabs(fb) > epsilon_ && std::fabs(b - a) > epsilon_) 
+                if (f_(a) > f_(b))
                 {
-                    const double s = calculateSecant(b, fb, lastB, lastFb);
-                    const double m = calculateBisection(a, b);
+                    std::swap(a, b);
+                }
 
-                    lastB = b;
+                double x = b;
+                double lastX = a;
+                double fx = f_(b);
+                double lastFx = f_(a);
 
-                    b = useSecantMethod(b, s, m) ? s : m;
+                while (std::fabs(fx) >= epsilon_)
+                {
+                    const double x_tmp = calculateX(x, lastX, fx, lastFx);
 
-                    lastFb = fb;
-                    fb = f_(b);
+                    lastFx = fx;
+                    lastX = x;
+                    x = x_tmp;
 
-                    if (fa * fb > 0 && fb * lastFb < 0) 
-                    {
-                        a = lastB;
-                    }
-
-                    fa = f_(a);
-                    checkAndFixAlgorithmCriteria(a, b, fa, fb);
+                    fx = f_(x);
 
                     incrementNumberOfIterations();
                 }
 
-                return b;
+                return x;
             }
 
         private:
@@ -135,66 +128,18 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Checks the bounds criteria
+            ///	Calculates x
             ///
-            /// @param a: the lower bound
-            /// @param b: the upper bound
-            /// @param fa: the function evalulated at the lower bound
-            /// @param fb: the function evalulated at the upper bound
+            /// @param x: the current x value
+            /// @param lastX: the previous x value
+            /// @param fx: the function evaluated at the current x value
+            /// @param lastFx: the function evaluated at the previous x value
+            /// @return x
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) 
+            double calculateX(double x, double lastX, double fx, double lastFx)
             {
-                //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
-                if (std::fabs(fa) < std::fabs(fb)) 
-                {
-                    std::swap(a, b);
-                    std::swap(fa, fb);
-                }
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Calculates secant
-            ///
-            /// @param b: the upper bound
-            /// @param fb: the function evalulated at the upper bound
-            /// @param lastB: the last upper bound
-            /// @param lastFb: the function evalulated at the last upper bound
-            /// @ return secant value
-            ///
-            double calculateSecant(double b, double fb, double lastB, double lastFb)
-            {
-                //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
-                return b - fb * (b - lastB) / (fb - lastFb);
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Calculate the bisection point
-            ///
-            /// @param a: the lower bound
-            /// @param b: the upper bound
-            /// @return bisection point
-            ///
-            double calculateBisection(double a, double b)
-            {
-                return 0.5 * (a + b);
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Whether or not to use the secant method
-            ///
-            /// @param b: the upper bound
-            /// @param s:
-            /// @param m:
-            /// @ return bool
-            ///
-            bool useSecantMethod(double b, double s, double m)
-            {
-                //Value s calculated by secant method has to be between m and b
-                return (b > m && s > m && s < b) ||
-                    (b < m && s > b && s < m);
+                const double functionDifference = fx - lastFx;
+                return x - fx * (x - lastX) / functionDifference;
             }
         };
     }
