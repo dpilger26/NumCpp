@@ -44,6 +44,29 @@ def testPoly1D():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing area', 'cyan'))
+    bounds = np.random.rand(2) * 100 - 50
+    bounds = np.sort(bounds)
+    polyIntegral = poly.integ()
+    if np.round(polyC.area(*bounds), 3) == np.round(polyIntegral(bounds[1]) - polyIntegral(bounds[0]), 3):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(np.round(polyC.area(*bounds), 3))
+        print(np.round(polyIntegral(bounds[1]) - polyIntegral(bounds[0]), 3))
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deriv', 'cyan'))
+    if np.array_equal(polyC.deriv().coefficients().getNumpyArray().flatten(), np.flipud(poly.deriv().coefficients)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing integ', 'cyan'))
+    if np.array_equal(polyC.integ().coefficients().getNumpyArray().flatten(), np.flipud(poly.integ().coefficients)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing order', 'cyan'))
     if polyC.order() == roots.size:
         print(colored('\tPASS', 'green'))
