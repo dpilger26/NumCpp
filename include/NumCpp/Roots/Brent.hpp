@@ -42,7 +42,7 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Bisection root finding method
+        ///	Brent root finding method
         ///
         class Brent : public Iteration
         {
@@ -104,18 +104,18 @@ namespace nc
                 double penultimateB = a; // b_{k-2}
 
                 bool bisection = true;
-                while(std::fabs(fb) > epsilon_ && std::fabs(fs) > epsilon_ && std::fabs(b-a) > epsilon_)
+                while (std::fabs(fb) > epsilon_ && std::fabs(fs) > epsilon_ && std::fabs(b - a) > epsilon_)
                 {
-                    if(useInverseQuadraticInterpolation(fa, fb, lastFb))
+                    if (useInverseQuadraticInterpolation(fa, fb, lastFb))
                     {
                         s = calculateInverseQuadraticInterpolation(a, b, lastB, fa, fb, lastFb);
                     }
-                    else 
+                    else
                     {
                         s = calculateSecant(a, b, fa, fb);
                     }
 
-                    if(useBisection(bisection, b, lastB, penultimateB, s))
+                    if (useBisection(bisection, b, lastB, penultimateB, s))
                     {
                         s = calculateBisection(a, b);
                         bisection = true;
@@ -129,7 +129,7 @@ namespace nc
                     penultimateB = lastB;
                     lastB = b;
 
-                    if(fa*fs < 0)
+                    if (fa * fs < 0)
                     {
                         b = s;
                     }
@@ -191,7 +191,7 @@ namespace nc
             /// @param lastB: the previous function evaluated at the upper bound
             /// @return the inverse quadratic interpolation
             ///
-            double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB, 
+            double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB,
                 const double fa, const double fb, const double lastFb) const noexcept
             {
                 return a * fb * lastFb / ((fa - fb) * (fa - lastFb)) +
@@ -250,7 +250,7 @@ namespace nc
 
                 return (bisection && std::fabs(s - b) >= 0.5 * std::fabs(b - lastB)) || //Bisection was used in last step but |s-b|>=|b-lastB|/2 <- Interpolation step would be to rough, so still use bisection
                     (!bisection && std::fabs(s - b) >= 0.5 * std::fabs(lastB - penultimateB)) || //Interpolation was used in last step but |s-b|>=|lastB-penultimateB|/2 <- Interpolation step would be to small
-                    (bisection  && std::fabs(b - lastB) < DELTA) || //If last iteration was using bisection and difference between b and lastB is < delta use bisection for next iteration
+                    (bisection && std::fabs(b - lastB) < DELTA) || //If last iteration was using bisection and difference between b and lastB is < delta use bisection for next iteration
                     (!bisection && std::fabs(lastB - penultimateB) < DELTA); //If last iteration was using interpolation but difference between lastB ond penultimateB is < delta use biscetion for next iteration
             }
         };

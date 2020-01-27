@@ -30,3 +30,4 @@
 
 #include "NumCpp/Roots/Bisection.hpp"
 #include "NumCpp/Roots/Brent.hpp"
+#include "NumCpp/Roots/Dekker.hpp"
