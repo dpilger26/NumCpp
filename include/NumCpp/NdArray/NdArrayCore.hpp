@@ -1,10 +1,10 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -1390,12 +1390,19 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            auto function = [](dtype value) noexcept -> dtypeOut
+            if (std::is_same<dtypeOut, dtype>::value)
             {
-                return static_cast<dtypeOut>(value);
-            };
+                std::copy(cbegin(), cend(), outArray.begin());
+            }
+            else
+            {
+                auto function = [](dtype value) noexcept -> dtypeOut
+                {
+                    return static_cast<dtypeOut>(value);
+                };
 
-            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+            }
 
             return outArray;
         }
@@ -1925,6 +1932,17 @@ namespace nc
                     return NdArray<bool>(0);
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return if the NdArray is sorted.
+        ///
+        /// @return boolean
+        ///
+        bool issquare() const noexcept
+        {
+            return shape_.issquare();
         }
 
         //============================================================================

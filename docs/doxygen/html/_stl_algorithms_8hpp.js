@@ -9,6 +9,7 @@ var _stl_algorithms_8hpp =
     [ "fill", "_stl_algorithms_8hpp.html#abbc2e8d742b76f4c2bead6ae894bc4e3", null ],
     [ "find", "_stl_algorithms_8hpp.html#ab372e4e815977d16f647cdcfea3f1ea5", null ],
     [ "for_each", "_stl_algorithms_8hpp.html#a734698435eabdbc5bdf93b195d7fb6a7", null ],
+    [ "inner_product", "_stl_algorithms_8hpp.html#a237a7b4514eff72fc35084f7004464d1", null ],
     [ "is_sorted", "_stl_algorithms_8hpp.html#a42bf8acb4c60400df32819dfd2507b33", null ],
     [ "max_element", "_stl_algorithms_8hpp.html#a8f91b4c9610973486b45eab8a5f04d3f", null ],
     [ "min_element", "_stl_algorithms_8hpp.html#ab886383a0452b7240cf97d80b569e858", null ],

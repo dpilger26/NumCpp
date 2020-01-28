@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.15">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
   <compound refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" kind="class"><name>nc::boostPythonInterface::BoostNdarrayHelper</name>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kind="enum"><name>Order</name></member>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
@@ -237,6 +237,22 @@
     <member refid="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" kind="function"><name>str</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a157a2e98ace3e2185af571a68e5a5b9c" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
+  <compound refid="classnc_1_1integrate_1_1_legendre_polynomial" kind="class"><name>nc::integrate::LegendrePolynomial</name>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aa75f39ca4705b1bb11845844ebb72a73" kind="variable"><name>EPSILON</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a3038ec7ebb6bccccad0c7ccf4cf2ceb1" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a9ab73a7334a9478cc64845023ac414cf" kind="variable"><name>root_</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aaebc01a031bf4258b66a990d7d7f23d0" kind="variable"><name>weight_</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a062ffe2d1f94af05d62ff9e0ee500581" kind="function"><name>LegendrePolynomial</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1af2156ad3e8f5cc67b2930d081a3e8613" kind="function"><name>getRoot</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a4293982abe2543fd2f2081cb04c887c7" kind="function"><name>getWeight</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aeadc12e6ccb0544ce6fa02bf4e5b0c6a" kind="function"><name>calculatePolynomialValueAndDerivative</name></member>
+    <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aacc385336d74ecbcfdb09957e5f6c652" kind="function"><name>calculateWeightAndRoot</name></member>
+  </compound>
+  <compound refid="structnc_1_1integrate_1_1_legendre_polynomial_1_1_result" kind="struct"><name>nc::integrate::LegendrePolynomial::Result</name>
+    <member refid="structnc_1_1integrate_1_1_legendre_polynomial_1_1_result_1ad8652c86fe45dd39c8072771060abfcb" kind="variable"><name>derivative</name></member>
+    <member refid="structnc_1_1integrate_1_1_legendre_polynomial_1_1_result_1a10d345c55b654c874e7f0fa0161e4ca9" kind="variable"><name>value</name></member>
+    <member refid="structnc_1_1integrate_1_1_legendre_polynomial_1_1_result_1ad7962f934c688af2606cb537d1269610" kind="function"><name>Result</name></member>
+  </compound>
   <compound refid="classnc_1_1linalg_1_1_s_v_d" kind="class"><name>nc::linalg::SVD</name>
     <member refid="classnc_1_1linalg_1_1_s_v_d_1ac4b93500a4b94e4a11ca8fd69bec6d9a" kind="variable"><name>eps_</name></member>
     <member refid="classnc_1_1linalg_1_1_s_v_d_1adec1eeac4c4592426e3f41cbf553e12c" kind="variable"><name>m_</name></member>
@@ -331,6 +347,7 @@
     <member refid="classnc_1_1_nd_array_1a626fd6565a7a5cf7cf60cece6d24b9c7" kind="function"><name>isempty</name></member>
     <member refid="classnc_1_1_nd_array_1a86612718fff113e3f4398bea80035a63" kind="function"><name>isflat</name></member>
     <member refid="classnc_1_1_nd_array_1a07864281508378503c26354e190394f1" kind="function"><name>issorted</name></member>
+    <member refid="classnc_1_1_nd_array_1afb7f3972ab5ef12be30906e5f5501fe7" kind="function"><name>issquare</name></member>
     <member refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" kind="function"><name>item</name></member>
     <member refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kind="function"><name>max</name></member>
     <member refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" kind="function"><name>mean</name></member>
@@ -408,12 +425,16 @@
   </compound>
   <compound refid="classnc_1_1polynomial_1_1_poly1d" kind="class"><name>nc::polynomial::Poly1d</name>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a365cd5e23d46644381e3c884337ef2a1" kind="variable"><name>coefficients_</name></member>
-    <member refid="classnc_1_1polynomial_1_1_poly1d_1a26a871724b90be8b662b5df41178b711" kind="function"><name>Poly1d</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a63ba012e9178fba33b85ba94f375a86d" kind="function"><name>Poly1d</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a33c01905d846d32e7d49dc4e7e884551" kind="function"><name>Poly1d</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a5bffcf44260bb4c7966212c849538721" kind="function"><name>area</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a001bd0e9f832e56c58c8ae40dc63c60f" kind="function"><name>astype</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a58a632fa53f4ad61f9d692eadba8552b" kind="function"><name>coefficients</name></member>
-    <member refid="classnc_1_1polynomial_1_1_poly1d_1a51d81c77d81aa59c5be6e89a0c8ae33e" kind="function"><name>operator *</name></member>
-    <member refid="classnc_1_1polynomial_1_1_poly1d_1abdd077db9b18c978f79be025af31a8c2" kind="function"><name>operator *=</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a4d43b9e6d0e7f25273a81482c26f37cb" kind="function"><name>deriv</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a86386d31dfc05f97ca395dbaf0b63071" kind="function"><name>integ</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1ac82910d648a2a3cfd2301e12907414dd" kind="function"><name>operator()</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a28aa3ab446b53a1d901cac5c0105ef59" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a98672b993e5100d6a39f36f37edc0098" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a2187ce69997f60f4a73eb9e66a4d6199" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a13372c13e633ffc87418d9369adcfea0" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a3dedbdd1923bc2f2b41c585d50ef4f4f" kind="function"><name>operator-</name></member>
@@ -424,6 +445,97 @@
     <member refid="classnc_1_1polynomial_1_1_poly1d_1abd3335aec42b7856a0d83a96f7e72e89" kind="function"><name>print</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a5e943edcdfbacb4d7a94a11f55532efe" kind="function"><name>str</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_bisection" kind="class"><name>nc::roots::Bisection</name>
+    <member refid="classnc_1_1roots_1_1_bisection_1ae6357e144a2b1fbb225d086de3cc3954" kind="variable"><name>f_</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1a5a790e250fbf36fd99584f68099e315b" kind="function"><name>Bisection</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1a0cac4b816910c90be235b0ad9487a2a4" kind="function"><name>Bisection</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1a6771fa331d511fa8a939ed0b2ba416c0" kind="function"><name>~Bisection</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1a1199a68b6f57fee8b24bfc59ffeff486" kind="function"><name>solve</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1ad08b9a1e592c30747e9a3a380afcc932" kind="function"><name>calculateX</name></member>
+    <member refid="classnc_1_1roots_1_1_bisection_1a635b6eb837b7357b1aabf4cc1e3b4274" kind="function"><name>checkAndFixAlgorithmCriteria</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_brent" kind="class"><name>nc::roots::Brent</name>
+    <member refid="classnc_1_1roots_1_1_brent_1a457fa62c9783bb13b313c35a8918bd61" kind="variable"><name>f_</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1aa9f4cea2c2770c669e84158186b075c2" kind="function"><name>Brent</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1abf26bf1c5ace791386f2c0f6a91f57bb" kind="function"><name>Brent</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a1234c20d17644a94cac2700d7b6558c0" kind="function"><name>~Brent</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a3853981ca1113723006b6627d96d378b" kind="function"><name>solve</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a0713cc1d7f5a8ae53de6e6ca37cb97e9" kind="function"><name>calculateBisection</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a5ab8fd93862694ea0614d92de7b01faa" kind="function"><name>calculateInverseQuadraticInterpolation</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a1ba9fa418a4b85626faee5812b17a714" kind="function"><name>calculateSecant</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1aa43775b08de6539af0fc072a68480762" kind="function"><name>checkAndFixAlgorithmCriteria</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1ab13f9c83d1d5cf78345a801afc213dc5" kind="function"><name>useBisection</name></member>
+    <member refid="classnc_1_1roots_1_1_brent_1a07aa18c32db46e63c2db82357ea127e7" kind="function"><name>useInverseQuadraticInterpolation</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_dekker" kind="class"><name>nc::roots::Dekker</name>
+    <member refid="classnc_1_1roots_1_1_dekker_1abae5bd70cb960e030627f6be6c63aca1" kind="variable"><name>f_</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a572739220f57db5c531ba4ad13afd43b" kind="function"><name>Dekker</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1afb2c5602f3d8c77a663bc81cb44efb8c" kind="function"><name>Dekker</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a684d033f2cfc9ddf5cf056503b8882ab" kind="function"><name>~Dekker</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a5da7506a8f371764d0fae321fe081111" kind="function"><name>solve</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1ad47e9b1d2633898eec93a55ac7f3adaa" kind="function"><name>calculateBisection</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a7213fb197040994a8fbc01b85098794e" kind="function"><name>calculateSecant</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a89273381041025d01f5cb0dfb0085011" kind="function"><name>checkAndFixAlgorithmCriteria</name></member>
+    <member refid="classnc_1_1roots_1_1_dekker_1a6b8b7c59ae8f9b54a960552d98925eae" kind="function"><name>useSecantMethod</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_iteration" kind="class"><name>nc::roots::Iteration</name>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" kind="function"><name>Iteration</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a7948f08cfaa01f5685ec35149bf6bba0" kind="function"><name>Iteration</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a96da5e3dedbc74efa97e91cf387cdaca" kind="function"><name>~Iteration</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_newton" kind="class"><name>nc::roots::Newton</name>
+    <member refid="classnc_1_1roots_1_1_newton_1aecd17b1c477d6f43ef813a8ce3d5bb9f" kind="variable"><name>f_</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1afe69f864934b2b30be5558d98e3fbd06" kind="variable"><name>fPrime_</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1a4625ab60dc1714f48a3759a4f5300a2b" kind="function"><name>Newton</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1a96883d83bf3cae4e58be021dd7a49997" kind="function"><name>Newton</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1a25702b087e2e9917af0c31fe1dbdf442" kind="function"><name>~Newton</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1aaed2535d1abdb0c6790aea60762ed789" kind="function"><name>solve</name></member>
+    <member refid="classnc_1_1roots_1_1_newton_1a79a9f8410a2efd6c36cb128ef02b9661" kind="function"><name>calculateX</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
+  </compound>
+  <compound refid="classnc_1_1roots_1_1_secant" kind="class"><name>nc::roots::Secant</name>
+    <member refid="classnc_1_1roots_1_1_secant_1af1e51d270e8c08f43c22c658474a5f4d" kind="variable"><name>f_</name></member>
+    <member refid="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" kind="function"><name>Secant</name></member>
+    <member refid="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" kind="function"><name>Secant</name></member>
+    <member refid="classnc_1_1roots_1_1_secant_1ac4443169163345fb836d572861b19a89" kind="function"><name>~Secant</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" kind="function"><name>numIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_secant_1a3fefb4412402aa20eeabb85145463d70" kind="function"><name>solve</name></member>
+    <member refid="classnc_1_1roots_1_1_secant_1a2412343ca3b41deb9e181579791d28da" kind="function"><name>calculateX</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" kind="variable"><name>epsilon_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" kind="variable"><name>maxNumIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" kind="variable"><name>numIterations_</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" kind="function"><name>incrementNumberOfIterations</name></member>
+    <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" kind="function"><name>resetNumberOfIterations</name></member>
   </compound>
   <compound refid="classnc_1_1rotations_1_1_d_c_m" kind="class"><name>nc::rotations::DCM</name>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1a22b4cf9dff8289af5218812f36c7f8bf" kind="function"><name>eulerAngles</name></member>
@@ -456,13 +568,13 @@
     <member refid="classnc_1_1rotations_1_1_quaternion_1acb62c703a1f96333bf76ad0735cb8b97" kind="function"><name>j</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1aa2eee61d3a428a558f28d1bb6cc6a048" kind="function"><name>k</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ab055510c1338490b957de867cecaf790" kind="function"><name>nlerp</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a745c5e68b3499426c31fa8d37135069c" kind="function"><name>operator *</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a57fdefc65f75a4c00de544e3598a1b61" kind="function"><name>operator *</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1aad5e008072744c3c70796a08c50b3bba" kind="function"><name>operator *</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a1f3221d077eb21c6014cbc7582072313" kind="function"><name>operator *</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1af4e9945aae1e75af6c316a47277d75ea" kind="function"><name>operator *=</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a379d1ee00f69ad4bbbe55c277d29367d" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1adcf57fd29d62e19f5c764750262ff7c3" kind="function"><name>operator!=</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1adad6ca92266f6090930addc585900805" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1ad63920fa01f5bd4949c0fbb3ff7c7137" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a10fd2d44927d59f19e37c45586072d14" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a7a76d280d13d7c7542c6f815ed5dbd22" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1aaaa8a1bd7130e7ce6a819284584a84c5" kind="function"><name>operator*=</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a17636913a3a1e810a81a558dc986fd54" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a53c84fdd06a1f980c7c74a185d568156" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1af2b75597d538e55cfdd1215c35c9c6fe" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a43fe6603ffbaaadf9348910e17e99519" kind="function"><name>operator-</name></member>
@@ -498,6 +610,7 @@
     <member refid="classnc_1_1_shape_1a6e870e9fda60c8e82996802fcb71490a" kind="function"><name>Shape</name></member>
     <member refid="classnc_1_1_shape_1a4b2cd200804257d9c53084f14fb38e31" kind="function"><name>Shape</name></member>
     <member refid="classnc_1_1_shape_1a1f0b70fbb2cbd47d34023762c5651a28" kind="function"><name>isnull</name></member>
+    <member refid="classnc_1_1_shape_1af00a8f56e47b2052a8d1bfd48b303b5f" kind="function"><name>issquare</name></member>
     <member refid="classnc_1_1_shape_1a7d11217aa2ee93dfba99f356384c6068" kind="function"><name>operator!=</name></member>
     <member refid="classnc_1_1_shape_1a87b45277865c2839fd71ad8756fa0cfb" kind="function"><name>operator==</name></member>
     <member refid="classnc_1_1_shape_1a8bebd2bf23c9e0cfc1917006af3594c9" kind="function"><name>print</name></member>
@@ -547,8 +660,8 @@
     <member refid="classnc_1_1_vec2_1a91e6417e5b9903ed6bee3ad90c0c38f4" kind="function"><name>lerp</name></member>
     <member refid="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" kind="function"><name>norm</name></member>
     <member refid="classnc_1_1_vec2_1a8d8a3ec28ef8336ab02dcd964a3e836c" kind="function"><name>normalize</name></member>
-    <member refid="classnc_1_1_vec2_1ac51bfef719e054df169c718d5b2864c3" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1_vec2_1ac83768c682c162ec9dffe1bfb9637338" kind="function"><name>operator!=</name></member>
+    <member refid="classnc_1_1_vec2_1a72ac39ba88f909cb5552f6b379509f81" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1_vec2_1a21b1c9c0aa0b7e8886f1b4a7c255bb9e" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec2_1af441d4bbee40c07f9b86fbd056ff637e" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec2_1abfb0b00888fa37d52a895d06f2b39133" kind="function"><name>operator-=</name></member>
@@ -579,8 +692,8 @@
     <member refid="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" kind="function"><name>lerp</name></member>
     <member refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" kind="function"><name>norm</name></member>
     <member refid="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" kind="function"><name>normalize</name></member>
-    <member refid="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1_vec3_1aad142760da8d2b3493462b4542e42673" kind="function"><name>operator!=</name></member>
+    <member refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1_vec3_1afef859d21f4332089843c5d337c1ce01" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec3_1a2b1c4e63a7233fb56e2f037807dffb68" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec3_1a70251860269c7cb5becbe988a0b2c48e" kind="function"><name>operator-=</name></member>
@@ -825,24 +938,15 @@
     <member refid="namespacenc_1a60a5797687e15e70c20c947d90f40fec" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1add1b1c44934c7fc8f6e6eb55cdc6de1f" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1a7177538cccb954e75b6b2d9f59aeb43e" kind="function"><name>ones</name></member>
-    <member refid="namespacenc_1a19b8942c347b6887f5d9e8bf66c4fc93" kind="function"><name>ones_like</name></member>
-    <member refid="namespacenc_1a1ba7072861bd6ea295d319fcf8f080cc" kind="function"><name>operator &amp;</name></member>
-    <member refid="namespacenc_1aa6ef353b483d7ffe6bf0f259aa0da942" kind="function"><name>operator &amp;</name></member>
-    <member refid="namespacenc_1a3b71d85512b494fb68c29cb6e449c545" kind="function"><name>operator &amp;</name></member>
-    <member refid="namespacenc_1a7898cdd274a044e99c817a3161cfe68d" kind="function"><name>operator &amp;&amp;</name></member>
-    <member refid="namespacenc_1ab25304816973d6f28083f2f2c16e97cc" kind="function"><name>operator &amp;&amp;</name></member>
-    <member refid="namespacenc_1acc21654f339fc2fcb39782874f6af97c" kind="function"><name>operator &amp;&amp;</name></member>
-    <member refid="namespacenc_1af1d79953bea73593799220bfcd0f52ea" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a2bcb72d892a608fbbfec90e02dcb50c1" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1add386e830a794b5a540d51b1893f3069" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a3464868481c1997dff4117d88456b492" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a49bf659cc8480de8a7c7dd53db04ef92" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a3a2bb570a80b12ade33148dec83f1506" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a841cda66319074229c01d2fd73301b14" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a70c62e340b06684425f5a90862ac7ddf" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1a4aa7b2b975670087aa3163d0c6506785" kind="function"><name>operator *</name></member>
-    <member refid="namespacenc_1ad63bda019cc9c258b5ec0fc3995f0ecf" kind="function"><name>operator *=</name></member>
-    <member refid="namespacenc_1a0b9f82824dafb1001950d13b87eeec7b" kind="function"><name>operator *=</name></member>
+    <member refid="namespacenc_1af9d70d29cce5411b0a397c6f669b5504" kind="function"><name>ones_like</name></member>
+    <member refid="namespacenc_1a2b6b365a8fac06afc8c609c589657c24" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespacenc_1a5e5b3a7a1c1ac032d205cb9d532b799a" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespacenc_1ade4cc2f6fbe7a60e289862112010a5e4" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespacenc_1a8f444e972be84fbd8dbb5e458334295f" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespacenc_1a48315fae30569cf0344073596313a0b3" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespacenc_1afe5da9c2ccd7b3236ed9b67902fd2d69" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespacenc_1a491eb8a935835148cdd28a070c2894ad" kind="function"><name>operator &amp;=</name></member>
+    <member refid="namespacenc_1af5a0542f72dbf32790543ac1c8a66149" kind="function"><name>operator &amp;=</name></member>
     <member refid="namespacenc_1a65ce16e21f5c63be5dd85d58878e59e4" kind="function"><name>operator!</name></member>
     <member refid="namespacenc_1a6b43c0961c86d4a3e20f84ca83c8ed03" kind="function"><name>operator!=</name></member>
     <member refid="namespacenc_1ac3155f05c00a7f9f777be6d7e1bb8078" kind="function"><name>operator!=</name></member>
@@ -852,8 +956,17 @@
     <member refid="namespacenc_1ac8a80e9bb9ae461b6ed895d4a6632515" kind="function"><name>operator%</name></member>
     <member refid="namespacenc_1a112144152ae720509653d881e3a9d4f4" kind="function"><name>operator%=</name></member>
     <member refid="namespacenc_1a1ed22a580b6510733018ef7e0c154af3" kind="function"><name>operator%=</name></member>
-    <member refid="namespacenc_1aedc89e1be7f41979fc870006016b6b46" kind="function"><name>operator&amp;=</name></member>
-    <member refid="namespacenc_1acb73bc112957b6fb0c8bb1ceb1fa25dc" kind="function"><name>operator&amp;=</name></member>
+    <member refid="namespacenc_1a168110492e655659beb6531c6286fed2" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a10251adfcabb440aa9b2f50796224169" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a2f3dddd5a73dee70725524378e52c07b" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a8248dae03ae96d459320f42d60fdf424" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a1769d68f44f9c98d94dd412bc32a9bb5" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1ace6d6bf5d703e886d8f137cf73be5021" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1af51c9efd8dbadbdc664972bd96583a72" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1af4ecba4e059c6dcf672644a3c1bff75d" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a39b128708b2225a00de527c8ec83d72a" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1af0a3674baebda83b99ba3b18ca4a59d3" kind="function"><name>operator*=</name></member>
+    <member refid="namespacenc_1a4be5929c8a3f41932b2a72dd86a33b84" kind="function"><name>operator*=</name></member>
     <member refid="namespacenc_1ae2fdee927930fcd4ec7090935b7e689e" kind="function"><name>operator+</name></member>
     <member refid="namespacenc_1a2f27bbb0b8c6b060e25ec9a2f236a160" kind="function"><name>operator+</name></member>
     <member refid="namespacenc_1a9e8e7e543576aac78e60a3abb76932df" kind="function"><name>operator+</name></member>
@@ -1023,7 +1136,7 @@
     <member refid="namespacenc_1a003b8abd8ec4640d8fcbc6d2c4872baf" kind="function"><name>zeros</name></member>
     <member refid="namespacenc_1a6752f0877730a4804ccb83fe9c2074b6" kind="function"><name>zeros</name></member>
     <member refid="namespacenc_1ab922d98449cc7df43255cae28908aac8" kind="function"><name>zeros</name></member>
-    <member refid="namespacenc_1a44d394dc1931ccf61b6509f406728e5f" kind="function"><name>zeros_like</name></member>
+    <member refid="namespacenc_1afa1d0f0818c3b4016632d9e4709795ce" kind="function"><name>zeros_like</name></member>
   </compound>
   <compound refid="namespacenc_1_1boost_python_interface" kind="namespace"><name>nc::boostPythonInterface</name>
     <member refid="namespacenc_1_1boost_python_interface_1a7195ee32d5fb06600aba55dc53b193ca" kind="function"><name>boost2Nc</name></member>
@@ -1117,15 +1230,24 @@
     <member refid="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" kind="function"><name>generateThreshold</name></member>
     <member refid="namespacenc_1_1image_processing_1a896adf0319f58a2f44cbf3dfaf550fe2" kind="function"><name>windowExceedances</name></member>
   </compound>
+  <compound refid="namespacenc_1_1integrate" kind="namespace"><name>nc::integrate</name>
+    <member refid="namespacenc_1_1integrate_1af7d17b4e025bf94f903d3c671da3baf7" kind="function"><name>gauss_legendre</name></member>
+    <member refid="namespacenc_1_1integrate_1a5406412619aa59539dd19f62f0be8caf" kind="function"><name>romberg</name></member>
+    <member refid="namespacenc_1_1integrate_1acc61bcd5ddb863c2d4f776d38197040e" kind="function"><name>simpson</name></member>
+    <member refid="namespacenc_1_1integrate_1a73156d502caa3e23d9ba82381bc382bf" kind="function"><name>trapazoidal</name></member>
+  </compound>
   <compound refid="namespacenc_1_1linalg" kind="namespace"><name>nc::linalg</name>
+    <member refid="namespacenc_1_1linalg_1ac2d27e58dd0f082ef5a422d545699d19" kind="function"><name>cholesky</name></member>
     <member refid="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" kind="function"><name>det</name></member>
     <member refid="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" kind="function"><name>hat</name></member>
     <member refid="namespacenc_1_1linalg_1ae7ced3680f1ae95af4bc2e6b98a5a517" kind="function"><name>hat</name></member>
     <member refid="namespacenc_1_1linalg_1ae9cdb091717a1c74dc659519d77e0048" kind="function"><name>hat</name></member>
     <member refid="namespacenc_1_1linalg_1ae36553eb100d8f2c2167e8ecadf2a9fc" kind="function"><name>inv</name></member>
     <member refid="namespacenc_1_1linalg_1aac53030577bdcf972d77f0c528b2d302" kind="function"><name>lstsq</name></member>
+    <member refid="namespacenc_1_1linalg_1a153a90dbcc2ca94c664c429868d15bc4" kind="function"><name>lu_decomposition</name></member>
     <member refid="namespacenc_1_1linalg_1ad27c1996e4e27a6f8ba5d2aed0743bba" kind="function"><name>matrix_power</name></member>
     <member refid="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" kind="function"><name>multi_dot</name></member>
+    <member refid="namespacenc_1_1linalg_1a390c3d32ed4b8ed7e718cbe121025ebd" kind="function"><name>pivotLU_decomposition</name></member>
     <member refid="namespacenc_1_1linalg_1aa2a95731baaa5ff4d5837c601987af22" kind="function"><name>svd</name></member>
   </compound>
   <compound refid="namespacenc_1_1polynomial" kind="namespace"><name>nc::polynomial</name>
@@ -1193,6 +1315,8 @@
     <member refid="namespacenc_1_1random_1a1e31096d678b7e4be66f6c59d95e5445" kind="function"><name>uniform</name></member>
     <member refid="namespacenc_1_1random_1a2f18a1f7b9311d52bbdc4ae7a7b84be6" kind="function"><name>uniformOnSphere</name></member>
     <member refid="namespacenc_1_1random_1af3a48c59aaa59d37bb5177b962d02bde" kind="function"><name>weibull</name></member>
+  </compound>
+  <compound refid="namespacenc_1_1roots" kind="namespace"><name>nc::roots</name>
   </compound>
   <compound refid="namespacenc_1_1rotations" kind="namespace"><name>nc::rotations</name>
     <member refid="namespacenc_1_1rotations_1a8b758ff29273093d433b54557054e56e" kind="function"><name>rodriguesRotation</name></member>
@@ -1275,6 +1399,7 @@
     <member refid="namespacenc_1_1stl__algorithms_1abbc2e8d742b76f4c2bead6ae894bc4e3" kind="function"><name>fill</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1ab372e4e815977d16f647cdcfea3f1ea5" kind="function"><name>find</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kind="function"><name>for_each</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a237a7b4514eff72fc35084f7004464d1" kind="function"><name>inner_product</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a42bf8acb4c60400df32819dfd2507b33" kind="function"><name>is_sorted</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a8f91b4c9610973486b45eab8a5f04d3f" kind="function"><name>max_element</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1ab886383a0452b7240cf97d80b569e858" kind="function"><name>min_element</name></member>
@@ -1294,8 +1419,8 @@
   </compound>
   <compound refid="namespacenc_1_1utils" kind="namespace"><name>nc::utils</name>
     <member refid="namespacenc_1_1utils_1a46e88717d4d32003bb449fd5cefd401c" kind="function"><name>cube</name></member>
-    <member refid="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" kind="function"><name>essentiallyEqual</name></member>
-    <member refid="namespacenc_1_1utils_1ac3dc6d7cb8c29cb15b89ec4d276aa458" kind="function"><name>essentiallyEqual</name></member>
+    <member refid="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" kind="function"><name>essentiallyEqual</name></member>
+    <member refid="namespacenc_1_1utils_1a757827e9924ac163082367951bb6253d" kind="function"><name>essentiallyEqual</name></member>
     <member refid="namespacenc_1_1utils_1a5016e06ac7ca186ff6c110b314d30209" kind="function"><name>gaussian</name></member>
     <member refid="namespacenc_1_1utils_1a263704ee2cc6ab3f77b462522c7150f8" kind="function"><name>gaussian1d</name></member>
     <member refid="namespacenc_1_1utils_1a691a52cfcc401340af355bd53869600e" kind="function"><name>interp</name></member>
@@ -1408,6 +1533,8 @@
   </compound>
   <compound refid="binomial_8hpp" kind="file"><name>binomial.hpp</name>
   </compound>
+  <compound refid="_bisection_8hpp" kind="file"><name>Bisection.hpp</name>
+  </compound>
   <compound refid="bitwise__and_8hpp" kind="file"><name>bitwise_and.hpp</name>
   </compound>
   <compound refid="bitwise__not_8hpp" kind="file"><name>bitwise_not.hpp</name>
@@ -1421,6 +1548,8 @@
   <compound refid="_boost_numpy_ndarray_helper_8hpp" kind="file"><name>BoostNumpyNdarrayHelper.hpp</name>
   </compound>
   <compound refid="_boundary_8hpp" kind="file"><name>Boundary.hpp</name>
+  </compound>
+  <compound refid="_brent_8hpp" kind="file"><name>Brent.hpp</name>
   </compound>
   <compound refid="byteswap_8hpp" kind="file"><name>byteswap.hpp</name>
   </compound>
@@ -1443,6 +1572,8 @@
   <compound refid="chi_square_8hpp" kind="file"><name>chiSquare.hpp</name>
   </compound>
   <compound refid="choice_8hpp" kind="file"><name>choice.hpp</name>
+  </compound>
+  <compound refid="cholesky_8hpp" kind="file"><name>cholesky.hpp</name>
   </compound>
   <compound refid="clip_8hpp" kind="file"><name>clip.hpp</name>
   </compound>
@@ -1517,6 +1648,8 @@
   <compound refid="degrees_8hpp" kind="file"><name>degrees.hpp</name>
   </compound>
   <compound refid="degree_seperation_8hpp" kind="file"><name>degreeSeperation.hpp</name>
+  </compound>
+  <compound refid="_dekker_8hpp" kind="file"><name>Dekker.hpp</name>
   </compound>
   <compound refid="delete_indices_8hpp" kind="file"><name>deleteIndices.hpp</name>
   </compound>
@@ -1631,6 +1764,8 @@
   </compound>
   <compound refid="gamma1pm1_8hpp" kind="file"><name>gamma1pm1.hpp</name>
   </compound>
+  <compound refid="gauss__legendre_8hpp" kind="file"><name>gauss_legendre.hpp</name>
+  </compound>
   <compound refid="gaussian_8hpp" kind="file"><name>gaussian.hpp</name>
   </compound>
   <compound refid="gaussian1d_8hpp" kind="file"><name>gaussian1d.hpp</name>
@@ -1669,6 +1804,8 @@
   </compound>
   <compound refid="_image_processing_8hpp" kind="file"><name>ImageProcessing.hpp</name>
   </compound>
+  <compound refid="_integrate_8hpp" kind="file"><name>Integrate.hpp</name>
+  </compound>
   <compound refid="_functions_2interp_8hpp" kind="file"><name>Functions/interp.hpp</name>
   </compound>
   <compound refid="_utils_2interp_8hpp" kind="file"><name>Utils/interp.hpp</name>
@@ -1684,6 +1821,8 @@
   <compound refid="isinf_8hpp" kind="file"><name>isinf.hpp</name>
   </compound>
   <compound refid="isnan_8hpp" kind="file"><name>isnan.hpp</name>
+  </compound>
+  <compound refid="_iteration_8hpp" kind="file"><name>Iteration.hpp</name>
   </compound>
   <compound refid="laguerre_8hpp" kind="file"><name>laguerre.hpp</name>
   </compound>
@@ -1732,6 +1871,8 @@
   <compound refid="lognormal_8hpp" kind="file"><name>lognormal.hpp</name>
   </compound>
   <compound refid="lstsq_8hpp" kind="file"><name>lstsq.hpp</name>
+  </compound>
+  <compound refid="lu__decomposition_8hpp" kind="file"><name>lu_decomposition.hpp</name>
   </compound>
   <compound refid="matmul_8hpp" kind="file"><name>matmul.hpp</name>
   </compound>
@@ -1821,6 +1962,8 @@
   </compound>
   <compound refid="newbyteorder_8hpp" kind="file"><name>newbyteorder.hpp</name>
   </compound>
+  <compound refid="_newton_8hpp" kind="file"><name>Newton.hpp</name>
+  </compound>
   <compound refid="non_central_chi_squared_8hpp" kind="file"><name>nonCentralChiSquared.hpp</name>
   </compound>
   <compound refid="none_8hpp" kind="file"><name>none.hpp</name>
@@ -1852,6 +1995,8 @@
   <compound refid="percentile_filter1d_8hpp" kind="file"><name>percentileFilter1d.hpp</name>
   </compound>
   <compound refid="permutation_8hpp" kind="file"><name>permutation.hpp</name>
+  </compound>
+  <compound refid="pivot_l_u__decomposition_8hpp" kind="file"><name>pivotLU_decomposition.hpp</name>
   </compound>
   <compound refid="_pixel_8hpp" kind="file"><name>Pixel.hpp</name>
   </compound>
@@ -1949,6 +2094,10 @@
   </compound>
   <compound refid="roll_8hpp" kind="file"><name>roll.hpp</name>
   </compound>
+  <compound refid="romberg_8hpp" kind="file"><name>romberg.hpp</name>
+  </compound>
+  <compound refid="_roots_8hpp" kind="file"><name>Roots.hpp</name>
+  </compound>
   <compound refid="rot90_8hpp" kind="file"><name>rot90.hpp</name>
   </compound>
   <compound refid="_rotations_8hpp" kind="file"><name>Rotations.hpp</name>
@@ -1956,6 +2105,8 @@
   <compound refid="round_8hpp" kind="file"><name>round.hpp</name>
   </compound>
   <compound refid="row__stack_8hpp" kind="file"><name>row_stack.hpp</name>
+  </compound>
+  <compound refid="_secant_8hpp" kind="file"><name>Secant.hpp</name>
   </compound>
   <compound refid="setdiff1d_8hpp" kind="file"><name>setdiff1d.hpp</name>
   </compound>
@@ -1968,6 +2119,8 @@
   <compound refid="sign_8hpp" kind="file"><name>sign.hpp</name>
   </compound>
   <compound refid="signbit_8hpp" kind="file"><name>signbit.hpp</name>
+  </compound>
+  <compound refid="simpson_8hpp" kind="file"><name>simpson.hpp</name>
   </compound>
   <compound refid="sin_8hpp" kind="file"><name>sin.hpp</name>
   </compound>
@@ -2039,6 +2192,8 @@
   </compound>
   <compound refid="transpose_8hpp" kind="file"><name>transpose.hpp</name>
   </compound>
+  <compound refid="trapazoidal_8hpp" kind="file"><name>trapazoidal.hpp</name>
+  </compound>
   <compound refid="trapz_8hpp" kind="file"><name>trapz.hpp</name>
   </compound>
   <compound refid="tri_8hpp" kind="file"><name>tri.hpp</name>
@@ -2097,7 +2252,7 @@
   </compound>
   <compound refid="zeros__like_8hpp" kind="file"><name>zeros_like.hpp</name>
   </compound>
-  <compound refid="md__c_1__git_hub__num_cpp_install__r_e_a_d_m_e" kind="page"><name>md_C:_GitHub_NumCpp_install_README</name>
+  <compound refid="md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e" kind="page"><name>md_C:_Users_pilgeda_Documents_GitHub_NumCpp_install_README</name>
   </compound>
   <compound refid="dir_fd15cf3044ef18c575a802718b3c6ac6" kind="dir"><name>Boundaries</name>
   </compound>
@@ -2123,7 +2278,7 @@
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>
-  <compound refid="dir_e3a4aa6ae53c85312025264fe419cff9" kind="dir"><name>install</name>
+  <compound refid="dir_10b69f38d52e59bd23d9fc1937bea22a" kind="dir"><name>Integrate</name>
   </compound>
   <compound refid="dir_d784f51d362276329e5940df711baf3d" kind="dir"><name>Linalg</name>
   </compound>
@@ -2136,6 +2291,8 @@
   <compound refid="dir_5de075070a423c280ad6ed943802bf75" kind="dir"><name>PythonInterface</name>
   </compound>
   <compound refid="dir_b095eef7754acf39fdbf777c56c024ce" kind="dir"><name>Random</name>
+  </compound>
+  <compound refid="dir_22368e90b3593b912515c50bf54c969c" kind="dir"><name>Roots</name>
   </compound>
   <compound refid="dir_cac3062759fc9841f0966ab05282555a" kind="dir"><name>Rotations</name>
   </compound>

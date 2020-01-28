@@ -68,6 +68,7 @@ var classnc_1_1_nd_array =
     [ "isempty", "classnc_1_1_nd_array.html#a626fd6565a7a5cf7cf60cece6d24b9c7", null ],
     [ "isflat", "classnc_1_1_nd_array.html#a86612718fff113e3f4398bea80035a63", null ],
     [ "issorted", "classnc_1_1_nd_array.html#a07864281508378503c26354e190394f1", null ],
+    [ "issquare", "classnc_1_1_nd_array.html#afb7f3972ab5ef12be30906e5f5501fe7", null ],
     [ "item", "classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117", null ],
     [ "max", "classnc_1_1_nd_array.html#a1da78e30bcb54c80c887b454a2342d42", null ],
     [ "mean", "classnc_1_1_nd_array.html#a6e6476097ba788402df110a2a3e8e12a", null ],

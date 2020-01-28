@@ -1,10 +1,10 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -28,10 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Linalg/cholesky.hpp"
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/Linalg/lstsq.hpp"
+#include "NumCpp/Linalg/lu_decomposition.hpp"
 #include "NumCpp/Linalg/matrix_power.hpp"
 #include "NumCpp/Linalg/multi_dot.hpp"
+#include "NumCpp/Linalg/pivotLU_decomposition.hpp"
 #include "NumCpp/Linalg/svd.hpp"

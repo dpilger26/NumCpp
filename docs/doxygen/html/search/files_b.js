@@ -24,6 +24,7 @@ var searchData=
   ['negative_2ehpp',['negative.hpp',['../negative_8hpp.html',1,'']]],
   ['negativebinomial_2ehpp',['negativeBinomial.hpp',['../negative_binomial_8hpp.html',1,'']]],
   ['newbyteorder_2ehpp',['newbyteorder.hpp',['../newbyteorder_8hpp.html',1,'']]],
+  ['newton_2ehpp',['Newton.hpp',['../_newton_8hpp.html',1,'']]],
   ['noncentralchisquared_2ehpp',['nonCentralChiSquared.hpp',['../non_central_chi_squared_8hpp.html',1,'']]],
   ['none_2ehpp',['none.hpp',['../none_8hpp.html',1,'']]],
   ['nonzero_2ehpp',['nonzero.hpp',['../nonzero_8hpp.html',1,'']]],

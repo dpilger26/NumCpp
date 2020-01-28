@@ -1,10 +1,10 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,11 +33,14 @@
 #include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 
 #include <iostream>
 #include <string>
+#include <type_traits>
+#include <utility>
 #include <vector>
 
 namespace nc
@@ -60,7 +63,10 @@ namespace nc
             ///						Default Constructor (not very usefull, but needed for other
             ///                     containers.
             ///
-            Poly1d() noexcept = default;
+            Poly1d() noexcept
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //============================================================================
             // Method Description:
@@ -72,6 +78,8 @@ namespace nc
             ///
             Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 if (inValues.size() > DtypeInfo<uint8>::max())
                 {
                     THROW_INVALID_ARGUMENT_ERROR("can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()));
@@ -97,6 +105,46 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///						Returns the area under the curve between the two bounds
+            ///
+            /// @param a: the lower bound
+            /// @param b: the upper bound
+            /// @return double
+            ///
+            double area(double a, double b) const noexcept
+            {
+                if (a > b)
+                {
+                    std::swap(a, b);
+                }
+
+                auto polyIntegral = integ();
+                return polyIntegral(b) - polyIntegral(a);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						Returns a copy of the polynomial of the new type
+            ///
+            /// @return Poly1d
+            ///
+            template<typename dtypeOut>
+            Poly1d<dtypeOut> astype() const noexcept
+            {
+                auto newCoefficients = NdArray<dtypeOut>(1, static_cast<uint32>(coefficients_.size()));
+
+                auto function = [](dtype value) -> dtypeOut
+                {
+                    return static_cast<dtypeOut>(value);
+                };
+
+                stl_algorithms::transform(coefficients_.begin(), coefficients_.end(), newCoefficients.begin(), function);
+
+                return Poly1d<dtypeOut>(newCoefficients);
+            }
+
+            //============================================================================
+            // Method Description:
             ///						Returns the Poly1d coefficients
             ///
             /// @return
@@ -105,6 +153,56 @@ namespace nc
             NdArray<dtype> coefficients() const noexcept
             {
                 return NdArray<dtype>(coefficients_);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						Takes the derivative of the polynomial
+            ///
+            Poly1d<dtype> deriv() const noexcept
+            {
+                const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
+                if (numCoefficients == 0)
+                {
+                    return {};
+                }
+                else if (numCoefficients == 1)
+                {
+                    return Poly1d<dtype>({ 0 });
+                }
+
+                NdArray<dtype> derivativeCofficients(1, numCoefficients - 1);
+
+                uint32 counter = 0;
+                for (uint32 i = 1; i < numCoefficients; ++i)
+                {
+                    derivativeCofficients[counter++] = coefficients_[i] * i;
+                }
+
+                return Poly1d<dtype>(derivativeCofficients);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						Calculates the integral of the polynomial
+            ///
+            Poly1d<double> integ() const noexcept
+            {
+                const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
+                if (numCoefficients == 0)
+                {
+                    return {};
+                }
+
+                NdArray<double> integralCofficients(1, numCoefficients + 1);
+                integralCofficients[0] = 0.0;
+
+                for (uint32 i = 0; i < numCoefficients; ++i)
+                {
+                    integralCofficients[i + 1] = static_cast<double>(coefficients_[i]) / static_cast<double>(i + 1);
+                }
+
+                return Poly1d<double>(integralCofficients);
             }
 
             //============================================================================
@@ -121,6 +219,16 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///						Prints the string representation of the Poly1d object
+            ///                     to the console
+            ///
+            void print() const noexcept
+            {
+                std::cout << *this << std::endl;
+            }
+
+            //============================================================================
+            // Method Description:
             ///						Converts the polynomial to a string representation
             ///
             /// @return
@@ -128,24 +236,49 @@ namespace nc
             ///
             std::string str() const noexcept
             {
-                std::string repr = "";
+                const uint32 numCoeffients = static_cast<uint32>(coefficients_.size());
+
+                std::string repr = "Poly1d<";
                 uint32 power = 0;
                 for (auto& coefficient : coefficients_)
                 {
-                    repr += utils::num2str(coefficient) + " x^" + utils::num2str(power++) + " + ";
+                    if (DtypeInfo<dtype>::isInteger())
+                    {
+                        if (coefficient == 0)
+                        {
+                            ++power;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (utils::essentiallyEqual(coefficient, static_cast<dtype>(0.0)))
+                        {
+                            ++power;
+                            continue;
+                        }
+                    }
+
+                    repr += utils::num2str(coefficient);
+
+                    if (power > 1)
+                    {
+                        repr += "x^" + utils::num2str(power);
+                    }
+                    else if (power == 1)
+                    {
+                        repr += "x";
+                    }
+
+                    ++power;
+
+                    if (power < numCoeffients)
+                    {
+                        repr += " + ";
+                    }
                 }
 
-                return repr;
-            }
-
-            //============================================================================
-            // Method Description:
-            ///						Prints the string representation of the Poly1d object
-            ///                     to the console
-            ///
-            void print() const noexcept
-            {
-                std::cout << *this << std::endl;
+                return repr + ">";
             }
 
             //============================================================================

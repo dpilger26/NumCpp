@@ -21,5 +21,6 @@ var searchData=
   ['logical_5for_2ehpp',['logical_or.hpp',['../logical__or_8hpp.html',1,'']]],
   ['logical_5fxor_2ehpp',['logical_xor.hpp',['../logical__xor_8hpp.html',1,'']]],
   ['lognormal_2ehpp',['lognormal.hpp',['../lognormal_8hpp.html',1,'']]],
-  ['lstsq_2ehpp',['lstsq.hpp',['../lstsq_8hpp.html',1,'']]]
+  ['lstsq_2ehpp',['lstsq.hpp',['../lstsq_8hpp.html',1,'']]],
+  ['lu_5fdecomposition_2ehpp',['lu_decomposition.hpp',['../lu__decomposition_8hpp.html',1,'']]]
 ];

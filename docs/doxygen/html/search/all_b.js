@@ -14,6 +14,7 @@ var searchData=
   ['legendre_5fp_2ehpp',['legendre_p.hpp',['../legendre__p_8hpp.html',1,'']]],
   ['legendre_5fq',['legendre_q',['../namespacenc_1_1polynomial.html#af6777e9b7531f6b085869caf34bb6570',1,'nc::polynomial::legendre_q(int32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aa61279477eb9616d0440429b9eff2680',1,'nc::polynomial::legendre_q(int32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
   ['legendre_5fq_2ehpp',['legendre_q.hpp',['../legendre__q_8hpp.html',1,'']]],
+  ['legendrepolynomial',['LegendrePolynomial',['../classnc_1_1integrate_1_1_legendre_polynomial.html',1,'nc::integrate::LegendrePolynomial'],['../classnc_1_1integrate_1_1_legendre_polynomial.html#a062ffe2d1f94af05d62ff9e0ee500581',1,'nc::integrate::LegendrePolynomial::LegendrePolynomial()']]],
   ['lerp',['lerp',['../classnc_1_1_vec2.html#a91e6417e5b9903ed6bee3ad90c0c38f4',1,'nc::Vec2::lerp()'],['../classnc_1_1_vec3.html#ab4878c8a4ebcd94fd0baf93059b50ac6',1,'nc::Vec3::lerp()']]],
   ['less',['less',['../namespacenc.html#a114baa0d21d439b7971dedd4b4042db8',1,'nc']]],
   ['less_2ehpp',['less.hpp',['../less_8hpp.html',1,'']]],
@@ -47,5 +48,7 @@ var searchData=
   ['lognormal',['lognormal',['../namespacenc_1_1random.html#a3adc9de1025d27ed485603980657225b',1,'nc::random']]],
   ['lognormal_2ehpp',['lognormal.hpp',['../lognormal_8hpp.html',1,'']]],
   ['lstsq',['lstsq',['../namespacenc_1_1linalg.html#aac53030577bdcf972d77f0c528b2d302',1,'nc::linalg']]],
-  ['lstsq_2ehpp',['lstsq.hpp',['../lstsq_8hpp.html',1,'']]]
+  ['lstsq_2ehpp',['lstsq.hpp',['../lstsq_8hpp.html',1,'']]],
+  ['lu_5fdecomposition',['lu_decomposition',['../namespacenc_1_1linalg.html#a153a90dbcc2ca94c664c429868d15bc4',1,'nc::linalg']]],
+  ['lu_5fdecomposition_2ehpp',['lu_decomposition.hpp',['../lu__decomposition_8hpp.html',1,'']]]
 ];

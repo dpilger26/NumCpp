@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="namespacenc_1_1rotations" kind="namespace" language="C++">
     <compoundname>nc::rotations</compoundname>
     <innerclass refid="classnc_1_1rotations_1_1_d_c_m" prot="public">nc::rotations::DCM</innerclass>
@@ -25,39 +25,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Rodriques&apos; rotation formula <ulink url="https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula">https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula</ulink></para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Performs Rodriques&apos; rotation formula <ulink url="https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula">https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>k</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the axis to rotate around </para>
-</parameterdescription>
+<para>the axis to rotate around </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>theta</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the angle in radians to rotate </para>
-</parameterdescription>
+<para>the angle in radians to rotate </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>v</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the vector to rotate</para>
-</parameterdescription>
+<para>the vector to rotate</para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" bodystart="52" bodyend="69"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" bodystart="52" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1rotations_1a923304344b059574fa025c5f31ee88d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -84,45 +78,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Rodriques&apos; rotation formula <ulink url="https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula">https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula</ulink></para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Performs Rodriques&apos; rotation formula <ulink url="https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula">https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>k</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the axis to rotate around </para>
-</parameterdescription>
+<para>the axis to rotate around </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>theta</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the angle in radians to rotate </para>
-</parameterdescription>
+<para>the angle in radians to rotate </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>v</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the vector to rotate</para>
-</parameterdescription>
+<para>the vector to rotate</para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" line="83" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" bodystart="83" bodyend="86"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" line="83" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" bodystart="83" bodyend="86"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="42" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="42" column="1"/>
   </compounddef>
 </doxygen>

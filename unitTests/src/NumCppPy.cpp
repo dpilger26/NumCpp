@@ -2840,7 +2840,17 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return nc2Boost(linalg::multi_dot({ inArray1 ,inArray2, inArray3, inArray4 }));
+        return nc2Boost(linalg::multi_dot({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    template<typename dtype>
+    bp::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
+    {
+        auto lup = linalg::pivotLU_decomposition(inArray);
+        auto& l = std::get<0>(lup);
+        auto& u = std::get<1>(lup);
+        auto& p = std::get<2>(lup);
+        return bp::make_tuple(nc2Boost(l), nc2Boost(u), nc2Boost(p));
     }
 }
 
@@ -3141,6 +3151,86 @@ namespace PolynomialInterface
         auto value = polynomial::spherical_harmonic(n, m, theta, phi);
         std::vector<double> valueVec = {value.real(), value.imag()};
         return vector2list(valueVec);
+    }
+}
+
+namespace RootsInterface
+{
+    constexpr double EPSILON = 1e-10;
+
+    //================================================================================
+
+    double bisection(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Bisection(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double brent(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Brent(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double dekker(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Dekker(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+
+    //================================================================================
+
+    double newton(const polynomial::Poly1d<double>p, double x)
+    {
+        auto pPrime = p.deriv();
+        auto rootFinder = roots::Newton(EPSILON, p, pPrime);
+        return rootFinder.solve(x);
+    }
+
+    //================================================================================
+
+    double secant(const polynomial::Poly1d<double>p, double a, double b)
+    {
+        auto rootFinder = roots::Secant(EPSILON, p);
+        return rootFinder.solve(a, b);
+    }
+}
+
+namespace IntegrateInterface
+{
+    constexpr uint32 NUM_ITERATIONS = 100;
+    constexpr uint32 NUM_SUBDIVISIONS = 10000;
+
+    //================================================================================
+
+    double gauss_legendre(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::gauss_legendre(a, b, NUM_ITERATIONS, p);
+    }
+
+    //================================================================================
+
+    double romberg(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::romberg(a, b, 10, p);
+    }
+
+    //================================================================================
+
+    double simpson(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::simpson(a, b, NUM_SUBDIVISIONS, p);
+    }
+
+    //================================================================================
+
+    double trapazoidal(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::trapazoidal(a, b, NUM_SUBDIVISIONS, p);
     }
 }
 
@@ -3909,6 +3999,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("isempty", &NdArrayDouble::isempty)
         .def("isflat", &NdArrayDouble::isflat)
         .def("issorted", &NdArrayInterface::issorted<double>)
+        .def("issquare", &NdArrayDouble::issquare)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
@@ -4328,7 +4419,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("onesSquare", &MethodsInterface::onesSquare<double>);
     bp::def("onesRowCol", &MethodsInterface::onesRowCol<double>);
     bp::def("onesShape", &MethodsInterface::onesShape<double>);
-    bp::def("ones_like", &ones_like<double>);
+    bp::def("ones_like", &ones_like<double, double>);
     bp::def("pad", &pad<double>);
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double>);
@@ -4423,7 +4514,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("zerosRowCol", &MethodsInterface::zerosRowCol<double>);
     bp::def("zerosShape", &MethodsInterface::zerosShape<double>);
     bp::def("zerosList", &MethodsInterface::zerosList<double>);
-    bp::def("zeros_like", &zeros_like<double>);
+    bp::def("zeros_like", &zeros_like<double, double>);
 
     // Utils.hpp
     bp::def("num2str", &utils::num2str<double>);
@@ -4522,12 +4613,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("weibull", &random::weibull<double>);
 
     // Linalg.hpp
+    bp::def("cholesky", &linalg::cholesky<double>);
     bp::def("det", &linalg::det<double>);
     bp::def("hat", &LinalgInterface::hatArray<double>);
     bp::def("inv", &linalg::inv<double>);
     bp::def("lstsq", &linalg::lstsq<double>);
+    bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
     bp::def("matrix_power", &linalg::matrix_power<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
+    bp::def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     bp::def("svd", &linalg::svd<double>);
 
     // Rotations.hpp
@@ -4766,11 +4860,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<Poly1d>
         ("Poly1d", bp::init<>())
         .def(bp::init<NdArray<double>, bool>())
+        .def("area", &Poly1d::area)
         .def("coefficients", &Poly1d::coefficients)
+        .def("deriv", &Poly1d::deriv)
+        .def("integ", &Poly1d::integ)
         .def("order", &Poly1d::order)
+        .def("print", &Poly1d::print)
         .def("__str__", &Poly1d::str)
         .def("__repr__", &Poly1d::str)
-        .def("print", &Poly1d::print)
         .def("__getitem__", &Poly1d::operator())
         .def("__add__", &Poly1d::operator+)
         .def("__iadd__", &Poly1d::operator+=, bp::return_internal_reference<>())
@@ -4800,6 +4897,19 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("spherical_harmonic", &PolynomialInterface::spherical_harmonic<double>);
     bp::def("spherical_harmonic_r", &polynomial::spherical_harmonic_r<double, double>);
     bp::def("spherical_harmonic_i", &polynomial::spherical_harmonic_i<double, double>);
+
+    // Roots.hpp
+    bp::def("bisection_roots", &RootsInterface::bisection);
+    bp::def("brent_roots", &RootsInterface::brent);
+    bp::def("dekker_roots", &RootsInterface::dekker);
+    bp::def("newton_roots", &RootsInterface::newton);
+    bp::def("secant_roots", &RootsInterface::secant);
+
+    // Integrate.hpp
+    bp::def("integrate_gauss_legendre", &IntegrateInterface::gauss_legendre);
+    bp::def("integrate_romberg", &IntegrateInterface::romberg);
+    bp::def("integrate_simpson", &IntegrateInterface::simpson);
+    bp::def("integrate_trapazoidal", &IntegrateInterface::trapazoidal);
 
     // Vec2.hpp
     bp::class_<Vec2>

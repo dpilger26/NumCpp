@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_utils_2interp_8hpp" kind="file" language="C++">
     <compoundname>Utils/interp.hpp</compoundname>
     <includedby refid="_functions_2interp_8hpp" local="yes">interp.hpp</includedby>
@@ -7,105 +7,105 @@
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
     <includedby refid="_vec3_8hpp" local="yes">Vec3.hpp</includedby>
     <invincdepgraph>
-      <node id="8828">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="8829" relation="include">
-        </childnode>
-      </node>
-      <node id="8832">
-        <label>Vector.hpp</label>
-        <link refid="_vector_8hpp"/>
-        <childnode refid="8829" relation="include">
-        </childnode>
-      </node>
-      <node id="8831">
-        <label>Vec2.hpp</label>
-        <link refid="_vec2_8hpp"/>
-        <childnode refid="8832" relation="include">
-        </childnode>
-      </node>
-      <node id="8835">
-        <label>Linalg.hpp</label>
-        <link refid="_linalg_8hpp"/>
-        <childnode refid="8829" relation="include">
-        </childnode>
-      </node>
-      <node id="8837">
-        <label>DCM.hpp</label>
-        <link refid="_d_c_m_8hpp"/>
-        <childnode refid="8838" relation="include">
-        </childnode>
-      </node>
-      <node id="8827">
-        <label>interp.hpp</label>
-        <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="8828" relation="include">
-        </childnode>
-      </node>
-      <node id="8833">
-        <label>Vec3.hpp</label>
-        <link refid="_vec3_8hpp"/>
-        <childnode refid="8834" relation="include">
-        </childnode>
-        <childnode refid="8837" relation="include">
-        </childnode>
-        <childnode refid="8836" relation="include">
-        </childnode>
-        <childnode refid="8839" relation="include">
-        </childnode>
-        <childnode refid="8832" relation="include">
-        </childnode>
-      </node>
-      <node id="8838">
-        <label>Rotations.hpp</label>
-        <link refid="_rotations_8hpp"/>
-        <childnode refid="8829" relation="include">
-        </childnode>
-      </node>
-      <node id="8830">
-        <label>Utils.hpp</label>
-        <link refid="_utils_8hpp"/>
-        <childnode refid="8829" relation="include">
-        </childnode>
-      </node>
-      <node id="8826">
-        <label>interp.hpp</label>
-        <link refid="_utils_2interp_8hpp"/>
-        <childnode refid="8827" relation="include">
-        </childnode>
-        <childnode refid="8830" relation="include">
-        </childnode>
-        <childnode refid="8831" relation="include">
-        </childnode>
-        <childnode refid="8833" relation="include">
-        </childnode>
-      </node>
-      <node id="8834">
-        <label>hat.hpp</label>
-        <link refid="hat_8hpp"/>
-        <childnode refid="8835" relation="include">
-        </childnode>
-        <childnode refid="8836" relation="include">
-        </childnode>
-      </node>
-      <node id="8836">
-        <label>Quaternion.hpp</label>
-        <link refid="_quaternion_8hpp"/>
-        <childnode refid="8837" relation="include">
-        </childnode>
-        <childnode refid="8838" relation="include">
-        </childnode>
-      </node>
-      <node id="8839">
-        <label>rodriguesRotation.hpp</label>
-        <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="8838" relation="include">
-        </childnode>
-      </node>
-      <node id="8829">
+      <node id="8980">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="8989">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
+        <childnode refid="8980" relation="include">
+        </childnode>
+      </node>
+      <node id="8990">
+        <label>rodriguesRotation.hpp</label>
+        <link refid="rodrigues_rotation_8hpp"/>
+        <childnode refid="8989" relation="include">
+        </childnode>
+      </node>
+      <node id="8987">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
+        <childnode refid="8988" relation="include">
+        </childnode>
+        <childnode refid="8989" relation="include">
+        </childnode>
+      </node>
+      <node id="8983">
+        <label>Vector.hpp</label>
+        <link refid="_vector_8hpp"/>
+        <childnode refid="8980" relation="include">
+        </childnode>
+      </node>
+      <node id="8986">
+        <label>Linalg.hpp</label>
+        <link refid="_linalg_8hpp"/>
+        <childnode refid="8980" relation="include">
+        </childnode>
+      </node>
+      <node id="8978">
+        <label>interp.hpp</label>
+        <link refid="_functions_2interp_8hpp"/>
+        <childnode refid="8979" relation="include">
+        </childnode>
+      </node>
+      <node id="8981">
+        <label>Utils.hpp</label>
+        <link refid="_utils_8hpp"/>
+        <childnode refid="8980" relation="include">
+        </childnode>
+      </node>
+      <node id="8988">
+        <label>DCM.hpp</label>
+        <link refid="_d_c_m_8hpp"/>
+        <childnode refid="8989" relation="include">
+        </childnode>
+      </node>
+      <node id="8985">
+        <label>hat.hpp</label>
+        <link refid="hat_8hpp"/>
+        <childnode refid="8986" relation="include">
+        </childnode>
+        <childnode refid="8987" relation="include">
+        </childnode>
+      </node>
+      <node id="8977">
+        <label>interp.hpp</label>
+        <link refid="_utils_2interp_8hpp"/>
+        <childnode refid="8978" relation="include">
+        </childnode>
+        <childnode refid="8981" relation="include">
+        </childnode>
+        <childnode refid="8982" relation="include">
+        </childnode>
+        <childnode refid="8984" relation="include">
+        </childnode>
+      </node>
+      <node id="8982">
+        <label>Vec2.hpp</label>
+        <link refid="_vec2_8hpp"/>
+        <childnode refid="8983" relation="include">
+        </childnode>
+      </node>
+      <node id="8979">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="8980" relation="include">
+        </childnode>
+      </node>
+      <node id="8984">
+        <label>Vec3.hpp</label>
+        <link refid="_vec3_8hpp"/>
+        <childnode refid="8985" relation="include">
+        </childnode>
+        <childnode refid="8988" relation="include">
+        </childnode>
+        <childnode refid="8987" relation="include">
+        </childnode>
+        <childnode refid="8990" relation="include">
+        </childnode>
+        <childnode refid="8983" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
@@ -113,22 +113,14 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.3</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Returns the linear interpolation between two points </para>
-</sect1>
+<para>Returns the linear interpolation between two points </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -145,6 +137,6 @@
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="49"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp"/>
   </compounddef>
 </doxygen>

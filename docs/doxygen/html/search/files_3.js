@@ -6,6 +6,7 @@ var searchData=
   ['deg2rad_2ehpp',['deg2rad.hpp',['../deg2rad_8hpp.html',1,'']]],
   ['degrees_2ehpp',['degrees.hpp',['../degrees_8hpp.html',1,'']]],
   ['degreeseperation_2ehpp',['degreeSeperation.hpp',['../degree_seperation_8hpp.html',1,'']]],
+  ['dekker_2ehpp',['Dekker.hpp',['../_dekker_8hpp.html',1,'']]],
   ['deleteindices_2ehpp',['deleteIndices.hpp',['../delete_indices_8hpp.html',1,'']]],
   ['det_2ehpp',['det.hpp',['../det_8hpp.html',1,'']]],
   ['diagflat_2ehpp',['diagFlat.hpp',['../diag_flat_8hpp.html',1,'']]],

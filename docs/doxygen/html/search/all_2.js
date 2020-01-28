@@ -23,6 +23,8 @@ var searchData=
   ['chisquare_2ehpp',['chiSquare.hpp',['../chi_square_8hpp.html',1,'']]],
   ['choice',['choice',['../namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc_1_1random.html#a550d14627dafe31efa2e66a10d2fce73',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNum)']]],
   ['choice_2ehpp',['choice.hpp',['../choice_8hpp.html',1,'']]],
+  ['cholesky',['cholesky',['../namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19',1,'nc::linalg']]],
+  ['cholesky_2ehpp',['cholesky.hpp',['../cholesky_8hpp.html',1,'']]],
   ['chronoclock',['ChronoClock',['../classnc_1_1_timer.html#a6be07919fb1d118dafe6c9da3fc13280',1,'nc::Timer']]],
   ['clampmagnitude',['clampMagnitude',['../classnc_1_1_vec2.html#abb0f6f8cacc680a464425d908e1e55cc',1,'nc::Vec2::clampMagnitude()'],['../classnc_1_1_vec3.html#a4f3cfcbd67a402820cc8e0576dccd2e4',1,'nc::Vec3::clampMagnitude()']]],
   ['clip',['clip',['../classnc_1_1_nd_array.html#abf06a319d8415dd4c61495aa67cfc0f1',1,'nc::NdArray::clip()'],['../namespacenc.html#a6f71d75583176a599a64647109170a08',1,'nc::clip(dtype inValue, dtype inMinValue, dtype inMaxValue) noexcept'],['../namespacenc.html#aa239fec975131d862028ce7566a09767',1,'nc::clip(const NdArray&lt; dtype &gt; &amp;inArray, dtype inMinValue, dtype inMaxValue) noexcept']]],

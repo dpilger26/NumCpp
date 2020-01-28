@@ -10,6 +10,7 @@ var searchData=
   ['chebyshev_5fu_2ehpp',['chebyshev_u.hpp',['../chebyshev__u_8hpp.html',1,'']]],
   ['chisquare_2ehpp',['chiSquare.hpp',['../chi_square_8hpp.html',1,'']]],
   ['choice_2ehpp',['choice.hpp',['../choice_8hpp.html',1,'']]],
+  ['cholesky_2ehpp',['cholesky.hpp',['../cholesky_8hpp.html',1,'']]],
   ['clip_2ehpp',['clip.hpp',['../clip_8hpp.html',1,'']]],
   ['cluster_2ehpp',['Cluster.hpp',['../_cluster_8hpp.html',1,'']]],
   ['clustermaker_2ehpp',['ClusterMaker.hpp',['../_cluster_maker_8hpp.html',1,'']]],

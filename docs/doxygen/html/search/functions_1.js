@@ -16,6 +16,7 @@ var searchData=
   ['binaryrepr',['binaryRepr',['../namespacenc.html#a3b3788718518fe32e78e0400ce816b54',1,'nc']]],
   ['bincount',['bincount',['../namespacenc.html#a60bb0f9e8bed0fd6f5c0973cf3b918ca',1,'nc::bincount(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inMinLength=1)'],['../namespacenc.html#aa31a10ae8201c637ab3d203844b81904',1,'nc::bincount(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inWeights, uint16 inMinLength=1)']]],
   ['binomial',['binomial',['../namespacenc_1_1random.html#a83099ec22905c3ad69984a94d823a3d8',1,'nc::random']]],
+  ['bisection',['Bisection',['../classnc_1_1roots_1_1_bisection.html#a5a790e250fbf36fd99584f68099e315b',1,'nc::roots::Bisection::Bisection(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_bisection.html#a0cac4b816910c90be235b0ad9487a2a4',1,'nc::roots::Bisection::Bisection(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
   ['bits',['bits',['../classnc_1_1_dtype_info.html#a96e826f2fe413f84e543e50d7f374dc8',1,'nc::DtypeInfo']]],
   ['bitwise_5fand',['bitwise_and',['../namespacenc.html#a4a7fa01dbe15029314c6204f930c09af',1,'nc']]],
   ['bitwise_5fnot',['bitwise_not',['../namespacenc.html#a145284f569275c39435651db94f0ad5b',1,'nc']]],
@@ -23,5 +24,6 @@ var searchData=
   ['bitwise_5fxor',['bitwise_xor',['../namespacenc.html#a07c69919a1dc382fd2ae3ebf1b358319',1,'nc']]],
   ['boost2nc',['boost2Nc',['../namespacenc_1_1boost_python_interface.html#a7195ee32d5fb06600aba55dc53b193ca',1,'nc::boostPythonInterface']]],
   ['boostndarrayhelper',['BoostNdarrayHelper',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a30364907e676e70f584cb7ccaa5ac547',1,'nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper(const boost::python::numpy::ndarray &amp;inArray)'],['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a961bbdf1557d85a48f1ae40d23ac37fa',1,'nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
+  ['brent',['Brent',['../classnc_1_1roots_1_1_brent.html#aa9f4cea2c2770c669e84158186b075c2',1,'nc::roots::Brent::Brent(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_brent.html#abf26bf1c5ace791386f2c0f6a91f57bb',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
   ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#af4ad4608720c271a6045b09fbe10083d',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]]
 ];

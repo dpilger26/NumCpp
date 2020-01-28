@@ -2097,6 +2097,9 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing identity', 'cyan'))
+    
+
     print(colored('Testing interp', 'cyan'))
     endPoint = np.random.randint(10, 20, [1,]).item()
     numPoints = np.random.randint(50, 100, [1,]).item()

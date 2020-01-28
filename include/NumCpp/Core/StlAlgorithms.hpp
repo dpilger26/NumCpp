@@ -1,10 +1,10 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -30,6 +30,7 @@
 
 #include <algorithm>
 #include <iterator>
+#include <numeric>
 #include <utility>
 
 #if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm)
@@ -212,6 +213,26 @@ namespace nc
             std::for_each(std::execution::par_unseq, first, last, f);
 #else
             std::for_each(first, last, f);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the inner product of the elements of the two ranges
+        ///
+        /// @param first1: the first iterator of the first source
+        /// @param last1: the last iterator of the first source
+        /// @param first2: the first iterator of the second source
+        /// @param init: the init value
+        /// @return the inner product of the two sets of iterators
+        ///
+        template<class InputIt1, class InputIt2, class T>
+        T inner_product(InputIt1 first1, InputIt1 last1, InputIt2 first2, T init)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::transform_reduce(std::execution::par_unseq, first1, last1, first2, init);
+#else
+            return std::inner_product(first1, last1, first2, init);
 #endif
         }
 
@@ -529,5 +550,5 @@ namespace nc
             return std::transform(first1, last1, first2, destination, unaryFunction);
 #endif
         }
-    }
-}
+        }
+        }
