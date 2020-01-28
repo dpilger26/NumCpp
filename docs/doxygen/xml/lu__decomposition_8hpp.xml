@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="lu__decomposition_8hpp" kind="file" language="C++">
+    <compoundname>lu_decomposition.hpp</compoundname>
+    <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
+    <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
+    <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
+    <includes refid="zeros__like_8hpp" local="yes">NumCpp/Functions/zeros_like.hpp</includes>
+    <includes refid="essentially_equal_8hpp" local="yes">NumCpp/Utils/essentiallyEqual.hpp</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">utility</includes>
+    <includedby refid="_linalg_8hpp" local="yes">Linalg.hpp</includedby>
+    <incdepgraph>
+      <node id="10256">
+        <label>boost/predef/other/endian.h</label>
+      </node>
+      <node id="10239">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="10240" relation="include">
+        </childnode>
+      </node>
+      <node id="10265">
+        <label>functional</label>
+      </node>
+      <node id="10235">
+        <label>limits</label>
+      </node>
+      <node id="10247">
+        <label>iterator</label>
+      </node>
+      <node id="10237">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="10235" relation="include">
+        </childnode>
+      </node>
+      <node id="10253">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="10239" relation="include">
+        </childnode>
+      </node>
+      <node id="10240">
+        <label>cstdint</label>
+      </node>
+      <node id="10234">
+        <label>cmath</label>
+      </node>
+      <node id="10242">
+        <label>stdexcept</label>
+      </node>
+      <node id="10248">
+        <label>numeric</label>
+      </node>
+      <node id="10236">
+        <label>string</label>
+      </node>
+      <node id="10264">
+        <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
+        <link refid="_nd_array_operators_8hpp"/>
+        <childnode refid="10238" relation="include">
+        </childnode>
+        <childnode refid="10245" relation="include">
+        </childnode>
+        <childnode refid="10232" relation="include">
+        </childnode>
+        <childnode refid="10246" relation="include">
+        </childnode>
+        <childnode refid="10265" relation="include">
+        </childnode>
+      </node>
+      <node id="10254">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="10252">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="10238" relation="include">
+        </childnode>
+        <childnode refid="10239" relation="include">
+        </childnode>
+        <childnode refid="10251" relation="include">
+        </childnode>
+        <childnode refid="10246" relation="include">
+        </childnode>
+        <childnode refid="10241" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10244">
+        <label>fstream</label>
+      </node>
+      <node id="10266">
+        <label>NumCpp/Functions/zeros_like.hpp</label>
+        <link refid="zeros__like_8hpp"/>
+        <childnode refid="10231" relation="include">
+        </childnode>
+      </node>
+      <node id="10232">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="10233" relation="include">
+        </childnode>
+        <childnode refid="10237" relation="include">
+        </childnode>
+        <childnode refid="10238" relation="include">
+        </childnode>
+        <childnode refid="10243" relation="include">
+        </childnode>
+        <childnode refid="10245" relation="include">
+        </childnode>
+        <childnode refid="10250" relation="include">
+        </childnode>
+        <childnode refid="10252" relation="include">
+        </childnode>
+        <childnode refid="10239" relation="include">
+        </childnode>
+        <childnode refid="10251" relation="include">
+        </childnode>
+        <childnode refid="10253" relation="include">
+        </childnode>
+        <childnode refid="10254" relation="include">
+        </childnode>
+        <childnode refid="10255" relation="include">
+        </childnode>
+        <childnode refid="10256" relation="include">
+        </childnode>
+        <childnode refid="10257" relation="include">
+        </childnode>
+        <childnode refid="10258" relation="include">
+        </childnode>
+        <childnode refid="10234" relation="include">
+        </childnode>
+        <childnode refid="10259" relation="include">
+        </childnode>
+        <childnode refid="10244" relation="include">
+        </childnode>
+        <childnode refid="10260" relation="include">
+        </childnode>
+        <childnode refid="10241" relation="include">
+        </childnode>
+        <childnode refid="10248" relation="include">
+        </childnode>
+        <childnode refid="10261" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+        <childnode refid="10262" relation="include">
+        </childnode>
+        <childnode refid="10249" relation="include">
+        </childnode>
+        <childnode refid="10263" relation="include">
+        </childnode>
+      </node>
+      <node id="10243">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="10244" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10233">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="10234" relation="include">
+        </childnode>
+        <childnode refid="10235" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10255">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="10250">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="10239" relation="include">
+        </childnode>
+        <childnode refid="10251" relation="include">
+        </childnode>
+        <childnode refid="10241" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10267">
+        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
+        <link refid="essentially_equal_8hpp"/>
+        <childnode refid="10237" relation="include">
+        </childnode>
+        <childnode refid="10234" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10263">
+        <label>vector</label>
+      </node>
+      <node id="10231">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="10232" relation="include">
+        </childnode>
+        <childnode refid="10264" relation="include">
+        </childnode>
+      </node>
+      <node id="10238">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="10239" relation="include">
+        </childnode>
+        <childnode refid="10241" relation="include">
+        </childnode>
+        <childnode refid="10235" relation="include">
+        </childnode>
+        <childnode refid="10242" relation="include">
+        </childnode>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10249">
+        <label>utility</label>
+      </node>
+      <node id="10258">
+        <label>array</label>
+      </node>
+      <node id="10251">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="10236" relation="include">
+        </childnode>
+      </node>
+      <node id="10245">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="10246" relation="include">
+        </childnode>
+        <childnode refid="10247" relation="include">
+        </childnode>
+        <childnode refid="10248" relation="include">
+        </childnode>
+        <childnode refid="10249" relation="include">
+        </childnode>
+      </node>
+      <node id="10230">
+        <label>lu_decomposition.hpp</label>
+        <link refid="lu__decomposition_8hpp"/>
+        <childnode refid="10231" relation="include">
+        </childnode>
+        <childnode refid="10238" relation="include">
+        </childnode>
+        <childnode refid="10239" relation="include">
+        </childnode>
+        <childnode refid="10266" relation="include">
+        </childnode>
+        <childnode refid="10267" relation="include">
+        </childnode>
+        <childnode refid="10234" relation="include">
+        </childnode>
+        <childnode refid="10249" relation="include">
+        </childnode>
+      </node>
+      <node id="10241">
+        <label>iostream</label>
+      </node>
+      <node id="10259">
+        <label>deque</label>
+      </node>
+      <node id="10257">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="10262">
+        <label>type_traits</label>
+      </node>
+      <node id="10261">
+        <label>set</label>
+      </node>
+      <node id="10246">
+        <label>algorithm</label>
+      </node>
+      <node id="10260">
+        <label>initializer_list</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="10270">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="10269">
+        <label>Linalg.hpp</label>
+        <link refid="_linalg_8hpp"/>
+        <childnode refid="10270" relation="include">
+        </childnode>
+      </node>
+      <node id="10268">
+        <label>lu_decomposition.hpp</label>
+        <link refid="lu__decomposition_8hpp"/>
+        <childnode refid="10269" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacenc">nc</innernamespace>
+    <innernamespace refid="namespacenc_1_1linalg">nc::linalg</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.3</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
+<title>License</title>
+<para>Copyright 2019 Benjamin Mahr Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<sect1 id="zeros__like_8hpp_1Description">
+<title>Description</title>
+<para>matrix pivot LU decomposition</para><para>Code modified under MIT license from <ulink url="https://github.com/Ben1980/linAlg">https://github.com/Ben1980/linAlg</ulink> as posted in <ulink url="https://thoughts-on-coding.com/2019/06/12/numerical-methods-with-c-part-4-introduction-into-decomposition-methods-of-linear-equation-systems/">https://thoughts-on-coding.com/2019/06/12/numerical-methods-with-c-part-4-introduction-into-decomposition-methods-of-linear-equation-systems/</ulink> </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_error_8hpp" kindref="compound">NumCpp/Core/Error.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_types_8hpp" kindref="compound">NumCpp/Core/Types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="zeros__like_8hpp" kindref="compound">NumCpp/Functions/zeros_like.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="essentially_equal_8hpp" kindref="compound">NumCpp/Utils/essentiallyEqual.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">linalg</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="57" refid="namespacenc_1_1linalg_1a153a90dbcc2ca94c664c429868d15bc4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;NdArray&lt;double&gt;,<sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>&gt;<sp/><ref refid="namespacenc_1_1linalg_1a153a90dbcc2ca94c664c429868d15bc4" kindref="member">lu_decomposition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inMatrix)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref><sp/>=<sp/>inMatrix.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>.<ref refid="classnc_1_1_shape_1af00a8f56e47b2052a8d1bfd48b303b5f" kindref="member">issquare</ref>())<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1a0f0ce4acf1fd6032112a06ebc50bb05a" kindref="member">THROW_RUNTIME_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Input<sp/>matrix<sp/>should<sp/>be<sp/>square.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>lMatrix<sp/>=<sp/>zeros_like&lt;double&gt;(inMatrix);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>uMatrix<sp/>=<sp/>inMatrix.template<sp/>astype&lt;double&gt;();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>;<sp/>++col)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lMatrix(col,<sp/>col)<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>row<sp/>=<sp/>col<sp/>+<sp/>1;<sp/>row<sp/>&lt;<sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>;<sp/>++row)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>divisor<sp/>=<sp/>uMatrix(col,<sp/>col);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" kindref="member">utils::essentiallyEqual</ref>(divisor,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">{0.0}))</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1a0f0ce4acf1fd6032112a06ebc50bb05a" kindref="member">THROW_RUNTIME_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Division<sp/>by<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lMatrix(row,<sp/>col)<sp/>=<sp/>uMatrix(row,<sp/>col)<sp/>/<sp/>divisor;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col2<sp/>=<sp/>col;<sp/>col2<sp/>&lt;<sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>;<sp/>++col2)<sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uMatrix(row,<sp/>col2)<sp/>-=<sp/>lMatrix(row,<sp/>col)<sp/>*<sp/>uMatrix(col,<sp/>col2);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_pair(lMatrix,<sp/>uMatrix);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lu_decomposition.hpp"/>
+  </compounddef>
+</doxygen>

@@ -30,6 +30,8 @@ var searchData=
   ['bincount_2ehpp',['bincount.hpp',['../bincount_8hpp.html',1,'']]],
   ['binomial',['binomial',['../namespacenc_1_1random.html#a83099ec22905c3ad69984a94d823a3d8',1,'nc::random']]],
   ['binomial_2ehpp',['binomial.hpp',['../binomial_8hpp.html',1,'']]],
+  ['bisection',['Bisection',['../classnc_1_1roots_1_1_bisection.html',1,'nc::roots::Bisection'],['../classnc_1_1roots_1_1_bisection.html#a5a790e250fbf36fd99584f68099e315b',1,'nc::roots::Bisection::Bisection(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_bisection.html#a0cac4b816910c90be235b0ad9487a2a4',1,'nc::roots::Bisection::Bisection(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
+  ['bisection_2ehpp',['Bisection.hpp',['../_bisection_8hpp.html',1,'']]],
   ['bits',['bits',['../classnc_1_1_dtype_info.html#a96e826f2fe413f84e543e50d7f374dc8',1,'nc::DtypeInfo']]],
   ['bitwise_5fand',['bitwise_and',['../namespacenc.html#a4a7fa01dbe15029314c6204f930c09af',1,'nc']]],
   ['bitwise_5fand_2ehpp',['bitwise_and.hpp',['../bitwise__and_8hpp.html',1,'']]],
@@ -45,6 +47,8 @@ var searchData=
   ['boostnumpyndarrayhelper_2ehpp',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
   ['boundary',['Boundary',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6',1,'nc::filter']]],
   ['boundary_2ehpp',['Boundary.hpp',['../_boundary_8hpp.html',1,'']]],
+  ['brent',['Brent',['../classnc_1_1roots_1_1_brent.html',1,'nc::roots::Brent'],['../classnc_1_1roots_1_1_brent.html#aa9f4cea2c2770c669e84158186b075c2',1,'nc::roots::Brent::Brent(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_brent.html#abf26bf1c5ace791386f2c0f6a91f57bb',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
+  ['brent_2ehpp',['Brent.hpp',['../_brent_8hpp.html',1,'']]],
   ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#af4ad4608720c271a6045b09fbe10083d',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]],
   ['byteswap_2ehpp',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]]
 ];

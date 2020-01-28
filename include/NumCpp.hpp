@@ -4,10 +4,10 @@
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software

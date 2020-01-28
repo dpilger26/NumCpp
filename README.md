@@ -2,11 +2,11 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 1.2
+## Version: 1.3
 
 ## License
 
-Copyright 2019 David Pilger
+Copyright 2020 David Pilger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
 software and associated documentation files(the "Software"), to deal in the Software

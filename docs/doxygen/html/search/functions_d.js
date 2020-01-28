@@ -25,6 +25,7 @@ var searchData=
   ['negative',['negative',['../namespacenc.html#a8f1c7a73200dc72efb67995ee60bb76d',1,'nc']]],
   ['negativebinomial',['negativeBinomial',['../namespacenc_1_1random.html#ac6181e54b9cae303574f9c5fad33cfc2',1,'nc::random']]],
   ['newbyteorder',['newbyteorder',['../classnc_1_1_nd_array.html#a7f0ba5d000ef7d60d51ead3d16f7046d',1,'nc::NdArray::newbyteorder()'],['../namespacenc.html#aa9e935b20cfc837317372b5466338963',1,'nc::newbyteorder(dtype inValue, Endian inEndianess) noexcept'],['../namespacenc.html#ac2f8fda6236a8f2c6a8eb259dad5399b',1,'nc::newbyteorder(const NdArray&lt; dtype &gt; &amp;inArray, Endian inEndianess) noexcept']]],
+  ['newton',['Newton',['../classnc_1_1roots_1_1_newton.html#a4625ab60dc1714f48a3759a4f5300a2b',1,'nc::roots::Newton::Newton(const double epsilon, const std::function&lt; double(double)&gt; &amp;f, const std::function&lt; double(double)&gt; &amp;fPrime) noexcept'],['../classnc_1_1roots_1_1_newton.html#a96883d83bf3cae4e58be021dd7a49997',1,'nc::roots::Newton::Newton(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f, const std::function&lt; double(double)&gt; &amp;fPrime) noexcept']]],
   ['nlerp',['nlerp',['../classnc_1_1rotations_1_1_quaternion.html#a314478702a3da52f2be3f422057d8732',1,'nc::rotations::Quaternion::nlerp(const Quaternion &amp;inQuat1, const Quaternion &amp;inQuat2, double inPercent)'],['../classnc_1_1rotations_1_1_quaternion.html#ab055510c1338490b957de867cecaf790',1,'nc::rotations::Quaternion::nlerp(const Quaternion &amp;inQuat2, double inPercent) const']]],
   ['noncentralchisquared',['nonCentralChiSquared',['../namespacenc_1_1random.html#af01395c7355ee4c0f36441c40039e82d',1,'nc::random']]],
   ['none',['none',['../classnc_1_1_nd_array.html#a715f5529043d874c8970b3dfa91e859d',1,'nc::NdArray::none()'],['../namespacenc.html#a368ccbde67adc66eb0523686457c5948',1,'nc::none()']]],
@@ -39,5 +40,6 @@ var searchData=
   ['numcols',['numCols',['../classnc_1_1_nd_array.html#a13ddcb6c2ace15a7a4ada6982bc9c982',1,'nc::NdArray']]],
   ['numdimensions',['numDimensions',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aa16c4299e90c836df0f2397dc1c78b1a',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],
   ['numelements',['numElements',['../classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731',1,'nc::Slice']]],
+  ['numiterations',['numIterations',['../classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a',1,'nc::roots::Iteration']]],
   ['numrows',['numRows',['../classnc_1_1_nd_array.html#ab0e399408388daf11ac4877c6e9d4e69',1,'nc::NdArray']]]
 ];

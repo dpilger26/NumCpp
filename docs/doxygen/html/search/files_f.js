@@ -31,6 +31,8 @@ var searchData=
   ['rms_2ehpp',['rms.hpp',['../rms_8hpp.html',1,'']]],
   ['rodriguesrotation_2ehpp',['rodriguesRotation.hpp',['../rodrigues_rotation_8hpp.html',1,'']]],
   ['roll_2ehpp',['roll.hpp',['../roll_8hpp.html',1,'']]],
+  ['romberg_2ehpp',['romberg.hpp',['../romberg_8hpp.html',1,'']]],
+  ['roots_2ehpp',['Roots.hpp',['../_roots_8hpp.html',1,'']]],
   ['rot90_2ehpp',['rot90.hpp',['../rot90_8hpp.html',1,'']]],
   ['rotations_2ehpp',['Rotations.hpp',['../_rotations_8hpp.html',1,'']]],
   ['round_2ehpp',['round.hpp',['../round_8hpp.html',1,'']]],

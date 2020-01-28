@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="trapz_8hpp" kind="file" language="C++">
     <compoundname>trapz.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -9,298 +9,292 @@
     <includes local="no">string</includes>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="19773">
+      <node id="20157">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="19756">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="19750" relation="include">
-        </childnode>
-        <childnode refid="19757" relation="include">
-        </childnode>
-        <childnode refid="19752" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
+      <node id="20133">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="20134" relation="include">
         </childnode>
       </node>
-      <node id="19783">
+      <node id="20166">
         <label>functional</label>
       </node>
-      <node id="19753">
+      <node id="20136">
         <label>limits</label>
       </node>
-      <node id="19767">
+      <node id="20150">
         <label>iterator</label>
       </node>
-      <node id="19763">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="19764" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
-        </childnode>
-      </node>
-      <node id="19751">
-        <label>cstdint</label>
-      </node>
-      <node id="19758">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="19759" relation="include">
-        </childnode>
-        <childnode refid="19782" relation="include">
-        </childnode>
-      </node>
-      <node id="19769">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="19749" relation="include">
-        </childnode>
-        <childnode refid="19750" relation="include">
-        </childnode>
-        <childnode refid="19757" relation="include">
-        </childnode>
-        <childnode refid="19766" relation="include">
-        </childnode>
-        <childnode refid="19752" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
-        </childnode>
-      </node>
-      <node id="19761">
-        <label>cmath</label>
-      </node>
-      <node id="19759">
-        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
-        <link refid="_nd_array_core_8hpp"/>
-        <childnode refid="19760" relation="include">
-        </childnode>
-        <childnode refid="19762" relation="include">
-        </childnode>
-        <childnode refid="19749" relation="include">
-        </childnode>
-        <childnode refid="19763" relation="include">
-        </childnode>
-        <childnode refid="19765" relation="include">
-        </childnode>
-        <childnode refid="19756" relation="include">
-        </childnode>
-        <childnode refid="19769" relation="include">
-        </childnode>
-        <childnode refid="19750" relation="include">
-        </childnode>
-        <childnode refid="19757" relation="include">
-        </childnode>
-        <childnode refid="19770" relation="include">
-        </childnode>
-        <childnode refid="19771" relation="include">
-        </childnode>
-        <childnode refid="19772" relation="include">
-        </childnode>
-        <childnode refid="19773" relation="include">
-        </childnode>
-        <childnode refid="19774" relation="include">
-        </childnode>
-        <childnode refid="19775" relation="include">
-        </childnode>
-        <childnode refid="19761" relation="include">
-        </childnode>
-        <childnode refid="19776" relation="include">
-        </childnode>
-        <childnode refid="19764" relation="include">
-        </childnode>
-        <childnode refid="19777" relation="include">
-        </childnode>
-        <childnode refid="19752" relation="include">
-        </childnode>
-        <childnode refid="19778" relation="include">
-        </childnode>
-        <childnode refid="19779" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
-        </childnode>
-        <childnode refid="19780" relation="include">
-        </childnode>
-        <childnode refid="19768" relation="include">
-        </childnode>
-        <childnode refid="19781" relation="include">
-        </childnode>
-      </node>
-      <node id="19757">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="19755" relation="include">
-        </childnode>
-      </node>
-      <node id="19754">
-        <label>stdexcept</label>
-      </node>
-      <node id="19778">
-        <label>numeric</label>
-      </node>
-      <node id="19755">
-        <label>string</label>
-      </node>
-      <node id="19765">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="19766" relation="include">
-        </childnode>
-        <childnode refid="19767" relation="include">
-        </childnode>
-        <childnode refid="19768" relation="include">
-        </childnode>
-      </node>
-      <node id="19764">
-        <label>fstream</label>
-      </node>
-      <node id="19748">
-        <label>trapz.hpp</label>
-        <link refid="trapz_8hpp"/>
-        <childnode refid="19749" relation="include">
-        </childnode>
-        <childnode refid="19756" relation="include">
-        </childnode>
-        <childnode refid="19750" relation="include">
-        </childnode>
-        <childnode refid="19758" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
-        </childnode>
-      </node>
-      <node id="19770">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="19750" relation="include">
-        </childnode>
-      </node>
-      <node id="19760">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="19761" relation="include">
-        </childnode>
-        <childnode refid="19753" relation="include">
-        </childnode>
-        <childnode refid="19755" relation="include">
-        </childnode>
-      </node>
-      <node id="19762">
+      <node id="20145">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="19753" relation="include">
+        <childnode refid="20136" relation="include">
         </childnode>
       </node>
-      <node id="19782">
+      <node id="20154">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="20133" relation="include">
+        </childnode>
+      </node>
+      <node id="20134">
+        <label>cstdint</label>
+      </node>
+      <node id="20144">
+        <label>cmath</label>
+      </node>
+      <node id="20137">
+        <label>stdexcept</label>
+      </node>
+      <node id="20151">
+        <label>numeric</label>
+      </node>
+      <node id="20138">
+        <label>string</label>
+      </node>
+      <node id="20165">
         <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
         <link refid="_nd_array_operators_8hpp"/>
-        <childnode refid="19749" relation="include">
+        <childnode refid="20132" relation="include">
         </childnode>
-        <childnode refid="19765" relation="include">
+        <childnode refid="20148" relation="include">
         </childnode>
-        <childnode refid="19759" relation="include">
+        <childnode refid="20142" relation="include">
         </childnode>
-        <childnode refid="19766" relation="include">
+        <childnode refid="20149" relation="include">
         </childnode>
-        <childnode refid="19783" relation="include">
+        <childnode refid="20166" relation="include">
         </childnode>
       </node>
-      <node id="19772">
-        <label>boost/algorithm/clamp.hpp</label>
+      <node id="20131">
+        <label>trapz.hpp</label>
+        <link refid="trapz_8hpp"/>
+        <childnode refid="20132" relation="include">
+        </childnode>
+        <childnode refid="20139" relation="include">
+        </childnode>
+        <childnode refid="20133" relation="include">
+        </childnode>
+        <childnode refid="20141" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
+        </childnode>
       </node>
-      <node id="19781">
-        <label>vector</label>
-      </node>
-      <node id="19768">
-        <label>utility</label>
-      </node>
-      <node id="19775">
-        <label>array</label>
-      </node>
-      <node id="19771">
+      <node id="20155">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="19750">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="19751" relation="include">
+      <node id="20153">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="20132" relation="include">
+        </childnode>
+        <childnode refid="20133" relation="include">
+        </childnode>
+        <childnode refid="20140" relation="include">
+        </childnode>
+        <childnode refid="20149" relation="include">
+        </childnode>
+        <childnode refid="20135" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
         </childnode>
       </node>
-      <node id="19752">
-        <label>iostream</label>
+      <node id="20147">
+        <label>fstream</label>
       </node>
-      <node id="19776">
-        <label>deque</label>
+      <node id="20142">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="20143" relation="include">
+        </childnode>
+        <childnode refid="20145" relation="include">
+        </childnode>
+        <childnode refid="20132" relation="include">
+        </childnode>
+        <childnode refid="20146" relation="include">
+        </childnode>
+        <childnode refid="20148" relation="include">
+        </childnode>
+        <childnode refid="20139" relation="include">
+        </childnode>
+        <childnode refid="20153" relation="include">
+        </childnode>
+        <childnode refid="20133" relation="include">
+        </childnode>
+        <childnode refid="20140" relation="include">
+        </childnode>
+        <childnode refid="20154" relation="include">
+        </childnode>
+        <childnode refid="20155" relation="include">
+        </childnode>
+        <childnode refid="20156" relation="include">
+        </childnode>
+        <childnode refid="20157" relation="include">
+        </childnode>
+        <childnode refid="20158" relation="include">
+        </childnode>
+        <childnode refid="20159" relation="include">
+        </childnode>
+        <childnode refid="20144" relation="include">
+        </childnode>
+        <childnode refid="20160" relation="include">
+        </childnode>
+        <childnode refid="20147" relation="include">
+        </childnode>
+        <childnode refid="20161" relation="include">
+        </childnode>
+        <childnode refid="20135" relation="include">
+        </childnode>
+        <childnode refid="20151" relation="include">
+        </childnode>
+        <childnode refid="20162" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
+        </childnode>
+        <childnode refid="20163" relation="include">
+        </childnode>
+        <childnode refid="20152" relation="include">
+        </childnode>
+        <childnode refid="20164" relation="include">
+        </childnode>
       </node>
-      <node id="19774">
-        <label>boost/endian/conversion.hpp</label>
+      <node id="20146">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="20147" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
+        </childnode>
       </node>
-      <node id="19749">
+      <node id="20143">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="20144" relation="include">
+        </childnode>
+        <childnode refid="20136" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
+        </childnode>
+      </node>
+      <node id="20156">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="20139">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="20133" relation="include">
+        </childnode>
+        <childnode refid="20140" relation="include">
+        </childnode>
+        <childnode refid="20135" relation="include">
+        </childnode>
+        <childnode refid="20138" relation="include">
+        </childnode>
+      </node>
+      <node id="20164">
+        <label>vector</label>
+      </node>
+      <node id="20141">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="20142" relation="include">
+        </childnode>
+        <childnode refid="20165" relation="include">
+        </childnode>
+      </node>
+      <node id="20132">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="19750" relation="include">
+        <childnode refid="20133" relation="include">
         </childnode>
-        <childnode refid="19752" relation="include">
+        <childnode refid="20135" relation="include">
         </childnode>
-        <childnode refid="19753" relation="include">
+        <childnode refid="20136" relation="include">
         </childnode>
-        <childnode refid="19754" relation="include">
+        <childnode refid="20137" relation="include">
         </childnode>
-        <childnode refid="19755" relation="include">
+        <childnode refid="20138" relation="include">
         </childnode>
       </node>
-      <node id="19780">
+      <node id="20152">
+        <label>utility</label>
+      </node>
+      <node id="20159">
+        <label>array</label>
+      </node>
+      <node id="20140">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="20138" relation="include">
+        </childnode>
+      </node>
+      <node id="20148">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="20149" relation="include">
+        </childnode>
+        <childnode refid="20150" relation="include">
+        </childnode>
+        <childnode refid="20151" relation="include">
+        </childnode>
+        <childnode refid="20152" relation="include">
+        </childnode>
+      </node>
+      <node id="20135">
+        <label>iostream</label>
+      </node>
+      <node id="20160">
+        <label>deque</label>
+      </node>
+      <node id="20158">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="20163">
         <label>type_traits</label>
       </node>
-      <node id="19779">
+      <node id="20162">
         <label>set</label>
       </node>
-      <node id="19766">
+      <node id="20149">
         <label>algorithm</label>
       </node>
-      <node id="19777">
+      <node id="20161">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="19785">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="19786" relation="include">
-        </childnode>
-      </node>
-      <node id="19784">
-        <label>trapz.hpp</label>
-        <link refid="trapz_8hpp"/>
-        <childnode refid="19785" relation="include">
-        </childnode>
-      </node>
-      <node id="19786">
+      <node id="20169">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="20167">
+        <label>trapz.hpp</label>
+        <link refid="trapz_8hpp"/>
+        <childnode refid="20168" relation="include">
+        </childnode>
+      </node>
+      <node id="20168">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="20169" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.3</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para>
-</sect1>
+<para>Functions for working with NdArrays </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -330,7 +324,7 @@
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(inArray(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArray(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArray(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(inArray(row,<sp/>col));</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight></codeline>
@@ -349,7 +343,7 @@
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>transShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(arrayTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(arrayTranspose(row,<sp/>col));</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>
@@ -363,7 +357,7 @@
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>inArray.size()<sp/>-<sp/>1;<sp/>++i)</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(inArray[i<sp/>+<sp/>1]<sp/>-<sp/>inArray[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArray[i]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray[i<sp/>+<sp/>1]<sp/>-<sp/>inArray[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArray[i]);</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>*<sp/>dx<sp/>};</highlight></codeline>
@@ -401,8 +395,8 @@
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>inShapeY.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(inArrayX(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayX(row,<sp/>col));</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(inArrayY(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayY(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayX(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayX(row,<sp/>col));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayY(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayY(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(inArrayY(row,<sp/>col)));</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
@@ -422,8 +416,8 @@
 <codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>transShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(arrayXTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayXTranspose(row,<sp/>col));</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(arrayYTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayYTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayXTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayXTranspose(row,<sp/>col));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayYTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayYTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(arrayYTranspose(row,<sp/>col)));</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"></highlight></codeline>
@@ -437,8 +431,8 @@
 <codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>inArrayY.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1;<sp/>++i)</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(inArrayX[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayX[i]);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(inArrayY[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayY[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArrayY[i]));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayX[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayX[i]);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayY[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayY[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArrayY[i]));</highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight></codeline>
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>};</highlight></codeline>
@@ -454,6 +448,6 @@
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/trapz.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/trapz.hpp"/>
   </compounddef>
 </doxygen>

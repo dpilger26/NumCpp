@@ -8,6 +8,7 @@ var searchData=
   ['left_5fshift',['left_shift',['../namespacenc.html#ab01253ec7c1221c44c5cd6099ff96603',1,'nc']]],
   ['legendre_5fp',['legendre_p',['../namespacenc_1_1polynomial.html#a0c7d0ac956ba2c60ea8190aa8cb31570',1,'nc::polynomial::legendre_p(int32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#a33f41165cd6e8dd2d7cfb21fa8ed4c5a',1,'nc::polynomial::legendre_p(int32 n, int32 m, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#a01b91c2b39784adf9cc483f70e7fb6dc',1,'nc::polynomial::legendre_p(int32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept'],['../namespacenc_1_1polynomial.html#a827b13f0771bab049d9fe9beab85e3f1',1,'nc::polynomial::legendre_p(int32 n, int32 m, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
   ['legendre_5fq',['legendre_q',['../namespacenc_1_1polynomial.html#af6777e9b7531f6b085869caf34bb6570',1,'nc::polynomial::legendre_q(int32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aa61279477eb9616d0440429b9eff2680',1,'nc::polynomial::legendre_q(int32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
+  ['legendrepolynomial',['LegendrePolynomial',['../classnc_1_1integrate_1_1_legendre_polynomial.html#a062ffe2d1f94af05d62ff9e0ee500581',1,'nc::integrate::LegendrePolynomial']]],
   ['lerp',['lerp',['../classnc_1_1_vec2.html#a91e6417e5b9903ed6bee3ad90c0c38f4',1,'nc::Vec2::lerp()'],['../classnc_1_1_vec3.html#ab4878c8a4ebcd94fd0baf93059b50ac6',1,'nc::Vec3::lerp()']]],
   ['less',['less',['../namespacenc.html#a114baa0d21d439b7971dedd4b4042db8',1,'nc']]],
   ['less_5fequal',['less_equal',['../namespacenc.html#ac51b96f0ac720a028ebd856abf1b5785',1,'nc']]],
@@ -24,5 +25,6 @@ var searchData=
   ['logical_5for',['logical_or',['../namespacenc.html#a0492e302b114ab15b996b1330604478b',1,'nc']]],
   ['logical_5fxor',['logical_xor',['../namespacenc.html#a7b84e63b2d32e1b59bfef4690c918989',1,'nc']]],
   ['lognormal',['lognormal',['../namespacenc_1_1random.html#a3adc9de1025d27ed485603980657225b',1,'nc::random']]],
-  ['lstsq',['lstsq',['../namespacenc_1_1linalg.html#aac53030577bdcf972d77f0c528b2d302',1,'nc::linalg']]]
+  ['lstsq',['lstsq',['../namespacenc_1_1linalg.html#aac53030577bdcf972d77f0c528b2d302',1,'nc::linalg']]],
+  ['lu_5fdecomposition',['lu_decomposition',['../namespacenc_1_1linalg.html#a153a90dbcc2ca94c664c429868d15bc4',1,'nc::linalg']]]
 ];

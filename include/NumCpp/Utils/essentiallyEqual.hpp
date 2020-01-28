@@ -1,10 +1,10 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,7 +47,7 @@ namespace nc
         /// @return     bool
         ///
         template<typename dtype>
-        constexpr bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
+        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
         {
             if (DtypeInfo<dtype>::isInteger())
             {
@@ -69,7 +69,7 @@ namespace nc
         /// @return     bool
         ///
         template<typename dtype>
-        constexpr bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept
+        bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept
         {
             return essentiallyEqual(inValue1, inValue2, DtypeInfo<dtype>::epsilon());
         }

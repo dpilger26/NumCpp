@@ -27,6 +27,8 @@ var searchData=
   ['transform',['transform',['../namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4',1,'nc::stl_algorithms::transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)'],['../namespacenc_1_1stl__algorithms.html#af358fec5563ae500162b310fe263a36d',1,'nc::stl_algorithms::transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)']]],
   ['transpose',['transpose',['../classnc_1_1_nd_array.html#aae29c9fbae3e92ce432703ffd7722d8b',1,'nc::NdArray::transpose()'],['../namespacenc.html#a4f2a0ece915add7cde89fcfefa30088d',1,'nc::transpose()']]],
   ['transpose_2ehpp',['transpose.hpp',['../transpose_8hpp.html',1,'']]],
+  ['trapazoidal',['trapazoidal',['../namespacenc_1_1integrate.html#a73156d502caa3e23d9ba82381bc382bf',1,'nc::integrate']]],
+  ['trapazoidal_2ehpp',['trapazoidal.hpp',['../trapazoidal_8hpp.html',1,'']]],
   ['trapz',['trapz',['../namespacenc.html#a829410fad89d9845f8edee22ad643b3a',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArray, double dx=1.0, Axis inAxis=Axis::NONE) noexcept'],['../namespacenc.html#a956571b2c934b75025e9168e2ed408f5',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArrayY, const NdArray&lt; dtype &gt; &amp;inArrayX, Axis inAxis=Axis::NONE)']]],
   ['trapz_2ehpp',['trapz.hpp',['../trapz_8hpp.html',1,'']]],
   ['tri_2ehpp',['tri.hpp',['../tri_8hpp.html',1,'']]],

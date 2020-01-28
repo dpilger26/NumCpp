@@ -51,6 +51,9 @@ var files_dup =
     [ "binaryRepr.hpp", "binary_repr_8hpp.html", "binary_repr_8hpp" ],
     [ "bincount.hpp", "bincount_8hpp.html", "bincount_8hpp" ],
     [ "binomial.hpp", "binomial_8hpp.html", "binomial_8hpp" ],
+    [ "Bisection.hpp", "_bisection_8hpp.html", [
+      [ "Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ]
+    ] ],
     [ "bitwise_and.hpp", "bitwise__and_8hpp.html", "bitwise__and_8hpp" ],
     [ "bitwise_not.hpp", "bitwise__not_8hpp.html", "bitwise__not_8hpp" ],
     [ "bitwise_or.hpp", "bitwise__or_8hpp.html", "bitwise__or_8hpp" ],
@@ -60,6 +63,9 @@ var files_dup =
       [ "BoostNdarrayHelper", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" ]
     ] ],
     [ "Boundary.hpp", "_boundary_8hpp.html", "_boundary_8hpp" ],
+    [ "Brent.hpp", "_brent_8hpp.html", [
+      [ "Brent", "classnc_1_1roots_1_1_brent.html", "classnc_1_1roots_1_1_brent" ]
+    ] ],
     [ "byteswap.hpp", "byteswap_8hpp.html", "byteswap_8hpp" ],
     [ "cauchy.hpp", "cauchy_8hpp.html", "cauchy_8hpp" ],
     [ "cbrt.hpp", "cbrt_8hpp.html", "cbrt_8hpp" ],
@@ -73,6 +79,7 @@ var files_dup =
     [ "chebyshev_u.hpp", "chebyshev__u_8hpp.html", "chebyshev__u_8hpp" ],
     [ "chiSquare.hpp", "chi_square_8hpp.html", "chi_square_8hpp" ],
     [ "choice.hpp", "choice_8hpp.html", "choice_8hpp" ],
+    [ "cholesky.hpp", "cholesky_8hpp.html", "cholesky_8hpp" ],
     [ "clip.hpp", "clip_8hpp.html", "clip_8hpp" ],
     [ "Cluster.hpp", "_cluster_8hpp.html", [
       [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html", "classnc_1_1image_processing_1_1_cluster" ]
@@ -120,6 +127,9 @@ var files_dup =
     [ "deg2rad.hpp", "deg2rad_8hpp.html", "deg2rad_8hpp" ],
     [ "degrees.hpp", "degrees_8hpp.html", "degrees_8hpp" ],
     [ "degreeSeperation.hpp", "degree_seperation_8hpp.html", "degree_seperation_8hpp" ],
+    [ "Dekker.hpp", "_dekker_8hpp.html", [
+      [ "Dekker", "classnc_1_1roots_1_1_dekker.html", "classnc_1_1roots_1_1_dekker" ]
+    ] ],
     [ "deleteIndices.hpp", "delete_indices_8hpp.html", "delete_indices_8hpp" ],
     [ "det.hpp", "det_8hpp.html", "det_8hpp" ],
     [ "diagFlat.hpp", "diag_flat_8hpp.html", "diag_flat_8hpp" ],
@@ -178,6 +188,7 @@ var files_dup =
     [ "Random/gamma.hpp", "_random_2gamma_8hpp.html", "_random_2gamma_8hpp" ],
     [ "Special/gamma.hpp", "_special_2gamma_8hpp.html", "_special_2gamma_8hpp" ],
     [ "gamma1pm1.hpp", "gamma1pm1_8hpp.html", "gamma1pm1_8hpp" ],
+    [ "gauss_legendre.hpp", "gauss__legendre_8hpp.html", "gauss__legendre_8hpp" ],
     [ "gaussian.hpp", "gaussian_8hpp.html", "gaussian_8hpp" ],
     [ "gaussian1d.hpp", "gaussian1d_8hpp.html", "gaussian1d_8hpp" ],
     [ "gaussianFilter.hpp", "gaussian_filter_8hpp.html", "gaussian_filter_8hpp" ],
@@ -197,6 +208,7 @@ var files_dup =
     [ "hypot.hpp", "hypot_8hpp.html", "hypot_8hpp" ],
     [ "identity.hpp", "identity_8hpp.html", "identity_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", null ],
+    [ "Integrate.hpp", "_integrate_8hpp.html", null ],
     [ "Functions/interp.hpp", "_functions_2interp_8hpp.html", "_functions_2interp_8hpp" ],
     [ "Utils/interp.hpp", "_utils_2interp_8hpp.html", "_utils_2interp_8hpp" ],
     [ "intersect1d.hpp", "intersect1d_8hpp.html", "intersect1d_8hpp" ],
@@ -205,6 +217,9 @@ var files_dup =
     [ "isclose.hpp", "isclose_8hpp.html", "isclose_8hpp" ],
     [ "isinf.hpp", "isinf_8hpp.html", "isinf_8hpp" ],
     [ "isnan.hpp", "isnan_8hpp.html", "isnan_8hpp" ],
+    [ "Iteration.hpp", "_iteration_8hpp.html", [
+      [ "Iteration", "classnc_1_1roots_1_1_iteration.html", "classnc_1_1roots_1_1_iteration" ]
+    ] ],
     [ "laguerre.hpp", "laguerre_8hpp.html", "laguerre_8hpp" ],
     [ "Filter/Filters/Filters2d/laplace.hpp", "_filter_2_filters_2_filters2d_2laplace_8hpp.html", "_filter_2_filters_2_filters2d_2laplace_8hpp" ],
     [ "Random/laplace.hpp", "_random_2laplace_8hpp.html", "_random_2laplace_8hpp" ],
@@ -229,6 +244,7 @@ var files_dup =
     [ "logical_xor.hpp", "logical__xor_8hpp.html", "logical__xor_8hpp" ],
     [ "lognormal.hpp", "lognormal_8hpp.html", "lognormal_8hpp" ],
     [ "lstsq.hpp", "lstsq_8hpp.html", "lstsq_8hpp" ],
+    [ "lu_decomposition.hpp", "lu__decomposition_8hpp.html", "lu__decomposition_8hpp" ],
     [ "matmul.hpp", "matmul_8hpp.html", "matmul_8hpp" ],
     [ "matrix_power.hpp", "matrix__power_8hpp.html", "matrix__power_8hpp" ],
     [ "max.hpp", "max_8hpp.html", "max_8hpp" ],
@@ -273,6 +289,9 @@ var files_dup =
     [ "negative.hpp", "negative_8hpp.html", "negative_8hpp" ],
     [ "negativeBinomial.hpp", "negative_binomial_8hpp.html", "negative_binomial_8hpp" ],
     [ "newbyteorder.hpp", "newbyteorder_8hpp.html", "newbyteorder_8hpp" ],
+    [ "Newton.hpp", "_newton_8hpp.html", [
+      [ "Newton", "classnc_1_1roots_1_1_newton.html", "classnc_1_1roots_1_1_newton" ]
+    ] ],
     [ "nonCentralChiSquared.hpp", "non_central_chi_squared_8hpp.html", "non_central_chi_squared_8hpp" ],
     [ "none.hpp", "none_8hpp.html", "none_8hpp" ],
     [ "nonzero.hpp", "nonzero_8hpp.html", "nonzero_8hpp" ],
@@ -289,6 +308,7 @@ var files_dup =
     [ "percentileFilter.hpp", "percentile_filter_8hpp.html", "percentile_filter_8hpp" ],
     [ "percentileFilter1d.hpp", "percentile_filter1d_8hpp.html", "percentile_filter1d_8hpp" ],
     [ "permutation.hpp", "permutation_8hpp.html", "permutation_8hpp" ],
+    [ "pivotLU_decomposition.hpp", "pivot_l_u__decomposition_8hpp.html", "pivot_l_u__decomposition_8hpp" ],
     [ "Pixel.hpp", "_pixel_8hpp.html", [
       [ "Pixel", "classnc_1_1image_processing_1_1_pixel.html", "classnc_1_1image_processing_1_1_pixel" ]
     ] ],
@@ -343,10 +363,15 @@ var files_dup =
     [ "rms.hpp", "rms_8hpp.html", "rms_8hpp" ],
     [ "rodriguesRotation.hpp", "rodrigues_rotation_8hpp.html", "rodrigues_rotation_8hpp" ],
     [ "roll.hpp", "roll_8hpp.html", "roll_8hpp" ],
+    [ "romberg.hpp", "romberg_8hpp.html", "romberg_8hpp" ],
+    [ "Roots.hpp", "_roots_8hpp.html", null ],
     [ "rot90.hpp", "rot90_8hpp.html", "rot90_8hpp" ],
     [ "Rotations.hpp", "_rotations_8hpp.html", null ],
     [ "round.hpp", "round_8hpp.html", "round_8hpp" ],
     [ "row_stack.hpp", "row__stack_8hpp.html", "row__stack_8hpp" ],
+    [ "Secant.hpp", "_secant_8hpp.html", [
+      [ "Secant", "classnc_1_1roots_1_1_secant.html", "classnc_1_1roots_1_1_secant" ]
+    ] ],
     [ "setdiff1d.hpp", "setdiff1d_8hpp.html", "setdiff1d_8hpp" ],
     [ "Core/Shape.hpp", "_core_2_shape_8hpp.html", [
       [ "Shape", "classnc_1_1_shape.html", "classnc_1_1_shape" ]
@@ -355,6 +380,7 @@ var files_dup =
     [ "shuffle.hpp", "shuffle_8hpp.html", "shuffle_8hpp" ],
     [ "sign.hpp", "sign_8hpp.html", "sign_8hpp" ],
     [ "signbit.hpp", "signbit_8hpp.html", "signbit_8hpp" ],
+    [ "simpson.hpp", "simpson_8hpp.html", "simpson_8hpp" ],
     [ "sin.hpp", "sin_8hpp.html", "sin_8hpp" ],
     [ "sinc.hpp", "sinc_8hpp.html", "sinc_8hpp" ],
     [ "sinh.hpp", "sinh_8hpp.html", "sinh_8hpp" ],
@@ -396,6 +422,7 @@ var files_dup =
     [ "toStlVector.hpp", "to_stl_vector_8hpp.html", "to_stl_vector_8hpp" ],
     [ "trace.hpp", "trace_8hpp.html", "trace_8hpp" ],
     [ "transpose.hpp", "transpose_8hpp.html", "transpose_8hpp" ],
+    [ "trapazoidal.hpp", "trapazoidal_8hpp.html", "trapazoidal_8hpp" ],
     [ "trapz.hpp", "trapz_8hpp.html", "trapz_8hpp" ],
     [ "tri.hpp", "tri_8hpp.html", "tri_8hpp" ],
     [ "triangle.hpp", "triangle_8hpp.html", "triangle_8hpp" ],

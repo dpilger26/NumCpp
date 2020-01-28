@@ -1,10 +1,11 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2019 Benjamin Mahr
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -24,7 +25,10 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Functions for working with NdArrays
+/// Numerical Integration
+///
+/// Code modified under MIT license from https://github.com/Ben1980/numericalIntegration
+/// as posted in https://thoughts-on-coding.com/2019/04/25/numerical-methods-in-c-part-2-gauss-legendre-integration/
 ///
 #pragma once
 
@@ -51,13 +55,9 @@ namespace nc
             // Method Description:
             ///	Constructor
             ///
-            /// @param				lowerBound: the lower bound of the integration
-            /// @param              upperBound: the upper bound of the integration
             /// @param				numIterations: the number of iterations to perform
             ///
-            LegendrePolynomial(const double lowerBound, const double upperBound, const uint32 numIterations) :
-                lowerBound_(lowerBound),
-                upperBound_(upperBound),
+            LegendrePolynomial(const uint32 numIterations) :
                 numIterations_(numIterations),
                 weight_(numIterations + 1),
                 root_(numIterations + 1)
@@ -164,8 +164,6 @@ namespace nc
             //===================================Attributes==============================
             const double EPSILON{ 1e-15 };
 
-            const double        lowerBound_;
-            const double        upperBound_;
             const uint32        numIterations_;
             std::vector<double> weight_;
             std::vector<double> root_;
@@ -178,14 +176,14 @@ namespace nc
         /// @param				low: the lower bound of the integration
         /// @param              high: the upper bound of the integration
         /// @param				n: the number of iterations to perform
-        /// @param              function: the function to integrate over
+        /// @param              f: the function to integrate over
         ///
         /// @return             double
         ///
         inline double gauss_legendre(const double low, const double high, const uint32 n,
             const std::function<double(double)>& f)
         {
-            const LegendrePolynomial legendrePolynomial(low, high, n);
+            const LegendrePolynomial legendrePolynomial(n);
             const std::vector<double>& weight = legendrePolynomial.getWeight();
             const std::vector<double>& root = legendrePolynomial.getRoot();
 

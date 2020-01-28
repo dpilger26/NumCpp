@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ra',['RA',['../classnc_1_1coordinates_1_1_r_a.html',1,'nc::coordinates']]]
+  ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html',1,'nc::imageProcessing']]],
+  ['poly1d',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html',1,'nc::polynomial']]]
 ];

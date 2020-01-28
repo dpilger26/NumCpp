@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="classnc_1_1rotations_1_1_d_c_m" kind="class" language="C++" prot="public">
     <compoundname>nc::rotations::DCM</compoundname>
     <includes refid="_d_c_m_8hpp" local="no">DCM.hpp</includes>
@@ -24,39 +24,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates according to the input euler angles</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates according to the input euler angles</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>roll</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler roll angle in radians </para>
-</parameterdescription>
+<para>euler roll angle in radians </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pitch</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler pitch angle in radians </para>
-</parameterdescription>
+<para>euler pitch angle in radians </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>yaw</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler yaw angle in radians </para>
-</parameterdescription>
+<para>euler yaw angle in radians </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="59" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="59" bodyend="62"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="59" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a7ad5acfeac4205b7ee348332cb7aeadd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -70,23 +64,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates according to the input euler angles</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates according to the input euler angles</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>angles</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler roll, pitch, angles </para>
-</parameterdescription>
+<para>euler roll, pitch, angles </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="73" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="73" bodyend="76"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="73" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1aeb6400855cfc4163e09f03b101fe2d92" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -104,31 +94,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates about the input axis by the input angle</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inAxis</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler axis cartesian vector with x,y,z components </para>
-</parameterdescription>
+<para>euler axis cartesian vector with x,y,z components </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inAngle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler angle in radians </para>
-</parameterdescription>
+<para>euler angle in radians </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="88" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="88" bodyend="91"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="88" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="88" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a8306e75532062a5b93b1e05f75ea902d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -146,31 +131,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates about the input axis by the input angle</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inAxis</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler axis cartesian vector with x,y,z components </para>
-</parameterdescription>
+<para>euler axis cartesian vector with x,y,z components </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inAngle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>euler angle in radians </para>
-</parameterdescription>
+<para>euler angle in radians </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="103" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="103" bodyend="106"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="103" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="103" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1ab229737433b6c93522aa38f0ad94ca50" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -184,23 +164,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns whether the input array is a direction cosine matrix</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns whether the input array is a direction cosine matrix</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="118" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="118" bodyend="128"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="118" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="118" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a726e1d9c5e2a88dbd7e70b8fc9d55fbf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -214,23 +190,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The euler pitch angle in radians</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>The euler pitch angle in radians</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>dcm</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>a valid direction cosine matrix </para>
-</parameterdescription>
+<para>a valid direction cosine matrix </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>euler pitch angle in radians </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>euler pitch angle in radians </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="149" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="149" bodyend="152"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="149" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="149" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1ac562518ebdec1ce36cf8897a16f16fca" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -244,23 +216,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The euler roll angle in radians</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>The euler roll angle in radians</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>dcm</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>a valid direction cosine matrix </para>
-</parameterdescription>
+<para>a valid direction cosine matrix </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>euler roll angle in radians </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>euler roll angle in radians </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="137" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="137" bodyend="140"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="137" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="137" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a5b59b49938a6afd16af69dea71a8b1b8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -274,23 +242,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inAngle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(in radians) </para>
-</parameterdescription>
+<para>(in radians) </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="176" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="176" bodyend="179"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="176" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="176" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1aef0f27b195b93151a94cb86ca9fa21c9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -304,23 +268,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The euler yaw angle in radians</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>The euler yaw angle in radians</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>dcm</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>a valid direction cosine matrix </para>
-</parameterdescription>
+<para>a valid direction cosine matrix </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>euler yaw angle in radians </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>euler yaw angle in radians </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="161" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="161" bodyend="164"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="161" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="161" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a2832794b0678daa5008d3f1c924f9bbd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -334,23 +294,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inAngle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(in radians) </para>
-</parameterdescription>
+<para>(in radians) </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="191" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="191" bodyend="194"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="191" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="191" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1aa925e932fefc1c9471314dc7cc99b01b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -364,37 +320,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>returns a direction cosine matrix that rotates about the x axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inAngle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(in radians) </para>
-</parameterdescription>
+<para>(in radians) </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="206" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="206" bodyend="209"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="206" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="206" bodyend="209"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Factory methods for generating direction cosine matrices and vectors. </para>
-    </briefdescription>
+<para>Factory methods for generating direction cosine matrices and vectors. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="30">
+      <node id="61">
         <label>nc::rotations::DCM</label>
         <link refid="classnc_1_1rotations_1_1_d_c_m"/>
       </node>
     </collaborationgraph>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="46" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="45" bodyend="210"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/DCM.hpp" bodystart="45" bodyend="210"/>
     <listofallmembers>
       <member refid="classnc_1_1rotations_1_1_d_c_m_1a22b4cf9dff8289af5218812f36c7f8bf" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>eulerAngles</name></member>
       <member refid="classnc_1_1rotations_1_1_d_c_m_1a7ad5acfeac4205b7ee348332cb7aeadd" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>eulerAngles</name></member>

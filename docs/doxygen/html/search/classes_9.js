@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer',['Timer',['../classnc_1_1_timer.html',1,'nc']]]
+  ['ra',['RA',['../classnc_1_1coordinates_1_1_r_a.html',1,'nc::coordinates']]]
 ];

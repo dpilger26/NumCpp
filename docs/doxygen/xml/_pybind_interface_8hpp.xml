@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_pybind_interface_8hpp" kind="file" language="C++">
     <compoundname>PybindInterface.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -11,289 +11,291 @@
     <includes local="no">utility</includes>
     <includedby refid="_python_interface_8hpp" local="yes">PythonInterface.hpp</includedby>
     <incdepgraph>
-      <node id="15353">
+      <node id="15661">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="15336">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="15330" relation="include">
-        </childnode>
-        <childnode refid="15337" relation="include">
-        </childnode>
-        <childnode refid="15332" relation="include">
-        </childnode>
-        <childnode refid="15335" relation="include">
+      <node id="15637">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="15638" relation="include">
         </childnode>
       </node>
-      <node id="15363">
+      <node id="15670">
         <label>functional</label>
       </node>
-      <node id="15333">
+      <node id="15640">
         <label>limits</label>
       </node>
-      <node id="15328">
-        <label>PybindInterface.hpp</label>
-        <link refid="_pybind_interface_8hpp"/>
-        <childnode refid="15329" relation="include">
-        </childnode>
-        <childnode refid="15336" relation="include">
-        </childnode>
-        <childnode refid="15338" relation="include">
-        </childnode>
-        <childnode refid="15364" relation="include">
-        </childnode>
-        <childnode refid="15365" relation="include">
-        </childnode>
-        <childnode refid="15366" relation="include">
-        </childnode>
-        <childnode refid="15348" relation="include">
-        </childnode>
-      </node>
-      <node id="15347">
+      <node id="15654">
         <label>iterator</label>
       </node>
-      <node id="15343">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="15344" relation="include">
-        </childnode>
-        <childnode refid="15335" relation="include">
-        </childnode>
-      </node>
-      <node id="15331">
-        <label>cstdint</label>
-      </node>
-      <node id="15338">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="15339" relation="include">
-        </childnode>
-        <childnode refid="15362" relation="include">
-        </childnode>
-      </node>
-      <node id="15349">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="15329" relation="include">
-        </childnode>
-        <childnode refid="15330" relation="include">
-        </childnode>
-        <childnode refid="15337" relation="include">
-        </childnode>
-        <childnode refid="15346" relation="include">
-        </childnode>
-        <childnode refid="15332" relation="include">
-        </childnode>
-        <childnode refid="15335" relation="include">
-        </childnode>
-      </node>
-      <node id="15341">
-        <label>cmath</label>
-      </node>
-      <node id="15339">
-        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
-        <link refid="_nd_array_core_8hpp"/>
-        <childnode refid="15340" relation="include">
-        </childnode>
-        <childnode refid="15342" relation="include">
-        </childnode>
-        <childnode refid="15329" relation="include">
-        </childnode>
-        <childnode refid="15343" relation="include">
-        </childnode>
-        <childnode refid="15345" relation="include">
-        </childnode>
-        <childnode refid="15336" relation="include">
-        </childnode>
-        <childnode refid="15349" relation="include">
-        </childnode>
-        <childnode refid="15330" relation="include">
-        </childnode>
-        <childnode refid="15337" relation="include">
-        </childnode>
-        <childnode refid="15350" relation="include">
-        </childnode>
-        <childnode refid="15351" relation="include">
-        </childnode>
-        <childnode refid="15352" relation="include">
-        </childnode>
-        <childnode refid="15353" relation="include">
-        </childnode>
-        <childnode refid="15354" relation="include">
-        </childnode>
-        <childnode refid="15355" relation="include">
-        </childnode>
-        <childnode refid="15341" relation="include">
-        </childnode>
-        <childnode refid="15356" relation="include">
-        </childnode>
-        <childnode refid="15344" relation="include">
-        </childnode>
-        <childnode refid="15357" relation="include">
-        </childnode>
-        <childnode refid="15332" relation="include">
-        </childnode>
-        <childnode refid="15358" relation="include">
-        </childnode>
-        <childnode refid="15359" relation="include">
-        </childnode>
-        <childnode refid="15335" relation="include">
-        </childnode>
-        <childnode refid="15360" relation="include">
-        </childnode>
-        <childnode refid="15348" relation="include">
-        </childnode>
-        <childnode refid="15361" relation="include">
-        </childnode>
-      </node>
-      <node id="15337">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="15335" relation="include">
-        </childnode>
-      </node>
-      <node id="15334">
-        <label>stdexcept</label>
-      </node>
-      <node id="15358">
-        <label>numeric</label>
-      </node>
-      <node id="15335">
-        <label>string</label>
-      </node>
-      <node id="15366">
-        <label>map</label>
-      </node>
-      <node id="15345">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="15346" relation="include">
-        </childnode>
-        <childnode refid="15347" relation="include">
-        </childnode>
-        <childnode refid="15348" relation="include">
-        </childnode>
-      </node>
-      <node id="15344">
-        <label>fstream</label>
-      </node>
-      <node id="15365">
-        <label>pybind11/numpy.h</label>
-      </node>
-      <node id="15350">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="15330" relation="include">
-        </childnode>
-      </node>
-      <node id="15340">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="15341" relation="include">
-        </childnode>
-        <childnode refid="15333" relation="include">
-        </childnode>
-        <childnode refid="15335" relation="include">
-        </childnode>
-      </node>
-      <node id="15342">
+      <node id="15649">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="15333" relation="include">
+        <childnode refid="15640" relation="include">
         </childnode>
       </node>
-      <node id="15362">
+      <node id="15658">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="15637" relation="include">
+        </childnode>
+      </node>
+      <node id="15638">
+        <label>cstdint</label>
+      </node>
+      <node id="15648">
+        <label>cmath</label>
+      </node>
+      <node id="15641">
+        <label>stdexcept</label>
+      </node>
+      <node id="15655">
+        <label>numeric</label>
+      </node>
+      <node id="15642">
+        <label>string</label>
+      </node>
+      <node id="15669">
         <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
         <link refid="_nd_array_operators_8hpp"/>
-        <childnode refid="15329" relation="include">
+        <childnode refid="15636" relation="include">
         </childnode>
-        <childnode refid="15345" relation="include">
+        <childnode refid="15652" relation="include">
         </childnode>
-        <childnode refid="15339" relation="include">
+        <childnode refid="15646" relation="include">
         </childnode>
-        <childnode refid="15346" relation="include">
+        <childnode refid="15653" relation="include">
         </childnode>
-        <childnode refid="15363" relation="include">
+        <childnode refid="15670" relation="include">
         </childnode>
       </node>
-      <node id="15352">
-        <label>boost/algorithm/clamp.hpp</label>
+      <node id="15673">
+        <label>map</label>
       </node>
-      <node id="15361">
-        <label>vector</label>
-      </node>
-      <node id="15348">
-        <label>utility</label>
-      </node>
-      <node id="15355">
-        <label>array</label>
-      </node>
-      <node id="15364">
-        <label>pybind11/pybind11.h</label>
-      </node>
-      <node id="15351">
+      <node id="15659">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="15330">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="15331" relation="include">
+      <node id="15657">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="15636" relation="include">
+        </childnode>
+        <childnode refid="15637" relation="include">
+        </childnode>
+        <childnode refid="15644" relation="include">
+        </childnode>
+        <childnode refid="15653" relation="include">
+        </childnode>
+        <childnode refid="15639" relation="include">
+        </childnode>
+        <childnode refid="15642" relation="include">
         </childnode>
       </node>
-      <node id="15332">
-        <label>iostream</label>
+      <node id="15651">
+        <label>fstream</label>
       </node>
-      <node id="15356">
-        <label>deque</label>
+      <node id="15672">
+        <label>pybind11/numpy.h</label>
       </node>
-      <node id="15354">
-        <label>boost/endian/conversion.hpp</label>
+      <node id="15646">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="15647" relation="include">
+        </childnode>
+        <childnode refid="15649" relation="include">
+        </childnode>
+        <childnode refid="15636" relation="include">
+        </childnode>
+        <childnode refid="15650" relation="include">
+        </childnode>
+        <childnode refid="15652" relation="include">
+        </childnode>
+        <childnode refid="15643" relation="include">
+        </childnode>
+        <childnode refid="15657" relation="include">
+        </childnode>
+        <childnode refid="15637" relation="include">
+        </childnode>
+        <childnode refid="15644" relation="include">
+        </childnode>
+        <childnode refid="15658" relation="include">
+        </childnode>
+        <childnode refid="15659" relation="include">
+        </childnode>
+        <childnode refid="15660" relation="include">
+        </childnode>
+        <childnode refid="15661" relation="include">
+        </childnode>
+        <childnode refid="15662" relation="include">
+        </childnode>
+        <childnode refid="15663" relation="include">
+        </childnode>
+        <childnode refid="15648" relation="include">
+        </childnode>
+        <childnode refid="15664" relation="include">
+        </childnode>
+        <childnode refid="15651" relation="include">
+        </childnode>
+        <childnode refid="15665" relation="include">
+        </childnode>
+        <childnode refid="15639" relation="include">
+        </childnode>
+        <childnode refid="15655" relation="include">
+        </childnode>
+        <childnode refid="15666" relation="include">
+        </childnode>
+        <childnode refid="15642" relation="include">
+        </childnode>
+        <childnode refid="15667" relation="include">
+        </childnode>
+        <childnode refid="15656" relation="include">
+        </childnode>
+        <childnode refid="15668" relation="include">
+        </childnode>
       </node>
-      <node id="15329">
+      <node id="15650">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="15651" relation="include">
+        </childnode>
+        <childnode refid="15642" relation="include">
+        </childnode>
+      </node>
+      <node id="15647">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="15648" relation="include">
+        </childnode>
+        <childnode refid="15640" relation="include">
+        </childnode>
+        <childnode refid="15642" relation="include">
+        </childnode>
+      </node>
+      <node id="15660">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="15643">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="15637" relation="include">
+        </childnode>
+        <childnode refid="15644" relation="include">
+        </childnode>
+        <childnode refid="15639" relation="include">
+        </childnode>
+        <childnode refid="15642" relation="include">
+        </childnode>
+      </node>
+      <node id="15668">
+        <label>vector</label>
+      </node>
+      <node id="15645">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="15646" relation="include">
+        </childnode>
+        <childnode refid="15669" relation="include">
+        </childnode>
+      </node>
+      <node id="15636">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="15330" relation="include">
+        <childnode refid="15637" relation="include">
         </childnode>
-        <childnode refid="15332" relation="include">
+        <childnode refid="15639" relation="include">
         </childnode>
-        <childnode refid="15333" relation="include">
+        <childnode refid="15640" relation="include">
         </childnode>
-        <childnode refid="15334" relation="include">
+        <childnode refid="15641" relation="include">
         </childnode>
-        <childnode refid="15335" relation="include">
+        <childnode refid="15642" relation="include">
         </childnode>
       </node>
-      <node id="15360">
+      <node id="15656">
+        <label>utility</label>
+      </node>
+      <node id="15663">
+        <label>array</label>
+      </node>
+      <node id="15671">
+        <label>pybind11/pybind11.h</label>
+      </node>
+      <node id="15644">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="15642" relation="include">
+        </childnode>
+      </node>
+      <node id="15652">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="15653" relation="include">
+        </childnode>
+        <childnode refid="15654" relation="include">
+        </childnode>
+        <childnode refid="15655" relation="include">
+        </childnode>
+        <childnode refid="15656" relation="include">
+        </childnode>
+      </node>
+      <node id="15639">
+        <label>iostream</label>
+      </node>
+      <node id="15664">
+        <label>deque</label>
+      </node>
+      <node id="15662">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="15635">
+        <label>PybindInterface.hpp</label>
+        <link refid="_pybind_interface_8hpp"/>
+        <childnode refid="15636" relation="include">
+        </childnode>
+        <childnode refid="15643" relation="include">
+        </childnode>
+        <childnode refid="15645" relation="include">
+        </childnode>
+        <childnode refid="15671" relation="include">
+        </childnode>
+        <childnode refid="15672" relation="include">
+        </childnode>
+        <childnode refid="15673" relation="include">
+        </childnode>
+        <childnode refid="15656" relation="include">
+        </childnode>
+      </node>
+      <node id="15667">
         <label>type_traits</label>
       </node>
-      <node id="15359">
+      <node id="15666">
         <label>set</label>
       </node>
-      <node id="15346">
+      <node id="15653">
         <label>algorithm</label>
       </node>
-      <node id="15357">
+      <node id="15665">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="15367">
-        <label>PybindInterface.hpp</label>
-        <link refid="_pybind_interface_8hpp"/>
-        <childnode refid="15368" relation="include">
-        </childnode>
-      </node>
-      <node id="15368">
-        <label>PythonInterface.hpp</label>
-        <link refid="_python_interface_8hpp"/>
-        <childnode refid="15369" relation="include">
-        </childnode>
-      </node>
-      <node id="15369">
+      <node id="15676">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="15675">
+        <label>PythonInterface.hpp</label>
+        <link refid="_python_interface_8hpp"/>
+        <childnode refid="15676" relation="include">
+        </childnode>
+      </node>
+      <node id="15674">
+        <label>PybindInterface.hpp</label>
+        <link refid="_pybind_interface_8hpp"/>
+        <childnode refid="15675" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
@@ -301,22 +303,14 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.3</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>A module for interacting with python with pybind11 interface </para>
-</sect1>
+<para>A module for interacting with python with pybind11 interface </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -356,13 +350,13 @@
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref><sp/>=<sp/>static_cast&lt;uint32&gt;(numpyArray.size());</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.size());</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>1,<sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numRows<sp/>=<sp/>static_cast&lt;uint32&gt;(numpyArray.shape(0));</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numCols<sp/>=<sp/>static_cast&lt;uint32&gt;(numpyArray.shape(1));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numRows<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(0));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numCols<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(1));</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>numRows,<sp/>numCols,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
@@ -396,7 +390,7 @@
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>pybind11::capsule<sp/>garbageCollect(inArray.dataRelease(),</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype*<sp/>dataPtr<sp/>=<sp/>reinterpret_cast&lt;dtype*&gt;(ptr);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype*<sp/>dataPtr<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">dtype*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ptr);</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>dataPtr;</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
@@ -414,6 +408,6 @@
 <codeline lineno="136"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp"/>
   </compounddef>
 </doxygen>

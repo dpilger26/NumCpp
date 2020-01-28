@@ -2,6 +2,9 @@ var searchData=
 [
   ['i',['i',['../classnc_1_1rotations_1_1_quaternion.html#a5a661b367dff916e8bdb5e28ac608ecd',1,'nc::rotations::Quaternion']]],
   ['identity',['identity',['../classnc_1_1rotations_1_1_quaternion.html#ae093d333b66b63eeef5704be4a374af2',1,'nc::rotations::Quaternion::identity()'],['../namespacenc.html#a07bba9a7758bdec112a308ab779a0da6',1,'nc::identity()']]],
+  ['incrementnumberofiterations',['incrementNumberOfIterations',['../classnc_1_1roots_1_1_iteration.html#ae0ee7814d1fac03c4c91947f839ea401',1,'nc::roots::Iteration']]],
+  ['inner_5fproduct',['inner_product',['../namespacenc_1_1stl__algorithms.html#a237a7b4514eff72fc35084f7004464d1',1,'nc::stl_algorithms']]],
+  ['integ',['integ',['../classnc_1_1polynomial_1_1_poly1d.html#a86386d31dfc05f97ca395dbaf0b63071',1,'nc::polynomial::Poly1d']]],
   ['intensity',['intensity',['../classnc_1_1image_processing_1_1_centroid.html#aa203a8f8138fe9679f307f38ad65a5aa',1,'nc::imageProcessing::Centroid::intensity()'],['../classnc_1_1image_processing_1_1_cluster.html#a1797d804406d51ab2e22d5b9fae9cb53',1,'nc::imageProcessing::Cluster::intensity()']]],
   ['interp',['interp',['../namespacenc.html#a5b9584eeac344f9d37beb6be475300ca',1,'nc::interp(dtype inValue1, dtype inValue2, double inPercent) noexcept'],['../namespacenc.html#a25a0717dab4a33f74927d390b83182ab',1,'nc::interp(const NdArray&lt; dtype &gt; &amp;inX, const NdArray&lt; dtype &gt; &amp;inXp, const NdArray&lt; dtype &gt; &amp;inFp)'],['../namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e',1,'nc::utils::interp()']]],
   ['intersect1d',['intersect1d',['../namespacenc.html#a05a1080b20bfa1434ccb96fb08836bc4',1,'nc']]],
@@ -18,6 +21,8 @@ var searchData=
   ['isnull',['isnull',['../classnc_1_1_shape.html#a1f0b70fbb2cbd47d34023762c5651a28',1,'nc::Shape']]],
   ['issigned',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo']]],
   ['issorted',['issorted',['../classnc_1_1_nd_array.html#a07864281508378503c26354e190394f1',1,'nc::NdArray']]],
+  ['issquare',['issquare',['../classnc_1_1_shape.html#af00a8f56e47b2052a8d1bfd48b303b5f',1,'nc::Shape::issquare()'],['../classnc_1_1_nd_array.html#afb7f3972ab5ef12be30906e5f5501fe7',1,'nc::NdArray::issquare()']]],
   ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab229737433b6c93522aa38f0ad94ca50',1,'nc::rotations::DCM']]],
-  ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]]
+  ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]],
+  ['iteration',['Iteration',['../classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136',1,'nc::roots::Iteration::Iteration(double epsilon) noexcept'],['../classnc_1_1roots_1_1_iteration.html#a7948f08cfaa01f5685ec35149bf6bba0',1,'nc::roots::Iteration::Iteration(double epsilon, uint32 maxNumIterations) noexcept']]]
 ];

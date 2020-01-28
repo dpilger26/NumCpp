@@ -15,6 +15,7 @@ var searchData=
   ['maximumfilter_2ehpp',['maximumFilter.hpp',['../maximum_filter_8hpp.html',1,'']]],
   ['maximumfilter1d',['maximumFilter1d',['../namespacenc_1_1filter.html#a6760bbaeefd6338527665fa2426cf418',1,'nc::filter']]],
   ['maximumfilter1d_2ehpp',['maximumFilter1d.hpp',['../maximum_filter1d_8hpp.html',1,'']]],
+  ['maxnumiterations_5f',['maxNumIterations_',['../classnc_1_1roots_1_1_iteration.html#a9b1c4ea8cf91c5308020c105293b4a02',1,'nc::roots::Iteration']]],
   ['mean',['mean',['../classnc_1_1_nd_array.html#a6e6476097ba788402df110a2a3e8e12a',1,'nc::NdArray::mean()'],['../namespacenc.html#aff3ef2c818346b63714ca4f3493f0ec9',1,'nc::mean()']]],
   ['mean_2ehpp',['mean.hpp',['../mean_8hpp.html',1,'']]],
   ['median',['median',['../classnc_1_1_nd_array.html#a8c0907a69c368e28047f034ade0d3c24',1,'nc::NdArray::median()'],['../namespacenc.html#ab2f8d43b44ab30c20a016e666c11f542',1,'nc::median()']]],

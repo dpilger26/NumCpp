@@ -1,10 +1,11 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.2
+/// @version 1.3
 ///
 /// @section License
-/// Copyright 2019 David Pilger
+/// Copyright 2019 Benjamin Mahr
+/// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -25,6 +26,9 @@
 ///
 /// @section Description
 /// Finds the roots of the polynomial
+///
+/// Code modified under MIT license from https://github.com/Ben1980/rootApproximation
+/// as posted in https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
 ///
 #pragma once
 
@@ -48,7 +52,6 @@ namespace nc
             ///	Constructor
             ///
             /// @param epsilon: the epsilon value
-            /// @param maxNumIterations: the maximum number of iterations to perform
             ///
             explicit Iteration(double epsilon) noexcept: 
                 epsilon_(epsilon)

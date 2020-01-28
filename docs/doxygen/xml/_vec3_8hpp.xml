@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_vec3_8hpp" kind="file" language="C++">
     <compoundname>Vec3.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -18,367 +18,369 @@
     <includedby refid="rodrigues_rotation_8hpp" local="yes">rodriguesRotation.hpp</includedby>
     <includedby refid="_vector_8hpp" local="yes">Vector.hpp</includedby>
     <incdepgraph>
-      <node id="20861">
+      <node id="21260">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="20855">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="20837" relation="include">
-        </childnode>
-        <childnode refid="20856" relation="include">
-        </childnode>
-        <childnode refid="20839" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
+      <node id="21235">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="21236" relation="include">
         </childnode>
       </node>
-      <node id="20871">
+      <node id="21269">
         <label>functional</label>
       </node>
-      <node id="20840">
+      <node id="21238">
         <label>limits</label>
       </node>
-      <node id="20853">
+      <node id="21251">
         <label>iterator</label>
       </node>
-      <node id="20849">
-        <label>NumCpp/Core/Filesystem.hpp</label>
-        <link refid="_filesystem_8hpp"/>
-        <childnode refid="20850" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20838">
-        <label>cstdint</label>
-      </node>
-      <node id="20844">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="20845" relation="include">
-        </childnode>
-        <childnode refid="20870" relation="include">
-        </childnode>
-      </node>
-      <node id="20857">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="20836" relation="include">
-        </childnode>
-        <childnode refid="20837" relation="include">
-        </childnode>
-        <childnode refid="20856" relation="include">
-        </childnode>
-        <childnode refid="20852" relation="include">
-        </childnode>
-        <childnode refid="20839" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20847">
-        <label>cmath</label>
-      </node>
-      <node id="20845">
-        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
-        <link refid="_nd_array_core_8hpp"/>
-        <childnode refid="20846" relation="include">
-        </childnode>
-        <childnode refid="20848" relation="include">
-        </childnode>
-        <childnode refid="20836" relation="include">
-        </childnode>
-        <childnode refid="20849" relation="include">
-        </childnode>
-        <childnode refid="20851" relation="include">
-        </childnode>
-        <childnode refid="20855" relation="include">
-        </childnode>
-        <childnode refid="20857" relation="include">
-        </childnode>
-        <childnode refid="20837" relation="include">
-        </childnode>
-        <childnode refid="20856" relation="include">
-        </childnode>
-        <childnode refid="20858" relation="include">
-        </childnode>
-        <childnode refid="20859" relation="include">
-        </childnode>
-        <childnode refid="20860" relation="include">
-        </childnode>
-        <childnode refid="20861" relation="include">
-        </childnode>
-        <childnode refid="20862" relation="include">
-        </childnode>
-        <childnode refid="20863" relation="include">
-        </childnode>
-        <childnode refid="20847" relation="include">
-        </childnode>
-        <childnode refid="20864" relation="include">
-        </childnode>
-        <childnode refid="20850" relation="include">
-        </childnode>
-        <childnode refid="20865" relation="include">
-        </childnode>
-        <childnode refid="20839" relation="include">
-        </childnode>
-        <childnode refid="20866" relation="include">
-        </childnode>
-        <childnode refid="20867" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-        <childnode refid="20868" relation="include">
-        </childnode>
-        <childnode refid="20854" relation="include">
-        </childnode>
-        <childnode refid="20869" relation="include">
-        </childnode>
-      </node>
-      <node id="20856">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20841">
-        <label>stdexcept</label>
-      </node>
-      <node id="20866">
-        <label>numeric</label>
-      </node>
-      <node id="20842">
-        <label>string</label>
-      </node>
-      <node id="20851">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="20852" relation="include">
-        </childnode>
-        <childnode refid="20853" relation="include">
-        </childnode>
-        <childnode refid="20854" relation="include">
-        </childnode>
-      </node>
-      <node id="20835">
-        <label>Vec3.hpp</label>
-        <link refid="_vec3_8hpp"/>
-        <childnode refid="20836" relation="include">
-        </childnode>
-        <childnode refid="20843" relation="include">
-        </childnode>
-        <childnode refid="20844" relation="include">
-        </childnode>
-        <childnode refid="20872" relation="include">
-        </childnode>
-        <childnode refid="20873" relation="include">
-        </childnode>
-        <childnode refid="20847" relation="include">
-        </childnode>
-        <childnode refid="20865" relation="include">
-        </childnode>
-        <childnode refid="20839" relation="include">
-        </childnode>
-        <childnode refid="20874" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20850">
-        <label>fstream</label>
-      </node>
-      <node id="20843">
-        <label>NumCpp/Functions/hypot.hpp</label>
-        <link refid="hypot_8hpp"/>
-        <childnode refid="20844" relation="include">
-        </childnode>
-        <childnode refid="20836" relation="include">
-        </childnode>
-        <childnode refid="20851" relation="include">
-        </childnode>
-        <childnode refid="20859" relation="include">
-        </childnode>
-        <childnode refid="20847" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20873">
-        <label>NumCpp/Utils/interp.hpp</label>
-        <link refid="_utils_2interp_8hpp"/>
-      </node>
-      <node id="20858">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="20837" relation="include">
-        </childnode>
-      </node>
-      <node id="20846">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="20847" relation="include">
-        </childnode>
-        <childnode refid="20840" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20872">
-        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
-        <link refid="essentially_equal_8hpp"/>
-        <childnode refid="20848" relation="include">
-        </childnode>
-        <childnode refid="20847" relation="include">
-        </childnode>
-        <childnode refid="20842" relation="include">
-        </childnode>
-      </node>
-      <node id="20848">
+      <node id="21246">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="20840" relation="include">
+        <childnode refid="21238" relation="include">
         </childnode>
       </node>
-      <node id="20870">
+      <node id="21257">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="21235" relation="include">
+        </childnode>
+      </node>
+      <node id="21236">
+        <label>cstdint</label>
+      </node>
+      <node id="21245">
+        <label>cmath</label>
+      </node>
+      <node id="21239">
+        <label>stdexcept</label>
+      </node>
+      <node id="21252">
+        <label>numeric</label>
+      </node>
+      <node id="21240">
+        <label>string</label>
+      </node>
+      <node id="21268">
         <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
         <link refid="_nd_array_operators_8hpp"/>
-        <childnode refid="20836" relation="include">
+        <childnode refid="21234" relation="include">
         </childnode>
-        <childnode refid="20851" relation="include">
+        <childnode refid="21249" relation="include">
         </childnode>
-        <childnode refid="20845" relation="include">
+        <childnode refid="21243" relation="include">
         </childnode>
-        <childnode refid="20852" relation="include">
+        <childnode refid="21250" relation="include">
         </childnode>
-        <childnode refid="20871" relation="include">
+        <childnode refid="21269" relation="include">
         </childnode>
       </node>
-      <node id="20860">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="20869">
-        <label>vector</label>
-      </node>
-      <node id="20854">
-        <label>utility</label>
-      </node>
-      <node id="20863">
-        <label>array</label>
-      </node>
-      <node id="20874">
-        <label>sstream</label>
-      </node>
-      <node id="20859">
+      <node id="21258">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="20837">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="20838" relation="include">
+      <node id="21256">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="21234" relation="include">
+        </childnode>
+        <childnode refid="21235" relation="include">
+        </childnode>
+        <childnode refid="21255" relation="include">
+        </childnode>
+        <childnode refid="21250" relation="include">
+        </childnode>
+        <childnode refid="21237" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
         </childnode>
       </node>
-      <node id="20839">
-        <label>iostream</label>
+      <node id="21248">
+        <label>fstream</label>
       </node>
-      <node id="20864">
-        <label>deque</label>
+      <node id="21243">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
+        <childnode refid="21244" relation="include">
+        </childnode>
+        <childnode refid="21246" relation="include">
+        </childnode>
+        <childnode refid="21234" relation="include">
+        </childnode>
+        <childnode refid="21247" relation="include">
+        </childnode>
+        <childnode refid="21249" relation="include">
+        </childnode>
+        <childnode refid="21254" relation="include">
+        </childnode>
+        <childnode refid="21256" relation="include">
+        </childnode>
+        <childnode refid="21235" relation="include">
+        </childnode>
+        <childnode refid="21255" relation="include">
+        </childnode>
+        <childnode refid="21257" relation="include">
+        </childnode>
+        <childnode refid="21258" relation="include">
+        </childnode>
+        <childnode refid="21259" relation="include">
+        </childnode>
+        <childnode refid="21260" relation="include">
+        </childnode>
+        <childnode refid="21261" relation="include">
+        </childnode>
+        <childnode refid="21262" relation="include">
+        </childnode>
+        <childnode refid="21245" relation="include">
+        </childnode>
+        <childnode refid="21263" relation="include">
+        </childnode>
+        <childnode refid="21248" relation="include">
+        </childnode>
+        <childnode refid="21264" relation="include">
+        </childnode>
+        <childnode refid="21237" relation="include">
+        </childnode>
+        <childnode refid="21252" relation="include">
+        </childnode>
+        <childnode refid="21265" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+        <childnode refid="21266" relation="include">
+        </childnode>
+        <childnode refid="21253" relation="include">
+        </childnode>
+        <childnode refid="21267" relation="include">
+        </childnode>
       </node>
-      <node id="20862">
-        <label>boost/endian/conversion.hpp</label>
+      <node id="21247">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="21248" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
       </node>
-      <node id="20836">
+      <node id="21244">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="21245" relation="include">
+        </childnode>
+        <childnode refid="21238" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21271">
+        <label>NumCpp/Utils/interp.hpp</label>
+        <link refid="_utils_2interp_8hpp"/>
+      </node>
+      <node id="21259">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="21254">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="21235" relation="include">
+        </childnode>
+        <childnode refid="21255" relation="include">
+        </childnode>
+        <childnode refid="21237" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21270">
+        <label>NumCpp/Utils/essentiallyEqual.hpp</label>
+        <link refid="essentially_equal_8hpp"/>
+        <childnode refid="21246" relation="include">
+        </childnode>
+        <childnode refid="21245" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21267">
+        <label>vector</label>
+      </node>
+      <node id="21242">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="21243" relation="include">
+        </childnode>
+        <childnode refid="21268" relation="include">
+        </childnode>
+      </node>
+      <node id="21234">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="20837" relation="include">
+        <childnode refid="21235" relation="include">
         </childnode>
-        <childnode refid="20839" relation="include">
+        <childnode refid="21237" relation="include">
         </childnode>
-        <childnode refid="20840" relation="include">
+        <childnode refid="21238" relation="include">
         </childnode>
-        <childnode refid="20841" relation="include">
+        <childnode refid="21239" relation="include">
         </childnode>
-        <childnode refid="20842" relation="include">
+        <childnode refid="21240" relation="include">
         </childnode>
       </node>
-      <node id="20868">
+      <node id="21253">
+        <label>utility</label>
+      </node>
+      <node id="21262">
+        <label>array</label>
+      </node>
+      <node id="21272">
+        <label>sstream</label>
+      </node>
+      <node id="21255">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21249">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="21250" relation="include">
+        </childnode>
+        <childnode refid="21251" relation="include">
+        </childnode>
+        <childnode refid="21252" relation="include">
+        </childnode>
+        <childnode refid="21253" relation="include">
+        </childnode>
+      </node>
+      <node id="21233">
+        <label>Vec3.hpp</label>
+        <link refid="_vec3_8hpp"/>
+        <childnode refid="21234" relation="include">
+        </childnode>
+        <childnode refid="21241" relation="include">
+        </childnode>
+        <childnode refid="21242" relation="include">
+        </childnode>
+        <childnode refid="21270" relation="include">
+        </childnode>
+        <childnode refid="21271" relation="include">
+        </childnode>
+        <childnode refid="21245" relation="include">
+        </childnode>
+        <childnode refid="21264" relation="include">
+        </childnode>
+        <childnode refid="21237" relation="include">
+        </childnode>
+        <childnode refid="21272" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21237">
+        <label>iostream</label>
+      </node>
+      <node id="21263">
+        <label>deque</label>
+      </node>
+      <node id="21261">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="21266">
         <label>type_traits</label>
       </node>
-      <node id="20867">
+      <node id="21265">
         <label>set</label>
       </node>
-      <node id="20852">
+      <node id="21250">
         <label>algorithm</label>
       </node>
-      <node id="20865">
+      <node id="21241">
+        <label>NumCpp/Functions/hypot.hpp</label>
+        <link refid="hypot_8hpp"/>
+        <childnode refid="21242" relation="include">
+        </childnode>
+        <childnode refid="21234" relation="include">
+        </childnode>
+        <childnode refid="21249" relation="include">
+        </childnode>
+        <childnode refid="21258" relation="include">
+        </childnode>
+        <childnode refid="21245" relation="include">
+        </childnode>
+        <childnode refid="21240" relation="include">
+        </childnode>
+      </node>
+      <node id="21264">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="20883">
-        <label>Vector.hpp</label>
-        <link refid="_vector_8hpp"/>
-        <childnode refid="20878" relation="include">
-        </childnode>
-      </node>
-      <node id="20877">
-        <label>Linalg.hpp</label>
-        <link refid="_linalg_8hpp"/>
-        <childnode refid="20878" relation="include">
-        </childnode>
-      </node>
-      <node id="20880">
-        <label>DCM.hpp</label>
-        <link refid="_d_c_m_8hpp"/>
-        <childnode refid="20881" relation="include">
-        </childnode>
-      </node>
-      <node id="20875">
-        <label>Vec3.hpp</label>
-        <link refid="_vec3_8hpp"/>
-        <childnode refid="20876" relation="include">
-        </childnode>
-        <childnode refid="20880" relation="include">
-        </childnode>
-        <childnode refid="20879" relation="include">
-        </childnode>
-        <childnode refid="20882" relation="include">
-        </childnode>
-        <childnode refid="20883" relation="include">
-        </childnode>
-      </node>
-      <node id="20881">
-        <label>Rotations.hpp</label>
-        <link refid="_rotations_8hpp"/>
-        <childnode refid="20878" relation="include">
-        </childnode>
-      </node>
-      <node id="20876">
-        <label>hat.hpp</label>
-        <link refid="hat_8hpp"/>
-        <childnode refid="20877" relation="include">
-        </childnode>
-        <childnode refid="20879" relation="include">
-        </childnode>
-      </node>
-      <node id="20879">
-        <label>Quaternion.hpp</label>
-        <link refid="_quaternion_8hpp"/>
-        <childnode refid="20880" relation="include">
-        </childnode>
-        <childnode refid="20881" relation="include">
-        </childnode>
-      </node>
-      <node id="20882">
-        <label>rodriguesRotation.hpp</label>
-        <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="20881" relation="include">
-        </childnode>
-      </node>
-      <node id="20878">
+      <node id="21276">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="21279">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
+        <childnode refid="21276" relation="include">
+        </childnode>
+      </node>
+      <node id="21280">
+        <label>rodriguesRotation.hpp</label>
+        <link refid="rodrigues_rotation_8hpp"/>
+        <childnode refid="21279" relation="include">
+        </childnode>
+      </node>
+      <node id="21277">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
+        <childnode refid="21278" relation="include">
+        </childnode>
+        <childnode refid="21279" relation="include">
+        </childnode>
+      </node>
+      <node id="21281">
+        <label>Vector.hpp</label>
+        <link refid="_vector_8hpp"/>
+        <childnode refid="21276" relation="include">
+        </childnode>
+      </node>
+      <node id="21275">
+        <label>Linalg.hpp</label>
+        <link refid="_linalg_8hpp"/>
+        <childnode refid="21276" relation="include">
+        </childnode>
+      </node>
+      <node id="21278">
+        <label>DCM.hpp</label>
+        <link refid="_d_c_m_8hpp"/>
+        <childnode refid="21279" relation="include">
+        </childnode>
+      </node>
+      <node id="21274">
+        <label>hat.hpp</label>
+        <link refid="hat_8hpp"/>
+        <childnode refid="21275" relation="include">
+        </childnode>
+        <childnode refid="21277" relation="include">
+        </childnode>
+      </node>
+      <node id="21273">
+        <label>Vec3.hpp</label>
+        <link refid="_vec3_8hpp"/>
+        <childnode refid="21274" relation="include">
+        </childnode>
+        <childnode refid="21278" relation="include">
+        </childnode>
+        <childnode refid="21277" relation="include">
+        </childnode>
+        <childnode refid="21280" relation="include">
+        </childnode>
+        <childnode refid="21281" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classnc_1_1_vec3" prot="public">nc::Vec3</innerclass>
@@ -386,22 +388,14 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.2</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.3</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Simple 3D Vector class </para>
-</sect1>
+<para>Simple 3D Vector class </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -628,9 +622,9 @@
 <codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="350" refid="classnc_1_1_vec3_1a2cc63855706091881f765b63dcf52c44" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3_1a2cc63855706091881f765b63dcf52c44" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>rhs)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept</highlight></codeline>
 <codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a7f71dd08d58a1327739de6041e3362bb" kindref="member">x</ref>,<sp/>rhs.x)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a969dd1c195f4c78fc3a93292391e29c1" kindref="member">y</ref>,<sp/>rhs.y)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a0896ee691f46ce0bd669b869fe6acb41" kindref="member">z</ref>,<sp/>rhs.z);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a7f71dd08d58a1327739de6041e3362bb" kindref="member">x</ref>,<sp/>rhs.x)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a969dd1c195f4c78fc3a93292391e29c1" kindref="member">y</ref>,<sp/>rhs.y)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" kindref="member">utils::essentiallyEqual</ref>(<ref refid="classnc_1_1_vec3_1a0896ee691f46ce0bd669b869fe6acb41" kindref="member">z</ref>,<sp/>rhs.z);</highlight></codeline>
 <codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="356"><highlight class="normal"></highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -682,7 +676,7 @@
 <codeline lineno="428"><highlight class="normal"></highlight></codeline>
 <codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="436" refid="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/><ref refid="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" kindref="member">operator*=</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scaler)<sp/>noexcept</highlight></codeline>
+<codeline lineno="436" refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/><ref refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" kindref="member">operator*=</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scaler)<sp/>noexcept</highlight></codeline>
 <codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_vec3_1a7f71dd08d58a1327739de6041e3362bb" kindref="member">x</ref><sp/>*=<sp/>scaler;</highlight></codeline>
 <codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_vec3_1a969dd1c195f4c78fc3a93292391e29c1" kindref="member">y</ref><sp/>*=<sp/>scaler;</highlight></codeline>
@@ -752,21 +746,21 @@
 <codeline lineno="548"><highlight class="normal"></highlight></codeline>
 <codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="557" refid="namespacenc_1a841cda66319074229c01d2fd73301b14" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref><sp/><ref refid="namespacenc_1af1d79953bea73593799220bfcd0f52ea" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>lhs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs)<sp/>noexcept</highlight></codeline>
+<codeline lineno="557" refid="namespacenc_1af51c9efd8dbadbdc664972bd96583a72" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref><sp/><ref refid="namespacenc_1a168110492e655659beb6531c6286fed2" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>lhs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs)<sp/>noexcept</highlight></codeline>
 <codeline lineno="558"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>(lhs)<sp/>*=<sp/>rhs;</highlight></codeline>
 <codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="561"><highlight class="normal"></highlight></codeline>
 <codeline lineno="562"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="563"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="570" refid="namespacenc_1a70c62e340b06684425f5a90862ac7ddf" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref><sp/><ref refid="namespacenc_1af1d79953bea73593799220bfcd0f52ea" kindref="member">operator*</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lhs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>rhs)<sp/>noexcept</highlight></codeline>
+<codeline lineno="570" refid="namespacenc_1af4ecba4e059c6dcf672644a3c1bff75d" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref><sp/><ref refid="namespacenc_1a168110492e655659beb6531c6286fed2" kindref="member">operator*</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lhs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>rhs)<sp/>noexcept</highlight></codeline>
 <codeline lineno="571"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>(rhs)<sp/>*=<sp/>lhs;</highlight></codeline>
 <codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="574"><highlight class="normal"></highlight></codeline>
 <codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="576"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="584" refid="namespacenc_1a4aa7b2b975670087aa3163d0c6506785" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1af1d79953bea73593799220bfcd0f52ea" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>lhs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>rhs)<sp/>noexcept</highlight></codeline>
+<codeline lineno="584" refid="namespacenc_1a39b128708b2225a00de527c8ec83d72a" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a168110492e655659beb6531c6286fed2" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>lhs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref>&amp;<sp/>rhs)<sp/>noexcept</highlight></codeline>
 <codeline lineno="585"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="586"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs.dot(rhs);</highlight></codeline>
 <codeline lineno="587"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -787,6 +781,6 @@
 <codeline lineno="614"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="615"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp"/>
   </compounddef>
 </doxygen>
