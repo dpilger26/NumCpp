@@ -24,8 +24,6 @@ def doTest():
     if rootC == largestRoot:
         print(colored('\tPASS', 'green'))
     else:
-        print(rootC)
-        print(largestRoot)
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing brent', 'cyan'))
@@ -39,8 +37,6 @@ def doTest():
     if rootC == largestRoot:
         print(colored('\tPASS', 'green'))
     else:
-        print(rootC)
-        print(largestRoot)
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing dekker', 'cyan'))
@@ -54,8 +50,6 @@ def doTest():
     if rootC == largestRoot:
         print(colored('\tPASS', 'green'))
     else:
-        print(rootC)
-        print(largestRoot)
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing newton', 'cyan'))
@@ -69,8 +63,6 @@ def doTest():
     if rootC == largestRoot:
         print(colored('\tPASS', 'green'))
     else:
-        print(rootC)
-        print(largestRoot)
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing secant', 'cyan'))
@@ -84,8 +76,6 @@ def doTest():
     if rootC == largestRoot:
         print(colored('\tPASS', 'green'))
     else:
-        print(rootC)
-        print(largestRoot)
         print(colored('\tFAIL', 'red'))
 
 

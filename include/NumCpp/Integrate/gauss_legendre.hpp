@@ -177,15 +177,15 @@ namespace nc
         ///
         /// @param				low: the lower bound of the integration
         /// @param              high: the upper bound of the integration
-        /// @param				numIterations: the number of iterations to perform
+        /// @param				n: the number of iterations to perform
         /// @param              function: the function to integrate over
         ///
         /// @return             double
         ///
-        inline double gauss_legendre(const double low, const double high, const uint32 numIterations,
+        inline double gauss_legendre(const double low, const double high, const uint32 n,
             const std::function<double(double)>& f)
         {
-            const LegendrePolynomial legendrePolynomial(low, high, numIterations);
+            const LegendrePolynomial legendrePolynomial(low, high, n);
             const std::vector<double>& weight = legendrePolynomial.getWeight();
             const std::vector<double>& root = legendrePolynomial.getRoot();
 
@@ -193,7 +193,7 @@ namespace nc
             const double mean = 0.5 * (low + high);
 
             double gaussLegendre = 0.0;
-            for (uint32 step = 1; step <= numIterations; ++step)
+            for (uint32 step = 1; step <= n; ++step)
             {
                 gaussLegendre += weight[step] * f(width * root[step] + mean);
             }

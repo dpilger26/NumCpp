@@ -3200,6 +3200,40 @@ namespace RootsInterface
     }
 }
 
+namespace IntegrateInterface
+{
+    constexpr uint32 NUM_ITERATIONS = 100;
+    constexpr uint32 NUM_SUBDIVISIONS = 10000;
+
+    //================================================================================
+
+    double gauss_legendre(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::gauss_legendre(a, b, NUM_ITERATIONS, p);
+    }
+
+    //================================================================================
+
+    double romberg(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::romberg(a, b, 10, p);
+    }
+
+    //================================================================================
+
+    double simpson(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::simpson(a, b, NUM_SUBDIVISIONS, p);
+    }
+
+    //================================================================================
+
+    double trapazoidal(const polynomial::Poly1d<double>& p, double a, double b)
+    {
+        return integrate::trapazoidal(a, b, NUM_SUBDIVISIONS, p);
+    }
+}
+
 namespace Vec2Interface
 {
     np::ndarray toNdArray(const Vec2& self)
@@ -4870,6 +4904,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("dekker_roots", &RootsInterface::dekker);
     bp::def("newton_roots", &RootsInterface::newton);
     bp::def("secant_roots", &RootsInterface::secant);
+
+    // Integrate.hpp
+    bp::def("integrate_gauss_legendre", &IntegrateInterface::gauss_legendre);
+    bp::def("integrate_romberg", &IntegrateInterface::romberg);
+    bp::def("integrate_simpson", &IntegrateInterface::simpson);
+    bp::def("integrate_trapazoidal", &IntegrateInterface::trapazoidal);
 
     // Vec2.hpp
     bp::class_<Vec2>
