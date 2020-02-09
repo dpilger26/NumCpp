@@ -936,7 +936,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return array_ + inRow * shape_.cols;
+            return begin() + inRow * shape_.cols;
         }
 
         //============================================================================
@@ -972,7 +972,7 @@ namespace nc
         ///
         iterator end() noexcept
         {
-            return array_ + size_;
+            return begin() + size_;
         }
 
         //============================================================================
@@ -991,7 +991,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return array_ + inRow * shape_.cols + shape_.cols;
+            return begin(inRow) + shape_.cols;
         }
 
         //============================================================================
@@ -1047,7 +1047,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return array_ + inRow * shape_.cols;
+            return cbegin() + inRow * shape_.cols;
         }
 
         //============================================================================
@@ -1059,7 +1059,7 @@ namespace nc
         ///
         const_iterator cend() const noexcept
         {
-            return array_ + size_;
+            return cbegin() + size_;
         }
 
         //============================================================================
@@ -1077,7 +1077,8 @@ namespace nc
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
-            return array_ + inRow * shape_.cols + shape_.cols;
+
+            return cbegin(inRow) + shape_.cols;
         }
 
         //============================================================================

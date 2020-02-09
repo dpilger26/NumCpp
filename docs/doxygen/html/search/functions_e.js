@@ -38,5 +38,6 @@ var searchData=
   ['operator_7c_7c',['operator||',['../namespacenc.html#a566b11c447c30b2be7f89c86bc7a80eb',1,'nc::operator||(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespacenc.html#a5813f35af0db83ada677d4824942af00',1,'nc::operator||(const NdArray&lt; dtype &gt; &amp;inArray, dtype inScalar) noexcept'],['../namespacenc.html#a3798b361bd398e0f17ac105adf66e921',1,'nc::operator||(dtype inScalar, const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['operator_7e',['operator~',['../namespacenc.html#a04351f85d83bb8c93a995533ba4f06a4',1,'nc']]],
   ['order',['order',['../classnc_1_1polynomial_1_1_poly1d.html#ab978ca2f65c7cd640309c1be86aa9141',1,'nc::polynomial::Poly1d::order()'],['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aa235602ad1f2455a86ab7a9944f70d2c',1,'nc::boostPythonInterface::BoostNdarrayHelper::order()']]],
+  ['outer',['outer',['../namespacenc.html#a395197f9b1d3f53a5fdcd234fa6e6baf',1,'nc']]],
   ['ownsinternaldata',['ownsInternalData',['../classnc_1_1_nd_array.html#a2fe5e5e6e6844dcc8576c597285c994f',1,'nc::NdArray']]]
 ];

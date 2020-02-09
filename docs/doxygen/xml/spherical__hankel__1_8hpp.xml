@@ -6,36 +6,36 @@
     <includes local="no">complex</includes>
     <includedby refid="_special_8hpp" local="yes">Special.hpp</includedby>
     <incdepgraph>
-      <node id="18559">
+      <node id="18611">
         <label>spherical_hankel_1.hpp</label>
         <link refid="spherical__hankel__1_8hpp"/>
-        <childnode refid="18560" relation="include">
+        <childnode refid="18612" relation="include">
         </childnode>
-        <childnode refid="18561" relation="include">
+        <childnode refid="18613" relation="include">
         </childnode>
       </node>
-      <node id="18560">
+      <node id="18612">
         <label>boost/math/special_functions/hankel.hpp</label>
       </node>
-      <node id="18561">
+      <node id="18613">
         <label>complex</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="18564">
+      <node id="18616">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="18562">
+      <node id="18614">
         <label>spherical_hankel_1.hpp</label>
         <link refid="spherical__hankel__1_8hpp"/>
-        <childnode refid="18563" relation="include">
+        <childnode refid="18615" relation="include">
         </childnode>
       </node>
-      <node id="18563">
+      <node id="18615">
         <label>Special.hpp</label>
         <link refid="_special_8hpp"/>
-        <childnode refid="18564" relation="include">
+        <childnode refid="18616" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

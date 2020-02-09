@@ -2097,9 +2097,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing identity', 'cyan'))
-    
-
     print(colored('Testing interp', 'cyan'))
     endPoint = np.random.randint(10, 20, [1,]).item()
     numPoints = np.random.randint(50, 100, [1,]).item()
@@ -3666,6 +3663,22 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing outer', 'cyan'))
+    size = np.random.randint(1, 100, [1,]).item()
+    shape = NumCpp.Shape(1, size)
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumCpp.outer(cArray1, cArray2).astype(np.uint32), np.outer(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
 
     print(colored('Testing pad', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])

@@ -10,76 +10,76 @@
     <includes local="no">vector</includes>
     <includedby refid="_integrate_8hpp" local="yes">Integrate.hpp</includedby>
     <incdepgraph>
-      <node id="8156">
+      <node id="8161">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="8157" relation="include">
+        <childnode refid="8162" relation="include">
         </childnode>
       </node>
-      <node id="8159">
+      <node id="8164">
         <label>functional</label>
       </node>
-      <node id="8154">
+      <node id="8159">
         <label>limits</label>
       </node>
-      <node id="8157">
+      <node id="8162">
         <label>cstdint</label>
       </node>
-      <node id="8153">
+      <node id="8158">
         <label>cmath</label>
       </node>
-      <node id="8155">
+      <node id="8160">
         <label>string</label>
       </node>
-      <node id="8158">
+      <node id="8163">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="8152">
+      <node id="8157">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="8153" relation="include">
-        </childnode>
-        <childnode refid="8154" relation="include">
-        </childnode>
-        <childnode refid="8155" relation="include">
-        </childnode>
-      </node>
-      <node id="8160">
-        <label>vector</label>
-      </node>
-      <node id="8151">
-        <label>gauss_legendre.hpp</label>
-        <link refid="gauss__legendre_8hpp"/>
-        <childnode refid="8152" relation="include">
-        </childnode>
-        <childnode refid="8156" relation="include">
-        </childnode>
         <childnode refid="8158" relation="include">
-        </childnode>
-        <childnode refid="8153" relation="include">
         </childnode>
         <childnode refid="8159" relation="include">
         </childnode>
         <childnode refid="8160" relation="include">
         </childnode>
       </node>
+      <node id="8165">
+        <label>vector</label>
+      </node>
+      <node id="8156">
+        <label>gauss_legendre.hpp</label>
+        <link refid="gauss__legendre_8hpp"/>
+        <childnode refid="8157" relation="include">
+        </childnode>
+        <childnode refid="8161" relation="include">
+        </childnode>
+        <childnode refid="8163" relation="include">
+        </childnode>
+        <childnode refid="8158" relation="include">
+        </childnode>
+        <childnode refid="8164" relation="include">
+        </childnode>
+        <childnode refid="8165" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="8163">
+      <node id="8168">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="8162">
+      <node id="8167">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="8163" relation="include">
+        <childnode refid="8168" relation="include">
         </childnode>
       </node>
-      <node id="8161">
+      <node id="8166">
         <label>gauss_legendre.hpp</label>
         <link refid="gauss__legendre_8hpp"/>
-        <childnode refid="8162" relation="include">
+        <childnode refid="8167" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -70,7 +70,7 @@ var NAVTREEINDEX =
 "divide_8hpp.html",
 "hat_8hpp.html#ae9cdb091717a1c74dc659519d77e0048",
 "namespacenc_1_1linalg.html",
-"romberg_8hpp_source.html"
+"roll_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

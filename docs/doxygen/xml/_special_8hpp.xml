@@ -40,762 +40,762 @@
     <includes refid="trigamma_8hpp" local="yes">NumCpp/Special/trigamma.hpp</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="18416">
+      <node id="18468">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="18441">
+      <node id="18493">
         <label>NumCpp/Special/bessel_yn_prime.hpp</label>
         <link refid="bessel__yn__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18399">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="18400" relation="include">
-        </childnode>
-      </node>
-      <node id="18432">
-        <label>NumCpp/Special/bessel_in.hpp</label>
-        <link refid="bessel__in_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18425">
-        <label>functional</label>
-      </node>
-      <node id="18443">
-        <label>boost/math/special_functions/beta.hpp</label>
-      </node>
-      <node id="18446">
-        <label>boost/math/special_functions/factorials.hpp</label>
-      </node>
-      <node id="18395">
-        <label>limits</label>
-      </node>
-      <node id="18431">
-        <label>boost/math/special_functions/bernoulli.hpp</label>
-      </node>
-      <node id="18475">
-        <label>NumCpp/Special/trigamma.hpp</label>
-        <link refid="trigamma_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18476" relation="include">
-        </childnode>
-      </node>
-      <node id="18407">
-        <label>iterator</label>
-      </node>
-      <node id="18455">
-        <label>boost/math/special_functions/erf.hpp</label>
-      </node>
-      <node id="18397">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="18395" relation="include">
-        </childnode>
-      </node>
-      <node id="18413">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="18399" relation="include">
-        </childnode>
-      </node>
-      <node id="18445">
-        <label>NumCpp/Special/factorial.hpp</label>
-        <link refid="factorial_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18446" relation="include">
-        </childnode>
-        <childnode refid="18395" relation="include">
-        </childnode>
-      </node>
-      <node id="18448">
-        <label>NumCpp/Special/cyclic_hankel_1.hpp</label>
-        <link refid="cyclic__hankel__1_8hpp"/>
-        <childnode refid="18449" relation="include">
-        </childnode>
-        <childnode refid="18450" relation="include">
-        </childnode>
-      </node>
-      <node id="18442">
-        <label>NumCpp/Special/beta.hpp</label>
-        <link refid="_special_2beta_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
         <childnode refid="18443" relation="include">
-        </childnode>
-      </node>
-      <node id="18471">
-        <label>NumCpp/Special/spherical_bessel_jn.hpp</label>
-        <link refid="spherical__bessel__jn_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18400">
-        <label>cstdint</label>
-      </node>
-      <node id="18428">
-        <label>NumCpp/Special/airy_bi.hpp</label>
-        <link refid="airy__bi_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18426" relation="include">
-        </childnode>
-      </node>
-      <node id="18436">
-        <label>NumCpp/Special/bessel_jn.hpp</label>
-        <link refid="bessel__jn_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18466">
-        <label>boost/math/special_functions/prime.hpp</label>
-      </node>
-      <node id="18476">
-        <label>boost/math/special_functions/trigamma.hpp</label>
-      </node>
-      <node id="18467">
-        <label>NumCpp/Special/riemann_zeta.hpp</label>
-        <link refid="riemann__zeta_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18468" relation="include">
-        </childnode>
-      </node>
-      <node id="18458">
-        <label>NumCpp/Special/erfc_inv.hpp</label>
-        <link refid="erfc__inv_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18455" relation="include">
-        </childnode>
-      </node>
-      <node id="18435">
-        <label>boost/math/special_functions/bessel_prime.hpp</label>
-      </node>
-      <node id="18394">
-        <label>cmath</label>
-      </node>
-      <node id="18402">
-        <label>stdexcept</label>
-      </node>
-      <node id="18408">
-        <label>numeric</label>
-      </node>
-      <node id="18390">
-        <label>NumCpp/Special/airy_ai.hpp</label>
-        <link refid="airy__ai_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18426" relation="include">
-        </childnode>
-      </node>
-      <node id="18473">
-        <label>NumCpp/Special/spherical_hankel_1.hpp</label>
-        <link refid="spherical__hankel__1_8hpp"/>
-        <childnode refid="18449" relation="include">
-        </childnode>
-        <childnode refid="18450" relation="include">
-        </childnode>
-      </node>
-      <node id="18396">
-        <label>string</label>
-      </node>
-      <node id="18424">
-        <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
-        <link refid="_nd_array_operators_8hpp"/>
-        <childnode refid="18398" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18392" relation="include">
-        </childnode>
-        <childnode refid="18406" relation="include">
-        </childnode>
-        <childnode refid="18425" relation="include">
-        </childnode>
-      </node>
-      <node id="18389">
-        <label>Special.hpp</label>
-        <link refid="_special_8hpp"/>
-        <childnode refid="18390" relation="include">
-        </childnode>
-        <childnode refid="18427" relation="include">
-        </childnode>
-        <childnode refid="18428" relation="include">
-        </childnode>
-        <childnode refid="18429" relation="include">
-        </childnode>
-        <childnode refid="18430" relation="include">
-        </childnode>
-        <childnode refid="18432" relation="include">
-        </childnode>
-        <childnode refid="18434" relation="include">
-        </childnode>
-        <childnode refid="18436" relation="include">
-        </childnode>
-        <childnode refid="18437" relation="include">
-        </childnode>
-        <childnode refid="18438" relation="include">
-        </childnode>
-        <childnode refid="18439" relation="include">
-        </childnode>
-        <childnode refid="18440" relation="include">
-        </childnode>
-        <childnode refid="18441" relation="include">
-        </childnode>
-        <childnode refid="18442" relation="include">
-        </childnode>
-        <childnode refid="18444" relation="include">
-        </childnode>
-        <childnode refid="18448" relation="include">
-        </childnode>
-        <childnode refid="18451" relation="include">
-        </childnode>
-        <childnode refid="18452" relation="include">
-        </childnode>
-        <childnode refid="18454" relation="include">
-        </childnode>
-        <childnode refid="18456" relation="include">
         </childnode>
         <childnode refid="18457" relation="include">
         </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18451">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="18452" relation="include">
+        </childnode>
+      </node>
+      <node id="18484">
+        <label>NumCpp/Special/bessel_in.hpp</label>
+        <link refid="bessel__in_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18477">
+        <label>functional</label>
+      </node>
+      <node id="18495">
+        <label>boost/math/special_functions/beta.hpp</label>
+      </node>
+      <node id="18498">
+        <label>boost/math/special_functions/factorials.hpp</label>
+      </node>
+      <node id="18447">
+        <label>limits</label>
+      </node>
+      <node id="18483">
+        <label>boost/math/special_functions/bernoulli.hpp</label>
+      </node>
+      <node id="18527">
+        <label>NumCpp/Special/trigamma.hpp</label>
+        <link refid="trigamma_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18528" relation="include">
+        </childnode>
+      </node>
+      <node id="18459">
+        <label>iterator</label>
+      </node>
+      <node id="18507">
+        <label>boost/math/special_functions/erf.hpp</label>
+      </node>
+      <node id="18449">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="18447" relation="include">
+        </childnode>
+      </node>
+      <node id="18465">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="18451" relation="include">
+        </childnode>
+      </node>
+      <node id="18497">
+        <label>NumCpp/Special/factorial.hpp</label>
+        <link refid="factorial_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18498" relation="include">
+        </childnode>
+        <childnode refid="18447" relation="include">
+        </childnode>
+      </node>
+      <node id="18500">
+        <label>NumCpp/Special/cyclic_hankel_1.hpp</label>
+        <link refid="cyclic__hankel__1_8hpp"/>
+        <childnode refid="18501" relation="include">
+        </childnode>
+        <childnode refid="18502" relation="include">
+        </childnode>
+      </node>
+      <node id="18494">
+        <label>NumCpp/Special/beta.hpp</label>
+        <link refid="_special_2beta_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18495" relation="include">
+        </childnode>
+      </node>
+      <node id="18523">
+        <label>NumCpp/Special/spherical_bessel_jn.hpp</label>
+        <link refid="spherical__bessel__jn_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18452">
+        <label>cstdint</label>
+      </node>
+      <node id="18480">
+        <label>NumCpp/Special/airy_bi.hpp</label>
+        <link refid="airy__bi_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18478" relation="include">
+        </childnode>
+      </node>
+      <node id="18488">
+        <label>NumCpp/Special/bessel_jn.hpp</label>
+        <link refid="bessel__jn_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18518">
+        <label>boost/math/special_functions/prime.hpp</label>
+      </node>
+      <node id="18528">
+        <label>boost/math/special_functions/trigamma.hpp</label>
+      </node>
+      <node id="18519">
+        <label>NumCpp/Special/riemann_zeta.hpp</label>
+        <link refid="riemann__zeta_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18520" relation="include">
+        </childnode>
+      </node>
+      <node id="18510">
+        <label>NumCpp/Special/erfc_inv.hpp</label>
+        <link refid="erfc__inv_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18507" relation="include">
+        </childnode>
+      </node>
+      <node id="18487">
+        <label>boost/math/special_functions/bessel_prime.hpp</label>
+      </node>
+      <node id="18446">
+        <label>cmath</label>
+      </node>
+      <node id="18454">
+        <label>stdexcept</label>
+      </node>
+      <node id="18460">
+        <label>numeric</label>
+      </node>
+      <node id="18442">
+        <label>NumCpp/Special/airy_ai.hpp</label>
+        <link refid="airy__ai_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18478" relation="include">
+        </childnode>
+      </node>
+      <node id="18525">
+        <label>NumCpp/Special/spherical_hankel_1.hpp</label>
+        <link refid="spherical__hankel__1_8hpp"/>
+        <childnode refid="18501" relation="include">
+        </childnode>
+        <childnode refid="18502" relation="include">
+        </childnode>
+      </node>
+      <node id="18448">
+        <label>string</label>
+      </node>
+      <node id="18476">
+        <label>NumCpp/NdArray/NdArrayOperators.hpp</label>
+        <link refid="_nd_array_operators_8hpp"/>
+        <childnode refid="18450" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18444" relation="include">
+        </childnode>
         <childnode refid="18458" relation="include">
         </childnode>
+        <childnode refid="18477" relation="include">
+        </childnode>
+      </node>
+      <node id="18441">
+        <label>Special.hpp</label>
+        <link refid="_special_8hpp"/>
+        <childnode refid="18442" relation="include">
+        </childnode>
+        <childnode refid="18479" relation="include">
+        </childnode>
+        <childnode refid="18480" relation="include">
+        </childnode>
+        <childnode refid="18481" relation="include">
+        </childnode>
+        <childnode refid="18482" relation="include">
+        </childnode>
+        <childnode refid="18484" relation="include">
+        </childnode>
+        <childnode refid="18486" relation="include">
+        </childnode>
+        <childnode refid="18488" relation="include">
+        </childnode>
+        <childnode refid="18489" relation="include">
+        </childnode>
+        <childnode refid="18490" relation="include">
+        </childnode>
+        <childnode refid="18491" relation="include">
+        </childnode>
+        <childnode refid="18492" relation="include">
+        </childnode>
+        <childnode refid="18493" relation="include">
+        </childnode>
+        <childnode refid="18494" relation="include">
+        </childnode>
+        <childnode refid="18496" relation="include">
+        </childnode>
+        <childnode refid="18500" relation="include">
+        </childnode>
+        <childnode refid="18503" relation="include">
+        </childnode>
+        <childnode refid="18504" relation="include">
+        </childnode>
+        <childnode refid="18506" relation="include">
+        </childnode>
+        <childnode refid="18508" relation="include">
+        </childnode>
+        <childnode refid="18509" relation="include">
+        </childnode>
+        <childnode refid="18510" relation="include">
+        </childnode>
+        <childnode refid="18497" relation="include">
+        </childnode>
+        <childnode refid="18511" relation="include">
+        </childnode>
+        <childnode refid="18513" relation="include">
+        </childnode>
+        <childnode refid="18514" relation="include">
+        </childnode>
+        <childnode refid="18499" relation="include">
+        </childnode>
+        <childnode refid="18515" relation="include">
+        </childnode>
+        <childnode refid="18517" relation="include">
+        </childnode>
+        <childnode refid="18519" relation="include">
+        </childnode>
+        <childnode refid="18521" relation="include">
+        </childnode>
+        <childnode refid="18523" relation="include">
+        </childnode>
+        <childnode refid="18524" relation="include">
+        </childnode>
+        <childnode refid="18525" relation="include">
+        </childnode>
+        <childnode refid="18526" relation="include">
+        </childnode>
+        <childnode refid="18527" relation="include">
+        </childnode>
+      </node>
+      <node id="18486">
+        <label>NumCpp/Special/bessel_in_prime.hpp</label>
+        <link refid="bessel__in__prime_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18487" relation="include">
+        </childnode>
+      </node>
+      <node id="18466">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="18492">
+        <label>NumCpp/Special/bessel_yn.hpp</label>
+        <link refid="bessel__yn_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18464">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="18450" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18463" relation="include">
+        </childnode>
+        <childnode refid="18458" relation="include">
+        </childnode>
+        <childnode refid="18453" relation="include">
+        </childnode>
+        <childnode refid="18448" relation="include">
+        </childnode>
+      </node>
+      <node id="18516">
+        <label>boost/math/special_functions/polygamma.hpp</label>
+      </node>
+      <node id="18479">
+        <label>NumCpp/Special/airy_ai_prime.hpp</label>
+        <link refid="airy__ai__prime_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18478" relation="include">
+        </childnode>
+      </node>
+      <node id="18456">
+        <label>fstream</label>
+      </node>
+      <node id="18508">
+        <label>NumCpp/Special/erf_inv.hpp</label>
+        <link refid="erf__inv_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18507" relation="include">
+        </childnode>
+      </node>
+      <node id="18490">
+        <label>NumCpp/Special/bessel_kn.hpp</label>
+        <link refid="bessel__kn_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18501">
+        <label>boost/math/special_functions/hankel.hpp</label>
+      </node>
+      <node id="18526">
+        <label>NumCpp/Special/spherical_hankel_2.hpp</label>
+        <link refid="spherical__hankel__2_8hpp"/>
+        <childnode refid="18501" relation="include">
+        </childnode>
+        <childnode refid="18502" relation="include">
+        </childnode>
+      </node>
+      <node id="18482">
+        <label>NumCpp/Special/bernoulli.hpp</label>
+        <link refid="bernoulli_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18483" relation="include">
+        </childnode>
+      </node>
+      <node id="18491">
+        <label>NumCpp/Special/bessel_kn_prime.hpp</label>
+        <link refid="bessel__kn__prime_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18487" relation="include">
+        </childnode>
+      </node>
+      <node id="18444">
+        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
+        <link refid="_nd_array_core_8hpp"/>
         <childnode refid="18445" relation="include">
         </childnode>
-        <childnode refid="18459" relation="include">
+        <childnode refid="18449" relation="include">
         </childnode>
-        <childnode refid="18461" relation="include">
+        <childnode refid="18450" relation="include">
+        </childnode>
+        <childnode refid="18455" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
         </childnode>
         <childnode refid="18462" relation="include">
         </childnode>
-        <childnode refid="18447" relation="include">
+        <childnode refid="18464" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
         </childnode>
         <childnode refid="18463" relation="include">
         </childnode>
         <childnode refid="18465" relation="include">
         </childnode>
+        <childnode refid="18466" relation="include">
+        </childnode>
         <childnode refid="18467" relation="include">
+        </childnode>
+        <childnode refid="18468" relation="include">
         </childnode>
         <childnode refid="18469" relation="include">
         </childnode>
+        <childnode refid="18470" relation="include">
+        </childnode>
+        <childnode refid="18446" relation="include">
+        </childnode>
         <childnode refid="18471" relation="include">
+        </childnode>
+        <childnode refid="18456" relation="include">
         </childnode>
         <childnode refid="18472" relation="include">
         </childnode>
+        <childnode refid="18453" relation="include">
+        </childnode>
+        <childnode refid="18460" relation="include">
+        </childnode>
         <childnode refid="18473" relation="include">
         </childnode>
+        <childnode refid="18448" relation="include">
+        </childnode>
         <childnode refid="18474" relation="include">
+        </childnode>
+        <childnode refid="18461" relation="include">
         </childnode>
         <childnode refid="18475" relation="include">
         </childnode>
       </node>
-      <node id="18434">
-        <label>NumCpp/Special/bessel_in_prime.hpp</label>
-        <link refid="bessel__in__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18435" relation="include">
-        </childnode>
-      </node>
-      <node id="18414">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="18440">
-        <label>NumCpp/Special/bessel_yn.hpp</label>
-        <link refid="bessel__yn_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18412">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="18398" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18411" relation="include">
-        </childnode>
-        <childnode refid="18406" relation="include">
-        </childnode>
-        <childnode refid="18401" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18464">
-        <label>boost/math/special_functions/polygamma.hpp</label>
-      </node>
-      <node id="18427">
-        <label>NumCpp/Special/airy_ai_prime.hpp</label>
-        <link refid="airy__ai__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18426" relation="include">
-        </childnode>
-      </node>
-      <node id="18404">
-        <label>fstream</label>
-      </node>
-      <node id="18456">
-        <label>NumCpp/Special/erf_inv.hpp</label>
-        <link refid="erf__inv_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18455" relation="include">
-        </childnode>
-      </node>
-      <node id="18438">
-        <label>NumCpp/Special/bessel_kn.hpp</label>
-        <link refid="bessel__kn_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18449">
-        <label>boost/math/special_functions/hankel.hpp</label>
-      </node>
-      <node id="18474">
-        <label>NumCpp/Special/spherical_hankel_2.hpp</label>
-        <link refid="spherical__hankel__2_8hpp"/>
-        <childnode refid="18449" relation="include">
-        </childnode>
-        <childnode refid="18450" relation="include">
-        </childnode>
-      </node>
-      <node id="18430">
-        <label>NumCpp/Special/bernoulli.hpp</label>
-        <link refid="bernoulli_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18431" relation="include">
-        </childnode>
-      </node>
-      <node id="18439">
-        <label>NumCpp/Special/bessel_kn_prime.hpp</label>
-        <link refid="bessel__kn__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18435" relation="include">
-        </childnode>
-      </node>
-      <node id="18392">
-        <label>NumCpp/NdArray/NdArrayCore.hpp</label>
-        <link refid="_nd_array_core_8hpp"/>
-        <childnode refid="18393" relation="include">
-        </childnode>
-        <childnode refid="18397" relation="include">
-        </childnode>
-        <childnode refid="18398" relation="include">
-        </childnode>
-        <childnode refid="18403" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18410" relation="include">
-        </childnode>
-        <childnode refid="18412" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18411" relation="include">
-        </childnode>
-        <childnode refid="18413" relation="include">
-        </childnode>
-        <childnode refid="18414" relation="include">
-        </childnode>
-        <childnode refid="18415" relation="include">
-        </childnode>
-        <childnode refid="18416" relation="include">
-        </childnode>
-        <childnode refid="18417" relation="include">
-        </childnode>
-        <childnode refid="18418" relation="include">
-        </childnode>
-        <childnode refid="18394" relation="include">
-        </childnode>
-        <childnode refid="18419" relation="include">
-        </childnode>
-        <childnode refid="18404" relation="include">
-        </childnode>
-        <childnode refid="18420" relation="include">
-        </childnode>
-        <childnode refid="18401" relation="include">
-        </childnode>
-        <childnode refid="18408" relation="include">
-        </childnode>
-        <childnode refid="18421" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-        <childnode refid="18422" relation="include">
-        </childnode>
-        <childnode refid="18409" relation="include">
-        </childnode>
-        <childnode refid="18423" relation="include">
-        </childnode>
-      </node>
-      <node id="18454">
+      <node id="18506">
         <label>NumCpp/Special/erf.hpp</label>
         <link refid="erf_8hpp"/>
-        <childnode refid="18391" relation="include">
+        <childnode refid="18443" relation="include">
         </childnode>
-        <childnode refid="18405" relation="include">
+        <childnode refid="18457" relation="include">
         </childnode>
-        <childnode refid="18455" relation="include">
+        <childnode refid="18507" relation="include">
         </childnode>
       </node>
-      <node id="18403">
+      <node id="18455">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="18404" relation="include">
+        <childnode refid="18456" relation="include">
         </childnode>
-        <childnode refid="18396" relation="include">
+        <childnode refid="18448" relation="include">
         </childnode>
       </node>
-      <node id="18451">
+      <node id="18503">
         <label>NumCpp/Special/cyclic_hankel_2.hpp</label>
         <link refid="cyclic__hankel__2_8hpp"/>
-        <childnode refid="18449" relation="include">
+        <childnode refid="18501" relation="include">
         </childnode>
-        <childnode refid="18450" relation="include">
+        <childnode refid="18502" relation="include">
         </childnode>
       </node>
-      <node id="18393">
+      <node id="18445">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="18394" relation="include">
-        </childnode>
-        <childnode refid="18395" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18452">
-        <label>NumCpp/Special/digamma.hpp</label>
-        <link refid="digamma_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18453" relation="include">
-        </childnode>
-      </node>
-      <node id="18433">
-        <label>boost/math/special_functions/bessel.hpp</label>
-      </node>
-      <node id="18415">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="18410">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18411" relation="include">
-        </childnode>
-        <childnode refid="18401" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18457">
-        <label>NumCpp/Special/erfc.hpp</label>
-        <link refid="erfc_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18455" relation="include">
-        </childnode>
-      </node>
-      <node id="18423">
-        <label>vector</label>
-      </node>
-      <node id="18391">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="18392" relation="include">
-        </childnode>
-        <childnode refid="18424" relation="include">
-        </childnode>
-      </node>
-      <node id="18398">
-        <label>NumCpp/Core/Error.hpp</label>
-        <link refid="_error_8hpp"/>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18401" relation="include">
-        </childnode>
-        <childnode refid="18395" relation="include">
-        </childnode>
-        <childnode refid="18402" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18409">
-        <label>utility</label>
-      </node>
-      <node id="18418">
-        <label>array</label>
-      </node>
-      <node id="18462">
-        <label>NumCpp/Special/log_gamma.hpp</label>
-        <link refid="log__gamma_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18460" relation="include">
-        </childnode>
-      </node>
-      <node id="18468">
-        <label>boost/math/special_functions/zeta.hpp</label>
-      </node>
-      <node id="18465">
-        <label>NumCpp/Special/prime.hpp</label>
-        <link refid="prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18398" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18466" relation="include">
-        </childnode>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18411">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="18396" relation="include">
-        </childnode>
-      </node>
-      <node id="18405">
-        <label>NumCpp/Core/StlAlgorithms.hpp</label>
-        <link refid="_stl_algorithms_8hpp"/>
-        <childnode refid="18406" relation="include">
-        </childnode>
-        <childnode refid="18407" relation="include">
-        </childnode>
-        <childnode refid="18408" relation="include">
-        </childnode>
-        <childnode refid="18409" relation="include">
-        </childnode>
-      </node>
-      <node id="18401">
-        <label>iostream</label>
-      </node>
-      <node id="18419">
-        <label>deque</label>
-      </node>
-      <node id="18463">
-        <label>NumCpp/Special/polygamma.hpp</label>
-        <link refid="polygamma_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18464" relation="include">
-        </childnode>
-      </node>
-      <node id="18417">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
-      <node id="18429">
-        <label>NumCpp/Special/airy_bi_prime.hpp</label>
-        <link refid="airy__bi__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18426" relation="include">
-        </childnode>
-      </node>
-      <node id="18444">
-        <label>NumCpp/Special/cnr.hpp</label>
-        <link refid="cnr_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18398" relation="include">
-        </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18445" relation="include">
+        <childnode refid="18446" relation="include">
         </childnode>
         <childnode refid="18447" relation="include">
         </childnode>
-        <childnode refid="18396" relation="include">
+        <childnode refid="18448" relation="include">
         </childnode>
       </node>
-      <node id="18460">
-        <label>boost/math/special_functions/gamma.hpp</label>
+      <node id="18504">
+        <label>NumCpp/Special/digamma.hpp</label>
+        <link refid="digamma_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18505" relation="include">
+        </childnode>
       </node>
-      <node id="18437">
-        <label>NumCpp/Special/bessel_jn_prime.hpp</label>
-        <link refid="bessel__jn__prime_8hpp"/>
-        <childnode refid="18391" relation="include">
+      <node id="18485">
+        <label>boost/math/special_functions/bessel.hpp</label>
+      </node>
+      <node id="18467">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="18462">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="18451" relation="include">
         </childnode>
-        <childnode refid="18405" relation="include">
+        <childnode refid="18463" relation="include">
         </childnode>
-        <childnode refid="18435" relation="include">
+        <childnode refid="18453" relation="include">
+        </childnode>
+        <childnode refid="18448" relation="include">
+        </childnode>
+      </node>
+      <node id="18509">
+        <label>NumCpp/Special/erfc.hpp</label>
+        <link refid="erfc_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18507" relation="include">
+        </childnode>
+      </node>
+      <node id="18475">
+        <label>vector</label>
+      </node>
+      <node id="18443">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="18444" relation="include">
+        </childnode>
+        <childnode refid="18476" relation="include">
+        </childnode>
+      </node>
+      <node id="18450">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18453" relation="include">
+        </childnode>
+        <childnode refid="18447" relation="include">
+        </childnode>
+        <childnode refid="18454" relation="include">
+        </childnode>
+        <childnode refid="18448" relation="include">
+        </childnode>
+      </node>
+      <node id="18461">
+        <label>utility</label>
+      </node>
+      <node id="18470">
+        <label>array</label>
+      </node>
+      <node id="18514">
+        <label>NumCpp/Special/log_gamma.hpp</label>
+        <link refid="log__gamma_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18512" relation="include">
+        </childnode>
+      </node>
+      <node id="18520">
+        <label>boost/math/special_functions/zeta.hpp</label>
+      </node>
+      <node id="18517">
+        <label>NumCpp/Special/prime.hpp</label>
+        <link refid="prime_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18450" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18518" relation="include">
+        </childnode>
+        <childnode refid="18448" relation="include">
+        </childnode>
+      </node>
+      <node id="18463">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="18448" relation="include">
+        </childnode>
+      </node>
+      <node id="18457">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="18458" relation="include">
+        </childnode>
+        <childnode refid="18459" relation="include">
+        </childnode>
+        <childnode refid="18460" relation="include">
+        </childnode>
+        <childnode refid="18461" relation="include">
         </childnode>
       </node>
       <node id="18453">
-        <label>boost/math/special_functions/digamma.hpp</label>
+        <label>iostream</label>
       </node>
-      <node id="18461">
-        <label>NumCpp/Special/gamma1pm1.hpp</label>
-        <link refid="gamma1pm1_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18460" relation="include">
-        </childnode>
+      <node id="18471">
+        <label>deque</label>
       </node>
-      <node id="18422">
-        <label>type_traits</label>
-      </node>
-      <node id="18421">
-        <label>set</label>
-      </node>
-      <node id="18426">
-        <label>boost/math/special_functions/airy.hpp</label>
-      </node>
-      <node id="18450">
-        <label>complex</label>
-      </node>
-      <node id="18406">
-        <label>algorithm</label>
-      </node>
-      <node id="18472">
-        <label>NumCpp/Special/spherical_bessel_yn.hpp</label>
-        <link refid="spherical__bessel__yn_8hpp"/>
-        <childnode refid="18391" relation="include">
+      <node id="18515">
+        <label>NumCpp/Special/polygamma.hpp</label>
+        <link refid="polygamma_8hpp"/>
+        <childnode refid="18443" relation="include">
         </childnode>
-        <childnode refid="18405" relation="include">
+        <childnode refid="18457" relation="include">
         </childnode>
-        <childnode refid="18433" relation="include">
-        </childnode>
-      </node>
-      <node id="18470">
-        <label>NumCpp/Functions/exp.hpp</label>
-        <link refid="exp_8hpp"/>
-        <childnode refid="18391" relation="include">
-        </childnode>
-        <childnode refid="18405" relation="include">
-        </childnode>
-        <childnode refid="18394" relation="include">
+        <childnode refid="18516" relation="include">
         </childnode>
       </node>
       <node id="18469">
-        <label>NumCpp/Special/softmax.hpp</label>
-        <link refid="softmax_8hpp"/>
-        <childnode refid="18391" relation="include">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="18481">
+        <label>NumCpp/Special/airy_bi_prime.hpp</label>
+        <link refid="airy__bi__prime_8hpp"/>
+        <childnode refid="18443" relation="include">
         </childnode>
-        <childnode refid="18405" relation="include">
+        <childnode refid="18457" relation="include">
         </childnode>
-        <childnode refid="18399" relation="include">
-        </childnode>
-        <childnode refid="18470" relation="include">
+        <childnode refid="18478" relation="include">
         </childnode>
       </node>
-      <node id="18459">
-        <label>NumCpp/Special/gamma.hpp</label>
-        <link refid="_special_2gamma_8hpp"/>
-        <childnode refid="18391" relation="include">
+      <node id="18496">
+        <label>NumCpp/Special/cnr.hpp</label>
+        <link refid="cnr_8hpp"/>
+        <childnode refid="18443" relation="include">
         </childnode>
-        <childnode refid="18405" relation="include">
+        <childnode refid="18450" relation="include">
         </childnode>
-        <childnode refid="18460" relation="include">
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18497" relation="include">
+        </childnode>
+        <childnode refid="18499" relation="include">
+        </childnode>
+        <childnode refid="18448" relation="include">
         </childnode>
       </node>
-      <node id="18447">
-        <label>NumCpp/Special/pnr.hpp</label>
-        <link refid="pnr_8hpp"/>
-        <childnode refid="18391" relation="include">
+      <node id="18512">
+        <label>boost/math/special_functions/gamma.hpp</label>
+      </node>
+      <node id="18489">
+        <label>NumCpp/Special/bessel_jn_prime.hpp</label>
+        <link refid="bessel__jn__prime_8hpp"/>
+        <childnode refid="18443" relation="include">
         </childnode>
-        <childnode refid="18399" relation="include">
+        <childnode refid="18457" relation="include">
         </childnode>
-        <childnode refid="18445" relation="include">
+        <childnode refid="18487" relation="include">
+        </childnode>
+      </node>
+      <node id="18505">
+        <label>boost/math/special_functions/digamma.hpp</label>
+      </node>
+      <node id="18513">
+        <label>NumCpp/Special/gamma1pm1.hpp</label>
+        <link refid="gamma1pm1_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18512" relation="include">
+        </childnode>
+      </node>
+      <node id="18474">
+        <label>type_traits</label>
+      </node>
+      <node id="18473">
+        <label>set</label>
+      </node>
+      <node id="18478">
+        <label>boost/math/special_functions/airy.hpp</label>
+      </node>
+      <node id="18502">
+        <label>complex</label>
+      </node>
+      <node id="18458">
+        <label>algorithm</label>
+      </node>
+      <node id="18524">
+        <label>NumCpp/Special/spherical_bessel_yn.hpp</label>
+        <link refid="spherical__bessel__yn_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18485" relation="include">
+        </childnode>
+      </node>
+      <node id="18522">
+        <label>NumCpp/Functions/exp.hpp</label>
+        <link refid="exp_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
         </childnode>
         <childnode refid="18446" relation="include">
         </childnode>
       </node>
-      <node id="18420">
+      <node id="18521">
+        <label>NumCpp/Special/softmax.hpp</label>
+        <link refid="softmax_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18522" relation="include">
+        </childnode>
+      </node>
+      <node id="18511">
+        <label>NumCpp/Special/gamma.hpp</label>
+        <link refid="_special_2gamma_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18457" relation="include">
+        </childnode>
+        <childnode refid="18512" relation="include">
+        </childnode>
+      </node>
+      <node id="18499">
+        <label>NumCpp/Special/pnr.hpp</label>
+        <link refid="pnr_8hpp"/>
+        <childnode refid="18443" relation="include">
+        </childnode>
+        <childnode refid="18451" relation="include">
+        </childnode>
+        <childnode refid="18497" relation="include">
+        </childnode>
+        <childnode refid="18498" relation="include">
+        </childnode>
+      </node>
+      <node id="18472">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="18478">
+      <node id="18530">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="18477">
+      <node id="18529">
         <label>Special.hpp</label>
         <link refid="_special_8hpp"/>
-        <childnode refid="18478" relation="include">
+        <childnode refid="18530" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
