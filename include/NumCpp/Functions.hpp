@@ -193,6 +193,7 @@
 
 #include "NumCpp/Functions/ones.hpp"
 #include "NumCpp/Functions/ones_like.hpp"
+#include "NumCpp/Functions/outer.hpp"
 
 #include "NumCpp/Functions/pad.hpp"
 #include "NumCpp/Functions/partition.hpp"

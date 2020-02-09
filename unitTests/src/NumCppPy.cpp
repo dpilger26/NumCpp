@@ -2246,6 +2246,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(nc::outer(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray sqrArray(const NdArray<dtype>& inArray)
     {
         return nc2Boost(sqr(inArray));
@@ -4420,6 +4428,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("onesRowCol", &MethodsInterface::onesRowCol<double>);
     bp::def("onesShape", &MethodsInterface::onesShape<double>);
     bp::def("ones_like", &ones_like<double, double>);
+    bp::def("outer", &MethodsInterface::outer<double>);
     bp::def("pad", &pad<double>);
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double>);
