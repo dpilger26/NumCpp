@@ -11165,7 +11165,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3980" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3980" bodyend="3984"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3981" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3981" bodyend="3985"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a09adb4b7f77a0c28092073e2052f7c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11209,48 +11209,6 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" line="1380" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" bodystart="1405" bodyend="1415"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1aeb561e76866ea5d1bb71175b36e6a63a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename dtype</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
-        <definition>NdArray&lt;bool&gt; nc::operator&lt;=</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, dtype inValue) noexcept</argsstring>
-        <name>operator&lt;=</name>
-        <param>
-          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
-          <declname>inArray</declname>
-        </param>
-        <param>
-          <type>dtype</type>
-          <declname>inValue</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Returns an array of booleans of element wise comparison the array and a scalar</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inArray</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>inValue</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" line="1230" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" bodystart="1280" bodyend="1293"/>
-      </memberdef>
       <memberdef kind="function" id="namespacenc_1a15b45ad7f810ef0a77a0a0192f365d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -11292,6 +11250,48 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" line="1230" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" bodystart="1255" bodyend="1268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1aeb561e76866ea5d1bb71175b36e6a63a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
+        <definition>NdArray&lt;bool&gt; nc::operator&lt;=</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, dtype inValue) noexcept</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of booleans of element wise comparison the array and a scalar</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" line="1230" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" bodystart="1280" bodyend="1293"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1aea677b7a6763a7ab03dc6c3f6c5c5f06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -12373,6 +12373,48 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" line="798" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp" bodystart="798" bodyend="808"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1a395197f9b1d3f53a5fdcd234fa6e6baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::outer</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</argsstring>
+        <name>outer</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The outer product of two vectors. Inputs are flattened if not already 1-dimensional.</para><para>NumPy Reference: <ulink url="https://numpy.org/devdocs/reference/generated/numpy.outer.html">https://numpy.org/devdocs/reference/generated/numpy.outer.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inArray2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/outer.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/outer.hpp" bodystart="50" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a54ebb23ac2a5fef9013f82afd8efd143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

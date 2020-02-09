@@ -302,6 +302,7 @@ var files_dup =
     [ "NumCpp.hpp", "_num_cpp_8hpp.html", null ],
     [ "ones.hpp", "ones_8hpp.html", "ones_8hpp" ],
     [ "ones_like.hpp", "ones__like_8hpp.html", "ones__like_8hpp" ],
+    [ "outer.hpp", "outer_8hpp.html", "outer_8hpp" ],
     [ "pad.hpp", "pad_8hpp.html", "pad_8hpp" ],
     [ "partition.hpp", "partition_8hpp.html", "partition_8hpp" ],
     [ "percentile.hpp", "percentile_8hpp.html", "percentile_8hpp" ],

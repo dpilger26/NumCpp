@@ -9,65 +9,65 @@
     <includes local="no">vector</includes>
     <includedby refid="_integrate_8hpp" local="yes">Integrate.hpp</includedby>
     <incdepgraph>
-      <node id="16972">
+      <node id="17022">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="16973" relation="include">
+        <childnode refid="17023" relation="include">
         </childnode>
       </node>
-      <node id="16975">
+      <node id="17025">
         <label>functional</label>
       </node>
-      <node id="16976">
+      <node id="17026">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="16972" relation="include">
+        <childnode refid="17022" relation="include">
         </childnode>
       </node>
-      <node id="16973">
+      <node id="17023">
         <label>cstdint</label>
       </node>
-      <node id="16974">
+      <node id="17024">
         <label>NumCpp/Integrate/trapazoidal.hpp</label>
         <link refid="trapazoidal_8hpp"/>
-        <childnode refid="16972" relation="include">
+        <childnode refid="17022" relation="include">
         </childnode>
-        <childnode refid="16975" relation="include">
+        <childnode refid="17025" relation="include">
         </childnode>
       </node>
-      <node id="16977">
+      <node id="17027">
         <label>vector</label>
       </node>
-      <node id="16971">
+      <node id="17021">
         <label>romberg.hpp</label>
         <link refid="romberg_8hpp"/>
-        <childnode refid="16972" relation="include">
+        <childnode refid="17022" relation="include">
         </childnode>
-        <childnode refid="16974" relation="include">
+        <childnode refid="17024" relation="include">
         </childnode>
-        <childnode refid="16976" relation="include">
+        <childnode refid="17026" relation="include">
         </childnode>
-        <childnode refid="16975" relation="include">
+        <childnode refid="17025" relation="include">
         </childnode>
-        <childnode refid="16977" relation="include">
+        <childnode refid="17027" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16980">
+      <node id="17030">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="16979">
+      <node id="17029">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="16980" relation="include">
+        <childnode refid="17030" relation="include">
         </childnode>
       </node>
-      <node id="16978">
+      <node id="17028">
         <label>romberg.hpp</label>
         <link refid="romberg_8hpp"/>
-        <childnode refid="16979" relation="include">
+        <childnode refid="17029" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

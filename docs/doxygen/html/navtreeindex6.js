@@ -249,5 +249,5 @@ var NAVTREEINDEX6 =
 "namespacenc_1_1image_processing.html":[2,0,0,6],
 "namespacenc_1_1integrate.html":[3,0,0,5],
 "namespacenc_1_1integrate.html":[2,0,0,7],
-"namespacenc_1_1linalg.html":[3,0,0,6]
+"namespacenc_1_1linalg.html":[2,0,0,8]
 };

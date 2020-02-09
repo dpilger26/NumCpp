@@ -6,42 +6,42 @@
     <includes local="no">functional</includes>
     <includedby refid="_integrate_8hpp" local="yes">Integrate.hpp</includedby>
     <incdepgraph>
-      <node id="17769">
+      <node id="17820">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="17770" relation="include">
+        <childnode refid="17821" relation="include">
         </childnode>
       </node>
-      <node id="17771">
+      <node id="17822">
         <label>functional</label>
       </node>
-      <node id="17770">
+      <node id="17821">
         <label>cstdint</label>
       </node>
-      <node id="17768">
+      <node id="17819">
         <label>simpson.hpp</label>
         <link refid="simpson_8hpp"/>
-        <childnode refid="17769" relation="include">
+        <childnode refid="17820" relation="include">
         </childnode>
-        <childnode refid="17771" relation="include">
+        <childnode refid="17822" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="17774">
+      <node id="17825">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="17773">
+      <node id="17824">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="17774" relation="include">
+        <childnode refid="17825" relation="include">
         </childnode>
       </node>
-      <node id="17772">
+      <node id="17823">
         <label>simpson.hpp</label>
         <link refid="simpson_8hpp"/>
-        <childnode refid="17773" relation="include">
+        <childnode refid="17824" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
