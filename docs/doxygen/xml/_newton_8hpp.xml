@@ -8,85 +8,85 @@
     <includes local="no">functional</includes>
     <includedby refid="_roots_8hpp" local="yes">Roots.hpp</includedby>
     <incdepgraph>
-      <node id="13213">
+      <node id="13264">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="13214" relation="include">
+        <childnode refid="13265" relation="include">
         </childnode>
       </node>
-      <node id="13221">
+      <node id="13272">
         <label>functional</label>
       </node>
-      <node id="13218">
+      <node id="13269">
         <label>limits</label>
       </node>
-      <node id="13214">
+      <node id="13265">
         <label>cstdint</label>
       </node>
-      <node id="13222">
+      <node id="13273">
         <label>cmath</label>
       </node>
-      <node id="13219">
+      <node id="13270">
         <label>stdexcept</label>
       </node>
-      <node id="13220">
+      <node id="13271">
         <label>string</label>
       </node>
-      <node id="13216">
+      <node id="13267">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="13213" relation="include">
+        <childnode refid="13264" relation="include">
         </childnode>
-        <childnode refid="13217" relation="include">
+        <childnode refid="13268" relation="include">
         </childnode>
-        <childnode refid="13218" relation="include">
+        <childnode refid="13269" relation="include">
         </childnode>
-        <childnode refid="13219" relation="include">
+        <childnode refid="13270" relation="include">
         </childnode>
-        <childnode refid="13220" relation="include">
+        <childnode refid="13271" relation="include">
         </childnode>
       </node>
-      <node id="13215">
+      <node id="13266">
         <label>NumCpp/Roots/Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="13216" relation="include">
+        <childnode refid="13267" relation="include">
         </childnode>
-        <childnode refid="13213" relation="include">
+        <childnode refid="13264" relation="include">
         </childnode>
-        <childnode refid="13221" relation="include">
+        <childnode refid="13272" relation="include">
         </childnode>
       </node>
-      <node id="13217">
+      <node id="13268">
         <label>iostream</label>
       </node>
-      <node id="13212">
+      <node id="13263">
         <label>Newton.hpp</label>
         <link refid="_newton_8hpp"/>
-        <childnode refid="13213" relation="include">
+        <childnode refid="13264" relation="include">
         </childnode>
-        <childnode refid="13215" relation="include">
+        <childnode refid="13266" relation="include">
         </childnode>
-        <childnode refid="13222" relation="include">
+        <childnode refid="13273" relation="include">
         </childnode>
-        <childnode refid="13221" relation="include">
+        <childnode refid="13272" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13225">
+      <node id="13276">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13224">
+      <node id="13275">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="13225" relation="include">
+        <childnode refid="13276" relation="include">
         </childnode>
       </node>
-      <node id="13223">
+      <node id="13274">
         <label>Newton.hpp</label>
         <link refid="_newton_8hpp"/>
-        <childnode refid="13224" relation="include">
+        <childnode refid="13275" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

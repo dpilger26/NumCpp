@@ -67,10 +67,10 @@ var NAVTREEINDEX =
 "bessel__kn_8hpp.html#a0c37ad66b8671d06518d9efe1a934bba",
 "classnc_1_1_shape.html",
 "classnc_1_1polynomial_1_1_poly1d.html#a28aa3ab446b53a1d901cac5c0105ef59",
-"divide_8hpp.html",
-"hat_8hpp.html#ae9cdb091717a1c74dc659519d77e0048",
-"namespacenc_1_1linalg.html",
-"roll_8hpp_source.html"
+"discrete_8hpp.html",
+"hat_8hpp.html",
+"namespacenc_1_1integrate.html",
+"rodrigues_rotation_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

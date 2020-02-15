@@ -1714,7 +1714,7 @@ namespace nc
         {
             switch (inAxis)
             {
-                case Axis::COL:
+                case Axis::ROW:
                 {
                     std::vector<dtype> diagnolValues;
                     int32 col = inOffset;
@@ -1722,7 +1722,7 @@ namespace nc
                     {
                         if (col < 0)
                         {
-                            col++;
+                            ++col;
                             continue;
                         }
                         else if (col >= static_cast<int32>(shape_.cols))
@@ -1736,7 +1736,7 @@ namespace nc
 
                     return NdArray<dtype>(diagnolValues);
                 }
-                case Axis::ROW:
+                case Axis::COL:
                 {
                     std::vector<dtype> diagnolValues;
                     uint32 col = 0;

@@ -10,98 +10,98 @@
     <includes local="no">utility</includes>
     <includedby refid="_roots_8hpp" local="yes">Roots.hpp</includedby>
     <incdepgraph>
-      <node id="17236">
+      <node id="17290">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="17237" relation="include">
+        <childnode refid="17291" relation="include">
         </childnode>
       </node>
-      <node id="17243">
+      <node id="17297">
         <label>functional</label>
       </node>
-      <node id="17235">
+      <node id="17289">
         <label>limits</label>
       </node>
-      <node id="17234">
+      <node id="17288">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="17235" relation="include">
+        <childnode refid="17289" relation="include">
         </childnode>
       </node>
-      <node id="17237">
+      <node id="17291">
         <label>cstdint</label>
       </node>
-      <node id="17244">
+      <node id="17298">
         <label>cmath</label>
       </node>
-      <node id="17241">
+      <node id="17295">
         <label>stdexcept</label>
       </node>
-      <node id="17242">
+      <node id="17296">
         <label>string</label>
       </node>
-      <node id="17233">
+      <node id="17287">
         <label>Secant.hpp</label>
         <link refid="_secant_8hpp"/>
-        <childnode refid="17234" relation="include">
+        <childnode refid="17288" relation="include">
         </childnode>
-        <childnode refid="17236" relation="include">
+        <childnode refid="17290" relation="include">
         </childnode>
-        <childnode refid="17238" relation="include">
+        <childnode refid="17292" relation="include">
         </childnode>
-        <childnode refid="17244" relation="include">
+        <childnode refid="17298" relation="include">
         </childnode>
-        <childnode refid="17243" relation="include">
+        <childnode refid="17297" relation="include">
         </childnode>
-        <childnode refid="17245" relation="include">
+        <childnode refid="17299" relation="include">
         </childnode>
       </node>
-      <node id="17239">
+      <node id="17293">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="17236" relation="include">
+        <childnode refid="17290" relation="include">
         </childnode>
-        <childnode refid="17240" relation="include">
+        <childnode refid="17294" relation="include">
         </childnode>
-        <childnode refid="17235" relation="include">
+        <childnode refid="17289" relation="include">
         </childnode>
-        <childnode refid="17241" relation="include">
+        <childnode refid="17295" relation="include">
         </childnode>
-        <childnode refid="17242" relation="include">
+        <childnode refid="17296" relation="include">
         </childnode>
       </node>
-      <node id="17245">
+      <node id="17299">
         <label>utility</label>
       </node>
-      <node id="17238">
+      <node id="17292">
         <label>NumCpp/Roots/Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="17239" relation="include">
+        <childnode refid="17293" relation="include">
         </childnode>
-        <childnode refid="17236" relation="include">
+        <childnode refid="17290" relation="include">
         </childnode>
-        <childnode refid="17243" relation="include">
+        <childnode refid="17297" relation="include">
         </childnode>
       </node>
-      <node id="17240">
+      <node id="17294">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="17248">
+      <node id="17302">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="17246">
+      <node id="17300">
         <label>Secant.hpp</label>
         <link refid="_secant_8hpp"/>
-        <childnode refid="17247" relation="include">
+        <childnode refid="17301" relation="include">
         </childnode>
       </node>
-      <node id="17247">
+      <node id="17301">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="17248" relation="include">
+        <childnode refid="17302" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
