@@ -1692,9 +1692,17 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagflat(const NdArray<dtype>& inArray)
+    np::ndarray diag(const NdArray<dtype>& inArray, int32 k)
     {
-        return nc2Boost(nc::diagflat(inArray));
+        return nc2Boost(nc::diag(inArray, k));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray diagflat(const NdArray<dtype>& inArray, int32 k)
+    {
+        return nc2Boost(nc::diagflat(inArray, k));
     }
 
     //================================================================================
@@ -4302,6 +4310,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("degreesArray", &MethodsInterface::degreesArray<double>);
     bp::def("deleteIndicesScaler", &MethodsInterface::deleteIndicesScaler<double>);
     bp::def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>);
+    bp::def("diag", &MethodsInterface::diag<double>);
     bp::def("diagflat", &MethodsInterface::diagflat<double>);
     bp::def("diagonal", &MethodsInterface::diagonal<double>);
     bp::def("diff", &MethodsInterface::diff<double>);

@@ -28,26 +28,36 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/diagflat.hpp"
+#include "NumCpp/Functions/diagonal.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return specified diagonals.
+    ///						Extract a diagonal or construct a diagonal array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagonal.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diag.html
     ///
     /// @param				inArray
-    /// @param				inOffset (Defaults to 0)
-    /// @param				inAxis (Optional, default NONE) axis the offset is applied to
-    /// @return
-    ///				NdArray
+    /// @param				k Diagonal in question. The default is 0. 
+    ///                     Use k>0 for diagonals above the main diagonal, and k<0 
+    ///                     for diagonals below the main diagonal.
+    ///
+    /// @return             NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset = 0, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0) noexcept
     {
-        return inArray.diagonal(inOffset, inAxis);
+        if (inArray.isflat())
+        {
+            return diagflat(inArray, k);
+        }
+        else
+        {
+            return diagonal(inArray, k, Axis::ROW);
+        }
     }
 }

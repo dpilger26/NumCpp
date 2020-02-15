@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
-#include "NumCpp/Functions/diagFlat.hpp"
+#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <utility>
@@ -58,7 +58,7 @@ namespace nc
             NdArray<double> vt = svdSolver.v().transpose();
             outVt = std::move(vt);
 
-            NdArray<double> s = diagflat(svdSolver.s());
+            NdArray<double> s = diagflat(svdSolver.s(), 0);
             outS = std::move(s);
         }
     }
