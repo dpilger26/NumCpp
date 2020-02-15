@@ -9,36 +9,34 @@
     <includes local="no">utility</includes>
     <includedby refid="_roots_8hpp" local="yes">Roots.hpp</includedby>
     <incdepgraph>
-      <node id="4619">
+      <node id="4620">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="4620" relation="include">
+        <childnode refid="4621" relation="include">
         </childnode>
-      </node>
-      <node id="4627">
-        <label>functional</label>
-      </node>
-      <node id="4624">
-        <label>limits</label>
-      </node>
-      <node id="4620">
-        <label>cstdint</label>
       </node>
       <node id="4628">
-        <label>cmath</label>
+        <label>functional</label>
       </node>
       <node id="4625">
-        <label>stdexcept</label>
+        <label>limits</label>
+      </node>
+      <node id="4621">
+        <label>cstdint</label>
+      </node>
+      <node id="4629">
+        <label>cmath</label>
       </node>
       <node id="4626">
+        <label>stdexcept</label>
+      </node>
+      <node id="4627">
         <label>string</label>
       </node>
-      <node id="4622">
+      <node id="4623">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="4619" relation="include">
-        </childnode>
-        <childnode refid="4623" relation="include">
+        <childnode refid="4620" relation="include">
         </childnode>
         <childnode refid="4624" relation="include">
         </childnode>
@@ -46,53 +44,55 @@
         </childnode>
         <childnode refid="4626" relation="include">
         </childnode>
-      </node>
-      <node id="4629">
-        <label>utility</label>
-      </node>
-      <node id="4621">
-        <label>NumCpp/Roots/Iteration.hpp</label>
-        <link refid="_iteration_8hpp"/>
-        <childnode refid="4622" relation="include">
-        </childnode>
-        <childnode refid="4619" relation="include">
-        </childnode>
         <childnode refid="4627" relation="include">
         </childnode>
       </node>
-      <node id="4623">
-        <label>iostream</label>
+      <node id="4630">
+        <label>utility</label>
       </node>
-      <node id="4618">
-        <label>Dekker.hpp</label>
-        <link refid="_dekker_8hpp"/>
-        <childnode refid="4619" relation="include">
+      <node id="4622">
+        <label>NumCpp/Roots/Iteration.hpp</label>
+        <link refid="_iteration_8hpp"/>
+        <childnode refid="4623" relation="include">
         </childnode>
-        <childnode refid="4621" relation="include">
+        <childnode refid="4620" relation="include">
         </childnode>
         <childnode refid="4628" relation="include">
         </childnode>
-        <childnode refid="4627" relation="include">
+      </node>
+      <node id="4624">
+        <label>iostream</label>
+      </node>
+      <node id="4619">
+        <label>Dekker.hpp</label>
+        <link refid="_dekker_8hpp"/>
+        <childnode refid="4620" relation="include">
+        </childnode>
+        <childnode refid="4622" relation="include">
         </childnode>
         <childnode refid="4629" relation="include">
+        </childnode>
+        <childnode refid="4628" relation="include">
+        </childnode>
+        <childnode refid="4630" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="4632">
+      <node id="4633">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="4631">
+      <node id="4632">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="4632" relation="include">
+        <childnode refid="4633" relation="include">
         </childnode>
       </node>
-      <node id="4630">
+      <node id="4631">
         <label>Dekker.hpp</label>
         <link refid="_dekker_8hpp"/>
-        <childnode refid="4631" relation="include">
+        <childnode refid="4632" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

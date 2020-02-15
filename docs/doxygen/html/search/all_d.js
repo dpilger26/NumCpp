@@ -60,7 +60,7 @@ var searchData=
   ['nearest1d_2ehpp',['nearest1d.hpp',['../nearest1d_8hpp.html',1,'']]],
   ['nearest2d',['nearest2d',['../namespacenc_1_1filter_1_1boundary.html#a7f70d66ead018652239bb3334a040850',1,'nc::filter::boundary']]],
   ['nearest2d_2ehpp',['nearest2d.hpp',['../nearest2d_8hpp.html',1,'']]],
-  ['negative',['NEGATIVE',['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94a50546bf973283065b6ccf09faf7a580a',1,'nc::coordinates::NEGATIVE()'],['../namespacenc.html#a8f1c7a73200dc72efb67995ee60bb76d',1,'nc::negative()']]],
+  ['negative',['negative',['../namespacenc.html#a8f1c7a73200dc72efb67995ee60bb76d',1,'nc::negative()'],['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94a50546bf973283065b6ccf09faf7a580a',1,'nc::coordinates::NEGATIVE()']]],
   ['negative_2ehpp',['negative.hpp',['../negative_8hpp.html',1,'']]],
   ['negativebinomial',['negativeBinomial',['../namespacenc_1_1random.html#ac6181e54b9cae303574f9c5fad33cfc2',1,'nc::random']]],
   ['negativebinomial_2ehpp',['negativeBinomial.hpp',['../negative_binomial_8hpp.html',1,'']]],
