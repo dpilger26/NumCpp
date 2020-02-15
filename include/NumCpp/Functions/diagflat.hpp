@@ -44,6 +44,7 @@ namespace nc
     /// @param      inArray
     /// @param      k Diagonal to set; 0, the default, corresponds to the “main” diagonal, 
     ///             a positive (negative) k giving the number of the diagonal above (below) the main.
+    ///
     /// @return     NdArray
     ///
     template<typename dtype>
