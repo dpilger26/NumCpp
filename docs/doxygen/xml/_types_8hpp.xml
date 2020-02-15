@@ -64,7 +64,7 @@
     <includedby refid="cumprod_8hpp" local="yes">cumprod.hpp</includedby>
     <includedby refid="cumsum_8hpp" local="yes">cumsum.hpp</includedby>
     <includedby refid="diag_8hpp" local="yes">diag.hpp</includedby>
-    <includedby refid="diagflat_8hpp" local="yes">diagflat.hpp</includedby>
+    <includedby refid="diag_flat_8hpp" local="yes">diagFlat.hpp</includedby>
     <includedby refid="diagonal_8hpp" local="yes">diagonal.hpp</includedby>
     <includedby refid="diff_8hpp" local="yes">diff.hpp</includedby>
     <includedby refid="empty_8hpp" local="yes">empty.hpp</includedby>
@@ -1248,6 +1248,16 @@
         <label>fromiter.hpp</label>
         <link refid="fromiter_8hpp"/>
         <childnode refid="20605" relation="include">
+        </childnode>
+      </node>
+      <node id="20683">
+        <label>diagFlat.hpp</label>
+        <link refid="diag_flat_8hpp"/>
+        <childnode refid="20682" relation="include">
+        </childnode>
+        <childnode refid="20605" relation="include">
+        </childnode>
+        <childnode refid="20684" relation="include">
         </childnode>
       </node>
       <node id="20566">
@@ -3720,16 +3730,6 @@
         <label>discrete.hpp</label>
         <link refid="discrete_8hpp"/>
         <childnode refid="20865" relation="include">
-        </childnode>
-      </node>
-      <node id="20683">
-        <label>diagflat.hpp</label>
-        <link refid="diagflat_8hpp"/>
-        <childnode refid="20682" relation="include">
-        </childnode>
-        <childnode refid="20605" relation="include">
-        </childnode>
-        <childnode refid="20684" relation="include">
         </childnode>
       </node>
       <node id="20822">

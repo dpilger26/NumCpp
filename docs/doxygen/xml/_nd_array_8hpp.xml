@@ -97,7 +97,7 @@
     <includedby refid="degrees_8hpp" local="yes">degrees.hpp</includedby>
     <includedby refid="delete_indices_8hpp" local="yes">deleteIndices.hpp</includedby>
     <includedby refid="diag_8hpp" local="yes">diag.hpp</includedby>
-    <includedby refid="diagflat_8hpp" local="yes">diagflat.hpp</includedby>
+    <includedby refid="diag_flat_8hpp" local="yes">diagFlat.hpp</includedby>
     <includedby refid="diagonal_8hpp" local="yes">diagonal.hpp</includedby>
     <includedby refid="diff_8hpp" local="yes">diff.hpp</includedby>
     <includedby refid="divide_8hpp" local="yes">divide.hpp</includedby>
@@ -1230,6 +1230,16 @@
         <label>fromiter.hpp</label>
         <link refid="fromiter_8hpp"/>
         <childnode refid="11926" relation="include">
+        </childnode>
+      </node>
+      <node id="12000">
+        <label>diagFlat.hpp</label>
+        <link refid="diag_flat_8hpp"/>
+        <childnode refid="11999" relation="include">
+        </childnode>
+        <childnode refid="11926" relation="include">
+        </childnode>
+        <childnode refid="12001" relation="include">
         </childnode>
       </node>
       <node id="11888">
@@ -3190,16 +3200,6 @@
         <label>discrete.hpp</label>
         <link refid="discrete_8hpp"/>
         <childnode refid="12183" relation="include">
-        </childnode>
-      </node>
-      <node id="12000">
-        <label>diagflat.hpp</label>
-        <link refid="diagflat_8hpp"/>
-        <childnode refid="11999" relation="include">
-        </childnode>
-        <childnode refid="11926" relation="include">
-        </childnode>
-        <childnode refid="12001" relation="include">
         </childnode>
       </node>
       <node id="12140">

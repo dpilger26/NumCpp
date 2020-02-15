@@ -133,7 +133,7 @@ var files_dup =
     [ "deleteIndices.hpp", "delete_indices_8hpp.html", "delete_indices_8hpp" ],
     [ "det.hpp", "det_8hpp.html", "det_8hpp" ],
     [ "diag.hpp", "diag_8hpp.html", "diag_8hpp" ],
-    [ "diagflat.hpp", "diagflat_8hpp.html", "diagflat_8hpp" ],
+    [ "diagFlat.hpp", "diag_flat_8hpp.html", "diag_flat_8hpp" ],
     [ "diagonal.hpp", "diagonal_8hpp.html", "diagonal_8hpp" ],
     [ "diff.hpp", "diff_8hpp.html", "diff_8hpp" ],
     [ "digamma.hpp", "digamma_8hpp.html", "digamma_8hpp" ],
