@@ -3,7 +3,7 @@
   <compounddef id="svd_8hpp" kind="file" language="C++">
     <compoundname>svd.hpp</compoundname>
     <includes refid="_s_v_d_class_8hpp" local="yes">NumCpp/Linalg/svd/SVDClass.hpp</includes>
-    <includes refid="diagflat_8hpp" local="yes">NumCpp/Functions/diagflat.hpp</includes>
+    <includes refid="diag_flat_8hpp" local="yes">NumCpp/Functions/diagflat.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">utility</includes>
     <includedby refid="_linalg_8hpp" local="yes">Linalg.hpp</includedby>
@@ -65,6 +65,16 @@
         <childnode refid="19812" relation="include">
         </childnode>
         <childnode refid="19831" relation="include">
+        </childnode>
+      </node>
+      <node id="19832">
+        <label>NumCpp/Functions/diagflat.hpp</label>
+        <link refid="diag_flat_8hpp"/>
+        <childnode refid="19804" relation="include">
+        </childnode>
+        <childnode refid="19798" relation="include">
+        </childnode>
+        <childnode refid="19807" relation="include">
         </childnode>
       </node>
       <node id="19820">
@@ -259,16 +269,6 @@
       <node id="19800">
         <label>iostream</label>
       </node>
-      <node id="19832">
-        <label>NumCpp/Functions/diagflat.hpp</label>
-        <link refid="diagflat_8hpp"/>
-        <childnode refid="19804" relation="include">
-        </childnode>
-        <childnode refid="19798" relation="include">
-        </childnode>
-        <childnode refid="19807" relation="include">
-        </childnode>
-      </node>
       <node id="19825">
         <label>deque</label>
       </node>
@@ -324,7 +324,7 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_v_d_class_8hpp" kindref="compound">NumCpp/Linalg/svd/SVDClass.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diagflat_8hpp" kindref="compound">NumCpp/Functions/diagflat.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diag_flat_8hpp" kindref="compound">NumCpp/Functions/diagflat.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>

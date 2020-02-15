@@ -41,7 +41,7 @@ namespace nc
     ///
     /// @param				inArray
     /// @param				inOffset (Defaults to 0)
-    /// @param				inAxis (Optional, default NONE) axis the offset is applied to
+    /// @param				inAxis (Optional, default ROW) axis the offset is applied to
     /// @return
     ///				NdArray
     ///

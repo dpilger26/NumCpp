@@ -26,7 +26,7 @@ var searchData=
   ['diag',['diag',['../namespacenc.html#a048ad05482042e40c8044d15c4749c35',1,'nc']]],
   ['diag_2ehpp',['diag.hpp',['../diag_8hpp.html',1,'']]],
   ['diagflat',['diagflat',['../namespacenc.html#a38e59bc5dd8d662f1d82448cc170817d',1,'nc']]],
-  ['diagflat_2ehpp',['diagflat.hpp',['../diagflat_8hpp.html',1,'']]],
+  ['diagflat_2ehpp',['diagFlat.hpp',['../diag_flat_8hpp.html',1,'']]],
   ['diagonal',['diagonal',['../classnc_1_1_nd_array.html#a58959d58c043612b0ecb869ea5280382',1,'nc::NdArray::diagonal()'],['../namespacenc.html#ae7bb84601bd94086fe853474fa35fb64',1,'nc::diagonal()']]],
   ['diagonal_2ehpp',['diagonal.hpp',['../diagonal_8hpp.html',1,'']]],
   ['diff',['diff',['../namespacenc.html#aca24655977cb03ca84ef20aebae3e78f',1,'nc']]],
