@@ -3,7 +3,7 @@ var searchData=
   ['c',['C',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a0d61f8370cad1d412f80b84d143e1257',1,'nc::boostPythonInterface::BoostNdarrayHelper::C()'],['../namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581',1,'nc::constants::c()']]],
   ['cauchy',['cauchy',['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random']]],
   ['cauchy_2ehpp',['cauchy.hpp',['../cauchy_8hpp.html',1,'']]],
-  ['cbegin',['cbegin',['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()'],['../classnc_1_1_nd_array.html#afab8bb1ff84015deae6dc7ed74a68227',1,'nc::NdArray::cbegin() const noexcept'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const']]],
+  ['cbegin',['cbegin',['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()'],['../classnc_1_1_nd_array.html#a46a8bd2b5b14f75e80590fb11ece89ba',1,'nc::NdArray::cbegin() const'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../namespacenc.html#a21de0caa1ff8e9e7baed8a8a57f7bcab',1,'nc::cbrt(dtype inValue) noexcept'],['../namespacenc.html#a56a122b504ee028142e35c221a1afe46',1,'nc::cbrt(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['cbrt_2ehpp',['cbrt.hpp',['../cbrt_8hpp.html',1,'']]],
   ['ceil',['ceil',['../namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a',1,'nc::ceil(dtype inValue) noexcept'],['../namespacenc.html#af762493e829f0334c506cc05c7668270',1,'nc::ceil(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],

@@ -279,6 +279,7 @@
     <member refid="classnc_1_1_nd_array_1a37dfaff915e516abc70324026ec1dbc9" kind="variable"><name>ownsPtr_</name></member>
     <member refid="classnc_1_1_nd_array_1a29072a43431fda30b3ef0cc46c1aee09" kind="variable"><name>shape_</name></member>
     <member refid="classnc_1_1_nd_array_1a85db9a1c421a05191048a31ef03b4c5f" kind="variable"><name>size_</name></member>
+    <member refid="classnc_1_1_nd_array_1a012e4baaa2a34ab41f91c02747b48476" kind="function"><name>checkNullPtr</name></member>
     <member refid="classnc_1_1_nd_array_1a6142678be814c9c60843dd0dca623f88" kind="function"><name>deleteArray</name></member>
     <member refid="classnc_1_1_nd_array_1a5b697c0900a93b8e418b87f3e491bb61" kind="function"><name>newArray</name></member>
     <member refid="classnc_1_1_nd_array_1aa095c262c5a896ab349c1913f55c3cc5" kind="function"><name>NdArray</name></member>
@@ -312,12 +313,12 @@
     <member refid="classnc_1_1_nd_array_1a976b7768fe9ddaa6ca50d66ba4ed7ed4" kind="function"><name>at</name></member>
     <member refid="classnc_1_1_nd_array_1a02c013952d6f2435cfdf520589c610b6" kind="function"><name>at</name></member>
     <member refid="classnc_1_1_nd_array_1a94c5752747b9b937c092632af9c7a7aa" kind="function"><name>back</name></member>
-    <member refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kind="function"><name>begin</name></member>
+    <member refid="classnc_1_1_nd_array_1a7f0714a1bd6f9f03d5f28e420c61bf0f" kind="function"><name>begin</name></member>
     <member refid="classnc_1_1_nd_array_1a7e4010114ca11be6e10903ab4bd4d9dd" kind="function"><name>begin</name></member>
     <member refid="classnc_1_1_nd_array_1a6f07a76eefb244f4ca794bd9e8b9132c" kind="function"><name>begin</name></member>
     <member refid="classnc_1_1_nd_array_1a03da861520e1abcfc06d0d2ff1282626" kind="function"><name>begin</name></member>
     <member refid="classnc_1_1_nd_array_1af4ad4608720c271a6045b09fbe10083d" kind="function"><name>byteswap</name></member>
-    <member refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" kind="function"><name>cbegin</name></member>
+    <member refid="classnc_1_1_nd_array_1a46a8bd2b5b14f75e80590fb11ece89ba" kind="function"><name>cbegin</name></member>
     <member refid="classnc_1_1_nd_array_1aa75d85def3d58bfb531a6e2626cd7799" kind="function"><name>cbegin</name></member>
     <member refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" kind="function"><name>cend</name></member>
     <member refid="classnc_1_1_nd_array_1a72e0f298458da1647e3ecedebb64cd36" kind="function"><name>cend</name></member>
@@ -328,8 +329,8 @@
     <member refid="classnc_1_1_nd_array_1a377c1b5393aabc2b00496643a5c5da03" kind="function"><name>cSlice</name></member>
     <member refid="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" kind="function"><name>cumprod</name></member>
     <member refid="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" kind="function"><name>cumsum</name></member>
-    <member refid="classnc_1_1_nd_array_1ad102f8fe8139a17ede04f83a03007bf3" kind="function"><name>data</name></member>
-    <member refid="classnc_1_1_nd_array_1aa91013877b9bd37a0411167f2e8eec75" kind="function"><name>dataRelease</name></member>
+    <member refid="classnc_1_1_nd_array_1a1f053e8c971f098e6c3fa0904dd6e728" kind="function"><name>data</name></member>
+    <member refid="classnc_1_1_nd_array_1af3e2b5f7139f34e8e65678f02a4332c5" kind="function"><name>dataRelease</name></member>
     <member refid="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" kind="function"><name>diagonal</name></member>
     <member refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" kind="function"><name>dot</name></member>
     <member refid="classnc_1_1_nd_array_1a1a75a88440cb5460da17b23e0dd6b030" kind="function"><name>dump</name></member>
@@ -363,15 +364,15 @@
     <member refid="classnc_1_1_nd_array_1ab0e399408388daf11ac4877c6e9d4e69" kind="function"><name>numRows</name></member>
     <member refid="classnc_1_1_nd_array_1a8444c4313d68aaf1e8539db95e7ffbac" kind="function"><name>ones</name></member>
     <member refid="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1_nd_array_1aba9d02408b06e5dea7b9d41ff1a1f5a0" kind="function"><name>operator()</name></member>
+    <member refid="classnc_1_1_nd_array_1a5b055b2863b3321843c46fdaaf36b054" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a75cee1d3c0ab6d48dad3eb95a704a588" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a30841d8244125731bde781c92b34f306" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a9168972c601d3b3a72eafae43eb69d51" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1af08eb6c7473fc18573aed927f39aa9c5" kind="function"><name>operator=</name></member>
     <member refid="classnc_1_1_nd_array_1aab95b0c84c9d440fdc0204f5e784e9ca" kind="function"><name>operator=</name></member>
     <member refid="classnc_1_1_nd_array_1a3c29ac2c012bd237654b085760a0201f" kind="function"><name>operator=</name></member>
-    <member refid="classnc_1_1_nd_array_1abe3ca5292febb4c5b157f941656b982f" kind="function"><name>operator[]</name></member>
-    <member refid="classnc_1_1_nd_array_1a3e26e1775a3beb82345cb2d1181528f0" kind="function"><name>operator[]</name></member>
+    <member refid="classnc_1_1_nd_array_1a3adafa5e54c7c719064321b265cce568" kind="function"><name>operator[]</name></member>
+    <member refid="classnc_1_1_nd_array_1a37b5ac32ea94f07d4d239649211c7669" kind="function"><name>operator[]</name></member>
     <member refid="classnc_1_1_nd_array_1ae1feb9c6f69240985274a322da28f72d" kind="function"><name>operator[]</name></member>
     <member refid="classnc_1_1_nd_array_1a49e99914b34262a533f3d4dafa9890e3" kind="function"><name>operator[]</name></member>
     <member refid="classnc_1_1_nd_array_1a25aa5d8342c6d5867db1352b66d3771b" kind="function"><name>operator[]</name></member>
@@ -1005,16 +1006,16 @@
     <member refid="namespacenc_1ad554e38d21aec306a8e3e4cd4ca990a2" kind="function"><name>operator/=</name></member>
     <member refid="namespacenc_1aeddead92789137b30e2150d661db858b" kind="function"><name>operator/=</name></member>
     <member refid="namespacenc_1ae3061323763581fe4cf3ea8efa6fcbb2" kind="function"><name>operator&lt;</name></member>
-    <member refid="namespacenc_1a78c9b9e5e78cf54a310ef46597eeeab8" kind="function"><name>operator&lt;</name></member>
     <member refid="namespacenc_1ae9ca08489796b1ae38c67499b3648ef0" kind="function"><name>operator&lt;</name></member>
+    <member refid="namespacenc_1a78c9b9e5e78cf54a310ef46597eeeab8" kind="function"><name>operator&lt;</name></member>
     <member refid="namespacenc_1ac5bf4d5c39fe1087aafc7f94b6fb552b" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a3b5bc5508bcc2c2f03bfb8fe675d2e6e" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a49514db60fa8b67548732fc4c5fa36e9" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a514ae52783a563c01de113e419cff73d" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a09adb4b7f77a0c28092073e2052f7c1a" kind="function"><name>operator&lt;&lt;=</name></member>
-    <member refid="namespacenc_1a15b45ad7f810ef0a77a0a0192f365d7b" kind="function"><name>operator&lt;=</name></member>
-    <member refid="namespacenc_1aeb561e76866ea5d1bb71175b36e6a63a" kind="function"><name>operator&lt;=</name></member>
     <member refid="namespacenc_1aea677b7a6763a7ab03dc6c3f6c5c5f06" kind="function"><name>operator&lt;=</name></member>
+    <member refid="namespacenc_1aeb561e76866ea5d1bb71175b36e6a63a" kind="function"><name>operator&lt;=</name></member>
+    <member refid="namespacenc_1a15b45ad7f810ef0a77a0a0192f365d7b" kind="function"><name>operator&lt;=</name></member>
     <member refid="namespacenc_1a4493822a2a97fd036b26fc56bc509a1e" kind="function"><name>operator==</name></member>
     <member refid="namespacenc_1ad1f439097f93df93fd22a401eafcfdb3" kind="function"><name>operator==</name></member>
     <member refid="namespacenc_1a506f5ec2b3e798bb2d46894ae3e585ff" kind="function"><name>operator==</name></member>
@@ -1659,7 +1660,7 @@
   </compound>
   <compound refid="diag_8hpp" kind="file"><name>diag.hpp</name>
   </compound>
-  <compound refid="diag_flat_8hpp" kind="file"><name>diagFlat.hpp</name>
+  <compound refid="diagflat_8hpp" kind="file"><name>diagflat.hpp</name>
   </compound>
   <compound refid="diagonal_8hpp" kind="file"><name>diagonal.hpp</name>
   </compound>

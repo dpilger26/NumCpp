@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['data',['data',['../classnc_1_1_nd_array.html#ad102f8fe8139a17ede04f83a03007bf3',1,'nc::NdArray']]],
+  ['data',['data',['../classnc_1_1_nd_array.html#a1f053e8c971f098e6c3fa0904dd6e728',1,'nc::NdArray']]],
   ['datacube',['DataCube',['../classnc_1_1_data_cube.html',1,'nc::DataCube&lt; dtype &gt;'],['../classnc_1_1_data_cube.html#a8224b613a7c87a16e06ef08d6f90926e',1,'nc::DataCube::DataCube()=default'],['../classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b',1,'nc::DataCube::DataCube(uint32 inSize)']]],
   ['datacube_2ehpp',['DataCube.hpp',['../_data_cube_8hpp.html',1,'']]],
-  ['datarelease',['dataRelease',['../classnc_1_1_nd_array.html#aa91013877b9bd37a0411167f2e8eec75',1,'nc::NdArray']]],
+  ['datarelease',['dataRelease',['../classnc_1_1_nd_array.html#af3e2b5f7139f34e8e65678f02a4332c5',1,'nc::NdArray']]],
   ['days_5fper_5fweek',['DAYS_PER_WEEK',['../namespacenc_1_1constants.html#a2c11c386e1a07a17f95122fc4630cbe9',1,'nc::constants']]],
   ['dcm',['DCM',['../classnc_1_1rotations_1_1_d_c_m.html',1,'nc::rotations']]],
   ['dcm_2ehpp',['DCM.hpp',['../_d_c_m_8hpp.html',1,'']]],
@@ -26,7 +26,7 @@ var searchData=
   ['diag',['diag',['../namespacenc.html#a048ad05482042e40c8044d15c4749c35',1,'nc']]],
   ['diag_2ehpp',['diag.hpp',['../diag_8hpp.html',1,'']]],
   ['diagflat',['diagflat',['../namespacenc.html#a38e59bc5dd8d662f1d82448cc170817d',1,'nc']]],
-  ['diagflat_2ehpp',['diagFlat.hpp',['../diag_flat_8hpp.html',1,'']]],
+  ['diagflat_2ehpp',['diagflat.hpp',['../diagflat_8hpp.html',1,'']]],
   ['diagonal',['diagonal',['../classnc_1_1_nd_array.html#a58959d58c043612b0ecb869ea5280382',1,'nc::NdArray::diagonal()'],['../namespacenc.html#ae7bb84601bd94086fe853474fa35fb64',1,'nc::diagonal()']]],
   ['diagonal_2ehpp',['diagonal.hpp',['../diagonal_8hpp.html',1,'']]],
   ['diff',['diff',['../namespacenc.html#aca24655977cb03ca84ef20aebae3e78f',1,'nc']]],

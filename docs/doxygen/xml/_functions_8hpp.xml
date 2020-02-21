@@ -59,7 +59,7 @@
     <includes refid="degrees_8hpp" local="yes">NumCpp/Functions/degrees.hpp</includes>
     <includes refid="delete_indices_8hpp" local="yes">NumCpp/Functions/deleteIndices.hpp</includes>
     <includes refid="diag_8hpp" local="yes">NumCpp/Functions/diag.hpp</includes>
-    <includes refid="diag_flat_8hpp" local="yes">NumCpp/Functions/diagflat.hpp</includes>
+    <includes refid="diagflat_8hpp" local="yes">NumCpp/Functions/diagflat.hpp</includes>
     <includes refid="diagonal_8hpp" local="yes">NumCpp/Functions/diagonal.hpp</includes>
     <includes refid="diff_8hpp" local="yes">NumCpp/Functions/diff.hpp</includes>
     <includes refid="divide_8hpp" local="yes">NumCpp/Functions/divide.hpp</includes>
@@ -893,16 +893,6 @@
         <childnode refid="7821" relation="include">
         </childnode>
         <childnode refid="7853" relation="include">
-        </childnode>
-      </node>
-      <node id="7919">
-        <label>NumCpp/Functions/diagflat.hpp</label>
-        <link refid="diag_flat_8hpp"/>
-        <childnode refid="7821" relation="include">
-        </childnode>
-        <childnode refid="7829" relation="include">
-        </childnode>
-        <childnode refid="7824" relation="include">
         </childnode>
       </node>
       <node id="8032">
@@ -2665,6 +2655,16 @@
         <childnode refid="7824" relation="include">
         </childnode>
       </node>
+      <node id="7919">
+        <label>NumCpp/Functions/diagflat.hpp</label>
+        <link refid="diagflat_8hpp"/>
+        <childnode refid="7821" relation="include">
+        </childnode>
+        <childnode refid="7829" relation="include">
+        </childnode>
+        <childnode refid="7824" relation="include">
+        </childnode>
+      </node>
       <node id="8010">
         <label>NumCpp/Functions/sum.hpp</label>
         <link refid="sum_8hpp"/>
@@ -3247,7 +3247,7 @@
 <codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="degrees_8hpp" kindref="compound">NumCpp/Functions/degrees.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="delete_indices_8hpp" kindref="compound">NumCpp/Functions/deleteIndices.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diag_8hpp" kindref="compound">NumCpp/Functions/diag.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diag_flat_8hpp" kindref="compound">NumCpp/Functions/diagflat.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diagflat_8hpp" kindref="compound">NumCpp/Functions/diagflat.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diagonal_8hpp" kindref="compound">NumCpp/Functions/diagonal.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diff_8hpp" kindref="compound">NumCpp/Functions/diff.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="divide_8hpp" kindref="compound">NumCpp/Functions/divide.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>

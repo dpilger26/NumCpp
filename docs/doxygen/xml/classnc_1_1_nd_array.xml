@@ -112,6 +112,19 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a012e4baaa2a34ab41f91c02747b48476" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::NdArray&lt; dtype &gt;::checkNullPtr</definition>
+        <argsstring>() const</argsstring>
+        <name>checkNullPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the array_ pointer for nullness on access </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="85" bodyend="91"/>
+      </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6142678be814c9c60843dd0dca623f88" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::NdArray&lt; dtype &gt;::deleteArray</definition>
@@ -123,7 +136,7 @@
 <para>Deletes the internal array </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="85" bodyend="96"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="97" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="97" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a5b697c0900a93b8e418b87f3e491bb61" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -148,7 +161,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="105" bodyend="114"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="117" bodyend="126"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -163,7 +176,7 @@
 <para>Defualt Constructor, not very usefull... </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="121" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="121" bodyend="124"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="133" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ad332591aab4b5ae4b761b414b7ef32bc" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -188,7 +201,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="133" bodyend="140"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="145" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="145" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7d77d17c6fa5795e3c54f743ab65bfc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -224,7 +237,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="149" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="149" bodyend="156"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="161" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="161" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a029fa6529449ac3c01eefa6520910f8b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -249,7 +262,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="165" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="165" bodyend="172"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="177" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="177" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae67291e792c9460c7f78fc9e6308deee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -274,7 +287,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="181" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="181" bodyend="189"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="193" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="193" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa04abd2ad7ff2b1edefb9f0c5b5fa760" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -299,7 +312,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="198" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="198" bodyend="227"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="210" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="210" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab8a56710e55e6383502152cb9e8a0ac9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -331,7 +344,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="237" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="237" bodyend="245"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="249" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="249" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a5f47ce8361209bdc57ab5e0f227593c4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -356,7 +369,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="254" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="254" bodyend="262"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="266" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="266" bodyend="274"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ad907e56e90ada1857309ecef9e2b5633" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -381,7 +394,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="271" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="271" bodyend="279"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="283" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="283" bodyend="291"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a67eca413c109e6c68ef4d85b3e4bb0a6" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -406,7 +419,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="288" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="288" bodyend="296"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="300" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="300" bodyend="308"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a2ea48602d358f67c7af016de78dc8d4a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -442,7 +455,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="305" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="305" bodyend="313"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="317" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="317" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ac0bf7318787d59d060531bfaca75bf72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -501,7 +514,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="326" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="326" bodyend="333"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="338" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="338" bodyend="345"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a89d124c04f7cef289e9edf5e2d75f537" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -537,7 +550,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="343" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="343" bodyend="351"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="355" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="355" bodyend="363"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1abd9007fe02f21bcc010c2f6b44e6cd68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -562,7 +575,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="360" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="360" bodyend="368"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="372" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="372" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a59f268663dba2d3a5a0c2ad3460f33b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -587,7 +600,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="377" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="377" bodyend="386"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="389" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="389" bodyend="399"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ade583169fd89c4a64a961583851fa78b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -600,7 +613,7 @@
 <para>Destructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="392" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="392" bodyend="395"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="405" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="405" bodyend="408"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a92737efa2e525a62ad07e63534bd8e36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
@@ -627,7 +640,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1095" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1095" bodyend="1137"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1122" bodyend="1164"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1abe14645f18b0cf6b62e622f0db0624e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
@@ -654,7 +667,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1150" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1150" bodyend="1192"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1177" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1177" bodyend="1219"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa5266474ab548ecfc80cb6a30001c797" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
@@ -681,7 +694,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1206" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1206" bodyend="1244"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1233" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1233" bodyend="1271"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ac9d8a31bc6539479176a8894411286db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
@@ -708,7 +721,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1258" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1258" bodyend="1296"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1285" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1285" bodyend="1323"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa290cea4123e76ea8165d2dde8974b2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
@@ -735,7 +748,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1309" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1309" bodyend="1378"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1336" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1336" bodyend="1405"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a89184343c8eef94fc7353a620aa2edfc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -754,7 +767,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1390" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1390" bodyend="1409"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1417" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1417" bodyend="1436"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae6c1faadee65ae35236c3551784cd5f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype &amp;</type>
@@ -780,7 +793,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="747" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="747" bodyend="759"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="768" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="768" bodyend="780"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a9117ab9464a51b264ceda106c4eca505" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const dtype &amp;</type>
@@ -806,7 +819,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="770" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="770" bodyend="782"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="791" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="791" bodyend="803"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6264f04fea2a2d9a4589f752fdb52f43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype &amp;</type>
@@ -843,7 +856,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="793" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="793" bodyend="814"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="814" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="814" bodyend="835"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a472e831a3b2ed98eb470e969c210aae4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const dtype &amp;</type>
@@ -880,7 +893,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="825" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="825" bodyend="846"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="846" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="846" bodyend="867"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a46ce833b863055c81d59c27ef93107e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -906,7 +919,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="857" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="857" bodyend="862"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="878" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="878" bodyend="885"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a72b7c1674558c69a2a1102652901bcd3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -943,7 +956,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="873" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="873" bodyend="878"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="896" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="896" bodyend="901"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a976b7768fe9ddaa6ca50d66ba4ed7ed4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -980,7 +993,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="889" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="889" bodyend="894"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="912" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="912" bodyend="917"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a02c013952d6f2435cfdf520589c610b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1017,7 +1030,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="905" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="905" bodyend="910"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="928" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="928" bodyend="933"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a94c5752747b9b937c092632af9c7a7aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype</type>
@@ -1031,12 +1044,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1418" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1418" bodyend="1421"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1445" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1445" bodyend="1448"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a7f0714a1bd6f9f03d5f28e420c61bf0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1af5fd346e89b4a6117ed4a2296fe68959" kindref="member">iterator</ref></type>
         <definition>iterator nc::NdArray&lt; dtype &gt;::begin</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>()</argsstring>
         <name>begin</name>
         <briefdescription>
         </briefdescription>
@@ -1045,7 +1058,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="918" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="918" bodyend="921"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="941" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="941" bodyend="946"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7e4010114ca11be6e10903ab4bd4d9dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1af5fd346e89b4a6117ed4a2296fe68959" kindref="member">iterator</ref></type>
@@ -1071,7 +1084,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="932" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="932" bodyend="940"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="957" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="957" bodyend="965"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6f07a76eefb244f4ca794bd9e8b9132c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1085,7 +1098,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="948" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="948" bodyend="951"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="973" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="973" bodyend="976"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a03da861520e1abcfc06d0d2ff1282626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1111,7 +1124,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="962" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="962" bodyend="965"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="987" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="987" bodyend="990"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1af4ad4608720c271a6045b09fbe10083d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -1125,12 +1138,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1432" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1432" bodyend="1458"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1459" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1459" bodyend="1485"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a46a8bd2b5b14f75e80590fb11ece89ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
         <definition>const_iterator nc::NdArray&lt; dtype &gt;::cbegin</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>cbegin</name>
         <briefdescription>
         </briefdescription>
@@ -1139,7 +1152,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1029" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1029" bodyend="1032"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1054" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1054" bodyend="1059"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa75d85def3d58bfb531a6e2626cd7799" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1165,7 +1178,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1043" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1043" bodyend="1051"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1070" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1070" bodyend="1078"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1179,7 +1192,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1060" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1060" bodyend="1063"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1087" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1087" bodyend="1090"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a72e0f298458da1647e3ecedebb64cd36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1205,7 +1218,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1074" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1074" bodyend="1082"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1101" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1101" bodyend="1109"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1242,7 +1255,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1471" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1471" bodyend="1476"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1498" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1498" bodyend="1503"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aaefd65593adf81abeba6259dc0c95acd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1260,7 +1273,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1486" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1486" bodyend="1489"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1513" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1513" bodyend="1516"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a129666b27611423b46c05c7fdbe937d4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
@@ -1298,7 +1311,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1500" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1500" bodyend="1537"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1527" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1527" bodyend="1564"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aec355aa347578efbd9baceb062a145ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1312,7 +1325,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1548" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1548" bodyend="1551"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1575" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1575" bodyend="1578"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a377c1b5393aabc2b00496643a5c5da03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1_slice" kindref="compound">Slice</ref></type>
@@ -1351,7 +1364,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="718" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="718" bodyend="721"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="739" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="739" bodyend="742"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1378,7 +1391,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1564" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1564" bodyend="1614"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1591" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1591" bodyend="1641"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1405,12 +1418,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1627" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1627" bodyend="1677"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1654" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1654" bodyend="1704"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1ad102f8fe8139a17ede04f83a03007bf3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a1f053e8c971f098e6c3fa0904dd6e728" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype *</type>
         <definition>dtype* nc::NdArray&lt; dtype &gt;::data</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>data</name>
         <briefdescription>
         </briefdescription>
@@ -1419,12 +1432,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1684" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1684" bodyend="1687"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1711" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1711" bodyend="1715"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1aa91013877b9bd37a0411167f2e8eec75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1af3e2b5f7139f34e8e65678f02a4332c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype *</type>
         <definition>dtype* nc::NdArray&lt; dtype &gt;::dataRelease</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>()</argsstring>
         <name>dataRelease</name>
         <briefdescription>
         </briefdescription>
@@ -1433,7 +1446,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1696" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1696" bodyend="1700"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1724" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1724" bodyend="1728"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1472,7 +1485,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1713" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1713" bodyend="1766"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1741" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1741" bodyend="1794"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1498,7 +1511,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1782" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1782" bodyend="1815"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1810" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1810" bodyend="1843"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a1a75a88440cb5460da17b23e0dd6b030" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -1523,7 +1536,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1826" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1826" bodyend="1842"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1854" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1854" bodyend="1872"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a217adf4a530aa2bba221d89c3c5a96be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1af5fd346e89b4a6117ed4a2296fe68959" kindref="member">iterator</ref></type>
@@ -1537,7 +1550,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="973" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="973" bodyend="976"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="998" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="998" bodyend="1001"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a4301cb892e3fcc6017786f2f88f9ceb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1af5fd346e89b4a6117ed4a2296fe68959" kindref="member">iterator</ref></type>
@@ -1563,7 +1576,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="987" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="987" bodyend="995"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1012" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1012" bodyend="1020"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a1584bf57603d37fe3b3ada7003772d83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1577,7 +1590,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1003" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1003" bodyend="1006"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1028" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1028" bodyend="1031"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7d9b39b306a8ab172ebabb8575acd055" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" kindref="member">const_iterator</ref></type>
@@ -1603,7 +1616,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1017" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1017" bodyend="1020"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1042" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1042" bodyend="1045"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a12ffea3b6227328c008e1a6befab091c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152" kindref="member">Endian</ref></type>
@@ -1617,7 +1630,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1956" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1956" bodyend="1959"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1986" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1986" bodyend="1989"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa63fbc6b80a19e4bd1a9f2da76d6ab7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -1643,7 +1656,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1972" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1972" bodyend="1976"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2002" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2002" bodyend="2006"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa0b3a378c7cf4e30b7ad287bd7e935b9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
@@ -1657,7 +1670,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1852" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1852" bodyend="1866"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1882" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1882" bodyend="1896"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a5169b9ad613ce03c7cb748b05e978028" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1671,7 +1684,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1987" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1987" bodyend="1992"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2017" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2017" bodyend="2022"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a5173e2d0a9fe983213193d8a4dfde21c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype</type>
@@ -1685,7 +1698,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2001" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2001" bodyend="2004"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2031" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2031" bodyend="2034"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a0d2475dc8c8f5edb2e4c2887078b890a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1711,7 +1724,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2015" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2015" bodyend="2018"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2045" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2045" bodyend="2048"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a2dfd7ac740d1830363949f27511b7ecc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1737,7 +1750,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2031" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2031" bodyend="2034"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2061" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2061" bodyend="2064"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a626fd6565a7a5cf7cf60cece6d24b9c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -1751,7 +1764,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1876" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1876" bodyend="1879"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1906" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1906" bodyend="1909"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a86612718fff113e3f4398bea80035a63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -1765,7 +1778,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1889" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1889" bodyend="1892"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1919" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1919" bodyend="1922"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a07864281508378503c26354e190394f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
@@ -1792,7 +1805,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1901" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1901" bodyend="1936"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1931" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1931" bodyend="1966"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1afb7f3972ab5ef12be30906e5f5501fe7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -1806,7 +1819,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1944" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1944" bodyend="1947"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="1974" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="1974" bodyend="1977"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype</type>
@@ -1820,7 +1833,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2045" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2045" bodyend="2057"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2075" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2075" bodyend="2087"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1847,7 +1860,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2070" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2070" bodyend="2107"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2100" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2100" bodyend="2137"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -1874,7 +1887,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2170" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2170" bodyend="2211"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2200" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2200" bodyend="2241"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a8c0907a69c368e28047f034ade0d3c24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1901,7 +1914,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2226" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2226" bodyend="2307"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2256" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2256" bodyend="2337"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7a863a1318f753addcf8163191085061" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1928,7 +1941,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2120" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2120" bodyend="2157"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2150" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2150" bodyend="2187"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1acdec037f14a431cb6a29f3782f087bcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -1941,7 +1954,7 @@
 <para>Fills the array with nans; only really works with. Only really works for dtype = float/double </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2315" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2315" bodyend="2320"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2345" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2345" bodyend="2350"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ade202c90305ccd24781a9b0f8bf601a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></type>
@@ -1955,7 +1968,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2331" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2331" bodyend="2334"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2361" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2361" bodyend="2364"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7f0ba5d000ef7d60d51ead3d16f7046d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -1981,7 +1994,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2350" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2350" bodyend="2477"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2380" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2380" bodyend="2507"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a715f5529043d874c8970b3dfa91e859d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
@@ -2008,7 +2021,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2490" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2490" bodyend="2532"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2520" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2520" bodyend="2562"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1abe7dd1118afeb7725b224a612a03b6ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;, <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt; &gt;</type>
@@ -2022,7 +2035,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2545" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3951" bodyend="3969"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2575" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3981" bodyend="3999"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a9a8b5063ec64c9d0d9afdce057db77ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -2049,7 +2062,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2558" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2558" bodyend="2607"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2588" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2588" bodyend="2637"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a13ddcb6c2ace15a7a4ada6982bc9c982" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -2063,7 +2076,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2617" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2617" bodyend="2620"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2647" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2647" bodyend="2650"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab0e399408388daf11ac4877c6e9d4e69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -2077,7 +2090,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2630" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2630" bodyend="2633"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2660" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2660" bodyend="2663"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a8444c4313d68aaf1e8539db95e7ffbac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2090,7 +2103,7 @@
 <para>Fills the array with ones </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2640" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2640" bodyend="2645"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2670" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2670" bodyend="2675"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype &amp;</type>
@@ -2127,12 +2140,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="511" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="511" bodyend="524"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="528" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="528" bodyend="543"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1aba9d02408b06e5dea7b9d41ff1a1f5a0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a5b055b2863b3321843c46fdaaf36b054" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const dtype &amp;</type>
         <definition>const dtype&amp; nc::NdArray&lt; dtype &gt;::operator()</definition>
-        <argsstring>(int32 inRowIndex, int32 inColIndex) const noexcept</argsstring>
+        <argsstring>(int32 inRowIndex, int32 inColIndex) const</argsstring>
         <name>operator()</name>
         <param>
           <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
@@ -2164,7 +2177,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="535" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="535" bodyend="548"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="554" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="554" bodyend="569"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a75cee1d3c0ab6d48dad3eb95a704a588" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2201,7 +2214,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="636" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="636" bodyend="656"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="657" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="657" bodyend="677"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a30841d8244125731bde781c92b34f306" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2238,7 +2251,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="668" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="668" bodyend="681"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="689" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="689" bodyend="702"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a9168972c601d3b3a72eafae43eb69d51" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2275,7 +2288,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="693" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="693" bodyend="706"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="714" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="714" bodyend="727"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1af08eb6c7473fc18573aed927f39aa9c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2301,7 +2314,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="406" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="406" bodyend="417"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="419" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="419" bodyend="430"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aab95b0c84c9d440fdc0204f5e784e9ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2327,7 +2340,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="429" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="429" bodyend="434"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="442" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="442" bodyend="447"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a3c29ac2c012bd237654b085760a0201f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2353,12 +2366,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="445" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="445" bodyend="462"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="458" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="458" bodyend="475"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1abe3ca5292febb4c5b157f941656b982f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a3adafa5e54c7c719064321b265cce568" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype &amp;</type>
         <definition>dtype&amp; nc::NdArray&lt; dtype &gt;::operator[]</definition>
-        <argsstring>(int32 inIndex) noexcept</argsstring>
+        <argsstring>(int32 inIndex)</argsstring>
         <name>operator[]</name>
         <param>
           <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
@@ -2379,12 +2392,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="473" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="473" bodyend="481"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="486" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="486" bodyend="496"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1a3e26e1775a3beb82345cb2d1181528f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a37b5ac32ea94f07d4d239649211c7669" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const dtype &amp;</type>
         <definition>const dtype&amp; nc::NdArray&lt; dtype &gt;::operator[]</definition>
-        <argsstring>(int32 inIndex) const noexcept</argsstring>
+        <argsstring>(int32 inIndex) const</argsstring>
         <name>operator[]</name>
         <param>
           <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
@@ -2405,7 +2418,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="492" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="492" bodyend="500"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="507" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="507" bodyend="517"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae1feb9c6f69240985274a322da28f72d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2431,7 +2444,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="560" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="560" bodyend="572"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="581" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="581" bodyend="593"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a49e99914b34262a533f3d4dafa9890e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2457,7 +2470,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="583" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="583" bodyend="598"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="604" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="604" bodyend="619"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a25aa5d8342c6d5867db1352b66d3771b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2483,7 +2496,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="609" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="609" bodyend="624"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="630" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="630" bodyend="645"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a2fe5e5e6e6844dcc8576c597285c994f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -2497,7 +2510,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2653" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2653" bodyend="2656"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2683" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2683" bodyend="2686"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a2b21d26836e852c22ff04e4021935715" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2535,7 +2548,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2674" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2674" bodyend="2725"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2704" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2704" bodyend="2755"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a510b5d39a07a35208cf23142a440fede" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -2548,7 +2561,7 @@
 <para>Prints the array to the console. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2732" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2732" bodyend="2735"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2762" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2762" bodyend="2765"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aea4d359f558a7d463a843c147bc2a948" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2575,7 +2588,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2748" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2748" bodyend="2789"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2778" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2778" bodyend="2819"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae90b5d8ba2a2466c40a1fd374b69598b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -2602,7 +2615,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2802" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2802" bodyend="2842"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2832" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2832" bodyend="2872"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2638,7 +2651,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2853" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2853" bodyend="2858"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2883" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2883" bodyend="2888"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a8725317fe7e637119df82f50dbacc157" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2685,7 +2698,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2870" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2870" bodyend="2875"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2900" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2900" bodyend="2905"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae3c2fb9ef470a0c6d03dcfef09545039" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2721,7 +2734,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2886" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2886" bodyend="2894"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2916" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2916" bodyend="2924"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a98701c9d571620ad142cf7934e174ede" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2757,7 +2770,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2905" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2905" bodyend="2919"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2935" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2935" bodyend="2949"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1accd8527a65838cd0f4292b3dcb763b60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2793,7 +2806,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2930" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2930" bodyend="2941"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2960" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2960" bodyend="2971"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae6c5dd42c2e1e36615d4dfe2c916afff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2829,7 +2842,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2952" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2952" bodyend="2964"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2982" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2982" bodyend="2994"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aabbc32dbf4831ee72376fdf0d2f22b3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2876,7 +2889,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="2976" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="2976" bodyend="2994"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3006" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3006" bodyend="3024"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a21bab5f9ab83c2fd85f35bea5705f881" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2923,7 +2936,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3006" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3006" bodyend="3018"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3036" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3036" bodyend="3048"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab8c757e2d54eaf92faf097bba0c5cd89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -2970,7 +2983,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3030" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3030" bodyend="3042"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3060" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3060" bodyend="3072"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a719f94b4172d43a59fe6406c69ce1a61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3017,7 +3030,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3054" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3054" bodyend="3073"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3084" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3084" bodyend="3103"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a78c996f5b0e4cdaa1ad7718509255f80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3064,7 +3077,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3085" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3085" bodyend="3098"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3115" bodyend="3128"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a223415dda1b4b8d70b140d947784362c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3111,7 +3124,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3110" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3110" bodyend="3123"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3140" bodyend="3153"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a15899cfb75a560409f474826d960fec2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3147,7 +3160,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3132" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3132" bodyend="3140"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3162" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3162" bodyend="3170"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a801c9b8cb11f1e87d377d0587c358dba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3183,7 +3196,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3149" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3149" bodyend="3157"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3179" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3179" bodyend="3187"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa813af00184616e608feecf30b7aa016" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3197,7 +3210,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3167" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3167" bodyend="3171"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3197" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3197" bodyend="3201"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ada6c26cecef37f5db019011b458a6c12" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3234,7 +3247,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3184" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3184" bodyend="3214"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3214" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3214" bodyend="3244"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a775b416ccd90497951c25029ad932c2c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3260,7 +3273,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3227" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3227" bodyend="3230"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3257" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3257" bodyend="3260"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab0997e00f0db88832d9c18e45373af3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -3296,7 +3309,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3239" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3239" bodyend="3242"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3269" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3269" bodyend="3272"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a59dbd6d99cded00a36b2dec0ecbfb4b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3321,7 +3334,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3255" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3255" bodyend="3268"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3285" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3285" bodyend="3298"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a9a78c31c9d0ce4ed5d1a28aba9e79285" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3357,7 +3370,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3282" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3282" bodyend="3323"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3312" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3312" bodyend="3353"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6024995920906797ada4c2484a5c0f41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3382,7 +3395,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3337" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3337" bodyend="3340"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3367" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3367" bodyend="3370"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a1638d4bfc3788d2154edf848ad6b18f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3418,7 +3431,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3352" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3352" bodyend="3358"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3382" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3382" bodyend="3388"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a60adbb72004ec55a3c39a3832b06250c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3443,7 +3456,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3370" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3370" bodyend="3373"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3400" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3400" bodyend="3403"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a4f09a314bca88ffceaf60fb54fdf2d1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3479,7 +3492,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3387" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3387" bodyend="3413"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3417" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3417" bodyend="3443"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a2c445789b4c8d8cfb9a8d67185dd8764" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3504,7 +3517,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3427" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3427" bodyend="3430"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3457" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3457" bodyend="3460"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6d2ac80b2f7b1fa818e33bd03d66a224" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -3531,7 +3544,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3441" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3441" bodyend="3489"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3471" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3471" bodyend="3519"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a3f1c7b94cf5f2b2beb961ef426e0e29f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3558,7 +3571,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3503" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3503" bodyend="3522"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3533" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3533" bodyend="3552"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a72747c61318537694bf9a7a594075c78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3576,7 +3589,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3532" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3532" bodyend="3535"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3562" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3562" bodyend="3565"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aea1061c8c6954ca960412a7f4b323405" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1_slice" kindref="compound">Slice</ref></type>
@@ -3615,7 +3628,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="733" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="733" bodyend="736"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="754" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="754" bodyend="757"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref></type>
@@ -3629,7 +3642,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3546" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3546" bodyend="3549"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3576" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3576" bodyend="3579"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -3643,7 +3656,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3560" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3560" bodyend="3563"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3590" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3590" bodyend="3593"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ae7ac46be842b15402624db409f871771" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3670,7 +3683,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3576" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3576" bodyend="3607"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3606" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3606" bodyend="3637"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a276df134adac8fb7304bc951ef639b45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -3697,7 +3710,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3620" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3620" bodyend="3678"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3650" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3650" bodyend="3708"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab2daa76c0c35263c3426a29c832a6149" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -3711,7 +3724,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3687" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3687" bodyend="3710"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3717" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3717" bodyend="3740"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3738,7 +3751,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3723" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3723" bodyend="3761"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3753" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3753" bodyend="3791"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a843ebed50d1fae2993e4716e0adf17ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3752,7 +3765,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3772" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3772" bodyend="3775"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3802" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3802" bodyend="3805"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aa94662d12c0f3558fa78344c8cfe95cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -3790,7 +3803,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3790" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3790" bodyend="3821"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3820" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3820" bodyend="3851"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a7fb4764e4f24c72c6299f0142d394070" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::vector&lt; dtype &gt;</type>
@@ -3804,7 +3817,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3830" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3830" bodyend="3833"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3860" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3860" bodyend="3863"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1af46899aa9486c6189a0db53228774f76" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>dtype</type>
@@ -3843,7 +3856,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3847" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3847" bodyend="3888"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3877" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3877" bodyend="3918"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1aae29c9fbae3e92ce432703ffd7722d8b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
@@ -3857,7 +3870,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3899" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3899" bodyend="3910"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3929" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3929" bodyend="3940"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1a24135dd7a7713cb02ac260e70d458e23" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -3884,7 +3897,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3923" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3923" bodyend="3933"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3953" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3953" bodyend="3963"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_1ad482cf57eed985a1bf8e3dcc0a0d21e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -3897,7 +3910,7 @@
 <para>Fills the array with zeros </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3940" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3940" bodyend="3945"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="3970" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="3970" bodyend="3975"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -3910,7 +3923,7 @@
         <link refid="classnc_1_1_nd_array"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="66" bodyend="3946"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray/NdArrayCore.hpp" bodystart="66" bodyend="3976"/>
     <listofallmembers>
       <member refid="classnc_1_1_nd_array_1a92737efa2e525a62ad07e63534bd8e36" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>all</name></member>
       <member refid="classnc_1_1_nd_array_1abe14645f18b0cf6b62e622f0db0624e0" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>any</name></member>
@@ -3928,15 +3941,16 @@
       <member refid="classnc_1_1_nd_array_1a976b7768fe9ddaa6ca50d66ba4ed7ed4" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>at</name></member>
       <member refid="classnc_1_1_nd_array_1a02c013952d6f2435cfdf520589c610b6" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>at</name></member>
       <member refid="classnc_1_1_nd_array_1a94c5752747b9b937c092632af9c7a7aa" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>back</name></member>
-      <member refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>begin</name></member>
+      <member refid="classnc_1_1_nd_array_1a7f0714a1bd6f9f03d5f28e420c61bf0f" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>begin</name></member>
       <member refid="classnc_1_1_nd_array_1a7e4010114ca11be6e10903ab4bd4d9dd" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>begin</name></member>
       <member refid="classnc_1_1_nd_array_1a6f07a76eefb244f4ca794bd9e8b9132c" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>begin</name></member>
       <member refid="classnc_1_1_nd_array_1a03da861520e1abcfc06d0d2ff1282626" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>begin</name></member>
       <member refid="classnc_1_1_nd_array_1af4ad4608720c271a6045b09fbe10083d" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>byteswap</name></member>
-      <member refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cbegin</name></member>
+      <member refid="classnc_1_1_nd_array_1a46a8bd2b5b14f75e80590fb11ece89ba" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cbegin</name></member>
       <member refid="classnc_1_1_nd_array_1aa75d85def3d58bfb531a6e2626cd7799" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cbegin</name></member>
       <member refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cend</name></member>
       <member refid="classnc_1_1_nd_array_1a72e0f298458da1647e3ecedebb64cd36" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cend</name></member>
+      <member refid="classnc_1_1_nd_array_1a012e4baaa2a34ab41f91c02747b48476" prot="private" virt="non-virtual"><scope>nc::NdArray</scope><name>checkNullPtr</name></member>
       <member refid="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>clip</name></member>
       <member refid="classnc_1_1_nd_array_1aaefd65593adf81abeba6259dc0c95acd" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>column</name></member>
       <member refid="classnc_1_1_nd_array_1a314e112215cfe6abdba35adf0998899b" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>const_iterator</name></member>
@@ -3945,8 +3959,8 @@
       <member refid="classnc_1_1_nd_array_1a377c1b5393aabc2b00496643a5c5da03" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cSlice</name></member>
       <member refid="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cumprod</name></member>
       <member refid="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>cumsum</name></member>
-      <member refid="classnc_1_1_nd_array_1ad102f8fe8139a17ede04f83a03007bf3" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>data</name></member>
-      <member refid="classnc_1_1_nd_array_1aa91013877b9bd37a0411167f2e8eec75" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>dataRelease</name></member>
+      <member refid="classnc_1_1_nd_array_1a1f053e8c971f098e6c3fa0904dd6e728" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>data</name></member>
+      <member refid="classnc_1_1_nd_array_1af3e2b5f7139f34e8e65678f02a4332c5" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>dataRelease</name></member>
       <member refid="classnc_1_1_nd_array_1a6142678be814c9c60843dd0dca623f88" prot="private" virt="non-virtual"><scope>nc::NdArray</scope><name>deleteArray</name></member>
       <member refid="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>diagonal</name></member>
       <member refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>dot</name></member>
@@ -3999,15 +4013,15 @@
       <member refid="classnc_1_1_nd_array_1ab0e399408388daf11ac4877c6e9d4e69" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>numRows</name></member>
       <member refid="classnc_1_1_nd_array_1a8444c4313d68aaf1e8539db95e7ffbac" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>ones</name></member>
       <member refid="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
-      <member refid="classnc_1_1_nd_array_1aba9d02408b06e5dea7b9d41ff1a1f5a0" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
+      <member refid="classnc_1_1_nd_array_1a5b055b2863b3321843c46fdaaf36b054" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
       <member refid="classnc_1_1_nd_array_1a75cee1d3c0ab6d48dad3eb95a704a588" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
       <member refid="classnc_1_1_nd_array_1a30841d8244125731bde781c92b34f306" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
       <member refid="classnc_1_1_nd_array_1a9168972c601d3b3a72eafae43eb69d51" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator()</name></member>
       <member refid="classnc_1_1_nd_array_1af08eb6c7473fc18573aed927f39aa9c5" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator=</name></member>
       <member refid="classnc_1_1_nd_array_1aab95b0c84c9d440fdc0204f5e784e9ca" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator=</name></member>
       <member refid="classnc_1_1_nd_array_1a3c29ac2c012bd237654b085760a0201f" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator=</name></member>
-      <member refid="classnc_1_1_nd_array_1abe3ca5292febb4c5b157f941656b982f" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
-      <member refid="classnc_1_1_nd_array_1a3e26e1775a3beb82345cb2d1181528f0" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
+      <member refid="classnc_1_1_nd_array_1a3adafa5e54c7c719064321b265cce568" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
+      <member refid="classnc_1_1_nd_array_1a37b5ac32ea94f07d4d239649211c7669" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
       <member refid="classnc_1_1_nd_array_1ae1feb9c6f69240985274a322da28f72d" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
       <member refid="classnc_1_1_nd_array_1a49e99914b34262a533f3d4dafa9890e3" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>
       <member refid="classnc_1_1_nd_array_1a25aa5d8342c6d5867db1352b66d3771b" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>operator[]</name></member>

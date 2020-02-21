@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['data',['data',['../classnc_1_1_nd_array.html#ad102f8fe8139a17ede04f83a03007bf3',1,'nc::NdArray']]],
+  ['data',['data',['../classnc_1_1_nd_array.html#a1f053e8c971f098e6c3fa0904dd6e728',1,'nc::NdArray']]],
   ['datacube',['DataCube',['../classnc_1_1_data_cube.html#a8224b613a7c87a16e06ef08d6f90926e',1,'nc::DataCube::DataCube()=default'],['../classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b',1,'nc::DataCube::DataCube(uint32 inSize)']]],
-  ['datarelease',['dataRelease',['../classnc_1_1_nd_array.html#aa91013877b9bd37a0411167f2e8eec75',1,'nc::NdArray']]],
+  ['datarelease',['dataRelease',['../classnc_1_1_nd_array.html#af3e2b5f7139f34e8e65678f02a4332c5',1,'nc::NdArray']]],
   ['dec',['dec',['../classnc_1_1coordinates_1_1_coordinate.html#ab5502c231ff400b90fc9ede39a524eed',1,'nc::coordinates::Coordinate::dec()'],['../classnc_1_1coordinates_1_1_dec.html#ab23e76dd571bb84107a2a6b2a6666c7f',1,'nc::coordinates::Dec::Dec() noexcept=default'],['../classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7',1,'nc::coordinates::Dec::Dec(double inDegrees)'],['../classnc_1_1coordinates_1_1_dec.html#af462329adb3a1bdb1f6b724e7a92a442',1,'nc::coordinates::Dec::Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds) noexcept']]],
   ['deg2rad',['deg2rad',['../namespacenc.html#ab6b65609e3966a58727579080712e5d9',1,'nc::deg2rad(dtype inValue) noexcept'],['../namespacenc.html#a5bb32d6017b8d3d654a8dc3b793731ea',1,'nc::deg2rad(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['degrees',['degrees',['../classnc_1_1coordinates_1_1_dec.html#ad2e47ff7298e1b88bb1b77940c241c8f',1,'nc::coordinates::Dec::degrees()'],['../classnc_1_1coordinates_1_1_r_a.html#aaf73bcb5e2afd0e075c452148f67a3bd',1,'nc::coordinates::RA::degrees()'],['../namespacenc.html#aec21ac85c071b59d9abf50602bef3144',1,'nc::degrees(dtype inValue) noexcept'],['../namespacenc.html#a111b49498db502443a9a11b5611e18a0',1,'nc::degrees(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
