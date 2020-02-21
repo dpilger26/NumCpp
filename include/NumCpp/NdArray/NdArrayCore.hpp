@@ -80,6 +80,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Checks the array_ pointer for nullness on access
+        ///
+        void checkNullPtr() const
+        {
+            if (array_ == nullptr)
+            {
+                THROW_RUNTIME_ERROR("trying to access an empty array");
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Deletes the internal array
         ///
         void deleteArray() noexcept
@@ -90,7 +102,7 @@ namespace nc
             }
 
             array_ = nullptr;
-            shape_ = Shape(0, 0);
+            shape_.rows = shape_.cols = 0;
             size_ = 0;
             ownsPtr_ = false;
         }
@@ -379,9 +391,10 @@ namespace nc
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(inOtherArray.array_),
-            ownsPtr_(true)
+            ownsPtr_(inOtherArray.ownsPtr_)
         {
             inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
+            inOtherArray.ownsPtr_ = false;
             inOtherArray.array_ = nullptr;
         }
 
@@ -470,8 +483,10 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& operator[](int32 inIndex) noexcept
+        dtype& operator[](int32 inIndex)
         {
+            checkNullPtr();
+
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -489,8 +504,10 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator[](int32 inIndex) const noexcept
+        const dtype& operator[](int32 inIndex) const
         {
+            checkNullPtr();
+
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -510,6 +527,8 @@ namespace nc
         ///
         dtype& operator()(int32 inRowIndex, int32 inColIndex) noexcept
         {
+            checkNullPtr();
+
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -532,8 +551,10 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator()(int32 inRowIndex, int32 inColIndex) const noexcept
+        const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
         {
+            checkNullPtr();
+
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -856,6 +877,8 @@ namespace nc
         ///
         NdArray<dtype> at(const Slice& inSlice) const
         {
+            checkNullPtr();
+
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
             return operator[](inSlice);
@@ -915,8 +938,10 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator begin() noexcept
+        iterator begin()
         {
+            checkNullPtr();
+
             return array_;
         }
 
@@ -1026,8 +1051,10 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cbegin() const noexcept
+        const_iterator cbegin() const
         {
+            checkNullPtr();
+
             return array_;
         }
 
@@ -1681,8 +1708,9 @@ namespace nc
         ///						Returns the raw pointer to the underlying data
         /// @return dtype*
         ///
-        dtype* data() const noexcept
+        dtype* data() const
         {
+            checkNullPtr();
             return array_;
         }
 
@@ -1693,10 +1721,10 @@ namespace nc
         ///                     to the underlying data.
         /// @return dtype*
         ///
-        dtype* dataRelease() noexcept
+        dtype* dataRelease()
         {
-            ownsPtr_ = false;
-            return array_;
+            ownsPtr_ = false;           
+            return data();
         }
 
         //============================================================================
@@ -1825,6 +1853,8 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
+            checkNullPtr();
+
             filesystem::File f(inFilename);
             if (!f.hasExt())
             {
@@ -3966,21 +3996,5 @@ namespace nc
         }
 
         return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						io operator for the NdArray class
-    ///
-    /// @param      inOStream
-    /// @param      inArray
-    /// @return
-    ///				std::ostream
-    ///
-    template<typename dtype>
-    std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) noexcept
-    {
-        inOStream << inArray.str();
-        return inOStream;
     }
 }

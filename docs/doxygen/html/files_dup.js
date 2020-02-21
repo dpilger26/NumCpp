@@ -133,7 +133,7 @@ var files_dup =
     [ "deleteIndices.hpp", "delete_indices_8hpp.html", "delete_indices_8hpp" ],
     [ "det.hpp", "det_8hpp.html", "det_8hpp" ],
     [ "diag.hpp", "diag_8hpp.html", "diag_8hpp" ],
-    [ "diagFlat.hpp", "diag_flat_8hpp.html", "diag_flat_8hpp" ],
+    [ "diagflat.hpp", "diagflat_8hpp.html", "diagflat_8hpp" ],
     [ "diagonal.hpp", "diagonal_8hpp.html", "diagonal_8hpp" ],
     [ "diff.hpp", "diff_8hpp.html", "diff_8hpp" ],
     [ "digamma.hpp", "digamma_8hpp.html", "digamma_8hpp" ],
@@ -283,7 +283,9 @@ var files_dup =
     [ "nanvar.hpp", "nanvar_8hpp.html", "nanvar_8hpp" ],
     [ "nbytes.hpp", "nbytes_8hpp.html", "nbytes_8hpp" ],
     [ "NdArray.hpp", "_nd_array_8hpp.html", null ],
-    [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", "_nd_array_core_8hpp" ],
+    [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", [
+      [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ]
+    ] ],
     [ "NdArrayOperators.hpp", "_nd_array_operators_8hpp.html", "_nd_array_operators_8hpp" ],
     [ "nearest1d.hpp", "nearest1d_8hpp.html", "nearest1d_8hpp" ],
     [ "nearest2d.hpp", "nearest2d_8hpp.html", "nearest2d_8hpp" ],

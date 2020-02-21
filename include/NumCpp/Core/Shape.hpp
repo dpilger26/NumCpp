@@ -58,7 +58,7 @@ namespace nc
         constexpr explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
             cols(inSquareSize)
-        {};
+        {}
 
         //============================================================================
         ///						Constructor
@@ -69,7 +69,7 @@ namespace nc
         constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
             cols(inCols)
-        {};
+        {}
 
         //============================================================================
         ///						Equality operator

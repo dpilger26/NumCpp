@@ -10,7 +10,7 @@ var searchData=
   ['deleteindices_2ehpp',['deleteIndices.hpp',['../delete_indices_8hpp.html',1,'']]],
   ['det_2ehpp',['det.hpp',['../det_8hpp.html',1,'']]],
   ['diag_2ehpp',['diag.hpp',['../diag_8hpp.html',1,'']]],
-  ['diagflat_2ehpp',['diagFlat.hpp',['../diag_flat_8hpp.html',1,'']]],
+  ['diagflat_2ehpp',['diagflat.hpp',['../diagflat_8hpp.html',1,'']]],
   ['diagonal_2ehpp',['diagonal.hpp',['../diagonal_8hpp.html',1,'']]],
   ['diff_2ehpp',['diff.hpp',['../diff_8hpp.html',1,'']]],
   ['digamma_2ehpp',['digamma.hpp',['../digamma_8hpp.html',1,'']]],
