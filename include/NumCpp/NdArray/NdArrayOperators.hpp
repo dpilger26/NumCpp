@@ -1541,4 +1541,20 @@ namespace nc
         --lhs;
         return copy;
     }
+
+    //============================================================================
+    // Method Description:
+    ///						io operator for the NdArray class
+    ///
+    /// @param      inOStream
+    /// @param      inArray
+    /// @return
+    ///				std::ostream
+    ///
+    template<typename dtype>
+    std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) noexcept
+    {
+        inOStream << inArray.str();
+        return inOStream;
+    }
 }
