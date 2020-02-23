@@ -6,7 +6,7 @@ install(
     DIRECTORY
     "../include/"
     DESTINATION
-    "/usr/include"
+    include
     FILES_MATCHING
     PATTERN
     "*.hpp"
