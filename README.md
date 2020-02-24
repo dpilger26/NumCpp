@@ -23,9 +23,9 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## Testing
 
-**C++ Standards:** C++11, C++14, and C++17
-**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0
-**Boost Versions:** 1.68 and 1.70
+**C++ Standards:** C++11, C++14, and C++17  
+**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0  
+**Boost Versions:** 1.68 and 1.70  
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 
