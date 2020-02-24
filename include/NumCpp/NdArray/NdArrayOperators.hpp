@@ -799,10 +799,15 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
+        auto function = [](dtype value) -> dtype
+        {
+            return ~value;
+        };
+
         NdArray<dtype> returnArray(inArray.shape());
 
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
-            returnArray.begin(), std::bit_not<dtype>());
+            returnArray.begin(), function);
 
         return returnArray;
     }
