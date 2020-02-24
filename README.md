@@ -23,9 +23,9 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## Testing
 
-**C++ Standards:** C++11, C++14, and C++17  
-**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0  
-**Boost Versions:** 1.68 and 1.70  
+**C++ Standards:** C++11, C++14, and C++17
+**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0
+**Boost Versions:** 1.68 and 1.70
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 
@@ -41,7 +41,7 @@ in the **NumCpp** library please visit the [Full Documentation](https://dpilger2
 
 ### CONTAINERS
 
-The main data structure in **NumpCpp** is the `NdArray`.  It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays.  There is also a `DataCube` class that is provided as a convenience container for storing an array of 2D `NdArray`s, but it has limited usefulness past a simple container.
+The main data structure in **NumCpp** is the `NdArray`.  It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays.  There is also a `DataCube` class that is provided as a convenience container for storing an array of 2D `NdArray`s, but it has limited usefulness past a simple container.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
@@ -69,7 +69,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 
 ### SLICING/BROADCASTING
 
-**NumpCpp** offers **NumPy** style slicing and broadcasting.
+**NumCpp** offers **NumPy** style slicing and broadcasting.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
@@ -121,7 +121,7 @@ The following return new `NdArray`s.
 
 ### ITERATION
 
-**NumpCpp** follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.
+**NumCpp** follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
@@ -130,7 +130,7 @@ The following return new `NdArray`s.
 
 ### LOGICAL
 
-Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
+Logical FUNCTIONS in **NumCpp** behave the same as **NumPy**.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
@@ -183,7 +183,7 @@ Reducers accumulate values of `NdArray`s along specified axes. When no axis is s
 
 ### I/O
 
-Print and file output methods.  All **NumpCpp** classes support a `print()` method and `<<` stream operators.
+Print and file output methods.  All **NumCpp** classes support a `print()` method and `<<` stream operators.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
@@ -196,7 +196,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 ### MATHEMATICAL FUNCTIONS
 
-**NumpCpp** universal functions are provided for a large set number of mathematical functions.
+**NumCpp** universal functions are provided for a large set number of mathematical functions.
 
 #### BASIC FUNCTIONS
 
