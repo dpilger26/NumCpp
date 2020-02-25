@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h2>Testing</h2>
 <p><b>C++ Standards:</b> C++11, C++14, and C++17 <br />
-**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0 <br />
+**Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0 <br />
 **Boost Versions:** 1.68 and 1.70 <br />
  </p><h2><a href="https://dpilger26.github.io/NumCpp">Documentation</a></h2>
 <h2><a href="https://github.com/dpilger26/NumCpp">GitHub</a></h2>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <h2>From NumPy To NumCpp – A Quick Start Guide</h2>
 <p>This quick start guide is meant as a very brief overview of some of the things that can be done with <b>NumCpp</b>. For a full breakdown of everything available in the <b>NumCpp</b> library please visit the <a href="https://dpilger26.github.io/NumCpp">Full Documentation</a>.</p>
 <h3>CONTAINERS</h3>
-<p>The main data structure in <b>NumpCpp</b> is the <code>NdArray</code>. It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays. There is also a <code>DataCube</code> class that is provided as a convenience container for storing an array of 2D <code>NdArray</code>s, but it has limited usefulness past a simple container.</p>
+<p>The main data structure in <b>NumCpp</b> is the <code>NdArray</code>. It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays. There is also a <code>DataCube</code> class that is provided as a convenience container for storing an array of 2D <code>NdArray</code>s, but it has limited usefulness past a simple container.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter"><b>NumPy</b>  </th><th class="markdownTableHeadCenter"><b>NumCpp</b>   </th></tr>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"><code><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">nc::NdArray</a>&lt;dtype&gt;(3, 4) a</code>   </td></tr>
 </table>
 <h3>SLICING/BROADCASTING</h3>
-<p><b>NumpCpp</b> offers <b>NumPy</b> style slicing and broadcasting.</p>
+<p><b>NumCpp</b> offers <b>NumPy</b> style slicing and broadcasting.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter"><b>NumPy</b>  </th><th class="markdownTableHeadCenter"><b>NumCpp</b>   </th></tr>
@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <td class="markdownTableBodyCenter"><code>np.fliplr(a)</code>  </td><td class="markdownTableBodyCenter"><code>nc::fliplr(a)</code>   </td></tr>
 </table>
 <h3>ITERATION</h3>
-<p><b>NumpCpp</b> follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.</p>
+<p><b>NumCpp</b> follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter"><b>NumPy</b>  </th><th class="markdownTableHeadCenter"><b>NumCpp</b>   </th></tr>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"><code>for(auto&amp; value : a)</code>   </td></tr>
 </table>
 <h3>LOGICAL</h3>
-<p>Logical FUNCTIONS in <b>NumpCpp</b> behave the same as <b>NumPy</b>.</p>
+<p>Logical FUNCTIONS in <b>NumCpp</b> behave the same as <b>NumPy</b>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter"><b>NumPy</b>  </th><th class="markdownTableHeadCenter"><b>NumCpp</b>   </th></tr>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <td class="markdownTableBodyCenter"><code>np.count_nonzero(a, axis=0)</code>  </td><td class="markdownTableBodyCenter"><code>nc::count_nonzero(a, nc::Axis::ROW)</code>   </td></tr>
 </table>
 <h3>I/O</h3>
-<p>Print and file output methods. All <b>NumpCpp</b> classes support a <code><a class="el" href="namespacenc.html#aafebf0f02106dfcc3ac3edbb4aa8b59d">print()</a></code> method and <code>&lt;&lt;</code> stream operators.</p>
+<p>Print and file output methods. All <b>NumCpp</b> classes support a <code><a class="el" href="namespacenc.html#aafebf0f02106dfcc3ac3edbb4aa8b59d">print()</a></code> method and <code>&lt;&lt;</code> stream operators.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter"><b>NumPy</b>  </th><th class="markdownTableHeadCenter"><b>NumCpp</b>   </th></tr>
@@ -329,7 +329,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <td class="markdownTableBodyCenter"><code>np.load(filename)</code>  </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc.html#abec5f2e4d2a1598de762e32b839a3067">nc::load</a>&lt;dtype&gt;(filename)</code>   </td></tr>
 </table>
 <h3>MATHEMATICAL FUNCTIONS</h3>
-<p><b>NumpCpp</b> universal functions are provided for a large set number of mathematical functions.</p>
+<p><b>NumCpp</b> universal functions are provided for a large set number of mathematical functions.</p>
 <h4>BASIC FUNCTIONS</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
