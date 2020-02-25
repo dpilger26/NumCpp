@@ -55,6 +55,6 @@ namespace nc
         constexpr double        MILLISECONDS_PER_DAY = SECONDS_PER_DAY * MILLISECONDS_PER_SECOND; ///< Number of milliseconds in a day
         constexpr double        SECONDS_PER_WEEK = SECONDS_PER_DAY * DAYS_PER_WEEK; ///< Number of seconds in a week
 
-        const std::string       VERSION = "1.2"; ///< Current NumCpp version number
+        const std::string       VERSION = "1.3"; ///< Current NumCpp version number
     }
 }
