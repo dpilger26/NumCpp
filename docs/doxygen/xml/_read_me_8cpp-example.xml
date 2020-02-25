@@ -103,7 +103,10 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a37<sp/>=<sp/>a<sp/>==<sp/>b;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a38<sp/>=<sp/><ref refid="namespacenc_1ac6c0da616068bc667891c0a460431de3" kindref="member">nc::not_equal</ref>(a,<sp/>b);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a39<sp/>=<sp/>a<sp/>!=<sp/>b;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cpp_structured_bindings</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[rows,<sp/>cols]<sp/>=<sp/><ref refid="namespacenc_1adda26afad96d27aed7db0fa5ec818d4f" kindref="member">nc::nonzero</ref>(a);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Minimum,<sp/>Maximum,<sp/>Sorting</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value1<sp/>=<sp/><ref refid="namespacenc_1a1dcd97ed6259f6a019ff8b59f2ae1adc" kindref="member">nc::min</ref>(a);</highlight></codeline>
