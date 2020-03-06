@@ -72,13 +72,14 @@ namespace nc
         std::vector<dtype> values;
 
         dtype theValue = inStart;
+        auto counter = dtype{ 1 };
 
         if (inStep > 0)
         {
             while (theValue < inStop)
             {
                 values.push_back(theValue);
-                theValue += inStep;
+                theValue = inStart + inStep * counter++;
             }
         }
         else
@@ -86,7 +87,7 @@ namespace nc
             while (theValue > inStop)
             {
                 values.push_back(theValue);
-                theValue += inStep;
+                theValue = inStart + inStep * counter++;
             }
         }
 
