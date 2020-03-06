@@ -320,6 +320,12 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing back reference', 'cyan'))
+    if cArray.backReference() == data.flatten()[-1]:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing byteswap', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -584,6 +590,12 @@ def doTest():
 
     print(colored('Testing front', 'cyan'))
     if cArray.front() == data.flatten()[0]:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing front reference', 'cyan'))
+    if cArray.frontReference() == data.flatten()[0]:
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
