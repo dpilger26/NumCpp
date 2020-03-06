@@ -233,7 +233,7 @@ namespace nc
                     clusterArray(pixel.row - rowMin, pixel.col - colMin) = pixel.intensity;
                 }
 
-                auto rowCol = nc::centerOfMass(clusterArray);
+                const auto rowCol = nc::centerOfMass(clusterArray);
                 row_ = rowCol.front() + rowMin;
                 col_ = rowCol.back() + colMin;
             }

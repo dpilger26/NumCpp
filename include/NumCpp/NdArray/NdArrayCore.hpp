@@ -1437,7 +1437,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the last element of the flattened array.
+        ///						Returns a copy of the last element of the flattened array.
         ///
         /// @return
         ///				dtype
@@ -1445,6 +1445,18 @@ namespace nc
         dtype back() const noexcept
         {
             return *(cend() - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference the last element of the flattened array.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype& back() noexcept
+        {
+            return *(end() - 1);
         }
 
         //============================================================================
@@ -2023,7 +2035,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the first element of the flattened array.
+        ///						Returns a copy of the first element of the flattened array.
         ///
         /// @return
         ///				dtype
@@ -2031,6 +2043,18 @@ namespace nc
         dtype front() const noexcept
         {
             return *cbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference to the first element of the flattened array.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype& front() noexcept
+        {
+            return *begin();
         }
 
         //============================================================================
