@@ -45,7 +45,7 @@ var searchData=
   ['fromfile_2ehpp',['fromFile.hpp',['../from_file_8hpp.html',1,'']]],
   ['fromiter',['fromiter',['../namespacenc.html#a0b388462989d0cb59531f753a907cce3',1,'nc']]],
   ['fromiter_2ehpp',['fromiter.hpp',['../fromiter_8hpp.html',1,'']]],
-  ['front',['front',['../classnc_1_1_data_cube.html#a007b4c69b145e15faa40d8c3be4d36ba',1,'nc::DataCube::front()'],['../classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c',1,'nc::NdArray::front()']]],
+  ['front',['front',['../classnc_1_1_data_cube.html#a007b4c69b145e15faa40d8c3be4d36ba',1,'nc::DataCube::front()'],['../classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c',1,'nc::NdArray::front() const noexcept'],['../classnc_1_1_nd_array.html#aa8aa3524c61aa0f0eeb333526c0bab04',1,'nc::NdArray::front() noexcept']]],
   ['full',['full',['../namespacenc.html#abf138126612998a96698ac184fc81167',1,'nc::full(uint32 inSquareSize, dtype inFillValue) noexcept'],['../namespacenc.html#a5a5bd5f0d237fc1f682a770eb5f1168d',1,'nc::full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) noexcept'],['../namespacenc.html#a40202920d9c2557bf6b1dcc4ac971135',1,'nc::full(const Shape &amp;inShape, dtype inFillValue) noexcept']]],
   ['full_2ehpp',['full.hpp',['../full_8hpp.html',1,'']]],
   ['full_5flike',['full_like',['../namespacenc.html#af041923ee46ead0c33afaca70dff0d0c',1,'nc']]],

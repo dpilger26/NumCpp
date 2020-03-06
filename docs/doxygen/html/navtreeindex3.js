@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"classnc_1_1_nd_array.html#afb7f3972ab5ef12be30906e5f5501fe7":[3,0,0,12,70],
+"classnc_1_1_nd_array.html#afe758ef8867d56964efc5a67bf17e726":[3,0,0,12,103],
 "classnc_1_1_shape.html":[3,0,0,13],
 "classnc_1_1_shape.html#a1f0b70fbb2cbd47d34023762c5651a28":[3,0,0,13,3],
 "classnc_1_1_shape.html#a22ce97e4e960e7bc01ac5632e9ca719b":[3,0,0,13,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "classnc_1_1linalg_1_1_s_v_d.html#aa170c7ec6894fb30e115840d61bd58a1":[3,0,0,6,0,2],
 "classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba":[3,0,0,6,0,0],
 "classnc_1_1polynomial_1_1_poly1d.html":[3,0,0,7,0],
-"classnc_1_1polynomial_1_1_poly1d.html#a001bd0e9f832e56c58c8ae40dc63c60f":[3,0,0,7,0,3],
-"classnc_1_1polynomial_1_1_poly1d.html#a13372c13e633ffc87418d9369adcfea0":[3,0,0,7,0,11],
-"classnc_1_1polynomial_1_1_poly1d.html#a2187ce69997f60f4a73eb9e66a4d6199":[3,0,0,7,0,10]
+"classnc_1_1polynomial_1_1_poly1d.html#a001bd0e9f832e56c58c8ae40dc63c60f":[3,0,0,7,0,3]
 };

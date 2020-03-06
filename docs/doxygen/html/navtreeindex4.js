@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"classnc_1_1polynomial_1_1_poly1d.html#a13372c13e633ffc87418d9369adcfea0":[3,0,0,7,0,11],
+"classnc_1_1polynomial_1_1_poly1d.html#a2187ce69997f60f4a73eb9e66a4d6199":[3,0,0,7,0,10],
 "classnc_1_1polynomial_1_1_poly1d.html#a28aa3ab446b53a1d901cac5c0105ef59":[3,0,0,7,0,8],
 "classnc_1_1polynomial_1_1_poly1d.html#a33c01905d846d32e7d49dc4e7e884551":[3,0,0,7,0,1],
 "classnc_1_1polynomial_1_1_poly1d.html#a3dedbdd1923bc2f2b41c585d50ef4f4f":[3,0,0,7,0,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "diff_8hpp.html#aca24655977cb03ca84ef20aebae3e78f":[4,0,115,0],
 "diff_8hpp_source.html":[4,0,115],
 "digamma_8hpp.html":[4,0,116],
-"digamma_8hpp.html#a0f8c75b138e38af1e3b2408050a17467":[4,0,116,0],
-"digamma_8hpp.html#a2ec7a990addc1d7ff888bcf7a272edcd":[4,0,116,1],
-"digamma_8hpp_source.html":[4,0,116]
+"digamma_8hpp.html#a0f8c75b138e38af1e3b2408050a17467":[4,0,116,0]
 };

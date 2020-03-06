@@ -150,6 +150,22 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    dtype back(const NdArray<dtype>& self)
+    {
+        return self.back();
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype backReference(NdArray<dtype>& self)
+    {
+        return self.back();
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray clip(const NdArray<dtype>& self, dtype inMin, dtype inMax)
     {
         return nc2Boost(self.clip(inMin, inMax));
@@ -226,6 +242,22 @@ namespace NdArrayInterface
     np::ndarray flatten(const NdArray<dtype>& self)
     {
         return nc2Boost(self.flatten());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype front(const NdArray<dtype>& self)
+    {
+        return self.front();
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype frontReference(NdArray<dtype>& self)
+    {
+        return self.front();
     }
 
     //================================================================================
@@ -3990,7 +4022,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("argmax", &NdArrayInterface::argmax<double>)
         .def("argmin", &NdArrayInterface::argmin<double>)
         .def("argsort", &NdArrayInterface::argsort<double>)
-        .def("back", &NdArrayDouble::back)
+        .def("back", &NdArrayInterface::back<double>)
+        .def("backReference", &NdArrayInterface::backReference<double>)
         .def("clip", &NdArrayInterface::clip<double>)
         .def("copy", &NdArrayInterface::copy<double>)
         .def("column", &NdArrayDouble::column)
@@ -4003,7 +4036,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("fill", &NdArrayInterface::fill<double>)
         .def("flatnonzero", &NdArrayInterface::flatnonzero<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
-        .def("front", &NdArrayDouble::front)
+        .def("front", &NdArrayInterface::front<double>)
+        .def("frontReference", &NdArrayInterface::frontReference<double>)
         .def("get", &NdArrayInterface::getValueFlat<double>)
         .def("get", &NdArrayInterface::getValueRowCol<double>)
         .def("get", &NdArrayInterface::getSlice1D<double>)

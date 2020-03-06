@@ -1,15 +1,17 @@
 var NAVTREEINDEX7 =
 {
+"namespacenc_1_1image_processing.html":[3,0,0,4],
+"namespacenc_1_1image_processing.html":[2,0,0,6],
 "namespacenc_1_1integrate.html":[3,0,0,5],
 "namespacenc_1_1integrate.html":[2,0,0,7],
-"namespacenc_1_1linalg.html":[2,0,0,8],
 "namespacenc_1_1linalg.html":[3,0,0,6],
+"namespacenc_1_1linalg.html":[2,0,0,8],
 "namespacenc_1_1polynomial.html":[2,0,0,9],
 "namespacenc_1_1polynomial.html":[3,0,0,7],
 "namespacenc_1_1pybind_interface.html":[2,0,0,10],
 "namespacenc_1_1random.html":[2,0,0,11],
-"namespacenc_1_1roots.html":[3,0,0,8],
 "namespacenc_1_1roots.html":[2,0,0,12],
+"namespacenc_1_1roots.html":[3,0,0,8],
 "namespacenc_1_1rotations.html":[2,0,0,13],
 "namespacenc_1_1rotations.html":[3,0,0,9],
 "namespacenc_1_1special.html":[2,0,0,14],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "rms_8hpp.html":[4,0,326],
 "rms_8hpp.html#a2e7c6950a2be94b7162fe0017fd43352":[4,0,326,0],
 "rms_8hpp_source.html":[4,0,326],
-"rodrigues_rotation_8hpp.html":[4,0,327],
-"rodrigues_rotation_8hpp.html#a8b758ff29273093d433b54557054e56e":[4,0,327,0],
-"rodrigues_rotation_8hpp.html#a923304344b059574fa025c5f31ee88d0":[4,0,327,1]
+"rodrigues_rotation_8hpp.html":[4,0,327]
 };

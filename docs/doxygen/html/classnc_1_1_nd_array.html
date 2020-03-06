@@ -174,6 +174,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a02c013952d6f2435cfdf520589c610b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94c5752747b9b937c092632af9c7a7aa"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a94c5752747b9b937c092632af9c7a7aa">back</a> () const noexcept</td></tr>
 <tr class="separator:a94c5752747b9b937c092632af9c7a7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a0569c5618a25ebaa5eee3c457e26c2"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a3a0569c5618a25ebaa5eee3c457e26c2">back</a> () noexcept</td></tr>
+<tr class="separator:a3a0569c5618a25ebaa5eee3c457e26c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0714a1bd6f9f03d5f28e420c61bf0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a7f0714a1bd6f9f03d5f28e420c61bf0f">begin</a> ()</td></tr>
 <tr class="separator:a7f0714a1bd6f9f03d5f28e420c61bf0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e4010114ca11be6e10903ab4bd4d9dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a7e4010114ca11be6e10903ab4bd4d9dd">begin</a> (<a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> inRow)</td></tr>
@@ -234,6 +236,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5169b9ad613ce03c7cb748b05e978028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5173e2d0a9fe983213193d8a4dfde21c"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c">front</a> () const noexcept</td></tr>
 <tr class="separator:a5173e2d0a9fe983213193d8a4dfde21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8aa3524c61aa0f0eeb333526c0bab04"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#aa8aa3524c61aa0f0eeb333526c0bab04">front</a> () noexcept</td></tr>
+<tr class="separator:aa8aa3524c61aa0f0eeb333526c0bab04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d2475dc8c8f5edb2e4c2887078b890a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a0d2475dc8c8f5edb2e4c2887078b890a">getByIndices</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt; &amp;inIndices) const</td></tr>
 <tr class="separator:a0d2475dc8c8f5edb2e4c2887078b890a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dfd7ac740d1830363949f27511b7ecc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a2dfd7ac740d1830363949f27511b7ecc">getByMask</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask) const</td></tr>
@@ -1603,7 +1607,7 @@ template&lt;typename dtype = double&gt; </div>
 </div>
 </div>
 <a id="a94c5752747b9b937c092632af9c7a7aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94c5752747b9b937c092632af9c7a7aa">&#9670;&nbsp;</a></span>back()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c5752747b9b937c092632af9c7a7aa">&#9670;&nbsp;</a></span>back() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1626,7 +1630,36 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the last element of the flattened array.</p>
+<p>Returns a copy of the last element of the flattened array.</p>
+<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
+
+</div>
+</div>
+<a id="a3a0569c5618a25ebaa5eee3c457e26c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0569c5618a25ebaa5eee3c457e26c2">&#9670;&nbsp;</a></span>back() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dtype&amp; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a reference the last element of the flattened array.</p>
 <dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
 
 </div>
@@ -2627,7 +2660,7 @@ template&lt;typename dtype = double&gt; </div>
 </div>
 </div>
 <a id="a5173e2d0a9fe983213193d8a4dfde21c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5173e2d0a9fe983213193d8a4dfde21c">&#9670;&nbsp;</a></span>front()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5173e2d0a9fe983213193d8a4dfde21c">&#9670;&nbsp;</a></span>front() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2650,7 +2683,36 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the first element of the flattened array.</p>
+<p>Returns a copy of the first element of the flattened array.</p>
+<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
+
+</div>
+</div>
+<a id="aa8aa3524c61aa0f0eeb333526c0bab04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8aa3524c61aa0f0eeb333526c0bab04">&#9670;&nbsp;</a></span>front() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dtype&amp; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a reference to the first element of the flattened array.</p>
 <dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
 
 </div>
