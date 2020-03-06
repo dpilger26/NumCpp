@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"rodrigues_rotation_8hpp.html#a8b758ff29273093d433b54557054e56e":[4,0,327,0],
+"rodrigues_rotation_8hpp.html#a923304344b059574fa025c5f31ee88d0":[4,0,327,1],
 "rodrigues_rotation_8hpp_source.html":[4,0,327],
 "roll_8hpp.html":[4,0,328],
 "roll_8hpp.html#abcdbe6ad8a7d87f8f1006f7fc36626af":[4,0,328,0],
