@@ -3000,6 +3000,23 @@ namespace RotationsInterface
 
         return nc2Boost(rotations::rodriguesRotation(k, inTheta, v));
     }
+
+    template<typename T>
+    np::ndarray wahbasProblem(np::ndarray& inWk, np::ndarray& inVk)
+    {
+        auto wk = boost2Nc<T>(inWk);
+        auto vk = boost2Nc<T>(inVk);
+        return nc2Boost(rotations::wahbasProblem(wk, vk));
+    }
+
+    template<typename T>
+    np::ndarray wahbasProblemWeighted(np::ndarray& inWk, np::ndarray& inVk, np::ndarray& inAk)
+    {
+        auto wk = boost2Nc<T>(inWk);
+        auto vk = boost2Nc<T>(inVk);
+        auto ak = boost2Nc<T>(inAk);
+        return nc2Boost(rotations::wahbasProblem(wk, vk, ak));
+    }
 }
 
 namespace RaInterface
@@ -4733,6 +4750,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");
 
     bp::def("rodriguesRotation", &RotationsInterface::rodriguesRotation<double>);
+    bp::def("wahbasProblem", &RotationsInterface::wahbasProblem<double>);
+    bp::def("wahbasProblemWeighted", &RotationsInterface::wahbasProblemWeighted<double>);
 
     // Filters.hpp
     bp::enum_<filter::Boundary>("Mode")

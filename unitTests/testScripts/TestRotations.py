@@ -432,6 +432,59 @@ def testFunctions():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored("Testing Wahba's Problem", 'cyan'))
+    radians = np.random.rand(1) * 2 * np.pi
+    axis = np.random.rand(3)
+    cAxis = NumCpp.NdArray(1, 3)
+    cAxis.setArray(axis)
+    rot = NumCpp.DCM.angleAxisRotationNdArray(cAxis, radians.item())
+
+    vecBody = list()
+    vecInertial = list()
+    for _ in range(1000):
+        vec = np.random.randint(1, 100, [3, 1])
+        vec = vec / np.linalg.norm(vec)
+        vecBody.append(vec.flatten())
+
+        vecInertial.append(rot.dot(vec).flatten())
+
+    vecBody = np.array(vecBody)
+    vecInertial = np.array(vecInertial)
+
+    rotWahba = NumCpp.wahbasProblem(vecInertial, vecBody)
+
+    if np.array_equal(np.round(rotWahba, 10), np.round(rot, 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored("Testing Wahba's Problem weigted", 'cyan'))
+    radians = np.random.rand(1) * 2 * np.pi
+    axis = np.random.rand(3)
+    cAxis = NumCpp.NdArray(1, 3)
+    cAxis.setArray(axis)
+    rot = NumCpp.DCM.angleAxisRotationNdArray(cAxis, radians.item())
+
+    vecBody = list()
+    vecInertial = list()
+    for _ in range(1000):
+        vec = np.random.randint(1, 100, [3, 1])
+        vec = vec / np.linalg.norm(vec)
+        vecBody.append(vec.flatten())
+
+        vecInertial.append(rot.dot(vec).flatten())
+
+    vecBody = np.array(vecBody)
+    vecInertial = np.array(vecInertial)
+
+    weights = np.random.randint(1, 100) * np.ones([vecBody.shape[0]])  # all the same weight for simplicity...
+
+    rotWahba = NumCpp.wahbasProblemWeighted(vecInertial, vecBody, weights)
+
+    if np.array_equal(np.round(rotWahba, 10), np.round(rot, 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
 ########################################################################################################################
 def quatNorm(quat):
