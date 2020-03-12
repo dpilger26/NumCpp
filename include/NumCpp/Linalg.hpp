@@ -30,6 +30,7 @@
 
 #include "NumCpp/Linalg/cholesky.hpp"
 #include "NumCpp/Linalg/det.hpp"
+#include "NumCpp/Linalg/gaussNewtonNlls.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/Linalg/lstsq.hpp"

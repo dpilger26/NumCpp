@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -1318,6 +1318,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Rotations\wahbasProblem.hpp">
       <Filter>Header Files\NumCpp\Rotations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Linalg\gaussNewtonNlls.hpp">
+      <Filter>Header Files\NumCpp\Linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\TypeTraits.hpp">
+      <Filter>Header Files\NumCpp\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
