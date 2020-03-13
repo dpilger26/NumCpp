@@ -35,9 +35,9 @@
 #include "NumCpp/Core/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <array>
 #include <string>
 #include <type_traits>
-#include <vector>
 
 namespace nc
 {
@@ -51,30 +51,25 @@ namespace nc
         ///
         /// @param      values: the values to be fitted
         /// @param      initialGuess: the initial guess of the parameters to be solved for
-        /// @param      functions:  vector of std::functions to calculate the residuals
-        ///                         of the model function being fitted, and the partial 
-        ///                         derivates of the model function with respect to each
-        ///                         of the model parameters being fit
+        /// @param      function: the function that is being fit
+        /// @param      derivatives: vector of std::functions to calculate the function 
+        ///                          derivatives   
         /// @param      numIterations: the number of iterations to perform, default 4.
-        /// @return     NdArray of solved parameter values after a single iteration
+        ///
+        /// @return     NdArray of solved parameter values
         ///
         template<typename dtype, typename ...Args,
             std::enable_if_t<std::is_arithmetic<dtype>::value, int> = 0,
             std::enable_if_t<all_arithmetic<Args...>::value, int> = 0,
             std::enable_if_t<all_same<dtype, Args...>::value, int> = 0
         >
-        NdArray<double> gaussNewtonNlls(const NdArray<dtype> values,
-            const NdArray<dtype>& initialGuess,
-            const std::vector<std::function<dtype(const NdArray<dtype>&, Args...)> >& functions,
-            uint32 numIterations = 4)
+        NdArray<double> gaussNewtonNlls(
+            const NdArray<dtype> values,
+            const std::array<dtype, sizeof...(Args)>& initialGuess,
+            const std::function<dtype(const NdArray<dtype>&, Args...)>& function,
+            const std::array<std::function<dtype(const NdArray<dtype>&, Args...)>, sizeof...(Args)>& derivatives,
+            const uint32 numIterations = 4)
         {
-            if (initialGuess.size() != functions.size() - 1)
-            {
-                std::string errMsg = "Must input one function for residuals, and [number of parameters] functions for derivatives.\n";
-                errMsg += "number of initialGuess parameters needs to be the number of input functions - 1.";
-                THROW_INVALID_ARGUMENT_ERROR(errMsg);
-            }
-
             // need to get Args... values into an NdArray somehow???
 
             for (uint32 i = 1; i <= numIterations; ++i)
