@@ -44,6 +44,30 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "geometric" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+        ///
+        /// @param				inP (probablity of success [0, 1])
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype geometric(double inP = 0.5)
+        {
+            STATIC_ASSERT_INTEGER(dtype);
+
+            if (inP < 0 || inP > 1)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
+            }
+
+            const boost::random::geometric_distribution<dtype, double> dist(inP);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "geometric" distrubution.
         ///

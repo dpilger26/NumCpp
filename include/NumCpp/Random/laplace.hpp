@@ -41,6 +41,24 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "laplace" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
+        ///
+        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param				inScale: (float optional the exponential decay. Default is 1)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype laplace(dtype inLoc = 0, dtype inScale = 1) noexcept
+        {
+            const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
+            return dist(generator_); 
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "laplace" distrubution.
         ///

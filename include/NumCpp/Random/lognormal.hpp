@@ -44,6 +44,29 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "lognormal" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
+        ///
+        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype lognormal(dtype inMean = 0, dtype inSigma = 1)
+        {
+            if (inSigma <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");
+            }
+
+            boost::random::lognormal_distribution<dtype> dist(inMean, inSigma);
+            return dist(generator_); 
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "lognormal" distrubution.
         ///

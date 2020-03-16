@@ -44,6 +44,28 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "poisson" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+        ///
+        /// @param				inMean (default 1)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype poisson(double inMean = 1)
+        {
+            if (inMean <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");
+            }
+
+            const boost::random::poisson_distribution<dtype, double> dist(inMean);
+            return dist(generator_); 
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "poisson" distribution.
         ///

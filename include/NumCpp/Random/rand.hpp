@@ -42,6 +42,22 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the uniform distribution over [0, 1).
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype rand() noexcept
+        {
+            boost::random::uniform_01<dtype> dist;
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a uniform distribution over [0, 1).
         ///

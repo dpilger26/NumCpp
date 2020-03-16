@@ -44,6 +44,28 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the from the "chi square" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+        ///
+        /// @param				inDof (independent random variables)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype chiSquare(dtype inDof)
+        {
+            if (inDof <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("numerator degrees of freedom must be greater than zero.");
+            }
+
+            boost::random::chi_squared_distribution<dtype> dist(inDof);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "chi square" distribution.
         ///

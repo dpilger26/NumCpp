@@ -43,6 +43,26 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the from the 
+        ///                     "discrete" distrubution.  It produces integers in the 
+        ///                     range [0, n) with the probability of producing each value
+        ///                     is specified by the parameters of the distribution.
+        ///
+        ///	@param		inWeights
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype discrete(const NdArray<double>& inWeights)
+        {
+            STATIC_ASSERT_INTEGER(dtype);
+
+            boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "discrete" distrubution.  It produces
         ///						integers in the range [0, n) with the probability of

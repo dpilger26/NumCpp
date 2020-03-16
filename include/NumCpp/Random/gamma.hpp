@@ -44,6 +44,34 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "gamma" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+        ///
+        /// @param			    inGammaShape
+        /// @param				inScaleValue (default 1)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype gamma(dtype inGammaShape, dtype inScaleValue = 1)
+        {
+            if (inGammaShape <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input gamma shape should be greater than zero.");
+            }
+
+            if (inScaleValue <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input scale should be greater than zero.");
+            }
+
+            boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
+            return dist(generator_); 
+
+        }
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "gamma" distrubution.
         ///

@@ -44,6 +44,32 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "extreme value" distrubution.
+        ///
+        /// @param				inA (default 1)
+        /// @param				inB (default 1)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype extremeValue(dtype inA = 1, dtype inB = 1)
+        {
+            if (inA <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input a must be greater than zero.");
+            }
+
+            if (inB <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
+            }
+
+            const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "extreme value" distrubution.
         ///
