@@ -63,7 +63,7 @@ namespace nc
         }
         else
         {
-            auto b = [](dtype value1, dtype value2) -> bool
+            auto b = [](dtype value1, dtype value2) noexcept -> bool
             {
                 return utils::essentiallyEqual(value1, value2);
             };

@@ -71,9 +71,9 @@ namespace nc
         /// @return     std::pair of NdArray of solved parameter values, and rms of the residuals value
         ///
         template<typename dtype, typename ...Params,
-            std::enable_if_t<std::is_arithmetic<dtype>::value, int> = 0,
-            std::enable_if_t<all_arithmetic<Params...>::value, int> = 0,
-            std::enable_if_t<all_same<dtype, Params...>::value, int> = 0
+            nc::enable_if_t<std::is_arithmetic<dtype>::value, int> = 0,
+            nc::enable_if_t<all_arithmetic<Params...>::value, int> = 0,
+            nc::enable_if_t<all_same<dtype, Params...>::value, int> = 0
         >
         std::pair<NdArray<double>, double> gaussNewtonNlls(
             const uint32 numIterations, 

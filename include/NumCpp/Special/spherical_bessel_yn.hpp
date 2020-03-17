@@ -67,7 +67,7 @@ namespace nc
             NdArray<double> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) -> double
+                [inV](dtype inX) noexcept -> double
                 { 
                     return spherical_bessel_yn(inV, inX);
                 });

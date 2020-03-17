@@ -67,7 +67,7 @@ namespace nc
             NdArray<double> returnArray(inArrayB.shape());
 
             stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(),inArrayB.cbegin(), returnArray.begin(),
-                [](dtype1 a, dtype2 b) -> double
+                [](dtype1 a, dtype2 b) noexcept -> double
                 { 
                     return beta(a, b); 
                 });

@@ -76,7 +76,7 @@ namespace nc
             NdArray<uint32> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> uint32
+                [](uint32 inValue) noexcept -> uint32
                 { 
                     return prime(inValue); 
                 });

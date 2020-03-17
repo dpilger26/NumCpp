@@ -130,7 +130,7 @@ namespace nc
         ///
         template<class InputIt1, class InputIt2>
         bool equal(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2)
+            InputIt2 first2) noexcept
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             return std::equal(std::execution::par_unseq, first1, last1, first2);
@@ -151,7 +151,7 @@ namespace nc
         ///
         template<class InputIt1, class InputIt2, class BinaryPredicate>
         bool equal(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, BinaryPredicate p)
+            InputIt2 first2, BinaryPredicate p) noexcept
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             return std::equal(std::execution::par_unseq, first1, last1, first2, p);
@@ -519,7 +519,7 @@ namespace nc
         ///
         template<class InputIt, class OutputIt, class UnaryOperation>
         OutputIt transform(InputIt first, InputIt last, OutputIt destination,
-            UnaryOperation unaryFunction)
+            UnaryOperation unaryFunction) noexcept
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             return std::transform(std::execution::par_unseq, first, last, destination, unaryFunction);
@@ -540,8 +540,8 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
-        OutputIt  transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
-            OutputIt destination, BinaryOperation unaryFunction)
+        OutputIt transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
+            OutputIt destination, BinaryOperation unaryFunction) noexcept
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             return std::transform(std::execution::par_unseq,

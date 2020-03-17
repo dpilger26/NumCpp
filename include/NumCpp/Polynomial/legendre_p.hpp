@@ -93,7 +93,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) -> double
+            auto function = [n](dtype x) noexcept -> double
             {
                 return legendre_p(n, x);
             };
@@ -118,7 +118,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n, m](dtype x) -> double
+            auto function = [n, m](dtype x) noexcept -> double
             {
                 return legendre_p(n, m, x);
             };

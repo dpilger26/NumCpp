@@ -34,6 +34,13 @@ namespace nc
 {
     //============================================================================
     // Class Description:
+    ///	std::enable_if helper, for c++11 compatibility
+    ///
+    template<bool B, class T = void>
+    using enable_if_t = typename std::enable_if<B, T>::type;
+
+    //============================================================================
+    // Class Description:
     ///	Template class for determining if all of the types are arithmetic
     ///
     template <typename... Ts>
