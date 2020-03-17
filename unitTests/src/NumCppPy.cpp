@@ -4647,66 +4647,148 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerf", &utils::powerf);
 
     // Random.hpp
-    bp::def("bernoulli", &random::bernoulli<double>);
-    bp::def("bernoulliScalar", &random::bernoulli<double>);
-    bp::def("beta", &random::beta<double>);
-    bp::def("betaScalar", &random::beta<double>);
-    bp::def("binomial", &random::binomial<int32>);
-    bp::def("binomialScalar", &random::binomial<int32>);
-    bp::def("chiSquare", &random::chiSquare<double>);
-    bp::def("chiSquareScalar", &random::chiSquare<double>);
+    NdArray<double> (*bernoulliArray)(const Shape&, double) = &random::bernoulli<double>;
+    double (*bernoilliScalar)(double) = &random::bernoulli<double>;
+    bp::def("bernoulli", bernoulliArray);
+    bp::def("bernoulli", bernoilliScalar);
+
+    NdArray<double> (*betaArray)(const Shape&, double, double) = &random::beta<double>;
+    double (*betaScalar)(double, double) = &random::beta<double>;
+    bp::def("beta", betaArray);
+    bp::def("beta", betaScalar);
+
+    NdArray<int32> (*binomialArray)(const Shape&, int32, double) = &random::binomial<int32>;
+    int32 (*binomialScalar)(int32, double) = &random::binomial<int32>;
+    bp::def("binomial", binomialArray);
+    bp::def("binomial", binomialScalar);
+
+    NdArray<double> (*cauchyArray)(const Shape&, double, double) = &random::cauchy<double>;
+    double (*cauchyScalar)(double, double) = &random::cauchy<double>;
+    bp::def("cauchy", cauchyArray);
+    bp::def("cauchy", cauchyScalar);
+
+
+    NdArray<double> (*chiSquareArray)(const Shape&, double) = &random::chiSquare<double>;
+    double (*chiSquareScalar)(double) = &random::chiSquare<double>;
+    bp::def("chiSquare", chiSquareArray);
+    bp::def("chiSquare", chiSquareScalar);
+
+
     bp::def("choiceSingle", &RandomInterface::choiceSingle<double>);
     bp::def("choiceMultiple", &RandomInterface::choiceMultiple<double>);
-    bp::def("cauchy", &random::cauchy<double>);
-    bp::def("cauchyScalar", &random::cauchy<double>);
-    bp::def("discrete", &random::discrete<int32>);
-    bp::def("discreteScalar", &random::discrete<int32>);
-    bp::def("exponential", &random::exponential<double>);
-    bp::def("exponentialScalar", &random::exponential<double>);
-    bp::def("extremeValue", &random::extremeValue<double>);
-    bp::def("extremeValueScalar", &random::extremeValue<double>);
-    bp::def("f", &random::f<double>);
-    bp::def("fScalar", &random::f<double>);
-    bp::def("gamma", &random::gamma<double>);
-    bp::def("gammaScalar", &random::gamma<double>);
-    bp::def("geometric", &random::geometric<int32>);
-    bp::def("geometricScalar", &random::geometric<int32>);
-    bp::def("laplace", &random::laplace<double>);
-    bp::def("laplaceScalar", &random::laplace<double>);
-    bp::def("lognormal", &random::lognormal<double>);
-    bp::def("lognormalScalar", &random::lognormal<double>);
-    bp::def("negativeBinomial", &random::negativeBinomial<int32>);
-    bp::def("negativeBinomialScalar", &random::negativeBinomial<int32>);
-    bp::def("nonCentralChiSquared", &random::nonCentralChiSquared<double>);
-    bp::def("nonCentralChiSquaredScalar", &random::nonCentralChiSquared<double>);
-    bp::def("normal", &random::normal<double>);
-    bp::def("normalScalar", &random::normal<double>);
+
+    NdArray<int32> (*discreteArray)(const Shape&, const NdArray<double>&) = &random::discrete<int32>;
+    int32 (*discreteScalar)(const NdArray<double>&) = &random::discrete<int32>;
+    bp::def("discrete", discreteArray);
+    bp::def("discrete", discreteScalar);
+
+    NdArray<double> (*exponentialArray)(const Shape&, double) = &random::exponential<double>;
+    double (*exponentialScalar)(double) = &random::exponential<double>;
+    bp::def("exponential", exponentialArray);
+    bp::def("exponential", exponentialScalar);
+
+    NdArray<double> (*extremeValueArray)(const Shape&, double, double) = &random::extremeValue<double>;
+    double (*extremeValueScalar)(double, double) = &random::extremeValue<double>;
+    bp::def("extremeValue", extremeValueArray);
+    bp::def("extremeValue", extremeValueScalar);
+
+    NdArray<double> (*fArray)(const Shape&, double, double) = &random::f<double>;
+    double (*fScalar)(double, double) = &random::f<double>;
+    bp::def("f", fArray);
+    bp::def("f", fScalar);
+
+    NdArray<double> (*gammaArray)(const Shape&, double, double) = &random::gamma<double>;
+    double (*gammaScalar)(double, double) = &random::gamma<double>;
+    bp::def("gamma", gammaArray);
+    bp::def("gamma", gammaScalar);
+
+    NdArray<int32> (*geometricArray)(const Shape&, double) = &random::geometric<int32>;
+    int32 (*geometricScalar)(double) = &random::geometric<int32>;
+    bp::def("geometric", geometricArray);
+    bp::def("geometric", geometricScalar);
+
+    NdArray<double> (*laplaceArray)(const Shape&, double, double) = &random::laplace<double>;
+    double (*laplaceScalar)(double, double) = &random::laplace<double>;
+    bp::def("laplace", laplaceArray);
+    bp::def("laplace", laplaceScalar);
+
+    NdArray<double> (*lognormalArray)(const Shape&, double, double) = &random::lognormal<double>;
+    double (*lognormalScalar)(double, double) = &random::lognormal<double>;
+    bp::def("lognormal", lognormalArray);
+    bp::def("lognormal", lognormalScalar);
+
+    NdArray<int32> (*negativeBinomialArray)(const Shape&, int32, double) = &random::negativeBinomial<int32>;
+    int32 (*negativeBinomialScalar)(int32, double) = &random::negativeBinomial<int32>;
+    bp::def("negativeBinomial", negativeBinomialArray);
+    bp::def("negativeBinomial", negativeBinomialScalar);
+
+    NdArray<double> (*nonCentralChiSquaredArray)(const Shape&, double, double) = &random::nonCentralChiSquared<double>;
+    double (*nonCentralChiSquaredScalar)(double, double) = &random::nonCentralChiSquared<double>;
+    bp::def("nonCentralChiSquared", nonCentralChiSquaredArray);
+    bp::def("nonCentralChiSquared", nonCentralChiSquaredScalar);
+
+    NdArray<double> (*normalArray)(const Shape&, double, double) = &random::normal<double>;
+    double (*normalScalar)(double, double) = &random::normal<double>;
+    bp::def("normal", normalArray);
+    bp::def("normal", normalScalar);
+
     bp::def("permutationScaler", &RandomInterface::permutationScaler<double>);
     bp::def("permutationArray", &RandomInterface::permutationArray<double>);
-    bp::def("poisson", &random::poisson<int32>);
-    bp::def("poissonScalar", &random::poisson<int32>);
-    bp::def("rand", &random::rand<double>);
-    bp::def("randScalar", &random::rand<double>);
-    bp::def("randN", &random::randN<double>);
-    bp::def("randNScalar", &random::randN<double>);
-    bp::def("randFloat", &random::randFloat<double>);
-    bp::def("randFloatScalar", &random::randFloat<double>);
-    bp::def("randInt", &random::randInt<int32>);
-    bp::def("randIntScalar", &random::randInt<int32>);
+
+    NdArray<int32> (*poissonArray)(const Shape&, double) = &random::poisson<int32>;
+    int32 (*poissonScalar)(double) = &random::poisson<int32>;
+    bp::def("poisson", poissonArray);
+    bp::def("poisson", poissonScalar);
+
+    NdArray<double> (*randArray)(const Shape&) = &random::rand<double>;
+    double (*randScalar)() = &random::rand<double>;
+    bp::def("rand", randArray);
+    bp::def("rand", randScalar);
+
+    NdArray<double> (*randFloatArray)(const Shape&, double, double) = &random::randFloat<double>;
+    double (*randFloatScalar)(double, double) = &random::randFloat<double>;
+    bp::def("randFloat", randFloatArray);
+    bp::def("randFloat", randFloatScalar);
+
+    NdArray<int32> (*randIntArray)(const Shape&, int32, int32) = &random::randInt<int32>;
+    int32 (*randIntScalar)(int32, int32) = &random::randInt<int32>;
+    bp::def("randInt", randIntArray);
+    bp::def("randInt", randIntScalar);
+
+    NdArray<double> (*randNArray)(const Shape&) = &random::randN<double>;
+    double (*randNScalar)() = &random::randN<double>;
+    bp::def("randN", randNArray);
+    bp::def("randN", randNScalar);
+
     bp::def("seed", &random::seed);
     bp::def("shuffle", &random::shuffle<double>);
-    bp::def("studentT", &random::studentT<double>);
-    bp::def("studentTScalar", &random::studentT<double>);
-    bp::def("standardNormal", &random::standardNormal<double>);
-    bp::def("standardNormalScalar", &random::standardNormal<double>);
-    bp::def("triangle", &random::triangle<double>);
-    bp::def("triangleScalar", &random::triangle<double>);
-    bp::def("uniform", &random::uniform<double>);
-    bp::def("uniformScalar", &random::uniform<double>);
+
+    NdArray<double> (*standardNormalArray)(const Shape&) = &random::standardNormal<double>;
+    double (*standardNormalScalar)() = &random::standardNormal<double>;
+    bp::def("standardNormal", standardNormalArray);
+    bp::def("standardNormal", standardNormalScalar);
+
+    NdArray<double> (*studentTArray)(const Shape&, double) = &random::studentT<double>;
+    double (*studentTScalar)(double) = &random::studentT<double>;
+    bp::def("studentT", studentTArray);
+    bp::def("studentT", studentTScalar);
+
+    NdArray<double> (*triangleArray)(const Shape&, double, double, double) = &random::triangle<double>;
+    double (*triangleScalar)(double, double, double) = &random::triangle<double>;
+    bp::def("triangle", triangleArray);
+    bp::def("triangle", triangleScalar);
+
+    NdArray<double> (*uniformArray)(const Shape&, double, double) = &random::uniform<double>;
+    double (*uniformScalar)(double, double) = &random::uniform<double>;
+    bp::def("uniform", uniformArray);
+    bp::def("uniform", uniformScalar);
+
     bp::def("uniformOnSphere", &random::uniformOnSphere<double>);
-    bp::def("uniformOnSphereScalar", &random::uniformOnSphere<double>);
-    bp::def("weibull", &random::weibull<double>);
-    bp::def("weibullScalar", &random::weibull<double>);
+
+    NdArray<double> (*weibullArray)(const Shape&, double, double) = &random::weibull<double>;
+    double (*weibullScalar)(double, double) = &random::weibull<double>;
+    bp::def("weibull", weibullArray);
+    bp::def("weibull", weibullScalar);
 
     // Linalg.hpp
     bp::def("cholesky", &linalg::cholesky<double>);
