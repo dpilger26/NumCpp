@@ -262,23 +262,23 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
     values.sort()
-    r = NumCpp.randFloat(inShape, values[0].item(), values[1].item())
+    r = NumCpp.randFloat(inShape, values[0].item(), values[1].item() + 1)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randFloat scalar', 'cyan'))
-    r = NumCpp.randFloat(values[0].item(), values[1].item())
+    r = NumCpp.randFloat(values[0].item(), values[1].item() + 1)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randInt', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
-    inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
     values = np.random.randint(1, 100, [2, ])
     values.sort()
     r = NumCpp.randInt(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randInt scalar', 'cyan'))
-    r = NumCpp.randInt(values[0].item(), values[1].item())
+    r = NumCpp.randInt(values[0].item(), values[1].item() + 1)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randN', 'cyan'))
