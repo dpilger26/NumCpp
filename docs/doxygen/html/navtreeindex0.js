@@ -104,12 +104,13 @@ var NAVTREEINDEX0 =
 "_functions_2powerf_8hpp_source.html":[4,0,292],
 "_functions_8hpp.html":[4,0,161],
 "_functions_8hpp_source.html":[4,0,161],
+"_gauss_newton_nlls_8cpp-example.html":[5,0],
 "_image_processing_8hpp.html":[4,0,185],
 "_image_processing_8hpp_source.html":[4,0,185],
 "_integrate_8hpp.html":[4,0,186],
 "_integrate_8hpp_source.html":[4,0,186],
-"_interface_with_eigen_8cpp-example.html":[5,0],
-"_interface_with_open_c_v_8cpp-example.html":[5,1],
+"_interface_with_eigen_8cpp-example.html":[5,1],
+"_interface_with_open_c_v_8cpp-example.html":[5,2],
 "_iteration_8hpp.html":[4,0,195],
 "_iteration_8hpp_source.html":[4,0,195],
 "_linalg_8hpp.html":[4,0,206],
@@ -235,7 +236,7 @@ var NAVTREEINDEX0 =
 "_random_2laplace_8hpp_source.html":[4,0,198],
 "_random_8hpp.html":[4,0,311],
 "_random_8hpp_source.html":[4,0,311],
-"_read_me_8cpp-example.html":[5,2],
+"_read_me_8cpp-example.html":[5,3],
 "_roots_8hpp.html":[4,0,331],
 "_roots_8hpp_source.html":[4,0,331],
 "_rotations_8hpp.html":[4,0,333],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "_slice_8hpp_source.html":[4,0,348],
 "_special_2beta_8hpp.html":[4,0,47],
 "_special_2beta_8hpp.html#a46747e640813870da56bb581ea2917b6":[4,0,47,1],
-"_special_2beta_8hpp.html#aa2996162bcbabf343a3fa81617fd9b14":[4,0,47,0],
-"_special_2beta_8hpp_source.html":[4,0,47]
+"_special_2beta_8hpp.html#aa2996162bcbabf343a3fa81617fd9b14":[4,0,47,0]
 };

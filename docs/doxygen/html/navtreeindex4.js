@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classnc_1_1integrate_1_1_legendre_polynomial.html#a062ffe2d1f94af05d62ff9e0ee500581":[3,0,0,5,0,0],
 "classnc_1_1integrate_1_1_legendre_polynomial.html#a4293982abe2543fd2f2081cb04c887c7":[3,0,0,5,0,2],
 "classnc_1_1integrate_1_1_legendre_polynomial.html#af2156ad3e8f5cc67b2930d081a3e8613":[3,0,0,5,0,1],
 "classnc_1_1linalg_1_1_s_v_d.html":[3,0,0,6,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "det_8hpp_source.html":[4,0,111],
 "diag_8hpp.html":[4,0,112],
 "diag_8hpp.html#a048ad05482042e40c8044d15c4749c35":[4,0,112,0],
-"diag_8hpp_source.html":[4,0,112],
-"diagflat_8hpp.html":[4,0,113]
+"diag_8hpp_source.html":[4,0,112]
 };

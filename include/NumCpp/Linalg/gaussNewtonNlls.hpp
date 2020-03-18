@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// The Gauss–Newton algorithm is used to solve non-linear least squares problems.
+/// The Gaussï¿½Newton algorithm is used to solve non-linear least squares problems.
 /// It is a modification of Newton's method for finding a minimum of a function.
 /// 
 /// https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm
@@ -49,11 +49,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// The Gauss–Newton algorithm is used to solve non-linear least squares problems.
+        /// The Gaussï¿½Newton algorithm is used to solve non-linear least squares problems.
         /// It is a modification of Newton's method for finding a minimum of a function.
         /// https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm
         ///
-        /// @param      numIterations: the number of iterations to perform, default 4.
+        /// @param      numIterations: the number of iterations to perform
         /// @param      coordinates: the coordinate values.  The shape needs to be [n x d], where d is 
         ///                     the number of diminsions of the fit function (f(x) is one dimensional, 
         ///                     f(x, y) is two dimensions, etc), and n is the number of observations
