@@ -302,7 +302,7 @@ void twoDimensionalGaussianExample()
 
     nc::NdArray<double> initialGuess = { aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess };
 
-    std::cout << "==========Sinusodial Temperature Example==========\n";
+    std::cout << "==========2D Gaussian Example==========\n";
     std::cout << "truth values  = " << betasTruth;
     std::cout << "initial guess = " << initialGuess;
     std::cout << "beta values   = " << betas;
