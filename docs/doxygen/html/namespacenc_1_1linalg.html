@@ -109,6 +109,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a55bafcebbc897458164e8dc511b6119c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a55bafcebbc897458164e8dc511b6119c"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a55bafcebbc897458164e8dc511b6119c">det</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a55bafcebbc897458164e8dc511b6119c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename ... Params, nc::enable_if_t&lt; std::is_arithmetic&lt; dtype &gt;::value, int &gt;  = 0, nc::enable_if_t&lt; all_arithmetic&lt; Params... &gt;::value, int &gt;  = 0, nc::enable_if_t&lt; all_same&lt; dtype, Params... &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;, double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">gaussNewtonNlls</a> (const <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> numIterations, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;coordinates, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</td></tr>
+<tr class="separator:aff0f97e94666284100b584e13d27def3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52417fc43f9622ef2a527ec84da50ca2"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a52417fc43f9622ef2a527ec84da50ca2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a52417fc43f9622ef2a527ec84da50ca2">hat</a> (dtype inX, dtype inY, dtype inZ) noexcept</td></tr>
 <tr class="separator:a52417fc43f9622ef2a527ec84da50ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +200,73 @@ template&lt;typename dtype &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>matrix determinant </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_read_me_8cpp-example.html#a66">ReadMe.cpp</a>.</dd>
 </dl>
+</div>
+</div>
+<a id="aff0f97e94666284100b584e13d27def3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff0f97e94666284100b584e13d27def3">&#9670;&nbsp;</a></span>gaussNewtonNlls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename ... Params, nc::enable_if_t&lt; std::is_arithmetic&lt; dtype &gt;::value, int &gt;  = 0, nc::enable_if_t&lt; all_arithmetic&lt; Params... &gt;::value, int &gt;  = 0, nc::enable_if_t&lt; all_same&lt; dtype, Params... &gt;::value, int &gt;  = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt;, double&gt; nc::linalg::gaussNewtonNlls </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a>&#160;</td>
+          <td class="paramname"><em>numIterations</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coordinates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>measurements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>derivatives</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Params...&#160;</td>
+          <td class="paramname"><em>initialGuess</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The Gauss–Newton algorithm is used to solve non-linear least squares problems. It is a modification of Newton's method for finding a minimum of a function. <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm">https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numIterations</td><td>the number of iterations to perform, default 4. </td></tr>
+    <tr><td class="paramname">coordinates</td><td>the coordinate values. The shape needs to be [n x d], where d is the number of diminsions of the fit function (f(x) is one dimensional, f(x, y) is two dimensions, etc), and n is the number of observations that are being fit to. </td></tr>
+    <tr><td class="paramname">measurements</td><td>the measured values that are being fit </td></tr>
+    <tr><td class="paramname">function</td><td>a std::function of the function that is being fit. The function takes as inputs an <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> of a single set of the coordinate values, and an <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> of the current values of the fit parameters </td></tr>
+    <tr><td class="paramname">derivatives</td><td>array of std::functions to calculate the function derivatives. The function that is being fit. The function takes as inputs an <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> of a single set of the coordinate values, and an <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> of the current values of the fit parameters </td></tr>
+    <tr><td class="paramname">initialGuess</td><td>the initial guess of the parameters to be solved for</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair of <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> of solved parameter values, and rms of the residuals value </dd></dl>
+
 </div>
 </div>
 <a id="a52417fc43f9622ef2a527ec84da50ca2"></a>

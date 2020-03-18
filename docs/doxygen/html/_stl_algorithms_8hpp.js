@@ -4,8 +4,8 @@ var _stl_algorithms_8hpp =
     [ "any_of", "_stl_algorithms_8hpp.html#a86175072e60e0fabc931a8acd6329c77", null ],
     [ "copy", "_stl_algorithms_8hpp.html#afc0a193758bfb62333c4ed53ada9537d", null ],
     [ "count", "_stl_algorithms_8hpp.html#ae1e1834ec458e90544d643b4b1e68735", null ],
-    [ "equal", "_stl_algorithms_8hpp.html#a3de9f1dd54e8db8997e7928322e098f4", null ],
-    [ "equal", "_stl_algorithms_8hpp.html#ae3ace3ed68934f4acde48334a7ff7724", null ],
+    [ "equal", "_stl_algorithms_8hpp.html#ab200b92040bf3da8ee4325f5a994e73d", null ],
+    [ "equal", "_stl_algorithms_8hpp.html#a684d1011b375da4078afb4474a36b0e6", null ],
     [ "fill", "_stl_algorithms_8hpp.html#abbc2e8d742b76f4c2bead6ae894bc4e3", null ],
     [ "find", "_stl_algorithms_8hpp.html#ab372e4e815977d16f647cdcfea3f1ea5", null ],
     [ "for_each", "_stl_algorithms_8hpp.html#a734698435eabdbc5bdf93b195d7fb6a7", null ],
@@ -24,6 +24,6 @@ var _stl_algorithms_8hpp =
     [ "set_union", "_stl_algorithms_8hpp.html#adda22e93ced5035c66f63532ee1408b4", null ],
     [ "sort", "_stl_algorithms_8hpp.html#a4987a29c6a989094d647f5a6de75cc6f", null ],
     [ "stable_sort", "_stl_algorithms_8hpp.html#a0a7faa16f597cc09d2540b2edf467fee", null ],
-    [ "transform", "_stl_algorithms_8hpp.html#a616d5dabd547326285946d0014361ab4", null ],
-    [ "transform", "_stl_algorithms_8hpp.html#af358fec5563ae500162b310fe263a36d", null ]
+    [ "transform", "_stl_algorithms_8hpp.html#a65dada83abf2bf7a4fe6bd5a7b00624e", null ],
+    [ "transform", "_stl_algorithms_8hpp.html#af110f81b7580e3bddbbfeea2fb92134b", null ]
 ];

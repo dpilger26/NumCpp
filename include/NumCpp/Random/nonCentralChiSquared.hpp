@@ -48,7 +48,6 @@ namespace nc
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
-        /// @param				inShape
         /// @param				inK (default 1)
         /// @param				inLambda (default 1)
         /// @return

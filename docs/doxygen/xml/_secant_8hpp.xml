@@ -10,98 +10,98 @@
     <includes local="no">utility</includes>
     <includedby refid="_roots_8hpp" local="yes">Roots.hpp</includedby>
     <incdepgraph>
-      <node id="17290">
+      <node id="17377">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="17291" relation="include">
+        <childnode refid="17378" relation="include">
         </childnode>
       </node>
-      <node id="17297">
+      <node id="17384">
         <label>functional</label>
       </node>
-      <node id="17289">
+      <node id="17376">
         <label>limits</label>
       </node>
-      <node id="17288">
+      <node id="17375">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="17289" relation="include">
+        <childnode refid="17376" relation="include">
         </childnode>
       </node>
-      <node id="17291">
+      <node id="17378">
         <label>cstdint</label>
       </node>
-      <node id="17298">
+      <node id="17385">
         <label>cmath</label>
       </node>
-      <node id="17295">
+      <node id="17382">
         <label>stdexcept</label>
       </node>
-      <node id="17296">
+      <node id="17383">
         <label>string</label>
       </node>
-      <node id="17287">
+      <node id="17374">
         <label>Secant.hpp</label>
         <link refid="_secant_8hpp"/>
-        <childnode refid="17288" relation="include">
+        <childnode refid="17375" relation="include">
         </childnode>
-        <childnode refid="17290" relation="include">
+        <childnode refid="17377" relation="include">
         </childnode>
-        <childnode refid="17292" relation="include">
+        <childnode refid="17379" relation="include">
         </childnode>
-        <childnode refid="17298" relation="include">
+        <childnode refid="17385" relation="include">
         </childnode>
-        <childnode refid="17297" relation="include">
+        <childnode refid="17384" relation="include">
         </childnode>
-        <childnode refid="17299" relation="include">
+        <childnode refid="17386" relation="include">
         </childnode>
       </node>
-      <node id="17293">
+      <node id="17380">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="17290" relation="include">
+        <childnode refid="17377" relation="include">
         </childnode>
-        <childnode refid="17294" relation="include">
+        <childnode refid="17381" relation="include">
         </childnode>
-        <childnode refid="17289" relation="include">
+        <childnode refid="17376" relation="include">
         </childnode>
-        <childnode refid="17295" relation="include">
+        <childnode refid="17382" relation="include">
         </childnode>
-        <childnode refid="17296" relation="include">
+        <childnode refid="17383" relation="include">
         </childnode>
       </node>
-      <node id="17299">
+      <node id="17386">
         <label>utility</label>
       </node>
-      <node id="17292">
+      <node id="17379">
         <label>NumCpp/Roots/Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="17293" relation="include">
+        <childnode refid="17380" relation="include">
         </childnode>
-        <childnode refid="17290" relation="include">
+        <childnode refid="17377" relation="include">
         </childnode>
-        <childnode refid="17297" relation="include">
+        <childnode refid="17384" relation="include">
         </childnode>
       </node>
-      <node id="17294">
+      <node id="17381">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="17302">
+      <node id="17389">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="17300">
+      <node id="17387">
         <label>Secant.hpp</label>
         <link refid="_secant_8hpp"/>
-        <childnode refid="17301" relation="include">
+        <childnode refid="17388" relation="include">
         </childnode>
       </node>
-      <node id="17301">
+      <node id="17388">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="17302" relation="include">
+        <childnode refid="17389" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -143,18 +143,18 @@
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="61" refid="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" kindref="member">Secant</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon,</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)<sp/>noexcept<sp/>:</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)<sp/>noexcept<sp/>:</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" kindref="member">Iteration</ref>(epsilon),</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="75" refid="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" kindref="member">Secant</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon,</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>maxNumIterations,</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)<sp/>noexcept<sp/>:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)<sp/>noexcept<sp/>:</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" kindref="member">Iteration</ref>(epsilon,<sp/>maxNumIterations),</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)</highlight></codeline>
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"></highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>

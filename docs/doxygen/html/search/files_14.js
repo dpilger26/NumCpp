@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['wahbasproblem_2ehpp',['wahbasProblem.hpp',['../wahbas_problem_8hpp.html',1,'']]],
   ['weibull_2ehpp',['weibull.hpp',['../weibull_8hpp.html',1,'']]],
   ['where_2ehpp',['where.hpp',['../where_8hpp.html',1,'']]],
   ['windowexceedances_2ehpp',['windowExceedances.hpp',['../window_exceedances_8hpp.html',1,'']]],

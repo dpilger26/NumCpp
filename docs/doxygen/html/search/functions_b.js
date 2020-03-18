@@ -1,7 +1,7 @@
 var searchData=
 [
   ['laguerre',['laguerre',['../namespacenc_1_1polynomial.html#a09b2c967d4e541797a00451a497951ba',1,'nc::polynomial::laguerre(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aefe4861199729125ab86c64521789a77',1,'nc::polynomial::laguerre(uint32 n, uint32 m, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#a935b8c6209c506b9bba00276d072b11b',1,'nc::polynomial::laguerre(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept'],['../namespacenc_1_1polynomial.html#ae5e4a468915bd710060b8515ff35baf8',1,'nc::polynomial::laguerre(uint32 n, uint32 m, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
-  ['laplace',['laplace',['../namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46',1,'nc::filter::laplace()'],['../namespacenc_1_1random.html#a2966d8201e87fe94ce575e6338f1e222',1,'nc::random::laplace()']]],
+  ['laplace',['laplace',['../namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46',1,'nc::filter::laplace()'],['../namespacenc_1_1random.html#a39ed805240ecd0927536a060308c2a94',1,'nc::random::laplace(dtype inLoc=0, dtype inScale=1) noexcept'],['../namespacenc_1_1random.html#a2966d8201e87fe94ce575e6338f1e222',1,'nc::random::laplace(const Shape &amp;inShape, dtype inLoc=0, dtype inScale=1) noexcept']]],
   ['lcm',['lcm',['../namespacenc.html#a7ffd0c15b8419a5d84458d4009b38b88',1,'nc::lcm(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#a631b0ddbe680dd8ae3240afa5e64fb63',1,'nc::lcm(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['ldexp',['ldexp',['../namespacenc.html#aca805ef0273314ddc6c70b2c913bf485',1,'nc::ldexp(dtype inValue1, uint8 inValue2) noexcept'],['../namespacenc.html#a52060ff2d69ed791b3f19c1d78cf8551',1,'nc::ldexp(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; uint8 &gt; &amp;inArray2)']]],
   ['left',['left',['../classnc_1_1_vec2.html#ade3f4342726264a1493f91ae80ab24ca',1,'nc::Vec2::left()'],['../classnc_1_1_vec3.html#a7e6730d945972ecda1815c1d41f5074c',1,'nc::Vec3::left()']]],
@@ -24,7 +24,7 @@ var searchData=
   ['logical_5fnot',['logical_not',['../namespacenc.html#a5bc3dc27d0a15ffd2d72fa0f77736dde',1,'nc']]],
   ['logical_5for',['logical_or',['../namespacenc.html#a0492e302b114ab15b996b1330604478b',1,'nc']]],
   ['logical_5fxor',['logical_xor',['../namespacenc.html#a7b84e63b2d32e1b59bfef4690c918989',1,'nc']]],
-  ['lognormal',['lognormal',['../namespacenc_1_1random.html#a3adc9de1025d27ed485603980657225b',1,'nc::random']]],
+  ['lognormal',['lognormal',['../namespacenc_1_1random.html#a03d5528a3a97b3731210ba2cc5d1c75d',1,'nc::random::lognormal(dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random.html#a3adc9de1025d27ed485603980657225b',1,'nc::random::lognormal(const Shape &amp;inShape, dtype inMean=0, dtype inSigma=1)']]],
   ['lstsq',['lstsq',['../namespacenc_1_1linalg.html#aac53030577bdcf972d77f0c528b2d302',1,'nc::linalg']]],
   ['lu_5fdecomposition',['lu_decomposition',['../namespacenc_1_1linalg.html#a153a90dbcc2ca94c664c429868d15bc4',1,'nc::linalg']]]
 ];

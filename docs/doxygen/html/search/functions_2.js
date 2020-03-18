@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cauchy',['cauchy',['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random']]],
+  ['cauchy',['cauchy',['../namespacenc_1_1random.html#aa72b221b82940e126a4c740ee55b269b',1,'nc::random::cauchy(dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random::cauchy(const Shape &amp;inShape, dtype inMean=0, dtype inSigma=1)']]],
   ['cbegin',['cbegin',['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()'],['../classnc_1_1_nd_array.html#a46a8bd2b5b14f75e80590fb11ece89ba',1,'nc::NdArray::cbegin() const'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../namespacenc.html#a21de0caa1ff8e9e7baed8a8a57f7bcab',1,'nc::cbrt(dtype inValue) noexcept'],['../namespacenc.html#a56a122b504ee028142e35c221a1afe46',1,'nc::cbrt(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['ceil',['ceil',['../namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a',1,'nc::ceil(dtype inValue) noexcept'],['../namespacenc.html#af762493e829f0334c506cc05c7668270',1,'nc::ceil(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
@@ -10,7 +10,7 @@ var searchData=
   ['centroidclusters',['centroidClusters',['../namespacenc_1_1image_processing.html#ad2838bf346a3d199ee0141fc64be7c5e',1,'nc::imageProcessing']]],
   ['chebyshev_5ft',['chebyshev_t',['../namespacenc_1_1polynomial.html#a3990b1eded86de9be5770c013e58042a',1,'nc::polynomial::chebyshev_t(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#a078793b666bab0bd2add2b139f989df5',1,'nc::polynomial::chebyshev_t(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
   ['chebyshev_5fu',['chebyshev_u',['../namespacenc_1_1polynomial.html#abc99c09581c24b9eb1f7bcaa6f0d40e4',1,'nc::polynomial::chebyshev_u(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aed39a034f0126aaeccbeb0718dea3c8b',1,'nc::polynomial::chebyshev_u(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
-  ['chisquare',['chiSquare',['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random']]],
+  ['chisquare',['chiSquare',['../namespacenc_1_1random.html#abb480e9a17b71ea09ef0f043c081e9ff',1,'nc::random::chiSquare(dtype inDof)'],['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random::chiSquare(const Shape &amp;inShape, dtype inDof)']]],
   ['choice',['choice',['../namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc_1_1random.html#a550d14627dafe31efa2e66a10d2fce73',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNum)']]],
   ['cholesky',['cholesky',['../namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19',1,'nc::linalg']]],
   ['clampmagnitude',['clampMagnitude',['../classnc_1_1_vec2.html#abb0f6f8cacc680a464425d908e1e55cc',1,'nc::Vec2::clampMagnitude()'],['../classnc_1_1_vec3.html#a4f3cfcbd67a402820cc8e0576dccd2e4',1,'nc::Vec3::clampMagnitude()']]],

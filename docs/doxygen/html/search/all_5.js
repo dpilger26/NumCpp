@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cube_2ehpp',['cube.hpp',['../_functions_2cube_8hpp.html',1,'']]],
-  ['f',['F',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012',1,'nc::boostPythonInterface::BoostNdarrayHelper::F()'],['../namespacenc_1_1random.html#aabf17da1f94e6da4ec99085feca10799',1,'nc::random::f()']]],
+  ['f',['F',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012',1,'nc::boostPythonInterface::BoostNdarrayHelper::F()'],['../namespacenc_1_1random.html#a00229c23da25284daf436c0a338ea25c',1,'nc::random::f(dtype inDofN, dtype inDofD)'],['../namespacenc_1_1random.html#aabf17da1f94e6da4ec99085feca10799',1,'nc::random::f(const Shape &amp;inShape, dtype inDofN, dtype inDofD)']]],
   ['f_2ehpp',['f.hpp',['../f_8hpp.html',1,'']]],
   ['factorial',['factorial',['../namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3',1,'nc::special::factorial(uint32 inValue)'],['../namespacenc_1_1special.html#af28b6a68a7d599ad1f973082ec275dbc',1,'nc::special::factorial(const NdArray&lt; uint32 &gt; &amp;inArray) noexcept']]],
   ['factorial_2ehpp',['factorial.hpp',['../factorial_8hpp.html',1,'']]],

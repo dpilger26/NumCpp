@@ -24,7 +24,7 @@ var searchData=
   ['tostring',['toString',['../classnc_1_1_vec2.html#aae1fa965b6d2d58638ae98c3e2cd834b',1,'nc::Vec2::toString()'],['../classnc_1_1_vec3.html#a3af99e8df35bad1893f2d2a1a6082e21',1,'nc::Vec3::toString()']]],
   ['trace',['trace',['../classnc_1_1_nd_array.html#af46899aa9486c6189a0db53228774f76',1,'nc::NdArray::trace()'],['../namespacenc.html#a4a75035db8c766b2cececb1f3e4d5b74',1,'nc::trace()']]],
   ['trace_2ehpp',['trace.hpp',['../trace_8hpp.html',1,'']]],
-  ['transform',['transform',['../namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4',1,'nc::stl_algorithms::transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)'],['../namespacenc_1_1stl__algorithms.html#af358fec5563ae500162b310fe263a36d',1,'nc::stl_algorithms::transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)']]],
+  ['transform',['transform',['../namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e',1,'nc::stl_algorithms::transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction) noexcept'],['../namespacenc_1_1stl__algorithms.html#af110f81b7580e3bddbbfeea2fb92134b',1,'nc::stl_algorithms::transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction) noexcept']]],
   ['transpose',['transpose',['../classnc_1_1_nd_array.html#aae29c9fbae3e92ce432703ffd7722d8b',1,'nc::NdArray::transpose()'],['../namespacenc.html#a4f2a0ece915add7cde89fcfefa30088d',1,'nc::transpose()']]],
   ['transpose_2ehpp',['transpose.hpp',['../transpose_8hpp.html',1,'']]],
   ['trapazoidal',['trapazoidal',['../namespacenc_1_1integrate.html#a73156d502caa3e23d9ba82381bc382bf',1,'nc::integrate']]],
@@ -32,7 +32,7 @@ var searchData=
   ['trapz',['trapz',['../namespacenc.html#a829410fad89d9845f8edee22ad643b3a',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArray, double dx=1.0, Axis inAxis=Axis::NONE) noexcept'],['../namespacenc.html#a956571b2c934b75025e9168e2ed408f5',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArrayY, const NdArray&lt; dtype &gt; &amp;inArrayX, Axis inAxis=Axis::NONE)']]],
   ['trapz_2ehpp',['trapz.hpp',['../trapz_8hpp.html',1,'']]],
   ['tri_2ehpp',['tri.hpp',['../tri_8hpp.html',1,'']]],
-  ['triangle',['triangle',['../namespacenc_1_1random.html#abaeed48339244cfb7f214c7238b13e8b',1,'nc::random']]],
+  ['triangle',['triangle',['../namespacenc_1_1random.html#a3dd603264757ce4334bfc0b989cd4503',1,'nc::random::triangle(dtype inA=0, dtype inB=0.5, dtype inC=1)'],['../namespacenc_1_1random.html#abaeed48339244cfb7f214c7238b13e8b',1,'nc::random::triangle(const Shape &amp;inShape, dtype inA=0, dtype inB=0.5, dtype inC=1)']]],
   ['triangle_2ehpp',['triangle.hpp',['../triangle_8hpp.html',1,'']]],
   ['trigamma',['trigamma',['../namespacenc_1_1special.html#aab92fe0af9e9cec601ff68ebb6eeee04',1,'nc::special::trigamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#ac6f6ac0fade4babd204d8c39836402ef',1,'nc::special::trigamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['trigamma_2ehpp',['trigamma.hpp',['../trigamma_8hpp.html',1,'']]],
@@ -46,5 +46,6 @@ var searchData=
   ['triu',['triu',['../namespacenc.html#acc5de905ab2bb273cb01a4fd3fd357df',1,'nc::triu(uint32 inN, uint32 inM, int32 inOffset=0) noexcept'],['../namespacenc.html#a9464c274ad7737a74f70afe33a5b2f72',1,'nc::triu(uint32 inN, int32 inOffset=0) noexcept'],['../namespacenc.html#a1fb506ce5644321b766a774447c14faf',1,'nc::triu(const NdArray&lt; dtype &gt; &amp;inArray, int32 inOffset=0) noexcept']]],
   ['trunc',['trunc',['../namespacenc.html#ac83a50ef99e61f116a86df98196f4a8b',1,'nc::trunc(dtype inValue) noexcept'],['../namespacenc.html#a9e5373a985723f67cb7b5bbb4a65c86d',1,'nc::trunc(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['trunc_2ehpp',['trunc.hpp',['../trunc_8hpp.html',1,'']]],
-  ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]]
+  ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]],
+  ['typetraits_2ehpp',['TypeTraits.hpp',['../_type_traits_8hpp.html',1,'']]]
 ];

@@ -66,6 +66,109 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" bodystart="56" bodyend="110"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1linalg_1aff0f97e94666284100b584e13d27def3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Params</declname>
+            <defname>Params</defname>
+          </param>
+          <param>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; std::is_arithmetic&lt; dtype &gt;::value, int &gt;</type>
+            <defval>0</defval>
+          </param>
+          <param>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_arithmetic&lt; Params... &gt;::value, int &gt;</type>
+            <defval>0</defval>
+          </param>
+          <param>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_same&lt; dtype, Params... &gt;::value, int &gt;</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;, double &gt;</type>
+        <definition>std::pair&lt;NdArray&lt;double&gt;, double&gt; nc::linalg::gaussNewtonNlls</definition>
+        <argsstring>(const uint32 numIterations, const NdArray&lt; dtype &gt; &amp;coordinates, const NdArray&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</argsstring>
+        <name>gaussNewtonNlls</name>
+        <param>
+          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>numIterations</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>coordinates</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>measurements</declname>
+        </param>
+        <param>
+          <type>const std::function&lt; dtype(const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;, const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;)&gt; &amp;</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>const std::array&lt; std::function&lt; dtype(const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;, const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;</type>
+          <declname>derivatives</declname>
+        </param>
+        <param>
+          <type>Params...</type>
+          <declname>initialGuess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Gauss–Newton algorithm is used to solve non-linear least squares problems. It is a modification of Newton&apos;s method for finding a minimum of a function. <ulink url="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm">https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numIterations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of iterations to perform, default 4. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coordinates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the coordinate values. The shape needs to be [n x d], where d is the number of diminsions of the fit function (f(x) is one dimensional, f(x, y) is two dimensions, etc), and n is the number of observations that are being fit to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measurements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the measured values that are being fit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a std::function of the function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>derivatives</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array of std::functions to calculate the function derivatives. The function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initialGuess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial guess of the parameters to be solved for</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::pair of <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of solved parameter values, and rms of the residuals value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" bodystart="78" bodyend="133"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>

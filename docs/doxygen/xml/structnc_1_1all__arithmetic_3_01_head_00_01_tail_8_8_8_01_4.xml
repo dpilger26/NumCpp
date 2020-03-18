@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>nc::all_arithmetic&lt; Head, Tail... &gt;</compoundname>
+    <includes refid="_type_traits_8hpp" local="no">TypeTraits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Head</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Tail</declname>
+        <defname>Tail</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4_1a6e1a48ad3dc95bb666261cd0e3503f5c" prot="public" static="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::all_arithmetic&lt; Head, Tail... &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= std::is_arithmetic&lt;Head&gt;::value &amp;&amp; <ref refid="structnc_1_1all__arithmetic" kindref="compound">all_arithmetic</ref>&lt;Tail...&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Template class specialization for determining if all of the types are arithmetic </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>nc::all_arithmetic&lt; Head, Tail... &gt;</label>
+        <link refid="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" bodystart="54" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4_1a6e1a48ad3dc95bb666261cd0e3503f5c" prot="public" virt="non-virtual"><scope>nc::all_arithmetic&lt; Head, Tail... &gt;</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

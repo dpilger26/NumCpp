@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['legendrepolynomial',['LegendrePolynomial',['../classnc_1_1integrate_1_1_legendre_polynomial.html',1,'nc::integrate']]]
+  ['iteration',['Iteration',['../classnc_1_1roots_1_1_iteration.html',1,'nc::roots']]]
 ];
