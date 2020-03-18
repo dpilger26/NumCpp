@@ -17,5 +17,6 @@ var searchData=
   ['trimboundary1d_2ehpp',['trimBoundary1d.hpp',['../trim_boundary1d_8hpp.html',1,'']]],
   ['trimboundary2d_2ehpp',['trimBoundary2d.hpp',['../trim_boundary2d_8hpp.html',1,'']]],
   ['trunc_2ehpp',['trunc.hpp',['../trunc_8hpp.html',1,'']]],
-  ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]]
+  ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]],
+  ['typetraits_2ehpp',['TypeTraits.hpp',['../_type_traits_8hpp.html',1,'']]]
 ];

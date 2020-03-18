@@ -7,104 +7,104 @@
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
     <includedby refid="_vec3_8hpp" local="yes">Vec3.hpp</includedby>
     <invincdepgraph>
-      <node id="9033">
+      <node id="9091">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="9042">
+      <node id="9100">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="9033" relation="include">
+        <childnode refid="9091" relation="include">
         </childnode>
       </node>
-      <node id="9043">
+      <node id="9101">
         <label>rodriguesRotation.hpp</label>
         <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="9042" relation="include">
+        <childnode refid="9100" relation="include">
         </childnode>
       </node>
-      <node id="9040">
+      <node id="9098">
         <label>Quaternion.hpp</label>
         <link refid="_quaternion_8hpp"/>
-        <childnode refid="9041" relation="include">
+        <childnode refid="9099" relation="include">
         </childnode>
-        <childnode refid="9042" relation="include">
+        <childnode refid="9100" relation="include">
         </childnode>
       </node>
-      <node id="9036">
+      <node id="9094">
         <label>Vector.hpp</label>
         <link refid="_vector_8hpp"/>
-        <childnode refid="9033" relation="include">
+        <childnode refid="9091" relation="include">
         </childnode>
       </node>
-      <node id="9039">
+      <node id="9097">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="9033" relation="include">
+        <childnode refid="9091" relation="include">
         </childnode>
       </node>
-      <node id="9031">
+      <node id="9089">
         <label>interp.hpp</label>
         <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="9032" relation="include">
+        <childnode refid="9090" relation="include">
         </childnode>
       </node>
-      <node id="9034">
+      <node id="9092">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="9033" relation="include">
+        <childnode refid="9091" relation="include">
         </childnode>
       </node>
-      <node id="9041">
+      <node id="9099">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="9042" relation="include">
+        <childnode refid="9100" relation="include">
         </childnode>
       </node>
-      <node id="9038">
+      <node id="9096">
         <label>hat.hpp</label>
         <link refid="hat_8hpp"/>
-        <childnode refid="9039" relation="include">
+        <childnode refid="9097" relation="include">
         </childnode>
-        <childnode refid="9040" relation="include">
+        <childnode refid="9098" relation="include">
         </childnode>
       </node>
-      <node id="9030">
+      <node id="9088">
         <label>interp.hpp</label>
         <link refid="_utils_2interp_8hpp"/>
-        <childnode refid="9031" relation="include">
+        <childnode refid="9089" relation="include">
         </childnode>
-        <childnode refid="9034" relation="include">
+        <childnode refid="9092" relation="include">
         </childnode>
-        <childnode refid="9035" relation="include">
+        <childnode refid="9093" relation="include">
         </childnode>
-        <childnode refid="9037" relation="include">
+        <childnode refid="9095" relation="include">
         </childnode>
       </node>
-      <node id="9035">
+      <node id="9093">
         <label>Vec2.hpp</label>
         <link refid="_vec2_8hpp"/>
-        <childnode refid="9036" relation="include">
+        <childnode refid="9094" relation="include">
         </childnode>
       </node>
-      <node id="9032">
+      <node id="9090">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="9033" relation="include">
+        <childnode refid="9091" relation="include">
         </childnode>
       </node>
-      <node id="9037">
+      <node id="9095">
         <label>Vec3.hpp</label>
         <link refid="_vec3_8hpp"/>
-        <childnode refid="9038" relation="include">
+        <childnode refid="9096" relation="include">
         </childnode>
-        <childnode refid="9041" relation="include">
+        <childnode refid="9099" relation="include">
         </childnode>
-        <childnode refid="9040" relation="include">
+        <childnode refid="9098" relation="include">
         </childnode>
-        <childnode refid="9043" relation="include">
+        <childnode refid="9101" relation="include">
         </childnode>
-        <childnode refid="9036" relation="include">
+        <childnode refid="9094" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

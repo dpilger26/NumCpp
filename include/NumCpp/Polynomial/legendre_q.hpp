@@ -71,7 +71,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) -> double
+            auto function = [n](dtype x) noexcept -> double
             {
                 return legendre_q(n, x);
             };

@@ -44,6 +44,26 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "bernoulli" distribution.
+        ///
+        /// @param				inP (probability of success [0, 1])
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype bernoulli(dtype inP)
+        {
+            if (inP < 0 || inP > 1)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
+            }
+
+            const boost::random::bernoulli_distribution<dtype> dist(inP);
+            return dist(generator_); ;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "bernoulli" distribution.
         ///
@@ -72,6 +92,5 @@ namespace nc
 
             return returnArray;
         }
-
     }
 }

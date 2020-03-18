@@ -44,6 +44,34 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the  "weibull" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+        ///
+        /// @param				inA (default 1)
+        /// @param				inB (default 1)
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype weibull(dtype inA = 1, dtype inB = 1)
+        {
+            if (inA <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input a must be greater than zero.");
+            }
+
+            if (inB <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
+            }
+
+            const boost::random::weibull_distribution<dtype> dist(inA, inB);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "weibull" distribution.
         ///

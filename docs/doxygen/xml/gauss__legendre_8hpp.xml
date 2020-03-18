@@ -10,76 +10,76 @@
     <includes local="no">vector</includes>
     <includedby refid="_integrate_8hpp" local="yes">Integrate.hpp</includedby>
     <incdepgraph>
-      <node id="8209">
+      <node id="8225">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="8210" relation="include">
+        <childnode refid="8226" relation="include">
         </childnode>
       </node>
-      <node id="8212">
+      <node id="8228">
         <label>functional</label>
       </node>
-      <node id="8207">
+      <node id="8223">
         <label>limits</label>
       </node>
-      <node id="8210">
+      <node id="8226">
         <label>cstdint</label>
       </node>
-      <node id="8206">
+      <node id="8222">
         <label>cmath</label>
       </node>
-      <node id="8208">
+      <node id="8224">
         <label>string</label>
       </node>
-      <node id="8211">
+      <node id="8227">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="8205">
+      <node id="8221">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="8206" relation="include">
+        <childnode refid="8222" relation="include">
         </childnode>
-        <childnode refid="8207" relation="include">
+        <childnode refid="8223" relation="include">
         </childnode>
-        <childnode refid="8208" relation="include">
+        <childnode refid="8224" relation="include">
         </childnode>
       </node>
-      <node id="8213">
+      <node id="8229">
         <label>vector</label>
       </node>
-      <node id="8204">
+      <node id="8220">
         <label>gauss_legendre.hpp</label>
         <link refid="gauss__legendre_8hpp"/>
-        <childnode refid="8205" relation="include">
+        <childnode refid="8221" relation="include">
         </childnode>
-        <childnode refid="8209" relation="include">
+        <childnode refid="8225" relation="include">
         </childnode>
-        <childnode refid="8211" relation="include">
+        <childnode refid="8227" relation="include">
         </childnode>
-        <childnode refid="8206" relation="include">
+        <childnode refid="8222" relation="include">
         </childnode>
-        <childnode refid="8212" relation="include">
+        <childnode refid="8228" relation="include">
         </childnode>
-        <childnode refid="8213" relation="include">
+        <childnode refid="8229" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="8216">
+      <node id="8232">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="8215">
+      <node id="8231">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="8216" relation="include">
+        <childnode refid="8232" relation="include">
         </childnode>
       </node>
-      <node id="8214">
+      <node id="8230">
         <label>gauss_legendre.hpp</label>
         <link refid="gauss__legendre_8hpp"/>
-        <childnode refid="8215" relation="include">
+        <childnode refid="8231" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -189,12 +189,12 @@
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Result<sp/>result(x,<sp/>0.0);</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"></highlight></codeline>
 <codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value_minus_1<sp/>=<sp/>1.0;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref><sp/>=<sp/>1.0<sp/>/<sp/>(<ref refid="namespacenc_1_1utils_1ae792e10a24b7e5b8291a6c31a28a4512" kindref="member">utils::sqr</ref>(x)<sp/>-<sp/>1.0);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref><sp/>=<sp/>1.0<sp/>/<sp/>(<ref refid="namespacenc_1_1utils_1ae792e10a24b7e5b8291a6c31a28a4512" kindref="member">utils::sqr</ref>(x)<sp/>-<sp/>1.0);</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>step<sp/>=<sp/>2;<sp/>step<sp/>&lt;=<sp/>numIterations_;<sp/>++step)</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>stepDouble<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(step);</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>((2.0<sp/>*<sp/>stepDouble<sp/>-<sp/>1.0)<sp/>*<sp/>x<sp/>*<sp/>result.value<sp/>-<sp/>(stepDouble<sp/>-<sp/>1.0)<sp/>*<sp/>value_minus_1)<sp/>/<sp/>stepDouble;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.derivative<sp/>=<sp/>stepDouble<sp/>*<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref><sp/>*<sp/>(x<sp/>*<sp/>value<sp/>-<sp/>result.value);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.derivative<sp/>=<sp/>stepDouble<sp/>*<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref><sp/>*<sp/>(x<sp/>*<sp/>value<sp/>-<sp/>result.value);</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"></highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value_minus_1<sp/>=<sp/>result.value;</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.value<sp/>=<sp/>value;</highlight></codeline>
@@ -214,7 +214,7 @@
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="183" refid="namespacenc_1_1integrate_1af7d17b4e025bf94f903d3c671da3baf7" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1integrate_1af7d17b4e025bf94f903d3c671da3baf7" kindref="member">gauss_legendre</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>low,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>high,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1integrate_1_1_legendre_polynomial" kindref="compound">LegendrePolynomial</ref><sp/>legendrePolynomial(n);</highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>weight<sp/>=<sp/>legendrePolynomial.<ref refid="classnc_1_1integrate_1_1_legendre_polynomial_1a4293982abe2543fd2f2081cb04c887c7" kindref="member">getWeight</ref>();</highlight></codeline>
@@ -226,7 +226,7 @@
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gaussLegendre<sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>step<sp/>=<sp/>1;<sp/>step<sp/>&lt;=<sp/>n;<sp/>++step)</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gaussLegendre<sp/>+=<sp/>weight[step]<sp/>*<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>(width<sp/>*<sp/>root[step]<sp/>+<sp/><ref refid="namespacenc_1aff3ef2c818346b63714ca4f3493f0ec9" kindref="member">mean</ref>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gaussLegendre<sp/>+=<sp/>weight[step]<sp/>*<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>(width<sp/>*<sp/>root[step]<sp/>+<sp/><ref refid="namespacenc_1aff3ef2c818346b63714ca4f3493f0ec9" kindref="member">mean</ref>);</highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"></highlight></codeline>
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gaussLegendre<sp/>*<sp/>width;</highlight></codeline>

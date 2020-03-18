@@ -11,7 +11,7 @@ var searchData=
   ['pivotlu_5fdecomposition',['pivotLU_decomposition',['../namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd',1,'nc::linalg']]],
   ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html#a02c524151a89fb50a6553aa2cac411b3',1,'nc::imageProcessing::Pixel::Pixel() noexcept=default'],['../classnc_1_1image_processing_1_1_pixel.html#a4d1db82b1617d892266270d2bec28f61',1,'nc::imageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept']]],
   ['pnr',['pnr',['../namespacenc_1_1special.html#ad24badd4fad228e42db56cad017747bc',1,'nc::special']]],
-  ['poisson',['poisson',['../namespacenc_1_1random.html#ae103ffefefe45e4b64067d52a1763f24',1,'nc::random']]],
+  ['poisson',['poisson',['../namespacenc_1_1random.html#ae18029c16ca489ea9db6331c609b20e8',1,'nc::random::poisson(double inMean=1)'],['../namespacenc_1_1random.html#ae103ffefefe45e4b64067d52a1763f24',1,'nc::random::poisson(const Shape &amp;inShape, double inMean=1)']]],
   ['poly1d',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html#a63ba012e9178fba33b85ba94f375a86d',1,'nc::polynomial::Poly1d::Poly1d() noexcept'],['../classnc_1_1polynomial_1_1_poly1d.html#a33c01905d846d32e7d49dc4e7e884551',1,'nc::polynomial::Poly1d::Poly1d(const NdArray&lt; dtype &gt; &amp;inValues, bool isRoots=false)']]],
   ['polygamma',['polygamma',['../namespacenc_1_1special.html#a6004700cebef1c51c8d4f0a0c66efe5e',1,'nc::special::polygamma(uint32 n, dtype inValue) noexcept'],['../namespacenc_1_1special.html#ab404a49a8e57faef0e9aee9869df5c1f',1,'nc::special::polygamma(uint32 n, const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['pop_5fback',['pop_back',['../classnc_1_1_data_cube.html#a8f17538e077a9eefdece159adb6673a1',1,'nc::DataCube']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['c',['C',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a0d61f8370cad1d412f80b84d143e1257',1,'nc::boostPythonInterface::BoostNdarrayHelper::C()'],['../namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581',1,'nc::constants::c()']]],
-  ['cauchy',['cauchy',['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random']]],
+  ['cauchy',['cauchy',['../namespacenc_1_1random.html#aa72b221b82940e126a4c740ee55b269b',1,'nc::random::cauchy(dtype inMean=0, dtype inSigma=1)'],['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random::cauchy(const Shape &amp;inShape, dtype inMean=0, dtype inSigma=1)']]],
   ['cauchy_2ehpp',['cauchy.hpp',['../cauchy_8hpp.html',1,'']]],
   ['cbegin',['cbegin',['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()'],['../classnc_1_1_nd_array.html#a46a8bd2b5b14f75e80590fb11ece89ba',1,'nc::NdArray::cbegin() const'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../namespacenc.html#a21de0caa1ff8e9e7baed8a8a57f7bcab',1,'nc::cbrt(dtype inValue) noexcept'],['../namespacenc.html#a56a122b504ee028142e35c221a1afe46',1,'nc::cbrt(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
@@ -19,7 +19,7 @@ var searchData=
   ['chebyshev_5ft_2ehpp',['chebyshev_t.hpp',['../chebyshev__t_8hpp.html',1,'']]],
   ['chebyshev_5fu',['chebyshev_u',['../namespacenc_1_1polynomial.html#abc99c09581c24b9eb1f7bcaa6f0d40e4',1,'nc::polynomial::chebyshev_u(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aed39a034f0126aaeccbeb0718dea3c8b',1,'nc::polynomial::chebyshev_u(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
   ['chebyshev_5fu_2ehpp',['chebyshev_u.hpp',['../chebyshev__u_8hpp.html',1,'']]],
-  ['chisquare',['chiSquare',['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random']]],
+  ['chisquare',['chiSquare',['../namespacenc_1_1random.html#abb480e9a17b71ea09ef0f043c081e9ff',1,'nc::random::chiSquare(dtype inDof)'],['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random::chiSquare(const Shape &amp;inShape, dtype inDof)']]],
   ['chisquare_2ehpp',['chiSquare.hpp',['../chi_square_8hpp.html',1,'']]],
   ['choice',['choice',['../namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc_1_1random.html#a550d14627dafe31efa2e66a10d2fce73',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNum)']]],
   ['choice_2ehpp',['choice.hpp',['../choice_8hpp.html',1,'']]],

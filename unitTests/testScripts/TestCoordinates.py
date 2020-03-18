@@ -205,7 +205,7 @@ def doTest():
     raDegreesPy = (raHours + raMinutes / 60 + raSeconds / 3600) * 15
 
     decSign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
-    decDegrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
+    decDegrees = np.random.randint(0, 90, [1, ], dtype=np.uint8).item()
     decMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
     decSeconds = np.random.rand(1).astype(np.double).item() * 60
     decDegreesPy = decDegrees + decMinutes / 60 + decSeconds / 3600

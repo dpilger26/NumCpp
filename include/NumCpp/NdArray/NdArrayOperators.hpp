@@ -412,7 +412,7 @@ namespace nc
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
-            [inScalar](dtype value) -> dtype
+            [inScalar](dtype value) noexcept -> dtype
             {
                 return inScalar / value;
             });
@@ -799,7 +799,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [](dtype value) -> dtype
+        auto function = [](dtype value) noexcept -> dtype
         {
             return ~value;
         };

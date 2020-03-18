@@ -66,7 +66,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) -> double
+            auto function = [n](dtype x) noexcept -> double
             {
                 return chebyshev_u(n, x);
             };

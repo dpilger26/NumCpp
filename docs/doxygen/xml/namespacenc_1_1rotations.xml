@@ -106,6 +106,101 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" line="83" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/rodriguesRotation.hpp" bodystart="83" bodyend="86"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1rotations_1a84a42f4e7f09b7c0e1a9307cb5b6f281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::wahbasProblem</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;wk, const NdArray&lt; dtype &gt; &amp;vk, const NdArray&lt; dtype &gt; &amp;ak)</argsstring>
+        <name>wahbasProblem</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>wk</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>vk</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>ak</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds a rotation matrix (special orthogonal matrix) between two coordinate systems from a set of (weighted) vector observations. Solutions to Wahba&apos;s problem are often used in satellite attitude determination utilising sensors such as magnetometers and multi-antenna GPS receivers <ulink url="https://en.wikipedia.org/wiki/Wahba%27s_problem">https://en.wikipedia.org/wiki/Wahba%27s_problem</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>wk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>k-th 3-vector measurement in the reference frame (n x 3 matrix) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>corresponding k-th 3-vector measurement in the body frame (n x 3 matrix) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ak</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set of weights for each observation (1 x n or n x 1 matrix)</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> rotation matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/wahbasProblem.hpp" line="64" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/wahbasProblem.hpp" bodystart="64" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1rotations_1a6da89864a9512bbe69c848dad18220b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::wahbasProblem</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;wk, const NdArray&lt; dtype &gt; &amp;vk)</argsstring>
+        <name>wahbasProblem</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>wk</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>vk</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds a rotation matrix (special orthogonal matrix) between two coordinate systems from a set of (weighted) vector observations. Solutions to Wahba&apos;s problem are often used in satellite attitude determination utilising sensors such as magnetometers and multi-antenna GPS receivers <ulink url="https://en.wikipedia.org/wiki/Wahba%27s_problem">https://en.wikipedia.org/wiki/Wahba%27s_problem</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>wk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>k-th 3-vector measurement in the reference frame </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>corresponding k-th 3-vector measurement in the body frame</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> rotation matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/wahbasProblem.hpp" line="125" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Rotations/wahbasProblem.hpp" bodystart="125" bodyend="129"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>

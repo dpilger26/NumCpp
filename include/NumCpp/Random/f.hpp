@@ -44,6 +44,34 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "F" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
+        ///
+        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype f(dtype inDofN, dtype inDofD)
+        {
+            if (inDofN <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("numerator degrees of freedom should be greater than zero.");
+            }
+
+            if (inDofD <= 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("denominator degrees of freedom should be greater than zero.");
+            }
+
+            boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from a "F" distrubution.
         ///

@@ -112,6 +112,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a923304344b059574fa025c5f31ee88d0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a923304344b059574fa025c5f31ee88d0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1rotations.html#a923304344b059574fa025c5f31ee88d0">rodriguesRotation</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;k, double theta, <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;v)</td></tr>
 <tr class="separator:a923304344b059574fa025c5f31ee88d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a42f4e7f09b7c0e1a9307cb5b6f281"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a84a42f4e7f09b7c0e1a9307cb5b6f281"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1rotations.html#a84a42f4e7f09b7c0e1a9307cb5b6f281">wahbasProblem</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;wk, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;vk, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;ak)</td></tr>
+<tr class="separator:a84a42f4e7f09b7c0e1a9307cb5b6f281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da89864a9512bbe69c848dad18220b4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a6da89864a9512bbe69c848dad18220b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1rotations.html#a6da89864a9512bbe69c848dad18220b4">wahbasProblem</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;wk, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;vk)</td></tr>
+<tr class="separator:a6da89864a9512bbe69c848dad18220b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a8b758ff29273093d433b54557054e56e"></a>
@@ -209,6 +215,91 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> </dd></dl>
+
+</div>
+</div>
+<a id="a84a42f4e7f09b7c0e1a9307cb5b6f281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a42f4e7f09b7c0e1a9307cb5b6f281">&#9670;&nbsp;</a></span>wahbasProblem() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::rotations::wahbasProblem </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>wk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ak</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds a rotation matrix (special orthogonal matrix) between two coordinate systems from a set of (weighted) vector observations. Solutions to Wahba's problem are often used in satellite attitude determination utilising sensors such as magnetometers and multi-antenna GPS receivers <a href="https://en.wikipedia.org/wiki/Wahba%27s_problem">https://en.wikipedia.org/wiki/Wahba%27s_problem</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wk</td><td>k-th 3-vector measurement in the reference frame (n x 3 matrix) </td></tr>
+    <tr><td class="paramname">vk</td><td>corresponding k-th 3-vector measurement in the body frame (n x 3 matrix) </td></tr>
+    <tr><td class="paramname">ak</td><td>set of weights for each observation (1 x n or n x 1 matrix)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> rotation matrix </dd></dl>
+
+</div>
+</div>
+<a id="a6da89864a9512bbe69c848dad18220b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da89864a9512bbe69c848dad18220b4">&#9670;&nbsp;</a></span>wahbasProblem() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::rotations::wahbasProblem </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>wk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vk</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds a rotation matrix (special orthogonal matrix) between two coordinate systems from a set of (weighted) vector observations. Solutions to Wahba's problem are often used in satellite attitude determination utilising sensors such as magnetometers and multi-antenna GPS receivers <a href="https://en.wikipedia.org/wiki/Wahba%27s_problem">https://en.wikipedia.org/wiki/Wahba%27s_problem</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wk</td><td>k-th 3-vector measurement in the reference frame </td></tr>
+    <tr><td class="paramname">vk</td><td>corresponding k-th 3-vector measurement in the body frame</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> rotation matrix </dd></dl>
 
 </div>
 </div>

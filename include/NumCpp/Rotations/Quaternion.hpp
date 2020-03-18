@@ -426,7 +426,7 @@ namespace nc
 
                 stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
-                    [inPercent, oneMinus](double component1, double component2)
+                    [inPercent, oneMinus](double component1, double component2) noexcept -> double
                     {
                         return oneMinus * component1 + inPercent * component2;
                     });
@@ -724,9 +724,13 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
+                auto comparitor = [](double value1, double value2) noexcept -> bool
+                {
+                    return utils::essentiallyEqual(value1, value2);
+                };
+
                 return stl_algorithms::equal(components_.begin(), components_.end(),
-                    inRhs.components_.begin(),
-                    static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
+                    inRhs.components_.begin(), comparitor);
             }
 
             //============================================================================

@@ -8,85 +8,85 @@
     <includes local="no">functional</includes>
     <includedby refid="_roots_8hpp" local="yes">Roots.hpp</includedby>
     <incdepgraph>
-      <node id="13264">
+      <node id="13332">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="13265" relation="include">
+        <childnode refid="13333" relation="include">
         </childnode>
       </node>
-      <node id="13272">
+      <node id="13340">
         <label>functional</label>
       </node>
-      <node id="13269">
+      <node id="13337">
         <label>limits</label>
       </node>
-      <node id="13265">
+      <node id="13333">
         <label>cstdint</label>
       </node>
-      <node id="13273">
+      <node id="13341">
         <label>cmath</label>
       </node>
-      <node id="13270">
+      <node id="13338">
         <label>stdexcept</label>
       </node>
-      <node id="13271">
+      <node id="13339">
         <label>string</label>
       </node>
-      <node id="13267">
+      <node id="13335">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="13264" relation="include">
+        <childnode refid="13332" relation="include">
         </childnode>
-        <childnode refid="13268" relation="include">
+        <childnode refid="13336" relation="include">
         </childnode>
-        <childnode refid="13269" relation="include">
+        <childnode refid="13337" relation="include">
         </childnode>
-        <childnode refid="13270" relation="include">
+        <childnode refid="13338" relation="include">
         </childnode>
-        <childnode refid="13271" relation="include">
+        <childnode refid="13339" relation="include">
         </childnode>
       </node>
-      <node id="13266">
+      <node id="13334">
         <label>NumCpp/Roots/Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="13267" relation="include">
+        <childnode refid="13335" relation="include">
         </childnode>
-        <childnode refid="13264" relation="include">
+        <childnode refid="13332" relation="include">
         </childnode>
-        <childnode refid="13272" relation="include">
+        <childnode refid="13340" relation="include">
         </childnode>
       </node>
-      <node id="13268">
+      <node id="13336">
         <label>iostream</label>
       </node>
-      <node id="13263">
+      <node id="13331">
         <label>Newton.hpp</label>
         <link refid="_newton_8hpp"/>
-        <childnode refid="13264" relation="include">
+        <childnode refid="13332" relation="include">
         </childnode>
-        <childnode refid="13266" relation="include">
+        <childnode refid="13334" relation="include">
         </childnode>
-        <childnode refid="13273" relation="include">
+        <childnode refid="13341" relation="include">
         </childnode>
-        <childnode refid="13272" relation="include">
+        <childnode refid="13340" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13276">
+      <node id="13344">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13275">
+      <node id="13343">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="13276" relation="include">
+        <childnode refid="13344" relation="include">
         </childnode>
       </node>
-      <node id="13274">
+      <node id="13342">
         <label>Newton.hpp</label>
         <link refid="_newton_8hpp"/>
-        <childnode refid="13275" relation="include">
+        <childnode refid="13343" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -126,10 +126,10 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="60" refid="classnc_1_1roots_1_1_newton_1a4625ab60dc1714f48a3759a4f5300a2b" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_newton_1a4625ab60dc1714f48a3759a4f5300a2b" kindref="member">Newton</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon,</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>,</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/>fPrime)<sp/>noexcept<sp/>:</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" kindref="member">Iteration</ref>(epsilon),</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>),</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>),</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fPrime_(fPrime)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
@@ -137,10 +137,10 @@
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="77" refid="classnc_1_1roots_1_1_newton_1a96883d83bf3cae4e58be021dd7a49997" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_newton_1a96883d83bf3cae4e58be021dd7a49997" kindref="member">Newton</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon,</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>maxNumIterations,</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>,</highlight></codeline>
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/>fPrime)<sp/>noexcept<sp/>:</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" kindref="member">Iteration</ref>(epsilon,<sp/>maxNumIterations),</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_(<ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>),</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fPrime_(fPrime)</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>

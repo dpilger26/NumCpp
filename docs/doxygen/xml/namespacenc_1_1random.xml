@@ -18,6 +18,37 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1random_1ae6cf7419d9b8943b63209faa3a09bb4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::bernoulli</definition>
+        <argsstring>(dtype inP)</argsstring>
+        <name>bernoulli</name>
+        <param>
+          <type>dtype</type>
+          <declname>inP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;bernoulli&quot; distribution.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(probability of success [0, 1]) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" bodystart="54" bodyend="63"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae9acf3bca4da5307534d454cfa55d57c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -58,7 +89,49 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" bodystart="56" bodyend="74"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" line="76" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/bernoilli.hpp" bodystart="76" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a9cf5ddddc350278c76e077c67b5254ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::beta</definition>
+        <argsstring>(dtype inAlpha, dtype inBeta)</argsstring>
+        <name>beta</name>
+        <param>
+          <type>dtype</type>
+          <declname>inAlpha</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inBeta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the from the &quot;beta&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAlpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBeta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" bodystart="57" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ab7de94b949521786b7bde650b1e813fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -111,7 +184,50 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" bodystart="59" bodyend="82"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/beta.hpp" bodystart="87" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a13657004ec565f15648a520e3d060002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::binomial</definition>
+        <argsstring>(dtype inN, double inP=0.5)</argsstring>
+        <name>binomial</name>
+        <param>
+          <type>dtype</type>
+          <declname>inN</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inP</declname>
+          <defval>0.5</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the from the &quot;binomial&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(number of trials) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(probablity of success [0, 1]) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" bodystart="57" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a83099ec22905c3ad69984a94d823a3d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -165,7 +281,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" bodystart="59" bodyend="84"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" line="89" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" bodystart="89" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1aa72b221b82940e126a4c740ee55b269b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::cauchy</definition>
+        <argsstring>(dtype inMean=0, dtype inSigma=1)</argsstring>
+        <name>cauchy</name>
+        <param>
+          <type>dtype</type>
+          <declname>inMean</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inSigma</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the from the &quot;cauchy&quot; distrubution.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMean</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mean value of the underlying normal distribution. Default is 0. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" bodystart="55" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a61dc9fcfaee6e2a74e3f2e1f0e9c039b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -220,7 +380,38 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" bodystart="57" bodyend="75"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/cauchy.hpp" bodystart="78" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1abb480e9a17b71ea09ef0f043c081e9ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::chiSquare</definition>
+        <argsstring>(dtype inDof)</argsstring>
+        <name>chiSquare</name>
+        <param>
+          <type>dtype</type>
+          <declname>inDof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the from the &quot;chi square&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inDof</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(independent random variables) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" bodystart="56" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a329370aed893f0e10a8050520cf0bbd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -262,7 +453,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" bodystart="58" bodyend="76"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" line="80" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/chiSquare.hpp" bodystart="80" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ad60ec32743642bd0540fec0076043fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -337,6 +528,37 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/choice.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/choice.hpp" bodystart="66" bodyend="76"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a2ea5db9ee73d9f7a633e5899e4be2c94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::discrete</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inWeights)</argsstring>
+        <name>discrete</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inWeights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the from the &quot;discrete&quot; distrubution. It produces integers in the range [0, n) with the probability of producing each value is specified by the parameters of the distribution.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inWeights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" bodystart="56" bodyend="62"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae5367b53538e888028853607e1c522a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -377,7 +599,39 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" bodystart="58" bodyend="73"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" bodystart="78" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a5e633012e3c1d5454ae9b129c3ed3497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::exponential</definition>
+        <argsstring>(dtype inScaleValue=1) noexcept</argsstring>
+        <name>exponential</name>
+        <param>
+          <type>dtype</type>
+          <declname>inScaleValue</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;exponential&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inScaleValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" bodystart="53" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1acd77c2e563be5d613cb54cc3a10c5520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -420,7 +674,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" bodystart="55" bodyend="68"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/exponential.hpp" bodystart="72" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a11144426dec05283d6c682e0e532af7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::extremeValue</definition>
+        <argsstring>(dtype inA=1, dtype inB=1)</argsstring>
+        <name>extremeValue</name>
+        <param>
+          <type>dtype</type>
+          <declname>inA</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inB</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;extreme value&quot; distrubution.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" bodystart="55" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a6a5f569b594585794e6b268576d2e587" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -475,7 +773,49 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" bodystart="57" bodyend="80"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" line="83" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/extremeValue.hpp" bodystart="83" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::f</definition>
+        <argsstring>(dtype inDofN, dtype inDofD)</argsstring>
+        <name>f</name>
+        <param>
+          <type>dtype</type>
+          <declname>inDofN</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inDofD</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;F&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inDofN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Degrees of freedom in numerator. Should be greater than zero. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inDofD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Degrees of freedom in denominator. Should be greater than zero. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" bodystart="57" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -528,7 +868,50 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" bodystart="59" bodyend="82"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/f.hpp" bodystart="87" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a0a969335423de5ad59fed5e952189e2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::gamma</definition>
+        <argsstring>(dtype inGammaShape, dtype inScaleValue=1)</argsstring>
+        <name>gamma</name>
+        <param>
+          <type>dtype</type>
+          <declname>inGammaShape</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inScaleValue</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;gamma&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inGammaShape</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inScaleValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" bodystart="57" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1aa706a2bd65cb664ae9af10f713661d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -582,7 +965,39 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" bodystart="59" bodyend="82"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/gamma.hpp" bodystart="87" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a7199f5c06c0e05440e9a97e01930b896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::geometric</definition>
+        <argsstring>(double inP=0.5)</argsstring>
+        <name>geometric</name>
+        <param>
+          <type>double</type>
+          <declname>inP</declname>
+          <defval>0.5</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;geometric&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(probablity of success [0, 1]) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" bodystart="56" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae761ff6e68fb0708061704bee4a3a7e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -625,7 +1040,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" bodystart="58" bodyend="78"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" bodystart="82" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a39ed805240ecd0927536a060308c2a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::laplace</definition>
+        <argsstring>(dtype inLoc=0, dtype inScale=1) noexcept</argsstring>
+        <name>laplace</name>
+        <param>
+          <type>dtype</type>
+          <declname>inLoc</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inScale</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;laplace&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inLoc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(The position, mu, of the distribution peak. Default is 0) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inScale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(float optional the exponential decay. Default is 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" bodystart="54" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a2966d8201e87fe94ce575e6338f1e222" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -680,7 +1139,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" bodystart="56" bodyend="69"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/laplace.hpp" bodystart="74" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a03d5528a3a97b3731210ba2cc5d1c75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::lognormal</definition>
+        <argsstring>(dtype inMean=0, dtype inSigma=1)</argsstring>
+        <name>lognormal</name>
+        <param>
+          <type>dtype</type>
+          <declname>inMean</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inSigma</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;lognormal&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMean</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mean value of the underlying normal distribution. Default is 0. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" bodystart="57" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a3adc9de1025d27ed485603980657225b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -735,7 +1238,50 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" bodystart="59" bodyend="77"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/lognormal.hpp" bodystart="82" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a1a15a08fe9134f5dcf5e7b32eb1de5e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::negativeBinomial</definition>
+        <argsstring>(dtype inN, double inP=0.5)</argsstring>
+        <name>negativeBinomial</name>
+        <param>
+          <type>dtype</type>
+          <declname>inN</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inP</declname>
+          <defval>0.5</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;negative Binomial&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of trials </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>probablity of success [0, 1] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" bodystart="57" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ac6181e54b9cae303574f9c5fad33cfc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -789,7 +1335,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" bodystart="59" bodyend="84"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" line="89" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" bodystart="89" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1abf3cab0396026700ebf2d2ffa5e13fa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::nonCentralChiSquared</definition>
+        <argsstring>(dtype inK=1, dtype inLambda=1)</argsstring>
+        <name>nonCentralChiSquared</name>
+        <param>
+          <type>dtype</type>
+          <declname>inK</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inLambda</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;non central chi squared&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inLambda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" bodystart="57" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1af01395c7355ee4c0f36441c40039e82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -844,7 +1434,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" bodystart="59" bodyend="82"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/nonCentralChiSquared.hpp" bodystart="87" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a0d52ff6ccaa63bc36348ba39e5936056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::normal</definition>
+        <argsstring>(dtype inMean=0, dtype inSigma=1)</argsstring>
+        <name>normal</name>
+        <param>
+          <type>dtype</type>
+          <declname>inMean</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inSigma</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;normal&quot; distrubution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMean</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mean value of the underlying normal distribution. Default is 0. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" bodystart="57" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ab655c4af3dac07aeff39efd50c120f4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -899,7 +1533,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" bodystart="59" bodyend="77"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/normal.hpp" bodystart="82" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae0b8066f06a5f5b5a0baee76c5030892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -963,6 +1597,38 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/permutation.hpp" line="71" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/permutation.hpp" bodystart="71" bodyend="76"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1ae18029c16ca489ea9db6331c609b20e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::poisson</definition>
+        <argsstring>(double inMean=1)</argsstring>
+        <name>poisson</name>
+        <param>
+          <type>double</type>
+          <declname>inMean</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;poisson&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMean</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" bodystart="56" bodyend="65"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae103ffefefe45e4b64067d52a1763f24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -1004,7 +1670,26 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" bodystart="58" bodyend="76"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" line="80" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/poisson.hpp" bodystart="80" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a704fd7e62a0506a7e91074a8e8603fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::rand</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>rand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the uniform distribution over [0, 1).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand</ulink></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" bodystart="53" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1035,7 +1720,50 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" bodystart="56" bodyend="69"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" bodystart="72" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a4a261ae2a0f7783f2a5262a22b18412f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::randFloat</definition>
+        <argsstring>(dtype inLow, dtype inHigh=0.0)</argsstring>
+        <name>randFloat</name>
+        <param>
+          <type>dtype</type>
+          <declname>inLow</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inHigh</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a single random float from low (inclusive) to high (exclusive), with the given shape. If no high value is input then the range will go from [0, low).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inLow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inHigh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" bodystart="61" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a531b5487f2f3e54fab878340277f7283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1089,7 +1817,50 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" bodystart="62" bodyend="86"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" line="93" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" bodystart="93" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a43201ec4ec8e0c99041647ab45ac0133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::randInt</definition>
+        <argsstring>(dtype inLow, dtype inHigh=0)</argsstring>
+        <name>randInt</name>
+        <param>
+          <type>dtype</type>
+          <declname>inLow</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inHigh</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return random integer from low (inclusive) to high (exclusive), with the given shape. If no high value is input then the range will go from [0, low).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inLow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inHigh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" bodystart="60" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1143,7 +1914,26 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" bodystart="61" bodyend="85"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" line="92" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" bodystart="92" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a250d681240cc46275f9edd02cc064f82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::randN</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>randN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a single random value sampled from the &quot;standard normal&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn</ulink></para><para><simplesect kind="return"><para>dtype </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" bodystart="51" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1aed1531eafe5ef2f67c226437003d5999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1174,7 +1964,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" bodystart="55" bodyend="68"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randN.hpp" bodystart="70" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ae71a0895ba1f3bff56f78300e3d8538a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -1231,6 +2021,25 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/shuffle.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/shuffle.hpp" bodystart="48" bodyend="51"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1ab618d1efadc35685ec050c722c015d53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::standardNormal</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>standardNormal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;standard normal&quot; distrubution with mean = 0 and std = 1</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal</ulink></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" bodystart="50" bodyend="53"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1ad0dde51f451dc55192589242f07cf131" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -1260,7 +2069,38 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" bodystart="53" bodyend="56"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/standardNormal.hpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a9e8074cb89e2362b5ae485834f550217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::studentT</definition>
+        <argsstring>(dtype inDof)</argsstring>
+        <name>studentT</name>
+        <param>
+          <type>dtype</type>
+          <declname>inDof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;student-T&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inDof</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>independent random variables </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" bodystart="57" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a5c18c6c123083003f32344baeb0f4ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1302,7 +2142,63 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" bodystart="59" bodyend="77"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" line="81" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/studentT.hpp" bodystart="81" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a3dd603264757ce4334bfc0b989cd4503" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::triangle</definition>
+        <argsstring>(dtype inA=0, dtype inB=0.5, dtype inC=1)</argsstring>
+        <name>triangle</name>
+        <param>
+          <type>dtype</type>
+          <declname>inA</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inB</declname>
+          <defval>0.5</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inC</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;triangle&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" bodystart="59" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1abaeed48339244cfb7f214c7238b13e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1336,7 +2232,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Create an array of the given shape and populate it with random samples from the �triangle� distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Create an array of the given shape and populate it with random samples from the &quot;triangle&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inShape</parametername>
 </parameternamelist>
@@ -1369,7 +2265,49 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" bodystart="61" bodyend="96"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" line="102" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/triangle.hpp" bodystart="102" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1adbff3f6b80e512d4153b12bae9c6c732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::uniform</definition>
+        <argsstring>(dtype inLow, dtype inHigh)</argsstring>
+        <name>uniform</name>
+        <param>
+          <type>dtype</type>
+          <declname>inLow</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inHigh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Draw sample from a uniform distribution.</para><para>Samples are uniformly distributed over the half - open interval[low, high) (includes low, but excludes high)</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inLow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inHigh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" bodystart="53" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a1e31096d678b7e4be66f6c59d95e5445" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1422,7 +2360,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" bodystart="54" bodyend="57"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniform.hpp" bodystart="74" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a2f18a1f7b9311d52bbdc4ae7a7b84be6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1466,6 +2404,50 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniformOnSphere.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/uniformOnSphere.hpp" bodystart="58" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1random_1a3cf0bdb15264c1ace4163042756a4765" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::random::weibull</definition>
+        <argsstring>(dtype inA=1, dtype inB=1)</argsstring>
+        <name>weibull</name>
+        <param>
+          <type>dtype</type>
+          <declname>inA</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inB</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Single random value sampled from the &quot;weibull&quot; distribution.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" bodystart="57" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1af3a48c59aaa59d37bb5177b962d02bde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1520,7 +2502,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" bodystart="59" bodyend="82"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/weibull.hpp" bodystart="87" bodyend="110"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

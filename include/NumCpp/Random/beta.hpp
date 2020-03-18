@@ -44,6 +44,34 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the from the "beta" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        ///
+        /// @param				inAlpha
+        /// @param				inBeta
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype beta(dtype inAlpha, dtype inBeta)
+        {
+            if (inAlpha < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input alpha must be greater than zero.");
+            }
+
+            if (inBeta < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input beta must be greater than zero.");
+            }
+
+            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            return dist(generator_); 
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "beta" distribution.
         ///

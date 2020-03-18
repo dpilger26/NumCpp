@@ -33,7 +33,7 @@ var searchData=
   ['diff_2ehpp',['diff.hpp',['../diff_8hpp.html',1,'']]],
   ['digamma',['digamma',['../namespacenc_1_1special.html#a0f8c75b138e38af1e3b2408050a17467',1,'nc::special::digamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#a2ec7a990addc1d7ff888bcf7a272edcd',1,'nc::special::digamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['digamma_2ehpp',['digamma.hpp',['../digamma_8hpp.html',1,'']]],
-  ['discrete',['discrete',['../namespacenc_1_1random.html#ae5367b53538e888028853607e1c522a4',1,'nc::random']]],
+  ['discrete',['discrete',['../namespacenc_1_1random.html#a2ea5db9ee73d9f7a633e5899e4be2c94',1,'nc::random::discrete(const NdArray&lt; double &gt; &amp;inWeights)'],['../namespacenc_1_1random.html#ae5367b53538e888028853607e1c522a4',1,'nc::random::discrete(const Shape &amp;inShape, const NdArray&lt; double &gt; &amp;inWeights)']]],
   ['discrete_2ehpp',['discrete.hpp',['../discrete_8hpp.html',1,'']]],
   ['distance',['distance',['../classnc_1_1_vec2.html#a63c2b2b7a16828af770d38176b6cb3aa',1,'nc::Vec2::distance()'],['../classnc_1_1_vec3.html#a301f3edcb8cb17e7e3e5dbdd5255bdd2',1,'nc::Vec3::distance()']]],
   ['divide',['divide',['../namespacenc.html#a48c5c456736ced98b946e89b573c204e',1,'nc']]],

@@ -227,7 +227,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="113" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="113" bodyend="120"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a3de9f1dd54e8db8997e7928322e098f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ab200b92040bf3da8ee4325f5a994e73d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt1</type>
@@ -238,7 +238,7 @@
         </templateparamlist>
         <type>bool</type>
         <definition>bool nc::stl_algorithms::equal</definition>
-        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2)</argsstring>
+        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2) noexcept</argsstring>
         <name>equal</name>
         <param>
           <type>InputIt1</type>
@@ -283,7 +283,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="132" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="132" bodyend="140"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1ae3ace3ed68934f4acde48334a7ff7724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a684d1011b375da4078afb4474a36b0e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt1</type>
@@ -297,7 +297,7 @@
         </templateparamlist>
         <type>bool</type>
         <definition>bool nc::stl_algorithms::equal</definition>
-        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p)</argsstring>
+        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p) noexcept</argsstring>
         <name>equal</name>
         <param>
           <type>InputIt1</type>
@@ -1363,7 +1363,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="501" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="501" bodyend="508"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt</type>
@@ -1377,7 +1377,7 @@
         </templateparamlist>
         <type>OutputIt</type>
         <definition>OutputIt nc::stl_algorithms::transform</definition>
-        <argsstring>(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</argsstring>
+        <argsstring>(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction) noexcept</argsstring>
         <name>transform</name>
         <param>
           <type>InputIt</type>
@@ -1433,7 +1433,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" line="521" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/StlAlgorithms.hpp" bodystart="521" bodyend="529"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt1</type>
@@ -1450,7 +1450,7 @@
         </templateparamlist>
         <type>OutputIt</type>
         <definition>OutputIt nc::stl_algorithms::transform</definition>
-        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)</argsstring>
+        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction) noexcept</argsstring>
         <name>transform</name>
         <param>
           <type>InputIt1</type>

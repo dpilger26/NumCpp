@@ -67,7 +67,7 @@ namespace nc
             NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) -> double
+                [](dtype inValue) noexcept -> double
                 {
                     return log_gamma(inValue);
                 });

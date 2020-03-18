@@ -75,7 +75,7 @@ namespace nc
             NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> double
+                [](uint32 inValue) noexcept -> double
                 { 
                     return factorial(inValue); 
                 });

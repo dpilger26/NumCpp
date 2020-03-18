@@ -45,8 +45,49 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "triangle" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+        ///
+        /// @param				inA
+        /// @param				inB
+        /// @param				inC
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype triangle(dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
+        {
+            if (inA < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input A must be greater than or equal to zero.");
+            }
+
+            if (inB < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input B must be greater than or equal to zero.");
+            }
+
+            if (inC < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input C must be greater than or equal to zero.");
+            }
+
+            const bool aLessB = inA <= inB;
+            const bool bLessC = inB <= inC;
+            if (!(aLessB && bLessC))
+            {
+                THROW_INVALID_ARGUMENT_ERROR("inputs must be a <= b <= c.");
+            }
+
+            boost::random::triangle_distribution<dtype> dist(inA, inB, inC);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �triangle� distribution.
+        ///						random samples from the "triangle" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///

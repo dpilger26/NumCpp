@@ -41,6 +41,21 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Returns a single random value sampled from the "standard normal" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
+        ///
+        /// @return dtype
+        ///
+        template<typename dtype>
+        dtype randN() noexcept
+        {
+            boost::random::normal_distribution<dtype> dist;
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "standard normal" distribution.
         ///

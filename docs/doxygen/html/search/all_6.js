@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gamma',['gamma',['../namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79',1,'nc::random::gamma()'],['../namespacenc_1_1special.html#a1922de5ad7c6fba4aedbce02d08e1b78',1,'nc::special::gamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#ac22cc8d32cc97454c0ecfb432f2a316d',1,'nc::special::gamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
+  ['gamma',['gamma',['../namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d',1,'nc::random::gamma(dtype inGammaShape, dtype inScaleValue=1)'],['../namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79',1,'nc::random::gamma(const Shape &amp;inShape, dtype inGammaShape, dtype inScaleValue=1)'],['../namespacenc_1_1special.html#a1922de5ad7c6fba4aedbce02d08e1b78',1,'nc::special::gamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#ac22cc8d32cc97454c0ecfb432f2a316d',1,'nc::special::gamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['gamma1pm1',['gamma1pm1',['../namespacenc_1_1special.html#a41fe463c9dae1da7365d6bac75ca5e84',1,'nc::special::gamma1pm1(dtype inValue) noexcept'],['../namespacenc_1_1special.html#a568563ea05c2e31278de66112c9429c1',1,'nc::special::gamma1pm1(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['gamma1pm1_2ehpp',['gamma1pm1.hpp',['../gamma1pm1_8hpp.html',1,'']]],
   ['gauss_5flegendre',['gauss_legendre',['../namespacenc_1_1integrate.html#af7d17b4e025bf94f903d3c671da3baf7',1,'nc::integrate']]],
@@ -13,6 +13,8 @@ var searchData=
   ['gaussianfilter_2ehpp',['gaussianFilter.hpp',['../gaussian_filter_8hpp.html',1,'']]],
   ['gaussianfilter1d',['gaussianFilter1d',['../namespacenc_1_1filter.html#abda833220ea035db0aa485f6ccf66923',1,'nc::filter']]],
   ['gaussianfilter1d_2ehpp',['gaussianFilter1d.hpp',['../gaussian_filter1d_8hpp.html',1,'']]],
+  ['gaussnewtonnlls',['gaussNewtonNlls',['../namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3',1,'nc::linalg']]],
+  ['gaussnewtonnlls_2ehpp',['gaussNewtonNlls.hpp',['../gauss_newton_nlls_8hpp.html',1,'']]],
   ['gcd',['gcd',['../namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec',1,'nc::gcd(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#abb00c960bb157ef6a8b15fb01a20955e',1,'nc::gcd(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['gcd_2ehpp',['gcd.hpp',['../gcd_8hpp.html',1,'']]],
   ['generatecentroids',['generateCentroids',['../namespacenc_1_1image_processing.html#a8d9008c72eceb98b40ada379f9d4587e',1,'nc::imageProcessing']]],
@@ -21,7 +23,7 @@ var searchData=
   ['generatethreshold_2ehpp',['generateThreshold.hpp',['../generate_threshold_8hpp.html',1,'']]],
   ['generator_2ehpp',['generator.hpp',['../generator_8hpp.html',1,'']]],
   ['generator_5f',['generator_',['../namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95',1,'nc::random']]],
-  ['geometric',['geometric',['../namespacenc_1_1random.html#ae761ff6e68fb0708061704bee4a3a7e3',1,'nc::random']]],
+  ['geometric',['geometric',['../namespacenc_1_1random.html#a7199f5c06c0e05440e9a97e01930b896',1,'nc::random::geometric(double inP=0.5)'],['../namespacenc_1_1random.html#ae761ff6e68fb0708061704bee4a3a7e3',1,'nc::random::geometric(const Shape &amp;inShape, double inP=0.5)']]],
   ['geometric_2ehpp',['geometric.hpp',['../geometric_8hpp.html',1,'']]],
   ['getarray',['getArray',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#ad4ff3ef56ab470aca4ea2acc90824810',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],
   ['getarrayasmatrix',['getArrayAsMatrix',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a60dc597b784976e6241bf61686250d72',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],

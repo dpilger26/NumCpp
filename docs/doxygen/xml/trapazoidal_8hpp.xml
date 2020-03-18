@@ -7,50 +7,50 @@
     <includedby refid="romberg_8hpp" local="yes">romberg.hpp</includedby>
     <includedby refid="_integrate_8hpp" local="yes">Integrate.hpp</includedby>
     <incdepgraph>
-      <node id="20236">
+      <node id="20335">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="20237" relation="include">
+        <childnode refid="20336" relation="include">
         </childnode>
       </node>
-      <node id="20238">
+      <node id="20337">
         <label>functional</label>
       </node>
-      <node id="20237">
+      <node id="20336">
         <label>cstdint</label>
       </node>
-      <node id="20235">
+      <node id="20334">
         <label>trapazoidal.hpp</label>
         <link refid="trapazoidal_8hpp"/>
-        <childnode refid="20236" relation="include">
+        <childnode refid="20335" relation="include">
         </childnode>
-        <childnode refid="20238" relation="include">
+        <childnode refid="20337" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="20242">
+      <node id="20341">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="20241">
+      <node id="20340">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="20242" relation="include">
+        <childnode refid="20341" relation="include">
         </childnode>
       </node>
-      <node id="20239">
+      <node id="20338">
         <label>trapazoidal.hpp</label>
         <link refid="trapazoidal_8hpp"/>
-        <childnode refid="20240" relation="include">
+        <childnode refid="20339" relation="include">
         </childnode>
-        <childnode refid="20241" relation="include">
+        <childnode refid="20340" relation="include">
         </childnode>
       </node>
-      <node id="20240">
+      <node id="20339">
         <label>romberg.hpp</label>
         <link refid="romberg_8hpp"/>
-        <childnode refid="20241" relation="include">
+        <childnode refid="20340" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -82,7 +82,7 @@
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="54" refid="namespacenc_1_1integrate_1a73156d502caa3e23d9ba82381bc382bf" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1integrate_1a73156d502caa3e23d9ba82381bc382bf" kindref="member">trapazoidal</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>low,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>high,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)&gt;&amp;<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>(high<sp/>-<sp/>low)<sp/>/<sp/>static_cast&lt;double&gt;(n);</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
@@ -92,7 +92,7 @@
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x1<sp/>=<sp/>low<sp/>+<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(step)<sp/>*<sp/>width;</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x2<sp/>=<sp/>low<sp/>+<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(step<sp/>+<sp/>1)<sp/>*<sp/>width;</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trapezoidal_integral<sp/>+=<sp/>0.5<sp/>*<sp/>(x2<sp/>-<sp/>x1)<sp/>*<sp/>(<ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>(x1)<sp/>+<sp/><ref refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kindref="member">f</ref>(x2));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trapezoidal_integral<sp/>+=<sp/>0.5<sp/>*<sp/>(x2<sp/>-<sp/>x1)<sp/>*<sp/>(<ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>(x1)<sp/>+<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>(x2));</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trapezoidal_integral;</highlight></codeline>

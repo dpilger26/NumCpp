@@ -44,6 +44,36 @@ namespace nc
     {
         //============================================================================
         // Method Description:
+        ///						Single random value sampled from the "negative Binomial" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
+        ///
+        /// @param				inN: number of trials
+        /// @param				inP: probablity of success [0, 1]
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        dtype negativeBinomial(dtype inN, double inP = 0.5)
+        {
+            STATIC_ASSERT_INTEGER(dtype);
+
+            if (inN < 0)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input number of trials must be greater than or equal to zero.");
+            }
+
+            if (inP < 0 || inP > 1)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
+            }
+
+            const boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
+            return dist(generator_);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Create an array of the given shape and populate it with
         ///						random samples from the "negative Binomial" distribution.
         ///

@@ -67,7 +67,7 @@ namespace nc
             NdArray<double> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype2 inX) -> double
+                [inV](dtype2 inX) noexcept -> double
                 {
                     return bessel_yn(inV, inX);
                 });

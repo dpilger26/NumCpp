@@ -1,7 +1,7 @@
 var searchData=
 [
   ['u',['u',['../classnc_1_1linalg_1_1_s_v_d.html#a0f7dddedc38be47b051aa16e5dc9d6b2',1,'nc::linalg::SVD']]],
-  ['uniform',['uniform',['../namespacenc_1_1random.html#a1e31096d678b7e4be66f6c59d95e5445',1,'nc::random']]],
+  ['uniform',['uniform',['../namespacenc_1_1random.html#adbff3f6b80e512d4153b12bae9c6c732',1,'nc::random::uniform(dtype inLow, dtype inHigh)'],['../namespacenc_1_1random.html#a1e31096d678b7e4be66f6c59d95e5445',1,'nc::random::uniform(const Shape &amp;inShape, dtype inLow, dtype inHigh)']]],
   ['uniformfilter',['uniformFilter',['../namespacenc_1_1filter.html#a9f41f17a6f7c06ebf7b1f3a1ab3915bb',1,'nc::filter']]],
   ['uniformfilter1d',['uniformFilter1d',['../namespacenc_1_1filter.html#ab7f620c737fa95c983523c0950120cd9',1,'nc::filter']]],
   ['uniformonsphere',['uniformOnSphere',['../namespacenc_1_1random.html#a2f18a1f7b9311d52bbdc4ae7a7b84be6',1,'nc::random']]],

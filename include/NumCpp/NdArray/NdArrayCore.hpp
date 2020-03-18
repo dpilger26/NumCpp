@@ -3564,7 +3564,7 @@ namespace nc
             {
                 NdArray<dtype> returnArray(shape_);
                 double multFactor = utils::power(10.0, inNumDecimals);
-                auto function = [multFactor](dtype value) -> dtype
+                auto function = [multFactor](dtype value) noexcept -> dtype
                 {
                     return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
                 };

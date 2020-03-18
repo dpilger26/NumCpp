@@ -69,7 +69,7 @@ namespace nc
             NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [n](dtype inValue) -> double
+                [n](dtype inValue) noexcept -> double
                 { 
                     return polygamma(n, inValue);
                 });

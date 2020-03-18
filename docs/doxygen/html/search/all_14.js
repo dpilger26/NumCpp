@@ -9,7 +9,7 @@ var searchData=
   ['uint32',['uint32',['../namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8',1,'nc']]],
   ['uint64',['uint64',['../namespacenc.html#a25da52a834e7af0e341d1503ebb62dcd',1,'nc']]],
   ['uint8',['uint8',['../namespacenc.html#a60efb2c7acad2ac3a9a9fcf1e93d0f49',1,'nc']]],
-  ['uniform',['uniform',['../namespacenc_1_1random.html#a1e31096d678b7e4be66f6c59d95e5445',1,'nc::random']]],
+  ['uniform',['uniform',['../namespacenc_1_1random.html#adbff3f6b80e512d4153b12bae9c6c732',1,'nc::random::uniform(dtype inLow, dtype inHigh)'],['../namespacenc_1_1random.html#a1e31096d678b7e4be66f6c59d95e5445',1,'nc::random::uniform(const Shape &amp;inShape, dtype inLow, dtype inHigh)']]],
   ['uniform_2ehpp',['uniform.hpp',['../uniform_8hpp.html',1,'']]],
   ['uniformfilter',['uniformFilter',['../namespacenc_1_1filter.html#a9f41f17a6f7c06ebf7b1f3a1ab3915bb',1,'nc::filter']]],
   ['uniformfilter_2ehpp',['uniformFilter.hpp',['../uniform_filter_8hpp.html',1,'']]],

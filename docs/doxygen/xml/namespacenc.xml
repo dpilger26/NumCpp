@@ -2,6 +2,12 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="namespacenc" kind="namespace" language="C++">
     <compoundname>nc</compoundname>
+    <innerclass refid="structnc_1_1all__arithmetic" prot="public">nc::all_arithmetic</innerclass>
+    <innerclass refid="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" prot="public">nc::all_arithmetic&lt; Head, Tail... &gt;</innerclass>
+    <innerclass refid="structnc_1_1all__arithmetic_3_01_t_01_4" prot="public">nc::all_arithmetic&lt; T &gt;</innerclass>
+    <innerclass refid="structnc_1_1all__same" prot="public">nc::all_same</innerclass>
+    <innerclass refid="structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4" prot="public">nc::all_same&lt; T1, Head, Tail... &gt;</innerclass>
+    <innerclass refid="structnc_1_1all__same_3_01_t1_00_01_t2_01_4" prot="public">nc::all_same&lt; T1, T2 &gt;</innerclass>
     <innerclass refid="classnc_1_1_data_cube" prot="public">nc::DataCube</innerclass>
     <innerclass refid="classnc_1_1_dtype_info" prot="public">nc::DtypeInfo</innerclass>
     <innerclass refid="classnc_1_1_nd_array" prot="public">nc::NdArray</innerclass>
@@ -96,6 +102,30 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>B</declname>
+            <defname>B</defname>
+          </param>
+          <param>
+            <type>class T</type>
+            <defval>void</defval>
+          </param>
+        </templateparamlist>
+        <type>typename std::enable_if&lt; B, T &gt;::type</type>
+        <definition>using nc::enable_if_t = typedef typename std::enable_if&lt;B, T&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>enable_if_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>std::enable_if helper, for c++11 compatibility </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" line="40" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/TypeTraits.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" prot="public" static="no">
         <type>int16_t</type>
         <definition>typedef int16_t nc::int16</definition>
@@ -753,7 +783,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="60" bodyend="94"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="60" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a2edad3e052b232bd9075c78aad3c9287" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -784,7 +814,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="116" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="116" bodyend="124"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="117" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a724165d620d8bff96f8f004c18257ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -815,7 +845,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="146" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="146" bodyend="149"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" line="147" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/arange.hpp" bodystart="147" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1aa24aa108f3bd91f2b66077217f9778ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

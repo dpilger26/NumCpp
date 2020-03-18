@@ -6,6 +6,7 @@ var searchData=
   ['gaussian1d_2ehpp',['gaussian1d.hpp',['../gaussian1d_8hpp.html',1,'']]],
   ['gaussianfilter_2ehpp',['gaussianFilter.hpp',['../gaussian_filter_8hpp.html',1,'']]],
   ['gaussianfilter1d_2ehpp',['gaussianFilter1d.hpp',['../gaussian_filter1d_8hpp.html',1,'']]],
+  ['gaussnewtonnlls_2ehpp',['gaussNewtonNlls.hpp',['../gauss_newton_nlls_8hpp.html',1,'']]],
   ['gcd_2ehpp',['gcd.hpp',['../gcd_8hpp.html',1,'']]],
   ['generatecentroids_2ehpp',['generateCentroids.hpp',['../generate_centroids_8hpp.html',1,'']]],
   ['generatethreshold_2ehpp',['generateThreshold.hpp',['../generate_threshold_8hpp.html',1,'']]],

@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="structnc_1_1all__arithmetic" kind="struct"><name>nc::all_arithmetic</name>
+  </compound>
+  <compound refid="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4" kind="struct"><name>nc::all_arithmetic&lt; Head, Tail... &gt;</name>
+    <member refid="structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4_1a6e1a48ad3dc95bb666261cd0e3503f5c" kind="variable"><name>value</name></member>
+  </compound>
+  <compound refid="structnc_1_1all__arithmetic_3_01_t_01_4" kind="struct"><name>nc::all_arithmetic&lt; T &gt;</name>
+    <member refid="structnc_1_1all__arithmetic_3_01_t_01_4_1aeb8a99e0539f9d4d01b6ac63dfe6c186" kind="variable"><name>value</name></member>
+  </compound>
+  <compound refid="structnc_1_1all__same" kind="struct"><name>nc::all_same</name>
+  </compound>
+  <compound refid="structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4" kind="struct"><name>nc::all_same&lt; T1, Head, Tail... &gt;</name>
+    <member refid="structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4_1a35efae6bdf247952d31021b7e811a653" kind="variable"><name>value</name></member>
+  </compound>
+  <compound refid="structnc_1_1all__same_3_01_t1_00_01_t2_01_4" kind="struct"><name>nc::all_same&lt; T1, T2 &gt;</name>
+    <member refid="structnc_1_1all__same_3_01_t1_00_01_t2_01_4_1a02b49e4936f586c2407c089400ee891f" kind="variable"><name>value</name></member>
+  </compound>
   <compound refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" kind="class"><name>nc::boostPythonInterface::BoostNdarrayHelper</name>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kind="enum"><name>Order</name></member>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
@@ -722,6 +738,7 @@
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152af78504d96ba7177dc0c6784905ac8743" kind="enumvalue"><name>NATIVE</name></member>
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152aa60c6c694491d75b439073b8cb05b139" kind="enumvalue"><name>BIG</name></member>
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152a1314341b466dcb5e2c880b76414c49fe" kind="enumvalue"><name>LITTLE</name></member>
+    <member refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kind="typedef"><name>enable_if_t</name></member>
     <member refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" kind="typedef"><name>int16</name></member>
     <member refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kind="typedef"><name>int32</name></member>
     <member refid="namespacenc_1a84c132684426d342ab833e05286fea3b" kind="typedef"><name>int64</name></member>
@@ -1244,6 +1261,7 @@
   <compound refid="namespacenc_1_1linalg" kind="namespace"><name>nc::linalg</name>
     <member refid="namespacenc_1_1linalg_1ac2d27e58dd0f082ef5a422d545699d19" kind="function"><name>cholesky</name></member>
     <member refid="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" kind="function"><name>det</name></member>
+    <member refid="namespacenc_1_1linalg_1aff0f97e94666284100b584e13d27def3" kind="function"><name>gaussNewtonNlls</name></member>
     <member refid="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" kind="function"><name>hat</name></member>
     <member refid="namespacenc_1_1linalg_1ae7ced3680f1ae95af4bc2e6b98a5a517" kind="function"><name>hat</name></member>
     <member refid="namespacenc_1_1linalg_1ae9cdb091717a1c74dc659519d77e0048" kind="function"><name>hat</name></member>
@@ -1287,38 +1305,64 @@
   </compound>
   <compound refid="namespacenc_1_1random" kind="namespace"><name>nc::random</name>
     <member refid="namespacenc_1_1random_1aa541047e6b742f1c5251e72f3b7aec95" kind="variable"><name>generator_</name></member>
+    <member refid="namespacenc_1_1random_1ae6cf7419d9b8943b63209faa3a09bb4a" kind="function"><name>bernoulli</name></member>
     <member refid="namespacenc_1_1random_1ae9acf3bca4da5307534d454cfa55d57c" kind="function"><name>bernoulli</name></member>
+    <member refid="namespacenc_1_1random_1a9cf5ddddc350278c76e077c67b5254ab" kind="function"><name>beta</name></member>
     <member refid="namespacenc_1_1random_1ab7de94b949521786b7bde650b1e813fa" kind="function"><name>beta</name></member>
+    <member refid="namespacenc_1_1random_1a13657004ec565f15648a520e3d060002" kind="function"><name>binomial</name></member>
     <member refid="namespacenc_1_1random_1a83099ec22905c3ad69984a94d823a3d8" kind="function"><name>binomial</name></member>
+    <member refid="namespacenc_1_1random_1aa72b221b82940e126a4c740ee55b269b" kind="function"><name>cauchy</name></member>
     <member refid="namespacenc_1_1random_1a61dc9fcfaee6e2a74e3f2e1f0e9c039b" kind="function"><name>cauchy</name></member>
+    <member refid="namespacenc_1_1random_1abb480e9a17b71ea09ef0f043c081e9ff" kind="function"><name>chiSquare</name></member>
     <member refid="namespacenc_1_1random_1a329370aed893f0e10a8050520cf0bbd4" kind="function"><name>chiSquare</name></member>
     <member refid="namespacenc_1_1random_1ad60ec32743642bd0540fec0076043fed" kind="function"><name>choice</name></member>
     <member refid="namespacenc_1_1random_1a550d14627dafe31efa2e66a10d2fce73" kind="function"><name>choice</name></member>
+    <member refid="namespacenc_1_1random_1a2ea5db9ee73d9f7a633e5899e4be2c94" kind="function"><name>discrete</name></member>
     <member refid="namespacenc_1_1random_1ae5367b53538e888028853607e1c522a4" kind="function"><name>discrete</name></member>
+    <member refid="namespacenc_1_1random_1a5e633012e3c1d5454ae9b129c3ed3497" kind="function"><name>exponential</name></member>
     <member refid="namespacenc_1_1random_1acd77c2e563be5d613cb54cc3a10c5520" kind="function"><name>exponential</name></member>
+    <member refid="namespacenc_1_1random_1a11144426dec05283d6c682e0e532af7e" kind="function"><name>extremeValue</name></member>
     <member refid="namespacenc_1_1random_1a6a5f569b594585794e6b268576d2e587" kind="function"><name>extremeValue</name></member>
+    <member refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kind="function"><name>f</name></member>
     <member refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kind="function"><name>f</name></member>
+    <member refid="namespacenc_1_1random_1a0a969335423de5ad59fed5e952189e2d" kind="function"><name>gamma</name></member>
     <member refid="namespacenc_1_1random_1aa706a2bd65cb664ae9af10f713661d79" kind="function"><name>gamma</name></member>
+    <member refid="namespacenc_1_1random_1a7199f5c06c0e05440e9a97e01930b896" kind="function"><name>geometric</name></member>
     <member refid="namespacenc_1_1random_1ae761ff6e68fb0708061704bee4a3a7e3" kind="function"><name>geometric</name></member>
+    <member refid="namespacenc_1_1random_1a39ed805240ecd0927536a060308c2a94" kind="function"><name>laplace</name></member>
     <member refid="namespacenc_1_1random_1a2966d8201e87fe94ce575e6338f1e222" kind="function"><name>laplace</name></member>
+    <member refid="namespacenc_1_1random_1a03d5528a3a97b3731210ba2cc5d1c75d" kind="function"><name>lognormal</name></member>
     <member refid="namespacenc_1_1random_1a3adc9de1025d27ed485603980657225b" kind="function"><name>lognormal</name></member>
+    <member refid="namespacenc_1_1random_1a1a15a08fe9134f5dcf5e7b32eb1de5e2" kind="function"><name>negativeBinomial</name></member>
     <member refid="namespacenc_1_1random_1ac6181e54b9cae303574f9c5fad33cfc2" kind="function"><name>negativeBinomial</name></member>
+    <member refid="namespacenc_1_1random_1abf3cab0396026700ebf2d2ffa5e13fa6" kind="function"><name>nonCentralChiSquared</name></member>
     <member refid="namespacenc_1_1random_1af01395c7355ee4c0f36441c40039e82d" kind="function"><name>nonCentralChiSquared</name></member>
+    <member refid="namespacenc_1_1random_1a0d52ff6ccaa63bc36348ba39e5936056" kind="function"><name>normal</name></member>
     <member refid="namespacenc_1_1random_1ab655c4af3dac07aeff39efd50c120f4d" kind="function"><name>normal</name></member>
     <member refid="namespacenc_1_1random_1ae0b8066f06a5f5b5a0baee76c5030892" kind="function"><name>permutation</name></member>
     <member refid="namespacenc_1_1random_1ad1cc1c17d8fb1d521b0a9ef9b932562b" kind="function"><name>permutation</name></member>
+    <member refid="namespacenc_1_1random_1ae18029c16ca489ea9db6331c609b20e8" kind="function"><name>poisson</name></member>
     <member refid="namespacenc_1_1random_1ae103ffefefe45e4b64067d52a1763f24" kind="function"><name>poisson</name></member>
+    <member refid="namespacenc_1_1random_1a704fd7e62a0506a7e91074a8e8603fec" kind="function"><name>rand</name></member>
     <member refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kind="function"><name>rand</name></member>
+    <member refid="namespacenc_1_1random_1a4a261ae2a0f7783f2a5262a22b18412f" kind="function"><name>randFloat</name></member>
     <member refid="namespacenc_1_1random_1a531b5487f2f3e54fab878340277f7283" kind="function"><name>randFloat</name></member>
+    <member refid="namespacenc_1_1random_1a43201ec4ec8e0c99041647ab45ac0133" kind="function"><name>randInt</name></member>
     <member refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kind="function"><name>randInt</name></member>
+    <member refid="namespacenc_1_1random_1a250d681240cc46275f9edd02cc064f82" kind="function"><name>randN</name></member>
     <member refid="namespacenc_1_1random_1aed1531eafe5ef2f67c226437003d5999" kind="function"><name>randN</name></member>
     <member refid="namespacenc_1_1random_1ae71a0895ba1f3bff56f78300e3d8538a" kind="function"><name>seed</name></member>
     <member refid="namespacenc_1_1random_1a2de486e39f23c66f769b64326d7f3103" kind="function"><name>shuffle</name></member>
+    <member refid="namespacenc_1_1random_1ab618d1efadc35685ec050c722c015d53" kind="function"><name>standardNormal</name></member>
     <member refid="namespacenc_1_1random_1ad0dde51f451dc55192589242f07cf131" kind="function"><name>standardNormal</name></member>
+    <member refid="namespacenc_1_1random_1a9e8074cb89e2362b5ae485834f550217" kind="function"><name>studentT</name></member>
     <member refid="namespacenc_1_1random_1a5c18c6c123083003f32344baeb0f4ad3" kind="function"><name>studentT</name></member>
+    <member refid="namespacenc_1_1random_1a3dd603264757ce4334bfc0b989cd4503" kind="function"><name>triangle</name></member>
     <member refid="namespacenc_1_1random_1abaeed48339244cfb7f214c7238b13e8b" kind="function"><name>triangle</name></member>
+    <member refid="namespacenc_1_1random_1adbff3f6b80e512d4153b12bae9c6c732" kind="function"><name>uniform</name></member>
     <member refid="namespacenc_1_1random_1a1e31096d678b7e4be66f6c59d95e5445" kind="function"><name>uniform</name></member>
     <member refid="namespacenc_1_1random_1a2f18a1f7b9311d52bbdc4ae7a7b84be6" kind="function"><name>uniformOnSphere</name></member>
+    <member refid="namespacenc_1_1random_1a3cf0bdb15264c1ace4163042756a4765" kind="function"><name>weibull</name></member>
     <member refid="namespacenc_1_1random_1af3a48c59aaa59d37bb5177b962d02bde" kind="function"><name>weibull</name></member>
   </compound>
   <compound refid="namespacenc_1_1roots" kind="namespace"><name>nc::roots</name>
@@ -1326,6 +1370,8 @@
   <compound refid="namespacenc_1_1rotations" kind="namespace"><name>nc::rotations</name>
     <member refid="namespacenc_1_1rotations_1a8b758ff29273093d433b54557054e56e" kind="function"><name>rodriguesRotation</name></member>
     <member refid="namespacenc_1_1rotations_1a923304344b059574fa025c5f31ee88d0" kind="function"><name>rodriguesRotation</name></member>
+    <member refid="namespacenc_1_1rotations_1a84a42f4e7f09b7c0e1a9307cb5b6f281" kind="function"><name>wahbasProblem</name></member>
+    <member refid="namespacenc_1_1rotations_1a6da89864a9512bbe69c848dad18220b4" kind="function"><name>wahbasProblem</name></member>
   </compound>
   <compound refid="namespacenc_1_1special" kind="namespace"><name>nc::special</name>
     <member refid="namespacenc_1_1special_1a386627cce2e27a8297dfe0b7a0adc2ca" kind="function"><name>airy_ai</name></member>
@@ -1399,8 +1445,8 @@
     <member refid="namespacenc_1_1stl__algorithms_1a86175072e60e0fabc931a8acd6329c77" kind="function"><name>any_of</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1afc0a193758bfb62333c4ed53ada9537d" kind="function"><name>copy</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1ae1e1834ec458e90544d643b4b1e68735" kind="function"><name>count</name></member>
-    <member refid="namespacenc_1_1stl__algorithms_1a3de9f1dd54e8db8997e7928322e098f4" kind="function"><name>equal</name></member>
-    <member refid="namespacenc_1_1stl__algorithms_1ae3ace3ed68934f4acde48334a7ff7724" kind="function"><name>equal</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1ab200b92040bf3da8ee4325f5a994e73d" kind="function"><name>equal</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a684d1011b375da4078afb4474a36b0e6" kind="function"><name>equal</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1abbc2e8d742b76f4c2bead6ae894bc4e3" kind="function"><name>fill</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1ab372e4e815977d16f647cdcfea3f1ea5" kind="function"><name>find</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kind="function"><name>for_each</name></member>
@@ -1419,8 +1465,8 @@
     <member refid="namespacenc_1_1stl__algorithms_1adda22e93ced5035c66f63532ee1408b4" kind="function"><name>set_union</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a4987a29c6a989094d647f5a6de75cc6f" kind="function"><name>sort</name></member>
     <member refid="namespacenc_1_1stl__algorithms_1a0a7faa16f597cc09d2540b2edf467fee" kind="function"><name>stable_sort</name></member>
-    <member refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kind="function"><name>transform</name></member>
-    <member refid="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" kind="function"><name>transform</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kind="function"><name>transform</name></member>
+    <member refid="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" kind="function"><name>transform</name></member>
   </compound>
   <compound refid="namespacenc_1_1utils" kind="namespace"><name>nc::utils</name>
     <member refid="namespacenc_1_1utils_1a46e88717d4d32003bb449fd5cefd401c" kind="function"><name>cube</name></member>
@@ -1780,6 +1826,8 @@
   <compound refid="gaussian_filter_8hpp" kind="file"><name>gaussianFilter.hpp</name>
   </compound>
   <compound refid="gaussian_filter1d_8hpp" kind="file"><name>gaussianFilter1d.hpp</name>
+  </compound>
+  <compound refid="gauss_newton_nlls_8hpp" kind="file"><name>gaussNewtonNlls.hpp</name>
   </compound>
   <compound refid="gcd_8hpp" kind="file"><name>gcd.hpp</name>
   </compound>
@@ -2221,6 +2269,8 @@
   </compound>
   <compound refid="_types_8hpp" kind="file"><name>Types.hpp</name>
   </compound>
+  <compound refid="_type_traits_8hpp" kind="file"><name>TypeTraits.hpp</name>
+  </compound>
   <compound refid="uniform_8hpp" kind="file"><name>uniform.hpp</name>
   </compound>
   <compound refid="uniform_filter_8hpp" kind="file"><name>uniformFilter.hpp</name>
@@ -2246,6 +2296,8 @@
   <compound refid="_vector_8hpp" kind="file"><name>Vector.hpp</name>
   </compound>
   <compound refid="vstack_8hpp" kind="file"><name>vstack.hpp</name>
+  </compound>
+  <compound refid="wahbas_problem_8hpp" kind="file"><name>wahbasProblem.hpp</name>
   </compound>
   <compound refid="weibull_8hpp" kind="file"><name>weibull.hpp</name>
   </compound>

@@ -11,108 +11,108 @@
     <includedby refid="_newton_8hpp" local="yes">Newton.hpp</includedby>
     <includedby refid="_secant_8hpp" local="yes">Secant.hpp</includedby>
     <incdepgraph>
-      <node id="9281">
+      <node id="9340">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="9282" relation="include">
+        <childnode refid="9341" relation="include">
         </childnode>
       </node>
-      <node id="9287">
+      <node id="9346">
         <label>functional</label>
       </node>
-      <node id="9284">
+      <node id="9343">
         <label>limits</label>
       </node>
-      <node id="9282">
+      <node id="9341">
         <label>cstdint</label>
       </node>
-      <node id="9285">
+      <node id="9344">
         <label>stdexcept</label>
       </node>
-      <node id="9286">
+      <node id="9345">
         <label>string</label>
       </node>
-      <node id="9280">
+      <node id="9339">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="9281" relation="include">
+        <childnode refid="9340" relation="include">
         </childnode>
-        <childnode refid="9283" relation="include">
+        <childnode refid="9342" relation="include">
         </childnode>
-        <childnode refid="9284" relation="include">
+        <childnode refid="9343" relation="include">
         </childnode>
-        <childnode refid="9285" relation="include">
+        <childnode refid="9344" relation="include">
         </childnode>
-        <childnode refid="9286" relation="include">
+        <childnode refid="9345" relation="include">
         </childnode>
       </node>
-      <node id="9279">
+      <node id="9338">
         <label>Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="9280" relation="include">
+        <childnode refid="9339" relation="include">
         </childnode>
-        <childnode refid="9281" relation="include">
+        <childnode refid="9340" relation="include">
         </childnode>
-        <childnode refid="9287" relation="include">
+        <childnode refid="9346" relation="include">
         </childnode>
       </node>
-      <node id="9283">
+      <node id="9342">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="9291">
+      <node id="9350">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="9292">
+      <node id="9351">
         <label>Brent.hpp</label>
         <link refid="_brent_8hpp"/>
-        <childnode refid="9290" relation="include">
+        <childnode refid="9349" relation="include">
         </childnode>
       </node>
-      <node id="9295">
+      <node id="9354">
         <label>Secant.hpp</label>
         <link refid="_secant_8hpp"/>
-        <childnode refid="9290" relation="include">
+        <childnode refid="9349" relation="include">
         </childnode>
       </node>
-      <node id="9290">
+      <node id="9349">
         <label>Roots.hpp</label>
         <link refid="_roots_8hpp"/>
-        <childnode refid="9291" relation="include">
+        <childnode refid="9350" relation="include">
         </childnode>
       </node>
-      <node id="9288">
+      <node id="9347">
         <label>Iteration.hpp</label>
         <link refid="_iteration_8hpp"/>
-        <childnode refid="9289" relation="include">
+        <childnode refid="9348" relation="include">
         </childnode>
-        <childnode refid="9292" relation="include">
+        <childnode refid="9351" relation="include">
         </childnode>
-        <childnode refid="9293" relation="include">
+        <childnode refid="9352" relation="include">
         </childnode>
-        <childnode refid="9294" relation="include">
+        <childnode refid="9353" relation="include">
         </childnode>
-        <childnode refid="9295" relation="include">
+        <childnode refid="9354" relation="include">
         </childnode>
       </node>
-      <node id="9294">
+      <node id="9353">
         <label>Newton.hpp</label>
         <link refid="_newton_8hpp"/>
-        <childnode refid="9290" relation="include">
+        <childnode refid="9349" relation="include">
         </childnode>
       </node>
-      <node id="9289">
+      <node id="9348">
         <label>Bisection.hpp</label>
         <link refid="_bisection_8hpp"/>
-        <childnode refid="9290" relation="include">
+        <childnode refid="9349" relation="include">
         </childnode>
       </node>
-      <node id="9293">
+      <node id="9352">
         <label>Dekker.hpp</label>
         <link refid="_dekker_8hpp"/>
-        <childnode refid="9290" relation="include">
+        <childnode refid="9349" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

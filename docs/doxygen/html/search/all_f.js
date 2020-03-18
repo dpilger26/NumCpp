@@ -21,7 +21,7 @@ var searchData=
   ['pixel_2ehpp',['Pixel.hpp',['../_pixel_8hpp.html',1,'']]],
   ['pnr',['pnr',['../namespacenc_1_1special.html#ad24badd4fad228e42db56cad017747bc',1,'nc::special']]],
   ['pnr_2ehpp',['pnr.hpp',['../pnr_8hpp.html',1,'']]],
-  ['poisson',['poisson',['../namespacenc_1_1random.html#ae103ffefefe45e4b64067d52a1763f24',1,'nc::random']]],
+  ['poisson',['poisson',['../namespacenc_1_1random.html#ae18029c16ca489ea9db6331c609b20e8',1,'nc::random::poisson(double inMean=1)'],['../namespacenc_1_1random.html#ae103ffefefe45e4b64067d52a1763f24',1,'nc::random::poisson(const Shape &amp;inShape, double inMean=1)']]],
   ['poisson_2ehpp',['poisson.hpp',['../poisson_8hpp.html',1,'']]],
   ['poly1d',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html',1,'nc::polynomial::Poly1d&lt; dtype &gt;'],['../classnc_1_1polynomial_1_1_poly1d.html#a63ba012e9178fba33b85ba94f375a86d',1,'nc::polynomial::Poly1d::Poly1d() noexcept'],['../classnc_1_1polynomial_1_1_poly1d.html#a33c01905d846d32e7d49dc4e7e884551',1,'nc::polynomial::Poly1d::Poly1d(const NdArray&lt; dtype &gt; &amp;inValues, bool isRoots=false)']]],
   ['poly1d_2ehpp',['Poly1d.hpp',['../_poly1d_8hpp.html',1,'']]],
