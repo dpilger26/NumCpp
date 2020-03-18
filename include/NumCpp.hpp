@@ -48,12 +48,16 @@
 #include "NumCpp/Utils.hpp"
 #include "NumCpp/Vector.hpp"
 
-/// \example ReadMe.cpp
-/// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
+/// \example GaussNewtonNlls.cpp
+/// Example for using the linalg::gaussNewtonNlls function
 ///
 /// \example InterfaceWithEigen.cpp
 /// Example for interfaceing with Eigen Matrix
-
 ///
 /// \example InterfaceWithOpenCV.cpp
 /// Example for interfaceing with OpenCV Mat
+///
+/// \example ReadMe.cpp
+/// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
+
