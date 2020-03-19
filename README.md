@@ -1,4 +1,4 @@
-﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/tree/develop/docs/logo/NumCppLogo.png)
+﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/raw/develop/docs/logo/NumCppLogo.png)
 
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
