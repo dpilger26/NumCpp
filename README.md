@@ -1,10 +1,17 @@
-﻿# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
+﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/raw/master/docs/logo/NumCppLogo.png)
+
+[![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
+[![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
+[![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
+[![HitCount](http://hits.dwyl.com/dpilger26/NumCpp.svg)](http://hits.dwyl.com/dpilger26/NumCpp)
+
+# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
 ## Author: David Pilger dpilger26@gmail.com
 
 ## Version: 1.3
 
-## License
+## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 Copyright 2020 David Pilger
 
