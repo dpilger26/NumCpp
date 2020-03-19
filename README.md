@@ -1,4 +1,4 @@
-﻿![pybind11 logo](https://github.com/dpilger26/NumCpp/develop/master/docs/logo/NumCppLogo.png)
+﻿![pybind11 logo](https://github.com/dpilger26/NumCpp/tree/develop/docs/logo/NumCppLogo.png)
 
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
