@@ -47,16 +47,6 @@ namespace nc
         ///              taken and adapted from Numerical Recipes Third Edition svd.h
         class SVD
         {
-        private:
-            // ===============================Attributes====================================
-            const uint32		m_;
-            const uint32		n_;
-            NdArray<double>     u_;
-            NdArray<double>     v_;
-            NdArray<double>     s_;
-            double				eps_;
-            double				tsh_;
-
         public:
             // =============================================================================
             // Description:
@@ -652,6 +642,16 @@ namespace nc
                 return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa)) :
                     (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + utils::sqr(absa / absb))));
             }
+
+        private:
+            // ===============================Attributes====================================
+            const uint32		m_;
+            const uint32		n_;
+            NdArray<double>     u_;
+            NdArray<double>     v_;
+            NdArray<double>     s_;
+            double				eps_;
+            double				tsh_;
         };
     }
 }

@@ -50,15 +50,6 @@ namespace nc
         ///						Holds a Declination object
         class Dec
         {
-        private:
-            //====================================Attributes==============================
-            Sign            sign_{ Sign::POSITIVE };
-            uint8           degreesWhole_{ 0 };
-            uint8           minutes_{ 0 };
-            double          seconds_{ 0.0 };
-            double          degrees_{ 0.0 };
-            double          radians_{ 0.0 };
-
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
@@ -226,6 +217,15 @@ namespace nc
                 inStream << inDec.str();
                 return inStream;
             }
+
+        private:
+            //====================================Attributes==============================
+            Sign            sign_{ Sign::POSITIVE };
+            uint8           degreesWhole_{ 0 };
+            uint8           minutes_{ 0 };
+            double          seconds_{ 0.0 };
+            double          degrees_{ 0.0 };
+            double          radians_{ 0.0 };
         };
     }
 }

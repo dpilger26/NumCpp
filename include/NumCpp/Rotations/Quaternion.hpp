@@ -56,121 +56,6 @@ namespace nc
         ///						Holds a unit quaternion
         class Quaternion
         {
-        private:
-            //====================================Attributes==============================
-            std::array<double, 4> components_{ {0.0, 0.0, 0.0, 1.0} };
-
-            //============================================================================
-            // Method Description:
-            ///						renormalizes the quaternion
-            ///
-            void normalize() noexcept
-            {
-                double sumOfSquares = 0.0;
-                stl_algorithms::for_each(components_.begin(), components_.end(),
-                    [&sumOfSquares](double component) -> void
-                    {
-                        sumOfSquares += utils::sqr(component);
-                    });
-
-                const double norm = std::sqrt(sumOfSquares);
-                stl_algorithms::for_each(components_.begin(), components_.end(),
-                    [&norm](double& component) -> void
-                    {
-                        component /= norm;
-                    });
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Converts the euler roll, pitch, yaw angles to quaternion components
-            ///
-            /// @ param roll: the euler roll angle in radians
-            /// @ param pitch: the euler pitch angle in radians
-            /// @ param yaw: the euler yaw angle in radians
-            ///
-            void eulerToQuat(double roll, double pitch, double yaw) noexcept
-            {
-                const double halfPhi = roll / 2.0;
-                const double halfTheta = pitch / 2.0;
-                const double halfPsi = yaw / 2.0;
-
-                components_[0] = std::sin(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
-                components_[0] -= std::cos(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
-
-                components_[1] = std::cos(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
-                components_[1] += std::sin(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
-
-                components_[2] = std::cos(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
-                components_[2] -= std::sin(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
-
-                components_[3] = std::cos(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
-                components_[3] += std::sin(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
-            }
-
-            //============================================================================
-            // Method Description:
-            ///	Converts the direction cosine matrix to quaternion components
-            ///
-            /// @ param dcm: the direction cosine matrix
-            ///
-            void dcmToQuat(const NdArray<double>& dcm)
-            {
-                const Shape inShape = dcm.shape();
-                if (!(inShape.rows == 3 && inShape.cols == 3))
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
-                }
-
-                NdArray<double> checks(1, 4);
-                checks[0] = 1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
-                checks[1] = 1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
-                checks[2] = 1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
-                checks[3] = 1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2);
-
-                const uint32 maxIdx = argmax(checks).item();
-
-                switch (maxIdx)
-                {
-                    case 0:
-                    {
-                        components_[3] = 0.5 * std::sqrt(1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2));
-                        components_[0] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[3]);
-                        components_[1] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[3]);
-                        components_[2] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[3]);
-
-                        break;
-                    }
-                    case 1:
-                    {
-                        components_[0] = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
-                        components_[1] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[0]);
-                        components_[2] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[0]);
-                        components_[3] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[0]);
-
-                        break;
-                    }
-                    case 2:
-                    {
-                        components_[1] = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
-                        components_[0] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[1]);
-                        components_[2] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[1]);
-                        components_[3] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[1]);
-
-                        break;
-                    }
-                    case 3:
-                    {
-                        components_[2] = 0.5 * std::sqrt(1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2));
-                        components_[0] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[2]);
-                        components_[1] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[2]);
-                        components_[3] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[2]);
-
-                        break;
-                    }
-                }
-            }
-
         public:
             //============================================================================
             // Method Description:
@@ -476,7 +361,7 @@ namespace nc
             ///
             double roll() const noexcept
             {
-                return std::atan2(2 * (s() * i() + j() * k()), 
+                return std::atan2(2 * (s() * i() + j() * k()),
                     1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
             }
 
@@ -679,7 +564,7 @@ namespace nc
             ///
             double yaw() const noexcept
             {
-                return std::atan2(2 * (s() * k() + i() * j()), 
+                return std::atan2(2 * (s() * k() + i() * j()),
                     1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
             }
 
@@ -948,7 +833,7 @@ namespace nc
                 stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&inScalar](double& component)
                     {
-                        component *= inScalar; 
+                        component *= inScalar;
                     });
 
                 normalize();
@@ -997,6 +882,121 @@ namespace nc
             {
                 inOStream << inQuat.str();
                 return inOStream;
+            }
+
+        private:
+            //====================================Attributes==============================
+            std::array<double, 4> components_{ {0.0, 0.0, 0.0, 1.0} };
+
+            //============================================================================
+            // Method Description:
+            ///						renormalizes the quaternion
+            ///
+            void normalize() noexcept
+            {
+                double sumOfSquares = 0.0;
+                stl_algorithms::for_each(components_.begin(), components_.end(),
+                    [&sumOfSquares](double component) -> void
+                    {
+                        sumOfSquares += utils::sqr(component);
+                    });
+
+                const double norm = std::sqrt(sumOfSquares);
+                stl_algorithms::for_each(components_.begin(), components_.end(),
+                    [&norm](double& component) -> void
+                    {
+                        component /= norm;
+                    });
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	Converts the euler roll, pitch, yaw angles to quaternion components
+            ///
+            /// @ param roll: the euler roll angle in radians
+            /// @ param pitch: the euler pitch angle in radians
+            /// @ param yaw: the euler yaw angle in radians
+            ///
+            void eulerToQuat(double roll, double pitch, double yaw) noexcept
+            {
+                const double halfPhi = roll / 2.0;
+                const double halfTheta = pitch / 2.0;
+                const double halfPsi = yaw / 2.0;
+
+                components_[0] = std::sin(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
+                components_[0] -= std::cos(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+
+                components_[1] = std::cos(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
+                components_[1] += std::sin(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
+
+                components_[2] = std::cos(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
+                components_[2] -= std::sin(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
+
+                components_[3] = std::cos(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
+                components_[3] += std::sin(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	Converts the direction cosine matrix to quaternion components
+            ///
+            /// @ param dcm: the direction cosine matrix
+            ///
+            void dcmToQuat(const NdArray<double>& dcm)
+            {
+                const Shape inShape = dcm.shape();
+                if (!(inShape.rows == 3 && inShape.cols == 3))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
+                }
+
+                NdArray<double> checks(1, 4);
+                checks[0] = 1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
+                checks[1] = 1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
+                checks[2] = 1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
+                checks[3] = 1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2);
+
+                const uint32 maxIdx = argmax(checks).item();
+
+                switch (maxIdx)
+                {
+                    case 0:
+                    {
+                        components_[3] = 0.5 * std::sqrt(1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2));
+                        components_[0] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[3]);
+                        components_[1] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[3]);
+                        components_[2] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[3]);
+
+                        break;
+                    }
+                    case 1:
+                    {
+                        components_[0] = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
+                        components_[1] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[0]);
+                        components_[2] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[0]);
+                        components_[3] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[0]);
+
+                        break;
+                    }
+                    case 2:
+                    {
+                        components_[1] = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
+                        components_[0] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[1]);
+                        components_[2] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[1]);
+                        components_[3] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[1]);
+
+                        break;
+                    }
+                    case 3:
+                    {
+                        components_[2] = 0.5 * std::sqrt(1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2));
+                        components_[0] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[2]);
+                        components_[1] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[2]);
+                        components_[3] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[2]);
+
+                        break;
+                    }
+                }
             }
         };
     }

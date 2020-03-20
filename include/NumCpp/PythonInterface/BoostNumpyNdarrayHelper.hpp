@@ -56,77 +56,6 @@ namespace nc
             ///						C or Fortran ordering from python
             enum class Order { F, C };
 
-        private:
-            //====================================Attributes==============================
-            boost::python::numpy::ndarray	theArray_;
-            uint8							numDimensions_;
-            std::vector<Py_intptr_t>		shape_;
-            std::vector<uint32>				strides_;
-            Order   						order_;
-
-            //============================================================================
-            ///						Generic check of input indices
-            ///
-            /// @param      indices
-            ///
-            void checkIndicesGeneric(boost::python::tuple indices)
-            {
-                if (boost::python::len(indices) != numDimensions_)
-                {
-                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + utils::num2str(numDimensions_);
-                    errStr += " dimensions, you asked for " + utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
-                    PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
-                }
-
-                for (int i = 0; i < numDimensions_; ++i)
-                {
-                    int index = boost::python::extract<int>(indices[i]);
-                    if (index > shape_[i])
-                    {
-                        std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + utils::num2str(index);
-                        errStr += "] is larger than the size of the array [" + utils::num2str(shape_[i]) + "].";
-                        PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
-                    }
-                }
-            }
-
-            //============================================================================
-            ///						Checks 1D input indices
-            ///
-            /// @param      index
-            ///
-            void checkIndices1D(uint32 index)
-            {
-                boost::python::tuple indices = boost::python::make_tuple(index);
-                checkIndicesGeneric(indices);
-            }
-
-            //============================================================================
-            ///						Checks 2D input indices
-            ///
-            /// @param      index1
-            /// @param		index2
-            ///
-            void checkIndices2D(uint32 index1, uint32 index2)
-            {
-                boost::python::tuple indices = boost::python::make_tuple(index1, index2);
-                checkIndicesGeneric(indices);
-            }
-
-            //============================================================================
-            ///						Checks 3D input indices
-            ///
-            /// @param      index1
-            /// @param      index2
-            /// @param      index3
-            ///
-            void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
-            {
-                boost::python::tuple indices = boost::python::make_tuple(index1, index2, index3);
-                checkIndicesGeneric(indices);
-            }
-
-        public:
             //============================================================================
             ///						Constructor
             ///
@@ -381,6 +310,76 @@ namespace nc
                     printf("\n");
                 }
                 printf("\n");
+            }
+
+        private:
+            //====================================Attributes==============================
+            boost::python::numpy::ndarray	theArray_;
+            uint8							numDimensions_;
+            std::vector<Py_intptr_t>		shape_;
+            std::vector<uint32>				strides_;
+            Order   						order_;
+
+            //============================================================================
+            ///						Generic check of input indices
+            ///
+            /// @param      indices
+            ///
+            void checkIndicesGeneric(boost::python::tuple indices)
+            {
+                if (boost::python::len(indices) != numDimensions_)
+                {
+                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + utils::num2str(numDimensions_);
+                    errStr += " dimensions, you asked for " + utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
+                    PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
+                }
+
+                for (int i = 0; i < numDimensions_; ++i)
+                {
+                    int index = boost::python::extract<int>(indices[i]);
+                    if (index > shape_[i])
+                    {
+                        std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + utils::num2str(index);
+                        errStr += "] is larger than the size of the array [" + utils::num2str(shape_[i]) + "].";
+                        PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
+                    }
+                }
+            }
+
+            //============================================================================
+            ///						Checks 1D input indices
+            ///
+            /// @param      index
+            ///
+            void checkIndices1D(uint32 index)
+            {
+                boost::python::tuple indices = boost::python::make_tuple(index);
+                checkIndicesGeneric(indices);
+            }
+
+            //============================================================================
+            ///						Checks 2D input indices
+            ///
+            /// @param      index1
+            /// @param		index2
+            ///
+            void checkIndices2D(uint32 index1, uint32 index2)
+            {
+                boost::python::tuple indices = boost::python::make_tuple(index1, index2);
+                checkIndicesGeneric(indices);
+            }
+
+            //============================================================================
+            ///						Checks 3D input indices
+            ///
+            /// @param      index1
+            /// @param      index2
+            /// @param      index3
+            ///
+            void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
+            {
+                boost::python::tuple indices = boost::python::make_tuple(index1, index2, index3);
+                checkIndicesGeneric(indices);
             }
         };
     }

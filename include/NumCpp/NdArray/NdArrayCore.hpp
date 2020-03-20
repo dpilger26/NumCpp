@@ -70,62 +70,6 @@ namespace nc
         typedef dtype*			iterator;
         typedef const dtype*	const_iterator;
 
-    private:
-        //====================================Attributes==============================
-        Shape			shape_{ 0, 0 };
-        uint32			size_{ 0 };
-        Endian          endianess_{ Endian::NATIVE };
-        dtype*			array_{ nullptr };
-        bool            ownsPtr_{ false };
-
-        //============================================================================
-        // Method Description:
-        ///						Checks the array_ pointer for nullness on access
-        ///
-        void checkNullPtr() const
-        {
-            if (array_ == nullptr)
-            {
-                THROW_RUNTIME_ERROR("trying to access an empty array");
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Deletes the internal array
-        ///
-        void deleteArray() noexcept
-        {
-            if (ownsPtr_ && array_ != nullptr)
-            {
-                delete[] array_;
-            }
-
-            array_ = nullptr;
-            shape_.rows = shape_.cols = 0;
-            size_ = 0;
-            ownsPtr_ = false;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Creates a new internal array
-        ///
-        /// @param
-        ///				inShape
-        ///
-        void newArray(const Shape& inShape) noexcept
-        {
-            deleteArray();
-
-            shape_ = inShape;
-            size_ = inShape.size();
-            endianess_ = Endian::NATIVE;
-            array_ = new dtype[size_];
-            ownsPtr_ = true;
-        }
-
-    public:
         //============================================================================
         // Method Description:
         ///						Defualt Constructor, not very usefull...
@@ -369,7 +313,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray<dtype>& inOtherArray) noexcept :
+        NdArray(const NdArray& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -386,7 +330,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
+        NdArray(NdArray&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -416,7 +360,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(const NdArray<dtype>& rhs) noexcept
+        NdArray& operator=(const NdArray& rhs) noexcept
         {
             if (&rhs != this)
             {
@@ -439,7 +383,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(dtype inValue) noexcept
+        NdArray& operator=(dtype inValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inValue);
 
@@ -455,7 +399,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept
+        NdArray& operator=(NdArray&& rhs) noexcept
         {
             if (&rhs != this)
             {
@@ -1544,7 +1488,7 @@ namespace nc
                 {
                     NdArray<bool> returnArray = { stl_algorithms::find(cbegin(), cend(), inValue) != cend() };
                     return returnArray;
-                }
+            }
                 case Axis::COL:
                 {
                     NdArray<bool> returnArray(1, shape_.rows);
@@ -1572,8 +1516,8 @@ namespace nc
                     // of the compiler warning.
                     return NdArray<bool>(0);
                 }
-            }
         }
+    }
 
         //============================================================================
         // Method Description:
@@ -1735,7 +1679,7 @@ namespace nc
         ///
         dtype* dataRelease()
         {
-            ownsPtr_ = false;           
+            ownsPtr_ = false;
             return data();
         }
 
@@ -3997,7 +3941,62 @@ namespace nc
 
             return *this;
         }
-    };
+
+    private:
+        //====================================Attributes==============================
+        Shape			shape_{ 0, 0 };
+        uint32			size_{ 0 };
+        Endian          endianess_{ Endian::NATIVE };
+        dtype*			array_{ nullptr };
+        bool            ownsPtr_{ false };
+
+        //============================================================================
+        // Method Description:
+        ///						Checks the array_ pointer for nullness on access
+        ///
+        void checkNullPtr() const
+        {
+            if (array_ == nullptr)
+            {
+                THROW_RUNTIME_ERROR("trying to access an empty array");
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Deletes the internal array
+        ///
+        void deleteArray() noexcept
+        {
+            if (ownsPtr_ && array_ != nullptr)
+            {
+                delete[] array_;
+            }
+
+            array_ = nullptr;
+            shape_.rows = shape_.cols = 0;
+            size_ = 0;
+            ownsPtr_ = false;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Creates a new internal array
+        ///
+        /// @param
+        ///				inShape
+        ///
+        void newArray(const Shape& inShape) noexcept
+        {
+            deleteArray();
+
+            shape_ = inShape;
+            size_ = inShape.size();
+            endianess_ = Endian::NATIVE;
+            array_ = new dtype[size_];
+            ownsPtr_ = true;
+        }
+};
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
