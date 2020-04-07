@@ -4,10 +4,11 @@ from astropy.coordinates import Angle, Latitude, Longitude  # Angles
 import astropy.units as u
 from termcolor import colored
 import sys
+import os
 if sys.platform == 'linux':
     sys.path.append(r'../lib')
 else:
-    sys.path.append(r'../build/x64/Release')
+    sys.path.append(os.path.abspath('../build/x64/Release'))
 import NumCpp
 
 ####################################################################################
