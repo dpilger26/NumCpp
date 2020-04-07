@@ -56,22 +56,6 @@ namespace nc
             //================================Typedefs===============================
             typedef typename std::vector<Pixel<dtype> >::const_iterator    const_iterator;
 
-        private:
-            //================================Attributes===============================
-            int32                       clusterId_{ -1 };
-            std::vector<Pixel<dtype> >  pixels_{};
-
-            uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      rowMax_{ 0 };
-            uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      colMax_{ 0 };
-
-            dtype                       intensity_{ 0 };
-            dtype                       peakPixelIntensity_{ 0 };
-
-            double                      eod_{ 1.0 };
-
-        public:
             //=============================================================================
             // Description:
             ///              default constructor needed by containers
@@ -380,6 +364,21 @@ namespace nc
                 inStream << inCluster.str();
                 return inStream;
             }
+
+        private:
+            //================================Attributes===============================
+            int32                       clusterId_{ -1 };
+            std::vector<Pixel<dtype> >  pixels_{};
+
+            uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                      rowMax_{ 0 };
+            uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                      colMax_{ 0 };
+
+            dtype                       intensity_{ 0 };
+            dtype                       peakPixelIntensity_{ 0 };
+
+            double                      eod_{ 1.0 };
         };
     }
 }

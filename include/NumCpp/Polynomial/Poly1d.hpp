@@ -54,9 +54,6 @@ namespace nc
         template<typename dtype>
         class Poly1d
         {
-        private:
-            std::vector<dtype>      coefficients_{};
-
         public:
             //============================================================================
             // Method Description:
@@ -500,6 +497,9 @@ namespace nc
                 inOStream << inPoly.str() << std::endl;
                 return inOStream;
             }
+
+        private:
+            std::vector<dtype>      coefficients_{};
         };
     }
 }

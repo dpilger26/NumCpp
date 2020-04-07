@@ -50,44 +50,6 @@ namespace nc
         ///						Holds a full coordinate object
         class Coordinate
         {
-        private:
-            //====================================Attributes==============================
-            RA      ra_{};
-            Dec     dec_{};
-            double  x_{ 1.0 };
-            double  y_{ 0.0 };
-            double  z_{ 0.0 };
-
-            //============================================================================
-            ///						Converts polar coordinates to cartesian coordinates
-            ///
-            void cartesianToPolar()
-            {
-                double degreesRa = rad2deg(std::atan2(y_, x_));
-                if (degreesRa < 0)
-                {
-                    degreesRa += 360;
-                }
-                ra_ = RA(degreesRa);
-
-                const double r = std::sqrt(utils::sqr(x_) + utils::sqr(y_) + utils::sqr(z_));
-                double degreesDec = rad2deg(std::asin(z_ / r));
-                dec_ = Dec(degreesDec);
-            }
-
-            //============================================================================
-            ///						Converts polar coordinates to cartesian coordinates
-            ///
-            void polarToCartesian() noexcept
-            {
-                const double raRadians = deg2rad(ra_.degrees());
-                const double decRadians = deg2rad(dec_.degrees());
-
-                x_ = std::cos(raRadians) * std::cos(decRadians);
-                y_ = std::sin(raRadians) * std::cos(decRadians);
-                z_ = std::sin(decRadians);
-            }
-
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
@@ -347,6 +309,44 @@ namespace nc
             {
                 inStream << inCoord.str();
                 return inStream;
+            }
+
+        private:
+            //====================================Attributes==============================
+            RA      ra_{};
+            Dec     dec_{};
+            double  x_{ 1.0 };
+            double  y_{ 0.0 };
+            double  z_{ 0.0 };
+
+            //============================================================================
+            ///						Converts polar coordinates to cartesian coordinates
+            ///
+            void cartesianToPolar()
+            {
+                double degreesRa = rad2deg(std::atan2(y_, x_));
+                if (degreesRa < 0)
+                {
+                    degreesRa += 360;
+                }
+                ra_ = RA(degreesRa);
+
+                const double r = std::sqrt(utils::sqr(x_) + utils::sqr(y_) + utils::sqr(z_));
+                double degreesDec = rad2deg(std::asin(z_ / r));
+                dec_ = Dec(degreesDec);
+            }
+
+            //============================================================================
+            ///						Converts polar coordinates to cartesian coordinates
+            ///
+            void polarToCartesian() noexcept
+            {
+                const double raRadians = deg2rad(ra_.degrees());
+                const double decRadians = deg2rad(dec_.degrees());
+
+                x_ = std::cos(raRadians) * std::cos(decRadians);
+                y_ = std::sin(raRadians) * std::cos(decRadians);
+                z_ = std::sin(decRadians);
             }
         };
     }

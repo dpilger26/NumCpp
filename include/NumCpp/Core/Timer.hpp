@@ -47,45 +47,6 @@ namespace nc
         typedef std::chrono::high_resolution_clock		ChronoClock;
         typedef std::chrono::time_point<ChronoClock>	TimePoint;
 
-    private:
-        //==============================Attributes====================================
-        std::string		name_{ "" };
-        std::string		unit_{ "" };
-        TimePoint		start_{};
-
-        void setUnits()
-        {
-            if (std::is_same<TimeUnit, std::chrono::hours>::value)
-            {
-                unit_ = " hours";
-            }
-            else if (std::is_same<TimeUnit, std::chrono::minutes>::value)
-            {
-                unit_ = " minutes";
-            }
-            else if (std::is_same<TimeUnit, std::chrono::seconds>::value)
-            {
-                unit_ = " seconds";
-            }
-            else if (std::is_same<TimeUnit, std::chrono::milliseconds>::value)
-            {
-                unit_ = " milliseconds";
-            }
-            else if (std::is_same<TimeUnit, std::chrono::microseconds>::value)
-            {
-                unit_ = " microseconds";
-            }
-            else if (std::is_same<TimeUnit, std::chrono::nanoseconds>::value)
-            {
-                unit_ = " nanoseconds";
-            }
-            else
-            {
-                unit_ = " time units of some sort";
-            }
-        }
-
-    public:
         //============================================================================
         // Method Description:
         ///						Constructor
@@ -158,6 +119,44 @@ namespace nc
             }
 
             return duration;
+        }
+
+    private:
+        //==============================Attributes====================================
+        std::string		name_{ "" };
+        std::string		unit_{ "" };
+        TimePoint		start_{};
+
+        void setUnits()
+        {
+            if (std::is_same<TimeUnit, std::chrono::hours>::value)
+            {
+                unit_ = " hours";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::minutes>::value)
+            {
+                unit_ = " minutes";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::seconds>::value)
+            {
+                unit_ = " seconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::milliseconds>::value)
+            {
+                unit_ = " milliseconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::microseconds>::value)
+            {
+                unit_ = " microseconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::nanoseconds>::value)
+            {
+                unit_ = " nanoseconds";
+            }
+            else
+            {
+                unit_ = " time units of some sort";
+            }
         }
     };
 }

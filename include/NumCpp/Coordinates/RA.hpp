@@ -46,14 +46,6 @@ namespace nc
         ///						Holds a right ascension object
         class RA
         {
-        private:
-            //====================================Attributes==============================
-            uint8   hours_{ 0 };
-            uint8   minutes_{ 0 };
-            double  seconds_{ 0.0 };
-            double  degrees_{ 0.0 };
-            double  radians_{ 0.0 };
-
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
@@ -201,6 +193,14 @@ namespace nc
                 inStream << inRa.str();
                 return inStream;
             }
+
+        private:
+            //====================================Attributes==============================
+            uint8   hours_{ 0 };
+            uint8   minutes_{ 0 };
+            double  seconds_{ 0.0 };
+            double  degrees_{ 0.0 };
+            double  radians_{ 0.0 };
         };
     }
 }

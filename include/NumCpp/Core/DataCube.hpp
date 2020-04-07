@@ -48,12 +48,6 @@ namespace nc
         typedef typename std::deque<NdArray<dtype> >::iterator       iterator;
         typedef typename std::deque<NdArray<dtype> >::const_iterator const_iterator;
 
-    private:
-        //================================Attributes==================================
-        std::deque<NdArray<dtype> >     cube_{};
-        Shape                           elementShape_{ 0, 0 };
-
-    public:
         //============================================================================
         ///						Default Constructor
         ///
@@ -296,5 +290,10 @@ namespace nc
         {
             return cube_[inIndex];
         }
+
+    private:
+        //================================Attributes==================================
+        std::deque<NdArray<dtype> >     cube_{};
+        Shape                           elementShape_{ 0, 0 };
     };
 }
