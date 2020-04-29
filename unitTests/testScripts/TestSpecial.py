@@ -583,6 +583,30 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing softmax Axis::ROW', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.softmax(cArray, NumCpp.Axis.ROW), NUM_DECIMALS_ROUND),
+                      roundArray(sp.softmax(data, axis=0), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing softmax Axis::COL', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.softmax(cArray, NumCpp.Axis.COL), NUM_DECIMALS_ROUND),
+                      roundArray(sp.softmax(data, axis=1), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing spherical_bessel_jn scaler', 'cyan'))
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()

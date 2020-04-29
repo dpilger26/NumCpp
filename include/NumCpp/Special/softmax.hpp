@@ -75,8 +75,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    auto returnArray = exp(inArray).transpose();
-                    auto expSums = returnArray.sum(inAxis);
+                    auto returnArray = exp(inArray.transpose());
+                    auto expSums = returnArray.sum(Axis::COL);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
