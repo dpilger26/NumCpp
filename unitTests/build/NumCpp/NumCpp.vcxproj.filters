@@ -85,6 +85,9 @@
     <Filter Include="Header Files\NumCpp\Roots">
       <UniqueIdentifier>{9fb2ab55-855f-4f25-a89d-d251e9d3f0d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\NumCpp\Core\Internal">
+      <UniqueIdentifier>{98871098-3df7-4cdd-a82b-7dd5ee1a4700}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NumCppPy.cpp">
@@ -117,9 +120,6 @@
       <Filter>Header Files\NumCpp\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Core\DtypeInfo.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\Error.hpp">
       <Filter>Header Files\NumCpp\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Core\Shape.hpp">
@@ -1235,14 +1235,8 @@
     <ClInclude Include="..\..\..\include\NumCpp\Functions\ravel.hpp">
       <Filter>Header Files\NumCpp\Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\Filesystem.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Functions\centerOfMass.hpp">
       <Filter>Header Files\NumCpp\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\StlAlgorithms.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Functions\none.hpp">
       <Filter>Header Files\NumCpp\Functions</Filter>
@@ -1322,8 +1316,20 @@
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\gaussNewtonNlls.hpp">
       <Filter>Header Files\NumCpp\Linalg</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Core\TypeTraits.hpp">
-      <Filter>Header Files\NumCpp\Core</Filter>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\Internal\Error.hpp">
+      <Filter>Header Files\NumCpp\Core\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\Internal\Filesystem.hpp">
+      <Filter>Header Files\NumCpp\Core\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\Internal\StaticAsserts.hpp">
+      <Filter>Header Files\NumCpp\Core\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\Internal\StlAlgorithms.hpp">
+      <Filter>Header Files\NumCpp\Core\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Core\Internal\TypeTraits.hpp">
+      <Filter>Header Files\NumCpp\Core\Internal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

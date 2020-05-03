@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
 #include "NumCpp/NdArray.hpp"

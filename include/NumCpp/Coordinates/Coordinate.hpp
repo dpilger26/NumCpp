@@ -30,7 +30,7 @@
 
 #include "NumCpp/Coordinates/Dec.hpp"
 #include "NumCpp/Coordinates/RA.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Functions/dot.hpp"

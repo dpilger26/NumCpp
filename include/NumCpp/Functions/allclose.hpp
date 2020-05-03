@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Functions/abs.hpp"
 #include "NumCpp/Functions/all.hpp"
 #include "NumCpp/NdArray.hpp"

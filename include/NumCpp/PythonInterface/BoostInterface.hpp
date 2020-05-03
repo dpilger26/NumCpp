@@ -30,7 +30,7 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"

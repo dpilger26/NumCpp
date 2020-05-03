@@ -34,7 +34,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/ones.hpp"

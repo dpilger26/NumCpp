@@ -33,7 +33,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"

@@ -39,10 +39,6 @@
 #define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError<std::invalid_argument>(__FILE__, __func__, __LINE__, msg)
 #define THROW_RUNTIME_ERROR(msg) nc::error::throwError<std::runtime_error>(__FILE__, __func__, __LINE__, msg)
 
-#define STATIC_ASSERT_ARITHMETIC(dtype) static_assert(std::is_arithmetic<dtype>::value, "Can only be used with arithmetic types")
-#define STATIC_ASSERT_INTEGER(dtype) static_assert(std::is_integral<dtype>::value, "Can only be used with integer types")
-#define STATIC_ASSERT_FLOAT(dtype) static_assert(std::is_floating_point<dtype>::value, "Can only be used with float types")
-
 namespace nc
 {
     namespace error

@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Filesystem.hpp"
+#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include <deque>

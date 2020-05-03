@@ -30,7 +30,7 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 

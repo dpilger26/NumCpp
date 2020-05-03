@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/NdArray.hpp"

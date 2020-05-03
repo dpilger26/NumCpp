@@ -30,7 +30,7 @@
 
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/max.hpp"
 #include "NumCpp/NdArray.hpp"
