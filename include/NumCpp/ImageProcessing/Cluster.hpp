@@ -54,7 +54,7 @@ namespace nc
         {
         public:
             //================================Typedefs===============================
-            typedef typename std::vector<Pixel<dtype> >::const_iterator    const_iterator;
+            using const_iterator = typename std::vector<Pixel<dtype> >::const_iterator;
 
             //=============================================================================
             // Description:

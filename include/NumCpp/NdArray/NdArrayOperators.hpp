@@ -1409,6 +1409,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator<<=(NdArray<dtype>& inArray, uint8 inNumBits) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         auto function = [inNumBits](dtype& value) noexcept -> void
         {
             value <<= inNumBits;
@@ -1431,6 +1433,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator<<(const NdArray<dtype>& lhs, uint8 inNumBits) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         NdArray<dtype> returnArray(lhs);
         returnArray <<= inNumBits;
         return returnArray;
@@ -1448,6 +1452,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator>>=(NdArray<dtype>& inArray, uint8 inNumBits) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         auto function = [inNumBits](dtype& value) noexcept -> void
         {
             value >>= inNumBits;
@@ -1470,6 +1476,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator>>(const NdArray<dtype>& lhs, uint8 inNumBits) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         NdArray<dtype> returnArray(lhs);
         returnArray >>= inNumBits;
         return returnArray;

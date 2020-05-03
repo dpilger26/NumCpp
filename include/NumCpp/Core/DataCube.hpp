@@ -45,8 +45,8 @@ namespace nc
     {
     public:
         //================================Typedefs==================================
-        typedef typename std::deque<NdArray<dtype> >::iterator       iterator;
-        typedef typename std::deque<NdArray<dtype> >::const_iterator const_iterator;
+        using iterator = typename std::deque<NdArray<dtype> >::iterator;
+        using const_iterator = typename std::deque<NdArray<dtype> >::const_iterator;
 
         //============================================================================
         ///						Default Constructor

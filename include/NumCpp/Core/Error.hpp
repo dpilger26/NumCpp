@@ -30,17 +30,18 @@
 
 #include "NumCpp/Core/Types.hpp"
 
+#include <complex>
 #include <iostream>
-#include <limits>
 #include <stdexcept>
 #include <string>
+#include <type_traits>
 
 #define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError<std::invalid_argument>(__FILE__, __func__, __LINE__, msg)
 #define THROW_RUNTIME_ERROR(msg) nc::error::throwError<std::runtime_error>(__FILE__, __func__, __LINE__, msg)
 
-#define STATIC_ASSERT_ARITHMETIC(dtype) static_assert(std::numeric_limits<dtype>::is_specialized, "Can only be used with arithmetic types")
-#define STATIC_ASSERT_INTEGER(dtype) static_assert(std::numeric_limits<dtype>::is_integer, "Can only be used with integer types")
-#define STATIC_ASSERT_FLOAT(dtype) static_assert(!std::numeric_limits<dtype>::is_integer, "Can only be used with float types")
+#define STATIC_ASSERT_ARITHMETIC(dtype) static_assert(std::is_arithmetic<dtype>::value, "Can only be used with arithmetic types")
+#define STATIC_ASSERT_INTEGER(dtype) static_assert(std::is_integral<dtype>::value, "Can only be used with integer types")
+#define STATIC_ASSERT_FLOAT(dtype) static_assert(std::is_floating_point<dtype>::value, "Can only be used with float types")
 
 namespace nc
 {

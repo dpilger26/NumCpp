@@ -67,8 +67,8 @@ namespace nc
     {
     public:
         //====================================Typedefs================================
-        typedef dtype*			iterator;
-        typedef const dtype*	const_iterator;
+        using iterator = dtype*;
+        using const_iterator = const dtype*;
 
         //============================================================================
         // Method Description:
@@ -313,7 +313,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray& inOtherArray) noexcept :
+        NdArray(const NdArray<dtype>& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -330,7 +330,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(NdArray&& inOtherArray) noexcept :
+        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -360,7 +360,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(const NdArray& rhs) noexcept
+        NdArray<dtype>& operator=(const NdArray<dtype>& rhs) noexcept
         {
             if (&rhs != this)
             {
@@ -383,7 +383,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(dtype inValue) noexcept
+        NdArray<dtype>& operator=(dtype inValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inValue);
 
@@ -399,7 +399,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(NdArray&& rhs) noexcept
+        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept
         {
             if (&rhs != this)
             {

@@ -53,7 +53,7 @@ namespace nc
         {
         public:
             //================================Typedefs=====================================
-            typedef typename std::vector<Cluster<dtype> >::const_iterator   const_iterator;
+            using const_iterator = typename std::vector<Cluster<dtype> >::const_iterator;
 
             //=============================================================================
             // Description:

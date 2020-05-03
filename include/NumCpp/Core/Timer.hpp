@@ -44,8 +44,8 @@ namespace nc
     {
     public:
         //==============================Typedefs======================================
-        typedef std::chrono::high_resolution_clock		ChronoClock;
-        typedef std::chrono::time_point<ChronoClock>	TimePoint;
+        using ChronoClock = std::chrono::high_resolution_clock;
+        using TimePoint = std::chrono::time_point<ChronoClock>;
 
         //============================================================================
         // Method Description:
