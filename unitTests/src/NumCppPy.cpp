@@ -3937,12 +3937,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def(bp::vector_indexing_suite<std::vector<double> >());
 
     typedef std::pair<NdArray<double>, NdArray<double> > doublePair;
-    bp::class_<doublePair>("doublePair")
+    bp::class_<doublePair>("doublePair", bp::init<>())
         .def_readonly("first", &doublePair::first)
         .def_readonly("second", &doublePair::second);
 
     typedef std::pair<NdArray<uint32>, NdArray<uint32> > uint32Pair;
-    bp::class_<uint32Pair>("uint32Pair")
+    bp::class_<uint32Pair>("uint32Pair", bp::init<>())
         .def_readonly("first", &uint32Pair::first)
         .def_readonly("second", &uint32Pair::second);
 
@@ -3952,7 +3952,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::scope().attr("inf") = constants::inf;
     bp::scope().attr("pi") = constants::pi;
     bp::scope().attr("nan") = constants::nan;
-    bp::scope().attr("VERSION") = nc::VERSION;
+    bp::scope().attr("j") = constants::j;
+    bp::scope().attr("VERSION") = VERSION;
 
     // PythonInterface.hpp
     bp::def("list2vector", &list2vector<int>);
@@ -4158,19 +4159,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
         .def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
 
-    typedef NdArray<uint32> NdArrayInt;
-    bp::class_<NdArrayInt>
+    typedef NdArray<uint32> NdArrayUInt32;
+    bp::class_<NdArrayUInt32>
         ("NdArrayInt", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
-        .def("item", &NdArrayInt::item)
-        .def("shape", &NdArrayInt::shape)
-        .def("size", &NdArrayInt::size)
+        .def("item", &NdArrayUInt32::item)
+        .def("shape", &NdArrayUInt32::shape)
+        .def("size", &NdArrayUInt32::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
-        .def("endianess", &NdArrayInt::endianess)
+        .def("endianess", &NdArrayUInt32::endianess)
         .def("setArray", &NdArrayInterface::setArray<uint32>)
-        .def("byteswap", &NdArrayInt::byteswap, bp::return_internal_reference<>())
+        .def("byteswap", &NdArrayUInt32::byteswap, bp::return_internal_reference<>())
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
         .def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>)
         .def("operatorModulusScalerReversed", &NdArrayInterface::operatorModulusScalerReversed<uint32>)
@@ -4195,6 +4196,59 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
         .def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
+    typedef NdArray<uint64> NdArrayUInt64;
+    bp::class_<NdArrayUInt64>
+        ("NdArrayInt64", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayUInt64::item)
+        .def("shape", &NdArrayUInt64::shape)
+        .def("size", &NdArrayUInt64::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint64>)
+        .def("endianess", &NdArrayUInt64::endianess)
+        .def("setArray", &NdArrayInterface::setArray<uint64>);
+
+    typedef NdArray<uint16> NdArrayUInt16;
+    bp::class_<NdArrayUInt16>
+        ("NdArrayInt8", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayUInt16::item)
+        .def("shape", &NdArrayUInt16::shape)
+        .def("size", &NdArrayUInt16::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint16>)
+        .def("endianess", &NdArrayUInt16::endianess)
+        .def("setArray", NdArrayInterface::setArray<uint16>);
+
+    typedef NdArray<uint8> NdArrayUInt8;
+    bp::class_<NdArrayUInt8>
+        ("NdArrayInt8", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayUInt8::item)
+        .def("shape", &NdArrayUInt8::shape)
+        .def("size", &NdArrayUInt8::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
+        .def("endianess", &NdArrayUInt8::endianess)
+        .def("setArray", NdArrayInterface::setArray<uint8>);
+
+    typedef NdArray<int64> NdArrayInt64;
+    bp::class_<NdArrayInt64>
+        ("NdArrayInt32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayInt64::item)
+        .def("shape", &NdArrayInt64::shape)
+        .def("size", &NdArrayInt64::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int64>)
+        .def("endianess", &NdArrayInt64::endianess)
+        .def("replace", &NdArrayInterface::replace<int64>)
+        .def("setArray", &NdArrayInterface::setArray<int64>);
+
     typedef NdArray<int32> NdArrayInt32;
     bp::class_<NdArrayInt32>
         ("NdArrayInt32", bp::init<>())
@@ -4209,57 +4263,33 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int32>)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
-    typedef NdArray<uint32> NdArrayUInt32;
-    bp::class_<NdArrayUInt32>
-        ("NdArrayUInt32", bp::init<>())
+    typedef NdArray<int16> NdArrayInt16;
+    bp::class_<NdArrayInt16>
+        ("NdArrayInt32", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
-        .def("item", &NdArrayUInt32::item)
-        .def("shape", &NdArrayUInt32::shape)
-        .def("size", &NdArrayUInt32::size)
-        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
-        .def("endianess", &NdArrayUInt32::endianess)
-        .def("setArray", &NdArrayInterface::setArray<uint32>);
+        .def("item", &NdArrayInt16::item)
+        .def("shape", &NdArrayInt16::shape)
+        .def("size", &NdArrayInt16::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int16>)
+        .def("endianess", &NdArrayInt16::endianess)
+        .def("replace", &NdArrayInterface::replace<int16>)
+        .def("setArray", &NdArrayInterface::setArray<int16>);
 
-    typedef NdArray<uint64> NdArrayInt64;
-    bp::class_<NdArrayInt64>
-        ("NdArrayInt64", bp::init<>())
-        .def(bp::init<uint32>())
-        .def(bp::init<uint32, uint32>())
-        .def(bp::init<Shape>())
-        .def("item", &NdArrayInt64::item)
-        .def("shape", &NdArrayInt64::shape)
-        .def("size", &NdArrayInt64::size)
-        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint64>)
-        .def("endianess", &NdArrayInt64::endianess)
-        .def("setArray", &NdArrayInterface::setArray<uint64>);
-
-    typedef NdArray<uint8> NdArrayInt8;
+    typedef NdArray<int8> NdArrayInt8;
     bp::class_<NdArrayInt8>
-        ("NdArrayInt8", bp::init<>())
+        ("NdArrayInt32", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
         .def("item", &NdArrayInt8::item)
         .def("shape", &NdArrayInt8::shape)
         .def("size", &NdArrayInt8::size)
-        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int8>)
         .def("endianess", &NdArrayInt8::endianess)
-        .def("setArray", NdArrayInterface::setArray<uint8>);
-
-    typedef NdArray<bool> NdArrayBool;
-    bp::class_<NdArrayBool>
-        ("NdArrayBool", bp::init<>())
-        .def(bp::init<uint32>())
-        .def(bp::init<uint32, uint32>())
-        .def(bp::init<Shape>())
-        .def("item", &NdArrayBool::item)
-        .def("shape", &NdArrayBool::shape)
-        .def("size", &NdArrayBool::size)
-        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<bool>)
-        .def("endianess", &NdArrayBool::endianess)
-        .def("setArray", NdArrayInterface::setArray<bool>);
+        .def("replace", &NdArrayInterface::replace<int8>)
+        .def("setArray", &NdArrayInterface::setArray<int8>);
 
     typedef NdArray<float> NdArrayFloat;
     bp::class_<NdArrayFloat>
@@ -4273,6 +4303,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<float>)
         .def("endianess", &NdArrayFloat::endianess)
         .def("setArray", &NdArrayInterface::setArray<float>);
+
+    typedef NdArray<bool> NdArrayBool;
+    bp::class_<NdArrayBool>
+        ("NdArrayBool", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayBool::item)
+        .def("shape", &NdArrayBool::shape)
+        .def("size", &NdArrayBool::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<bool>)
+        .def("endianess", &NdArrayBool::endianess)
+        .def("setArray", NdArrayInterface::setArray<bool>);
 
     // Methods.hpp
     bp::def("absScaler", &MethodsInterface::absScaler<double>);
