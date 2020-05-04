@@ -1,7 +1,7 @@
-import TestConstants
+import test_constants
 import TestCoordinates
 import TestDataCube
-import TestDtypeInfo
+import test_dtypeInfo
 import TestFilters
 import TestFunctions
 import TestImageProcessing
@@ -12,20 +12,20 @@ import TestPolynomial
 import TestRandom
 import TestRotations
 import TestRoots
-import TestShape
-import TestSlice
+import test_shape
+import test_slice
 import TestSpecial
-import TestTimer
+import test_timer
 import TestUtils
 import TestVector
 
 
 #################################################################################
 def doTest():
-    TestConstants.doTest()
+    test_constants.doTest()
     TestCoordinates.doTest()
     TestDataCube.doTest()
-    TestDtypeInfo.doTest()
+    test_dtypeInfo.doTest()
     TestFilters.doTest()
     TestFunctions.doTest()
     TestImageProcessing.doTest()
@@ -36,10 +36,10 @@ def doTest():
     TestRandom.doTest()
     TestRotations.doTest()
     TestRoots.doTest()
-    TestShape.doTest()
-    TestSlice.doTest()
+    test_shape.doTest()
+    test_slice.doTest()
     TestSpecial.doTest()
-    TestTimer.doTest()
+    test_timer.doTest()
     TestUtils.doTest()
     TestVector.doTest()
 

@@ -11,6 +11,7 @@ else:
     sys.path.append(os.path.abspath('../build/x64/Release'))
 import NumCpp
 
+
 ####################################################################################
 def doTest():
     print(colored('Testing Coordinates Module', 'magenta'))
