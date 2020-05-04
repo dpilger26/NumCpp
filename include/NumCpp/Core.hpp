@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 1.4
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -35,3 +35,4 @@
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Timer.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Version.hpp"

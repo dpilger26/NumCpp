@@ -3952,7 +3952,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::scope().attr("inf") = constants::inf;
     bp::scope().attr("pi") = constants::pi;
     bp::scope().attr("nan") = constants::nan;
-    bp::scope().attr("VERSION") = constants::VERSION;
+    bp::scope().attr("VERSION") = nc::VERSION;
 
     // PythonInterface.hpp
     bp::def("list2vector", &list2vector<int>);
