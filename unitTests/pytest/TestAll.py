@@ -16,8 +16,8 @@ import test_shape
 import test_slice
 import TestSpecial
 import test_timer
-import TestUtils
-import TestVector
+import test_utils
+import test_vector
 
 
 #################################################################################
@@ -40,8 +40,8 @@ def doTest():
     test_slice.doTest()
     TestSpecial.doTest()
     test_timer.doTest()
-    TestUtils.doTest()
-    TestVector.doTest()
+    test_utils.doTest()
+    test_vector.doTest()
 
 
 #################################################################################
