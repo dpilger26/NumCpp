@@ -54,11 +54,11 @@ namespace nc
         template<class InputIt, class UnaryPredicate>
         bool all_of(InputIt first, InputIt last, UnaryPredicate p)
         {
+            return std::all_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::all_of(std::execution::par_unseq, first, last, p);
-#else
-            return std::all_of(first, last, p);
+                std::execution::par_unseq,
 #endif
+                first, last, p);
         }
 
         //============================================================================
@@ -73,11 +73,11 @@ namespace nc
         template<class InputIt, class UnaryPredicate>
         bool any_of(InputIt first, InputIt last, UnaryPredicate p)
         {
+            return std::any_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::any_of(std::execution::par_unseq, first, last, p);
-#else
-            return std::any_of(first, last, p);
+                std::execution::par_unseq,
 #endif
+                first, last, p);
         }
 
         //============================================================================
@@ -92,11 +92,11 @@ namespace nc
         template<class InputIt, class OutputIt>
         OutputIt copy(InputIt first, InputIt last, OutputIt destination)
         {
+            return std::copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::copy(std::execution::par_unseq, first, last, destination);
-#else
-            return std::copy(first, last, destination);
+                std::execution::par_unseq,
 #endif
+                first, last, destination);
         }
 
         //============================================================================
@@ -112,11 +112,12 @@ namespace nc
         typename std::iterator_traits<InputIt>::difference_type
             count(InputIt first, InputIt last, const T &value)
         {
+            return std::count(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::count(std::execution::par_unseq, first, last, value);
-#else
-            return std::count(first, last, value);
+                std::execution::par_unseq,
 #endif
+                first, last, value);
+
         }
 
         //============================================================================
@@ -132,11 +133,11 @@ namespace nc
         bool equal(InputIt1 first1, InputIt1 last1,
             InputIt2 first2) noexcept
         {
+            return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::equal(std::execution::par_unseq, first1, last1, first2);
-#else
-            return std::equal(first1, last1, first2);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2);
         }
 
         //============================================================================
@@ -153,11 +154,11 @@ namespace nc
         bool equal(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, BinaryPredicate p) noexcept
         {
+            return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::equal(std::execution::par_unseq, first1, last1, first2, p);
-#else
-            return std::equal(first1, last1, first2, p);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, p);
         }
 
         //============================================================================
@@ -171,11 +172,12 @@ namespace nc
         template<class ForwardIt, class T>
         void fill(ForwardIt first, ForwardIt last, const T& value)
         {
+            return std::fill(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::fill(std::execution::par_unseq, first, last, value);
-#else
-            return std::fill(first, last, value);
+                std::execution::par_unseq,
 #endif
+                first, last, value);
+
         }
 
         //============================================================================
@@ -191,11 +193,11 @@ namespace nc
         template<class InputIt, class T>
         InputIt find(InputIt first, InputIt last, const T& value)
         {
+            return std::find(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::find(std::execution::par_unseq, first, last, value);
-#else
-            return std::find(first, last, value);
+                std::execution::par_unseq,
 #endif
+                first, last, value);
         }
 
         //============================================================================
@@ -209,11 +211,11 @@ namespace nc
         template<class InputIt, class UnaryFunction>
         void for_each(InputIt first, InputIt last, UnaryFunction f)
         {
+            std::for_each(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, first, last, f);
-#else
-            std::for_each(first, last, f);
+                std::execution::par_unseq,
 #endif
+                first, last, f);
         }
 
         //============================================================================
@@ -229,11 +231,11 @@ namespace nc
         template<class InputIt1, class InputIt2, class T>
         T inner_product(InputIt1 first1, InputIt1 last1, InputIt2 first2, T init)
         {
+            return std::transform_reduce(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::transform_reduce(std::execution::par_unseq, first1, last1, first2, init);
-#else
-            return std::inner_product(first1, last1, first2, init);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, init);
         }
 
         //============================================================================
@@ -247,11 +249,11 @@ namespace nc
         template<class ForwardIt>
         bool is_sorted(ForwardIt first, ForwardIt last)
         {
+            return std::is_sorted(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::is_sorted(std::execution::par_unseq, first, last);
-#else
-            return std::is_sorted(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -265,11 +267,11 @@ namespace nc
         template<class ForwardIt>
         ForwardIt max_element(ForwardIt first, ForwardIt last)
         {
+            return std::max_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::max_element(std::execution::par_unseq, first, last);
-#else
-            return std::max_element(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -282,11 +284,11 @@ namespace nc
         template<class ForwardIt>
         ForwardIt min_element(ForwardIt first, ForwardIt last)
         {
+            return std::min_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::min_element(std::execution::par_unseq, first, last);
-#else
-            return std::min_element(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -301,11 +303,11 @@ namespace nc
         std::pair<ForwardIt, ForwardIt>
             minmax_element(ForwardIt first, ForwardIt last)
         {
+            return std::minmax_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::minmax_element(std::execution::par_unseq, first, last);
-#else
-            return std::minmax_element(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -320,11 +322,11 @@ namespace nc
         template<class InputIt, class UnaryPredicate>
         bool none_of(InputIt first, InputIt last, UnaryPredicate p)
         {
+            return std::none_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::none_of(std::execution::par_unseq, first, last, p);
-#else
-            return std::none_of(first, last, p);
+                std::execution::par_unseq,
 #endif
+                first, last, p);
         }
 
         //============================================================================
@@ -338,11 +340,11 @@ namespace nc
         template<class RandomIt>
         void nth_element(RandomIt first, RandomIt nth, RandomIt last)
         {
+            std::nth_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::nth_element(std::execution::par_unseq, first, nth, last);
-#else
-            std::nth_element(first, nth, last);
+                std::execution::par_unseq,
 #endif
+                first, nth, last);
         }
 
         //============================================================================
@@ -358,11 +360,11 @@ namespace nc
         void replace(ForwardIt first, ForwardIt last,
             const T& oldValue, const T& newValue)
         {
+            std::replace(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::replace(std::execution::par_unseq, first, last, oldValue, newValue);
-#else
-            std::replace(first, last, oldValue, newValue);
+                std::execution::par_unseq,
 #endif
+                first, last, oldValue, newValue);
         }
 
         //============================================================================
@@ -375,11 +377,11 @@ namespace nc
         template<class BidirIt>
         void reverse(BidirIt first, BidirIt last)
         {
+            std::reverse(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::reverse(std::execution::par_unseq, first, last);
-#else
-            std::reverse(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -393,11 +395,11 @@ namespace nc
         template<class ForwardIt>
         void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last)
         {
+            std::rotate(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::rotate(std::execution::par_unseq, first, firstN, last);
-#else
-            std::rotate(first, firstN, last);
+                std::execution::par_unseq,
 #endif
+                first, firstN, last);
         }
 
         //============================================================================
@@ -416,12 +418,11 @@ namespace nc
             InputIt2 first2, InputIt2 last2,
             OutputIt destination)
         {
+            return std::set_difference(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::set_difference(std::execution::par_unseq,
-                first1, last1, first2, last2, destination);
-#else
-            return std::set_difference(first1, last1, first2, last2, destination);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, last2, destination);
         }
 
         //============================================================================
@@ -440,12 +441,11 @@ namespace nc
             InputIt2 first2, InputIt2 last2,
             OutputIt destination)
         {
+            return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::set_intersection(std::execution::par_unseq,
-                first1, last1, first2, last2, destination);
-#else
-            return std::set_intersection(first1, last1, first2, last2, destination);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, last2, destination);
         }
 
         //============================================================================
@@ -464,12 +464,11 @@ namespace nc
             InputIt2 first2, InputIt2 last2,
             OutputIt destination)
         {
+            return std::set_union(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::set_union(std::execution::par_unseq,
-                first1, last1, first2, last2, destination);
-#else
-            return std::set_union(first1, last1, first2, last2, destination);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, last2, destination);
         }
 
         //============================================================================
@@ -482,11 +481,11 @@ namespace nc
         template<class RandomIt>
         void sort(RandomIt first, RandomIt last)
         {
+            return std::sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::sort(std::execution::par_unseq, first, last);
-#else
-            return std::sort(first, last);
+                std::execution::par_unseq,
 #endif
+                first, last);
         }
 
         //============================================================================
@@ -500,11 +499,11 @@ namespace nc
         template<class RandomIt, class Compare>
         void stable_sort(RandomIt first, RandomIt last, Compare comp)
         {
+            std::stable_sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::stable_sort(std::execution::par_unseq, first, last, comp);
-#else
-            std::stable_sort(first, last, comp);
+                std::execution::par_unseq,
 #endif
+                first, last, comp);
         }
 
         //============================================================================
@@ -521,11 +520,11 @@ namespace nc
         OutputIt transform(InputIt first, InputIt last, OutputIt destination,
             UnaryOperation unaryFunction) noexcept
         {
+            return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::transform(std::execution::par_unseq, first, last, destination, unaryFunction);
-#else
-            return std::transform(first, last, destination, unaryFunction);
+                std::execution::par_unseq,
 #endif
+                first, last, destination, unaryFunction);
         }
 
         //============================================================================
@@ -543,12 +542,11 @@ namespace nc
         OutputIt transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
             OutputIt destination, BinaryOperation unaryFunction) noexcept
         {
+            return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::transform(std::execution::par_unseq,
-                first1, last1, first2, destination, unaryFunction);
-#else
-            return std::transform(first1, last1, first2, destination, unaryFunction);
+                std::execution::par_unseq,
 #endif
+                first1, last1, first2, destination, unaryFunction);
         }
-        }
-        }
+    }
+}
