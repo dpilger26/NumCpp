@@ -4161,7 +4161,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<uint32> NdArrayUInt32;
     bp::class_<NdArrayUInt32>
-        ("NdArrayInt", bp::init<>())
+        ("NdArrayUInt32", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4451,8 +4451,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("fullRowCol", &MethodsInterface::fullRowCol<double>);
     bp::def("fullShape", &MethodsInterface::fullShape<double>);
     bp::def("full_like", &full_like<double>);
-    bp::def("gcdScaler", &MethodsInterface::gcdScaler<int32>);
-    bp::def("gcdArray", &MethodsInterface::gcdArray<int32>);
+    bp::def("gcdScaler", &MethodsInterface::gcdScaler<uint32>);
+    bp::def("gcdArray", &MethodsInterface::gcdArray<uint32>);
     bp::def("greater", &greater<double>);
     bp::def("greater_equal", &greater_equal<double>);
     bp::def("gradient", &gradient<double>);
@@ -4470,8 +4470,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("isinfArray", &MethodsInterface::isinfArray<double>);
     bp::def("isnanScaler", &MethodsInterface::isnanScaler<double>);
     bp::def("isnanArray", &MethodsInterface::isnanArray<double>);
-    bp::def("lcmScaler", &MethodsInterface::lcmScaler<int32>);
-    bp::def("lcmArray", &MethodsInterface::lcmArray<int32>);
+    bp::def("lcmScaler", &MethodsInterface::lcmScaler<uint32>);
+    bp::def("lcmArray", &MethodsInterface::lcmArray<uint32>);
     bp::def("ldexpScaler", &MethodsInterface::ldexpScaler<double>);
     bp::def("ldexpArray", &MethodsInterface::ldexpArray<double>);
     bp::def("left_shift", &left_shift<uint32>);

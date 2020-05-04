@@ -75,10 +75,7 @@ namespace nc
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        NdArray() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -92,9 +89,7 @@ namespace nc
             size_(inSquareSize * inSquareSize),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -108,9 +103,7 @@ namespace nc
             size_(inNumRows * inNumCols),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -124,9 +117,7 @@ namespace nc
             size_(shape_.size()),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -141,7 +132,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inList.begin(), inList.end(), array_);
         }
 
@@ -155,12 +145,8 @@ namespace nc
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
             for (auto& list : inList)
             {
-                size_ += static_cast<uint32>(list.size());
-
                 if (shape_.cols == 0)
                 {
                     shape_.cols = static_cast<uint32>(list.size());
@@ -171,6 +157,7 @@ namespace nc
                 }
             }
 
+            size_ = shape_.size();
             array_ = new dtype[size_];
             uint32 row = 0;
             for (auto& list : inList)
@@ -197,7 +184,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
         }
 
@@ -214,7 +200,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
         }
 
@@ -231,7 +216,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
         }
 
@@ -248,7 +232,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
         }
 
@@ -265,7 +248,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inFirst, inLast, array_);
         }
 
@@ -285,9 +267,7 @@ namespace nc
             size_(numRows * numCols),
             array_(inPtr),
             ownsPtr_(takeOwnership)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -303,7 +283,6 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
             stl_algorithms::copy(inPtr, inPtr + size_, begin());
         }
 
