@@ -1,5 +1,4 @@
 import numpy as np
-from termcolor import colored
 import os
 import sys
 if sys.platform == 'linux':
@@ -10,83 +9,49 @@ import NumCpp
 
 
 ####################################################################################
-def doTest():
-    testQuaternion()
-    testDcm()
-    testFunctions()
+def test_quaternion():
+    assert NumCpp.Quaternion()
 
-
-####################################################################################
-def testQuaternion():
-    print(colored('Testing Rotations Module', 'magenta'))
-
-    print(colored('Testing Quaternion', 'magenta'))
-
-    print(colored('Testing Default Constructor', 'cyan'))
-    NumCpp.Quaternion()
-    print(colored('\tPASS', 'green'))
-
-    print(colored('Testing Value Constructor', 'cyan'))
-    quat = np.random.randint(1,10, [4,])
+    quat = np.random.randint(1, 10, [4, ])
     unitQuat = quat / np.linalg.norm(quat)
     quat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
-    if (quat.i() == unitQuat[0].item() and
-        quat.j() == unitQuat[1].item() and
-        quat.k() == unitQuat[2].item() and
-        quat.s() == unitQuat[3].item()):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (quat.i() == unitQuat[0].item() and
+            quat.j() == unitQuat[1].item() and
+            quat.k() == unitQuat[2].item() and
+            quat.s() == unitQuat[3].item())
 
-    print(colored('Testing Array Constructor', 'cyan'))
-    quat = np.random.randint(1,10, [4, ])
+    quat = np.random.randint(1, 10, [4, ])
     unitQuat = quat / np.linalg.norm(quat)
     cArray = NumCpp.NdArray(1, 4)
     cArray.setArray(quat)
     quat = NumCpp.Quaternion(cArray)
-    if (quat.i() == unitQuat[0].item() and
-        quat.j() == unitQuat[1].item() and
-        quat.k() == unitQuat[2].item() and
-        quat.s() == unitQuat[3].item()):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (quat.i() == unitQuat[0].item() and
+            quat.j() == unitQuat[1].item() and
+            quat.k() == unitQuat[2].item() and
+            quat.s() == unitQuat[3].item())
 
-    print(colored('Testing roll/pitch/yaw Constructor', 'cyan'))
     roll = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
     pitch = np.random.rand(1).item() * np.pi - np.pi / 2  # [-pi/2, pi/2]
     yaw = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
     quat = NumCpp.Quaternion(roll, pitch, yaw)
-    if (np.round(quat.roll(), 10) == np.round(roll, 10) and
+    assert (np.round(quat.roll(), 10) == np.round(roll, 10) and
             np.round(quat.pitch(), 10) == np.round(pitch, 10) and
-            np.round(quat.yaw(), 10) == np.round(yaw, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+            np.round(quat.yaw(), 10) == np.round(yaw, 10))
 
-    print(colored('Testing angleAxisRotationArray', 'cyan'))
-    axis = np.random.randint(1,10, [3,])
+    axis = np.random.randint(1, 10, [3, ])
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
-    if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationNdArray(cAxis, angle).flatten(), 10),
-                      np.round(quatRotateAngleAxis(axis, angle), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationNdArray(cAxis, angle).flatten(), 10),
+                          np.round(quatRotateAngleAxis(axis, angle), 10))
 
-    print(colored('Testing angleAxisRotationVec3', 'cyan'))
-    axis = np.random.randint(1,10, [3,])
+    axis = np.random.randint(1, 10, [3, ])
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
-    if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationVec3(cAxis, angle).flatten(), 10),
-                      np.round(quatRotateAngleAxis(axis, angle), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationVec3(cAxis, angle).flatten(), 10),
+                          np.round(quatRotateAngleAxis(axis, angle), 10))
 
-    print(colored('Testing angularVelocity', 'cyan'))
     time = np.abs(np.random.randn(1) * 5).item()
     x1 = np.random.rand(3, 1).flatten()
     x1 = x1 / np.linalg.norm(x1)
@@ -99,10 +64,16 @@ def testQuaternion():
     cross = np.cross(x1, x2)
     cross = cross / np.linalg.norm(cross)
     cCross = NumCpp.NdArray(3, 1)
-    cCross.setArray(np.reshape(cross,[3,1]))
+    cCross.setArray(np.reshape(cross, [3, 1]))
 
-    q0 = np.asarray([cross[0] * np.sin(theta0 / 2), cross[1] * np.sin(theta0 / 2), cross[2] * np.sin(theta0 / 2), np.cos(theta0 / 2)])
-    q1 = np.asarray([cross[0] * np.sin(theta1 / 2), cross[1] * np.sin(theta1 / 2), cross[2] * np.sin(theta1 / 2), np.cos(theta1 / 2)])
+    q0 = np.asarray([cross[0] * np.sin(theta0 / 2),
+                     cross[1] * np.sin(theta0 / 2),
+                     cross[2] * np.sin(theta0 / 2),
+                     np.cos(theta0 / 2)])
+    q1 = np.asarray([cross[0] * np.sin(theta1 / 2),
+                     cross[1] * np.sin(theta1 / 2),
+                     cross[2] * np.sin(theta1 / 2),
+                     np.cos(theta1 / 2)])
     quat0 = NumCpp.Quaternion(q0[0], q0[1], q0[2], q0[3])
     quat1 = NumCpp.Quaternion(q1[0], q1[1], q1[2], q1[3])
     crossTo = quat0.rotateNdArray(cCross).flatten()
@@ -112,104 +83,73 @@ def testQuaternion():
     axis = w / angularVelocity
 
     # round to 1 decimal place because C is an approximation on magnitude
-    if (np.round(angularVelocity * time - theta, 1) == 0 and
-        np.all(np.round(axis, 9) == np.round(crossTo, 9))):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (np.round(angularVelocity * time - theta, 1) == 0 and
+            np.all(np.round(axis, 9) == np.round(crossTo, 9)))
 
-    print(colored('Testing conjugate', 'cyan'))
-    quat = np.random.randint(1,10, [4,])
+    quat = np.random.randint(1, 10, [4, ])
     unitQuat = quat / np.linalg.norm(quat)
     cArray = NumCpp.NdArray(1, 4)
     cArray.setArray(quat)
     quat = NumCpp.Quaternion(cArray)
     conjQuat = quat.conjugate()
-    if (np.round(conjQuat.i(), 10) == np.round(-unitQuat[0].item(), 10) and
-        np.round(conjQuat.j(), 10) == np.round(-unitQuat[1].item(), 10) and
-        np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
-        np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (np.round(conjQuat.i(), 10) == np.round(-unitQuat[0].item(), 10) and
+            np.round(conjQuat.j(), 10) == np.round(-unitQuat[1].item(), 10) and
+            np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
+            np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10))
 
-    print(colored('Testing fromDCM', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcm = cQuat.toDCM()
     cArray = NumCpp.NdArray(3)
     cArray.setArray(dcm)
-    if np.array_equal(np.round(NumCpp.Quaternion(cArray).toNdArray().getNumpyArray().flatten(), 10),
-                      np.round(quat / quatNorm(quat), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(NumCpp.Quaternion(cArray).toNdArray().getNumpyArray().flatten(), 10),
+                          np.round(quat / quatNorm(quat), 10))
 
-    print(colored('Testing identity', 'cyan'))
     quat = NumCpp.Quaternion.identity()
-    if quat.i() == 0 and quat.j() == 0 and quat.k() == 0 and quat.s() == 1:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (quat.i() == 0 and
+            quat.j() == 0 and
+            quat.k() == 0 and
+            quat.s() == 1)
 
-    print(colored('Testing inverse', 'cyan'))
-    quat = np.random.randint(1,10, [4,])
+    quat = np.random.randint(1, 10, [4, ])
     unitQuat = quat / np.linalg.norm(quat)
     cArray = NumCpp.NdArray(1, 4)
     cArray.setArray(quat)
     quat = NumCpp.Quaternion(cArray)
     conjQuat = quat.inverse()
-    if (np.round(conjQuat.i(), 10) == np.round(-unitQuat[0].item(), 10) and
-        np.round(conjQuat.j(), 10) == np.round(-unitQuat[1].item(), 10) and
-        np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
-        np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert (np.round(conjQuat.i(), 10) == np.round(-unitQuat[0].item(), 10) and
+            np.round(conjQuat.j(), 10) == np.round(-unitQuat[1].item(), 10) and
+            np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
+            np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10))
 
-    print(colored('Testing nlerp', 'cyan'))
     myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
     cQuat2 = NumCpp.Quaternion(myQuat2[0].item(), myQuat2[1].item(), myQuat2[2].item(), myQuat2[3].item())
     t = np.random.rand(1).item()
     interpQuat = cQuat1.nlerp(cQuat2, t).flatten()
-    if np.array_equal(np.round(interpQuat, 10), np.round(nlerp(myQuat1, myQuat2, t), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(interpQuat, 10), np.round(nlerp(myQuat1, myQuat2, t), 10))
 
-    print(colored('Testing print', 'cyan'))
     cQuat1.print()
-    print(colored('\tPASS', 'green'))
 
-    print(colored('Testing rotateNdArray', 'cyan'))
     myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumCpp.NdArray(3, 1)
     cVec.setArray(vec)
     newVec = cQuat.rotateNdArray(cVec)
-    newVecPy = np.asarray(np.matrix(cQuat.toDCM()) * np.matrix(vec))
-    if np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    newVecPy = np.asarray(np.array(cQuat.toDCM()).dot(np.array(vec)))
+    assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
-    print(colored('Testing rotateVec3', 'cyan'))
     myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumCpp.NdArray(3, 1)
     cVec.setArray(vec)
     newVec = cQuat.rotateVec3(cVec)
-    newVecPy = np.asarray(np.matrix(cQuat.toDCM()) * np.matrix(vec))
-    if np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    newVecPy = np.asarray(np.array(cQuat.toDCM()).dot(np.array(vec)))
+    assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
-    print(colored('Testing slerp', 'cyan'))
     myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
@@ -217,209 +157,125 @@ def testQuaternion():
     t = np.random.rand(1).item()
     interpQuatSlerp = cQuat1.slerp(cQuat2, t).flatten()
     interpQuatNlerp = cQuat1.nlerp(cQuat2, t).flatten()
-    if np.array_equal(np.round(interpQuatSlerp, 1), np.round(interpQuatNlerp, 1)): # not a very good check but i don't feel like coding slerp in python
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(interpQuatSlerp, 1), np.round(interpQuatNlerp, 1))
 
-    print(colored('Testing toDCM', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     unitQuat = quat / quatNorm(quat)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcmPy = quat2dcm(unitQuat)
     dcm = cQuat.toDCM()
-    if np.array_equal(np.round(dcm, 10), np.round(dcmPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(dcm, 10), np.round(dcmPy, 10))
 
-    print(colored('Testing X Rotation', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     quat = NumCpp.Quaternion.xRotation(radians.item()).toNdArray().getNumpyArray().flatten()
-    if np.array_equal(np.round(quat, 10), np.round(quatRotateX(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(quat, 10), np.round(quatRotateX(radians.item()), 10))
 
-    print(colored('Testing Y Rotation', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     quat = NumCpp.Quaternion.yRotation(radians.item()).toNdArray().getNumpyArray().flatten()
-    if np.array_equal(np.round(quat, 10), np.round(quatRotateY(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(quat, 10), np.round(quatRotateY(radians.item()), 10))
 
-    print(colored('Testing Z Rotation', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     quat = NumCpp.Quaternion.zRotation(radians.item()).toNdArray().getNumpyArray().flatten()
-    if np.array_equal(np.round(quat, 10), np.round(quatRotateZ(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(quat, 10), np.round(quatRotateZ(radians.item()), 10))
 
-    print(colored('Testing ==', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
-    if cQuat1 == cQuat2:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert cQuat1 == cQuat2
 
-    print(colored('Testing !=', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
-    if cQuat1 != cQuat2:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert cQuat1 != cQuat2
 
-    print(colored('Testing addition', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatAdd(quat1, quat2)
     res = cQuat1 + cQuat2
-    if np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10))
 
-    print(colored('Testing subtraction', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatSub(quat1, quat2)
     res = cQuat1 - cQuat2
-    if np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10))
 
-    print(colored('Testing negative', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
-    if np.array_equal(np.round((-cQuat).flatten(), 10), np.round(-quat/np.linalg.norm(quat), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round((-cQuat).flatten(), 10), np.round(-quat/np.linalg.norm(quat), 10))
 
-    print(colored('Testing multiplication: Scalar', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     res = cQuat * -1
-    if np.array_equal(np.round(res.flatten(), 10), np.round(-quat / quatNorm(quat), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.flatten(), 10), np.round(-quat / quatNorm(quat), 10))
 
-    print(colored('Testing multiplication: Quaternion', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatMult(quat1, quat2)
     res = cQuat1 * cQuat2
-    if np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10))
 
-    print(colored('Testing multiplication: Array', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     array = np.random.randint(1, 5, [3, 1])
     cArray = NumCpp.NdArray(3, 1)
     cArray.setArray(array)
     res = cQuat * cArray
-    if np.array_equal(np.round(res.flatten(), 10), np.round(np.dot(cQuat.toDCM(), array).flatten(), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.flatten(), 10), np.round(np.dot(cQuat.toDCM(), array).flatten(), 10))
 
-    print(colored('Testing division', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatDiv(quat1, quat2)
     res = cQuat1 / cQuat2
-    if np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10))
 
 
 ####################################################################################
-def testDcm():
-    print(colored('Testing DCM', 'magenta'))
-
-    print(colored('Testing angleAxisRotationNdArray', 'cyan'))
+def test_dcm():
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
     rot = NumCpp.DCM.angleAxisRotationNdArray(cAxis, radians.item())
-    if np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10))
 
-    print(colored('Testing angleAxisRotationVec3', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
     rot = NumCpp.DCM.angleAxisRotationVec3(cAxis, radians.item())
-    if np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10))
 
-    print(colored('Testing isValidDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     rot = NumCpp.DCM.xRotation(radians.item()).getNumpyArray()
     cArray = NumCpp.NdArray(3)
     cArray.setArray(rot)
-    if NumCpp.DCM.isValid(cArray):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert NumCpp.DCM.isValid(cArray)
 
-    print(colored('Testing xRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     rot = NumCpp.DCM.xRotation(radians.item()).getNumpyArray()
-    if np.all(np.round(rot, 10) == np.round(rotateX(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.all(np.round(rot, 10) == np.round(rotateX(radians.item()), 10))
 
-    print(colored('Testing yRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     rot = NumCpp.DCM.yRotation(radians.item()).getNumpyArray()
-    if np.all(np.round(rot, 10) == np.round(rotateY(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.all(np.round(rot, 10) == np.round(rotateY(radians.item()), 10))
 
-    print(colored('Testing zRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     rot = NumCpp.DCM.zRotation(radians.item()).getNumpyArray()
-    if np.all(np.round(rot, 10) == np.round(rotateZ(radians.item()), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.all(np.round(rot, 10) == np.round(rotateZ(radians.item()), 10))
 
 
 ####################################################################################
-def testFunctions():
-    print(colored('Testing Functions', 'magenta'))
-
-    print(colored('Testing rodriques rotation', 'cyan'))
+def test_functions():
     k = np.random.randint(1, 5, [3, 1]).astype(np.double)
     v = np.random.randint(1, 5, [3, 1]).astype(np.double)
     theta = np.random.rand(1).item() * np.pi * 2
@@ -428,12 +284,8 @@ def testFunctions():
     dcm = angleAxisRotation(k, theta)
     vecPy = dcm.dot(v).flatten()
 
-    if np.array_equal(np.round(vec, 10), np.round(vecPy, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(vec, 10), np.round(vecPy, 10))
 
-    print(colored("Testing Wahba's Problem", 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
@@ -454,12 +306,8 @@ def testFunctions():
 
     rotWahba = NumCpp.wahbasProblem(vecInertial, vecBody)
 
-    if np.array_equal(np.round(rotWahba, 10), np.round(rot, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(rotWahba, 10), np.round(rot, 10))
 
-    print(colored("Testing Wahba's Problem weigted", 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
@@ -482,10 +330,8 @@ def testFunctions():
 
     rotWahba = NumCpp.wahbasProblemWeighted(vecInertial, vecBody, weights)
 
-    if np.array_equal(np.round(rotWahba, 10), np.round(rot, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
+    assert np.array_equal(np.round(rotWahba, 10), np.round(rot, 10))
+
 
 ########################################################################################################################
 def quatNorm(quat):
@@ -570,7 +416,7 @@ def nlerp(quat1, quat2, inT):
 
     oneMinusT = 1 - inT
 
-    outQuat = np.zeros([4,])
+    outQuat = np.zeros([4, ])
 
     outQuat[0] = oneMinusT * quat1[0] + inT * quat2[0]
     outQuat[1] = oneMinusT * quat1[1] + inT * quat2[1]
@@ -586,23 +432,26 @@ def nlerp(quat1, quat2, inT):
 def quatRotateAngleAxis(axis, radians):
     axis = axis / np.linalg.norm(axis)
     halfRadians = radians / 2
-    quat = np.asarray([axis[0] * np.sin(halfRadians), axis[1] * np.sin(halfRadians), axis[2] * np.sin(halfRadians), np.cos(halfRadians)])
+    quat = np.asarray([axis[0] * np.sin(halfRadians),
+                       axis[1] * np.sin(halfRadians),
+                       axis[2] * np.sin(halfRadians),
+                       np.cos(halfRadians)])
     return quat / np.linalg.norm(quat)
 
 
 ########################################################################################################################
 def quatRotateX(radians):
-    return quatRotateAngleAxis([1,0,0], radians)
+    return quatRotateAngleAxis([1, 0, 0], radians)
 
 
 ########################################################################################################################
 def quatRotateY(radians):
-    return quatRotateAngleAxis([0,1,0], radians)
+    return quatRotateAngleAxis([0, 1, 0], radians)
 
 
 ########################################################################################################################
 def quatRotateZ(radians):
-    return quatRotateAngleAxis([0,0,1], radians)
+    return quatRotateAngleAxis([0, 0, 1], radians)
 
 
 ########################################################################################################################
@@ -612,29 +461,25 @@ def angleAxisRotation(axis, radians):
 
 ########################################################################################################################
 def rotateX(radians):
-    return np.matrix([[1, 0, 0],[0, np.cos(radians), -np.sin(radians)],[0, np.sin(radians), np.cos(radians)]])
+    return np.array([[1, 0, 0],
+                     [0, np.cos(radians), -np.sin(radians)],
+                     [0, np.sin(radians), np.cos(radians)]])
 
 
 ########################################################################################################################
 def rotateY(radians):
-    return np.matrix([[np.cos(radians), 0, np.sin(radians)],[0, 1, 0],[-np.sin(radians), 0, np.cos(radians)]])
+    return np.array([[np.cos(radians), 0, np.sin(radians)],
+                     [0, 1, 0],
+                     [-np.sin(radians), 0, np.cos(radians)]])
 
 
 ########################################################################################################################
 def rotateZ(radians):
-    return np.matrix([[np.cos(radians), -np.sin(radians), 0],[np.sin(radians), np.cos(radians), 0],[0, 0, 1]])
+    return np.array([[np.cos(radians), -np.sin(radians), 0],
+                     [np.sin(radians), np.cos(radians), 0],
+                     [0, 0, 1]])
 
 
 ########################################################################################################################
 def hat(xyz):
     return np.asarray([[0, -xyz[2], xyz[1]], [xyz[2], 0, -xyz[0]], [-xyz[1], xyz[0], 0]])
-
-
-####################################################################################
-if __name__ == '__main__':
-    doTest()
-
-
-
-
-

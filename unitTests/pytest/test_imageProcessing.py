@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from termcolor import colored
 import os
 import sys
 if sys.platform == 'linux':
@@ -9,9 +8,9 @@ else:
     sys.path.append(os.path.abspath('../build/x64/Release'))
 import NumCpp
 
+
 ####################################################################################
-def doTest():
-    print(colored('Testing Image Processing Module', 'magenta'))
+def test_imageProcessing():
 
     # generate a random noise
     imageSize = 512
@@ -22,7 +21,11 @@ def doTest():
     # scatter some point sources on it
     pointSize = 5
     pointHalfSize = pointSize // 2
-    pointSource = np.asarray([[1,1,1,1,1],[1,5,30,5,1],[1,30,100,30,1],[1,5,30,5,1],[1,1,1,1,1]])
+    pointSource = np.asarray([[1, 1, 1, 1, 1],
+                              [1, 5, 30, 5, 1],
+                              [1, 30, 100, 30, 1],
+                              [1, 5, 30, 5, 1],
+                              [1, 1, 1, 1, 1]])
 
     scene = noise.copy()
     numPointSources = 3000
@@ -36,7 +39,7 @@ def doTest():
 
     # generate centroids from the image
     thresholdRate = 0.014
-    borderWidth = np.random.randint(0, 4, [1,]).item()
+    borderWidth = np.random.randint(0, 4, [1, ]).item()
     cScene = NumCpp.NdArray(imageSize)
     cScene.setArray(scene)
 
@@ -68,14 +71,14 @@ def doTest():
     centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
     plt.figure()
-    plt.plot(np.sort(centroidInfo[:,0].flatten()))
+    plt.plot(np.sort(centroidInfo[:, 0].flatten()))
     plt.title('Window Pre Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
     plt.show()
 
     plt.figure()
-    plt.plot(np.sort(centroidInfo[:,1].flatten() * 100))
+    plt.plot(np.sort(centroidInfo[:, 1].flatten() * 100))
     plt.title('Window Pre Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
@@ -101,21 +104,15 @@ def doTest():
     centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
     plt.figure()
-    plt.plot(np.sort(centroidInfo[:,0].flatten()))
+    plt.plot(np.sort(centroidInfo[:, 0].flatten()))
     plt.title('Window Post Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
     plt.show()
 
     plt.figure()
-    plt.plot(np.sort(centroidInfo[:,1].flatten() * 100))
+    plt.plot(np.sort(centroidInfo[:, 1].flatten() * 100))
     plt.title('Window Post Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
     plt.show()
-
-    print(colored('\tPASS', 'green'))
-
-####################################################################################
-if __name__ == '__main__':
-    doTest()
