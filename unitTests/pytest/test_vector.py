@@ -466,5 +466,5 @@ def test_Vec3():
     assert np.array_equal(np.round(vec3py / scaler, DECIMALS_TO_ROUND),
                           np.round((NumCpp.Vec3_divVec3Scaler(vec3cpp, scaler)).toNdArray().flatten(),
                                    DECIMALS_TO_ROUND))
-    
+
     NumCpp.Vec3_print(vec3cpp)

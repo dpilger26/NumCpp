@@ -1,6 +1,4 @@
 import numpy as np
-import scipy.special as sp
-from termcolor import colored
 import os
 import sys
 if sys.platform == 'linux':
@@ -15,10 +13,7 @@ NUM_DECIMALS_ROUND = 1
 
 
 ####################################################################################
-def doTest():
-    print(colored('Testing Integration Module', 'magenta'))
-
-    print(colored('Testing gauss_legendre', 'cyan'))
+def test_integrate():
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -29,14 +24,8 @@ def doTest():
     a, b = np.sort(np.random.rand(2) * 100 - 50)
     area = np.round(polyIntegral(b) - polyIntegral(a), NUM_DECIMALS_ROUND)
     areaC = np.round(NumCpp.integrate_gauss_legendre(polyC, a, b), NUM_DECIMALS_ROUND)
-    if area == areaC:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(area)
-        print(areaC)
-        print(colored('\tFAIL', 'red'))
+    assert area == areaC
 
-    print(colored('Testing romberg', 'cyan'))
     PERCENT_LEEWAY = 0.1
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
@@ -50,14 +39,8 @@ def doTest():
     areaC = np.round(NumCpp.integrate_romberg(polyC, a, b), NUM_DECIMALS_ROUND)
     # romberg is much less acurate so let's give it some leeway
     areaLow, areaHigh = np.sort([area * (1 - PERCENT_LEEWAY), area * (1 + PERCENT_LEEWAY)])
-    if areaLow < areaC < areaHigh:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(area)
-        print(areaC)
-        print(colored('\tFAIL', 'red'))
+    assert areaLow < areaC < areaHigh
 
-    print(colored('Testing simpson', 'cyan'))
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -68,14 +51,8 @@ def doTest():
     a, b = np.sort(np.random.rand(2) * 100 - 50)
     area = np.round(polyIntegral(b) - polyIntegral(a), NUM_DECIMALS_ROUND)
     areaC = np.round(NumCpp.integrate_simpson(polyC, a, b), NUM_DECIMALS_ROUND)
-    if area == areaC:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(area)
-        print(areaC)
-        print(colored('\tFAIL', 'red'))
+    assert area == areaC
 
-    print(colored('Testing trapazoidal', 'cyan'))
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -86,14 +63,4 @@ def doTest():
     a, b = np.sort(np.random.rand(2) * 100 - 50)
     area = np.round(polyIntegral(b) - polyIntegral(a), NUM_DECIMALS_ROUND)
     areaC = np.round(NumCpp.integrate_trapazoidal(polyC, a, b), NUM_DECIMALS_ROUND)
-    if area == areaC:
-        print(colored('\tPASS', 'green'))
-    else:
-        print(area)
-        print(areaC)
-        print(colored('\tFAIL', 'red'))
-
-
-####################################################################################
-if __name__ == '__main__':
-    doTest()
+    assert area == areaC
