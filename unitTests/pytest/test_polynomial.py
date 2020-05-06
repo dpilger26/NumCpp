@@ -11,6 +11,8 @@ import NumCpp
 
 ####################################################################################
 def test_poly1D():
+    np.random.seed(666)
+
     numCoefficients = np.random.randint(3, 10, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -61,6 +63,8 @@ def test_poly1D():
 
 ####################################################################################
 def test_functions():
+    np.random.seed(666)
+
     ORDER_MAX = 5
     DECIMALS_ROUND = 7
 

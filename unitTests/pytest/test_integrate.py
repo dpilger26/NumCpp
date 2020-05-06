@@ -14,6 +14,8 @@ NUM_DECIMALS_ROUND = 1
 
 ####################################################################################
 def test_integrate():
+    np.random.seed(666)
+
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)

@@ -14,6 +14,8 @@ NUM_DECIMALS_ROUND = 7
 
 ####################################################################################
 def test_special():
+    np.random.seed(666)
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_ai_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[0].item(), NUM_DECIMALS_ROUND))

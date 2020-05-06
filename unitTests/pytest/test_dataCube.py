@@ -10,6 +10,8 @@ import NumCpp
 
 ####################################################################################
 def test_dataCube():
+    np.random.seed(666)
+
     dataCube = NumCpp.DataCube()
     assert dataCube.isempty()
 

@@ -11,6 +11,8 @@ import NumCpp
 
 ####################################################################################
 def test_1D():
+    np.random.seed(2)
+
     modes = {'reflect': NumCpp.Mode.REFLECT,
              'constant': NumCpp.Mode.CONSTANT,
              'nearest': NumCpp.Mode.NEAREST,
@@ -157,6 +159,8 @@ def test_1D():
 
 ####################################################################################
 def test_2D():
+    np.random.seed(5)
+
     modes = {'reflect': NumCpp.Mode.REFLECT,
              'constant': NumCpp.Mode.CONSTANT,
              'nearest': NumCpp.Mode.NEAREST,

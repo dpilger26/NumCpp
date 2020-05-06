@@ -14,6 +14,7 @@ DECIMALS_TO_ROUND = 9
 ####################################################################################
 def test_Vec2():
     """Test the NumCpp Vec2 class"""
+    np.random.seed(666)
 
     assert NumCpp.Vec2()
 
@@ -157,7 +158,8 @@ def test_Vec2():
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
     assert np.array_equal(np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND),
-                          np.round((NumCpp.Vec2_addVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(), DECIMALS_TO_ROUND))
+                          np.round((NumCpp.Vec2_addVec2(vec2_1cpp, vec2_2cpp)).toNdArray().flatten(),
+                                   DECIMALS_TO_ROUND))
 
     components = np.random.rand(2)
     scaler = np.random.rand(1).item()
@@ -231,6 +233,8 @@ def test_Vec2():
 ####################################################################################
 def test_Vec3():
     """Test the NumCpp Vec3 class"""
+    np.random.seed(666)
+
     assert NumCpp.Vec3()
 
     components = np.random.rand(3)

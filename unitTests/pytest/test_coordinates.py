@@ -13,6 +13,8 @@ import NumCpp
 
 ####################################################################################
 def test_coordinates():
+    np.random.seed(666)
+
     ra = NumCpp.Ra()
     assert ra
 

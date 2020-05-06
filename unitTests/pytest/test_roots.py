@@ -10,6 +10,8 @@ import NumCpp
 
 ####################################################################################
 def test_roots():
+    np.random.seed(666)
+
     root = np.random.randint(-50, 50, [1, ]).item()
     roots = np.array([root, root + np.random.randint(5, 50, [1, ]).item()])
     largestRoot = np.max(roots).item()

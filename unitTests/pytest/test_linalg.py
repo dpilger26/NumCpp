@@ -10,6 +10,8 @@ import NumCpp
 
 ####################################################################################
 def test_linalg():
+    np.random.seed(666)
+
     shapeInput = np.random.randint(5, 50, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
