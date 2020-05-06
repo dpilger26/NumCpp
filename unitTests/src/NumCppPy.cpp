@@ -4198,7 +4198,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<uint64> NdArrayUInt64;
     bp::class_<NdArrayUInt64>
-        ("NdArrayInt64", bp::init<>())
+        ("NdArrayUInt64", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4211,7 +4211,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<uint16> NdArrayUInt16;
     bp::class_<NdArrayUInt16>
-        ("NdArrayInt8", bp::init<>())
+        ("NdArrayUInt16", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4224,7 +4224,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<uint8> NdArrayUInt8;
     bp::class_<NdArrayUInt8>
-        ("NdArrayInt8", bp::init<>())
+        ("NdArrayUInt8", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4237,7 +4237,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<int64> NdArrayInt64;
     bp::class_<NdArrayInt64>
-        ("NdArrayInt32", bp::init<>())
+        ("NdArrayInt64", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4265,7 +4265,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<int16> NdArrayInt16;
     bp::class_<NdArrayInt16>
-        ("NdArrayInt32", bp::init<>())
+        ("NdArrayInt16", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
@@ -4279,7 +4279,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     typedef NdArray<int8> NdArrayInt8;
     bp::class_<NdArrayInt8>
-        ("NdArrayInt32", bp::init<>())
+        ("NdArrayInt8", bp::init<>())
         .def(bp::init<uint32>())
         .def(bp::init<uint32, uint32>())
         .def(bp::init<Shape>())
