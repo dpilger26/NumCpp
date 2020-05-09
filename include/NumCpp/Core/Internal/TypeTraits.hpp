@@ -92,4 +92,32 @@ namespace nc
     {
         static constexpr bool value = std::is_same<T1, T2>::value;
     };
+
+    //============================================================================
+    // Class Description:
+    ///	Template class for determining if dtype is a valid dtype for NdArray
+    ///
+    template<typename dtype>
+    struct is_valid_dtype 
+    {
+        static constexpr bool value = std::is_default_constructible<dtype>::value &&
+            std::is_nothrow_copy_constructible<dtype>::value &&
+            std::is_nothrow_move_constructible<dtype>::value &&
+            std::is_nothrow_copy_assignable<dtype>::value &&
+            std::is_nothrow_move_assignable<dtype>::value &&
+            std::is_nothrow_destructible<dtype>::value &&
+            !std::is_void<dtype>::value &&
+            !std::is_pointer<dtype>::value &&
+            !std::is_array<dtype>::value &&
+            !std::is_union<dtype>::value &&
+            !std::is_function<dtype>::value &&
+            !std::is_abstract<dtype>::value;
+    };
+
+    //============================================================================
+    // Class Description:
+    ///	is_valid_dtype helper
+    ///
+    template<class dtype>
+    constexpr bool is_valid_dtype_v = is_valid_dtype<dtype>::value;
 }

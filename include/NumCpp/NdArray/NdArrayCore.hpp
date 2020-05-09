@@ -33,7 +33,9 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -75,7 +77,10 @@ namespace nc
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() noexcept = default;
+        NdArray() noexcept
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -89,7 +94,9 @@ namespace nc
             size_(inSquareSize * inSquareSize),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {}
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -103,7 +110,9 @@ namespace nc
             size_(inNumRows * inNumCols),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {}
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -117,7 +126,9 @@ namespace nc
             size_(shape_.size()),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {}
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -132,6 +143,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inList.begin(), inList.end(), array_);
         }
 
@@ -145,6 +157,8 @@ namespace nc
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
             for (auto& list : inList)
             {
                 if (shape_.cols == 0)
@@ -184,6 +198,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
         }
 
@@ -200,6 +215,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
         }
 
@@ -216,6 +232,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
         }
 
@@ -232,6 +249,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
         }
 
@@ -248,6 +266,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inFirst, inLast, array_);
         }
 
@@ -267,7 +286,9 @@ namespace nc
             size_(numRows * numCols),
             array_(inPtr),
             ownsPtr_(takeOwnership)
-        {}
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -283,6 +304,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
             stl_algorithms::copy(inPtr, inPtr + size_, begin());
         }
 
@@ -1045,6 +1067,8 @@ namespace nc
         ///
         NdArray<bool> all(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             auto function = [](dtype i) noexcept -> bool
             {
                 return i != dtype{ 0 };
@@ -1100,6 +1124,8 @@ namespace nc
         ///
         NdArray<bool> any(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             auto function = [](dtype i) noexcept -> bool
             {
                 return i != dtype{ 0 };
@@ -1156,6 +1182,8 @@ namespace nc
         ///
         NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1208,6 +1236,8 @@ namespace nc
         ///
         NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1259,6 +1289,8 @@ namespace nc
         ///
         NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1340,6 +1372,8 @@ namespace nc
         template<typename dtypeOut>
         NdArray<dtypeOut> astype() const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtypeOut> outArray(shape_);
 
             if (std::is_same<dtypeOut, dtype>::value)
