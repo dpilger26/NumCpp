@@ -89,6 +89,10 @@ int main()
 
 #ifdef __cpp_structured_bindings
     auto [rows, cols] = nc::nonzero(a);
+#else
+    auto rowsCols = nc::nonzero(a);
+    auto& rows = rowsCols.first;
+    auto& cols = rowsCols.second;
 #endif
 
     // Minimum, Maximum, Sorting

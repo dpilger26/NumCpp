@@ -189,14 +189,14 @@ double baseGaussianFunction(const nc::NdArray<double>& coordinates, const nc::Nd
     const auto sigmaY = betas.at(5);
 
     return a * nc::exp(-(nc::square(x - x0) / (2.0 * nc::square(sigmaX)) + nc::square(y - y0) / (2.0 * nc::square(sigmaY))));
-};
+}
 
 // It is desired to find a curve (model function) of the form
 double gaussianFunction(const nc::NdArray<double>& coordinates, const nc::NdArray<double>& betas)
 {
     const auto dcOffset = betas.at(1);
     return baseGaussianFunction(coordinates, betas) + dcOffset;
-};
+}
 
 void twoDimensionalGaussianExample()
 {
