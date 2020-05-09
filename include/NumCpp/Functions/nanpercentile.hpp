@@ -235,10 +235,6 @@ namespace nc
                 // of the compiler warning.
                 return NdArray<dtype>(0);
             }
-
-            // this isn't actually possible, just putting this here to get rid
-            // of the compiler warning.
-            return NdArray<dtype>(0);
         }
     }
 }

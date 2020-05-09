@@ -1,11 +1,8 @@
 import numpy as np
 import os
 import sys
-if sys.platform == 'linux':
-    sys.path.append(r'../lib')
-else:
-    sys.path.append(os.path.abspath('../build/x64/Release'))
-import NumCpp
+sys.path.append(os.path.abspath(r'../lib'))
+import NumCpp  # noqa E402
 
 
 ####################################################################################

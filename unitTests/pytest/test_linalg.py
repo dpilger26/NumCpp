@@ -1,11 +1,8 @@
 import numpy as np
 import os
 import sys
-if sys.platform == 'linux':
-    sys.path.append(r'../lib')
-else:
-    sys.path.append(os.path.abspath('../build/x64/Release'))
-import NumCpp
+sys.path.append(os.path.abspath(r'../lib'))
+import NumCpp  # noqa E402
 
 
 ####################################################################################
@@ -72,9 +69,9 @@ def test_linalg():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     lu = NumCpp.lu_decomposition(cArray)
-    l = lu.first
+    ll = lu.first
     u = lu.second
-    p = np.round(np.dot(l.getNumpyArray(), u.getNumpyArray())).astype(np.int)
+    p = np.round(np.dot(ll.getNumpyArray(), u.getNumpyArray())).astype(np.int)
     assert np.array_equal(p, data)
 
     order = np.random.randint(5, 50, [1, ]).item()

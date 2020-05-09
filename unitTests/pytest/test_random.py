@@ -1,11 +1,8 @@
 import numpy as np
 import os
 import sys
-if sys.platform == 'linux':
-    sys.path.append(r'../lib')
-else:
-    sys.path.append(os.path.abspath('../build/x64/Release'))
-import NumCpp
+sys.path.append(os.path.abspath(r'../lib'))
+import NumCpp  # noqa E402
 
 
 ####################################################################################
@@ -126,9 +123,9 @@ def test_random():
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     k = np.random.rand() * 10
-    l = np.random.rand() * 100
-    assert NumCpp.nonCentralChiSquared(inShape, k, l) is not None
-    assert NumCpp.nonCentralChiSquared(k, l) is not None
+    ll = np.random.rand() * 100
+    assert NumCpp.nonCentralChiSquared(inShape, k, ll) is not None
+    assert NumCpp.nonCentralChiSquared(k, ll) is not None
 
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

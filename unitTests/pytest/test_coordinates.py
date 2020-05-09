@@ -4,11 +4,8 @@ from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
 import sys
 import os
-if sys.platform == 'linux':
-    sys.path.append(r'../lib')
-else:
-    sys.path.append(os.path.abspath('../build/x64/Release'))
-import NumCpp
+sys.path.append(os.path.abspath(r'../lib'))
+import NumCpp  # noqa E402
 
 
 ####################################################################################

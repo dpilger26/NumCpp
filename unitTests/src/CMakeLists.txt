@@ -1,48 +1,94 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.17)
 
-set(PROJECT_NAME NumCpp)
-project(${PROJECT_NAME})
+set(NUMCPP_INCLUDES ../../include)
+
+project(NumCpp CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
-set(NUMCPP_INCLUDES ../../include)
-set(BOOST_MIN_VERSION 1.63.0) # first version with numpy interface
+
+file(
+    GLOB_RECURSE _source_list 
+    LIST_DIRECTORIES false
+    "${NUMCPP_INCLUDES}/*.c*"
+    "${NUMCPP_INCLUDES}/*.h*"
+)
+
+add_library(${PROJECT_NAME} SHARED NumCppPy.cpp ${_source_list})
+
+foreach(_source IN ITEMS ${_source_list})
+    get_filename_component(_source_path "${_source}" DIRECTORY)
+    string(REPLACE "${CMAKE_SOURCE_DIR}" "" _group_path "${_source_path}")
+    string(REPLACE "${NUMCPP_INCLUDES}" "" _group_path "${_group_path}")
+    string(REPLACE "/" "\\" _group_path "${_group_path}")
+    source_group("${_group_path}" FILES "${_source}")
+endforeach()
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE 
+  -DINCLUDE_PYTHON_INTERFACE
+  # -DINCLUDE_PYBIND_PYTHON_INTERFACE
+  -DINCLUDE_BOOST_PYTHON_INTERFACE
+  -DBOOST_PYTHON_STATIC_LIB
+  -DBOOST_NUMPY_STATIC_LIB
+)
+
+set(Boost_USE_STATIC_LIBS ON) 
+set(Python3_USE_STATIC_LIBS True)
+
+find_package(Boost 1.68.0 COMPONENTS python37 numpy37 REQUIRED)
+find_package(Python COMPONENTS Development)
+
+target_include_directories(${PROJECT_NAME} PRIVATE 
+  ${NUMCPP_INCLUDES}
+  ${Boost_INCLUDE_DIRS}
+  ${Python_INCLUDE_DIRS}  
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python37>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy37>
+  $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
+)
+
+target_link_directories(${PROJECT_NAME} PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:${Boost_LIBRARY_DIRS}>
+)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  set(OUTPUT_SUFFIX ".pyd")
+else ()
+  set(OUTPUT_SUFFIX ".so")
+endif()
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    PREFIX ""
+    SUFFIX ${OUTPUT_SUFFIX}
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../lib/$<0:>
+    LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../lib/$<0:>
+    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../lib/$<0:>
+)
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
+  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
+  $<$<CXX_COMPILER_ID:MSVC>:/MP>
+  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
-
-add_library(${PROJECT_NAME} SHARED NumCppPy.cpp)
-
-set_target_properties(${PROJECT_NAME}
-    PROPERTIES
-    PREFIX "" # don't prepend lib for python .so
-    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../lib/
-    LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../lib/
-    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../bin/
-)
-
-target_compile_definitions(${PROJECT_NAME} PUBLIC 
-	-DINCLUDE_PYTHON_INTERFACE
-	-DINCLUDE_BOOST_PYTHON_INTERFACE
-)
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
-
-set(Boost_USE_STATIC_LIBS TRUE) 
-find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS
-	python
-	numpy)
-target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
-target_link_libraries(${PROJECT_NAME} PUBLIC 
-	Boost::python
-	Boost::numpy
-)
-
-target_compile_options(${PROJECT_NAME} PRIVATE -Werror -Wall -Wextra)
-
-set(Python3_USE_STATIC_LIBS TRUE)
-find_package(Python3 COMPONENTS Development)
-target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
-# target_include_directories(${PROJECT_NAME} PUBLIC $ENV{CONDA_PREFIX}/include/python3.7m)
-
