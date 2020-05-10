@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/chebyshev.hpp"
@@ -49,6 +50,8 @@ namespace nc
         template<typename dtype>
         double chebyshev_u(uint32 n, dtype x) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::chebyshev_u(n, static_cast<double>(x));
         }
 

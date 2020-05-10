@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/laguerre.hpp"
@@ -49,6 +50,8 @@ namespace nc
         template<typename dtype>
         double laguerre(uint32 n, dtype x) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::laguerre(n, static_cast<double>(x));
         }
 
@@ -65,6 +68,8 @@ namespace nc
         template<typename dtype>
         double laguerre(uint32 n, uint32 m, dtype x) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::laguerre(m, n, static_cast<double>(x));
         }
 

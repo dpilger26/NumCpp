@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/legendre.hpp"
@@ -49,6 +50,8 @@ namespace nc
         template<typename dtype>
         double legendre_q(int32 n, dtype x) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (x < -1.0 || x > 1.0 )
             {
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
