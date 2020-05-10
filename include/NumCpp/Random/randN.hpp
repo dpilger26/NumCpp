@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/normal_distribution.hpp"
@@ -50,6 +51,8 @@ namespace nc
         template<typename dtype>
         dtype randN() noexcept
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             boost::random::normal_distribution<dtype> dist;
             return dist(generator_);
         }
@@ -69,6 +72,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> randN(const Shape& inShape) noexcept
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             NdArray<dtype> returnArray(inShape);
 
             boost::random::normal_distribution<dtype> dist;

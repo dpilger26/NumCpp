@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/exponential_distribution.hpp"
@@ -52,6 +53,8 @@ namespace nc
         template<typename dtype>
         dtype exponential(dtype inScaleValue = 1) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);
             return dist(generator_); 
         }
@@ -71,6 +74,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);

@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/poisson_distribution.hpp"
@@ -55,6 +56,8 @@ namespace nc
         template<typename dtype>
         dtype poisson(double inMean = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inMean <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");
@@ -79,6 +82,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inMean <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");

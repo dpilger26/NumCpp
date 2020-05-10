@@ -29,10 +29,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/triangle_distribution.hpp"
@@ -58,6 +59,8 @@ namespace nc
         template<typename dtype>
         dtype triangle(dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             if (inA < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input A must be greater than or equal to zero.");
@@ -101,6 +104,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             if (inA < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input A must be greater than or equal to zero.");

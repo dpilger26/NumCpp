@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/beta_distribution.hpp"
@@ -56,6 +57,8 @@ namespace nc
         template<typename dtype>
         dtype beta(dtype inAlpha, dtype inBeta)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inAlpha < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input alpha must be greater than zero.");
@@ -86,6 +89,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inAlpha < 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input alpha must be greater than zero.");

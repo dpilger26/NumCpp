@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/student_t_distribution.hpp"
@@ -56,6 +56,8 @@ namespace nc
         template<typename dtype>
         dtype studentT(dtype inDof)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inDof <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("degrees of freedom must be greater than zero.");
@@ -80,6 +82,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inDof <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("degrees of freedom must be greater than zero.");

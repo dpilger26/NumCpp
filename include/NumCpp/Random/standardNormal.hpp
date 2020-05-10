@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Random/normal.hpp"
 
 namespace nc
@@ -49,6 +50,8 @@ namespace nc
         template<typename dtype>
         dtype standardNormal() noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return normal<dtype>(0, 1);
         }
 
@@ -68,6 +71,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> standardNormal(const Shape& inShape) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return normal<dtype>(inShape, 0, 1);
         }
     }

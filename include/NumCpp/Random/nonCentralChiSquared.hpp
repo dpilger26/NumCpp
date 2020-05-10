@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/non_central_chi_squared_distribution.hpp"
@@ -56,6 +57,8 @@ namespace nc
         template<typename dtype>
         dtype nonCentralChiSquared(dtype inK = 1, dtype inLambda = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inK <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input k must be greater than zero.");
@@ -86,6 +89,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inK <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input k must be greater than zero.");

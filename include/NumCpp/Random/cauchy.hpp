@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/cauchy_distribution.hpp"
@@ -54,6 +55,8 @@ namespace nc
         template<typename dtype>
         dtype cauchy(dtype inMean = 0, dtype inSigma = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inSigma <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");
@@ -77,6 +80,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inSigma <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");

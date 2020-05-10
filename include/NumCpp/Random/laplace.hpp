@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/laplace_distribution.hpp"
@@ -53,6 +54,8 @@ namespace nc
         template<typename dtype>
         dtype laplace(dtype inLoc = 0, dtype inScale = 1) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
             return dist(generator_); 
         }
@@ -73,6 +76,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);

@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Random/randFloat.hpp"
 
 namespace nc

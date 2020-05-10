@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/bernoulli_distribution.hpp"
@@ -53,6 +54,8 @@ namespace nc
         template<typename dtype>
         dtype bernoulli(dtype inP)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
@@ -75,6 +78,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
