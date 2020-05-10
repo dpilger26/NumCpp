@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/erf.hpp"
@@ -50,6 +51,8 @@ namespace nc
         template<typename dtype>
         double erf_inv(dtype inValue) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::erf_inv(static_cast<double>(inValue));
         }
 

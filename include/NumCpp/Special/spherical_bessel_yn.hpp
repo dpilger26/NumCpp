@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/bessel.hpp"
@@ -49,6 +50,8 @@ namespace nc
         template<typename dtype>
         double spherical_bessel_yn(uint32 inV, dtype inX) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::sph_neumann(inV, static_cast<double>(inX));
         }
 

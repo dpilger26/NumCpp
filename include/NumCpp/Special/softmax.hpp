@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/exp.hpp"
@@ -48,9 +49,11 @@ namespace nc
         /// @param      inAxis (Optional, default NONE)
         /// @return     NdArray<double>
         ///
-        template<typename T>
-        NdArray<double> softmax(const NdArray<T>& inArray, Axis inAxis = Axis::NONE) noexcept
+        template<typename dtype>
+        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:

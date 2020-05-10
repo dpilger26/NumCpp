@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/bessel.hpp"
@@ -49,6 +50,9 @@ namespace nc
         template<typename dtype1, typename dtype2>
         double bessel_jn(dtype1 inV, dtype2 inX) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype1);
+            STATIC_ASSERT_ARITHMETIC(dtype2);
+
             return boost::math::cyl_bessel_j(static_cast<double>(inV), static_cast<double>(inX));
         }
 

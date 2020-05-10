@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/beta.hpp"
@@ -49,6 +50,9 @@ namespace nc
         template<typename dtype1, typename dtype2>
         double beta(dtype1 a, dtype2 b) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype1);
+            STATIC_ASSERT_ARITHMETIC(dtype2);
+
             return boost::math::beta(static_cast<double>(a), static_cast<double>(b));
         }
 

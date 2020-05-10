@@ -30,23 +30,23 @@
 
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Slice.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Utils/value2str.hpp"
 
 #include <boost/algorithm/clamp.hpp>
-#include <boost/predef/other/endian.h>
 #include <boost/endian/conversion.hpp>
+#include <boost/predef/other/endian.h>
 
 #include <array>
 #include <cmath>

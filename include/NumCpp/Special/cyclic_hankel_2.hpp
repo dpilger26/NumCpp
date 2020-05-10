@@ -28,6 +28,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+
 #include "boost/math/special_functions/hankel.hpp"
 
 #include <complex>
@@ -48,6 +50,9 @@ namespace nc
         template<typename dtype1, typename dtype2>
         std::complex<double> cyclic_hankel_2(dtype1 inV, dtype2 inX) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype1);
+            STATIC_ASSERT_ARITHMETIC(dtype2);
+
             return boost::math::cyl_hankel_2(static_cast<double>(inV), static_cast<double>(inX));
         }
     }
