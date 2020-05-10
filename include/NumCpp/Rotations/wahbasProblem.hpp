@@ -35,6 +35,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/ones.hpp"
@@ -63,6 +64,8 @@ namespace nc
         template<typename dtype>
         NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk, const NdArray<dtype>& ak)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             const auto wkShape = wk.shape();
             if (wkShape.cols != 3)
             {

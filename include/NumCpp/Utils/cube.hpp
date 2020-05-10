@@ -28,6 +28,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+
 namespace nc
 {
     namespace utils
@@ -42,6 +44,8 @@ namespace nc
         template<typename dtype>
         constexpr dtype cube(dtype inValue) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             return inValue * inValue * inValue;
         }
     }

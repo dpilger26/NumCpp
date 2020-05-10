@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -45,6 +46,8 @@ namespace nc
         template<typename dtype>
         dtype power(dtype inValue, uint8 inPower) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (inPower == 0)
             {
                 return static_cast<dtype>(1);
