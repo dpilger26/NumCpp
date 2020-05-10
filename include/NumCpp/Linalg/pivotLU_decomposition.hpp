@@ -33,8 +33,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -57,6 +58,8 @@ namespace nc
         template<typename dtype>
         std::tuple<NdArray<double>, NdArray<double>, NdArray<double> > pivotLU_decomposition(const NdArray<dtype>& inMatrix)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             auto shape = inMatrix.shape();
 
             if(!shape.issquare()) 

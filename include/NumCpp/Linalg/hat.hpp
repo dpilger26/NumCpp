@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
@@ -51,6 +52,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray(3);
             returnArray(0, 0) = 0.0;
             returnArray(0, 1) = -inZ;
@@ -77,6 +80,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inVec.size() != 3)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input vector must be a length 3 cartesian vector.");

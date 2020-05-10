@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Linalg/svd/SVDClass.hpp"
-#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/diagflat.hpp"
+#include "NumCpp/Linalg/svd/SVDClass.hpp"
 
 #include <utility>
 
@@ -52,6 +53,8 @@ namespace nc
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());
 

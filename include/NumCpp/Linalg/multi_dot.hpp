@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -55,6 +56,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
 
             if (inList.size() == 0)

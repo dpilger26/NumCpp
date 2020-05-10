@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -53,6 +54,8 @@ namespace nc
         template<typename dtype>
         NdArray<double> inv(const NdArray<dtype>& inArray)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {

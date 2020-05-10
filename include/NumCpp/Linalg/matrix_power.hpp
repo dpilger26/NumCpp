@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -61,6 +62,8 @@ namespace nc
         template<typename dtype>
         NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {

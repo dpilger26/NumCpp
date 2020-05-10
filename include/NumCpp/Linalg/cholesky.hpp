@@ -34,6 +34,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 namespace nc
@@ -53,6 +54,8 @@ namespace nc
         template<typename dtype>
         NdArray<double> cholesky(const NdArray<dtype>& inMatrix)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             auto shape = inMatrix.shape();
             if(!shape.issquare()) 
             {
