@@ -28,11 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"
-#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -52,6 +53,8 @@ namespace nc
             template<typename dtype>
             NdArray<dtype> wrap2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 const Shape inShape = inImage.shape();
                 Shape outShape(inShape);
                 outShape.rows += inBoundarySize * 2;

@@ -28,15 +28,16 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -60,6 +61,8 @@ namespace nc
             template<typename dtype>
             NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 if (inKernalSize % 2 == 0)
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input kernal size must be an odd value.");
