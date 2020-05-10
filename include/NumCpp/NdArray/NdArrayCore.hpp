@@ -42,6 +42,7 @@
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Utils/value2str.hpp"
 
 #include <boost/algorithm/clamp.hpp>
 #include <boost/predef/other/endian.h>
@@ -1467,6 +1468,8 @@ namespace nc
         ///
         NdArray<dtype> clip(dtype inMin, dtype inMax) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             NdArray<dtype> outArray(shape_);
             boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax);
             return outArray;
@@ -1560,6 +1563,8 @@ namespace nc
         ///
         NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1623,6 +1628,8 @@ namespace nc
         ///
         NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1779,6 +1786,8 @@ namespace nc
         ///
         NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
                 dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
@@ -1851,6 +1860,8 @@ namespace nc
         ///
         NdArray<uint32> flatnonzero() const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::vector<uint32> indices;
             uint32 idx = 0;
             for (auto value : *this)
@@ -1900,6 +1911,8 @@ namespace nc
         ///
         NdArray<bool> issorted(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2081,6 +2094,8 @@ namespace nc
         ///
         NdArray<dtype> max(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2131,6 +2146,8 @@ namespace nc
         ///
         NdArray<dtype> min(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2181,6 +2198,8 @@ namespace nc
         ///
         NdArray<double> mean(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2237,6 +2256,8 @@ namespace nc
         ///
         NdArray<dtype> median(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (size_ == 0)
             {
                 THROW_RUNTIME_ERROR("Median is undefined for an array of size = 0.");
@@ -2320,14 +2341,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fills the array with nans; only really works with.
-        ///                     Only really works for dtype = float/double
+        ///						Fills the array with nans.
         ///
         ///
         NdArray<dtype>& nans() noexcept
         {
-            fill(constants::nan);
+            STATIC_ASSERT_FLOAT(dtype);
 
+            fill(constants::nan);
             return *this;
         }
 
@@ -2501,6 +2522,8 @@ namespace nc
         ///
         NdArray<bool> none(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             auto function = [](dtype i) noexcept -> bool
             {
                 return i != dtype{ 0 };
@@ -2569,6 +2592,8 @@ namespace nc
         ///
         NdArray<double> norm(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             double sumOfSquares = 0.0;
             auto function = [&sumOfSquares](dtype value) noexcept -> void
             {
@@ -2651,8 +2676,9 @@ namespace nc
         ///
         NdArray<dtype>& ones() noexcept
         {
-            fill(1);
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
+            fill(1);
             return *this;
         }
 
@@ -2685,6 +2711,8 @@ namespace nc
         ///
         NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2743,6 +2771,8 @@ namespace nc
         ///
         void print() const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::cout << *this;
         }
 
@@ -2759,6 +2789,8 @@ namespace nc
         ///
         NdArray<dtype> prod(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2813,6 +2845,8 @@ namespace nc
         ///
         NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -3452,6 +3486,8 @@ namespace nc
         ///
         NdArray<double> rms(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             double squareSum = 0.0;
             auto function = [&squareSum](dtype value) noexcept -> void
             {
@@ -3514,6 +3550,8 @@ namespace nc
         ///
         NdArray<dtype> round(uint8 inNumDecimals = 0) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (DtypeInfo<dtype>::isInteger())
             {
                 return NdArray<dtype>(*this);
@@ -3587,6 +3625,8 @@ namespace nc
         ///
         NdArray<dtype>& sort(Axis inAxis = Axis::NONE) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -3631,6 +3671,8 @@ namespace nc
         ///
         NdArray<double> stdev(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             double meanValue = 0.0;
             double sum = 0.0;
 
@@ -3705,7 +3747,7 @@ namespace nc
                 out += "[";
                 for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    out += utils::num2str(operator()(row, col)) + ", ";
+                    out += utils::value2str(operator()(row, col)) + ", ";
                 }
 
                 if (row == shape_.rows - 1)
@@ -3734,6 +3776,8 @@ namespace nc
         ///
         NdArray<dtype> sum(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -3858,6 +3902,8 @@ namespace nc
         ///
         dtype trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             uint32 rowStart = 0;
             uint32 colStart = 0;
             switch (inAxis)
@@ -3934,6 +3980,8 @@ namespace nc
         ///
         NdArray<double> var(Axis inAxis = Axis::NONE) const noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             NdArray<double> stdValues = stdev(inAxis);
             auto function = [](double& value) noexcept -> void
             {
@@ -3951,8 +3999,9 @@ namespace nc
         ///
         NdArray<dtype>& zeros()
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+            
             fill(0);
-
             return *this;
         }
 
@@ -4017,6 +4066,8 @@ namespace nc
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype>::nonzero() const noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         std::vector<uint32> rowIndices;
         std::vector<uint32> colIndices;
 

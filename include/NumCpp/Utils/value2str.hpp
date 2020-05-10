@@ -31,24 +31,25 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <string>
+#include <sstream>
 
 namespace nc
 {
     namespace utils
     {
         //============================================================================
-        ///						Converts the number into a string
+        ///						Converts the value into a string
         ///
-        /// @param      inNumber
+        /// @param      inValue
         ///
         /// @return     std::string
         ///
         template<typename dtype>
-        std::string num2str(dtype inNumber) noexcept
+        std::string value2str(dtype inValue) noexcept
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
-            return std::to_string(inNumber);
+            std::stringstream ss;
+            ss << inValue;
+            return ss.str();
         }
     }
 }

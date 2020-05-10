@@ -49,6 +49,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator+=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -72,6 +74,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator+=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value += inScalar;
@@ -139,6 +143,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator-=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -162,6 +168,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator-=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value -= inScalar;
@@ -245,6 +253,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator*=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -268,6 +278,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator*=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value *= inScalar;
@@ -335,6 +347,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator/=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -358,6 +372,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator/=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value /= inScalar;
@@ -402,7 +418,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the array by the scalar
+    ///						Divides the scalar by the array
     ///
     ///	@param  	inScalar
     /// @param      inArray
@@ -411,6 +427,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator/(dtype inScalar, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
             [inScalar](dtype value) noexcept -> dtype
@@ -432,6 +450,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -455,6 +475,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value %= inScalar;
@@ -529,6 +551,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator|=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -552,6 +576,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator|=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value |= inScalar;
@@ -619,6 +645,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator&=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -642,6 +670,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator&=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value &= inScalar;
@@ -709,6 +739,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator^=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -732,6 +764,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator^=(NdArray<dtype>& lhs, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_INTEGER(dtype);
+
         auto function = [inScalar](dtype& value) noexcept -> dtype
         {
             return value ^= inScalar;
@@ -824,6 +858,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator&&(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -852,6 +888,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator&&(const NdArray<dtype>& inArray, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inScalar](dtype value) noexcept -> bool
@@ -890,6 +928,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator||(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -918,6 +958,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator||(const NdArray<dtype>& inArray, dtype inScalar) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inScalar](dtype value) noexcept -> bool
@@ -955,6 +997,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator!(const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [](dtype value) noexcept -> dtype
@@ -1110,6 +1154,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -1135,6 +1181,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<(const NdArray<dtype>& inArray, dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1160,6 +1208,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<(dtype inValue, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1185,6 +1235,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -1210,6 +1262,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>(const NdArray<dtype>& inArray, dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1235,6 +1289,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>(dtype inValue, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1260,6 +1316,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<=(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -1285,6 +1343,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<=(const NdArray<dtype>& inArray, dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1310,6 +1370,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator<=(dtype inValue, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1335,6 +1397,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>=(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
@@ -1360,6 +1424,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>=(const NdArray<dtype>& inArray, dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1385,6 +1451,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> operator>=(dtype inValue, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
@@ -1494,6 +1562,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator++(NdArray<dtype>& rhs) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         auto function = [](dtype& value) noexcept -> void
         {
             ++value;
@@ -1530,6 +1600,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype>& operator--(NdArray<dtype>& rhs) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         auto function = [](dtype& value) noexcept -> void
         {
             --value;

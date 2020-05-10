@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
@@ -56,7 +57,10 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            constexpr Pixel() noexcept = default;
+            constexpr Pixel() noexcept
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //=============================================================================
             // Description:
@@ -70,7 +74,9 @@ namespace nc
                 row(inRow),
                 col(inCol),
                 intensity(inIntensity)
-            {};
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //=============================================================================
             // Description:

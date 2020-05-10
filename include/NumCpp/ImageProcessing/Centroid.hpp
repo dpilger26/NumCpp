@@ -52,7 +52,10 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() noexcept = default;
+            Centroid() noexcept
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //=============================================================================
             // Description:
@@ -64,6 +67,8 @@ namespace nc
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 centerOfMass(inCluster);
             }
 
