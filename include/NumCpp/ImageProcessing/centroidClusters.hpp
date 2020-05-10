@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 
@@ -50,6 +51,8 @@ namespace nc
         template<typename dtype>
         std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             std::vector<Centroid<dtype> > centroids;
 
             for (auto& cluster : inClusters)

@@ -32,6 +32,7 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
@@ -56,6 +57,8 @@ namespace nc
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inRate < 0.0 || inRate > 1.0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input rate must be of the range [0, 1]");

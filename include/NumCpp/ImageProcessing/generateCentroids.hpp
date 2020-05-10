@@ -31,6 +31,7 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/ImageProcessing/applyThreshold.hpp"
 #include "NumCpp/ImageProcessing/centroidClusters.hpp"
 #include "NumCpp/ImageProcessing/clusterPixels.hpp"
@@ -60,6 +61,8 @@ namespace nc
         template<typename dtype>
         std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             uint8 borderWidthPre = 0;
             uint8 borderWidthPost = 0;
             if (inWindowType.compare("pre") == 0)

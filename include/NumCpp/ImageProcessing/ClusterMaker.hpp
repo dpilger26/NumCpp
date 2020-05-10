@@ -30,6 +30,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -70,6 +71,8 @@ namespace nc
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 if (xcds_->shape() != intensities_->shape())
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input xcd and intensity arrays must be the same shape.");

@@ -30,6 +30,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/Pixel.hpp"
@@ -60,7 +61,10 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() noexcept = default;
+            Cluster() noexcept
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //=============================================================================
             // Description:
@@ -71,7 +75,9 @@ namespace nc
             ///
             Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
-            {}
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+            }
 
             //=============================================================================
             // Description:
