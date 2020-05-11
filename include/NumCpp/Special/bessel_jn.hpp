@@ -31,8 +31,11 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 #include "boost/math/special_functions/bessel.hpp"
+
+#include <type_traits>
 
 namespace nc
 {
@@ -47,7 +50,8 @@ namespace nc
         /// @return
         ///				calculated-result-type 
         ///
-        template<typename dtype1, typename dtype2>
+        template<typename dtype1, typename dtype2,
+            enable_if_t<!std::is_base_of<NdArrayBase, dtype2>::value, int> = 0>
         auto bessel_jn(dtype1 inV, dtype2 inX) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
