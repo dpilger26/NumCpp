@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     double cbrt(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::cbrt(static_cast<double>(inValue));
     }
 

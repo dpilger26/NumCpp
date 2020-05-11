@@ -49,11 +49,11 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double airy_ai_prime(dtype inValue) noexcept
+        auto airy_ai_prime(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::airy_ai_prime(static_cast<double>(inValue));
+            return boost::math::airy_ai_prime(inValue);
         }
 
         //============================================================================
@@ -64,15 +64,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> airy_ai_prime(const NdArray<dtype>& inArray) noexcept
+        auto airy_ai_prime(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(airy_ai_prime(0))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 {
                     return airy_ai_prime(inValue);
                 });

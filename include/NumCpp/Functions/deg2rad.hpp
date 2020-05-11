@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     constexpr double deg2rad(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return inValue * constants::pi / 180.0;
     }
 

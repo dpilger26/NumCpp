@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <string>
 #include <vector>
@@ -59,6 +60,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inStep > 0 && inStop < inStart)
         {
             THROW_INVALID_ARGUMENT_ERROR("stop value must be larger than the start value for positive step.");

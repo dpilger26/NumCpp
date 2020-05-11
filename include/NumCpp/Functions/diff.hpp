@@ -30,8 +30,9 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <string>
 
@@ -52,6 +53,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
 
         switch (inAxis)

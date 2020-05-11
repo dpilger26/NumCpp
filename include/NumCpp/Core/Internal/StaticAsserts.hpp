@@ -50,8 +50,12 @@
     static_assert(std::is_floating_point<dtype>::value, "Can only be used with float types"); \
 }
 
+#define STATIC_ASSERT_COMPLEX(dtype) { \
+    static_assert(boost::is_complex<dtype>::value, \
+    "Can only be used with std::complex types"); \
+}
+
 #define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype) { \
     static_assert(std::is_arithmetic<dtype>::value || boost::is_complex<dtype>::value, \
     "Can only be used with arithmetic types or std::complex types"); \
 }
-

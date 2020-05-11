@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
@@ -47,9 +48,11 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double tan(dtype inValue) noexcept
+    auto tan(dtype inValue) noexcept
     {
-        return std::tan(static_cast<double>(inValue));
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return std::tan(inValue);
     }
 
     //============================================================================
@@ -64,11 +67,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> tan(const NdArray<dtype>& inArray) noexcept
+    auto tan(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<decltype(tan(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
+            [](dtype inValue) noexcept -> auto
             { 
                 return tan(inValue);
             });

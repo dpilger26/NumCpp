@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include "boost/algorithm/clamp.hpp"
 
@@ -49,6 +50,8 @@ namespace nc
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return boost::algorithm::clamp(inValue, inMinValue, inMaxValue);
     }
 

@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
@@ -49,9 +50,11 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctan2(dtype inY, dtype inX) noexcept
+    auto arctan2(dtype inY, dtype inX) noexcept
     {
-        return std::atan2(static_cast<double>(inY), static_cast<double>(inX));
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return std::atan2(inY, inX);
     }
 
     //============================================================================
@@ -66,16 +69,16 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
+    auto arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
     {
         if (inX.shape() != inY.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<double> returnArray(inY.shape());
+        NdArray<decltype(arctan2(dtype{0}, dtype{0}))> returnArray(inY.shape());
         stl_algorithms::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
-            [](dtype y, dtype x) noexcept -> double
+            [](dtype y, dtype x) noexcept -> auto
             {
                 return arctan2(y, x); 
             });

@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
@@ -52,6 +53,8 @@ namespace nc
     template<typename dtype>
     bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.size() != inArray2.size())
         {
             return false;

@@ -71,6 +71,7 @@ namespace nc
     {
     public:
         //====================================Typedefs================================
+        using value_type = dtype;
         using iterator = dtype*;
         using const_iterator = const dtype*;
 
@@ -1105,9 +1106,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -1162,9 +1161,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -1216,9 +1213,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1270,9 +1265,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1354,9 +1347,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1416,6 +1407,30 @@ namespace nc
         dtype& back() noexcept
         {
             return *(end() - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the last element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype back(uint32 row) const noexcept
+        {
+            return *(cend(row) - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference the last element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype& back(uint32 row) noexcept
+        {
+            return *(end(row) - 1);
         }
 
         //============================================================================
@@ -1529,9 +1544,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
         }
     }
@@ -1608,9 +1621,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1673,9 +1684,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1765,7 +1774,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1818,7 +1827,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
 
-            return NdArray<dtype>();  // getting rid of compiler warning
+            return NdArray<dtype>(); // get rid of compiler warning
         }
 
         //============================================================================
@@ -1942,8 +1951,7 @@ namespace nc
                 }
                 default:
                 {
-                    // not actually possible, just getting rid of compiler warning
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -2026,6 +2034,30 @@ namespace nc
         dtype& front() noexcept
         {
             return *begin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the first element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype front(uint32 row) const noexcept
+        {
+            return *cbegin(row);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference to the first element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        dtype& front(uint32 row) noexcept
+        {
+            return *begin(row);
         }
 
         //============================================================================
@@ -2126,9 +2158,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2178,9 +2208,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2204,7 +2232,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
+                    auto sum = std::accumulate(cbegin(), cend(), dtype{0});
                     NdArray<double> returnArray = { sum /= static_cast<double>(size_) };
 
                     return returnArray;
@@ -2214,7 +2242,7 @@ namespace nc
                     NdArray<double> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        double sum = static_cast<double>(std::accumulate(cbegin(row), cend(row), 0.0));
+                        auto sum = std::accumulate(cbegin(row), cend(row), dtype{0});
                         returnArray(0, row) = sum / static_cast<double>(shape_.cols);
                     }
 
@@ -2234,9 +2262,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<double>(); // get rid of compiler warning
                 }
             }
         }
@@ -2277,7 +2303,7 @@ namespace nc
                     {
                         const uint32 lhsIndex = middleIdx - 1;
                         stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + lhsIndex, copyArray.end());
-                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / static_cast<dtype>(2); // potentially integer division, ok
+                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / dtype{2}; // potentially integer division, ok
                     }
 
                     return { medianValue };
@@ -2298,7 +2324,7 @@ namespace nc
                         {
                             const uint32 lhsIndex = middleIdx - 1;
                             stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + lhsIndex, copyArray.end(row));
-                            medianValue = (medianValue + copyArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
+                            medianValue = (medianValue + copyArray(row, lhsIndex)) / dtype{2}; // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;
@@ -2322,7 +2348,7 @@ namespace nc
                         {
                             const uint32 lhsIndex = middleIdx - 1;
                             stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + lhsIndex, transposedArray.end(row));
-                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
+                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / dtype{2}; // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;
@@ -2332,9 +2358,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2414,9 +2438,7 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2453,9 +2475,7 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2493,18 +2513,14 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2559,9 +2575,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -2636,9 +2650,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<double>(); // get rid of compiler warning
                 }
             }
         }
@@ -2825,9 +2837,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2880,9 +2890,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -3529,9 +3537,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<double>(); // get rid of compiler warning
                 }
             }
         }
@@ -3550,25 +3556,18 @@ namespace nc
         ///
         NdArray<dtype> round(uint8 inNumDecimals = 0) const noexcept
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            STATIC_ASSERT_FLOAT(dtype);
 
-            if (DtypeInfo<dtype>::isInteger())
+            NdArray<dtype> returnArray(shape_);
+            double multFactor = utils::power(10.0, inNumDecimals);
+            auto function = [multFactor](dtype value) noexcept -> dtype
             {
-                return NdArray<dtype>(*this);
-            }
-            else
-            {
-                NdArray<dtype> returnArray(shape_);
-                double multFactor = utils::power(10.0, inNumDecimals);
-                auto function = [multFactor](dtype value) noexcept -> dtype
-                {
-                    return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
-                };
+                return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
+            };
 
-                stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
-                return returnArray;
-            }
+            return returnArray;
         }
 
         //============================================================================
@@ -3724,9 +3723,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<double>(); // get rid of compiler warning
                 }
             }
         }
@@ -3809,9 +3806,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }

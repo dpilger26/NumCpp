@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -46,6 +47,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         const Shape shape = inArray.shape();
 
         switch (inAxis)
