@@ -199,12 +199,12 @@ def test_special():
 
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
-    assert (roundComplex(complex(NumCpp.cyclic_hankel_1(order, value)), NUM_DECIMALS_ROUND) ==
+    assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel1(order, value), NUM_DECIMALS_ROUND))
 
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
-    assert (roundComplex(complex(NumCpp.cyclic_hankel_2(order, value)), NUM_DECIMALS_ROUND) ==
+    assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel2(order, value), NUM_DECIMALS_ROUND))
 
     value = np.random.rand(1).item() * 10
@@ -410,11 +410,11 @@ def test_special():
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert NumCpp.spherical_hankel_1(order, value) is not None
+    assert NumCpp.spherical_hankel_1_Scaler(order, value) is not None
 
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
-    assert NumCpp.spherical_hankel_2(order, value) is not None
+    assert NumCpp.spherical_hankel_2_Scaler(order, value) is not None
 
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.trigamma_Scaler(value), NUM_DECIMALS_ROUND) ==

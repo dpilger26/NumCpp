@@ -46,14 +46,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double digamma(dtype inValue) noexcept
+        auto digamma(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::digamma(static_cast<double>(inValue));
+            return boost::math::digamma(inValue);
         }
 
         //============================================================================
@@ -64,15 +64,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> digamma(const NdArray<dtype>& inArray) noexcept
+        auto digamma(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(digamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 { 
                     return digamma(inValue);
                 });

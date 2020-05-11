@@ -45,15 +45,15 @@ namespace nc
         /// @param      a
         /// @param      b
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
-        double beta(dtype1 a, dtype2 b) noexcept
+        auto beta(dtype1 a, dtype2 b) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
-            return boost::math::beta(static_cast<double>(a), static_cast<double>(b));
+            return boost::math::beta(a, b);
         }
 
         //============================================================================
@@ -63,15 +63,15 @@ namespace nc
         /// @param      inArrayA
         /// @param      inArrayB
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype1, typename dtype2>
-        NdArray<double> beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB) noexcept
+        auto beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB) noexcept
         {
-            NdArray<double> returnArray(inArrayB.shape());
+            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayB.shape());
 
-            stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(),inArrayB.cbegin(), returnArray.begin(),
-                [](dtype1 a, dtype2 b) noexcept -> double
+            stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(), inArrayB.cbegin(), returnArray.begin(),
+                [](dtype1 a, dtype2 b) noexcept -> auto
                 { 
                     return beta(a, b); 
                 });

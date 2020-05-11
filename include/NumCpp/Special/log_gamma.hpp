@@ -45,14 +45,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type
         ///
         template<typename dtype>
-        double log_gamma(dtype inValue) noexcept
+        auto log_gamma(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::lgamma(static_cast<double>(inValue));
+            return boost::math::lgamma(inValue);
         }
 
         //============================================================================
@@ -62,15 +62,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> log_gamma(const NdArray<dtype>& inArray) noexcept
+        auto log_gamma(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(log_gamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 {
                     return log_gamma(inValue);
                 });

@@ -3681,6 +3681,70 @@ namespace SpecialInterface
 
     //================================================================================
 
+    template<typename dtype1, typename dtype2>
+    auto cyclic_hankel_1_Scaler(dtype1 v, dtype2 x) noexcept
+    {
+        return special::cyclic_hankel_1(v, x);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto cyclic_hankel_1_Array(dtype1 v, const NdArray<dtype2>& x)
+    {
+        return nc2Boost(special::cyclic_hankel_1(v, x));
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto cyclic_hankel_2_Scaler(dtype1 v, dtype2 x) noexcept
+    {
+        return special::cyclic_hankel_2(v, x);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto cyclic_hankel_2_Array(dtype1 v, const NdArray<dtype2>& x)
+    {
+        return nc2Boost(special::cyclic_hankel_2(v, x));
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto spherical_hankel_1_Scaler(dtype1 v, dtype2 x) noexcept
+    {
+        return special::spherical_hankel_1(v, x);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto spherical_hankel_1_Array(dtype1 v, const NdArray<dtype2>& x)
+    {
+        return nc2Boost(special::spherical_hankel_1(v, x));
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto spherical_hankel_2_Scaler(dtype1 v, dtype2 x) noexcept
+    {
+        return special::spherical_hankel_2(v, x);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    auto spherical_hankel_2_Array(dtype1 v, const NdArray<dtype2>& x)
+    {
+        return nc2Boost(special::spherical_hankel_2(v, x));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype digamma_Scaler(dtype inValue) noexcept
     {
@@ -5250,8 +5314,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
     bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
     bp::def("cnr", &special::cnr);
-    bp::def("cyclic_hankel_1", &special::cyclic_hankel_1<double, double>);
-    bp::def("cyclic_hankel_2", &special::cyclic_hankel_2<double, double>);
+    bp::def("cyclic_hankel_1_Scaler", &SpecialInterface::cyclic_hankel_1_Scaler<double, double>);
+    //bp::def("cyclic_hankel_1_Array", &SpecialInterface::cyclic_hankel_1_Array<double, double>);
+    //bp::def("cyclic_hankel_2_Scaler", &SpecialInterface::cyclic_hankel_2_Scaler<double, double>);
+    //bp::def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double, double>);
+    //bp::def("spherical_hankel_1_Scaler", &SpecialInterface::spherical_hankel_1_Scaler<double, double>);
+    //bp::def("spherical_hankel_1_Array", &SpecialInterface::spherical_hankel_1_Array<double, double>);
+    //bp::def("spherical_hankel_2_Scaler", &SpecialInterface::spherical_hankel_2_Scaler<double, double>);
+    //bp::def("spherical_hankel_2_Array", &SpecialInterface::spherical_hankel_2_Array<double, double>);
     bp::def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
     bp::def("digamma_Array", &SpecialInterface::digamma_Array<double>);
     bp::def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
@@ -5282,8 +5352,6 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
     bp::def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
     bp::def("spherical_bessel_yn_Array", &SpecialInterface::spherical_bessel_yn_Array<double>);
-    bp::def("spherical_hankel_1", &special::spherical_hankel_1<double, double>);
-    bp::def("spherical_hankel_2", &special::spherical_hankel_2<double, double>);
     bp::def("trigamma_Scaler", &SpecialInterface::trigamma_Scaler<double>);
     bp::def("trigamma_Array", &SpecialInterface::trigamma_Array<double>);
 }

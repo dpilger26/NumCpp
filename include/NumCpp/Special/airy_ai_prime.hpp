@@ -46,7 +46,7 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
         auto airy_ai_prime(dtype inValue) noexcept
@@ -69,7 +69,7 @@ namespace nc
         template<typename dtype>
         auto airy_ai_prime(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<decltype(airy_ai_prime(0))> returnArray(inArray.shape());
+            NdArray<decltype(airy_ai_prime(dtype{ 0 }))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) noexcept -> auto

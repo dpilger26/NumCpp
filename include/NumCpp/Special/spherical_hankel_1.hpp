@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include "boost/math/special_functions/hankel.hpp"
@@ -45,15 +46,38 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
-        std::complex<double> spherical_hankel_1(dtype1 inV, dtype2 inX) noexcept
+        auto spherical_hankel_1(dtype1 inV, dtype2 inX) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
-            return boost::math::sph_hankel_1(static_cast<double>(inV), static_cast<double>(inX));
+            return boost::math::sph_hankel_1(inV, inX);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Spherical Hankel funcion of the first kind
+        ///
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype1, typename dtype2>
+        auto spherical_hankel_1(dtype1 inV, const NdArray<dtype2>& inArray) noexcept
+        {
+            NdArray<decltype(spherical_hankel_1(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
+
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+                [inV](dtype2 inValue) noexcept -> auto
+                { 
+                    return spherical_hankel_1(inV, inValue); 
+                });
+
+            return returnArray;
         }
     }
 }

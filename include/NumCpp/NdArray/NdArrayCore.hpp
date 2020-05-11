@@ -65,9 +65,18 @@ namespace nc
 {
     //================================================================================
     // Class Description:
+    ///	Base Class for NdArray
+    class NdArrayBase 
+    {
+    public:
+        virtual ~NdArrayBase() = default;
+    };
+
+    //================================================================================
+    // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
     template<typename dtype = double>
-    class NdArray
+    class NdArray final : NdArrayBase
     {
     public:
         //====================================Typedefs================================

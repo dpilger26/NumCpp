@@ -28,11 +28,14 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 #include "boost/math/special_functions/hankel.hpp"
 
 #include <complex>
+#include <type_traits>
 
 namespace nc
 {
@@ -45,15 +48,39 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				double
+        ///				std::complex<double>
         ///
-        template<typename dtype1, typename dtype2>
-        std::complex<double> cyclic_hankel_1(dtype1 inV, dtype2 inX) noexcept
+        template<typename dtype1, typename dtype2,
+            enable_if_t<!std::is_base_of<NdArrayBase, dtype2>::value, int> = 0>
+        auto cyclic_hankel_1(dtype1 inV, dtype2 inX) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
-            return boost::math::cyl_hankel_1(static_cast<double>(inV), static_cast<double>(inX));
+            return boost::math::cyl_hankel_1(inV, inX);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Hankel funcion of the first kind
+        ///
+        /// @param      inV: the order of the bessel function
+        /// @param      inX: the input array
+        /// @return
+        ///				NdArray<std::complex>
+        ///
+        template<typename dtype1, typename dtype2>
+        auto cyclic_hankel_1(dtype1 inV, const NdArray<dtype2>& inX) noexcept
+        {
+            NdArray<decltype(cyclic_hankel_1(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inX.shape());
+
+            stl_algorithms::transform(inX.cbegin(), inX.cend(), returnArray.begin(),
+                [inV](dtype2 x) noexcept -> auto
+            { 
+                return cyclic_hankel_1(inV, x); 
+            });
+
+            return returnArray;
         }
     }
 }

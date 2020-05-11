@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include "boost/math/special_functions/hankel.hpp"
@@ -53,7 +54,30 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
-            return boost::math::sph_hankel_2(static_cast<double>(inV), static_cast<double>(inX));
+            return boost::math::sph_hankel_2(inV, inX);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Spherical Hankel funcion of the second kind
+        ///
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype1, typename dtype2>
+        auto spherical_hankel_2(dtype1 inV, const NdArray<dtype2>& inArray) noexcept
+        {
+            NdArray<decltype(spherical_hankel_2(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
+
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+                [inV](dtype2 inValue) noexcept -> auto
+                { 
+                    return spherical_hankel_2(inV, inValue); 
+                });
+
+            return returnArray;
         }
     }
 }

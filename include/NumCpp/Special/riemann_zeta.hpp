@@ -46,14 +46,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double riemann_zeta(dtype inValue) noexcept
+        auto riemann_zeta(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::zeta(static_cast<double>(inValue));
+            return boost::math::zeta(inValue);
         }
 
         //============================================================================
@@ -64,15 +64,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> riemann_zeta(const NdArray<dtype>& inArray) noexcept
+        auto riemann_zeta(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(riemann_zeta(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 { 
                     return riemann_zeta(inValue); 
                 });

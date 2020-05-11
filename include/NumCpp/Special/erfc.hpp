@@ -45,14 +45,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double erfc(dtype inValue) noexcept
+        auto erfc(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::erfc(static_cast<double>(inValue));
+            return boost::math::erfc(inValue);
         }
 
         //============================================================================
@@ -63,15 +63,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> erfc(const NdArray<dtype>& inArray) noexcept
+        auto erfc(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(erfc(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 {
                     return erfc(inValue);
                 });

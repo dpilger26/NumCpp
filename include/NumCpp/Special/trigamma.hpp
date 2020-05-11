@@ -46,14 +46,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double trigamma(dtype inValue) noexcept
+        auto trigamma(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::trigamma(static_cast<double>(inValue));
+            return boost::math::trigamma(inValue);
         }
 
         //============================================================================
@@ -64,15 +64,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> trigamma(const NdArray<dtype>& inArray) noexcept
+        auto trigamma(const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(trigamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) noexcept -> auto
                 { 
                     return trigamma(inValue); 
                 });

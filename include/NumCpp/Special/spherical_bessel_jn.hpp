@@ -45,14 +45,14 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double spherical_bessel_jn(uint32 inV, dtype inX) noexcept
+        auto spherical_bessel_jn(uint32 inV, dtype inX) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::sph_bessel(inV, static_cast<double>(inX));
+            return boost::math::sph_bessel(inV, inX);
         }
 
         //============================================================================
@@ -62,15 +62,15 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> spherical_bessel_jn(uint32 inV, const NdArray<dtype>& inArrayX) noexcept
+        auto spherical_bessel_jn(uint32 inV, const NdArray<dtype>& inArrayX) noexcept
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<decltype(spherical_bessel_jn(inV, dtype{0}))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) noexcept -> double
+                [inV](dtype inX) noexcept -> auto
                 { 
                     return spherical_bessel_jn(inV, inX);
                 });

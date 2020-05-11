@@ -29,9 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/exp.hpp"
 
 namespace nc
@@ -58,18 +58,18 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    auto returnArray = exp(inArray);
-                    returnArray /= returnArray.sum().item();
+                    auto returnArray = exp(inArray).template astype<double>();
+                    returnArray /= static_cast<double>(returnArray.sum().item());
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    auto returnArray = exp(inArray);
+                    auto returnArray = exp(inArray).template astype<double>();
                     auto expSums = returnArray.sum(inAxis);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        double rowExpSum = expSums[row];
+                        double rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
@@ -78,12 +78,12 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    auto returnArray = exp(inArray.transpose());
+                    auto returnArray = exp(inArray.transpose()).template astype<double>();
                     auto expSums = returnArray.sum(Axis::COL);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        double rowExpSum = expSums[row];
+                        auto rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
