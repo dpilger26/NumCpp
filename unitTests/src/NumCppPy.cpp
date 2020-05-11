@@ -1167,7 +1167,7 @@ namespace NdArrayInterface
 
 //================================================================================
 
-namespace MethodsInterface
+namespace FunctionsInterface
 {
     template<typename dtype>
     dtype absScaler(dtype inValue) noexcept
@@ -1253,6 +1253,22 @@ namespace MethodsInterface
     np::ndarray aminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(amin(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype angleScaler(const std::complex<dtype>& inValue)
+    {
+        return angle(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray angleArray(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2Boost(angle(inArray));
     }
 
     //================================================================================
@@ -1574,6 +1590,22 @@ namespace MethodsInterface
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
         return nc2Boost(nc::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    std::complex<dtype> conjScaler(const std::complex<dtype>& inValue)
+    {
+        return nc::conj(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray conjArray(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2Boost(conj(inArray));
     }
 
     //================================================================================
@@ -2058,6 +2090,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype imagScaler(const std::complex<dtype>& inValue)
+    {
+        return nc::imag(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray imagArray(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2Boost(imag(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
         return nc2Boost(nc::interp(inX, inXp, inFp));
@@ -2302,6 +2350,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    std::complex<dtype> polarScaler(dtype mag, dtype angle)
+    {
+        return polar(mag, angle);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray polarArray(const NdArray<dtype>& mag, const NdArray<dtype>& angle)
+    {
+        return nc2Boost(polar(mag, angle));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         return nc2Boost(power(inArray, inExponent));
@@ -2329,6 +2393,22 @@ namespace MethodsInterface
     np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
     {
         return nc2Boost(powerf(inArray, inExponents));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    std::complex<dtype> projScaler(const std::complex<dtype>& inValue)
+    {
+        return nc::proj(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray projArray(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2Boost(proj(inArray));
     }
 
     //================================================================================
@@ -2385,6 +2465,22 @@ namespace MethodsInterface
     NdArray<dtype>& ravel(NdArray<dtype>& inArray)
     {
         return nc::ravel(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype realScaler(const std::complex<dtype>& inValue)
+    {
+        return nc::real(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray realArray(const NdArray<std::complex<dtype>>& inArray)
+    {
+        return nc2Boost(real(inArray));
     }
 
     //================================================================================
@@ -4381,46 +4477,49 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
-    // Methods.hpp
-    bp::def("absScaler", &MethodsInterface::absScaler<double>);
-    bp::def("absArray", &MethodsInterface::absArray<double>);
-    bp::def("add", &MethodsInterface::addArrays<double>);
+    // Functions.hpp
+    bp::def("absScaler", &FunctionsInterface::absScaler<double>);
+    bp::def("absArray", &FunctionsInterface::absArray<double>);
+    bp::def("add", &FunctionsInterface::addArrays<double>);
     bp::def("alen", &alen<double>);
-    bp::def("all", &MethodsInterface::allArray<double>);
+    bp::def("all", &FunctionsInterface::allArray<double>);
     bp::def("allclose", &allclose<double>);
-    bp::def("amin", &MethodsInterface::aminArray<double>);
-    bp::def("amax", &MethodsInterface::amaxArray<double>);
-    bp::def("any", &MethodsInterface::anyArray<double>);
+    bp::def("amin", &FunctionsInterface::aminArray<double>);
+    bp::def("amax", &FunctionsInterface::amaxArray<double>);
+    bp::def("angleScaler", &FunctionsInterface::angleScaler<double>);
+    bp::def("angleArray", &FunctionsInterface::angleArray<double>);
+    bp::def("any", &FunctionsInterface::anyArray<double>);
     bp::def("append", &append<double>);
     bp::def("applyPoly1d", &applyPoly1d<double>);
-    bp::def("arange", &MethodsInterface::arangeArray<double>);
-    bp::def("arccosScaler", &MethodsInterface::arccosScaler<double>);
-    bp::def("arccosArray", &MethodsInterface::arccosArray<double>);
-    bp::def("arccoshScaler", &MethodsInterface::arccoshScaler<double>);
-    bp::def("arccoshArray", &MethodsInterface::arccoshArray<double>);
-    bp::def("arcsinScaler", &MethodsInterface::arcsinScaler<double>);
-    bp::def("arcsinArray", &MethodsInterface::arcsinArray<double>);
-    bp::def("arcsinhScaler", &MethodsInterface::arcsinhScaler<double>);
-    bp::def("arcsinhArray", &MethodsInterface::arcsinhArray<double>);
-    bp::def("arctanScaler", &MethodsInterface::arctanScaler<double>);
-    bp::def("arctanArray", &MethodsInterface::arctanArray<double>);
-    bp::def("arctan2Scaler", &MethodsInterface::arctan2Scaler<double>);
-    bp::def("arctan2Array", &MethodsInterface::arctan2Array<double>);
-    bp::def("arctanhScaler", &MethodsInterface::arctanhScaler<double>);
-    bp::def("arctanhArray", &MethodsInterface::arctanhArray<double>);
-    bp::def("argmax", &MethodsInterface::argmaxArray<double>);
-    bp::def("argmin", &MethodsInterface::argminArray<double>);
-    bp::def("argsort", &MethodsInterface::argsortArray<double>);
-    bp::def("argwhere", &MethodsInterface::argwhere<double>);
-    bp::def("aroundScaler", &MethodsInterface::aroundScaler<double>);
-    bp::def("aroundArray", &MethodsInterface::aroundArray<double>);
+    bp::def("arange", &FunctionsInterface::arangeArray<double>);
+    bp::def("arccosScaler", &FunctionsInterface::arccosScaler<double>);
+    bp::def("arccosArray", &FunctionsInterface::arccosArray<double>);
+    bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<double>);
+    bp::def("arccoshArray", &FunctionsInterface::arccoshArray<double>);
+    bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<double>);
+    bp::def("arcsinArray", &FunctionsInterface::arcsinArray<double>);
+    bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<double>);
+    bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<double>);
+    bp::def("arctanScaler", &FunctionsInterface::arctanScaler<double>);
+    bp::def("arctanArray", &FunctionsInterface::arctanArray<double>);
+    bp::def("arctan2Scaler", &FunctionsInterface::arctan2Scaler<double>);
+    bp::def("arctan2Array", &FunctionsInterface::arctan2Array<double>);
+    bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<double>);
+    bp::def("arctanhArray", &FunctionsInterface::arctanhArray<double>);
+    bp::def("argmax", &FunctionsInterface::argmaxArray<double>);
+    bp::def("argmin", &FunctionsInterface::argminArray<double>);
+    bp::def("argsort", &FunctionsInterface::argsortArray<double>);
+    bp::def("argwhere", &FunctionsInterface::argwhere<double>);
+    bp::def("aroundScaler", &FunctionsInterface::aroundScaler<double>);
+    bp::def("aroundArray", &FunctionsInterface::aroundArray<double>);
     bp::def("array_equal", &array_equal<double>);
     bp::def("array_equiv", &array_equiv<double>);
-    bp::def("asarrayVector", &MethodsInterface::asarrayVector<double>);
-    bp::def("asarrayList", &MethodsInterface::asarrayList<double>);
+    bp::def("asarrayVector", &FunctionsInterface::asarrayVector<double>);
+    bp::def("asarrayList", &FunctionsInterface::asarrayList<double>);
     bp::def("astype", &astype<double, uint32>);
-    bp::def("average", &MethodsInterface::average<double>);
-    bp::def("averageWeighted", &MethodsInterface::averageWeighted<double>);
+    bp::def("average", &FunctionsInterface::average<double>);
+    bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
+
     bp::def("binaryRepr", &binaryRepr<int8>);
     bp::def("binaryRepr", &binaryRepr<int16>);
     bp::def("binaryRepr", &binaryRepr<int32>);
@@ -4429,142 +4528,156 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("binaryRepr", &binaryRepr<uint16>);
     bp::def("binaryRepr", &binaryRepr<uint32>);
     bp::def("binaryRepr", &binaryRepr<uint64>);
-    bp::def("bincount", &MethodsInterface::bincount<uint32>);
-    bp::def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>);
-    bp::def("bitwise_and", &MethodsInterface::bitwise_and<uint64>);
-    bp::def("bitwise_not", &MethodsInterface::bitwise_not<uint64>);
-    bp::def("bitwise_or", &MethodsInterface::bitwise_or<uint64>);
-    bp::def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>);
-    bp::def("andOperatorArray", &MethodsInterface::andOperatorArray<uint64>);
-    bp::def("andOperatorScaler", &MethodsInterface::andOperatorScaler<uint64>);
-    bp::def("orOperatorArray", &MethodsInterface::orOperatorArray<uint64>);
-    bp::def("orOperatorScaler", &MethodsInterface::orOperatorScaler<uint64>);
-    bp::def("byteswap", &MethodsInterface::byteswap<uint64>);
-    bp::def("cbrtScaler", &MethodsInterface::cbrtScaler<double>);
-    bp::def("cbrtArray", &MethodsInterface::cbrtArray<double>);
-    bp::def("ceilScaler", &MethodsInterface::ceilScaler<double>);
-    bp::def("centerOfMass", &MethodsInterface::centerOfMass<double>);
-    bp::def("ceilArray", &MethodsInterface::ceilArray<double>);
-    bp::def("clipScaler", &MethodsInterface::clipScaler<double>);
-    bp::def("clipArray", &MethodsInterface::clipArray<double>);
-    bp::def("column_stack", &MethodsInterface::column_stack<double>);
-    bp::def("concatenate", &MethodsInterface::concatenate<double>);
+    bp::def("bincount", &FunctionsInterface::bincount<uint32>);
+    bp::def("bincountWeighted", &FunctionsInterface::bincountWeighted<uint32>);
+    bp::def("bitwise_and", &FunctionsInterface::bitwise_and<uint64>);
+    bp::def("bitwise_not", &FunctionsInterface::bitwise_not<uint64>);
+    bp::def("bitwise_or", &FunctionsInterface::bitwise_or<uint64>);
+    bp::def("bitwise_xor", &FunctionsInterface::bitwise_xor<uint64>);
+    bp::def("andOperatorArray", &FunctionsInterface::andOperatorArray<uint64>);
+    bp::def("andOperatorScaler", &FunctionsInterface::andOperatorScaler<uint64>);
+    bp::def("orOperatorArray", &FunctionsInterface::orOperatorArray<uint64>);
+    bp::def("orOperatorScaler", &FunctionsInterface::orOperatorScaler<uint64>);
+    bp::def("byteswap", &FunctionsInterface::byteswap<uint64>);
+
+    bp::def("cbrtScaler", &FunctionsInterface::cbrtScaler<double>);
+    bp::def("cbrtArray", &FunctionsInterface::cbrtArray<double>);
+    bp::def("ceilScaler", &FunctionsInterface::ceilScaler<double>);
+    bp::def("centerOfMass", &FunctionsInterface::centerOfMass<double>);
+    bp::def("ceilArray", &FunctionsInterface::ceilArray<double>);
+    bp::def("clipScaler", &FunctionsInterface::clipScaler<double>);
+    bp::def("clipArray", &FunctionsInterface::clipArray<double>);
+    bp::def("column_stack", &FunctionsInterface::column_stack<double>);
+    bp::def("conjScaler", &FunctionsInterface::conjScaler<double>);
+    //bp::def("conjArray", &FunctionsInterface::conjArray<double>);
+    bp::def("concatenate", &FunctionsInterface::concatenate<double>);
     bp::def("contains", &contains<double>);
-    bp::def("copy", &MethodsInterface::copy<double>);
-    bp::def("copysign", &MethodsInterface::copySign<double>);
-    bp::def("copyto", &MethodsInterface::copyto<double>);
-    bp::def("cosScaler", &MethodsInterface::cosScaler<double>);
-    bp::def("cosArray", &MethodsInterface::cosArray<double>);
-    bp::def("coshScaler", &MethodsInterface::coshScaler<double>);
-    bp::def("coshArray", &MethodsInterface::coshArray<double>);
-    bp::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
+    bp::def("copy", &FunctionsInterface::copy<double>);
+    bp::def("copysign", &FunctionsInterface::copySign<double>);
+    bp::def("copyto", &FunctionsInterface::copyto<double>);
+    bp::def("cosScaler", &FunctionsInterface::cosScaler<double>);
+    bp::def("cosArray", &FunctionsInterface::cosArray<double>);
+    bp::def("coshScaler", &FunctionsInterface::coshScaler<double>);
+    bp::def("coshArray", &FunctionsInterface::coshArray<double>);
+    bp::def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     bp::def("cross", &cross<double>);
-    bp::def("cube", &MethodsInterface::cubeArray<double>);
-    bp::def("cumprod", &MethodsInterface::cumprodArray<double>);
-    bp::def("cumsum", &MethodsInterface::cumsumArray<double>);
-    bp::def("deg2radScaler", &MethodsInterface::deg2radScaler<double>);
-    bp::def("deg2radArray", &MethodsInterface::deg2radArray<double>);
-    bp::def("degreesScaler", &MethodsInterface::degreesScaler<double>);
-    bp::def("degreesArray", &MethodsInterface::degreesArray<double>);
-    bp::def("deleteIndicesScaler", &MethodsInterface::deleteIndicesScaler<double>);
-    bp::def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>);
-    bp::def("diag", &MethodsInterface::diag<double>);
-    bp::def("diagflat", &MethodsInterface::diagflat<double>);
-    bp::def("diagonal", &MethodsInterface::diagonal<double>);
-    bp::def("diff", &MethodsInterface::diff<double>);
-    bp::def("divide", &MethodsInterface::divide<double>);
-    bp::def("dot", &MethodsInterface::dot<double>);
+    bp::def("cube", &FunctionsInterface::cubeArray<double>);
+    bp::def("cumprod", &FunctionsInterface::cumprodArray<double>);
+    bp::def("cumsum", &FunctionsInterface::cumsumArray<double>);
+
+    bp::def("deg2radScaler", &FunctionsInterface::deg2radScaler<double>);
+    bp::def("deg2radArray", &FunctionsInterface::deg2radArray<double>);
+    bp::def("degreesScaler", &FunctionsInterface::degreesScaler<double>);
+    bp::def("degreesArray", &FunctionsInterface::degreesArray<double>);
+    bp::def("deleteIndicesScaler", &FunctionsInterface::deleteIndicesScaler<double>);
+    bp::def("deleteIndicesSlice", &FunctionsInterface::deleteIndicesSlice<double>);
+    bp::def("diag", &FunctionsInterface::diag<double>);
+    bp::def("diagflat", &FunctionsInterface::diagflat<double>);
+    bp::def("diagonal", &FunctionsInterface::diagonal<double>);
+    bp::def("diff", &FunctionsInterface::diff<double>);
+    bp::def("divide", &FunctionsInterface::divide<double>);
+    bp::def("dot", &FunctionsInterface::dot<double>);
     bp::def("dump", &dump<double>);
-    bp::def("emptyRowCol", &MethodsInterface::emptyRowCol<double>);
-    bp::def("emptyShape", &MethodsInterface::emptyShape<double>);
+
+    bp::def("emptyRowCol", &FunctionsInterface::emptyRowCol<double>);
+    bp::def("emptyShape", &FunctionsInterface::emptyShape<double>);
     bp::def("empty_like", &empty_like<double>);
     bp::def("endianess", &endianess<double>);
-    bp::def("equal", &MethodsInterface::equal<double>);
-    bp::def("expScaler", &MethodsInterface::expScaler<double>);
-    bp::def("expArray", &MethodsInterface::expArray<double>);
-    bp::def("exp2Scaler", &MethodsInterface::exp2Scaler<double>);
-    bp::def("exp2Array", &MethodsInterface::exp2Array<double>);
-    bp::def("expm1Scaler", &MethodsInterface::expm1Scaler<double>);
-    bp::def("expm1Array", &MethodsInterface::expm1Array<double>);
-    bp::def("eye1D", &MethodsInterface::eye1D<double>);
-    bp::def("eye2D", &MethodsInterface::eye2D<double>);
-    bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
+    bp::def("equal", &FunctionsInterface::equal<double>);
+    bp::def("expScaler", &FunctionsInterface::expScaler<double>);
+    bp::def("expArray", &FunctionsInterface::expArray<double>);
+    bp::def("exp2Scaler", &FunctionsInterface::exp2Scaler<double>);
+    bp::def("exp2Array", &FunctionsInterface::exp2Array<double>);
+    bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<double>);
+    bp::def("expm1Array", &FunctionsInterface::expm1Array<double>);
+    bp::def("eye1D", &FunctionsInterface::eye1D<double>);
+    bp::def("eye2D", &FunctionsInterface::eye2D<double>);
+    bp::def("eyeShape", &FunctionsInterface::eyeShape<double>);
+
     bp::def("fillDiagonal", &fillDiagonal<double>);
-    bp::def("find", &MethodsInterface::find);
-    bp::def("findN", &MethodsInterface::findN);
-    bp::def("fixScaler", &MethodsInterface::fixScaler<double>);
-    bp::def("fixArray", &MethodsInterface::fixArray<double>);
+    bp::def("find", &FunctionsInterface::find);
+    bp::def("findN", &FunctionsInterface::findN);
+    bp::def("fixScaler", &FunctionsInterface::fixScaler<double>);
+    bp::def("fixArray", &FunctionsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
     bp::def("flatnonzero", &flatnonzero<double>);
     bp::def("flip", &flip<double>);
     bp::def("fliplr", &fliplr<double>);
     bp::def("flipud", &flipud<double>);
-    bp::def("floorScaler", &MethodsInterface::floorScaler<double>);
-    bp::def("floorArray", &MethodsInterface::floorArray<double>);
-    bp::def("floor_divideScaler", &MethodsInterface::floor_divideScaler<double>);
-    bp::def("floor_divideArray", &MethodsInterface::floor_divideArray<double>);
-    bp::def("fmaxScaler", &MethodsInterface::fmaxScaler<double>);
-    bp::def("fmaxArray", &MethodsInterface::fmaxArray<double>);
-    bp::def("fminScaler", &MethodsInterface::fminScaler<double>);
-    bp::def("fminArray", &MethodsInterface::fminArray<double>);
-    bp::def("fmodScaler", &MethodsInterface::fmodScaler<uint32>);
-    bp::def("fmodArray", &MethodsInterface::fmodArray<uint32>);
+    bp::def("floorScaler", &FunctionsInterface::floorScaler<double>);
+    bp::def("floorArray", &FunctionsInterface::floorArray<double>);
+    bp::def("floor_divideScaler", &FunctionsInterface::floor_divideScaler<double>);
+    bp::def("floor_divideArray", &FunctionsInterface::floor_divideArray<double>);
+    bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<double>);
+    bp::def("fmaxArray", &FunctionsInterface::fmaxArray<double>);
+    bp::def("fminScaler", &FunctionsInterface::fminScaler<double>);
+    bp::def("fminArray", &FunctionsInterface::fminArray<double>);
+    bp::def("fmodScaler", &FunctionsInterface::fmodScaler<uint32>);
+    bp::def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
     bp::def("frombuffer", &frombuffer<double>);
     bp::def("fromfile", &fromfile<double>);
-    bp::def("fullSquare", &MethodsInterface::fullSquare<double>);
-    bp::def("fullRowCol", &MethodsInterface::fullRowCol<double>);
-    bp::def("fullShape", &MethodsInterface::fullShape<double>);
+    bp::def("fullSquare", &FunctionsInterface::fullSquare<double>);
+    bp::def("fullRowCol", &FunctionsInterface::fullRowCol<double>);
+    bp::def("fullShape", &FunctionsInterface::fullShape<double>);
     bp::def("full_like", &full_like<double>);
-    bp::def("gcdScaler", &MethodsInterface::gcdScaler<uint32>);
-    bp::def("gcdArray", &MethodsInterface::gcdArray<uint32>);
+
+    bp::def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
+    bp::def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
     bp::def("greater", &greater<double>);
     bp::def("greater_equal", &greater_equal<double>);
     bp::def("gradient", &gradient<double>);
-    bp::def("histogram", &MethodsInterface::histogram<double>);
-    bp::def("hstack", &MethodsInterface::hstack<double>);
-    bp::def("hypotScaler", &MethodsInterface::hypotScaler<double>);
-    bp::def("hypotScalerTriple", &MethodsInterface::hypotScalerTriple<double>);
-    bp::def("hypotArray", &MethodsInterface::hypotArray<double>);
+
+    bp::def("histogram", &FunctionsInterface::histogram<double>);
+    bp::def("hstack", &FunctionsInterface::hstack<double>);
+    bp::def("hypotScaler", &FunctionsInterface::hypotScaler<double>);
+    bp::def("hypotScalerTriple", &FunctionsInterface::hypotScalerTriple<double>);
+    bp::def("hypotArray", &FunctionsInterface::hypotArray<double>);
+
     bp::def("identity", &identity<double>);
-    bp::def("interp", &MethodsInterface::interp<double>);
+    bp::def("imagScaler", &FunctionsInterface::imagScaler<double>);
+    bp::def("imagArray", &FunctionsInterface::imagArray<double>);
+    bp::def("interp", &FunctionsInterface::interp<double>);
     bp::def("intersect1d", &intersect1d<uint32>);
     bp::def("invert", &invert<uint32>);
     bp::def("isclose", &isclose<double>);
-    bp::def("isinfScaler", &MethodsInterface::isinfScaler<double>);
-    bp::def("isinfArray", &MethodsInterface::isinfArray<double>);
-    bp::def("isnanScaler", &MethodsInterface::isnanScaler<double>);
-    bp::def("isnanArray", &MethodsInterface::isnanArray<double>);
-    bp::def("lcmScaler", &MethodsInterface::lcmScaler<uint32>);
-    bp::def("lcmArray", &MethodsInterface::lcmArray<uint32>);
-    bp::def("ldexpScaler", &MethodsInterface::ldexpScaler<double>);
-    bp::def("ldexpArray", &MethodsInterface::ldexpArray<double>);
+    bp::def("isinfScaler", &FunctionsInterface::isinfScaler<double>);
+    bp::def("isinfArray", &FunctionsInterface::isinfArray<double>);
+    bp::def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
+    bp::def("isnanArray", &FunctionsInterface::isnanArray<double>);
+
+    bp::def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
+    bp::def("lcmArray", &FunctionsInterface::lcmArray<uint32>);
+    bp::def("ldexpScaler", &FunctionsInterface::ldexpScaler<double>);
+    bp::def("ldexpArray", &FunctionsInterface::ldexpArray<double>);
     bp::def("left_shift", &left_shift<uint32>);
     bp::def("less", &less<double>);
     bp::def("less_equal", &less_equal<double>);
     bp::def("linspace", &linspace<double>);
     bp::def("load", &load<double>);
-    bp::def("logScaler", &MethodsInterface::logScaler<double>);
-    bp::def("logArray", &MethodsInterface::logArray<double>);
-    bp::def("log10Scaler", &MethodsInterface::log10Scaler<double>);
-    bp::def("log10Array", &MethodsInterface::log10Array<double>);
-    bp::def("log1pScaler", &MethodsInterface::log1pScaler<double>);
-    bp::def("log1pArray", &MethodsInterface::log1pArray<double>);
-    bp::def("log2Scaler", &MethodsInterface::log2Scaler<double>);
-    bp::def("log2Array", &MethodsInterface::log2Array<double>);
+    bp::def("logScaler", &FunctionsInterface::logScaler<double>);
+    bp::def("logArray", &FunctionsInterface::logArray<double>);
+    bp::def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
+    bp::def("log10Array", &FunctionsInterface::log10Array<double>);
+    bp::def("log1pScaler", &FunctionsInterface::log1pScaler<double>);
+    bp::def("log1pArray", &FunctionsInterface::log1pArray<double>);
+    bp::def("log2Scaler", &FunctionsInterface::log2Scaler<double>);
+    bp::def("log2Array", &FunctionsInterface::log2Array<double>);
     bp::def("logical_and", &logical_and<double>);
     bp::def("logical_not", &logical_not<double>);
     bp::def("logical_or", &logical_or<double>);
     bp::def("logical_xor", &logical_xor<double>);
+
     bp::def("matmul", &matmul<double>);
     bp::def("max", &max<double>);
     bp::def("maximum", &maximum<double>);
-    bp::def("meshgrid", &MethodsInterface::meshgrid<double>);
+    bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
     bp::def("mean", &mean<double>);
     bp::def("median", &median<double>);
     bp::def("min", &min<double>);
     bp::def("minimum", &minimum<double>);
     bp::def("mod", &mod<uint32>);
     bp::def("multiply", &multiply<double>);
+
     bp::def("nanargmax", &nanargmax<double>);
     bp::def("nanargmin", &nanargmin<double>);
     bp::def("nancumprod", &nancumprod<double>);
@@ -4575,121 +4688,136 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("nanmin", &nanmin<double>);
     bp::def("nanpercentile", &nanpercentile<double>);
     bp::def("nanprod", &nanprod<double>);
-    bp::def("nansSquare", &MethodsInterface::nansSquare);
-    bp::def("nansRowCol", &MethodsInterface::nansRowCol);
-    bp::def("nansShape", &MethodsInterface::nansShape);
-    bp::def("nansList", &MethodsInterface::nansList);
+    bp::def("nansSquare", &FunctionsInterface::nansSquare);
+    bp::def("nansRowCol", &FunctionsInterface::nansRowCol);
+    bp::def("nansShape", &FunctionsInterface::nansShape);
+    bp::def("nansList", &FunctionsInterface::nansList);
     bp::def("nans_like", &nans_like<double>);
     bp::def("nanstdev", &nanstdev<double>);
     bp::def("nansum", &nansum<double>);
     bp::def("nanvar", &nanvar<double>);
     bp::def("nbytes", &nbytes<double>);
-    bp::def("newbyteorderScaler", &MethodsInterface::newbyteorderScaler<uint32>);
-    bp::def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>);
+    bp::def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
+    bp::def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
     bp::def("negative", &negative<double>);
-    bp::def("none", &MethodsInterface::noneArray<double>);
+    bp::def("none", &FunctionsInterface::noneArray<double>);
     bp::def("nonzero", &nonzero<double>);
     bp::def("norm", &norm<double>);
     bp::def("not_equal", &not_equal<double>);
-    bp::def("onesSquare", &MethodsInterface::onesSquare<double>);
-    bp::def("onesRowCol", &MethodsInterface::onesRowCol<double>);
-    bp::def("onesShape", &MethodsInterface::onesShape<double>);
+
+    bp::def("onesSquare", &FunctionsInterface::onesSquare<double>);
+    bp::def("onesRowCol", &FunctionsInterface::onesRowCol<double>);
+    bp::def("onesShape", &FunctionsInterface::onesShape<double>);
     bp::def("ones_like", &ones_like<double, double>);
-    bp::def("outer", &MethodsInterface::outer<double>);
+    bp::def("outer", &FunctionsInterface::outer<double>);
+
     bp::def("pad", &pad<double>);
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double>);
-    bp::def("powerArrayScaler", &MethodsInterface::powerArrayScaler<double>);
-    bp::def("powerArrayArray", &MethodsInterface::powerArrayArray<double>);
-    bp::def("powerfArrayScaler", &MethodsInterface::powerfArrayScaler<double>);
-    bp::def("powerfArrayArray", &MethodsInterface::powerfArrayArray<double>);
+    bp::def("polarScaler", &FunctionsInterface::polarScaler<double>);
+    //bp::def("polarArray", &FunctionsInterface::polarArray<double>);
+    bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
+    bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<double>);
+    bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<double>);
+    bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
     bp::def("prod", &prod<double>);
+    bp::def("projScaler", &FunctionsInterface::projScaler<double>);
+    //bp::def("projArray", &FunctionsInterface::projArray<double>);
     bp::def("ptp", &ptp<double>);
     bp::def("put", &put<double>, bp::return_internal_reference<>());
-    bp::def("putmask", &MethodsInterface::putmask<double>);
-    bp::def("putmaskScaler", &MethodsInterface::putmaskScaler<double>);
-    bp::def("rad2degScaler", &MethodsInterface::rad2degScaler<double>);
-    bp::def("rad2degArray", &MethodsInterface::rad2degArray<double>);
-    bp::def("radiansScaler", &MethodsInterface::radiansScaler<double>);
-    bp::def("radiansArray", &MethodsInterface::radiansArray<double>);
-    bp::def("ravel", &MethodsInterface::ravel<double>, bp::return_internal_reference<>());
+    bp::def("putmask", &FunctionsInterface::putmask<double>);
+    bp::def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
+
+    bp::def("rad2degScaler", &FunctionsInterface::rad2degScaler<double>);
+    bp::def("rad2degArray", &FunctionsInterface::rad2degArray<double>);
+    bp::def("radiansScaler", &FunctionsInterface::radiansScaler<double>);
+    bp::def("radiansArray", &FunctionsInterface::radiansArray<double>);
+    bp::def("ravel", &FunctionsInterface::ravel<double>, bp::return_internal_reference<>());
     bp::def("reciprocal", &reciprocal<double>);
-    bp::def("remainderScaler", &MethodsInterface::remainderScaler<double>);
-    bp::def("remainderArray", &MethodsInterface::remainderArray<double>);
-    bp::def("replace", &MethodsInterface::replace<double>);
-    bp::def("reshape", &MethodsInterface::reshapeInt<double>, bp::return_internal_reference<>());
-    bp::def("reshape", &MethodsInterface::reshapeShape<double>, bp::return_internal_reference<>());
-    bp::def("reshape", &MethodsInterface::reshapeValues<double>, bp::return_internal_reference<>());
-    bp::def("reshapeList", &MethodsInterface::reshapeList<double>, bp::return_internal_reference<>());
-    bp::def("resizeFast", &MethodsInterface::resizeFast<double>, bp::return_internal_reference<>());
-    bp::def("resizeFastList", &MethodsInterface::resizeFastList<double>, bp::return_internal_reference<>());
-    bp::def("resizeSlow", &MethodsInterface::resizeSlow<double>, bp::return_internal_reference<>());
-    bp::def("resizeSlowList", &MethodsInterface::resizeSlowList<double>, bp::return_internal_reference<>());
+    bp::def("realScaler", &FunctionsInterface::realScaler<double>);
+    bp::def("realArray", &FunctionsInterface::realArray<double>);
+    bp::def("remainderScaler", &FunctionsInterface::remainderScaler<double>);
+    bp::def("remainderArray", &FunctionsInterface::remainderArray<double>);
+    bp::def("replace", &FunctionsInterface::replace<double>);
+    bp::def("reshape", &FunctionsInterface::reshapeInt<double>, bp::return_internal_reference<>());
+    bp::def("reshape", &FunctionsInterface::reshapeShape<double>, bp::return_internal_reference<>());
+    bp::def("reshape", &FunctionsInterface::reshapeValues<double>, bp::return_internal_reference<>());
+    bp::def("reshapeList", &FunctionsInterface::reshapeList<double>, bp::return_internal_reference<>());
+    bp::def("resizeFast", &FunctionsInterface::resizeFast<double>, bp::return_internal_reference<>());
+    bp::def("resizeFastList", &FunctionsInterface::resizeFastList<double>, bp::return_internal_reference<>());
+    bp::def("resizeSlow", &FunctionsInterface::resizeSlow<double>, bp::return_internal_reference<>());
+    bp::def("resizeSlowList", &FunctionsInterface::resizeSlowList<double>, bp::return_internal_reference<>());
     bp::def("right_shift", &right_shift<uint32>);
-    bp::def("rintScaler", &MethodsInterface::rintScaler<double>);
-    bp::def("rintArray", &MethodsInterface::rintArray<double>);
+    bp::def("rintScaler", &FunctionsInterface::rintScaler<double>);
+    bp::def("rintArray", &FunctionsInterface::rintArray<double>);
     bp::def("rms", &rms<double>);
     bp::def("roll", &roll<double>);
     bp::def("rot90", &rot90<double>);
-    bp::def("roundScaler", &MethodsInterface::roundScaler<double>);
-    bp::def("roundArray", &MethodsInterface::roundArray<double>);
-    bp::def("row_stack", &MethodsInterface::row_stack<double>);
+    bp::def("roundScaler", &FunctionsInterface::roundScaler<double>);
+    bp::def("roundArray", &FunctionsInterface::roundArray<double>);
+    bp::def("row_stack", &FunctionsInterface::row_stack<double>);
+
     bp::def("setdiff1d", &setdiff1d<uint32>);
-    bp::def("signScaler", &MethodsInterface::signScaler<double>);
-    bp::def("signArray", &MethodsInterface::signArray<double>);
-    bp::def("signbitScaler", &MethodsInterface::signbitScaler<double>);
-    bp::def("signbitArray", &MethodsInterface::signbitArray<double>);
-    bp::def("sinScaler", &MethodsInterface::sinScaler<double>);
-    bp::def("sinArray", &MethodsInterface::sinArray<double>);
-    bp::def("sincScaler", &MethodsInterface::sincScaler<double>);
-    bp::def("sincArray", &MethodsInterface::sincArray<double>);
-    bp::def("sinhScaler", &MethodsInterface::sinhScaler<double>);
-    bp::def("sinhArray", &MethodsInterface::sinhArray<double>);
+    bp::def("signScaler", &FunctionsInterface::signScaler<double>);
+    bp::def("signArray", &FunctionsInterface::signArray<double>);
+    bp::def("signbitScaler", &FunctionsInterface::signbitScaler<double>);
+    bp::def("signbitArray", &FunctionsInterface::signbitArray<double>);
+    bp::def("sinScaler", &FunctionsInterface::sinScaler<double>);
+    bp::def("sinArray", &FunctionsInterface::sinArray<double>);
+    bp::def("sincScaler", &FunctionsInterface::sincScaler<double>);
+    bp::def("sincArray", &FunctionsInterface::sincArray<double>);
+    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
+    bp::def("sinhArray", &FunctionsInterface::sinhArray<double>);
     bp::def("size", &size<double>);
     bp::def("sort", &sort<double>);
-    bp::def("sqrtScaler", &MethodsInterface::sqrtScaler<double>);
-    bp::def("sqrtArray", &MethodsInterface::sqrtArray<double>);
-    bp::def("squareScaler", &MethodsInterface::squareScaler<double>);
-    bp::def("squareArray", &MethodsInterface::squareArray<double>);
-    bp::def("stack", &MethodsInterface::stack<double>);
+    bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
+    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
+    bp::def("squareScaler", &FunctionsInterface::squareScaler<double>);
+    bp::def("squareArray", &FunctionsInterface::squareArray<double>);
+    bp::def("stack", &FunctionsInterface::stack<double>);
     bp::def("stdev", &nc::stdev<double>);
-    bp::def("subtract", &MethodsInterface::subtractArrays<double>);
+    bp::def("subtract", &FunctionsInterface::subtractArrays<double>);
     bp::def("sum", &sum<double>);
     bp::def("swapaxes", &swapaxes<double>);
     bp::def("swap", &nc::swap<double>);
-    bp::def("tanScaler", &MethodsInterface::tanScaler<double>);
-    bp::def("tanArray", &MethodsInterface::tanArray<double>);
-    bp::def("tanhScaler", &MethodsInterface::tanhScaler<double>);
-    bp::def("tanhArray", &MethodsInterface::tanhArray<double>);
-    bp::def("tileRectangle", &MethodsInterface::tileRectangle<double>);
-    bp::def("tileShape", &MethodsInterface::tileShape<double>);
-    bp::def("tileList", &MethodsInterface::tileList<double>);
+
+    bp::def("tanScaler", &FunctionsInterface::tanScaler<double>);
+    bp::def("tanArray", &FunctionsInterface::tanArray<double>);
+    bp::def("tanhScaler", &FunctionsInterface::tanhScaler<double>);
+    bp::def("tanhArray", &FunctionsInterface::tanhArray<double>);
+    bp::def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
+    bp::def("tileShape", &FunctionsInterface::tileShape<double>);
+    bp::def("tileList", &FunctionsInterface::tileList<double>);
     bp::def("tofile", &tofile<double>);
     bp::def("toStlVector", &toStlVector<double>);
     bp::def("trace", &trace<double>);
     bp::def("transpose", &transpose<double>);
-    bp::def("trapzDx", &MethodsInterface::trapzDx<double>);
-    bp::def("trapz", &MethodsInterface::trapz<double>);
-    bp::def("trilSquare", &MethodsInterface::trilSquare<double>);
-    bp::def("trilRect", &MethodsInterface::trilRect<double>);
-    bp::def("trilArray", &MethodsInterface::trilArray<double>);
-    bp::def("triuSquare", &MethodsInterface::triuSquare<double>);
-    bp::def("triuRect", &MethodsInterface::triuRect<double>);
-    bp::def("triuArray", &MethodsInterface::triuArray<double>);
+    bp::def("trapzDx", &FunctionsInterface::trapzDx<double>);
+    bp::def("trapz", &FunctionsInterface::trapz<double>);
+    bp::def("trilSquare", &FunctionsInterface::trilSquare<double>);
+    bp::def("trilRect", &FunctionsInterface::trilRect<double>);
+    bp::def("trilArray", &FunctionsInterface::trilArray<double>);
+    bp::def("triuSquare", &FunctionsInterface::triuSquare<double>);
+    bp::def("triuRect", &FunctionsInterface::triuRect<double>);
+    bp::def("triuArray", &FunctionsInterface::triuArray<double>);
     bp::def("trim_zeros", &trim_zeros<double>);
-    bp::def("truncScaler", &MethodsInterface::truncScaler<double>);
-    bp::def("truncArray", &MethodsInterface::truncArray<double>);
+    bp::def("truncScaler", &FunctionsInterface::truncScaler<double>);
+    bp::def("truncArray", &FunctionsInterface::truncArray<double>);
+
     bp::def("union1d", &union1d<uint32>);
     bp::def("unique", &unique<double>);
-    bp::def("unwrapScaler", &MethodsInterface::unwrapScaler<double>);
-    bp::def("unwrapArray", &MethodsInterface::unwrapArray<double>);
+    bp::def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
+    bp::def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
+
     bp::def("var", &var<double>);
-    bp::def("vstack", &MethodsInterface::vstack<double>);
-    bp::def("where", &MethodsInterface::where<double>);
-    bp::def("zerosSquare", &MethodsInterface::zerosSquare<double>);
-    bp::def("zerosRowCol", &MethodsInterface::zerosRowCol<double>);
-    bp::def("zerosShape", &MethodsInterface::zerosShape<double>);
-    bp::def("zerosList", &MethodsInterface::zerosList<double>);
+    bp::def("vstack", &FunctionsInterface::vstack<double>);
+
+    bp::def("where", &FunctionsInterface::where<double>);
+
+    bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
+    bp::def("zerosRowCol", &FunctionsInterface::zerosRowCol<double>);
+    bp::def("zerosShape", &FunctionsInterface::zerosShape<double>);
+    bp::def("zerosList", &FunctionsInterface::zerosList<double>);
     bp::def("zeros_like", &zeros_like<double, double>);
 
     // Utils.hpp

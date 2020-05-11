@@ -31,10 +31,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_link_directories(${PROJECT_NAME} PRIVATE ${OpenCV_LIBRARY_DIR})
-    target_link_libraries(${PROJECT_NAME} PRIVATE opencv_world343.lib)
+  target_link_directories(${PROJECT_NAME} PRIVATE ${OpenCV_LIBRARY_DIR})
+  target_link_libraries(${PROJECT_NAME} PRIVATE opencv_world343.lib)
 else()
-    target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
+  target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
 endif()
 
 target_compile_options(${PROJECT_NAME} PRIVATE
