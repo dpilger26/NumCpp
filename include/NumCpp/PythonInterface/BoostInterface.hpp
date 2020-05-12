@@ -55,7 +55,7 @@ namespace nc
         template<typename dtype>
         inline NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
         {
-            BoostNdarrayHelper helper(inArray);
+            BoostNdarrayHelper<dtype> helper(inArray);
             if (helper.numDimensions() > 2)
             {
                 THROW_RUNTIME_ERROR("Can only convert 1 and 2 dimensional arrays.");
@@ -70,7 +70,7 @@ namespace nc
                 NdArray<dtype> returnArray(arrayShape);
                 for (uint32 i = 0; i < arrayShape.size(); ++i)
                 {
-                    returnArray[i] = static_cast<dtype>(helper(i));
+                    returnArray[i] = helper(i);
                 }
 
                 return returnArray;
@@ -81,12 +81,11 @@ namespace nc
                 arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 
                 NdArray<dtype> returnArray(arrayShape);
-                uint32 i = 0;
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     for (uint32 col = 0; col < arrayShape.cols; ++col)
                     {
-                        returnArray[i++] = static_cast<dtype>(helper(row, col));
+                        returnArray(row, col) = helper(row, col);
                     }
                 }
 
@@ -106,13 +105,13 @@ namespace nc
         {
             const Shape inShape = inArray.shape();
             boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
-            BoostNdarrayHelper newNdArrayHelper(shape);
+            BoostNdarrayHelper<dtype> newNdArrayHelper(shape);
 
             for (uint32 row = 0; row < inShape.rows; ++row)
             {
                 for (uint32 col = 0; col < inShape.cols; ++col)
                 {
-                    newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
+                    newNdArrayHelper(row, col) = inArray(row, col);
                 }
             }
             return newNdArrayHelper.getArray();

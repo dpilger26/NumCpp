@@ -49,6 +49,7 @@ namespace nc
     {
         //================================================================================
         ///						Helper class for ndarray
+        template<typename dtype>
         class BoostNdarrayHelper
         {
         public:
@@ -62,7 +63,7 @@ namespace nc
             /// @param      inArray:  ndarray
             ///
             BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
-                theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<double>())),
+                theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<dtype>())),
                 numDimensions_(static_cast<uint8>(inArray.get_nd())),
                 shape_(numDimensions_),
                 strides_(numDimensions_),
@@ -88,7 +89,7 @@ namespace nc
             /// @param      inShape
             ///
             BoostNdarrayHelper(boost::python::tuple inShape) :
-                theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>())),
+                theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<dtype>())),
                 numDimensions_(static_cast<uint8>(theArray_.get_nd())),
                 shape_(numDimensions_),
                 strides_(numDimensions_),
@@ -207,13 +208,13 @@ namespace nc
             ///
             /// @param      index
             ///
-            /// @return     double
+            /// @return     dtype
             ///
-            double& operator()(uint32 index)
+            dtype& operator()(uint32 index)
             {
                 checkIndices1D(index);
 
-                return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index);
+                return *reinterpret_cast<dtype*>(theArray_.get_data() + strides_.front() * index);
             }
 
             //============================================================================
@@ -222,28 +223,13 @@ namespace nc
             /// @param      index1
             /// @param      index2
             ///
-            /// @return     double
+            /// @return     dtype
             ///
-            double& operator()(uint32 index1, uint32 index2)
+            dtype& operator()(uint32 index1, uint32 index2)
             {
                 checkIndices2D(index1, index2);
-                return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2);
-            }
 
-            //============================================================================
-            ///						3D access operator
-            ///
-            /// @param      index1
-            /// @param      index2
-            /// @param      index3
-            ///
-            /// @return     double
-            ///
-            double& operator()(uint32 index1, uint32 index2, uint32 index3)
-            {
-                checkIndices3D(index1, index2, index3);
-
-                return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2 + strides_[2] * index3);
+                return *reinterpret_cast<dtype*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2);
             }
 
             //============================================================================
@@ -284,32 +270,6 @@ namespace nc
                     }
                     printf("\n");
                 }
-            }
-
-            //============================================================================
-            ///						Prints a 3D array
-            ///
-            void printArray3D()
-            {
-                printf("array = \n");
-                if (numDimensions_ != 3)
-                {
-                    std::cout << "printArray3D can only be used on a 3D array." << std::endl;
-                    return;
-                }
-
-                for (int32 index1 = 0; index1 < shape_.front(); ++index1)
-                {
-                    for (int32 index2 = 0; index2 < shape_[1]; ++index2)
-                    {
-                        for (int32 index3 = 0; index3 < shape_.back(); ++index3)
-                        {
-                            printf("\t%f", operator()(index1, index2, index3));
-                        }
-                    }
-                    printf("\n");
-                }
-                printf("\n");
             }
 
         private:
@@ -366,19 +326,6 @@ namespace nc
             void checkIndices2D(uint32 index1, uint32 index2)
             {
                 boost::python::tuple indices = boost::python::make_tuple(index1, index2);
-                checkIndicesGeneric(indices);
-            }
-
-            //============================================================================
-            ///						Checks 3D input indices
-            ///
-            /// @param      index1
-            /// @param      index2
-            /// @param      index3
-            ///
-            void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
-            {
-                boost::python::tuple indices = boost::python::make_tuple(index1, index2, index3);
                 checkIndicesGeneric(indices);
             }
         };

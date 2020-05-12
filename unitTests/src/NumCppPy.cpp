@@ -96,7 +96,7 @@ namespace NdArrayInterface
     template<typename dtype>
     void setArray(NdArray<dtype>& self, const np::ndarray& inBoostArray)
     {
-        BoostNdarrayHelper newNdArrayHelper(inBoostArray);
+        BoostNdarrayHelper<dtype> newNdArrayHelper(inBoostArray);
         const uint8 numDims = newNdArrayHelper.numDimensions();
         if (numDims > 2)
         {
@@ -4477,6 +4477,58 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
+    typedef NdArray<std::complex<double>> NdArrayComplexDouble;
+    bp::class_<NdArrayComplexDouble>
+        ("NdArrayComplexDouble", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayComplexDouble::item)
+        .def("shape", &NdArrayComplexDouble::shape)
+        .def("size", &NdArrayComplexDouble::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<double>>)
+        .def("endianess", &NdArrayComplexDouble::endianess)
+        .def("setArray", NdArrayInterface::setArray<std::complex<double>>);
+
+    typedef NdArray<std::complex<long double>> NdArrayComplexLongDouble;
+    bp::class_<NdArrayComplexLongDouble>
+        ("NdArrayComplexLongDouble", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayComplexLongDouble::item)
+        .def("shape", &NdArrayComplexLongDouble::shape)
+        .def("size", &NdArrayComplexLongDouble::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<long double>>)
+        .def("endianess", &NdArrayComplexLongDouble::endianess)
+        .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
+
+    typedef NdArray<std::complex<float>> NdArrayComplexFloat;
+    bp::class_<NdArrayComplexFloat>
+        ("NdArrayComplexFloat", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayComplexFloat::item)
+        .def("shape", &NdArrayComplexFloat::shape)
+        .def("size", &NdArrayComplexFloat::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
+        .def("endianess", &NdArrayComplexFloat::endianess)
+        .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
+
+    typedef NdArray<std::complex<int32>> NdArrayComplexInt32;
+    bp::class_<NdArrayComplexInt32>
+        ("NdArrayComplexInt32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayComplexInt32::item)
+        .def("shape", &NdArrayComplexInt32::shape)
+        .def("size", &NdArrayComplexInt32::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<int32>>)
+        .def("endianess", &NdArrayComplexInt32::endianess)
+        .def("setArray", NdArrayInterface::setArray<std::complex<int32>>);
+
     // Functions.hpp
     bp::def("absScaler", &FunctionsInterface::absScaler<double>);
     bp::def("absArray", &FunctionsInterface::absArray<double>);
@@ -4549,7 +4601,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("clipArray", &FunctionsInterface::clipArray<double>);
     bp::def("column_stack", &FunctionsInterface::column_stack<double>);
     bp::def("conjScaler", &FunctionsInterface::conjScaler<double>);
-    //bp::def("conjArray", &FunctionsInterface::conjArray<double>);
+    bp::def("conjArray", &FunctionsInterface::conjArray<double>);
     bp::def("concatenate", &FunctionsInterface::concatenate<double>);
     bp::def("contains", &contains<double>);
     bp::def("copy", &FunctionsInterface::copy<double>);
@@ -4715,14 +4767,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double>);
     bp::def("polarScaler", &FunctionsInterface::polarScaler<double>);
-    //bp::def("polarArray", &FunctionsInterface::polarArray<double>);
+    bp::def("polarArray", &FunctionsInterface::polarArray<double>);
     bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
     bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<double>);
     bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<double>);
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
     bp::def("prod", &prod<double>);
     bp::def("projScaler", &FunctionsInterface::projScaler<double>);
-    //bp::def("projArray", &FunctionsInterface::projArray<double>);
+    bp::def("projArray", &FunctionsInterface::projArray<double>);
     bp::def("ptp", &ptp<double>);
     bp::def("put", &put<double>, bp::return_internal_reference<>());
     bp::def("putmask", &FunctionsInterface::putmask<double>);
