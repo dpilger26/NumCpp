@@ -31,7 +31,6 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 #include "boost/math/special_functions/beta.hpp"
 
@@ -50,9 +49,7 @@ namespace nc
         /// @return
         ///				calculated-result-type 
         ///
-        template<typename dtype1, typename dtype2,
-            enable_if_t<!std::is_base_of<NdArrayBase, dtype1>::value, int> = 0,
-            enable_if_t<!std::is_base_of<NdArrayBase, dtype2>::value, int> = 0>
+        template<typename dtype1, typename dtype2>
         auto beta(dtype1 a, dtype2 b) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);

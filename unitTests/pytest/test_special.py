@@ -202,10 +202,28 @@ def test_special():
     assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel1(order, value), NUM_DECIMALS_ROUND))
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    order = np.random.randint(0, 6)
+    value = NumCpp.NdArray(shape)
+    valuePy = np.random.rand(shape.rows, shape.cols) * 10
+    value.setArray(valuePy)
+    assert np.array_equal(roundComplexArray(NumCpp.cyclic_hankel_1_Array(order, value), NUM_DECIMALS_ROUND),
+                          roundComplexArray(sp.hankel1(order, valuePy), NUM_DECIMALS_ROUND))
+
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
     assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
             roundComplex(sp.hankel2(order, value), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    order = np.random.randint(0, 6)
+    value = NumCpp.NdArray(shape)
+    valuePy = np.random.rand(shape.rows, shape.cols) * 10
+    value.setArray(valuePy)
+    assert np.array_equal(roundComplexArray(NumCpp.cyclic_hankel_2_Array(order, value), NUM_DECIMALS_ROUND),
+                          roundComplexArray(sp.hankel2(order, valuePy), NUM_DECIMALS_ROUND))
 
     value = np.random.rand(1).item() * 10
     assert (roundScaler(NumCpp.digamma_Scaler(value), NUM_DECIMALS_ROUND) ==
@@ -412,9 +430,25 @@ def test_special():
     value = np.random.rand(1).item()
     assert NumCpp.spherical_hankel_1_Scaler(order, value) is not None
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    order = np.random.randint(0, 6)
+    value = NumCpp.NdArray(shape)
+    valuePy = np.random.rand(shape.rows, shape.cols) * 10
+    value.setArray(valuePy)
+    assert NumCpp.spherical_hankel_1_Array(order, value) is not None
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert NumCpp.spherical_hankel_2_Scaler(order, value) is not None
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    order = np.random.randint(0, 6)
+    value = NumCpp.NdArray(shape)
+    valuePy = np.random.rand(shape.rows, shape.cols) * 10
+    value.setArray(valuePy)
+    assert NumCpp.spherical_hankel_2_Array(order, value) is not None
 
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.trigamma_Scaler(value), NUM_DECIMALS_ROUND) ==
@@ -444,3 +478,9 @@ def roundArray(values: np.ndarray, numDecimals: int) -> np.ndarray:
 def roundComplex(value: complex, numDecimals: int) -> complex:
     return complex(roundScaler(value.real, numDecimals),
                    roundScaler(value.imag, numDecimals))
+
+
+####################################################################################
+def roundComplexArray(values: np.array, numDecimals: int) -> np.array:
+    return np.array([complex(roundScaler(value.real, numDecimals),
+                             roundScaler(value.imag, numDecimals)) for value in values.flatten()])

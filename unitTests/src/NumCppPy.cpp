@@ -5495,13 +5495,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
     bp::def("cnr", &special::cnr);
     bp::def("cyclic_hankel_1_Scaler", &SpecialInterface::cyclic_hankel_1_Scaler<double>);
-    //bp::def("cyclic_hankel_1_Array", &SpecialInterface::cyclic_hankel_1_Array<double>);
+    bp::def("cyclic_hankel_1_Array", &SpecialInterface::cyclic_hankel_1_Array<double>);
     bp::def("cyclic_hankel_2_Scaler", &SpecialInterface::cyclic_hankel_2_Scaler<double>);
-    //bp::def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double>);
+    bp::def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double>);
     bp::def("spherical_hankel_1_Scaler", &SpecialInterface::spherical_hankel_1_Scaler<double>);
-    //bp::def("spherical_hankel_1_Array", &SpecialInterface::spherical_hankel_1_Array<double>);
+    bp::def("spherical_hankel_1_Array", &SpecialInterface::spherical_hankel_1_Array<double>);
     bp::def("spherical_hankel_2_Scaler", &SpecialInterface::spherical_hankel_2_Scaler<double>);
-    //bp::def("spherical_hankel_2_Array", &SpecialInterface::spherical_hankel_2_Array<double>);
+    bp::def("spherical_hankel_2_Array", &SpecialInterface::spherical_hankel_2_Array<double>);
     bp::def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
     bp::def("digamma_Array", &SpecialInterface::digamma_Array<double>);
     bp::def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
