@@ -4933,15 +4933,23 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
+    bp::def("power", &utils::power<std::complex<double>>);
     decltype(utils::powerf<double, double>(double{ 0 }, double{ 0 }))(*powerf_double)(double, double) = &utils::powerf<double, double>;
     bp::def("powerf", powerf_double);
+    decltype(utils::powerf<std::complex<double>, std::complex<double>>(std::complex<double>{ 0 }, std::complex<double>{ 0 }))(*powerf_complexDouble)
+        (std::complex<double>, std::complex<double>) = &utils::powerf<std::complex<double>, std::complex<double>>;
+    bp::def("powerf", powerf_complexDouble);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
     bp::def("cube", &utils::cube<float>);
     bp::def("power", &utils::power<float>);
+    bp::def("power", &utils::power<std::complex<float>>);
     decltype(utils::powerf<float, float>(float{ 0 }, float{ 0 }))(*powerf_float)(float, float) = &utils::powerf<float, float>;
     bp::def("powerf", powerf_float);
+    decltype(utils::powerf<std::complex<float>, std::complex<float>>(std::complex<float>{ 0 }, std::complex<float>{ 0 }))(*powerf_complexFloat)
+        (std::complex<float>, std::complex<float>) = &utils::powerf<std::complex<float>, std::complex<float>>;
+    bp::def("powerf", powerf_complexFloat);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
