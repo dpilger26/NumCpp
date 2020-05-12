@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
+#include <complex>
 
 namespace nc
 {

@@ -1595,6 +1595,22 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    std::complex<dtype> complexScaler(dtype inReal, dtype inImag)
+    {
+        return nc::complex(inReal, inImag);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray complexArray(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)
+    {
+        return nc2Boost(nc::complex(inReal, inImag));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     std::complex<dtype> conjScaler(const std::complex<dtype>& inValue)
     {
         return nc::conj(inValue);
@@ -1605,7 +1621,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray conjArray(const NdArray<std::complex<dtype>>& inArray)
     {
-        return nc2Boost(conj(inArray));
+        return nc2Boost(nc::conj(inArray));
     }
 
     //================================================================================
@@ -2368,7 +2384,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
     {
-        return nc2Boost(power(inArray, inExponent));
+        return nc2Boost(nc::power(inArray, inExponent));
     }
 
     //================================================================================
@@ -2376,7 +2392,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
-        return nc2Boost(power(inArray, inExponents));
+        return nc2Boost(nc::power(inArray, inExponents));
     }
 
     //================================================================================
@@ -2384,7 +2400,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, double inExponent)
     {
-        return nc2Boost(powerf(inArray, inExponent));
+        return nc2Boost(nc::powerf(inArray, inExponent));
     }
 
     //================================================================================
@@ -2392,7 +2408,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
     {
-        return nc2Boost(powerf(inArray, inExponents));
+        return nc2Boost(nc::powerf(inArray, inExponents));
     }
 
     //================================================================================
@@ -2648,7 +2664,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double sinScaler(dtype inValue) noexcept
+    dtype sinScaler(dtype inValue) noexcept
     {
         return sin(inValue);
     }
@@ -2664,7 +2680,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double sincScaler(dtype inValue) noexcept
+    dtype sincScaler(dtype inValue) noexcept
     {
         return sinc(inValue);
     }
@@ -2680,7 +2696,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double sinhScaler(dtype inValue) noexcept
+    dtype sinhScaler(dtype inValue) noexcept
     {
         return sinh(inValue);
     }
@@ -2696,7 +2712,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double sqrtScaler(dtype inValue) noexcept
+    dtype sqrtScaler(dtype inValue) noexcept
     {
         return sqrt(inValue);
     }
@@ -2736,7 +2752,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double tanScaler(dtype inValue) noexcept
+    dtype tanScaler(dtype inValue) noexcept
     {
         return tan(inValue);
     }
@@ -2752,7 +2768,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double tanhScaler(dtype inValue) noexcept
+    dtype tanhScaler(dtype inValue) noexcept
     {
         return tanh(inValue);
     }
@@ -4532,6 +4548,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     // Functions.hpp
     bp::def("absScaler", &FunctionsInterface::absScaler<double>);
     bp::def("absArray", &FunctionsInterface::absArray<double>);
+    bp::def("absScaler", &FunctionsInterface::absScaler<std::complex<double>>);
+    bp::def("absArray", &FunctionsInterface::absArray<std::complex<double>>);
     bp::def("add", &FunctionsInterface::addArrays<double>);
     bp::def("alen", &alen<double>);
     bp::def("all", &FunctionsInterface::allArray<double>);
@@ -4546,18 +4564,30 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("arange", &FunctionsInterface::arangeArray<double>);
     bp::def("arccosScaler", &FunctionsInterface::arccosScaler<double>);
     bp::def("arccosArray", &FunctionsInterface::arccosArray<double>);
+    bp::def("arccosScaler", &FunctionsInterface::arccosScaler<std::complex<double>>);
+    bp::def("arccosArray", &FunctionsInterface::arccosArray<std::complex<double>>);
     bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<double>);
     bp::def("arccoshArray", &FunctionsInterface::arccoshArray<double>);
+    bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<std::complex<double>>);
+    bp::def("arccoshArray", &FunctionsInterface::arccoshArray<std::complex<double>>);
     bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<double>);
     bp::def("arcsinArray", &FunctionsInterface::arcsinArray<double>);
+    bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<std::complex<double>>);
+    bp::def("arcsinArray", &FunctionsInterface::arcsinArray<std::complex<double>>);
     bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<double>);
     bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<double>);
+    bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<std::complex<double>>);
+    bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<std::complex<double>>);
     bp::def("arctanScaler", &FunctionsInterface::arctanScaler<double>);
     bp::def("arctanArray", &FunctionsInterface::arctanArray<double>);
+    bp::def("arctanScaler", &FunctionsInterface::arctanScaler<std::complex<double>>);
+    bp::def("arctanArray", &FunctionsInterface::arctanArray<std::complex<double>>);
     bp::def("arctan2Scaler", &FunctionsInterface::arctan2Scaler<double>);
     bp::def("arctan2Array", &FunctionsInterface::arctan2Array<double>);
     bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<double>);
     bp::def("arctanhArray", &FunctionsInterface::arctanhArray<double>);
+    bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<std::complex<double>>);
+    bp::def("arctanhArray", &FunctionsInterface::arctanhArray<std::complex<double>>);
     bp::def("argmax", &FunctionsInterface::argmaxArray<double>);
     bp::def("argmin", &FunctionsInterface::argminArray<double>);
     bp::def("argsort", &FunctionsInterface::argsortArray<double>);
@@ -4600,6 +4630,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("clipScaler", &FunctionsInterface::clipScaler<double>);
     bp::def("clipArray", &FunctionsInterface::clipArray<double>);
     bp::def("column_stack", &FunctionsInterface::column_stack<double>);
+    bp::def("complexScaler", &FunctionsInterface::complexScaler<double>);
+    bp::def("complexArray", &FunctionsInterface::complexArray<double>);
     bp::def("conjScaler", &FunctionsInterface::conjScaler<double>);
     bp::def("conjArray", &FunctionsInterface::conjArray<double>);
     bp::def("concatenate", &FunctionsInterface::concatenate<double>);
@@ -4609,8 +4641,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("copyto", &FunctionsInterface::copyto<double>);
     bp::def("cosScaler", &FunctionsInterface::cosScaler<double>);
     bp::def("cosArray", &FunctionsInterface::cosArray<double>);
+    bp::def("cosScaler", &FunctionsInterface::cosScaler<std::complex<double>>);
+    bp::def("cosArray", &FunctionsInterface::cosArray<std::complex<double>>);
     bp::def("coshScaler", &FunctionsInterface::coshScaler<double>);
     bp::def("coshArray", &FunctionsInterface::coshArray<double>);
+    bp::def("coshScaler", &FunctionsInterface::coshScaler<std::complex<double>>);
+    bp::def("coshArray", &FunctionsInterface::coshArray<std::complex<double>>);
     bp::def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     bp::def("cross", &cross<double>);
     bp::def("cube", &FunctionsInterface::cubeArray<double>);
@@ -4638,6 +4674,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("equal", &FunctionsInterface::equal<double>);
     bp::def("expScaler", &FunctionsInterface::expScaler<double>);
     bp::def("expArray", &FunctionsInterface::expArray<double>);
+    bp::def("expScaler", &FunctionsInterface::expScaler<std::complex<double>>);
+    bp::def("expArray", &FunctionsInterface::expArray<std::complex<double>>);
     bp::def("exp2Scaler", &FunctionsInterface::exp2Scaler<double>);
     bp::def("exp2Array", &FunctionsInterface::exp2Array<double>);
     bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<double>);
@@ -4708,7 +4746,11 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("load", &load<double>);
     bp::def("logScaler", &FunctionsInterface::logScaler<double>);
     bp::def("logArray", &FunctionsInterface::logArray<double>);
+    bp::def("logScaler", &FunctionsInterface::logScaler<std::complex<double>>);
+    bp::def("logArray", &FunctionsInterface::logArray<std::complex<double>>);
     bp::def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
+    bp::def("log10Array", &FunctionsInterface::log10Array<std::complex<double>>);
+    bp::def("log10Scaler", &FunctionsInterface::log10Scaler<std::complex<double>>);
     bp::def("log10Array", &FunctionsInterface::log10Array<double>);
     bp::def("log1pScaler", &FunctionsInterface::log1pScaler<double>);
     bp::def("log1pArray", &FunctionsInterface::log1pArray<double>);
@@ -4770,8 +4812,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("polarArray", &FunctionsInterface::polarArray<double>);
     bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
     bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<double>);
+    bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<std::complex<double>>);
+    bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<std::complex<double>>);
     bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<double>);
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
+    bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<std::complex<double>>);
+    bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<std::complex<double>>);
     bp::def("prod", &prod<double>);
     bp::def("projScaler", &FunctionsInterface::projScaler<double>);
     bp::def("projArray", &FunctionsInterface::projArray<double>);
@@ -4816,14 +4862,20 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("signbitArray", &FunctionsInterface::signbitArray<double>);
     bp::def("sinScaler", &FunctionsInterface::sinScaler<double>);
     bp::def("sinArray", &FunctionsInterface::sinArray<double>);
+    bp::def("sinScaler", &FunctionsInterface::sinScaler<std::complex<double>>);
+    bp::def("sinArray", &FunctionsInterface::sinArray<std::complex<double>>);
     bp::def("sincScaler", &FunctionsInterface::sincScaler<double>);
     bp::def("sincArray", &FunctionsInterface::sincArray<double>);
     bp::def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<double>);
+    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<std::complex<double>>);
+    bp::def("sinhArray", &FunctionsInterface::sinhArray<std::complex<double>>);
     bp::def("size", &size<double>);
     bp::def("sort", &sort<double>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
     bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
+    bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<std::complex<double>>);
+    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<std::complex<double>>);
     bp::def("squareScaler", &FunctionsInterface::squareScaler<double>);
     bp::def("squareArray", &FunctionsInterface::squareArray<double>);
     bp::def("stack", &FunctionsInterface::stack<double>);
@@ -4835,8 +4887,12 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     bp::def("tanScaler", &FunctionsInterface::tanScaler<double>);
     bp::def("tanArray", &FunctionsInterface::tanArray<double>);
+    bp::def("tanScaler", &FunctionsInterface::tanScaler<std::complex<double>>);
+    bp::def("tanArray", &FunctionsInterface::tanArray<std::complex<double>>);
     bp::def("tanhScaler", &FunctionsInterface::tanhScaler<double>);
     bp::def("tanhArray", &FunctionsInterface::tanhArray<double>);
+    bp::def("tanhScaler", &FunctionsInterface::tanhScaler<std::complex<double>>);
+    bp::def("tanhArray", &FunctionsInterface::tanhArray<std::complex<double>>);
     bp::def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
     bp::def("tileShape", &FunctionsInterface::tileShape<double>);
     bp::def("tileList", &FunctionsInterface::tileList<double>);
@@ -4877,61 +4933,71 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<double, double>(double{ 0 }, double{ 0 }))(*powerf_double)(double, double) = &utils::powerf<double, double>;
+    bp::def("powerf", powerf_double);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
     bp::def("cube", &utils::cube<float>);
     bp::def("power", &utils::power<float>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<float, float>(float{ 0 }, float{ 0 }))(*powerf_float)(float, float) = &utils::powerf<float, float>;
+    bp::def("powerf", powerf_float);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
     bp::def("cube", &utils::cube<int8>);
     bp::def("power", &utils::power<int8>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<int8, int8>(int8{ 0 }, int8{ 0 }))(*powerf_int8)(int8, int8) = &utils::powerf<int8, int8>;
+    bp::def("powerf", powerf_int8);
 
     bp::def("num2str", &utils::num2str<int16>);
     bp::def("sqr", &utils::sqr<int16>);
     bp::def("cube", &utils::cube<int16>);
     bp::def("power", &utils::power<int16>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<int16, int16>(int16{ 0 }, int16{ 0 }))(*powerf_int16)(int16, int16) = &utils::powerf<int16, int16>;
+    bp::def("powerf", powerf_int16);
 
     bp::def("num2str", &utils::num2str<int32>);
     bp::def("sqr", &utils::sqr<int32>);
     bp::def("cube", &utils::cube<int32>);
     bp::def("power", &utils::power<int32>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<int32, int32>(int32{ 0 }, int32{ 0 }))(*powerf_int32)(int32, int32) = &utils::powerf<int32, int32>;
+    bp::def("powerf", powerf_int32);
 
     bp::def("num2str", &utils::num2str<int64>);
     bp::def("sqr", &utils::sqr<int64>);
     bp::def("cube", &utils::cube<int64>);
     bp::def("power", &utils::power<int64>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<int64, int64>(int64{ 0 }, int64{ 0 }))(*powerf_int64)(int64, int64) = &utils::powerf<int64, int64>;
+    bp::def("powerf", powerf_int64);
 
     bp::def("num2str", &utils::num2str<uint8>);
     bp::def("sqr", &utils::sqr<uint8>);
     bp::def("cube", &utils::cube<uint8>);
     bp::def("power", &utils::power<uint8>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<uint8, uint8>(uint8{ 0 }, uint8{ 0 }))(*powerf_uint8)(uint8, uint8) = &utils::powerf<uint8, uint8>;
+    bp::def("powerf", powerf_uint8);
 
     bp::def("num2str", &utils::num2str<uint16>);
     bp::def("sqr", &utils::sqr<uint16>);
     bp::def("cube", &utils::cube<uint16>);
     bp::def("power", &utils::power<uint16>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<uint16, uint16>(uint16{ 0 }, uint16{ 0 }))(*powerf_uint16)(uint16, uint16) = &utils::powerf<uint16, uint16>;
+    bp::def("powerf", powerf_uint16);
 
     bp::def("num2str", &utils::num2str<uint32>);
     bp::def("sqr", &utils::sqr<uint32>);
     bp::def("cube", &utils::cube<uint32>);
     bp::def("power", &utils::power<uint32>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<uint32, uint32>(uint32{ 0 }, uint32{ 0 }))(*powerf_uint32)(uint32, uint32) = &utils::powerf<uint32, uint32>;
+    bp::def("powerf", powerf_uint32);
 
     bp::def("num2str", &utils::num2str<uint64>);
     bp::def("sqr", &utils::sqr<uint64>);
     bp::def("cube", &utils::cube<uint64>);
     bp::def("power", &utils::power<uint64>);
-    bp::def("powerf", &utils::powerf);
+    decltype(utils::powerf<uint64, uint64>(uint64{ 0 }, uint64{ 0 }))(*powerf_uint64)(uint64, uint64) = &utils::powerf<uint64, uint64>;
+    bp::def("powerf", powerf_uint64);
 
     // Random.hpp
     NdArray<double> (*bernoulliArray)(const Shape&, double) = &random::bernoulli<double>;

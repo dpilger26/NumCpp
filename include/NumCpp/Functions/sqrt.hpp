@@ -32,6 +32,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
+#include <complex>
 
 namespace nc
 {
@@ -47,9 +48,9 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double sqrt(dtype inValue) noexcept
+    auto sqrt(dtype inValue) noexcept
     {
-        return std::sqrt(static_cast<double>(inValue));
+        return std::sqrt(inValue);
     }
 
     //============================================================================
@@ -64,11 +65,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> sqrt(const NdArray<dtype>& inArray) noexcept
+    auto sqrt(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<decltype(sqrt(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
+            [](dtype inValue) noexcept -> auto
             { 
                 return sqrt(inValue);
             });

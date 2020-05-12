@@ -30,11 +30,9 @@
 
 #include "NumCpp/Core/Types.hpp"
 
-#include <complex>
 #include <iostream>
 #include <stdexcept>
 #include <string>
-#include <type_traits>
 
 #define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError<std::invalid_argument>(__FILE__, __func__, __LINE__, msg)
 #define THROW_RUNTIME_ERROR(msg) nc::error::throwError<std::runtime_error>(__FILE__, __func__, __LINE__, msg)

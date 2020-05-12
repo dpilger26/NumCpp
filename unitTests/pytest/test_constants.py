@@ -15,4 +15,5 @@ def test_constants():
     assert np.isinf(NumCpp.inf)
     assert round(NumCpp.pi, NUM_DECIMALS_ROUND) == round(np.pi, 10)
     assert np.isnan(NumCpp.nan)
+    assert NumCpp.j == 1j
     assert NumCpp.VERSION == '1.4'

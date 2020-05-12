@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Utils/power.hpp"
 
 #include <string>
@@ -74,7 +74,7 @@ namespace nc
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> dtype
             {
-                return power(inValue, inExponent);
+                return nc::power(inValue, inExponent);
             });
 
         return returnArray;
@@ -103,7 +103,7 @@ namespace nc
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, uint8 inExponent) noexcept -> dtype
             {
-                return power(inValue, inExponent);
+                return nc::power(inValue, inExponent);
             });
 
         return returnArray;

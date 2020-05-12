@@ -31,6 +31,8 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
+#include<complex>
+
 namespace nc
 {
     namespace utils

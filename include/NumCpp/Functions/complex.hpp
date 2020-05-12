@@ -29,54 +29,53 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
-#include <cmath>
 #include <complex>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Natural logarithm.
+    ///	Returns a std::complex from the input real and imag components
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
-    ///
-    /// @param
-    ///				inValue
-    ///
+    /// @param      inReal: the real component of the complex number
+    /// @param      inImag: the imaginary component of the complex number
     /// @return
     ///				value
     ///
     template<typename dtype>
-    auto log(dtype inValue) noexcept
+    auto complex(dtype inReal, dtype inImag) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::log(inValue);
+        return std::complex(inReal, inImag);
     }
 
     //============================================================================
     // Method Description:
-    ///						Natural logarithm, element-wise.
+    ///	Returns a std::complex from the input real and imag components
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
-    ///
-    /// @param
-    ///				inArray
-    ///
+    /// @param      inReal: the real component of the complex number
+    /// @param      inImag: the imaginary component of the complex number
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    auto log(const NdArray<dtype>& inArray) noexcept
+    auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag) noexcept
     {
-        NdArray<decltype(log(dtype{0}))> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> auto
-            { 
-                return log(inValue);
+        if (inReal.shape() != inImag.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Input real array must be the same shape as input imag array");
+        }
+
+        NdArray<decltype(nc::complex(dtype{0}, dtype{0}))> returnArray(inReal.shape());
+        stl_algorithms::transform(inReal.cbegin(), inReal.cend(), inImag.cbegin(), returnArray.begin(),
+            [](dtype real, dtype imag) noexcept-> auto
+            {
+                return nc::complex(real, imag); 
             });
 
         return returnArray;

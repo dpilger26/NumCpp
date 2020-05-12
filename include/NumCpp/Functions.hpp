@@ -72,6 +72,7 @@
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
+#include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/Functions/concatenate.hpp"
 #include "NumCpp/Functions/conj.hpp"
 #include "NumCpp/Functions/contains.hpp"
