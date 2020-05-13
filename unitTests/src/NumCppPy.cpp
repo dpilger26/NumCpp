@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include <type_traits>
 #include <utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
@@ -1170,7 +1171,7 @@ namespace NdArrayInterface
 namespace FunctionsInterface
 {
     template<typename dtype>
-    dtype absScaler(dtype inValue) noexcept
+    auto absScaler(dtype inValue) noexcept -> decltype(abs(inValue)) // trailing return type to help gcc
     {
         return abs(inValue);
     }
@@ -1282,7 +1283,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arccosScaler(dtype inValue) noexcept
+    auto arccosScaler(dtype inValue) noexcept -> decltype(arccos(inValue)) // trailing return type to help gcc
     {
         return arccos(inValue);
     }
@@ -1298,7 +1299,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arccoshScaler(dtype inValue) noexcept
+    auto arccoshScaler(dtype inValue) noexcept -> decltype(arccosh(inValue)) // trailing return type to help gcc
     {
         return arccosh(inValue);
     }
@@ -1314,7 +1315,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arcsinScaler(dtype inValue) noexcept
+    auto arcsinScaler(dtype inValue) noexcept -> decltype(arcsin(inValue)) // trailing return type to help gcc
     {
         return arcsin(inValue);
     }
@@ -1330,7 +1331,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arcsinhScaler(dtype inValue) noexcept
+    auto arcsinhScaler(dtype inValue) noexcept -> decltype(arcsinh(inValue)) // trailing return type to help gcc
     {
         return arcsinh(inValue);
     }
@@ -1346,7 +1347,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctanScaler(dtype inValue) noexcept
+    auto arctanScaler(dtype inValue) noexcept -> decltype(arctan(inValue)) // trailing return type to help gcc
     {
         return arctan(inValue);
     }
@@ -1378,7 +1379,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctanhScaler(dtype inValue) noexcept
+    auto arctanhScaler(dtype inValue) noexcept -> decltype(arctanh(inValue)) // trailing return type to help gcc
     {
         return arctanh(inValue);
     }
@@ -1660,7 +1661,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cosScaler(dtype inValue) noexcept
+    auto cosScaler(dtype inValue) noexcept -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
     }
@@ -1676,7 +1677,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype coshScaler(dtype inValue) noexcept
+    auto coshScaler(dtype inValue) noexcept -> decltype(cosh(inValue)) // trailing return type to help gcc
     {
         return cosh(inValue);
     }
@@ -1844,7 +1845,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expScaler(dtype inValue) noexcept
+    auto expScaler(dtype inValue) noexcept -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
     }
@@ -2238,7 +2239,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype logScaler(dtype inValue) noexcept
+    auto logScaler(dtype inValue) noexcept -> decltype(log(inValue)) // trailing return type to help gcc
     {
         return log(inValue);
     }
@@ -2254,7 +2255,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log10Scaler(dtype inValue) noexcept
+    auto log10Scaler(dtype inValue) noexcept -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
     }
@@ -2398,7 +2399,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, double inExponent)
+    np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, dtype inExponent)
     {
         return nc2Boost(nc::powerf(inArray, inExponent));
     }
@@ -2406,7 +2407,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
+    np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<dtype>& inExponents)
     {
         return nc2Boost(nc::powerf(inArray, inExponents));
     }
@@ -2664,7 +2665,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sinScaler(dtype inValue) noexcept
+    auto sinScaler(dtype inValue) noexcept -> decltype(sin(inValue)) // trailing return type to help gcc
     {
         return sin(inValue);
     }
@@ -2696,7 +2697,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sinhScaler(dtype inValue) noexcept
+    auto sinhScaler(dtype inValue) noexcept -> decltype(sinh(inValue)) // trailing return type to help gcc
     {
         return sinh(inValue);
     }
@@ -2712,7 +2713,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sqrtScaler(dtype inValue) noexcept
+    auto sqrtScaler(dtype inValue) noexcept -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
     }
@@ -2752,7 +2753,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype tanScaler(dtype inValue) noexcept
+    auto tanScaler(dtype inValue) noexcept -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
     }
@@ -2768,7 +2769,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype tanhScaler(dtype inValue) noexcept
+    auto tanhScaler(dtype inValue) noexcept -> decltype(tanh(inValue)) // trailing return type to help gcc
     {
         return tanh(inValue);
     }
