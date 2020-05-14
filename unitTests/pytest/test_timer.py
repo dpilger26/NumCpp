@@ -7,6 +7,8 @@ import NumCpp  # noqa E402
 
 ####################################################################################
 def test_timer():
+    np.random.seed(666)
+
     """Tests the NumCpp Timer class"""
     SLEEP_TIME = int(np.random.randint(0, 10, [1, ]).item() * 1e6)  # microseconds
     timer = NumCpp.Timer()

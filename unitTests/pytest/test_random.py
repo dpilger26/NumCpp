@@ -7,6 +7,8 @@ import NumCpp  # noqa E402
 
 ####################################################################################
 def test_random():
+    np.random.seed(666)
+
     # it is kind of hard to test randomness so my criteria for passing will
     # simply be whether or not it crashes
 

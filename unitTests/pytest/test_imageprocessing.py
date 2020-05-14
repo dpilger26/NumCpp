@@ -8,6 +8,7 @@ import NumCpp  # noqa E402
 
 ####################################################################################
 def test_imageProcessing():
+    np.random.seed(666)
 
     # generate a random noise
     imageSize = 512

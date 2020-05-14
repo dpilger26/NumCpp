@@ -8,6 +8,7 @@ import NumCpp  # noqa E402
 ####################################################################################
 def test_shape():
     """Tests the NumCpp Shape class"""
+    np.random.seed(666)
 
     shape = NumCpp.Shape()
     assert shape.rows == 0 and shape.cols == 0

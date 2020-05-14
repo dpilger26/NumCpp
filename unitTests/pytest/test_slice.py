@@ -8,6 +8,7 @@ import NumCpp  # noqa E402
 ####################################################################################
 def test_slice():
     """Tests the NumCpp Slice class"""
+    np.random.seed(666)
 
     cSlice = NumCpp.Slice()
     assert cSlice.start == 0

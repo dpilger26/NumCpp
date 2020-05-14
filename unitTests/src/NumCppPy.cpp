@@ -4939,7 +4939,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerf", powerf_double);
     decltype(utils::powerf<std::complex<double>, std::complex<double>>(std::complex<double>{ 0 }, std::complex<double>{ 0 }))(*powerf_complexDouble)
         (std::complex<double>, std::complex<double>) = &utils::powerf<std::complex<double>, std::complex<double>>;
-    bp::def("powerf", powerf_complexDouble);
+    bp::def("powerf_complex", powerf_complexDouble);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
@@ -4950,62 +4950,62 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerf", powerf_float);
     decltype(utils::powerf<std::complex<float>, std::complex<float>>(std::complex<float>{ 0 }, std::complex<float>{ 0 }))(*powerf_complexFloat)
         (std::complex<float>, std::complex<float>) = &utils::powerf<std::complex<float>, std::complex<float>>;
-    bp::def("powerf", powerf_complexFloat);
+    bp::def("powerf_complex", powerf_complexFloat);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
     bp::def("cube", &utils::cube<int8>);
     bp::def("power", &utils::power<int8>);
-    decltype(utils::powerf<int8, int8>(int8{ 0 }, int8{ 0 }))(*powerf_int8)(int8, int8) = &utils::powerf<int8, int8>;
+    decltype(utils::powerf<int8, double>(int8{ 0 }, double{ 0 }))(*powerf_int8)(int8, double) = &utils::powerf<int8, double>;
     bp::def("powerf", powerf_int8);
 
     bp::def("num2str", &utils::num2str<int16>);
     bp::def("sqr", &utils::sqr<int16>);
     bp::def("cube", &utils::cube<int16>);
     bp::def("power", &utils::power<int16>);
-    decltype(utils::powerf<int16, int16>(int16{ 0 }, int16{ 0 }))(*powerf_int16)(int16, int16) = &utils::powerf<int16, int16>;
+    decltype(utils::powerf<int16, double>(int16{ 0 }, double{ 0 }))(*powerf_int16)(int16, double) = &utils::powerf<int16, double>;
     bp::def("powerf", powerf_int16);
 
     bp::def("num2str", &utils::num2str<int32>);
     bp::def("sqr", &utils::sqr<int32>);
     bp::def("cube", &utils::cube<int32>);
     bp::def("power", &utils::power<int32>);
-    decltype(utils::powerf<int32, int32>(int32{ 0 }, int32{ 0 }))(*powerf_int32)(int32, int32) = &utils::powerf<int32, int32>;
+    decltype(utils::powerf<int32, double>(int32{ 0 }, double{ 0 }))(*powerf_int32)(int32, double) = &utils::powerf<int32, double>;
     bp::def("powerf", powerf_int32);
 
     bp::def("num2str", &utils::num2str<int64>);
     bp::def("sqr", &utils::sqr<int64>);
     bp::def("cube", &utils::cube<int64>);
     bp::def("power", &utils::power<int64>);
-    decltype(utils::powerf<int64, int64>(int64{ 0 }, int64{ 0 }))(*powerf_int64)(int64, int64) = &utils::powerf<int64, int64>;
+    decltype(utils::powerf<int64, double>(int64{ 0 }, double{ 0 }))(*powerf_int64)(int64, double) = &utils::powerf<int64, double>;
     bp::def("powerf", powerf_int64);
 
     bp::def("num2str", &utils::num2str<uint8>);
     bp::def("sqr", &utils::sqr<uint8>);
     bp::def("cube", &utils::cube<uint8>);
     bp::def("power", &utils::power<uint8>);
-    decltype(utils::powerf<uint8, uint8>(uint8{ 0 }, uint8{ 0 }))(*powerf_uint8)(uint8, uint8) = &utils::powerf<uint8, uint8>;
+    decltype(utils::powerf<uint8, double>(uint8{ 0 }, double{ 0 }))(*powerf_uint8)(uint8, double) = &utils::powerf<uint8, double>;
     bp::def("powerf", powerf_uint8);
 
     bp::def("num2str", &utils::num2str<uint16>);
     bp::def("sqr", &utils::sqr<uint16>);
     bp::def("cube", &utils::cube<uint16>);
     bp::def("power", &utils::power<uint16>);
-    decltype(utils::powerf<uint16, uint16>(uint16{ 0 }, uint16{ 0 }))(*powerf_uint16)(uint16, uint16) = &utils::powerf<uint16, uint16>;
+    decltype(utils::powerf<uint16, double>(uint16{ 0 }, double{ 0 }))(*powerf_uint16)(uint16, double) = &utils::powerf<uint16, double>;
     bp::def("powerf", powerf_uint16);
 
     bp::def("num2str", &utils::num2str<uint32>);
     bp::def("sqr", &utils::sqr<uint32>);
     bp::def("cube", &utils::cube<uint32>);
     bp::def("power", &utils::power<uint32>);
-    decltype(utils::powerf<uint32, uint32>(uint32{ 0 }, uint32{ 0 }))(*powerf_uint32)(uint32, uint32) = &utils::powerf<uint32, uint32>;
+    decltype(utils::powerf<uint32, double>(uint32{ 0 }, double{ 0 }))(*powerf_uint32)(uint32, double) = &utils::powerf<uint32, double>;
     bp::def("powerf", powerf_uint32);
 
     bp::def("num2str", &utils::num2str<uint64>);
     bp::def("sqr", &utils::sqr<uint64>);
     bp::def("cube", &utils::cube<uint64>);
     bp::def("power", &utils::power<uint64>);
-    decltype(utils::powerf<uint64, uint64>(uint64{ 0 }, uint64{ 0 }))(*powerf_uint64)(uint64, uint64) = &utils::powerf<uint64, uint64>;
+    decltype(utils::powerf<uint64, double>(uint64{ 0 }, double{ 0 }))(*powerf_uint64)(uint64, double) = &utils::powerf<uint64, double>;
     bp::def("powerf", powerf_uint64);
 
     // Random.hpp
