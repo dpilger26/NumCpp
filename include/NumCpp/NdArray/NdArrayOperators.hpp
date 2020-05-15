@@ -30,10 +30,12 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
 
 #include <algorithm>
+#include <complex>
 #include <functional>
 
 namespace nc
@@ -238,7 +240,7 @@ namespace nc
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) noexcept
     {
         auto returnArray = NdArray<dtype>(inArray);
-        returnArray *= static_cast<dtype>(-1);
+        returnArray *= dtype{ -1 };
         return returnArray;
     }
 
@@ -1163,8 +1165,13 @@ namespace nc
 
         NdArray<bool> returnArray(inArray1.shape());
 
+        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs < rhs;
+        };
+
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), std::less<dtype>());
+            inArray2.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1244,8 +1251,16 @@ namespace nc
 
         NdArray<bool> returnArray(inArray1.shape());
 
+        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs > rhs;
+        };
+
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), std::greater<dtype>());
+            inArray2.cbegin(), returnArray.begin(), function);
+
+        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
+            inArray2.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1325,8 +1340,13 @@ namespace nc
 
         NdArray<bool> returnArray(inArray1.shape());
 
+        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs <= rhs;
+        };
+
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), std::less_equal<dtype>());
+            inArray2.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1406,8 +1426,13 @@ namespace nc
 
         NdArray<bool> returnArray(inArray1.shape());
 
+        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs >= rhs;
+        };
+
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
+            inArray2.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1640,6 +1665,8 @@ namespace nc
     template<typename dtype>
     std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         inOStream << inArray.str();
         return inOStream;
     }

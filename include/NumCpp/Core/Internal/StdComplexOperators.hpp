@@ -64,7 +64,14 @@ namespace nc
     template<typename T>
     bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs)
     {
-        return lhs < rhs || lhs == rhs;
+        if (lhs.real() != rhs.real())
+        {
+            return lhs.real() <= rhs.real();
+        }
+        else
+        {
+            return lhs.imag() <= rhs.imag();
+        }
     }
 
     //============================================================================
@@ -78,7 +85,7 @@ namespace nc
     template<typename T>
     bool operator>(const std::complex<T>& lhs, const std::complex<T>& rhs)
     {
-        return !(lhs < rhs);
+        return !(lhs <= rhs);
     }
 
     //============================================================================
@@ -92,6 +99,6 @@ namespace nc
     template<typename T>
     bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs)
     {
-        return lhs > rhs || lhs == rhs;
+        return !(lhs < rhs);
     }
 }
