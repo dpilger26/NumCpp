@@ -680,9 +680,20 @@ def test_functions():
     assert np.array_equal(NumCpp.column_stack(cArray1, cArray2, cArray3, cArray4),
                           np.column_stack([data1, data2, data3, data4]))
 
+    real = np.random.rand(1).astype(np.double).item()
+    value = np.complex(real)
+    assert np.round(NumCpp.complexScaler(real), 9) == np.round(value, 9)
+
     components = np.random.rand(2).astype(np.double)
     value = np.complex(components[0], components[1])
     assert np.round(NumCpp.complexScaler(components[0], components[1]), 9) == np.round(value, 9)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    realArray = NumCpp.NdArray(shape)
+    real = np.random.rand(shape.rows, shape.cols)
+    realArray.setArray(real)
+    assert np.array_equal(np.round(NumCpp.complexArray(realArray), 9), np.round(real + 1j * np.zeros_like(real), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

@@ -711,106 +711,426 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorPlusScaler(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (1)
+    np::ndarray operatorPlusEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(self + inScaler);
+        return nc2Boost(lhs += rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorPlusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs += rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorPlusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs += rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorPlusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs += rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (1)
+    np::ndarray operatorPlusArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorPlusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorPlusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorPlusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (5)
+    np::ndarray operatorPlusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (6)
+    np::ndarray operatorPlusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (7)
+    np::ndarray operatorPlusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (8)
+    np::ndarray operatorPlusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs + rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (9)
+    np::ndarray operatorPlusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs + rhs);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPlusScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorNegative(const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inScaler + self);
+        return nc2Boost(-inArray);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorPlusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    template<typename dtype> // (1)
+    np::ndarray operatorMinusEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(self + inOtherArray);
+        return nc2Boost(lhs -= rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorNegative(const NdArray<dtype>& self)
+    template<typename dtype> // (2)
+    np::ndarray operatorMinusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(-self);
+        return nc2Boost(lhs -= rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMinusScaler(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (3)
+    np::ndarray operatorMinusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
     {
-        return nc2Boost(self - inScaler);
+        return nc2Boost(lhs -= rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMinusScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (4)
+    np::ndarray operatorMinusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
-        return nc2Boost(inScaler - self);
+        return nc2Boost(lhs -= rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMinusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    template<typename dtype> // (1)
+    np::ndarray operatorMinusArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(self - inOtherArray);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMultiplyScaler(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (2)
+    np::ndarray operatorMinusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
     {
-        return nc2Boost(self * inScaler);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMultiplyScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (3)
+    np::ndarray operatorMinusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(inScaler * self);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorMultiplyArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    template<typename dtype> // (4)
+    np::ndarray operatorMinusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
     {
-        return nc2Boost(self * inOtherArray);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorDivideScaler(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (5)
+    np::ndarray operatorMinusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(self / inScaler);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorDivideScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    template<typename dtype> // (6)
+    np::ndarray operatorMinusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
-        return nc2Boost(inScaler / self);
+        return nc2Boost(lhs - rhs);
     }
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray operatorDivideArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    template<typename dtype> // (7)
+    np::ndarray operatorMinusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        return nc2Boost(self / inOtherArray);
+        return nc2Boost(lhs - rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (8)
+    np::ndarray operatorMinusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs - rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (9)
+    np::ndarray operatorMinusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs - rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (1)
+    np::ndarray operatorMultiplyEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs *= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorMultiplyEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs *= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorMultiplyEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs *= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorMultiplyEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs *= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (1)
+    np::ndarray operatorMultiplyArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorMultiplyArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorMultiplyComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorMultiplyArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (5)
+    np::ndarray operatorMultiplyScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (6)
+    np::ndarray operatorMultiplyArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (7)
+    np::ndarray operatorMultiplyComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (8)
+    np::ndarray operatorMultiplyComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (9)
+    np::ndarray operatorMultiplyArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs * rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (1)
+    np::ndarray operatorDivideEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs /= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorDivideEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs /= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorDivideEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs /= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorDivideEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs /= rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (1)
+    np::ndarray operatorDivideArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (2)
+    np::ndarray operatorDivideArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (3)
+    np::ndarray operatorDivideComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (4)
+    np::ndarray operatorDivideArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (5)
+    np::ndarray operatorDivideScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (6)
+    np::ndarray operatorDivideArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (7)
+    np::ndarray operatorDivideComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (8)
+    np::ndarray operatorDivideComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    {
+        return nc2Boost(lhs / rhs);
+    }
+
+    //================================================================================
+
+    template<typename dtype> // (9)
+    np::ndarray operatorDivideArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        return nc2Boost(lhs / rhs);
     }
 
     //================================================================================
@@ -1596,9 +1916,25 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    std::complex<dtype> complexScalerSingle(dtype inReal)
+    {
+        return nc::complex(inReal);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     std::complex<dtype> complexScaler(dtype inReal, dtype inImag)
     {
         return nc::complex(inReal, inImag);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray complexArraySingle(const NdArray<dtype>& inReal)
+    {
+        return nc2Boost(nc::complex(inReal));
     }
 
     //================================================================================
@@ -4301,93 +4637,165 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("var", &NdArrayInterface::var<double>)
         .def("zeros", &NdArrayDouble::zeros, bp::return_internal_reference<>());
 
-    bp::def("operatorPlusScaler", &NdArrayInterface::operatorPlusScaler<double>);
-    bp::def("operatorPlusScaler", &NdArrayInterface::operatorPlusScaler<std::complex<double>>);
-    bp::def("operatorPlusScalerReversed", &NdArrayInterface::operatorPlusScalerReversed<double>);
-    bp::def("operatorPlusScalerReversed", &NdArrayInterface::operatorPlusScalerReversed<std::complex<double>>);
-    bp::def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>);
-    bp::def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<std::complex<double>>);
-    bp::def("operatorNegative", &NdArrayInterface::operatorNegative<std::complex<double>>);
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>); // (1)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithArray<double>); // (2)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<double>); // (3)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithScaler<double>); // (4)
+
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArray<double>); // (1)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArray<std::complex<double>>); // (1)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexArray<double>); // (2)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithArray<double>); // (3)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<double>); // (4)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<double>); // (5)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexScaler<double>); // (6)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexScalerArithArray<double>); // (7)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithScaler<double>); // (8)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithScalerComplexArray<double>); // (9)
+
     bp::def("operatorNegative", &NdArrayInterface::operatorNegative<double>);
-    bp::def("operatorMinusScaler", &NdArrayInterface::operatorMinusScaler<std::complex<double>>);
-    bp::def("operatorMinusScaler", &NdArrayInterface::operatorMinusScaler<double>);
-    bp::def("operatorMinusScalerReversed", &NdArrayInterface::operatorMinusScalerReversed<double>);
-    bp::def("operatorMinusScalerReversed", &NdArrayInterface::operatorMinusScalerReversed<std::complex<double>>);
-    bp::def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>);
-    bp::def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<std::complex<double>>);
-    bp::def("operatorMultiplyScaler", &NdArrayInterface::operatorMultiplyScaler<double>);
-    bp::def("operatorMultiplyScaler", &NdArrayInterface::operatorMultiplyScaler<std::complex<double>>);
-    bp::def("operatorMultiplyScalerReversed", &NdArrayInterface::operatorMultiplyScalerReversed<double>);
-    bp::def("operatorMultiplyScalerReversed", &NdArrayInterface::operatorMultiplyScalerReversed<std::complex<double>>);
-    bp::def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>);
-    bp::def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<std::complex<double>>);
-    bp::def("operatorDivideScaler", &NdArrayInterface::operatorDivideScaler<double>);
-    bp::def("operatorDivideScaler", &NdArrayInterface::operatorDivideScaler<std::complex<double>>);
-    bp::def("operatorDivideScalerReversed", &NdArrayInterface::operatorDivideScalerReversed<double>);
-    bp::def("operatorDivideScalerReversed", &NdArrayInterface::operatorDivideScalerReversed<std::complex<double>>);
-    bp::def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>);
-    bp::def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<std::complex<double>>);
+    bp::def("operatorNegative", &NdArrayInterface::operatorNegative<std::complex<double>>);
+
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<double>); // (1)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithArray<double>); // (2)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<double>); // (3)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithScaler<double>); // (4)
+
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArray<double>); // (1)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArray<std::complex<double>>); // (1)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexArray<double>); // (2)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithArray<double>); // (3)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<double>); // (4)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<double>); // (5)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexScaler<double>); // (6)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexScalerArithArray<double>); // (7)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithScaler<double>); // (8)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithScalerComplexArray<double>); // (9)
+
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<double>); // (1)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithArray<double>); // (2)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<double>); // (3)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithScaler<double>); // (4)
+
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<double>); // (1)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<std::complex<double>>); // (1)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexArray<double>); // (2)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithArray<double>); // (3)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<double>); // (4)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<double>); // (5)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexScaler<double>); // (6)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexScalerArithArray<double>); // (7)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithScaler<double>); // (8)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithScalerComplexArray<double>); // (9)
+
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<double>); // (1)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithArray<double>); // (2)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<double>); // (3)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithScaler<double>); // (4)
+
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArray<double>); // (1)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArray<std::complex<double>>); // (1)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexArray<double>); // (2)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithArray<double>); // (3)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<double>); // (4)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<double>); // (5)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexScaler<double>); // (6)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexScalerArithArray<double>); // (7)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithScaler<double>); // (8)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithScalerComplexArray<double>); // (9)
+
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<double>);
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<std::complex<double>>);
-    bp::def("operatorEqualityReversed", &NdArrayInterface::operatorEqualityScalerReversed<double>);
-    bp::def("operatorEqualityReversed", &NdArrayInterface::operatorEqualityScalerReversed<std::complex<double>>);
+    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<double>);
+    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<std::complex<double>>);
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>);
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityArray<std::complex<double>>);
+
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>);
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<std::complex<double>>);
-    bp::def("operatorNotEqualityReversed", &NdArrayInterface::operatorNotEqualityScalerReversed<double>);
-    bp::def("operatorNotEqualityReversed", &NdArrayInterface::operatorNotEqualityScalerReversed<std::complex<double>>);
+    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<double>);
+    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<std::complex<double>>);
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>);
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<std::complex<double>>);
+
     bp::def("operatorLess", &NdArrayInterface::operatorLessScaler<double>);
     bp::def("operatorLess", &NdArrayInterface::operatorLessScaler<std::complex<double>>);
-    bp::def("operatorLessReversed", &NdArrayInterface::operatorLessScalerReversed<double>);
-    bp::def("operatorLessReversed", &NdArrayInterface::operatorLessScalerReversed<std::complex<double>>);
+    bp::def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<double>);
+    bp::def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<std::complex<double>>);
     bp::def("operatorLess", &NdArrayInterface::operatorLessArray<double>);
     bp::def("operatorLess", &NdArrayInterface::operatorLessArray<std::complex<double>>);
+
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<double>);
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<std::complex<double>>);
-    bp::def("operatorGreaterReversed", &NdArrayInterface::operatorGreaterScalerReversed<double>);
-    bp::def("operatorGreaterReversed", &NdArrayInterface::operatorGreaterScalerReversed<std::complex<double>>);
+    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<double>);
+    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<std::complex<double>>);
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>);
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterArray<std::complex<double>>);
+
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<double>);
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<std::complex<double>>);
-    bp::def("operatorLessEqualReversed", &NdArrayInterface::operatorLessEqualScalerReversed<double>);
-    bp::def("operatorLessEqualReversed", &NdArrayInterface::operatorLessEqualScalerReversed<std::complex<double>>);
+    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<double>);
+    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<std::complex<double>>);
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>);
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<std::complex<double>>);
+
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<double>);
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<std::complex<double>>);
-    bp::def("operatorGreaterEqualReversed", &NdArrayInterface::operatorGreaterEqualScalerReversed<double>);
-    bp::def("operatorGreaterEqualReversed", &NdArrayInterface::operatorGreaterEqualScalerReversed<std::complex<double>>);
+    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<double>);
+    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<std::complex<double>>);
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>);
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<std::complex<double>>);
+
     bp::def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>);
     bp::def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>);
+
     bp::def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>);
     bp::def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
 
     bp::def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>);
-    bp::def("operatorModulusScalerReversed", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
+    bp::def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
     bp::def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>);
+
     bp::def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScaler<uint32>);
-    bp::def("operatorBitwiseOrScalerReversed", &NdArrayInterface::operatorBitwiseOrScalerReversed<uint32>);
+    bp::def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScalerReversed<uint32>);
     bp::def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>);
+
     bp::def("operatorBitwiseAndScaler", &NdArrayInterface::operatorBitwiseAndScaler<uint32>);
-    bp::def("operatorBitwiseAndScalerReversed", &NdArrayInterface::operatorBitwiseAndScalerReversed<uint32>);
+    bp::def("operatorBitwiseAndScaler", &NdArrayInterface::operatorBitwiseAndScalerReversed<uint32>);
     bp::def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>);
+
     bp::def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScaler<uint32>);
-    bp::def("operatorBitwiseXorScalerReversed", &NdArrayInterface::operatorBitwiseXorScalerReversed<uint32>);
+    bp::def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScalerReversed<uint32>);
     bp::def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>);
+
     bp::def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>);
+
     bp::def("operatorLogicalAndArray", &NdArrayInterface::operatorLogicalAndArray<uint32>);
     bp::def("operatorLogicalAndScalar", &NdArrayInterface::operatorLogicalAndScalar<uint32>);
-    bp::def("operatorLogicalAndScalarReversed", &NdArrayInterface::operatorLogicalAndScalarReversed<uint32>);
+    bp::def("operatorLogicalAndScalar", &NdArrayInterface::operatorLogicalAndScalarReversed<uint32>);
+
     bp::def("operatorLogicalOrArray", &NdArrayInterface::operatorLogicalOrArray<uint32>);
     bp::def("operatorLogicalOrScalar", &NdArrayInterface::operatorLogicalOrScalar<uint32>);
-    bp::def("operatorLogicalOrScalarReversed", &NdArrayInterface::operatorLogicalOrScalarReversed<uint32>);
+    bp::def("operatorLogicalOrScalar", &NdArrayInterface::operatorLogicalOrScalarReversed<uint32>);
+
     bp::def("operatorNot", &NdArrayInterface::operatorNot<uint32>);
+
     bp::def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>);
     bp::def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
@@ -4664,7 +5072,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("clipScaler", &FunctionsInterface::clipScaler<double>);
     bp::def("clipArray", &FunctionsInterface::clipArray<double>);
     bp::def("column_stack", &FunctionsInterface::column_stack<double>);
+    bp::def("complexScaler", &FunctionsInterface::complexScalerSingle<double>);
     bp::def("complexScaler", &FunctionsInterface::complexScaler<double>);
+    bp::def("complexArray", &FunctionsInterface::complexArraySingle<double>);
     bp::def("complexArray", &FunctionsInterface::complexArray<double>);
     bp::def("conjScaler", &FunctionsInterface::conjScaler<double>);
     bp::def("conjArray", &FunctionsInterface::conjArray<double>);

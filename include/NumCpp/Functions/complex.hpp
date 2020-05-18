@@ -42,6 +42,22 @@ namespace nc
     ///	Returns a std::complex from the input real and imag components
     ///
     /// @param      inReal: the real component of the complex number
+    /// @return
+    ///				value
+    ///
+    template<typename dtype>
+    auto complex(dtype inReal) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return std::complex(inReal);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///	Returns a std::complex from the input real and imag components
+    ///
+    /// @param      inReal: the real component of the complex number
     /// @param      inImag: the imaginary component of the complex number
     /// @return
     ///				value
@@ -52,6 +68,27 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         return std::complex(inReal, inImag);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///	Returns a std::complex from the input real and imag components
+    ///
+    /// @param      inReal: the real component of the complex number
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    auto complex(const NdArray<dtype>& inReal) noexcept
+    {
+        NdArray<decltype(nc::complex(dtype{0}))> returnArray(inReal.shape());
+        stl_algorithms::transform(inReal.cbegin(), inReal.cend(), returnArray.begin(),
+            [](dtype real) noexcept-> auto
+            {
+                return nc::complex(real); 
+            });
+
+        return returnArray;
     }
 
     //============================================================================

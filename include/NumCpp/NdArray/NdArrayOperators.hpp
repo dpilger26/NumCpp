@@ -32,6 +32,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
 
 #include <algorithm>
@@ -42,7 +43,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Adds the elements of two arrays
+    ///						Adds the elements of two arrays (1)
     ///
     /// @param      lhs
     /// @param      rhs
@@ -66,21 +67,50 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array
+    ///						Adds the elements of two arrays (2)
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator+=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 + val2;
+        };
+
+        stl_algorithms::transform(lhs.begin(), lhs.end(), 
+            rhs.cbegin(), lhs.begin(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (3)
+    ///
+    /// @param      lhs
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator+=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator+=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value += inScalar;
+            return value += rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -90,53 +120,219 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the elements of two arrays
+    ///						Adds the scalar to the array (4)
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    ///	@param      rhs
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator+=(NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        {
+            return value += rhs;
+        };
+
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the elements of two arrays (1)
+    ///
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator+(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator+(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray += inArray2;
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::plus<dtype>());
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array
+    ///						Adds the elements of two arrays (2)
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator+(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<std::complex<dtype>> operator+(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray += inScalar;
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        {
+            return val1 + val2;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array
+    ///						Adds the elements of two arrays (3)
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator+(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<std::complex<dtype>> operator+(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
     {
-        return inArray + inScalar;
+        return rhs + lhs;
     }
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the elements of two arrays
+    ///						Adds the scalar to the array (4)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator+(const NdArray<dtype>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> dtype 
+        {
+            return value + rhs;
+        };
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (5)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator+(dtype lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        return rhs + lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (6)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator+(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return value + rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (7)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator+(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        return rhs + lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (8)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator+(const NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return value + rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Adds the scalar to the array (9)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator+(dtype lhs, const NdArray<std::complex<dtype>>& rhs) noexcept
+    {
+        return rhs + lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the elements of two arrays (1)
     ///
     /// @param      lhs
     /// @param      rhs
@@ -160,21 +356,50 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array
+    ///						Subtracts the elements of two arrays (2)
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator-=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 - val2;
+        };
+
+        stl_algorithms::transform(lhs.begin(), lhs.end(), 
+            rhs.cbegin(), lhs.begin(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (3)
+    ///
+    /// @param      lhs
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator-=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator-=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value -= inScalar;
+            return value -= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -184,49 +409,263 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the elements of two arrays
+    ///						Subtracts the scalar from the array (4)
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    ///	@param      rhs
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator-=(NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        {
+            return value -= rhs;
+        };
+
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the elements of two arrays (1)
+    ///
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator-(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator-(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray -= inArray2;
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::minus<dtype>());
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array
+    ///						Subtracts the elements of two arrays (2)
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator-(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<std::complex<dtype>> operator-(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray -= inScalar;
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        {
+            return val1 - val2;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the array from the scalar
+    ///						Subtracts the elements of two arrays (3)
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator-(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<std::complex<dtype>> operator-(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = -inArray;
-        returnArray += inScalar;
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 - val2;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (4)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator-(const NdArray<dtype>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> dtype 
+        {
+            return value - rhs;
+        };
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (5)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator-(dtype lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [lhs](dtype value) noexcept -> dtype 
+        {
+            return lhs - value;
+        };
+
+        NdArray<dtype> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (6)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator-(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return value - rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (7)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator-(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return lhs - value;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (8)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator-(const NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return value - rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Subtracts the scalar from the array (9)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator-(dtype lhs, const NdArray<std::complex<dtype>>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return lhs - value;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
+
         return returnArray;
     }
 
@@ -239,14 +678,19 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray *= dtype{ -1 };
+        auto function = [](dtype value) noexcept -> dtype
+        {
+            return -value;
+        };
+
+        auto returnArray = NdArray<dtype>(inArray.shape());
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), function);
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Multiples the elements of two arrays
+    ///						Multiplies the elements of two arrays (1)
     ///
     /// @param      lhs
     /// @param      rhs
@@ -270,21 +714,50 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiples the scalar to the array
+    ///						Multiplies the elements of two arrays (2)
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator*=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 * val2;
+        };
+
+        stl_algorithms::transform(lhs.begin(), lhs.end(), 
+            rhs.cbegin(), lhs.begin(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (3)
+    ///
+    /// @param      lhs
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator*=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator*=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value *= inScalar;
+            return value *= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -294,53 +767,219 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the elements of two arrays
+    ///						Multiplies the scalar to the array (4)
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    ///	@param      rhs
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator*=(NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        {
+            return value *= rhs;
+        };
+
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the elements of two arrays (1)
+    ///
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator*(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator*(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray *= inArray2;
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::multiplies<dtype>());
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array
+    ///						Multiplies the elements of two arrays (2)
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator*(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<std::complex<dtype>> operator*(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray *= inScalar;
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        {
+            return val1 * val2;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
         return returnArray;
     }
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array
+    ///						Multiplies the elements of two arrays (3)
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator*(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<std::complex<dtype>> operator*(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
     {
-        return inArray * inScalar;
+        return rhs * lhs;
     }
 
     //============================================================================
     // Method Description:
-    ///						Divides the elements of two arrays
+    ///						Multiplies the scalar to the array (4)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator*(const NdArray<dtype>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> dtype 
+        {
+            return value * rhs;
+        };
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (5)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator*(dtype lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        return rhs * lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (6)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator*(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return value * rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (7)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator*(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        return rhs * lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (8)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator*(const NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return value * rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Multiplies the scalar to the array (9)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator*(dtype lhs, const NdArray<std::complex<dtype>>& rhs) noexcept
+    {
+        return rhs * lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the elements of two arrays (1)
     ///
     /// @param      lhs
     /// @param      rhs
@@ -364,21 +1003,50 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiples the scalar to the array
+    ///						Divides the elements of two arrays (2)
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>>& operator/=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 / val2;
+        };
+
+        stl_algorithms::transform(lhs.begin(), lhs.end(), 
+            rhs.cbegin(), lhs.begin(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (3)
+    ///
+    /// @param      lhs
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator/=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator/=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value /= inScalar;
+            return value /= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -388,55 +1056,262 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the elements of two arrays
+    ///						Divides the scalar from the array (4)
     ///
-    /// @param      inArray1
-    /// @param      inArray2
-    /// @return     NdArray
+    /// @param      lhs
+    ///	@param      rhs
+    /// @return
+    ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator/(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<std::complex<dtype>>& operator/=(NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray /= inArray2;
-        return returnArray;
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        {
+            return value /= rhs;
+        };
+
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+
+        return lhs;
     }
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar by the array
+    ///						Divides the elements of two arrays (1)
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator/(const NdArray<dtype>& inArray, dtype inScalar) noexcept
-    {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray /= inScalar;
-        return returnArray;
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Divides the scalar by the array
-    ///
-    ///	@param  	inScalar
-    /// @param      inArray
-    /// @return     NdArray
-    ///
-    template<typename dtype>
-    NdArray<dtype> operator/(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> operator/(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtype> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
-            [inScalar](dtype value) noexcept -> dtype
-            {
-                return inScalar / value;
-            });
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::divides<dtype>());
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the elements of two arrays (2)
+    ///
+    /// @param      lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        {
+            return val1 / val2;
+        };
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the elements of two arrays (3)
+    ///
+    /// @param      lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
+        {
+            return val1 / val2;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (4)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator/(const NdArray<dtype>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> dtype 
+        {
+            return value / rhs;
+        };
+
+        NdArray<dtype> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (5)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> operator/(dtype lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto function = [lhs](dtype value) noexcept -> dtype 
+        {
+            return lhs / value;
+        };
+
+        NdArray<dtype> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (6)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return value / rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (7)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
+        {
+            return lhs / value;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (8)
+    ///
+    /// @param      lhs
+    ///	@param  	rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(const NdArray<std::complex<dtype>>& lhs, dtype rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return value / rhs;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(lhs.shape());
+
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), returnArray.begin(), function);
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Divides the scalar from the array (9)
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<dtype>> operator/(dtype lhs, const NdArray<std::complex<dtype>>& rhs) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        {
+            return lhs / value;
+        };
+
+        NdArray<std::complex<dtype>> returnArray(rhs.shape());
+
+        stl_algorithms::transform(rhs.cbegin(), rhs.cend(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -470,18 +1345,18 @@ namespace nc
     ///						Modulus the scalar to the array
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value %= inScalar;
+            return value %= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -493,15 +1368,15 @@ namespace nc
     // Method Description:
     ///						Takes the modulus of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator%(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator%(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray %= inArray2;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray %= rhs;
         return returnArray;
     }
 
@@ -509,15 +1384,15 @@ namespace nc
     // Method Description:
     ///						Modulus of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator%(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<dtype> operator%(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray %= inScalar;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray %= rhs;
         return returnArray;
     }
 
@@ -525,18 +1400,18 @@ namespace nc
     // Method Description:
     ///						Modulus of the scalar and the array
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator%(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.begin(), inArray.end(), returnArray.begin(),
-            [inScalar](dtype value) noexcept -> dtype
+        NdArray<dtype> returnArray(rhs.shape());
+        stl_algorithms::transform(rhs.begin(), rhs.end(), returnArray.begin(),
+            [lhs](dtype value) noexcept -> dtype
             {
-                return inScalar % value;
+                return lhs % value;
             });
 
         return returnArray;
@@ -571,18 +1446,18 @@ namespace nc
     ///						Bitwise or the scalar to the array
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator|=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator|=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value |= inScalar;
+            return value |= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -594,15 +1469,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise or of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator|(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator|(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray |= inArray2;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray |= rhs;
         return returnArray;
     }
 
@@ -610,15 +1485,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise or of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator|(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<dtype> operator|(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray |= inScalar;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray |= rhs;
         return returnArray;
     }
 
@@ -626,14 +1501,14 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise or of the sclar and the array
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator|(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> operator|(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        return inArray | inScalar;
+        return rhs | lhs;
     }
 
     //============================================================================
@@ -665,18 +1540,18 @@ namespace nc
     ///						Bitwise and the scalar to the array
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator&=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator&=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value &= inScalar;
+            return value &= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -688,15 +1563,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise and of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator&(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator&(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray &= inArray2;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray &= rhs;
         return returnArray;
     }
 
@@ -704,15 +1579,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise and of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator&(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<dtype> operator&(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray &= inScalar;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray &= rhs;
         return returnArray;
     }
 
@@ -720,14 +1595,14 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise and of the sclar and the array
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator&(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> operator&(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        return inArray & inScalar;
+        return rhs & lhs;
     }
 
     //============================================================================
@@ -759,18 +1634,18 @@ namespace nc
     ///						Bitwise xor the scalar to the array
     ///
     /// @param      lhs
-    ///	@param      inScalar
+    ///	@param      rhs
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator^=(NdArray<dtype>& lhs, dtype inScalar) noexcept
+    NdArray<dtype>& operator^=(NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [inScalar](dtype& value) noexcept -> dtype
+        auto function = [rhs](dtype& value) noexcept -> dtype
         {
-            return value ^= inScalar;
+            return value ^= rhs;
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -782,15 +1657,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise xor of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator^(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype> operator^(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(inArray1);
-        returnArray ^= inArray2;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray ^= rhs;
         return returnArray;
     }
 
@@ -798,15 +1673,15 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise xor of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator^(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<dtype> operator^(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
-        auto returnArray = NdArray<dtype>(inArray);
-        returnArray ^= inScalar;
+        auto returnArray = NdArray<dtype>(lhs);
+        returnArray ^= rhs;
         return returnArray;
     }
 
@@ -814,14 +1689,14 @@ namespace nc
     // Method Description:
     ///						Takes the bitwise xor of the sclar and the array
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator^(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> operator^(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        return inArray ^ inScalar;
+        return rhs ^ lhs;
     }
 
     //============================================================================
@@ -853,16 +1728,16 @@ namespace nc
     // Method Description:
     ///						Takes the and of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator&&(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator&&(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
@@ -872,9 +1747,9 @@ namespace nc
             return value1 && value2;
         };
 
-        NdArray<bool> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), 
-            inArray2.cbegin(), returnArray.begin(), function);
+        NdArray<bool> returnArray(lhs.shape());
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -883,23 +1758,23 @@ namespace nc
     // Method Description:
     ///						Takes the and of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator&&(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<bool> operator&&(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inScalar](dtype value) noexcept -> bool
+        auto function = [rhs](dtype value) noexcept -> bool
         {
-            return value && inScalar;
+            return value && rhs;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -909,30 +1784,30 @@ namespace nc
     // Method Description:
     ///						Takes the and of the array and the scalar
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator&&(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> operator&&(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        return inArray && inScalar;
+        return rhs && lhs;
     }
 
     //============================================================================
     // Method Description:
     ///						Takes the or of the elements of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator||(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator||(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
@@ -942,9 +1817,9 @@ namespace nc
             return value1 || value2;
         };
 
-        NdArray<bool> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), 
-            inArray2.cbegin(), returnArray.begin(), function);
+        NdArray<bool> returnArray(lhs.shape());
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -953,23 +1828,23 @@ namespace nc
     // Method Description:
     ///						Takes the or of the array and the scalar
     ///
-    /// @param      inArray
-    ///	@param  	inScalar
+    /// @param      lhs
+    ///	@param  	rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator||(const NdArray<dtype>& inArray, dtype inScalar) noexcept
+    NdArray<bool> operator||(const NdArray<dtype>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inScalar](dtype value) noexcept -> bool
+        auto function = [rhs](dtype value) noexcept -> bool
         {
-            return value || inScalar;
+            return value || rhs;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -979,14 +1854,14 @@ namespace nc
     // Method Description:
     ///						Takes the or of the array and the scalar
     ///
-    ///	@param  	inScalar
-    /// @param      inArray
+    ///	@param  	lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator||(dtype inScalar, const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> operator||(dtype lhs, const NdArray<dtype>& rhs) noexcept
     {
-        return inArray || inScalar;
+        return rhs || lhs;
     }
 
     //============================================================================
@@ -1019,22 +1894,22 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator==(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator==(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), 
-            inArray2.cbegin(), returnArray.begin(), std::equal_to<dtype>());
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::equal_to<dtype>());
 
         return returnArray;
     }
@@ -1044,21 +1919,21 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						an array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator==(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator==(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value == inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), 
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
             returnArray.begin(), function);
 
         return returnArray;
@@ -1084,22 +1959,22 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator!=(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator!=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), 
-            inArray2.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
+            rhs.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
 
         return returnArray;
     }
@@ -1109,21 +1984,21 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						an array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator!=(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator!=(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value != inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), 
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
             returnArray.begin(), function);
 
         return returnArray;
@@ -1149,29 +2024,29 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator<(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator<(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs < rhs;
         };
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), function);
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1181,23 +2056,23 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						the array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator<(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator<(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value < inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -1235,32 +2110,32 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator>(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator>(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs > rhs;
         };
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), function);
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
+            rhs.cbegin(), returnArray.begin(), function);
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), function);
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1270,23 +2145,23 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						the array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator>(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator>(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value > inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -1324,29 +2199,29 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator<=(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator<=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs <= rhs;
         };
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), function);
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1356,23 +2231,23 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						the array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator<=(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator<=(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value <= inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -1410,29 +2285,29 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						of two arrays
     ///
-    /// @param      inArray1
-    /// @param      inArray2
+    /// @param      lhs
+    /// @param      rhs
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator>=(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<bool> operator>=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inArray1.shape() != inArray2.shape())
+        if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs >= rhs;
         };
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(),
-            inArray2.cbegin(), returnArray.begin(), function);
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
+            rhs.cbegin(), returnArray.begin(), function);
 
         return returnArray;
     }
@@ -1442,23 +2317,23 @@ namespace nc
     ///						Returns an array of booleans of element wise comparison
     ///						the array and a scalar
     ///
-    /// @param      inArray
+    /// @param      lhs
     ///	@param  	inValue
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<bool> operator>=(const NdArray<dtype>& inArray, dtype inValue) noexcept
+    NdArray<bool> operator>=(const NdArray<dtype>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<bool> returnArray(inArray.shape());
+        NdArray<bool> returnArray(lhs.shape());
 
         auto function = [inValue](dtype value) noexcept -> bool
         {
             return value >= inValue;
         };
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::transform(lhs.cbegin(), lhs.cend(),
             returnArray.begin(), function);
 
         return returnArray;
@@ -1495,13 +2370,13 @@ namespace nc
     // Method Description:
     ///						Bitshifts left the elements of the array
     ///
-    /// @param      inArray
+    /// @param      lhs
     /// @param      inNumBits
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator<<=(NdArray<dtype>& inArray, uint8 inNumBits) noexcept
+    NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -1510,9 +2385,9 @@ namespace nc
             value <<= inNumBits;
         };
 
-        stl_algorithms::for_each(inArray.begin(), inArray.end(), function);
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
 
-        return inArray;
+        return lhs;
     }
 
     //============================================================================
@@ -1538,13 +2413,13 @@ namespace nc
     // Method Description:
     ///						Bitshifts right the elements of the array
     ///
-    /// @param      inArray
+    /// @param      lhs
     /// @param      inNumBits
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& operator>>=(NdArray<dtype>& inArray, uint8 inNumBits) noexcept
+    NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -1553,9 +2428,9 @@ namespace nc
             value >>= inNumBits;
         };
 
-        stl_algorithms::for_each(inArray.begin(), inArray.end(), function);
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
 
-        return inArray;
+        return lhs;
     }
 
     //============================================================================
