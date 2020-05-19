@@ -60,7 +60,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         if (inStep > 0 && inStop < inStart)
         {

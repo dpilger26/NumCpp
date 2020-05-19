@@ -49,6 +49,8 @@ namespace nc
         template<typename dtype>
         bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (DtypeInfo<dtype>::isInteger())
             {
                 return inValue1 == inValue2;
