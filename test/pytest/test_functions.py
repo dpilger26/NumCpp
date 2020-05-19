@@ -16,7 +16,7 @@ def factors(n):
 
 ####################################################################################
 def test_functions():
-    np.random.seed(666)
+    np.random.seed(26)
 
     randValue = np.random.randint(-100, -1, [1, ]).astype(np.double).item()
     assert NumCpp.absScaler(randValue) == np.abs(randValue)
@@ -1285,7 +1285,7 @@ def test_functions():
     data = np.random.randn(shape.rows, shape.cols) * 100
     cArray.setArray(data)
     value = data.mean()
-    cMask = cArray.operatorGreater(value)
+    cMask = NumCpp.operatorGreater(cArray, value)
     cMaskArray = NumCpp.NdArrayBool(cMask.shape[0], cMask.shape[1])
     cMaskArray.setArray(cMask)
     idxs = NumCpp.find(cMaskArray).astype(np.int64)
@@ -1298,7 +1298,7 @@ def test_functions():
     data = np.random.randn(shape.rows, shape.cols) * 100
     cArray.setArray(data)
     value = data.mean()
-    cMask = cArray.operatorGreater(value)
+    cMask = NumCpp.operatorGreater(cArray ,value)
     cMaskArray = NumCpp.NdArrayBool(cMask.shape[0], cMask.shape[1])
     cMaskArray.setArray(cMask)
     idxs = NumCpp.findN(cMaskArray, 8).astype(np.int64)

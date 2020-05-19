@@ -1136,353 +1136,353 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusScaler(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorModulusScaler(const NdArray<dtype>& inArray, dtype inScaler)
     {
-        return nc2Boost(self % inScaler);
+        return nc2Boost(inArray % inScaler);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorModulusScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inScaler % self);
+        return nc2Boost(inScaler % inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorModulusArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self % inOtherArray);
+        return nc2Boost(inArray1 % inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrScaler(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseOrScaler(const NdArray<dtype>& inArray, dtype inScaler)
     {
-        return nc2Boost(self | inScaler);
+        return nc2Boost(inArray | inScaler);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseOrScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inScaler | self);
+        return nc2Boost(inScaler | inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorBitwiseOrArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self | inOtherArray);
+        return nc2Boost(inArray1 | inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndScaler(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseAndScaler(const NdArray<dtype>& inArray, dtype inScaler)
     {
-        return nc2Boost(self & inScaler);
+        return nc2Boost(inArray & inScaler);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseAndScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inScaler & self);
+        return nc2Boost(inScaler & inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorBitwiseAndArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self & inOtherArray);
+        return nc2Boost(inArray1 & inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorScaler(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseXorScaler(const NdArray<dtype>& inArray, dtype inScaler)
     {
-        return nc2Boost(self ^ inScaler);
+        return nc2Boost(inArray ^ inScaler);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorScalerReversed(const NdArray<dtype>& self, dtype inScaler)
+    np::ndarray operatorBitwiseXorScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inScaler ^ self);
+        return nc2Boost(inScaler ^ inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorBitwiseXorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self ^ inOtherArray);
+        return nc2Boost(inArray1 ^ inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseNot(const NdArray<dtype>& self)
+    np::ndarray operatorBitwiseNot(const NdArray<dtype>& inArray)
     {
-        return nc2Boost(~self);
+        return nc2Boost(~inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorLogicalAndArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self && inOtherArray);
+        return nc2Boost(inArray1 && inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndScalar(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLogicalAndScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self && inValue);
+        return nc2Boost(inArray && inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndScalarReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLogicalAndScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue && self);
+        return nc2Boost(inValue && inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorLogicalOrArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self || inOtherArray);
+        return nc2Boost(inArray1 || inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrScalar(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLogicalOrScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self || inValue);
+        return nc2Boost(inArray || inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrScalarReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLogicalOrScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue || self);
+        return nc2Boost(inValue || inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNot(const NdArray<dtype>& self)
+    np::ndarray operatorNot(const NdArray<dtype>& inArray)
     {
-        return nc2Boost(!self);
+        return nc2Boost(!inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self == inValue);
+        return nc2Boost(inArray == inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue == self);
+        return nc2Boost(inValue == inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorEqualityArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self == inOtherArray);
+        return nc2Boost(inArray1 == inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self != inValue);
+        return nc2Boost(inArray != inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorNotEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue != self);
+        return nc2Boost(inValue != inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorNotEqualityArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self != inOtherArray);
+        return nc2Boost(inArray1 != inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self < inValue);
+        return nc2Boost(inArray < inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue < self);
+        return nc2Boost(inValue < inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorLessArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self < inOtherArray);
+        return nc2Boost(inArray1 < inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self > inValue);
+        return nc2Boost(inArray > inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue > self);
+        return nc2Boost(inValue > inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorGreaterArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self > inOtherArray);
+        return nc2Boost(inArray1 > inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self <= inValue);
+        return nc2Boost(inArray <= inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue <= self);
+        return nc2Boost(inValue <= inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorLessEqualArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self <= inOtherArray);
+        return nc2Boost(inArray1 <= inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualScaler(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
     {
-        return nc2Boost(self >= inValue);
+        return nc2Boost(inArray >= inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualScalerReversed(const NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(inValue >= self);
+        return nc2Boost(inValue >= inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray operatorGreaterEqualArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(self >= inOtherArray);
+        return nc2Boost(inArray1 >= inArray2);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitshiftLeft(const NdArray<dtype>& self, uint8 inNumBits)
+    np::ndarray operatorBitshiftLeft(const NdArray<dtype>& inArray, uint8 inNumBits)
     {
-        return nc2Boost(self << inNumBits);
+        return nc2Boost(inArray << inNumBits);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitshiftRight(const NdArray<dtype>& self, uint8 inNumBits)
+    np::ndarray operatorBitshiftRight(const NdArray<dtype>& inArray, uint8 inNumBits)
     {
-        return nc2Boost(self >> inNumBits);
+        return nc2Boost(inArray >> inNumBits);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPrePlusPlus(NdArray<dtype>& self)
+    np::ndarray operatorPrePlusPlus(NdArray<dtype>& inArray)
     {
-        return nc2Boost(++self);
+        return nc2Boost(++inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPostPlusPlus(NdArray<dtype>& self)
+    np::ndarray operatorPostPlusPlus(NdArray<dtype>& inArray)
     {
-        return nc2Boost(self++);
+        return nc2Boost(inArray++);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPreMinusMinus(NdArray<dtype>& self)
+    np::ndarray operatorPreMinusMinus(NdArray<dtype>& inArray)
     {
-        return nc2Boost(--self);
+        return nc2Boost(--inArray);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPostMinusMinus(NdArray<dtype>& self)
+    np::ndarray operatorPostMinusMinus(NdArray<dtype>& inArray)
     {
-        return nc2Boost(self--);
+        return nc2Boost(inArray--);
     }
 }
 
