@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/mean.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>
@@ -53,7 +54,7 @@ namespace nc
     template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
-        return inArray.mean(inAxis);
+        return mean(inArray, inAxis);
     }
 
     //============================================================================

@@ -28,8 +28,14 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Utils/sqr.hpp"
+
+#include <algorithm>
+#include <cmath>
+#include <complex>
 
 namespace nc
 {
@@ -46,6 +52,112 @@ namespace nc
     template<typename dtype>
     NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
-        return inArray.rms(inAxis);
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        double squareSum = 0.0;
+        auto function = [&squareSum](dtype value) noexcept -> void
+        {
+            squareSum += utils::sqr(static_cast<double>(value));
+        };
+
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                std::for_each(inArray.cbegin(), inArray.cend(), function);
+                NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
+                return returnArray;
+            }
+            case Axis::COL:
+            {
+                NdArray<double> returnArray(1, inArray.numRows());
+                for (uint32 row = 0; row < inArray.numRows(); ++row)
+                {
+                    squareSum = 0.0;
+                    std::for_each(inArray.cbegin(row), inArray.cend(row), function);
+                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(inArray.numCols()));
+                }
+
+                return returnArray;
+            }
+            case Axis::ROW:
+            {
+                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<double> returnArray(1, transposedArray.numRows());
+                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
+                {
+                    squareSum = 0.0;
+                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.numCols()));
+                }
+
+                return returnArray;
+            }
+            default:
+            {
+                return NdArray<double>(); // get rid of compiler warning
+            }
+        }
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Compute the root mean square (RMS) along the specified axis.
+    ///
+    /// @param				inArray
+    /// @param				inAxis (Optional, default NONE)
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        std::complex<double> squareSum = 0.0;
+        auto function = [&squareSum](std::complex<dtype> value) noexcept -> void
+        {
+            squareSum += utils::sqr(complex_cast<double>(value));
+        };
+
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                std::for_each(inArray.cbegin(), inArray.cend(), function);
+                NdArray<std::complex<double>> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
+                return returnArray;
+            }
+            case Axis::COL:
+            {
+                NdArray<std::complex<double>> returnArray(1, inArray.numRows());
+                for (uint32 row = 0; row < inArray.numRows(); ++row)
+                {
+                    squareSum = std::complex<double>(0.0, 0.0);
+                    std::for_each(inArray.cbegin(row), inArray.cend(row), function);
+                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(inArray.numCols()));
+                }
+
+                return returnArray;
+            }
+            case Axis::ROW:
+            {
+                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
+                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
+                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
+                {
+                    squareSum = std::complex<double>(0.0, 0.0);
+                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.numCols()));
+                }
+
+                return returnArray;
+            }
+            default:
+            {
+                return NdArray<std::complex<double>>(); // get rid of compiler warning
+            }
+        }
     }
 }

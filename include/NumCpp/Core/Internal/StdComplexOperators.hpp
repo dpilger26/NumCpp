@@ -112,10 +112,11 @@ namespace nc
     /// @param      rhs
     /// @return     bool true if lhs >= rhs
     ///
-    template<typename In, typename Out>
+    template<typename Out, typename In>
     std::complex<Out> complex_cast(const std::complex<In>& value)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(In);
+        STATIC_ASSERT_ARITHMETIC(Out);
 
         return std::complex<Out>(value.real(), value.imag());
     }

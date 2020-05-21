@@ -2269,60 +2269,6 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the mean along a given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> mean(Axis inAxis = Axis::NONE) const noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    auto sum = std::accumulate(cbegin(), cend(), 0.0);
-                    NdArray<double> returnArray = { sum /= static_cast<double>(size_) };
-
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        auto sum = std::accumulate(cbegin(row), cend(row), 0.0);
-                        returnArray(0, row) = sum / static_cast<double>(shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
-                        returnArray(0, row) = sum / static_cast<double>(transposedArray.shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    return NdArray<double>(); // get rid of compiler warning
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Return the median along a given axis. 
         ///                     If the dtype is floating point then the middle elements will be
         ///                     averaged for arrays of even number of elements. 
@@ -2658,75 +2604,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the norm of the array
-        ///
-        ///                     Numpy Reference: http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				norm
-        ///
-        NdArray<double> norm(Axis inAxis = Axis::NONE) const noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-            double sumOfSquares = 0.0;
-            auto function = [&sumOfSquares](dtype value) noexcept -> void
-            {
-                sumOfSquares += utils::sqr(static_cast<double>(value));
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    std::for_each(cbegin(), cend(), function);
-
-                    NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        sumOfSquares = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        sumOfSquares = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    return NdArray<double>(); // get rid of compiler warning
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Returns the number of columns in the array
         ///
         ///
         /// @return
         ///				uint32
         ///
-        uint32 numCols() noexcept
+        uint32 numCols() const noexcept
         {
             return shape_.cols;
         }
@@ -2739,7 +2623,7 @@ namespace nc
         /// @return
         ///				uint32
         ///
-        uint32 numRows() noexcept
+        uint32 numRows() const noexcept
         {
             return shape_.rows;
         }
@@ -3559,65 +3443,6 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the root mean square (RMS) along a given axis.
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> rms(Axis inAxis = Axis::NONE) const noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-            double squareSum = 0.0;
-            auto function = [&squareSum](dtype value) noexcept -> void
-            {
-                squareSum += utils::sqr(static_cast<double>(value));
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    std::for_each(cbegin(), cend(), function);
-                    NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        squareSum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        squareSum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    return NdArray<double>(); // get rid of compiler warning
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Return a with each element rounded to the given number
         ///						of decimals.
         ///
@@ -3734,77 +3559,6 @@ namespace nc
             }
 
             return *this;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return the std along a given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> stdev(Axis inAxis = Axis::NONE) const noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-            double meanValue = 0.0;
-            double sum = 0.0;
-
-            auto function = [&sum, &meanValue](dtype value) noexcept-> void
-            {
-                sum += utils::sqr(static_cast<double>(value) - meanValue);
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    meanValue = mean(inAxis).item();
-                    std::for_each(cbegin(), cend(), function);
-
-                    NdArray<double> returnArray = { std::sqrt(sum / size_) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> meanValueArray = mean(inAxis);
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        meanValue = meanValueArray[row];
-                        sum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-
-                        returnArray(0, row) = std::sqrt(sum / shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<double> meanValueArray = mean(inAxis);
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        meanValue = meanValueArray[row];
-                        sum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-
-                        returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    return NdArray<double>(); // get rid of compiler warning
-                }
-            }
         }
 
         //============================================================================
@@ -4041,31 +3795,6 @@ namespace nc
                 }
             }
             return transArray;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Returns the variance of the array elements, along given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> var(Axis inAxis = Axis::NONE) const noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
-            NdArray<double> stdValues = stdev(inAxis);
-            auto function = [](double& value) noexcept -> void
-            {
-                value *= value;
-            };
-
-            stl_algorithms::for_each(stdValues.begin(), stdValues.end(), function);
-            return stdValues;
         }
 
         //============================================================================

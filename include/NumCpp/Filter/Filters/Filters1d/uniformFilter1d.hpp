@@ -32,6 +32,7 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
+#include "NumCpp/Functions/mean.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -65,7 +66,7 @@ namespace nc
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = window.mean().item();
+                output[i - boundarySize] = mean(window).item();
             }
 
             return output;

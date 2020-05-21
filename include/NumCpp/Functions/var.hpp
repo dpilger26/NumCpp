@@ -29,6 +29,11 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/stdev.hpp"
+
+#include <algorithm>
+#include <complex>
 
 namespace nc
 {
@@ -45,8 +50,17 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    auto var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
-        return inArray.var(inAxis);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        auto stdValues = stdev(inArray, inAxis);
+        auto function = [](auto& value) noexcept -> void
+        {
+            value *= value;
+        };
+
+        stl_algorithms::for_each(stdValues.begin(), stdValues.end(), function);
+        return stdValues;
     }
 }

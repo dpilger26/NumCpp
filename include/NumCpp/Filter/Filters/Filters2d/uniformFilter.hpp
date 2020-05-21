@@ -28,11 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Functions/mean.hpp"
 
 namespace nc
 {
@@ -70,7 +71,7 @@ namespace nc
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = window.mean().item();
+                    output(row - boundarySize, col - boundarySize) = mean(window).item();
                 }
             }
 

@@ -35,6 +35,7 @@
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -759,7 +760,7 @@ namespace nc
                 auto pPrime = *this * p * this->inverse();
 
                 NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
-                rotatedVec *= inVec.norm().item();
+                rotatedVec *= norm(inVec).item();
                 return rotatedVec;
             }
 

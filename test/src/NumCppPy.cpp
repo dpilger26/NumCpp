@@ -379,14 +379,6 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray mean(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
-    {
-        return nc2Boost(self.mean(inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     np::ndarray median(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.median(inAxis));
@@ -415,14 +407,6 @@ namespace NdArrayInterface
     {
         auto rowCol = self.nonzero();
         return bp::make_tuple(nc2Boost(rowCol.first), nc2Boost(rowCol.second));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray norm(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
-    {
-        return nc2Boost(self.norm(inAxis));
     }
 
     //================================================================================
@@ -673,14 +657,6 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray rms(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
-    {
-        return nc2Boost(self.rms(inAxis));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     np::ndarray round(const NdArray<dtype>& self, uint8 inNumDecimals)
     {
         return nc2Boost(self.round(inNumDecimals));
@@ -693,14 +669,6 @@ namespace NdArrayInterface
     {
         self.sort(inAxis);
         return nc2Boost(self);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray stdev(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
-    {
-        return nc2Boost(self.stdev(inAxis));
     }
 
     //================================================================================
@@ -725,14 +693,6 @@ namespace NdArrayInterface
     np::ndarray transpose(const NdArray<dtype>& self)
     {
         return nc2Boost(self.transpose());
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray var(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
-    {
-        return nc2Boost(self.var(inAxis));
     }
 
     //================================================================================
@@ -4610,13 +4570,11 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
-        .def("mean", &NdArrayInterface::mean<double>)
         .def("median", &NdArrayInterface::median<double>)
         .def("nans", &NdArrayDouble::nans, bp::return_internal_reference<>())
         .def("nbytes", &NdArrayDouble::nbytes)
         .def("none", &NdArrayInterface::none<double>)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
-        .def("norm", &NdArrayInterface::norm<double>)
         .def("numRows", &NdArrayDouble::numCols)
         .def("numCols", &NdArrayDouble::numRows)
         .def("ones", &NdArrayInterface::ones<double>)
@@ -4647,20 +4605,17 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
         .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
         .def("resizeSlowList", &NdArrayInterface::resizeSlowList<double>)
-        .def("rms", &NdArrayInterface::rms<double>)
         .def("round", &NdArrayInterface::round<double>)
         .def("row", &NdArrayDouble::row)
         .def("shape", &NdArrayDouble::shape)
         .def("size", &NdArrayDouble::size)
         .def("sort", &NdArrayInterface::sort<double>)
-        .def("stdev", &NdArrayInterface::stdev<double>)
         .def("sum", &NdArrayInterface::sum<double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
         .def("tofile", &NdArrayDouble::tofile)
         .def("toStlVector", &NdArrayDouble::toStlVector)
         .def("trace", &NdArrayDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<double>)
-        .def("var", &NdArrayInterface::var<double>)
         .def("zeros", &NdArrayDouble::zeros, bp::return_internal_reference<>());
 
     bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>); // (1)
@@ -5047,12 +5002,10 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("item", &NdArrayComplexDouble::item)
         .def("max", &NdArrayInterface::max<ComplexDouble>)
         .def("min", &NdArrayInterface::min<ComplexDouble>)
-        //.def("mean", &NdArrayInterface::mean<ComplexDouble>)
         .def("median", &NdArrayInterface::median<ComplexDouble>)
         .def("nbytes", &NdArrayComplexDouble::nbytes)
         .def("none", &NdArrayInterface::none<ComplexDouble>)
         .def("nonzero", &NdArrayInterface::nonzero<ComplexDouble>)
-        //.def("norm", &NdArrayInterface::norm<ComplexDouble>)
         .def("numRows", &NdArrayComplexDouble::numCols)
         .def("numCols", &NdArrayComplexDouble::numRows)
         .def("ones", &NdArrayInterface::ones<ComplexDouble>)
@@ -5083,19 +5036,16 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<ComplexDouble>)
         .def("resizeSlow", &NdArrayInterface::resizeSlow<ComplexDouble>)
         .def("resizeSlowList", &NdArrayInterface::resizeSlowList<ComplexDouble>)
-        ////.def("rms", &NdArrayInterface::rms<ComplexDouble>)
         .def("row", &NdArrayComplexDouble::row)
         .def("shape", &NdArrayComplexDouble::shape)
         .def("size", &NdArrayComplexDouble::size)
         .def("sort", &NdArrayInterface::sort<ComplexDouble>)
-        ////.def("stdev", &NdArrayInterface::stdev<ComplexDouble>)
         .def("sum", &NdArrayInterface::sum<ComplexDouble>)
         .def("swapaxes", &NdArrayInterface::swapaxes<ComplexDouble>)
         .def("tofile", &NdArrayComplexDouble::tofile)
         .def("toStlVector", &NdArrayComplexDouble::toStlVector)
         .def("trace", &NdArrayComplexDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<ComplexDouble>)
-        ////.def("var", &NdArrayInterface::var<ComplexDouble>)
         .def("zeros", &NdArrayComplexDouble::zeros, bp::return_internal_reference<>());
 
     // Functions.hpp
@@ -5320,7 +5270,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("max", &max<double>);
     bp::def("maximum", &maximum<double>);
     bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
-    bp::def("mean", &mean<double>);
+    NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>; 
+    bp::def("mean", meanDouble);
+    NdArray<std::complex<double>> (*meanComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &mean<double>; 
+    bp::def("mean", meanComplexDouble);
     bp::def("median", &median<double>);
     bp::def("min", &min<double>);
     bp::def("minimum", &minimum<double>);
@@ -5351,7 +5304,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("negative", &negative<double>);
     bp::def("none", &FunctionsInterface::noneArray<double>);
     bp::def("nonzero", &nonzero<double>);
-    bp::def("norm", &norm<double>);
+    NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>; 
+    bp::def("norm", normDouble);
+    NdArray<std::complex<double>> (*normComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &norm<double>; 
+    bp::def("norm", normComplexDouble);
     bp::def("not_equal", &not_equal<double>);
 
     bp::def("onesSquare", &FunctionsInterface::onesSquare<double>);
@@ -5403,7 +5359,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("right_shift", &right_shift<uint32>);
     bp::def("rintScaler", &FunctionsInterface::rintScaler<double>);
     bp::def("rintArray", &FunctionsInterface::rintArray<double>);
-    bp::def("rms", &rms<double>);
+    NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>; 
+    bp::def("rms", rmsDouble);
+    NdArray<std::complex<double>> (*rmsComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &rms<double>; 
+    bp::def("rms", rmsComplexDouble);
     bp::def("roll", &roll<double>);
     bp::def("rot90", &rot90<double>);
     bp::def("roundScaler", &FunctionsInterface::roundScaler<double>);
@@ -5434,7 +5393,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("squareScaler", &FunctionsInterface::squareScaler<double>);
     bp::def("squareArray", &FunctionsInterface::squareArray<double>);
     bp::def("stack", &FunctionsInterface::stack<double>);
-    bp::def("stdev", &nc::stdev<double>);
+    NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>; 
+    bp::def("stdev", stdevDouble);
+    NdArray<std::complex<double>> (*stdevComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &stdev<double>; 
+    bp::def("stdev", stdevComplexDouble);
     bp::def("subtract", &FunctionsInterface::subtractArrays<double>);
     bp::def("sum", &sum<double>);
     bp::def("swapaxes", &swapaxes<double>);
@@ -5473,6 +5435,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
     bp::def("var", &var<double>);
+    bp::def("var", &var<std::complex<double>>);
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
     bp::def("where", &FunctionsInterface::where<double>);
