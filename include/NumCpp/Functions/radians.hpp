@@ -45,7 +45,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr double radians(dtype inValue) noexcept
+    constexpr auto radians(dtype inValue) noexcept
     {
         return deg2rad(inValue);
     }
@@ -62,7 +62,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> radians(const NdArray<dtype>& inArray) noexcept
+    auto radians(const NdArray<dtype>& inArray) noexcept
     {
         return deg2rad(inArray);
     }

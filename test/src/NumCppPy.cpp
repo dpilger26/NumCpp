@@ -51,7 +51,15 @@ namespace NdArrayInterface
     template<typename dtype>
     bool test1DListContructor()
     {
-        NdArray<dtype> test = { 1,2,3,4,666,357,314159 };
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        NdArray<dtype> test = { dtype{1},
+            dtype{2},
+            dtype{3},
+            dtype{4},
+            dtype{666},
+            dtype{357},
+            dtype{314159} };
         if (test.size() != 7)
         {
             return false;
@@ -62,7 +70,13 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == 1 && test[1] == 2 && test[2] == 3 && test[3] == 4 && test[4] == 666 && test[5] == 357 && test[6] == 314159;
+        return test[0] == dtype{ 1 } &&
+            test[1] == dtype{ 2 } &&
+            test[2] == dtype{ 3 } &&
+            test[3] == dtype{ 4 } &&
+            test[4] == dtype{ 666 } &&
+            test[5] == dtype{ 357 } &&
+            test[6] == dtype{ 314159 };
     }
 
     //================================================================================
@@ -70,7 +84,12 @@ namespace NdArrayInterface
     template<typename dtype>
     bool test2DListContructor()
     {
-        NdArray<dtype> test = { {1,2}, {4,666}, {314159, 9}, {0, 8} };
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        NdArray<dtype> test = { {dtype{1}, dtype{2}}, 
+            {dtype{4}, dtype{666}},
+            {dtype{314159}, dtype{9}},
+            {dtype{0}, dtype{8}} };
         if (test.size() != 8)
         {
             return false;
@@ -81,7 +100,14 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == 1 && test[1] == 2 && test[2] == 4 && test[3] == 666 && test[4] == 314159 && test[5] == 9 && test[6] == 0 && test[7] == 8;
+        return test[0] == dtype{ 1 } &&
+            test[1] == dtype{ 2 } &&
+            test[2] == dtype{ 4 } &&
+            test[3] == dtype{ 666 } &&
+            test[4] == dtype{ 314159 } &&
+            test[5] == dtype{ 9 } &&
+            test[6] == dtype{ 0 } &&
+            test[7] == dtype{ 8 };
     }
 
     //================================================================================
@@ -4935,19 +4961,6 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
-    typedef NdArray<std::complex<double>> NdArrayComplexDouble;
-    bp::class_<NdArrayComplexDouble>
-        ("NdArrayComplexDouble", bp::init<>())
-        .def(bp::init<uint32>())
-        .def(bp::init<uint32, uint32>())
-        .def(bp::init<Shape>())
-        .def("item", &NdArrayComplexDouble::item)
-        .def("shape", &NdArrayComplexDouble::shape)
-        .def("size", &NdArrayComplexDouble::size)
-        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<double>>)
-        .def("endianess", &NdArrayComplexDouble::endianess)
-        .def("setArray", NdArrayInterface::setArray<std::complex<double>>);
-
     typedef NdArray<std::complex<long double>> NdArrayComplexLongDouble;
     bp::class_<NdArrayComplexLongDouble>
         ("NdArrayComplexLongDouble", bp::init<>())
@@ -4958,7 +4971,6 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("shape", &NdArrayComplexLongDouble::shape)
         .def("size", &NdArrayComplexLongDouble::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<long double>>)
-        .def("endianess", &NdArrayComplexLongDouble::endianess)
         .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
 
     typedef NdArray<std::complex<float>> NdArrayComplexFloat;
@@ -4971,7 +4983,6 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("shape", &NdArrayComplexFloat::shape)
         .def("size", &NdArrayComplexFloat::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
-        .def("endianess", &NdArrayComplexFloat::endianess)
         .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
 
     typedef NdArray<std::complex<int32>> NdArrayComplexInt32;
@@ -4984,8 +4995,108 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("shape", &NdArrayComplexInt32::shape)
         .def("size", &NdArrayComplexInt32::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<int32>>)
-        .def("endianess", &NdArrayComplexInt32::endianess)
         .def("setArray", NdArrayInterface::setArray<std::complex<int32>>);
+
+    typedef std::complex<double> ComplexDouble;
+    typedef NdArray<ComplexDouble> NdArrayComplexDouble;
+    bp::class_<NdArrayComplexDouble>
+        ("NdArrayComplexDouble", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def(bp::init<NdArrayComplexDouble>())
+        .def("test1DListContructor", &NdArrayInterface::test1DListContructor<ComplexDouble>).staticmethod("test1DListContructor")
+        .def("test2DListContructor", &NdArrayInterface::test2DListContructor<ComplexDouble>).staticmethod("test2DListContructor")
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<ComplexDouble>)
+        .def("setArray", &NdArrayInterface::setArray<ComplexDouble>)
+        .def("rSlice", &NdArrayComplexDouble::rSlice)
+        .def("cSlice", &NdArrayComplexDouble::cSlice)
+        .def("all", &NdArrayInterface::all<ComplexDouble>)
+        .def("any", &NdArrayInterface::any<ComplexDouble>)
+        .def("argmax", &NdArrayInterface::argmax<ComplexDouble>)
+        .def("argmin", &NdArrayInterface::argmin<ComplexDouble>)
+        .def("argsort", &NdArrayInterface::argsort<ComplexDouble>)
+        .def("back", &NdArrayInterface::back<ComplexDouble>)
+        .def("backReference", &NdArrayInterface::backReference<ComplexDouble>)
+        .def("clip", &NdArrayInterface::clip<ComplexDouble>)
+        .def("column", &NdArrayComplexDouble::column)
+        .def("copy", &NdArrayInterface::copy<ComplexDouble>)
+        .def("contains", &NdArrayInterface::contains<ComplexDouble>)
+        .def("cumprod", &NdArrayInterface::cumprod<ComplexDouble>)
+        .def("cumsum", &NdArrayInterface::cumsum<ComplexDouble>)
+        .def("diagonal", &NdArrayInterface::diagonal<ComplexDouble>)
+        .def("dot", &NdArrayInterface::dot<ComplexDouble>)
+        .def("dump", &NdArrayComplexDouble::dump)
+        .def("fill", &NdArrayInterface::fill<ComplexDouble>)
+        .def("flatnonzero", &NdArrayInterface::flatnonzero<ComplexDouble>)
+        .def("flatten", &NdArrayInterface::flatten<ComplexDouble>)
+        .def("front", &NdArrayInterface::front<ComplexDouble>)
+        .def("frontReference", &NdArrayInterface::frontReference<ComplexDouble>)
+        .def("get", &NdArrayInterface::getValueFlat<ComplexDouble>)
+        .def("get", &NdArrayInterface::getValueRowCol<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice1D<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2D<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2DRow<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2DCol<ComplexDouble>)
+        .def("getByIndices", &NdArrayInterface::getByIndices<ComplexDouble>)
+        .def("getByMask", &NdArrayInterface::getByMask<ComplexDouble>)
+        .def("isempty", &NdArrayComplexDouble::isempty)
+        .def("isflat", &NdArrayComplexDouble::isflat)
+        .def("issorted", &NdArrayInterface::issorted<ComplexDouble>)
+        .def("issquare", &NdArrayComplexDouble::issquare)
+        .def("item", &NdArrayComplexDouble::item)
+        .def("max", &NdArrayInterface::max<ComplexDouble>)
+        .def("min", &NdArrayInterface::min<ComplexDouble>)
+        //.def("mean", &NdArrayInterface::mean<ComplexDouble>)
+        .def("median", &NdArrayInterface::median<ComplexDouble>)
+        .def("nbytes", &NdArrayComplexDouble::nbytes)
+        .def("none", &NdArrayInterface::none<ComplexDouble>)
+        .def("nonzero", &NdArrayInterface::nonzero<ComplexDouble>)
+        //.def("norm", &NdArrayInterface::norm<ComplexDouble>)
+        .def("numRows", &NdArrayComplexDouble::numCols)
+        .def("numCols", &NdArrayComplexDouble::numRows)
+        .def("ones", &NdArrayInterface::ones<ComplexDouble>)
+        .def("partition", &NdArrayInterface::partition<ComplexDouble>)
+        .def("print", &NdArrayComplexDouble::print)
+        .def("prod", &NdArrayInterface::prod<ComplexDouble>)
+        .def("ptp", &NdArrayInterface::ptp<ComplexDouble>)
+        .def("put", &NdArrayInterface::putFlat<ComplexDouble>)
+        .def("put", &NdArrayInterface::putRowCol<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice1DValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice1DValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValueRow<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValueCol<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValuesRow<ComplexDouble>)
+        .def("put", &NdArrayInterface::putSlice2DValuesCol<ComplexDouble>)
+        .def("putMask", &NdArrayInterface::putMaskSingle<ComplexDouble>)
+        .def("putMask", &NdArrayInterface::putMaskMultiple<ComplexDouble>)
+        .def("ravel", &NdArrayInterface::ravel<ComplexDouble>)
+        .def("repeat", &NdArrayInterface::repeat<ComplexDouble>)
+        .def("reshape", &NdArrayInterface::reshapeInt<ComplexDouble>)
+        .def("reshape", &NdArrayInterface::reshapeValues<ComplexDouble>)
+        .def("reshape", &NdArrayInterface::reshapeShape<ComplexDouble>)
+        .def("reshapeList", &NdArrayInterface::reshapeList<ComplexDouble>)
+        .def("replace", &NdArrayInterface::replace<ComplexDouble>)
+        .def("resizeFast", &NdArrayInterface::resizeFast<ComplexDouble>)
+        .def("resizeFastList", &NdArrayInterface::resizeFastList<ComplexDouble>)
+        .def("resizeSlow", &NdArrayInterface::resizeSlow<ComplexDouble>)
+        .def("resizeSlowList", &NdArrayInterface::resizeSlowList<ComplexDouble>)
+        ////.def("rms", &NdArrayInterface::rms<ComplexDouble>)
+        .def("row", &NdArrayComplexDouble::row)
+        .def("shape", &NdArrayComplexDouble::shape)
+        .def("size", &NdArrayComplexDouble::size)
+        .def("sort", &NdArrayInterface::sort<ComplexDouble>)
+        ////.def("stdev", &NdArrayInterface::stdev<ComplexDouble>)
+        .def("sum", &NdArrayInterface::sum<ComplexDouble>)
+        .def("swapaxes", &NdArrayInterface::swapaxes<ComplexDouble>)
+        .def("tofile", &NdArrayComplexDouble::tofile)
+        .def("toStlVector", &NdArrayComplexDouble::toStlVector)
+        .def("trace", &NdArrayComplexDouble::trace)
+        .def("transpose", &NdArrayInterface::transpose<ComplexDouble>)
+        ////.def("var", &NdArrayInterface::var<ComplexDouble>)
+        .def("zeros", &NdArrayComplexDouble::zeros, bp::return_internal_reference<>());
 
     // Functions.hpp
     bp::def("absScaler", &FunctionsInterface::absScaler<double>);

@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <complex>
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     auto polar(dtype magnitude, dtype phaseAngle) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::polar(magnitude, phaseAngle);
     }
 

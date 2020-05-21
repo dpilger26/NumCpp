@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
+#include <complex>
 #include <string>
 #include <sstream>
 

@@ -28,10 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/nanmean.hpp"
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <algorithm>
@@ -54,6 +55,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         switch (inAxis)
         {
             case Axis::NONE:

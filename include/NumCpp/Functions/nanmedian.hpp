@@ -28,12 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/max.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 #include <vector>
@@ -55,6 +56,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         switch (inAxis)
         {
             case Axis::NONE:

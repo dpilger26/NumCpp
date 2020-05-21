@@ -28,9 +28,10 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -51,6 +52,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<dtype> returnArray(inN, inM);
         returnArray.zeros();
 
@@ -64,7 +67,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row, col++) = 1;
+                returnArray(row, col++) = dtype{ 1 };
             }
         }
         else
@@ -77,7 +80,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row++, col) = 1;
+                returnArray(row++, col) = dtype{ 1 };
             }
         }
 

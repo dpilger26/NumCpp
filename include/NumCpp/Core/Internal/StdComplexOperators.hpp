@@ -28,6 +28,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+
 #include <complex>
 
 namespace nc
@@ -100,5 +102,21 @@ namespace nc
     bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs)
     {
         return !(lhs < rhs);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///	Greater than or equal operator for std::complex<T>
+    ///
+    /// @param      lhs
+    /// @param      rhs
+    /// @return     bool true if lhs >= rhs
+    ///
+    template<typename In, typename Out>
+    std::complex<Out> complex_cast(const std::complex<In>& value)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return std::complex<Out>(value.real(), value.imag());
     }
 }

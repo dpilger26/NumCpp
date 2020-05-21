@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
@@ -47,6 +48,8 @@ namespace nc
     template<typename dtype>
     bool signbit(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return inValue < 0 ? true : false;
     }
 

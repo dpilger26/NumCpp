@@ -63,6 +63,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0) noexcept
     {
-        return inArray.copy().round(inDecimals);
+        return inArray.round(inDecimals);
     }
 }

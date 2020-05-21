@@ -52,7 +52,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue);
+        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue, 
+            [](dtype lhs, dtype rhs) -> bool
+            {
+                return lhs < rhs;
+            });
     }
 
     //============================================================================

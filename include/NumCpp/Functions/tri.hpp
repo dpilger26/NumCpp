@@ -28,9 +28,10 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -50,6 +51,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         uint32 rowStart = 0;
         uint32 colStart = 0;
         if (inOffset > 0)
@@ -96,6 +99,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         uint32 rowStart = 0;
         uint32 colStart = 0;
         if (inOffset > 0)
@@ -149,6 +154,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
         outArray.putMask(triu<bool>(inShape.rows, inShape.cols, inOffset + 1), 0);
@@ -172,6 +179,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         // because i'm stealing the lines of code from tril and reversing it, this is necessary
         inOffset -= 1;
 
@@ -220,6 +229,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return tril<dtype>(inN, -inOffset).transpose();
     }
 
@@ -243,6 +254,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
         outArray.putMask(tril<bool>(inShape.rows, inShape.cols, inOffset - 1), 0);

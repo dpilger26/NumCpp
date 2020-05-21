@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <iterator>
 #include <vector>
 
 namespace nc
@@ -48,11 +49,6 @@ namespace nc
     template<typename dtype, typename Iter>
     NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) noexcept
     {
-        std::vector<dtype> values;
-        for (Iter iter = inBegin; iter != inEnd; ++iter)
-        {
-            values.push_back(*iter);
-        }
-        return NdArray<dtype>(values);
+        return NdArray<dtype>(inBegin, inEnd);
     }
 }

@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <iostream>
 
@@ -46,6 +47,8 @@ namespace nc
     template<typename dtype>
     void print(const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         std::cout << inArray;
     }
 }

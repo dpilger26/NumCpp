@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/nanstdev.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -50,6 +51,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         return square(nanstdev(inArray, inAxis));
     }
 }

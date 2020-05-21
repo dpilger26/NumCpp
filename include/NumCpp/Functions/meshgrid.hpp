@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Functions/arange.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/arange.hpp"
 
 #include <utility>
 
@@ -53,6 +54,8 @@ namespace nc
     template<typename dtype>
     std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         const uint32 numRows = inJCoords.size();
         const uint32 numCols = inICoords.size();
         auto returnArrayI = NdArray<dtype>(numRows, numCols);

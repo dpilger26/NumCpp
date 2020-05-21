@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     constexpr dtype square(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return utils::sqr(inValue);
     }
 

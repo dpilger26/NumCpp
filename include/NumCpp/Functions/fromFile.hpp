@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -56,6 +57,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (!filesystem::File(inFilename).exists())
         {
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);

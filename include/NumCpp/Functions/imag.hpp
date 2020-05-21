@@ -49,6 +49,8 @@ namespace nc
     template<typename dtype>
     auto imag(const std::complex<dtype>& inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::imag(inValue);
     }
 

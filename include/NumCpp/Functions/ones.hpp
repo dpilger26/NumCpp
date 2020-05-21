@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/full.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(uint32 inSquareSize) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return full(inSquareSize, inSquareSize, dtype{ 1 });
     }
 
@@ -65,6 +68,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return full(inNumRows, inNumCols, dtype{ 1 });
     }
 
@@ -82,6 +87,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(const Shape& inShape) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return full(inShape, dtype{ 1 });
     }
 }

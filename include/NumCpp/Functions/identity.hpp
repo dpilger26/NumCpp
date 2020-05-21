@@ -53,7 +53,7 @@ namespace nc
         returnArray.zeros();
         for (uint32 i = 0; i < inSquareSize; ++i)
         {
-            returnArray(i, i) = 1;
+            returnArray(i, i) = dtype{ 1 };
         }
 
         return returnArray;

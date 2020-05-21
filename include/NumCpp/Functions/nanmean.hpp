@@ -28,11 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/max.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -54,6 +55,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         switch (inAxis)
         {
             case Axis::NONE:

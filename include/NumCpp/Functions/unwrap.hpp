@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
@@ -51,6 +52,8 @@ namespace nc
     template<typename dtype>
     dtype unwrap(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return static_cast<dtype>(std::atan2(std::sin(inValue), std::cos(inValue)));
     }
 

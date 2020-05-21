@@ -50,6 +50,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
         Shape outShape(inShape);
         outShape.rows += 2 * inPadWidth;

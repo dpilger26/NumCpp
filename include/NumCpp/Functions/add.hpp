@@ -29,7 +29,6 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -47,8 +46,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
         return inArray1 + inArray2;
     }
 }

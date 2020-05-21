@@ -34,10 +34,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Change shape and size of array in-place. All previous
-    ///						data of the array is lost.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    ///						Replaces the matching elements of an array with the new value
     ///
     /// @param	inArray
     /// @param  oldValue: the value to replace

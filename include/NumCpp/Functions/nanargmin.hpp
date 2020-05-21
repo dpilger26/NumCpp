@@ -28,11 +28,12 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/argmin.hpp"
 
 #include <cmath>
 
@@ -52,6 +53,8 @@ namespace nc
     template<typename dtype>
     NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         NdArray<dtype> arrayCopy(inArray);
         stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void

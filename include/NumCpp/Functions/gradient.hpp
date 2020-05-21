@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -53,6 +54,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         switch (inAxis)
         {
             case Axis::ROW:

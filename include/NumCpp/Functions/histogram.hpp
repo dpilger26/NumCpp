@@ -28,11 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Functions/zeros.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <string>
 #include <utility>
@@ -55,6 +56,8 @@ namespace nc
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inNumBins == 0)
         {
             THROW_INVALID_ARGUMENT_ERROR("number of bins must be positive.");

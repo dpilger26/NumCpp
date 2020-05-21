@@ -29,9 +29,10 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
 #include <string>
@@ -53,6 +54,8 @@ namespace nc
     template<typename dtype>
     double remainder(dtype inValue1, dtype inValue2) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::remainder(static_cast<double>(inValue1), static_cast<double>(inValue2));
     }
 

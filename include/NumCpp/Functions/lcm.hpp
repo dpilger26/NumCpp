@@ -51,6 +51,7 @@ namespace nc
     dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
+
         return boost::integer::lcm(inValue1, inValue2);
     }
 
@@ -68,6 +69,7 @@ namespace nc
     dtype lcm(const NdArray<dtype>& inArray) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
+
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 }

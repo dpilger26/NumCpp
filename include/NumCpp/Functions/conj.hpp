@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <complex>
@@ -49,6 +50,8 @@ namespace nc
     template<typename dtype>
     auto conj(const std::complex<dtype>& inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::conj(inValue);
     }
 

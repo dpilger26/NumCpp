@@ -50,6 +50,8 @@ namespace nc
     template<typename dtype>
     auto sqrt(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return std::sqrt(inValue);
     }
 

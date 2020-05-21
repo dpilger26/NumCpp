@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -51,6 +52,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<double> returnArray(inArray.shape());
 
         uint32 counter = 0;

@@ -33,6 +33,8 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
+#include <complex>
+
 namespace nc
 {
     //============================================================================

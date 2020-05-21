@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <set>
@@ -53,6 +54,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         std::vector<dtype> res(inArray1.size() + inArray2.size());
         const std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
         const std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());

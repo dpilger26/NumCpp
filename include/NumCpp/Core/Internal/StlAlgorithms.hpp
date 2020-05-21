@@ -130,8 +130,7 @@ namespace nc
         /// @return bool
         ///
         template<class InputIt1, class InputIt2>
-        bool equal(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2) noexcept
+        bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2) noexcept
         {
             return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -258,7 +257,26 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Runs the maximum element of the range
+        ///						Returns true if the array is sorted
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: comparitor function
+        /// @return bool true if sorted
+        ///
+        template<class ForwardIt, class Compare>
+        bool is_sorted(ForwardIt first, ForwardIt last, Compare comp)
+        {
+            return std::is_sorted(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, comp);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the maximum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -276,7 +294,26 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Runs the minimum element of the range
+        ///						Returns the maximum element of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: the comparitor function
+        /// @return ForwordIt
+        ///
+        template<class ForwardIt, class Compare>
+        ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp)
+        {
+            return std::max_element(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, comp);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the minimum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -293,6 +330,25 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Returns the minimum element of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: the comparitor function
+        /// @return ForwordIt
+        ///
+        template<class ForwardIt, class Compare>
+        ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp)
+        {
+            return std::min_element(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, comp);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Runs the minimum and maximum elements of the range
         ///
         /// @param first: the first iterator of the source
@@ -300,14 +356,32 @@ namespace nc
         /// @return std::pair
         ///
         template<class ForwardIt>
-        std::pair<ForwardIt, ForwardIt>
-            minmax_element(ForwardIt first, ForwardIt last)
+        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last)
         {
             return std::minmax_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
                 first, last);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Runs the minimum and maximum elements of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: the comparitor function
+        /// @return std::pair
+        ///
+        template<class ForwardIt, class Compare>
+        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, Compare comp)
+        {
+            return std::minmax_element(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, comp);
         }
 
         //============================================================================
@@ -345,6 +419,25 @@ namespace nc
                 std::execution::par_unseq,
 #endif
                 first, nth, last);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Sorts up to the nth element
+        ///
+        /// @param first: the first iterator of the range
+        /// @param nth: the element that should be sorted
+        /// @param last: the last iterator of the range
+        /// @param comp: the comparitor function
+        ///
+        template<class RandomIt, class Compare>
+        void nth_element(RandomIt first, RandomIt nth, RandomIt last, Compare comp)
+        {
+            std::nth_element(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, nth, last, comp);
         }
 
         //============================================================================
@@ -482,6 +575,41 @@ namespace nc
         void sort(RandomIt first, RandomIt last)
         {
             return std::sort(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Sorts the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: the comparitor function
+        ///
+        template<class RandomIt, class Compare>
+        void sort(RandomIt first, RandomIt last, Compare comp)
+        {
+            return std::sort(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, comp);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Sorts the range preserving order
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        ///
+        template<class RandomIt>
+        void stable_sort(RandomIt first, RandomIt last)
+        {
+            std::stable_sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif

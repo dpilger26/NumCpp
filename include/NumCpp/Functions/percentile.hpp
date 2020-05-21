@@ -28,13 +28,14 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/Functions/clip.hpp"
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <algorithm>
@@ -65,6 +66,8 @@ namespace nc
     NdArray<dtype> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");

@@ -30,9 +30,11 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -54,7 +56,13 @@ namespace nc
     template<typename dtype>
     dtype fmin(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::min(inValue1, inValue2);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return std::min(inValue1, inValue2, 
+            [](const dtype value1, const dtype value2) -> bool
+            {
+                return value1 < value2;
+            });
     }
 
     //============================================================================
@@ -79,10 +87,10 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<double> returnArray(inArray1.shape());
+        NdArray<dtype> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> double
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype
             {
                 return fmin(inValue1, inValue2); 
             });

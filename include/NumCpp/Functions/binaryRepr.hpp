@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <bitset>
 #include <string>
@@ -48,6 +49,8 @@ namespace nc
     template<typename dtype>
     std::string binaryRepr(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::bitset<DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
 }

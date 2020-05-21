@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -53,6 +54,8 @@ namespace nc
     template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
     }
 

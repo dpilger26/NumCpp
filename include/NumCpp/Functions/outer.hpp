@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <algorithm>
 
@@ -49,6 +50,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const auto size = inArray1.size();
 
         if (size != inArray2.size())

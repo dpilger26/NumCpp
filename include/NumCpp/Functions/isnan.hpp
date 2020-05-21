@@ -51,6 +51,8 @@ namespace nc
     template<typename dtype>
     bool isnan(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (DtypeInfo<dtype>::isInteger())
         {
             return false;
