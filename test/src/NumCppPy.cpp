@@ -5434,8 +5434,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
     bp::def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
-    bp::def("var", &var<double>);
-    bp::def("var", &var<std::complex<double>>);
+    NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
+    bp::def("var", varDouble);
+    NdArray<std::complex<double>> (*varComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &var<double>; 
+    bp::def("var", varComplexDouble);
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
     bp::def("where", &FunctionsInterface::where<double>);
