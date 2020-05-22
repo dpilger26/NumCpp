@@ -4432,15 +4432,18 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     //http://www.boost.org/doc/libs/1_60_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 
-    bp::class_<std::vector<double> >("doubleVector")
-        .def(bp::vector_indexing_suite<std::vector<double> >());
+    bp::class_<std::vector<double>>("doubleVector")
+        .def(bp::vector_indexing_suite<std::vector<double>>());
 
-    typedef std::pair<NdArray<double>, NdArray<double> > doublePair;
+    bp::class_<std::vector<std::complex<double>>>("doubleComplexVector")
+        .def(bp::vector_indexing_suite<std::vector<std::complex<double>>>());
+
+    typedef std::pair<NdArray<double>, NdArray<double>> doublePair;
     bp::class_<doublePair>("doublePair", bp::init<>())
         .def_readonly("first", &doublePair::first)
         .def_readonly("second", &doublePair::second);
 
-    typedef std::pair<NdArray<uint32>, NdArray<uint32> > uint32Pair;
+    typedef std::pair<NdArray<uint32>, NdArray<uint32>> uint32Pair;
     bp::class_<uint32Pair>("uint32Pair", bp::init<>())
         .def_readonly("first", &uint32Pair::first)
         .def_readonly("second", &uint32Pair::second);
