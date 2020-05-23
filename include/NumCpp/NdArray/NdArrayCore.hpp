@@ -103,11 +103,11 @@ namespace nc
         ///
         explicit NdArray(uint32 inSquareSize) noexcept :
             shape_(inSquareSize, inSquareSize),
-            size_(inSquareSize * inSquareSize),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(inSquareSize * inSquareSize)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
         }
 
         //============================================================================
@@ -119,11 +119,11 @@ namespace nc
         ///
         NdArray(uint32 inNumRows, uint32 inNumCols) noexcept :
             shape_(inNumRows, inNumCols),
-            size_(inNumRows * inNumCols),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(inNumRows * inNumCols)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
         }
 
         //============================================================================
@@ -135,11 +135,11 @@ namespace nc
         ///
         explicit NdArray(const Shape& inShape) noexcept :
             shape_(inShape),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
         }
 
         //============================================================================
@@ -151,13 +151,15 @@ namespace nc
         ///
         NdArray(const std::initializer_list<dtype>& inList) noexcept :
             shape_(1, static_cast<uint32>(inList.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inList.begin(), inList.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+            }
         }
 
         //============================================================================
@@ -185,7 +187,7 @@ namespace nc
             }
 
             size_ = shape_.size();
-            array_ = new dtype[size_];
+            newArray();
             uint32 row = 0;
             for (auto& list : inList)
             {
@@ -193,8 +195,6 @@ namespace nc
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
-
-            ownsPtr_ = true;
         }
 
         //============================================================================
@@ -207,13 +207,15 @@ namespace nc
         template<size_t ArraySize>
         explicit NdArray(const std::array<dtype, ArraySize>& inArray) noexcept :
             shape_(1, static_cast<uint32>(inArray.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+            }
         }
 
         //============================================================================
@@ -225,13 +227,15 @@ namespace nc
         ///
         explicit NdArray(const std::vector<dtype>& inVector) noexcept :
             shape_(1, static_cast<uint32>(inVector.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+            }
         }
 
         //============================================================================
@@ -243,13 +247,15 @@ namespace nc
         ///
         explicit NdArray(const std::deque<dtype>& inDeque) noexcept :
             shape_(1, static_cast<uint32>(inDeque.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+            }
         }
 
         //============================================================================
@@ -261,13 +267,15 @@ namespace nc
         ///
         explicit NdArray(const std::set<dtype>& inSet) noexcept :
             shape_(1, static_cast<uint32>(inSet.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
+            }
         }
 
         //============================================================================
@@ -279,13 +287,15 @@ namespace nc
         ///
         explicit NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inFirst, inLast, array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inFirst, inLast, array_);
+            }
         }
 
         //============================================================================
@@ -318,13 +328,15 @@ namespace nc
         ///
         NdArray(const dtype* const inPtr, uint32 inSize) noexcept :
             shape_(1, inSize),
-            size_(inSize),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(inSize)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            newArray();
+            if (inPtr != nullptr && size_ > 0)
+            {
+                stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            }
         }
 
         //============================================================================
@@ -337,11 +349,13 @@ namespace nc
         NdArray(const NdArray<dtype>& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
-            endianess_(inOtherArray.endianess_),
-            array_(new dtype[inOtherArray.size_]),
-            ownsPtr_(true)
+            endianess_(inOtherArray.endianess_)
         {
-            stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+            }
         }
 
         //============================================================================
@@ -385,10 +399,13 @@ namespace nc
         {
             if (&rhs != this)
             {
-                newArray(rhs.shape_);
-                endianess_ = rhs.endianess_;
+                if (rhs.size_ > 0)
+                {
+                    newArray(rhs.shape_);
+                    endianess_ = rhs.endianess_;
 
-                stl_algorithms::copy(rhs.cbegin(), rhs.cend(), begin());
+                    stl_algorithms::copy(rhs.cbegin(), rhs.cend(), begin());
+                }
             }
 
             return *this;
@@ -406,7 +423,10 @@ namespace nc
         ///
         NdArray<dtype>& operator=(dtype inValue) noexcept
         {
-            stl_algorithms::fill(begin(), end(), inValue);
+            if (array_ != nullptr)
+            {
+                stl_algorithms::fill(begin(), end(), inValue);
+            }
 
             return *this;
         }
@@ -3250,6 +3270,8 @@ namespace nc
         ///
         void replace(dtype oldValue, dtype newValue) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             stl_algorithms::replace(begin(), end(), oldValue, newValue);
         }
 
@@ -3364,8 +3386,6 @@ namespace nc
         NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             newArray(Shape(inNumRows, inNumCols));
-            zeros();
-
             return *this;
         }
 
@@ -3675,6 +3695,8 @@ namespace nc
         ///
         void tofile(const std::string& inFilename, const std::string& inSep = "") const
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (inSep.compare("") == 0)
             {
                 dump(inFilename);
@@ -3845,6 +3867,20 @@ namespace nc
             shape_.rows = shape_.cols = 0;
             size_ = 0;
             ownsPtr_ = false;
+            endianess_ = Endian::NATIVE;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Creates a new internal array
+        ///
+        void newArray() noexcept
+        {
+            if (size_ > 0)
+            {
+                array_ = new dtype[size_];
+                ownsPtr_ = true;
+            }
         }
 
         //============================================================================
@@ -3860,11 +3896,9 @@ namespace nc
 
             shape_ = inShape;
             size_ = inShape.size();
-            endianess_ = Endian::NATIVE;
-            array_ = new dtype[size_];
-            ownsPtr_ = true;
+            newArray();
         }
-};
+    };
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio

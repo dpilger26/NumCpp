@@ -1,5 +1,6 @@
 #include "NumCpp.hpp"
 
+#include <cstdio>
 #include <complex>
 #include <functional>
 #include <iostream>
@@ -108,6 +109,80 @@ namespace NdArrayInterface
             test[5] == dtype{ 9 } &&
             test[6] == dtype{ 0 } &&
             test[7] == dtype{ 8 };
+    }
+
+    //================================================================================
+
+    struct TestStruct
+    {
+        int member1{ 0 };
+        int member2{ 0 };
+        double member3{ 0.0 };
+        bool member4{ true };
+    };
+
+    //================================================================================
+
+    bool testStructuredArray()
+    {
+        NdArray<TestStruct> test1;
+        NdArray<TestStruct> test2(5);
+        NdArray<TestStruct> test3(5, 5);
+        NdArray<TestStruct> test4(test3.shape());
+        NdArray<TestStruct> test5_1(test2);
+        NdArray<TestStruct> test5_2(std::move(test4));
+        NdArray<TestStruct> test6 = { TestStruct{666, 357, 3.14519, true},
+            TestStruct{666, 357, 3.14519, true} };
+        NdArray<TestStruct> test7 = { {TestStruct{666, 357, 3.14519, true}, TestStruct{667, 377, 3.7519, false}},
+            {TestStruct{665, 357, 3.15519, false}, TestStruct{69, 359, 3.19519, true}} };
+
+        auto testStruct = TestStruct{ 666, 357, 3.14519, true };
+        test6 = testStruct;
+        test1.resizeFast({10, 10});
+        test1 = std::move(testStruct);
+
+        test7.begin();
+        test5_1.begin(0);
+        test5_2.end();
+        test2.end(0);
+
+        test2.resizeFast({10, 10});
+        test2 = TestStruct{ 666, 357, 3.14519, true };
+        test2.rSlice();
+        test2.cSlice();
+        test2.back();
+        test2.column(0);
+        test2.copy();
+        test2.data();
+        test2.diagonal();
+        test2.dump("test.bin");
+        remove("test.bin");
+        test2.fill(TestStruct{0, 1, 6.5, false});
+        test2.flatten();
+        test2.front();
+        test2[0];
+        test2(0, 0);
+        test2[0] = TestStruct{0, 1, 6.5, false};
+        test2(0, 0) = TestStruct{0, 1, 6.5, false};
+        test2.isempty();
+        test2.isflat();
+        test2.issquare();
+        test2.nbytes();
+        test2.numRows();
+        test2.numCols();
+        test2.put(0, TestStruct{ 0, 1, 6.5, false });
+        test2.ravel();
+        test2.repeat({2, 2});
+        test2.reshape(test2.size(), 1);
+        test2.resizeFast(1, 1);
+        test2.resizeSlow(10, 10);
+        test2.row(0);
+        test2.shape();
+        test2.size();
+        test2.swapaxes();
+        test2.transpose();
+
+        return true;
     }
 
     //================================================================================
@@ -5050,6 +5125,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("trace", &NdArrayComplexDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<ComplexDouble>)
         .def("zeros", &NdArrayComplexDouble::zeros, bp::return_internal_reference<>());
+
+    bp::def("testStructuredArray", &NdArrayInterface::testStructuredArray);
 
     // Functions.hpp
     bp::def("absScaler", &FunctionsInterface::absScaler<double>);

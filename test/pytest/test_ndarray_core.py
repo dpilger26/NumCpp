@@ -857,7 +857,6 @@ def test_ndarray():
     data = np.random.randint(1, 100, [shape1.rows, shape1.cols], dtype=np.uint32)
     cArray.setArray(data)
     res = cArray.resizeFast(shape2)
-    assert np.all(res == 0)
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 
@@ -2202,3 +2201,7 @@ def test_ndarray_complex():
     cArray.setArray(data)
     cArray.zeros()
     assert np.all(cArray.getNumpyArray() == np.complex(0))
+
+
+def test_structured_ndarray():
+    assert NumCpp.testStructuredArray()
