@@ -150,7 +150,8 @@ namespace nc
             ///
             NdArray<dtype> coefficients() const noexcept
             {
-                return NdArray<dtype>(coefficients_);
+                auto coefficientsCopy = coefficients_;
+                return NdArray<dtype>(coefficientsCopy);
             }
 
             //============================================================================

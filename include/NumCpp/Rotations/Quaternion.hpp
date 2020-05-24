@@ -539,7 +539,8 @@ namespace nc
             ///
             NdArray<double> toNdArray() const
             {
-                return NdArray<double>(components_);
+                auto componentsCopy = components_;
+                return NdArray<double>(componentsCopy);
             }
 
             //============================================================================

@@ -1784,7 +1784,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
+    np::ndarray aroundArray(NdArray<dtype>& inArray, uint8 inNumDecimals)
     {
         return nc2Boost(around(inArray, inNumDecimals));
     }
@@ -1792,7 +1792,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray asarrayVector(const std::vector<double>& inVec)
+    np::ndarray asarrayVector(std::vector<double>& inVec)
     {
         return nc2Boost(asarray(inVec));
     }

@@ -51,10 +51,12 @@
 #include <array>
 #include <cmath>
 #include <deque>
+#include <forward_list>
 #include <fstream>
 #include <initializer_list>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <numeric>
 #include <set>
 #include <string>
@@ -174,7 +176,7 @@ namespace nc
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            for (auto& list : inList)
+            for (const auto& list : inList)
             {
                 if (shape_.cols == 0)
                 {
@@ -189,7 +191,7 @@ namespace nc
             size_ = shape_.size();
             newArray();
             uint32 row = 0;
-            for (auto& list : inList)
+            for (const auto& list : inList)
             {
                 auto ptr = array_ + row * shape_.cols;
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
@@ -201,20 +203,29 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inArray
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
         ///
         template<size_t ArraySize>
-        explicit NdArray(const std::array<dtype, ArraySize>& inArray) noexcept :
-            shape_(1, static_cast<uint32>(inArray.size())),
+        NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept :
+            shape_(1, static_cast<uint32>(ArraySize)),
             size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            newArray();
-            if (size_ > 0)
+            if (copy)
             {
-                stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+                }
+            }
+            else
+            {
+                array_ = inArray.data();
+                ownsPtr_ = false;
             }
         }
 
@@ -222,19 +233,58 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inVector
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
         ///
-        explicit NdArray(const std::vector<dtype>& inVector) noexcept :
+        template<size_t Dim0Size, size_t Dim1Size>
+        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) noexcept :
+            shape_(static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size)),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
+                }
+            }
+            else
+            {
+                array_ = in2dArray.data();
+                ownsPtr_ = false;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        NdArray(std::vector<dtype>& inVector, bool copy = true) noexcept :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            newArray();
-            if (size_ > 0)
+            if (copy)
             {
-                stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+                }
+            }
+            else
+            {
+                array_ = inVector.data();
+                ownsPtr_ = false;
             }
         }
 
@@ -242,19 +292,154 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inDeque
+        /// @param      inArray
         ///
-        explicit NdArray(const std::deque<dtype>& inDeque) noexcept :
+        explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) noexcept :
+            shape_(static_cast<uint32>(in2dVector.size()), 0),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            for (const auto& row : in2dVector)
+            {
+                if (shape_.cols == 0)
+                {
+                    shape_.cols = static_cast<uint32>(row.size());
+                }
+                else if (row.size() != shape_.cols)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
+                }
+            }
+
+            newArray();
+            auto currentPosition = array_;
+            for (const auto& row : in2dVector)
+            {
+                stl_algorithms::copy(row.begin(), row.end(), currentPosition);
+                currentPosition += shape_.cols;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        template<size_t Dim1Size>
+        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) noexcept :
+            shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
+                }
+            }
+            else
+            {
+                array_ = in2dArray.data();
+                ownsPtr_ = false;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inDeque
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        NdArray(std::deque<dtype>& inDeque, bool copy = true) noexcept :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            newArray();
-            if (size_ > 0)
+            if (copy)
             {
-                stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+                }
+            }
+            else
+            {
+                array_ = inDeque.data();
+                ownsPtr_ = false;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inDeque
+        ///
+        explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) noexcept :
+            shape_(static_cast<uint32>(in2dDeque.size()), 0),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            for (const auto& row : in2dDeque)
+            {
+                if (shape_.cols == 0)
+                {
+                    shape_.cols = static_cast<uint32>(row.size());
+                }
+                else if (row.size() != shape_.cols)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
+                }
+            }
+
+            newArray();
+            auto currentPosition = array_;
+            for (const auto& row : in2dDeque)
+            {
+                stl_algorithms::copy(row.begin(), row.end(), currentPosition);
+                currentPosition += shape_.cols;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        template<size_t Dim1Size>
+        NdArray(std::deque<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) noexcept :
+            shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
+                }
+            }
+            else
+            {
+                array_ = in2dArray.data();
+                ownsPtr_ = false;
             }
         }
 
@@ -282,10 +467,50 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
+        /// @param
+        ///				inList
+        ///
+        explicit NdArray(const std::list<dtype>& inList) noexcept :
+            shape_(1, static_cast<uint32>(inList.size())),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param
+        ///				inList
+        ///
+        explicit NdArray(const std::forward_list<dtype>& inList) noexcept :
+            shape_(1, static_cast<uint32>(inList.size())),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
         /// @param				inFirst
         /// @param				inLast
         ///
-        explicit NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
+        NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
         {
@@ -296,6 +521,68 @@ namespace nc
             {
                 stl_algorithms::copy(inFirst, inLast, array_);
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor.  Copies the contents of the buffer into 
+        ///                     the array.
+        ///
+        /// @param				inPtr: dtype* to beginning of buffer
+        /// @param				inSize: number of elements in buffer
+        ///
+        NdArray(const_iterator inPtr, uint32 inSize) noexcept :
+            shape_(1, inSize),
+            size_(inSize)
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
+            if (inPtr != nullptr && size_ > 0)
+            {
+                stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor.  Copies the contents of the buffer into 
+        ///                     the array.
+        ///
+        /// @param				inPtr: dtype* to beginning of buffer
+        /// @param				numRows: number of rows of the buffer
+        /// @param				numCols: number of cols of the buffer
+        ///
+        NdArray(const_iterator inPtr, uint32 numRows, uint32 numCols) noexcept :
+            shape_(numRows, numCols),
+            size_(shape_.size())
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
+
+            newArray();
+            if (inPtr != nullptr && size_ > 0)
+            {
+                stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor. Operates as a shell around an already existing
+        ///                     array of data.
+        ///
+        /// @param				inPtr: dtype* to beginning of the array
+        /// @param				size: the number of elements in the array
+        /// @param              takeOwnership: whether or not to take ownership of the data
+        ///                     and call delete[] in the destructor.
+        ///
+        NdArray(dtype* inPtr, uint32 size, bool takeOwnership = false) noexcept :
+            shape_(1, size),
+            size_(size),
+            array_(inPtr),
+            ownsPtr_(takeOwnership)
+        {
+            STATIC_ASSERT_VALID_DTYPE(dtype);
         }
 
         //============================================================================
@@ -316,27 +603,6 @@ namespace nc
             ownsPtr_(takeOwnership)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Constructor.  Copies the contents of the buffer into 
-        ///                     the array.
-        ///
-        /// @param				inPtr: dtype* to beginning of buffer
-        /// @param				inSize: number of elements in buffer
-        ///
-        NdArray(const dtype* const inPtr, uint32 inSize) noexcept :
-            shape_(1, inSize),
-            size_(inSize)
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
-            newArray();
-            if (inPtr != nullptr && size_ > 0)
-            {
-                stl_algorithms::copy(inPtr, inPtr + size_, begin());
-            }
         }
 
         //============================================================================
