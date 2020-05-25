@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
@@ -49,6 +50,8 @@ namespace nc
     template<typename dtype>
     dtype fix(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
     }
 

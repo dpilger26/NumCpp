@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -47,6 +48,12 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes) noexcept
     {
-        return NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), inNumBytes);
+        if (inNumBytes % sizeof(dtype) != 0)
+        {
+            THROW_INVALID_ARGUMENT_ERROR("inNumBytes % sizeof(dtype) != 0");
+        }
+
+        const uint32 numElements = static_cast<uint32>(inNumBytes / sizeof(dtype));
+        return NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), numElements);
     }
 }

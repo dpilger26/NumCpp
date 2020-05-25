@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Functions/fromFile.hpp"
+#include "NumCpp/Functions/fromfile.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>

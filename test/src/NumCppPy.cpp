@@ -2690,6 +2690,24 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray frombuffer(const NdArray<dtype>& inArray)
+    {
+        auto buffer = reinterpret_cast<char*>(inArray.data());
+        return nc2Boost(nc::frombuffer<dtype>(buffer, inArray.nbytes()));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fromiter(const NdArray<dtype>& inArray)
+    {
+        std::vector<dtype> vec(inArray.begin(), inArray.end());
+        return nc2Boost(nc::fromiter<dtype>(vec.begin(), vec.end()));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
     {
         return nc2Boost(full(inSquareSize, inValue));
@@ -2725,6 +2743,14 @@ namespace FunctionsInterface
     dtype gcdArray(const NdArray<dtype>& inArray)
     {
         return gcd(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(nc::gradient(inArray, inAxis));
     }
 
     //================================================================================
@@ -5620,6 +5646,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("fixArray", &FunctionsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
     bp::def("flatnonzero", &flatnonzero<double>);
+    bp::def("flatnonzero", &flatnonzero<std::complex<double>>);
     bp::def("flip", &flip<double>);
     bp::def("fliplr", &fliplr<double>);
     bp::def("flipud", &flipud<double>);
@@ -5628,23 +5655,37 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("floor_divideScaler", &FunctionsInterface::floor_divideScaler<double>);
     bp::def("floor_divideArray", &FunctionsInterface::floor_divideArray<double>);
     bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<double>);
+    bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<std::complex<double>>);
     bp::def("fmaxArray", &FunctionsInterface::fmaxArray<double>);
+    bp::def("fmaxArray", &FunctionsInterface::fmaxArray<std::complex<double>>);
     bp::def("fminScaler", &FunctionsInterface::fminScaler<double>);
+    bp::def("fminScaler", &FunctionsInterface::fminScaler<std::complex<double>>);
     bp::def("fminArray", &FunctionsInterface::fminArray<double>);
+    bp::def("fminArray", &FunctionsInterface::fminArray<std::complex<double>>);
     bp::def("fmodScaler", &FunctionsInterface::fmodScaler<uint32>);
     bp::def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
-    bp::def("frombuffer", &frombuffer<double>);
+    bp::def("frombuffer", &FunctionsInterface::frombuffer<double>);
+    bp::def("frombuffer", &FunctionsInterface::frombuffer<std::complex<double>>);
     bp::def("fromfile", &fromfile<double>);
+    bp::def("fromiter", &FunctionsInterface::fromiter<double>);
+    bp::def("fromiter", &FunctionsInterface::fromiter<std::complex<double>>);
     bp::def("fullSquare", &FunctionsInterface::fullSquare<double>);
+    bp::def("fullSquareComplex", &FunctionsInterface::fullSquare<std::complex<double>>);
     bp::def("fullRowCol", &FunctionsInterface::fullRowCol<double>);
+    bp::def("fullRowColComplex", &FunctionsInterface::fullRowCol<std::complex<double>>);
     bp::def("fullShape", &FunctionsInterface::fullShape<double>);
+    bp::def("fullShapeComplex", &FunctionsInterface::fullShape<std::complex<double>>);
     bp::def("full_like", &full_like<double>);
+    bp::def("full_likeComplex", &full_like<std::complex<double>>);
 
     bp::def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
     bp::def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
     bp::def("greater", &greater<double>);
+    bp::def("greater", &greater<std::complex<double>>);
     bp::def("greater_equal", &greater_equal<double>);
-    bp::def("gradient", &gradient<double>);
+    bp::def("greater_equal", &greater_equal<std::complex<double>>);
+    bp::def("gradient", &FunctionsInterface::gradient<double>);
+    bp::def("gradient", &FunctionsInterface::gradient<std::complex<double>>);
 
     bp::def("histogram", &FunctionsInterface::histogram<double>);
     bp::def("hstack", &FunctionsInterface::hstack<double>);
@@ -5670,7 +5711,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("ldexpArray", &FunctionsInterface::ldexpArray<double>);
     bp::def("left_shift", &left_shift<uint32>);
     bp::def("less", &less<double>);
+    bp::def("less", &less<std::complex<double>>);
     bp::def("less_equal", &less_equal<double>);
+    bp::def("less_equal", &less_equal<std::complex<double>>);
     bp::def("linspace", &linspace<double>);
     bp::def("load", &load<double>);
     bp::def("logScaler", &FunctionsInterface::logScaler<double>);
