@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <cmath>
 
@@ -50,6 +51,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> diagflat(const NdArray<dtype>& inArray, int32 k = 0) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         uint32 absK = static_cast<uint32>(std::abs(k));
         NdArray<dtype> returnArray(inArray.size() + absK);
 

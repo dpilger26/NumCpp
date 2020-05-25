@@ -5576,12 +5576,19 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("deleteIndicesScaler", &FunctionsInterface::deleteIndicesScaler<double>);
     bp::def("deleteIndicesSlice", &FunctionsInterface::deleteIndicesSlice<double>);
     bp::def("diag", &FunctionsInterface::diag<double>);
+    bp::def("diag", &FunctionsInterface::diag<std::complex<double>>);
     bp::def("diagflat", &FunctionsInterface::diagflat<double>);
+    bp::def("diagflat", &FunctionsInterface::diagflat<std::complex<double>>);
     bp::def("diagonal", &FunctionsInterface::diagonal<double>);
+    bp::def("diagonal", &FunctionsInterface::diagonal<std::complex<double>>);
     bp::def("diff", &FunctionsInterface::diff<double>);
+    bp::def("diff", &FunctionsInterface::diff<std::complex<double>>);
     bp::def("divide", &FunctionsInterface::divide<double>);
+    bp::def("divide", &FunctionsInterface::divide<std::complex<double>>);
     bp::def("dot", &FunctionsInterface::dot<double>);
+    bp::def("dot", &FunctionsInterface::dot<std::complex<double>>);
     bp::def("dump", &dump<double>);
+    bp::def("dump", &dump<std::complex<double>>);
 
     bp::def("emptyRowCol", &FunctionsInterface::emptyRowCol<double>);
     bp::def("emptyShape", &FunctionsInterface::emptyShape<double>);

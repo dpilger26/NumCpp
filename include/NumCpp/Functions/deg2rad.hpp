@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     constexpr auto deg2rad(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         return inValue * constants::pi / 180.0;
     }
