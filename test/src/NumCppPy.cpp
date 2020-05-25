@@ -1888,7 +1888,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayVector2D(dtype inValue1, dtype inValue2)
     {
-        std::vector<std::vector<dtype>> arr;
+        std::vector<std::vector<dtype>> arr(2, std::vector<dtype>(2));
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -1903,7 +1903,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayVectorArray2D(dtype inValue1, dtype inValue2)
     {
-        std::vector<std::array<dtype, 2>> arr;
+        std::vector<std::array<dtype, 2>> arr(2);
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -1918,7 +1918,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayVectorArray2DCopy(dtype inValue1, dtype inValue2)
     {
-        std::vector<std::array<dtype, 2>> arr;
+        std::vector<std::array<dtype, 2>> arr(2);
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -1943,7 +1943,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayDeque2D(dtype inValue1, dtype inValue2)
     {
-        std::deque<std::deque<dtype>> arr;
+        std::deque<std::deque<dtype>> arr(2, std::deque<dtype>(2));
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -2003,7 +2003,7 @@ namespace FunctionsInterface
         auto ptr = std::make_unique<dtype[]>(2);
         ptr[0] = inValue1;
         ptr[1] = inValue2;
-        auto a = asarray(ptr.release(), 2);
+        auto a = asarray(ptr.release(), uint32{ 2 });
         return nc2Boost<dtype>(a);
     }
 
@@ -2017,7 +2017,7 @@ namespace FunctionsInterface
         ptr[1] = inValue2;
         ptr[2] = inValue1;
         ptr[3] = inValue2;
-        auto a = asarray(ptr.release(), 2, 2);
+        auto a = asarray(ptr.release(), uint32{ 2 }, uint32{ 2 });
         return nc2Boost<dtype>(a);
     }
 
@@ -2029,7 +2029,7 @@ namespace FunctionsInterface
         auto ptr = std::make_unique<dtype[]>(2);
         ptr[0] = inValue1;
         ptr[1] = inValue2;
-        auto a = asarray(ptr.get(), 2, false);
+        auto a = asarray(ptr.get(), uint32{ 2 }, false);
         return nc2Boost<dtype>(a);
     }
 
@@ -2043,7 +2043,7 @@ namespace FunctionsInterface
         ptr[1] = inValue2;
         ptr[2] = inValue1;
         ptr[3] = inValue2;
-        auto a = asarray(ptr.get(), 2, 2, false);
+        auto a = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 }, false);
         return nc2Boost<dtype>(a);
     }
 

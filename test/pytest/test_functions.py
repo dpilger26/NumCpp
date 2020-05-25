@@ -16,7 +16,7 @@ def factors(n):
 
 ####################################################################################
 def test_functions():
-    np.random.seed(26)
+    np.random.seed(80085)
 
     randValue = np.random.randint(-100, -1, [1, ]).astype(np.double).item()
     assert NumCpp.absScaler(randValue) == np.abs(randValue)
@@ -468,10 +468,77 @@ def test_functions():
     cArray3.setArray(data3)
     assert NumCpp.array_equiv(cArray1, cArray2) and not NumCpp.array_equiv(cArray1, cArray3)
 
-    
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayArray1D(*values).flatten(), values)
 
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayArray1DCopy(*values).flatten(), values)
 
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayArray2D(*values), data)
 
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayArray2DCopy(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayVector1D(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayVector1DCopy(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVector2D(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVectorArray2D(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVectorArray2DCopy(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayDeque1D(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayDeque2D(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarraySet(*values).flatten(), np.sort(list(set(values))))
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayList(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayIterators(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointerIterators(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointer(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointer2D(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointerShell(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointerShell2D(*values), data)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointerShellTakeOwnership(*values).flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointerShell2DTakeOwnership(*values), data)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1582,7 +1649,8 @@ def test_functions():
     data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
     cArray1.setArray(data1)
     cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.hypotArray(cArray1, cArray2), np.hypot(data1, data2))
+    assert np.array_equal(np.round(NumCpp.hypotArray(cArray1, cArray2), 9),
+                          np.round(np.hypot(data1, data2), 9))
 
     squareSize = np.random.randint(10, 100, [1, ]).item()
     assert np.array_equal(NumCpp.identity(squareSize).getNumpyArray(), np.identity(squareSize))
@@ -3246,7 +3314,6 @@ def test_functions():
     data = np.random.randint(1, 100, [shape1.rows, shape1.cols], dtype=np.uint32)
     cArray.setArray(data)
     NumCpp.resizeFast(cArray, shape2)
-    assert np.all(cArray.getNumpyArray() == 0)
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 
@@ -3260,7 +3327,6 @@ def test_functions():
     NumCpp.resizeSlow(cArray, shape2)
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
-    assert not np.all(cArray.getNumpyArray() == 0)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     bitsToshift = np.random.randint(1, 32, [1, ]).item()

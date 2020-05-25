@@ -298,8 +298,7 @@ namespace nc
         /// @param      inArray
         ///
         explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) noexcept :
-            shape_(static_cast<uint32>(in2dVector.size()), 0),
-            size_(shape_.size())
+            shape_(static_cast<uint32>(in2dVector.size()), 0)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
@@ -314,6 +313,8 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
                 }
             }
+
+            size_ = shape_.size();
 
             newArray();
             auto currentPosition = array_;
@@ -382,8 +383,7 @@ namespace nc
         /// @param      inDeque
         ///
         explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) noexcept :
-            shape_(static_cast<uint32>(in2dDeque.size()), 0),
-            size_(shape_.size())
+            shape_(static_cast<uint32>(in2dDeque.size()), 0)
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
@@ -398,6 +398,8 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
                 }
             }
+
+            size_ = shape_.size();
 
             newArray();
             auto currentPosition = array_;
@@ -498,7 +500,7 @@ namespace nc
         /// @param				inPtr: dtype* to beginning of buffer
         /// @param				inSize: number of elements in buffer
         ///
-        NdArray(const_iterator inPtr, uint32 inSize) noexcept :
+        explicit NdArray(const dtype* inPtr, uint32 inSize) noexcept :
             shape_(1, inSize),
             size_(inSize)
         {
@@ -520,7 +522,7 @@ namespace nc
         /// @param				numRows: number of rows of the buffer
         /// @param				numCols: number of cols of the buffer
         ///
-        NdArray(const_iterator inPtr, uint32 numRows, uint32 numCols) noexcept :
+        explicit NdArray(const dtype* inPtr, uint32 numRows, uint32 numCols) noexcept :
             shape_(numRows, numCols),
             size_(shape_.size())
         {
@@ -543,7 +545,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 size, bool takeOwnership) noexcept :
+        explicit NdArray(dtype* inPtr, uint32 size, bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -563,7 +565,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
+        explicit NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
