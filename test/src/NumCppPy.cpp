@@ -5595,17 +5595,23 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("empty_like", &empty_like<double>);
     bp::def("endianess", &endianess<double>);
     bp::def("equal", &FunctionsInterface::equal<double>);
+    bp::def("equal", &FunctionsInterface::equal<std::complex<double>>);
     bp::def("expScaler", &FunctionsInterface::expScaler<double>);
-    bp::def("expArray", &FunctionsInterface::expArray<double>);
     bp::def("expScaler", &FunctionsInterface::expScaler<std::complex<double>>);
+    bp::def("expArray", &FunctionsInterface::expArray<double>);
     bp::def("expArray", &FunctionsInterface::expArray<std::complex<double>>);
     bp::def("exp2Scaler", &FunctionsInterface::exp2Scaler<double>);
     bp::def("exp2Array", &FunctionsInterface::exp2Array<double>);
     bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<double>);
+    bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<std::complex<double>>);
     bp::def("expm1Array", &FunctionsInterface::expm1Array<double>);
+    bp::def("expm1Array", &FunctionsInterface::expm1Array<std::complex<double>>);
     bp::def("eye1D", &FunctionsInterface::eye1D<double>);
+    bp::def("eye1DComplex", &FunctionsInterface::eye1D<std::complex<double>>);
     bp::def("eye2D", &FunctionsInterface::eye2D<double>);
+    bp::def("eye2DComplex", &FunctionsInterface::eye2D<std::complex<double>>);
     bp::def("eyeShape", &FunctionsInterface::eyeShape<double>);
+    bp::def("eyeShapeComplex", &FunctionsInterface::eyeShape<std::complex<double>>);
 
     bp::def("fillDiagonal", &fillDiagonal<double>);
     bp::def("find", &FunctionsInterface::find);

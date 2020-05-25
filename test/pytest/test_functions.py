@@ -2112,6 +2112,20 @@ def test_functions():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.equal(cArray1, cArray2), np.equal(data1, data2))
 
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
+    real1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data1 = real1 + 1j * imag1
+    real2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.equal(cArray1, cArray2), np.equal(data1, data2))
+
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9)
 
@@ -2146,6 +2160,10 @@ def test_functions():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.expm1Scaler(value), 9) == np.round(np.expm1(value), 9)
 
+    components = np.random.rand(2).astype(np.double)
+    value = np.complex(components[0], components[1])
+    assert np.round(NumCpp.expm1Scaler(value), 9) == np.round(np.expm1(value), 9)
+
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -2153,9 +2171,23 @@ def test_functions():
     cArray.setArray(data)
     assert np.array_equal(np.round(NumCpp.expm1Array(cArray), 9), np.round(np.expm1(data), 9))
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.rand(shape.rows, shape.cols)
+    imag = np.random.rand(shape.rows, shape.cols)
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.expm1Array(cArray), 9), np.round(np.expm1(data), 9))
+
     shapeInput = np.random.randint(1, 100, [1, ]).item()
     randK = np.random.randint(0, shapeInput, [1, ]).item()
     assert np.array_equal(NumCpp.eye1D(shapeInput, randK), np.eye(shapeInput, k=randK))
+
+    shapeInput = np.random.randint(1, 100, [1, ]).item()
+    randK = np.random.randint(0, shapeInput, [1, ]).item()
+    assert np.array_equal(NumCpp.eye1DComplex(shapeInput, randK),
+                          np.eye(shapeInput, k=randK) + 1j * np.zeros([shapeInput, shapeInput]))
 
     shapeInput = np.random.randint(10, 100, [2, ])
     randK = np.random.randint(0, np.min(shapeInput), [1, ]).item()
@@ -2163,9 +2195,22 @@ def test_functions():
                           np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK))
 
     shapeInput = np.random.randint(10, 100, [2, ])
+    randK = np.random.randint(0, np.min(shapeInput), [1, ]).item()
+    assert np.array_equal(NumCpp.eye2DComplex(shapeInput[0].item(), shapeInput[1].item(), randK),
+                          np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK) +
+                          1j * np.zeros(shapeInput))
+
+    shapeInput = np.random.randint(10, 100, [2, ])
     cShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     randK = np.random.randint(0, np.min(shapeInput), [1, ]).item()
     assert np.array_equal(NumCpp.eyeShape(cShape, randK), np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK))
+
+    shapeInput = np.random.randint(10, 100, [2, ])
+    cShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    randK = np.random.randint(0, np.min(shapeInput), [1, ]).item()
+    assert np.array_equal(NumCpp.eyeShapeComplex(cShape, randK),
+                          np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK) +
+                          1j * np.zeros(shapeInput))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
