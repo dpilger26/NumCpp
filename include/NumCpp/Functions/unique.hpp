@@ -52,6 +52,6 @@ namespace nc
     NdArray<dtype> unique(const NdArray<dtype>& inArray) noexcept
     {
         std::set<dtype> theSet(inArray.cbegin(), inArray.cend());
-        return NdArray<dtype>(theSet);
+        return NdArray<dtype>(theSet.begin(), theSet.end());
     }
 }

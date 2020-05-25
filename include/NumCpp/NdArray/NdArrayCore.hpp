@@ -415,26 +415,6 @@ namespace nc
         ///						Constructor
         ///
         /// @param
-        ///				inSet
-        ///
-        explicit NdArray(const std::set<dtype>& inSet) noexcept :
-            shape_(1, static_cast<uint32>(inSet.size())),
-            size_(shape_.size())
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
-            newArray();
-            if (size_ > 0)
-            {
-                stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Constructor
-        ///
-        /// @param
         ///				inList
         ///
         explicit NdArray(const std::list<dtype>& inList) noexcept :

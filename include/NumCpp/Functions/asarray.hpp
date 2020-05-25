@@ -35,6 +35,7 @@
 #include <deque>
 #include <forward_list>
 #include <initializer_list>
+#include <iterator>
 #include <list>
 #include <set>
 #include <vector>
@@ -212,8 +213,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> asarray(const std::set<dtype>& inSet) noexcept
+    template<typename dtype, typename dtypeComp>
+    NdArray<dtype> asarray(const std::set<dtype, dtypeComp>& inSet) noexcept
     {
         return NdArray<dtype>(inSet);
     }
@@ -249,7 +250,7 @@ namespace nc
     template<typename Iterator>
     auto asarray(Iterator iterBegin, Iterator iterEnd) noexcept
     {
-        return NdArray(iterBegin, iterEnd);
+        return NdArray<typename std::iterator_traits<Iterator>::value_type>(iterBegin, iterEnd);
     }
 
     //============================================================================

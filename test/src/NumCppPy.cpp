@@ -1,4 +1,5 @@
 #include "NumCpp.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 
 #include <array>
 #include <cstdio>
@@ -1956,16 +1957,6 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray asarraySet(dtype inValue1, dtype inValue2)
-    {
-        std::set<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr);
-        return nc2Boost<dtype>(a);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
         std::list<dtype> arr = { inValue1, inValue2 };
@@ -2085,6 +2076,15 @@ namespace FunctionsInterface
 
     template<typename dtype>
     np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(average(inArray, inWeights, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray averageWeightedComplex(const NdArray<std::complex<dtype>>& inArray, 
+        const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(average(inArray, inWeights, inAxis));
     }
@@ -5402,14 +5402,19 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("absScaler", &FunctionsInterface::absScaler<std::complex<double>>);
     bp::def("absArray", &FunctionsInterface::absArray<std::complex<double>>);
     bp::def("add", &FunctionsInterface::addArrays<double>);
+    bp::def("add", &FunctionsInterface::addArrays<std::complex<double>>);
     bp::def("alen", &alen<double>);
     bp::def("all", &FunctionsInterface::allArray<double>);
+    bp::def("all", &FunctionsInterface::allArray<std::complex<double>>);
     bp::def("allclose", &allclose<double>);
-    bp::def("amin", &FunctionsInterface::aminArray<double>);
     bp::def("amax", &FunctionsInterface::amaxArray<double>);
+    bp::def("amax", &FunctionsInterface::amaxArray<std::complex<double>>);
+    bp::def("amin", &FunctionsInterface::aminArray<double>);
+    bp::def("amin", &FunctionsInterface::aminArray<std::complex<double>>);
     bp::def("angleScaler", &FunctionsInterface::angleScaler<double>);
     bp::def("angleArray", &FunctionsInterface::angleArray<double>);
     bp::def("any", &FunctionsInterface::anyArray<double>);
+    bp::def("any", &FunctionsInterface::anyArray<std::complex<double>>);
     bp::def("append", &append<double>);
     bp::def("applyPoly1d", &applyPoly1d<double>);
     bp::def("arange", &FunctionsInterface::arangeArray<double>);
@@ -5440,39 +5445,68 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<std::complex<double>>);
     bp::def("arctanhArray", &FunctionsInterface::arctanhArray<std::complex<double>>);
     bp::def("argmax", &FunctionsInterface::argmaxArray<double>);
+    bp::def("argmax", &FunctionsInterface::argmaxArray<std::complex<double>>);
     bp::def("argmin", &FunctionsInterface::argminArray<double>);
+    bp::def("argmin", &FunctionsInterface::argminArray<std::complex<double>>);
     bp::def("argsort", &FunctionsInterface::argsortArray<double>);
+    bp::def("argsort", &FunctionsInterface::argsortArray<std::complex<double>>);
     bp::def("argwhere", &FunctionsInterface::argwhere<double>);
+    bp::def("argwhere", &FunctionsInterface::argwhere<std::complex<double>>);
     bp::def("aroundScaler", &FunctionsInterface::aroundScaler<double>);
     bp::def("aroundArray", &FunctionsInterface::aroundArray<double>);
     bp::def("array_equal", &array_equal<double>);
+    bp::def("array_equal", &array_equal<std::complex<double>>);
     bp::def("array_equiv", &array_equiv<double>);
+    bp::def("array_equiv", &array_equiv<std::complex<double>>);
     bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<double>);
+    bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<std::complex<double>>);
     bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<double>);
+    bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<std::complex<double>>);
     bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<double>);
+    bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<std::complex<double>>);
     bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<double>);
+    bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<std::complex<double>>);
     bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<double>);
+    bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<std::complex<double>>);
     bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<double>);
+    bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<std::complex<double>>);
     bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<double>);
+    bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<std::complex<double>>);
     bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<double>);
+    bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<std::complex<double>>);
     bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<double>);
+    bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<std::complex<double>>);
     bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<double>);
+    bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<std::complex<double>>);
     bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<double>);
+    bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<std::complex<double>>);
     bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<double>);
+    bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<std::complex<double>>);
     bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<double>);
-    bp::def("asarraySet", &FunctionsInterface::asarraySet<double>);
+    bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<std::complex<double>>);
     bp::def("asarrayList", &FunctionsInterface::asarrayList<double>);
+    bp::def("asarrayList", &FunctionsInterface::asarrayList<std::complex<double>>);
     bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<double>);
+    bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<std::complex<double>>);
     bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<double>);
+    bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<std::complex<double>>);
     bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<double>);
+    bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<std::complex<double>>);
     bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<double>);
+    bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<std::complex<double>>);
     bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<double>);
+    bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<std::complex<double>>);
     bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<double>);
+    bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<std::complex<double>>);
     bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<double>);
+    bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<std::complex<double>>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<double>);
+    bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<std::complex<double>>);
     bp::def("astype", &astype<double, uint32>);
     bp::def("average", &FunctionsInterface::average<double>);
+    bp::def("average", &FunctionsInterface::average<std::complex<double>>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
+    bp::def("averageWeighted", &FunctionsInterface::averageWeightedComplex<double>);
 
     bp::def("binaryRepr", &binaryRepr<int8>);
     bp::def("binaryRepr", &binaryRepr<int16>);

@@ -52,6 +52,20 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
+    real1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data1 = real1 + 1j * imag1
+    real2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.add(cArray1, cArray2), data1 + data2)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(-100, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
@@ -66,6 +80,15 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert NumCpp.all(cArray, NumCpp.Axis.NONE).astype(np.bool).item() == np.all(data).item()
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
@@ -73,8 +96,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.all(cArray, NumCpp.Axis.ROW).flatten().astype(np.bool), np.all(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.all(cArray, NumCpp.Axis.COL).flatten().astype(np.bool), np.all(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.all(cArray, NumCpp.Axis.COL).flatten().astype(np.bool), np.all(data, axis=1))
 
@@ -101,8 +142,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert NumCpp.amax(cArray, NumCpp.Axis.NONE).item() == np.max(data)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.amax(cArray, NumCpp.Axis.ROW).flatten(), np.max(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.amax(cArray, NumCpp.Axis.ROW).flatten(), np.max(data, axis=0))
 
@@ -115,8 +174,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.amax(cArray, NumCpp.Axis.COL).flatten(), np.max(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert NumCpp.amin(cArray, NumCpp.Axis.NONE).item() == np.min(data)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert NumCpp.amin(cArray, NumCpp.Axis.NONE).item() == np.min(data)
 
@@ -129,8 +206,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.amin(cArray, NumCpp.Axis.ROW).flatten(), np.min(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.amin(cArray, NumCpp.Axis.COL).flatten(), np.min(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.amin(cArray, NumCpp.Axis.COL).flatten(), np.min(data, axis=1))
 
@@ -155,6 +250,15 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert NumCpp.any(cArray, NumCpp.Axis.NONE).astype(np.bool).item() == np.any(data).item()
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
@@ -162,8 +266,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.any(cArray, NumCpp.Axis.ROW).flatten().astype(np.bool), np.any(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.any(cArray, NumCpp.Axis.COL).flatten().astype(np.bool), np.any(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.any(cArray, NumCpp.Axis.COL).flatten().astype(np.bool), np.any(data, axis=1))
 
@@ -334,6 +456,10 @@ def test_functions():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.arctanhScaler(value), 9) == np.round(np.arctanh(value), 9)
 
+    components = np.random.rand(2).astype(np.double)
+    value = np.complex(components[0], components[1])
+    assert np.round(NumCpp.arctanhScaler(value), 9) == np.round(np.arctanh(value), 9)
+
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -343,8 +469,24 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    data = np.random.rand(shape.rows, shape.cols) + 1j * np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    np.array_equal(np.round(NumCpp.arctanhArray(cArray), 9), np.round(np.arctanh(data), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmax(cArray, NumCpp.Axis.NONE).item(), np.argmax(data))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.argmax(cArray, NumCpp.Axis.NONE).item(), np.argmax(data))
 
@@ -357,8 +499,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmax(cArray, NumCpp.Axis.ROW).flatten(), np.argmax(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmax(cArray, NumCpp.Axis.COL).flatten(), np.argmax(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.argmax(cArray, NumCpp.Axis.COL).flatten(), np.argmax(data, axis=1))
 
@@ -371,6 +531,15 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmin(cArray, NumCpp.Axis.NONE).item(), np.argmin(data))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
@@ -378,8 +547,26 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmin(cArray, NumCpp.Axis.ROW).flatten(), np.argmin(data, axis=0))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.argmin(cArray, NumCpp.Axis.COL).flatten(), np.argmin(data, axis=1))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.argmin(cArray, NumCpp.Axis.COL).flatten(), np.argmin(data, axis=1))
 
@@ -394,8 +581,35 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    dataFlat = data.flatten()
+    assert np.array_equal(dataFlat[NumCpp.argsort(cArray, NumCpp.Axis.NONE).flatten().astype(np.uint32)],
+                          dataFlat[np.argsort(data, axis=None)])
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    pIdx = np.argsort(data, axis=0)
+    cIdx = NumCpp.argsort(cArray, NumCpp.Axis.ROW).astype(np.uint16)
+    allPass = True
+    for idx, row in enumerate(data.T):
+        if not np.array_equal(row[cIdx[:, idx]], row[pIdx[:, idx]]):
+            allPass = False
+            break
+    assert allPass
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     cArray.setArray(data)
     pIdx = np.argsort(data, axis=0)
     cIdx = NumCpp.argsort(cArray, NumCpp.Axis.ROW).astype(np.uint16)
@@ -422,8 +636,35 @@ def test_functions():
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    pIdx = np.argsort(data, axis=1)
+    cIdx = NumCpp.argsort(cArray, NumCpp.Axis.COL).astype(np.uint16)
+    allPass = True
+    for idx, row in enumerate(data):
+        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):
+            allPass = False
+            break
+    assert allPass
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    randValue = np.random.randint(0, 100, [1, ]).item()
+    data2 = data > randValue
+    cArray.setArray(data2)
+    assert np.array_equal(NumCpp.argwhere(cArray).flatten(), np.argwhere(data.flatten() > randValue).flatten())
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
     randValue = np.random.randint(0, 100, [1, ]).item()
     data2 = data > randValue
     cArray.setArray(data2)
@@ -453,6 +694,22 @@ def test_functions():
     cArray3.setArray(data2)
     assert NumCpp.array_equal(cArray1, cArray2) and not NumCpp.array_equal(cArray1, cArray3)
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
+    cArray3 = NumCpp.NdArrayComplexDouble(shape)
+    real1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data1 = real1 + 1j * imag1
+    real2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data1)
+    cArray3.setArray(data2)
+    assert NumCpp.array_equal(cArray1, cArray2) and not NumCpp.array_equal(cArray1, cArray3)
+
     shapeInput1 = np.random.randint(1, 100, [2, ])
     shapeInput3 = np.random.randint(1, 100, [2, ])
     shape1 = NumCpp.Shape(shapeInput1[0].item(), shapeInput1[1].item())
@@ -468,13 +725,48 @@ def test_functions():
     cArray3.setArray(data3)
     assert NumCpp.array_equiv(cArray1, cArray2) and not NumCpp.array_equiv(cArray1, cArray3)
 
+    shapeInput1 = np.random.randint(1, 100, [2, ])
+    shapeInput3 = np.random.randint(1, 100, [2, ])
+    shape1 = NumCpp.Shape(shapeInput1[0].item(), shapeInput1[1].item())
+    shape2 = NumCpp.Shape(shapeInput1[1].item(), shapeInput1[0].item())
+    shape3 = NumCpp.Shape(shapeInput3[0].item(), shapeInput3[1].item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape1)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape2)
+    cArray3 = NumCpp.NdArrayComplexDouble(shape3)
+    real1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    imag1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data1 = real1 + 1j * imag1
+    real3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    imag3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data3 = real3 + 1j * imag3
+    cArray1.setArray(data1)
+    cArray2.setArray(data1.reshape([shapeInput1[1].item(), shapeInput1[0].item()]))
+    cArray3.setArray(data3)
+    assert NumCpp.array_equiv(cArray1, cArray2) and not NumCpp.array_equiv(cArray1, cArray3)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayArray1D(*values).flatten(), values)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     assert np.array_equal(NumCpp.asarrayArray1D(*values).flatten(), values)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayArray1DCopy(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayArray1DCopy(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayArray2D(*values), data)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayArray2D(*values), data)
 
@@ -482,13 +774,35 @@ def test_functions():
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayArray2DCopy(*values), data)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayArray2DCopy(*values), data)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayVector1D(*values).flatten(), values)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     assert np.array_equal(NumCpp.asarrayVector1D(*values).flatten(), values)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayVector1DCopy(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayVector1DCopy(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVector2D(*values), data)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayVector2D(*values), data)
 
@@ -496,47 +810,115 @@ def test_functions():
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayVectorArray2D(*values), data)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVectorArray2D(*values), data)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayVectorArray2DCopy(*values), data)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayVectorArray2DCopy(*values), data)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayDeque1D(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayDeque1D(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayDeque2D(*values), data)
 
-    values = np.random.randint(0, 100, [2, ]).astype(np.double)
-    assert np.array_equal(NumCpp.asarraySet(*values).flatten(), np.sort(list(set(values))))
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayDeque2D(*values), data)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayList(*values).flatten(), values)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     assert np.array_equal(NumCpp.asarrayList(*values).flatten(), values)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayIterators(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayIterators(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayPointerIterators(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayPointerIterators(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointer(*values).flatten(), values)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     assert np.array_equal(NumCpp.asarrayPointer(*values).flatten(), values)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayPointer2D(*values), data)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointer2D(*values), data)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    assert np.array_equal(NumCpp.asarrayPointerShell(*values).flatten(), values)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     assert np.array_equal(NumCpp.asarrayPointerShell(*values).flatten(), values)
 
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayPointerShell2D(*values), data)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointerShell2D(*values), data)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
     assert np.array_equal(NumCpp.asarrayPointerShellTakeOwnership(*values).flatten(), values)
 
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
+    assert np.array_equal(NumCpp.asarrayPointerShellTakeOwnership(*values).flatten(), values)
+
     values = np.random.randint(0, 100, [2, ]).astype(np.double)
+    data = np.vstack([values, values])
+    assert np.array_equal(NumCpp.asarrayPointerShell2DTakeOwnership(*values), data)
+
+    real = np.random.randint(0, 100, [2, ]).astype(np.double)
+    imag = np.random.randint(0, 100, [2, ]).astype(np.double)
+    values = real + 1j * imag
     data = np.vstack([values, values])
     assert np.array_equal(NumCpp.asarrayPointerShell2DTakeOwnership(*values), data)
 
@@ -545,21 +927,52 @@ def test_functions():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert NumCpp.average(cArray, NumCpp.Axis.NONE).item() == np.average(data)
+    assert np.round(NumCpp.average(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.average(data), 9)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.round(NumCpp.average(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.average(data), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.average(cArray, NumCpp.Axis.ROW).flatten(), np.average(data, axis=0))
+    assert np.array_equal(np.round(NumCpp.average(cArray, NumCpp.Axis.ROW).flatten(), 9),
+                          np.round(np.average(data, axis=0), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.average(cArray, NumCpp.Axis.ROW).flatten(), 9),
+                          np.round(np.average(data, axis=0), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.average(cArray, NumCpp.Axis.COL).flatten(), np.average(data, axis=1))
+    assert np.array_equal(np.round(NumCpp.average(cArray, NumCpp.Axis.COL).flatten(), 9),
+                          np.round(np.average(data, axis=1), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.average(cArray, NumCpp.Axis.COL).flatten(), 9),
+                          np.round(np.average(data, axis=1), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -569,7 +982,21 @@ def test_functions():
     weights = np.random.randint(1, 5, [shape.rows, shape.cols])
     cArray.setArray(data)
     cWeights.setArray(weights)
-    assert NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.NONE).item() == np.average(data, weights=weights)
+    assert np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.NONE).item(), 9) == \
+        np.round(np.average(data, weights=weights), 9)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    cWeights = NumCpp.NdArray(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    weights = np.random.randint(1, 5, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    assert np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.NONE).item(), 9) == \
+        np.round(np.average(data, weights=weights), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -579,8 +1006,21 @@ def test_functions():
     weights = np.random.randint(1, 5, [1, shape.rows])
     cArray.setArray(data)
     cWeights.setArray(weights)
-    assert np.array_equal(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.ROW).flatten(),
-                          np.average(data, weights=weights.flatten(), axis=0))
+    assert np.array_equal(np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.ROW).flatten(), 9),
+                          np.round(np.average(data, weights=weights.flatten(), axis=0), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    cWeights = NumCpp.NdArray(1, shape.cols)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    weights = np.random.randint(1, 5, [1, shape.rows])
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    assert np.array_equal(np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.ROW).flatten(), 9),
+                          np.round(np.average(data, weights=weights.flatten(), axis=0), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -590,8 +1030,21 @@ def test_functions():
     weights = np.random.randint(1, 5, [1, shape.cols])
     cWeights.setArray(weights)
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.COL).flatten(),
-                          np.average(data, weights=weights.flatten(), axis=1))
+    assert np.array_equal(np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.COL).flatten(), 9),
+                          np.round(np.average(data, weights=weights.flatten(), axis=1), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    cWeights = NumCpp.NdArray(1, shape.rows)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    weights = np.random.randint(1, 5, [1, shape.cols])
+    cWeights.setArray(weights)
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.COL).flatten(), 9),
+                          np.round(np.average(data, weights=weights.flatten(), axis=1), 9))
 
     value = np.random.randint(0, np.iinfo(np.uint64).max, [1, ], dtype=np.uint64).item()
     assert NumCpp.binaryRepr(np.uint64(value)) == np.binary_repr(value, np.iinfo(np.uint64).bits)

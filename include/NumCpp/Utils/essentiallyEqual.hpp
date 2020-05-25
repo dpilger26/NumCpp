@@ -29,7 +29,9 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 
+#include <complex>
 #include <cmath>
 #include <string>
 
@@ -58,7 +60,7 @@ namespace nc
             else
             {
                 return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
-                    std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
+                    std::abs(inValue2) : std::abs(inValue1)) * std::abs(inEpsilon));
             }
         }
 
