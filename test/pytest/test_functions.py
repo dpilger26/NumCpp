@@ -2620,6 +2620,10 @@ def test_functions():
     squareSize = np.random.randint(10, 100, [1, ]).item()
     assert np.array_equal(NumCpp.identity(squareSize).getNumpyArray(), np.identity(squareSize))
 
+    squareSize = np.random.randint(10, 100, [1, ]).item()
+    assert np.array_equal(NumCpp.identityComplex(squareSize).getNumpyArray(),
+                          np.identity(squareSize) + 1j * np.zeros([squareSize, squareSize]))
+
     components = np.random.rand(2).astype(np.double)
     value = np.complex(components[0], components[1])
     assert np.round(NumCpp.imagScaler(value), 9) == np.round(np.imag(value), 9)

@@ -5694,6 +5694,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("hypotArray", &FunctionsInterface::hypotArray<double>);
 
     bp::def("identity", &identity<double>);
+    bp::def("identityComplex", &identity<std::complex<double>>);
     bp::def("imagScaler", &FunctionsInterface::imagScaler<double>);
     bp::def("imagArray", &FunctionsInterface::imagArray<double>);
     bp::def("interp", &FunctionsInterface::interp<double>);

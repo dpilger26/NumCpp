@@ -57,7 +57,7 @@ namespace nc
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
             utils::sqr(static_cast<double>(inValue2)));
@@ -82,7 +82,7 @@ namespace nc
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
             utils::sqr(static_cast<double>(inValue2)) + 
