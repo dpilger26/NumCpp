@@ -1,12 +1,18 @@
 #include "NumCpp.hpp"
 
+#include <array>
 #include <cstdio>
 #include <complex>
+#include <forward_list>
 #include <functional>
 #include <iostream>
+#include <list>
+#include <memory>
+#include <set>
 #include <string>
 #include <type_traits>
 #include <utility>
+#include <vector>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB
@@ -1792,9 +1798,169 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray asarrayVector(std::vector<double>& inVec)
+    np::ndarray asarrayInitializerList(dtype inValue1, dtype inValue2)
     {
-        return nc2Boost(asarray(inVec));
+        auto a = asarray({ inValue1, inValue2 });
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayInitializerList2D(dtype inValue1, dtype inValue2)
+    {
+        auto a = asarray({ {inValue1, inValue2}, {inValue1, inValue2} });
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayArray1D(dtype inValue1, dtype inValue2)
+    {
+        std::array<dtype, 2> arr = { inValue1, inValue2 };
+        auto a = asarray(arr, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayArray1DCopy(dtype inValue1, dtype inValue2)
+    {
+        std::array<dtype, 2> arr = { inValue1, inValue2 };
+        auto a = asarray(arr, true);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayArray2D(dtype inValue1, dtype inValue2)
+    {
+        std::array<std::array<dtype, 2>, 2> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayArray2DCopy(dtype inValue1, dtype inValue2)
+    {
+        std::array<std::array<dtype, 2>, 2> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr, true);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVector1D(dtype inValue1, dtype inValue2)
+    {
+        std::vector<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVector1DCopy(dtype inValue1, dtype inValue2)
+    {
+        std::vector<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr, true);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVector2D(dtype inValue1, dtype inValue2)
+    {
+        std::vector<std::vector<dtype>> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVectorArray2D(dtype inValue1, dtype inValue2)
+    {
+        std::vector<std::array<dtype, 2>> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVectorArray2DCopy(dtype inValue1, dtype inValue2)
+    {
+        std::vector<std::array<dtype, 2>> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr, true);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayDeque1D(dtype inValue1, dtype inValue2)
+    {
+        std::deque<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayDeque2D(dtype inValue1, dtype inValue2)
+    {
+        std::deque<std::deque<dtype>> arr;
+        for (auto& row : arr)
+        {
+            row[0] = inValue1;
+            row[1] = inValue2;
+        }
+        auto a = asarray(arr);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarraySet(dtype inValue1, dtype inValue2)
+    {
+        std::set<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr);
+        return nc2Boost<dtype>(a);
     }
 
     //================================================================================
@@ -1802,7 +1968,109 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
-        return nc2Boost<dtype>({ {inValue1, inValue2}, {inValue1, inValue2} });
+        std::list<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayIterators(dtype inValue1, dtype inValue2)
+    {
+        std::vector<dtype> arr = { inValue1, inValue2 };
+        auto a = asarray(arr.begin(), arr.end());
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointerIterators(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(2);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        auto a = asarray(ptr.get(), ptr.get() + 2);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointer(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(2);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        auto a = asarray(ptr.release(), 2);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointer2D(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(4);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        ptr[2] = inValue1;
+        ptr[3] = inValue2;
+        auto a = asarray(ptr.release(), 2, 2);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointerShell(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(2);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        auto a = asarray(ptr.get(), 2, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointerShell2D(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(4);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        ptr[2] = inValue1;
+        ptr[3] = inValue2;
+        auto a = asarray(ptr.get(), 2, 2, false);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointerShellTakeOwnership(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(2);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        auto a = asarray(ptr.release(), 2, true);
+        return nc2Boost<dtype>(a);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayPointerShell2DTakeOwnership(dtype inValue1, dtype inValue2)
+    {
+        auto ptr = std::make_unique<dtype[]>(4);
+        ptr[0] = inValue1;
+        ptr[1] = inValue2;
+        ptr[2] = inValue1;
+        ptr[3] = inValue2;
+        auto a = asarray(ptr.release(), 2, 2, true);
+        return nc2Boost<dtype>(a);
     }
 
     //================================================================================
@@ -5179,8 +5447,29 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("aroundArray", &FunctionsInterface::aroundArray<double>);
     bp::def("array_equal", &array_equal<double>);
     bp::def("array_equiv", &array_equiv<double>);
-    bp::def("asarrayVector", &FunctionsInterface::asarrayVector<double>);
+    bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<double>);
+    bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<double>);
+    bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<double>);
+    bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<double>);
+    bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<double>);
+    bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<double>);
+    bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<double>);
+    bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<double>);
+    bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<double>);
+    bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<double>);
+    bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<double>);
+    bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<double>);
+    bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<double>);
+    bp::def("asarraySet", &FunctionsInterface::asarraySet<double>);
     bp::def("asarrayList", &FunctionsInterface::asarrayList<double>);
+    bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<double>);
+    bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<double>);
+    bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<double>);
+    bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<double>);
+    bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<double>);
+    bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<double>);
+    bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<double>);
+    bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<double>);
     bp::def("astype", &astype<double, uint32>);
     bp::def("average", &FunctionsInterface::average<double>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);

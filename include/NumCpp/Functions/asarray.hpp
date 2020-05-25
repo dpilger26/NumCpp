@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 
 #include <array>
 #include <deque>
@@ -52,8 +53,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> asarray(std::initializer_list<dtype>& inList) noexcept
+    template<typename dtype, 
+        std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    NdArray<dtype> asarray(std::initializer_list<dtype> inList) noexcept
     {
         return NdArray<dtype>(inList);
     }
@@ -71,7 +73,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> >& inList) noexcept
+    NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> > inList) noexcept
     {
         return NdArray<dtype>(inList);
     }
@@ -88,7 +90,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, size_t ArraySize>
+    template<typename dtype, size_t ArraySize, 
+        std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
     NdArray<dtype> asarray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept
     {
         return NdArray<dtype>(inArray, copy);
@@ -124,7 +127,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, 
+        std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
     NdArray<dtype> asarray(std::vector<dtype>& inVector, bool copy = true) noexcept
     {
         return NdArray<dtype>(inVector, copy);
@@ -159,7 +163,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, size_t Dim1Size>
-    NdArray<dtype> asarray(const std::vector<std::array<dtype, Dim1Size>>& inVector, bool copy = true) noexcept
+    NdArray<dtype> asarray(std::vector<std::array<dtype, Dim1Size>>& inVector, bool copy = true) noexcept
     {
         return NdArray<dtype>(inVector, copy);
     }
@@ -171,15 +175,14 @@ namespace nc
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
     /// @param      inDeque
-    ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-    ///                   act as a non-owning shell. Default true.
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> asarray(std::deque<dtype>& inDeque, bool copy = true) noexcept
+    template<typename dtype, 
+        std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+    NdArray<dtype> asarray(const std::deque<dtype>& inDeque) noexcept
     {
-        return NdArray<dtype>(inDeque, copy);
+        return NdArray<dtype>(inDeque);
     }
 
     //============================================================================
@@ -196,24 +199,6 @@ namespace nc
     NdArray<dtype> asarray(const std::deque<std::deque<dtype>>& inDeque) noexcept
     {
         return NdArray<dtype>(inDeque);
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Convert the vector to an array.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
-    ///
-    /// @param      inDeque
-    ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-    ///                   act as a non-owning shell. Default true.
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype, size_t Dim1Size>
-    NdArray<dtype> asarray(const std::deque<std::array<dtype, Dim1Size>>& inDeque, bool copy = true) noexcept
-    {
-        return NdArray<dtype>(inDeque, copy);
     }
 
     //============================================================================
@@ -256,15 +241,15 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
-    /// @param
-    ///				inList
+    /// @param      iterBegin
+    /// @param      iterEnd
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> asarray(const std::forward_list<dtype>& inList) noexcept
+    template<typename Iterator>
+    auto asarray(Iterator iterBegin, Iterator iterEnd) noexcept
     {
-        return NdArray<dtype>(inList);
+        return NdArray(iterBegin, iterEnd);
     }
 
     //============================================================================
@@ -273,8 +258,8 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
-    /// @param
-    ///				inList
+    /// @param      iterBegin
+    /// @param      iterEnd
     /// @return
     ///				NdArray
     ///
@@ -333,7 +318,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(dtype* ptr, uint32 size, bool takeOwnership = false) noexcept
+    NdArray<dtype> asarray(dtype* ptr, uint32 size, bool takeOwnership) noexcept
     {
         return NdArray<dtype>(ptr, size, takeOwnership);
     }
@@ -353,7 +338,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, bool takeOwnership = false) noexcept
+    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept
     {
         return NdArray<dtype>(ptr, numRows, numCols, takeOwnership);
     }

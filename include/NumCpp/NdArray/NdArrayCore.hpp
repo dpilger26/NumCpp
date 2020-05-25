@@ -207,7 +207,8 @@ namespace nc
         ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
         ///                   act as a non-owning shell. Default true.
         ///
-        template<size_t ArraySize>
+        template<size_t ArraySize, 
+            std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
         NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept :
             shape_(1, static_cast<uint32>(ArraySize)),
             size_(shape_.size())
@@ -249,12 +250,13 @@ namespace nc
                 newArray();
                 if (size_ > 0)
                 {
-                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
+                    const auto start = in2dArray.front().begin();
+                    stl_algorithms::copy(start, start + size_, array_);
                 }
             }
             else
             {
-                array_ = in2dArray.data();
+                array_ = in2dArray.front().data();
                 ownsPtr_ = false;
             }
         }
@@ -267,6 +269,7 @@ namespace nc
         ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
         ///                   act as a non-owning shell. Default true.
         ///
+        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
         NdArray(std::vector<dtype>& inVector, bool copy = true) noexcept :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size())
@@ -341,12 +344,13 @@ namespace nc
                 newArray();
                 if (size_ > 0)
                 {
-                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
+                    const auto start = in2dArray.front().begin();
+                    stl_algorithms::copy(start, start + size_, array_);
                 }
             }
             else
             {
-                array_ = in2dArray.data();
+                array_ = in2dArray.front().data();
                 ownsPtr_ = false;
             }
         }
@@ -356,27 +360,18 @@ namespace nc
         ///						Constructor
         ///
         /// @param      inDeque
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
         ///
-        NdArray(std::deque<dtype>& inDeque, bool copy = true) noexcept :
+        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+        NdArray(const std::deque<dtype>& inDeque) noexcept :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
 
-            if (copy)
+            newArray();
+            if (size_ > 0)
             {
-                newArray();
-                if (size_ > 0)
-                {
-                    stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
-                }
-            }
-            else
-            {
-                array_ = inDeque.data();
-                ownsPtr_ = false;
+                stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
             }
         }
 
@@ -410,36 +405,6 @@ namespace nc
             {
                 stl_algorithms::copy(row.begin(), row.end(), currentPosition);
                 currentPosition += shape_.cols;
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Constructor
-        ///
-        /// @param      inArray
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
-        ///
-        template<size_t Dim1Size>
-        NdArray(std::deque<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) noexcept :
-            shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
-            size_(shape_.size())
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
-            if (copy)
-            {
-                newArray();
-                if (size_ > 0)
-                {
-                    stl_algorithms::copy(in2dArray.begin(), in2dArray.begin() + size_, array_);
-                }
-            }
-            else
-            {
-                array_ = in2dArray.data();
-                ownsPtr_ = false;
             }
         }
 
@@ -487,11 +452,13 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inList
+        /// @param				inFirst
+        /// @param				inLast
         ///
-        explicit NdArray(const std::forward_list<dtype>& inList) noexcept :
-            shape_(1, static_cast<uint32>(inList.size())),
+        template<typename Iterator,
+            std::enable_if_t<std::is_same<typename std::iterator_traits<Iterator>::value_type, dtype>::value, int> = 0>
+        NdArray(Iterator inFirst, Iterator inLast) noexcept :
+            shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
         {
             STATIC_ASSERT_VALID_DTYPE(dtype);
@@ -499,7 +466,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+                stl_algorithms::copy(inFirst, inLast, array_);
             }
         }
 
@@ -576,7 +543,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 size, bool takeOwnership = false) noexcept :
+        NdArray(dtype* inPtr, uint32 size, bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -596,7 +563,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership = false) noexcept :
+        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
