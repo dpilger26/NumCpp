@@ -52,7 +52,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         if (inArray1.shape() != inArray2.shape())
         {
@@ -63,7 +63,7 @@ namespace nc
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, dtype inValue2) noexcept -> dtype
             { 
-                return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1);
+                return inValue2 < dtype{ 0 } ? std::abs(inValue1) * -1 : std::abs(inValue1);
             });
 
         return returnArray;
