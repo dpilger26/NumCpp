@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -46,6 +47,8 @@ namespace nc
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<dtypeOut> returnArray(inArray.shape());
         returnArray.ones();
         return returnArray;

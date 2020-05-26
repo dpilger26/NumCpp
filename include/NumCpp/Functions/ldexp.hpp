@@ -54,7 +54,7 @@ namespace nc
     template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
     }

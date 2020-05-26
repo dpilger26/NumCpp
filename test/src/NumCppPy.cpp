@@ -2693,7 +2693,7 @@ namespace FunctionsInterface
     np::ndarray frombuffer(const NdArray<dtype>& inArray)
     {
         auto buffer = reinterpret_cast<char*>(inArray.data());
-        return nc2Boost(nc::frombuffer<dtype>(buffer, inArray.nbytes()));
+        return nc2Boost(nc::frombuffer<dtype>(buffer, static_cast<uint32>(inArray.nbytes())));
     }
 
     //================================================================================
@@ -2994,9 +2994,57 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(nc::matmul(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(nc::max(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(nc::maximum(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
     {
         return nc::meshgrid<dtype>(inISlice, inJSlice);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(nc::min(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(nc::minimum(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(nc::multiply(inArray1, inArray2));
     }
 
     //================================================================================
@@ -5734,19 +5782,25 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("logical_or", &logical_or<double>);
     bp::def("logical_xor", &logical_xor<double>);
 
-    bp::def("matmul", &matmul<double>);
-    bp::def("max", &max<double>);
-    bp::def("maximum", &maximum<double>);
-    bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
+    bp::def("matmul", &FunctionsInterface::matmul<double>);
+    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>>);
+    bp::def("max", &FunctionsInterface::max<double>);
+    bp::def("max", &FunctionsInterface::max<std::complex<double>>);
+    bp::def("maximum", &FunctionsInterface::maximum<double>);
+    bp::def("maximum", &FunctionsInterface::maximum<std::complex<double>>);
     NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>; 
     bp::def("mean", meanDouble);
     NdArray<std::complex<double>> (*meanComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &mean<double>; 
     bp::def("mean", meanComplexDouble);
     bp::def("median", &median<double>);
-    bp::def("min", &min<double>);
-    bp::def("minimum", &minimum<double>);
+    bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
+    bp::def("min", &FunctionsInterface::min<double>);
+    bp::def("min", &FunctionsInterface::min<std::complex<double>>);
+    bp::def("minimum", &FunctionsInterface::minimum<double>);
+    bp::def("minimum", &FunctionsInterface::minimum<std::complex<double>>);
     bp::def("mod", &mod<uint32>);
-    bp::def("multiply", &multiply<double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double>);
+    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>>);
 
     bp::def("nanargmax", &nanargmax<double>);
     bp::def("nanargmin", &nanargmin<double>);
@@ -5767,22 +5821,32 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("nansum", &nansum<double>);
     bp::def("nanvar", &nanvar<double>);
     bp::def("nbytes", &nbytes<double>);
+    bp::def("nbytes", &nbytes<std::complex<double>>);
+    bp::def("negative", &negative<double>);
+    bp::def("negative", &negative<std::complex<double>>);
     bp::def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
-    bp::def("negative", &negative<double>);
     bp::def("none", &FunctionsInterface::noneArray<double>);
+    bp::def("none", &FunctionsInterface::noneArray<std::complex<double>>);
     bp::def("nonzero", &nonzero<double>);
+    bp::def("nonzero", &nonzero<std::complex<double>>);
     NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>; 
     bp::def("norm", normDouble);
     NdArray<std::complex<double>> (*normComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &norm<double>; 
     bp::def("norm", normComplexDouble);
     bp::def("not_equal", &not_equal<double>);
+    bp::def("not_equal", &not_equal<std::complex<double>>);
 
     bp::def("onesSquare", &FunctionsInterface::onesSquare<double>);
+    bp::def("onesSquareComplex", &FunctionsInterface::onesSquare<std::complex<double>>);
     bp::def("onesRowCol", &FunctionsInterface::onesRowCol<double>);
+    bp::def("onesRowColComplex", &FunctionsInterface::onesRowCol<std::complex<double>>);
     bp::def("onesShape", &FunctionsInterface::onesShape<double>);
+    bp::def("onesShapeComplex", &FunctionsInterface::onesShape<std::complex<double>>);
     bp::def("ones_like", &ones_like<double, double>);
+    bp::def("ones_likeComplex", &ones_like<std::complex<double>, double>);
     bp::def("outer", &FunctionsInterface::outer<double>);
+    bp::def("outer", &FunctionsInterface::outer<std::complex<double>>);
 
     bp::def("pad", &pad<double>);
     bp::def("partition", &partition<double>);
@@ -5911,10 +5975,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("where", &FunctionsInterface::where<double>);
 
     bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
+    bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<std::complex<double>>);
     bp::def("zerosRowCol", &FunctionsInterface::zerosRowCol<double>);
+    bp::def("zerosRowColComplex", &FunctionsInterface::zerosRowCol<std::complex<double>>);
     bp::def("zerosShape", &FunctionsInterface::zerosShape<double>);
+    bp::def("zerosShapeComplex", &FunctionsInterface::zerosShape<std::complex<double>>);
     bp::def("zerosList", &FunctionsInterface::zerosList<double>);
+    bp::def("zerosListComplex", &FunctionsInterface::zerosList<std::complex<double>>);
     bp::def("zeros_like", &zeros_like<double, double>);
+    bp::def("zeros_likeComplex", &zeros_like<std::complex<double>, double>);
 
     // Utils.hpp
     bp::def("num2str", &utils::num2str<double>);
