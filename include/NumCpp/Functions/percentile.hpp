@@ -40,6 +40,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -66,7 +67,7 @@ namespace nc
     NdArray<dtype> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {

@@ -5849,7 +5849,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("outer", &FunctionsInterface::outer<std::complex<double>>);
 
     bp::def("pad", &pad<double>);
+    bp::def("pad", &pad<std::complex<double>>);
     bp::def("partition", &partition<double>);
+    bp::def("partition", &partition<std::complex<double>>);
     bp::def("percentile", &percentile<double>);
     bp::def("polarScaler", &FunctionsInterface::polarScaler<double>);
     bp::def("polarArray", &FunctionsInterface::polarArray<double>);
@@ -5862,9 +5864,11 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<std::complex<double>>);
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<std::complex<double>>);
     bp::def("prod", &prod<double>);
+    bp::def("prod", &prod<std::complex<double>>);
     bp::def("projScaler", &FunctionsInterface::projScaler<double>);
     bp::def("projArray", &FunctionsInterface::projArray<double>);
     bp::def("ptp", &ptp<double>);
+    bp::def("ptp", &ptp<std::complex<double>>);
     bp::def("put", &put<double>, bp::return_internal_reference<>());
     bp::def("putmask", &FunctionsInterface::putmask<double>);
     bp::def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
