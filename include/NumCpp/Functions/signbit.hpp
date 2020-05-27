@@ -48,9 +48,9 @@ namespace nc
     template<typename dtype>
     bool signbit(dtype inValue) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return inValue < 0 ? true : false;
+        return inValue < dtype{ 0 } ? true : false;
     }
 
     //============================================================================

@@ -30,7 +30,10 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+
+#include <complex>
 
 namespace nc
 {
@@ -53,11 +56,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (inValue < 0)
+        if (inValue < dtype{ 0 })
         {
             return -1;
         }
-        else if (inValue > 0)
+        else if (inValue > dtype{ 0 })
         {
             return 1;
         }

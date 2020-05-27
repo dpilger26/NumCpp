@@ -520,6 +520,30 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						finds the difference of two ranges
+        ///
+        /// @param first1: the first iterator of the source
+        /// @param last1: the last iterator of the source
+        /// @param first2: the first iterator of the second source
+        /// @param last2: the first iterator of the destination
+        /// @param destination: the function to apply to the input iterators
+        /// @param comp: comparitor function
+        /// @return OutputIt
+        ///
+        template<class InputIt1, class InputIt2, class OutputIt, class Compare>
+        OutputIt set_difference(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+            OutputIt destination, Compare comp)
+        {
+            return std::set_difference(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first1, last1, first2, last2, destination, comp);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						finds the intersection of two ranges
         ///
         /// @param first1: the first iterator of the source
@@ -543,6 +567,30 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						finds the intersection of two ranges
+        ///
+        /// @param first1: the first iterator of the source
+        /// @param last1: the last iterator of the source
+        /// @param first2: the first iterator of the second source
+        /// @param last2: the first iterator of the destination
+        /// @param destination: the function to apply to the input iterators
+        /// @param comp: comparitor function
+        /// @return OutputIt
+        ///
+        template<class InputIt1, class InputIt2, class OutputIt, class Compare>
+        OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+            OutputIt destination, Compare comp)
+        {
+            return std::set_intersection(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first1, last1, first2, last2, destination, comp);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						finds the union of two ranges
         ///
         /// @param first1: the first iterator of the source
@@ -562,6 +610,30 @@ namespace nc
                 std::execution::par_unseq,
 #endif
                 first1, last1, first2, last2, destination);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						finds the union of two ranges
+        ///
+        /// @param first1: the first iterator of the source
+        /// @param last1: the last iterator of the source
+        /// @param first2: the first iterator of the second source
+        /// @param last2: the first iterator of the destination
+        /// @param destination: the function to apply to the input iterators
+        /// @param comp: comparitor function
+        /// @return OutputIt
+        ///
+        template<class InputIt1, class InputIt2, class OutputIt, class Compare>
+        OutputIt set_union(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+            OutputIt destination, Compare comp)
+        {
+            return std::set_union(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first1, last1, first2, last2, destination, comp);
         }
 
         //============================================================================
@@ -675,6 +747,47 @@ namespace nc
                 std::execution::par_unseq,
 #endif
                 first1, last1, first2, destination, unaryFunction);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Copies the unique elements of a range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param destination: the first iterator of the destination
+        /// @return OutputIt
+        ///
+        template<class InputIt, class OutputIt>
+        constexpr OutputIt unique_copy(InputIt first, InputIt last,
+            OutputIt destination)
+        {
+            return std::unique_copy(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, destination);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Copies the unique elements of a range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param destination: the first iterator of the destination
+        /// @param binaryFunction: the function to apply to the input iterators
+        /// @return OutputIt
+        ///
+        template<class InputIt, class OutputIt, class BinaryPredicate>
+        constexpr OutputIt unique_copy(InputIt first, InputIt last,
+            OutputIt destination, BinaryPredicate binaryFunction)
+        {
+            return std::unique_copy(
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::execution::par_unseq,
+#endif
+                first, last, destination, binaryFunction);
         }
     }
 }

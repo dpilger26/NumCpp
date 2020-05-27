@@ -31,7 +31,10 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+
+#include <complex>
 
 namespace nc
 {
@@ -52,7 +55,7 @@ namespace nc
     template<typename dtype>
     NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
         NdArray<double> returnArray(inArray.shape());
 
@@ -61,6 +64,37 @@ namespace nc
             [&returnArray, &counter](dtype value) noexcept -> void
             { 
                 returnArray[counter++] = 1.0 / static_cast<double>(value);
+            });
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the reciprocal of the argument, element-wise.
+    ///
+    ///						Calculates 1 / x.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    ///
+    /// @param
+    ///				inArray
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) noexcept
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        NdArray<std::complex<double>> returnArray(inArray.shape());
+
+        uint32 counter = 0;
+        std::for_each(inArray.cbegin(), inArray.cend(),
+            [&returnArray, &counter](std::complex<dtype> value) noexcept -> void
+            { 
+                returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value);
             });
 
         return returnArray;

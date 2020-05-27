@@ -3226,6 +3226,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray reciprocal(NdArray<dtype>& inArray)
+    {
+        return nc2Boost(nc::reciprocal(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype realScaler(const std::complex<dtype>& inValue)
     {
         return nc::real(inValue);
@@ -3468,7 +3476,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double squareScaler(dtype inValue) noexcept
+    dtype squareScaler(dtype inValue) noexcept
     {
         return square(inValue);
     }
@@ -5372,6 +5380,18 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<int32>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<int32>>);
 
+    typedef NdArray<std::complex<uint32>> NdArrayComplexUint32;
+    bp::class_<NdArrayComplexUint32>
+        ("NdArrayComplexUint32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayComplexUint32::item)
+        .def("shape", &NdArrayComplexUint32::shape)
+        .def("size", &NdArrayComplexUint32::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<uint32>>)
+        .def("setArray", NdArrayInterface::setArray<std::complex<uint32>>);
+
     typedef std::complex<double> ComplexDouble;
     typedef NdArray<ComplexDouble> NdArrayComplexDouble;
     bp::class_<NdArrayComplexDouble>
@@ -5878,12 +5898,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("radiansScaler", &FunctionsInterface::radiansScaler<double>);
     bp::def("radiansArray", &FunctionsInterface::radiansArray<double>);
     bp::def("ravel", &FunctionsInterface::ravel<double>, bp::return_internal_reference<>());
-    bp::def("reciprocal", &reciprocal<double>);
+    bp::def("reciprocal", &FunctionsInterface::reciprocal<double>);
+    bp::def("reciprocal", &FunctionsInterface::reciprocal<std::complex<double>>);
     bp::def("realScaler", &FunctionsInterface::realScaler<double>);
     bp::def("realArray", &FunctionsInterface::realArray<double>);
     bp::def("remainderScaler", &FunctionsInterface::remainderScaler<double>);
     bp::def("remainderArray", &FunctionsInterface::remainderArray<double>);
     bp::def("replace", &FunctionsInterface::replace<double>);
+    bp::def("replace", &FunctionsInterface::replace<std::complex<double>>);
     bp::def("reshape", &FunctionsInterface::reshapeInt<double>, bp::return_internal_reference<>());
     bp::def("reshape", &FunctionsInterface::reshapeShape<double>, bp::return_internal_reference<>());
     bp::def("reshape", &FunctionsInterface::reshapeValues<double>, bp::return_internal_reference<>());
@@ -5906,45 +5928,53 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("row_stack", &FunctionsInterface::row_stack<double>);
 
     bp::def("setdiff1d", &setdiff1d<uint32>);
+    bp::def("setdiff1d", &setdiff1d<std::complex<uint32>>);
     bp::def("signScaler", &FunctionsInterface::signScaler<double>);
+    bp::def("signScaler", &FunctionsInterface::signScaler<std::complex<double>>);
     bp::def("signArray", &FunctionsInterface::signArray<double>);
+    bp::def("signArray", &FunctionsInterface::signArray<std::complex<double>>);
     bp::def("signbitScaler", &FunctionsInterface::signbitScaler<double>);
     bp::def("signbitArray", &FunctionsInterface::signbitArray<double>);
     bp::def("sinScaler", &FunctionsInterface::sinScaler<double>);
-    bp::def("sinArray", &FunctionsInterface::sinArray<double>);
     bp::def("sinScaler", &FunctionsInterface::sinScaler<std::complex<double>>);
+    bp::def("sinArray", &FunctionsInterface::sinArray<double>);
     bp::def("sinArray", &FunctionsInterface::sinArray<std::complex<double>>);
     bp::def("sincScaler", &FunctionsInterface::sincScaler<double>);
     bp::def("sincArray", &FunctionsInterface::sincArray<double>);
+    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<std::complex<double>>);
     bp::def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<double>);
-    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<std::complex<double>>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<std::complex<double>>);
     bp::def("size", &size<double>);
     bp::def("sort", &sort<double>);
+    bp::def("sort", &sort<std::complex<double>>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
-    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<std::complex<double>>);
+    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
     bp::def("sqrtArray", &FunctionsInterface::sqrtArray<std::complex<double>>);
     bp::def("squareScaler", &FunctionsInterface::squareScaler<double>);
+    bp::def("squareScaler", &FunctionsInterface::squareScaler<std::complex<double>>);
     bp::def("squareArray", &FunctionsInterface::squareArray<double>);
+    bp::def("squareArray", &FunctionsInterface::squareArray<std::complex<double>>);
     bp::def("stack", &FunctionsInterface::stack<double>);
     NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevDouble);
     NdArray<std::complex<double>> (*stdevComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevComplexDouble);
     bp::def("subtract", &FunctionsInterface::subtractArrays<double>);
+    bp::def("subtract", &FunctionsInterface::subtractArrays<std::complex<double>>);
     bp::def("sum", &sum<double>);
+    bp::def("sum", &sum<std::complex<double>>);
     bp::def("swapaxes", &swapaxes<double>);
     bp::def("swap", &nc::swap<double>);
 
     bp::def("tanScaler", &FunctionsInterface::tanScaler<double>);
-    bp::def("tanArray", &FunctionsInterface::tanArray<double>);
     bp::def("tanScaler", &FunctionsInterface::tanScaler<std::complex<double>>);
+    bp::def("tanArray", &FunctionsInterface::tanArray<double>);
     bp::def("tanArray", &FunctionsInterface::tanArray<std::complex<double>>);
     bp::def("tanhScaler", &FunctionsInterface::tanhScaler<double>);
-    bp::def("tanhArray", &FunctionsInterface::tanhArray<double>);
     bp::def("tanhScaler", &FunctionsInterface::tanhScaler<std::complex<double>>);
+    bp::def("tanhArray", &FunctionsInterface::tanhArray<double>);
     bp::def("tanhArray", &FunctionsInterface::tanhArray<std::complex<double>>);
     bp::def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
     bp::def("tileShape", &FunctionsInterface::tileShape<double>);
@@ -5952,21 +5982,31 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("tofile", &tofile<double>);
     bp::def("toStlVector", &toStlVector<double>);
     bp::def("trace", &trace<double>);
+    bp::def("trace", &trace<std::complex<double>>);
     bp::def("transpose", &transpose<double>);
     bp::def("trapzDx", &FunctionsInterface::trapzDx<double>);
     bp::def("trapz", &FunctionsInterface::trapz<double>);
     bp::def("trilSquare", &FunctionsInterface::trilSquare<double>);
+    bp::def("trilSquare", &FunctionsInterface::trilSquare<std::complex<double>>);
     bp::def("trilRect", &FunctionsInterface::trilRect<double>);
+    bp::def("trilRect", &FunctionsInterface::trilRect<std::complex<double>>);
     bp::def("trilArray", &FunctionsInterface::trilArray<double>);
+    bp::def("trilArray", &FunctionsInterface::trilArray<std::complex<double>>);
     bp::def("triuSquare", &FunctionsInterface::triuSquare<double>);
+    bp::def("triuSquare", &FunctionsInterface::triuSquare<std::complex<double>>);
     bp::def("triuRect", &FunctionsInterface::triuRect<double>);
+    bp::def("triuRect", &FunctionsInterface::triuRect<std::complex<double>>);
     bp::def("triuArray", &FunctionsInterface::triuArray<double>);
+    bp::def("triuArray", &FunctionsInterface::triuArray<std::complex<double>>);
     bp::def("trim_zeros", &trim_zeros<double>);
+    bp::def("trim_zeros", &trim_zeros<std::complex<double>>);
     bp::def("truncScaler", &FunctionsInterface::truncScaler<double>);
     bp::def("truncArray", &FunctionsInterface::truncArray<double>);
 
     bp::def("union1d", &union1d<uint32>);
-    bp::def("unique", &unique<double>);
+    bp::def("union1d", &union1d<std::complex<uint32>>);
+    bp::def("unique", &unique<uint32>);
+    bp::def("unique", &unique<std::complex<uint32>>);
     bp::def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
     bp::def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
@@ -5977,6 +6017,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
     bp::def("where", &FunctionsInterface::where<double>);
+    bp::def("where", &FunctionsInterface::where<std::complex<double>>);
 
     bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
     bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<std::complex<double>>);

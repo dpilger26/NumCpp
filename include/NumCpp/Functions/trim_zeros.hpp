@@ -95,7 +95,7 @@ namespace nc
                 }
             }
 
-            if (place == 0 || (place == 1 && inArray[0] == 0))
+            if (place == 0 || (place == 1 && inArray[0] == dtype{ 0 }))
             {
                 return NdArray<dtype>(0);
             }
@@ -138,7 +138,7 @@ namespace nc
                 }
             }
 
-            if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == 0))
+            if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == dtype{ 0 }))
             {
                 return NdArray<dtype>(0);
             }
