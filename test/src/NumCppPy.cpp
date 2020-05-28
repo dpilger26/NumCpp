@@ -1574,10 +1574,10 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename Type1, typename Type2>
+    np::ndarray add(const Type1& in1, const Type2& in2)
     {
-        return nc2Boost(add(inArray1, inArray2));
+        return nc2Boost(nc::add(in1, in2));
     }
 
     //================================================================================
@@ -2469,10 +2469,10 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename Type1, typename Type2>
+    np::ndarray divide(const Type1& in1, const Type2& in2)
     {
-        return nc2Boost(nc::divide(inArray1, inArray2));
+        return nc2Boost(nc::divide(in1, in2));
     }
 
     //================================================================================
@@ -3041,10 +3041,10 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename Type1, typename Type2>
+    np::ndarray multiply(const Type1& in1, const Type2& in2)
     {
-        return nc2Boost(nc::multiply(inArray1, inArray2));
+        return nc2Boost(nc::multiply(in1, in2));
     }
 
     //================================================================================
@@ -3491,10 +3491,10 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray subtractArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename Type1, typename Type2>
+    np::ndarray subtract(const Type1& in1, const Type2& in2)
     {
-        return nc2Boost(subtract(inArray1, inArray2));
+        return nc2Boost(nc::subtract(in1, in2));
     }
 
     //================================================================================
@@ -5495,8 +5495,18 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("absArray", &FunctionsInterface::absArray<double>);
     bp::def("absScaler", &FunctionsInterface::absScaler<std::complex<double>>);
     bp::def("absArray", &FunctionsInterface::absArray<std::complex<double>>);
-    bp::def("add", &FunctionsInterface::addArrays<double>);
-    bp::def("add", &FunctionsInterface::addArrays<std::complex<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, double>);
+    bp::def("add", &FunctionsInterface::add<double, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, std::complex<double>>);
+    bp::def("add", &FunctionsInterface::add<std::complex<double>, NdArray<std::complex<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<std::complex<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, std::complex<double>>);
+    bp::def("add", &FunctionsInterface::add<std::complex<double>, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, double>);
+    bp::def("add", &FunctionsInterface::add<double, NdArray<std::complex<double>>>);
     bp::def("alen", &alen<double>);
     bp::def("all", &FunctionsInterface::allArray<double>);
     bp::def("all", &FunctionsInterface::allArray<std::complex<double>>);
@@ -5677,8 +5687,18 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("diagonal", &FunctionsInterface::diagonal<std::complex<double>>);
     bp::def("diff", &FunctionsInterface::diff<double>);
     bp::def("diff", &FunctionsInterface::diff<std::complex<double>>);
-    bp::def("divide", &FunctionsInterface::divide<double>);
-    bp::def("divide", &FunctionsInterface::divide<std::complex<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, double>);
+    bp::def("divide", &FunctionsInterface::divide<double, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, std::complex<double>>);
+    bp::def("divide", &FunctionsInterface::divide<std::complex<double>, NdArray<std::complex<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<std::complex<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, std::complex<double>>);
+    bp::def("divide", &FunctionsInterface::divide<std::complex<double>, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, double>);
+    bp::def("divide", &FunctionsInterface::divide<double, NdArray<std::complex<double>>>);
     bp::def("dot", &FunctionsInterface::dot<double>);
     bp::def("dot", &FunctionsInterface::dot<std::complex<double>>);
     bp::def("dump", &dump<double>);
@@ -5819,8 +5839,18 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("minimum", &FunctionsInterface::minimum<double>);
     bp::def("minimum", &FunctionsInterface::minimum<std::complex<double>>);
     bp::def("mod", &mod<uint32>);
-    bp::def("multiply", &FunctionsInterface::multiply<double>);
-    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, std::complex<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>, NdArray<std::complex<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<std::complex<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, std::complex<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<std::complex<double>>>);
 
     bp::def("nanargmax", &nanargmax<double>);
     bp::def("nanargmin", &nanargmin<double>);
@@ -5961,8 +5991,18 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("stdev", stdevDouble);
     NdArray<std::complex<double>> (*stdevComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevComplexDouble);
-    bp::def("subtract", &FunctionsInterface::subtractArrays<double>);
-    bp::def("subtract", &FunctionsInterface::subtractArrays<std::complex<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, double>);
+    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, std::complex<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<std::complex<double>, NdArray<std::complex<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<std::complex<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, std::complex<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<std::complex<double>, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, double>);
+    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<std::complex<double>>>);
     bp::def("sum", &sum<double>);
     bp::def("sum", &sum<std::complex<double>>);
     bp::def("swapaxes", &swapaxes<double>);

@@ -34,6 +34,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <algorithm>
 #include <complex>
@@ -1906,10 +1907,15 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
+        const auto equalTo = [](dtype lhs, dtype rhs)
+        {
+            return utils::essentiallyEqual(lhs, rhs);
+        };
+
         NdArray<bool> returnArray(lhs.shape());
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
-            rhs.cbegin(), returnArray.begin(), std::equal_to<dtype>());
+            rhs.cbegin(), returnArray.begin(), equalTo);
 
         return returnArray;
     }
@@ -1928,13 +1934,13 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        auto equalTo = [inValue](dtype value) noexcept -> bool
         {
-            return value == inValue;
+            return utils::essentiallyEqual(inValue, value);
         };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
-            returnArray.begin(), function);
+            returnArray.begin(), equalTo);
 
         return returnArray;
     }
@@ -1971,10 +1977,15 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
+        const auto notEqualTo = [](dtype lhs, dtype rhs)
+        {
+            return !utils::essentiallyEqual(lhs, rhs);
+        };
+
         NdArray<bool> returnArray(lhs.shape());
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
-            rhs.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
+            rhs.cbegin(), returnArray.begin(), notEqualTo);
 
         return returnArray;
     }
@@ -1993,13 +2004,13 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        auto notEqualTo = [inValue](dtype value) noexcept -> bool
         {
-            return value != inValue;
+            return !utils::essentiallyEqual(inValue, value);
         };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), 
-            returnArray.begin(), function);
+            returnArray.begin(), notEqualTo);
 
         return returnArray;
     }
