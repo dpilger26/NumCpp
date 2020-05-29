@@ -1621,17 +1621,19 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Returns a copy of the array, cast to a specified type.
+        ///                     Arithmetic to Arithmetic
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
+        template<typename dtypeOut, typename dtype_ = dtype,
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
         NdArray<dtypeOut> astype() const noexcept
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
             NdArray<dtypeOut> outArray(shape_);
 
             if (std::is_same<dtypeOut, dtype>::value)
@@ -1647,6 +1649,97 @@ namespace nc
 
                 stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
             }
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Arithmetic to Complex
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
+            enable_if_t<is_complex_v<dtypeOut>, int> = 0>
+            NdArray<dtypeOut> astype() const noexcept
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            auto function = [](const dtype& value) noexcept -> dtypeOut
+            {
+                return std::complex<typename dtypeOut::value_type>(value);
+            };
+
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Complex to Complex
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_complex_v<dtype_>, int> = 0,
+            enable_if_t<is_complex_v<dtypeOut>, int> = 0>
+        NdArray<dtypeOut> astype() const noexcept
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            if (std::is_same<dtypeOut, dtype>::value)
+            {
+                std::copy(cbegin(), cend(), outArray.begin());
+            }
+            else
+            {
+                auto function = [](const dtype& value) noexcept -> dtypeOut
+                {
+                    return complex_cast<typename dtypeOut::value_type>(value);
+                };
+
+                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+            }
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Complex to Arithmetic
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_complex_v<dtype_>, int> = 0,
+            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
+            NdArray<dtypeOut> astype() const noexcept
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            auto function = [](const dtype& value) noexcept -> dtypeOut
+            {
+                return static_cast<dtypeOut>(value.real());
+            };
+
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
 
             return outArray;
         }

@@ -2,10 +2,10 @@ import numpy as np
 from functools import reduce
 import os
 import getpass
+import warnings
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
-
 
 ####################################################################################
 def factors(n):
@@ -214,6 +214,48 @@ def test_ndarray():
             allPass = False
             break
     assert allPass
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    cArrayCast = cArray.astypeUint32().getNumpyArray()
+    assert np.array_equal(cArrayCast, data.astype(np.uint32))
+    assert cArrayCast.dtype == np.uint32
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    cArrayCast = cArray.astypeComplex().getNumpyArray()
+    assert np.array_equal(cArrayCast, data.astype(np.complex128))
+    assert cArrayCast.dtype == np.complex128
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    cArrayCast = cArray.astypeComplexFloat().getNumpyArray()
+    assert np.array_equal(cArrayCast, data.astype(np.complex64))
+    assert cArrayCast.dtype == np.complex64
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    cArrayCast = cArray.astypeDouble().getNumpyArray()
+    warnings.filterwarnings('ignore', category=np.ComplexWarning)
+    assert np.array_equal(cArrayCast, data.astype(np.double))
+    warnings.filters.pop()
+    assert cArrayCast.dtype == np.double
     
     assert cArray.back() == data.flatten()[-1]
     assert cArray.backReference() == data.flatten()[-1]

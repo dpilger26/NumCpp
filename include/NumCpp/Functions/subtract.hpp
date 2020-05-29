@@ -30,6 +30,8 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <complex>
+
 namespace nc
 {
     //============================================================================

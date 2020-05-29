@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include <complex>
 #include <type_traits>
 
 namespace nc
@@ -120,4 +121,31 @@ namespace nc
     ///
     template<class dtype>
     constexpr bool is_valid_dtype_v = is_valid_dtype<dtype>::value;
+
+    //============================================================================
+    // Class Description:
+    ///	Template class for determining if dtype is std::complex<>
+    ///
+    template<class dtype>
+    struct is_complex
+    {
+        static constexpr bool value = false;
+    };
+
+    //============================================================================
+    // Class Description:
+    ///	Template class specialization for determining if dtype is std::complex<>
+    ///
+    template<class dtype>
+    struct is_complex<std::complex<dtype>>
+    {
+        static constexpr bool value = true;
+    };
+
+    //============================================================================
+    // Class Description:
+    ///	std::is_complex helper
+    ///
+    template<class dtype>
+    inline constexpr bool is_complex_v = is_complex<dtype>::value;
 }

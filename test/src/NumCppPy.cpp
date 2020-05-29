@@ -2477,8 +2477,8 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename dtype1, typename dtype2>
+    np::ndarray dot(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
     {
         return nc2Boost(nc::dot(inArray1, inArray2));
     }
@@ -2993,8 +2993,8 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    template<typename dtype>
-    np::ndarray matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename dtype1, typename dtype2>
+    np::ndarray matmul(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
     {
         return nc2Boost(nc::matmul(inArray1, inArray2));
     }
@@ -4967,6 +4967,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("argmax", &NdArrayInterface::argmax<double>)
         .def("argmin", &NdArrayInterface::argmin<double>)
         .def("argsort", &NdArrayInterface::argsort<double>)
+        .def("astypeUint32", &NdArrayDouble::astype<uint32>)
+        .def("astypeComplex", &NdArrayDouble::astype<std::complex<double>>)
         .def("back", &NdArrayInterface::back<double>)
         .def("backReference", &NdArrayInterface::backReference<double>)
         .def("clip", &NdArrayInterface::clip<double>)
@@ -5411,6 +5413,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("argmax", &NdArrayInterface::argmax<ComplexDouble>)
         .def("argmin", &NdArrayInterface::argmin<ComplexDouble>)
         .def("argsort", &NdArrayInterface::argsort<ComplexDouble>)
+        .def("astypeDouble", &NdArrayComplexDouble::astype<double>)
+        .def("astypeComplexFloat", &NdArrayComplexDouble::astype<std::complex<float>>)
         .def("back", &NdArrayInterface::back<ComplexDouble>)
         .def("backReference", &NdArrayInterface::backReference<ComplexDouble>)
         .def("clip", &NdArrayInterface::clip<ComplexDouble>)
@@ -5606,7 +5610,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<std::complex<double>>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<double>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<std::complex<double>>);
-    bp::def("astype", &astype<double, uint32>);
+    bp::def("astypeDoubleToUint32", &astype<uint32, double>);
+    bp::def("astypeDoubleToComplex", &astype<std::complex<double>, double>);
+    bp::def("astypeComplexToComplex", &astype<std::complex<float>, std::complex<double>>);
+    bp::def("astypeComplexToDouble", &astype<double, std::complex<double>>);
     bp::def("average", &FunctionsInterface::average<double>);
     bp::def("average", &FunctionsInterface::average<std::complex<double>>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
@@ -5699,8 +5706,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("divide", &FunctionsInterface::divide<std::complex<double>, NdArray<double>>);
     bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, double>);
     bp::def("divide", &FunctionsInterface::divide<double, NdArray<std::complex<double>>>);
-    bp::def("dot", &FunctionsInterface::dot<double>);
-    bp::def("dot", &FunctionsInterface::dot<std::complex<double>>);
+    bp::def("dot", &FunctionsInterface::dot<double, double>);
+    bp::def("dot", &FunctionsInterface::dot<std::complex<double>, std::complex<double>>);
+    bp::def("dot", &FunctionsInterface::dot<double, std::complex<double>>);
+    bp::def("dot", &FunctionsInterface::dot<std::complex<double>, double>);
     bp::def("dump", &dump<double>);
     bp::def("dump", &dump<std::complex<double>>);
 
@@ -5822,8 +5831,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("logical_or", &logical_or<double>);
     bp::def("logical_xor", &logical_xor<double>);
 
-    bp::def("matmul", &FunctionsInterface::matmul<double>);
-    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>>);
+    bp::def("matmul", &FunctionsInterface::matmul<double, double>);
+    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>, std::complex<double>>);
+    bp::def("matmul", &FunctionsInterface::matmul<double, std::complex<double>>);
+    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>, double>);
     bp::def("max", &FunctionsInterface::max<double>);
     bp::def("max", &FunctionsInterface::max<std::complex<double>>);
     bp::def("maximum", &FunctionsInterface::maximum<double>);

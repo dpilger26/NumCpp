@@ -29,6 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
+
+#include <complex>
 
 namespace nc
 {
