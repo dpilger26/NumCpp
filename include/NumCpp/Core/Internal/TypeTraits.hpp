@@ -124,9 +124,9 @@ namespace nc
 
     //============================================================================
     // Class Description:
-    ///	Template class for determining if dtype is std::complex<>
+    ///	Template class for determining if type is std::complex<>
     ///
-    template<class dtype>
+    template<class T>
     struct is_complex
     {
         static constexpr bool value = false;
@@ -134,10 +134,10 @@ namespace nc
 
     //============================================================================
     // Class Description:
-    ///	Template class specialization for determining if dtype is std::complex<>
+    ///	Template class specialization for determining if type is std::complex<>
     ///
-    template<class dtype>
-    struct is_complex<std::complex<dtype>>
+    template<class T>
+    struct is_complex<std::complex<T>>
     {
         static constexpr bool value = true;
     };
@@ -146,6 +146,6 @@ namespace nc
     // Class Description:
     ///	std::is_complex helper
     ///
-    template<class dtype>
-    inline constexpr bool is_complex_v = is_complex<dtype>::value;
+    template<class T>
+    constexpr bool is_complex_v = is_complex<T>::value;
 }
