@@ -17,7 +17,7 @@ def factors(n):
 
 ####################################################################################
 def test_functions():
-    np.random.seed(666)
+    np.random.seed(1)
 
     randValue = np.random.randint(-100, -1, [1, ]).astype(np.double).item()
     assert NumCpp.absScaler(randValue) == np.abs(randValue)
@@ -2276,6 +2276,18 @@ def test_functions():
 
     size = np.random.randint(1, 100, [1, ]).item()
     shape = NumCpp.Shape(1, size)
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    real2 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    imag2 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert NumCpp.dot(cArray1, cArray2).item() == np.dot(data1, data2.T).item()
+
+    size = np.random.randint(1, 100, [1, ]).item()
+    shape = NumCpp.Shape(1, size)
     cArray1 = NumCpp.NdArrayComplexDouble(shape)
     cArray2 = NumCpp.NdArrayComplexDouble(shape)
     real1 = np.random.randint(1, 50, [shape.rows, shape.cols])
@@ -2284,6 +2296,18 @@ def test_functions():
     real2 = np.random.randint(1, 50, [shape.rows, shape.cols])
     imag2 = np.random.randint(1, 50, [shape.rows, shape.cols])
     data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert NumCpp.dot(cArray1, cArray2).item() == np.dot(data1, data2.T).item()
+
+    size = np.random.randint(1, 100, [1, ]).item()
+    shape = NumCpp.Shape(1, size)
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    real1 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    imag1 = np.random.randint(1, 50, [shape.rows, shape.cols])
+    data1 = real1 + 1j * imag1
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols])
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert NumCpp.dot(cArray1, cArray2).item() == np.dot(data1, data2.T).item()
@@ -3206,6 +3230,19 @@ def test_functions():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     shape2 = NumCpp.Shape(shapeInput[1].item(), shapeInput[0].item())
+    cArray1 = NumCpp.NdArray(shape1)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape2)
+    data1 = np.random.randint(0, 20, [shape1.rows, shape1.cols])
+    real2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    imag2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.matmul(cArray1, cArray2), np.matmul(data1, data2))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumCpp.Shape(shapeInput[1].item(), shapeInput[0].item())
     cArray1 = NumCpp.NdArrayComplexDouble(shape1)
     cArray2 = NumCpp.NdArrayComplexDouble(shape2)
     real1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
@@ -3214,6 +3251,19 @@ def test_functions():
     real2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
     imag2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
     data2 = real2 + 1j * imag2
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.matmul(cArray1, cArray2), np.matmul(data1, data2))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumCpp.Shape(shapeInput[1].item(), shapeInput[0].item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape1)
+    cArray2 = NumCpp.NdArray(shape2)
+    real1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    imag1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data1 = real1 + 1j * imag1
+    data2 = np.random.randint(0, 20, [shape2.rows, shape2.cols])
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.matmul(cArray1, cArray2), np.matmul(data1, data2))
