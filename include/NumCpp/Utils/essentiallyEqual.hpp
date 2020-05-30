@@ -45,7 +45,6 @@ namespace nc
         ///
         /// @param      inValue1
         /// @param      inValue2
-        /// @param      inEpsilon
         ///
         /// @return     bool
         ///
@@ -78,7 +77,6 @@ namespace nc
         ///
         /// @param      inValue1
         /// @param      inValue2
-        /// @param      inEpsilon
         ///
         /// @return     bool
         ///

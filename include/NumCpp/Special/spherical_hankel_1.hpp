@@ -62,8 +62,8 @@ namespace nc
         // Method Description:
         /// Spherical Hankel funcion of the first kind
         ///
-        /// @param
-        ///				inArray
+        /// @param      inV: the order of the bessel function
+        /// @param      inArray: the input values
         /// @return
         ///				NdArray
         ///

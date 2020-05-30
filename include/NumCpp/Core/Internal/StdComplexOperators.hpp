@@ -108,9 +108,8 @@ namespace nc
     // Method Description:
     ///	Greater than or equal operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs >= rhs
+    /// @param      value
+    /// @return     std::complex<Out>
     ///
     template<typename Out, typename In>
     std::complex<Out> complex_cast(const std::complex<In>& value)

@@ -234,7 +234,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param      inArray
+        /// @param      in2dArray
         ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
         ///                   act as a non-owning shell. Default true.
         ///
@@ -265,7 +265,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param      inArray
+        /// @param      inVector
         ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
         ///                   act as a non-owning shell. Default true.
         ///
@@ -295,7 +295,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param      inArray
+        /// @param      in2dVector
         ///
         explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) noexcept :
             shape_(static_cast<uint32>(in2dVector.size()), 0)
@@ -329,7 +329,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param      inArray
+        /// @param      in2dArray
         ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
         ///                   act as a non-owning shell. Default true.
         ///
@@ -380,7 +380,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        /// @param      inDeque
+        /// @param      in2dDeque
         ///
         explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) noexcept :
             shape_(static_cast<uint32>(in2dDeque.size()), 0)

@@ -41,8 +41,9 @@ namespace nc
     // Method Description:
     ///	Returns a complex number with magnitude r and phase angle theta.
     ///
-    /// @param
-    ///				inValue
+    /// @param  magnitude
+    /// @param  phaseAngle
+    ///			
     /// @return
     ///				std::complex
     ///
@@ -58,8 +59,8 @@ namespace nc
     // Method Description:
     ///	Returns a complex number with magnitude r and phase angle theta.
     ///
-    /// @param
-    ///				inArray
+    /// @param  magnitude
+    /// @param  phaseAngle
     /// @return
     ///				NdArray<std::complex>
     ///
