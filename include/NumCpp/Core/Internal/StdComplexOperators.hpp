@@ -118,6 +118,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(In);
         STATIC_ASSERT_ARITHMETIC(Out);
 
-        return std::complex<Out>(value.real(), value.imag());
+        return std::complex<Out>(static_cast<Out>(value.real()),
+            static_cast<Out>(value.imag()));
     }
 }

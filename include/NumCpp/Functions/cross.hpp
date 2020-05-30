@@ -106,13 +106,14 @@ namespace nc
                 }
 
                 Shape returnArrayShape;
+                returnArrayShape.cols = arrayShape.cols;
                 if (arrayShape.rows == 2)
                 {
-                    returnArrayShape = Shape(1, arrayShape.cols);
+                    returnArrayShape.rows = 1;
                 }
                 else
                 {
-                    returnArrayShape = Shape(3, arrayShape.cols);
+                    returnArrayShape.rows = 3;
                 }
 
                 NdArray<dtype> returnArray(returnArrayShape);
@@ -137,13 +138,14 @@ namespace nc
                 }
 
                 Shape returnArrayShape;
+                returnArrayShape.rows = arrayShape.rows;
                 if (arrayShape.cols == 2)
                 {
-                    returnArrayShape = Shape(arrayShape.rows, 1);
+                    returnArrayShape.cols = 1;
                 }
                 else
                 {
-                    returnArrayShape = Shape(arrayShape.rows, 3);
+                    returnArrayShape.cols = 3;
                 }
 
                 NdArray<dtype> returnArray(returnArrayShape);

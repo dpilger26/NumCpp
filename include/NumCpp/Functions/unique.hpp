@@ -32,7 +32,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/sort.hpp"
-#include "NumCpp/utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <complex>
 #include <vector>

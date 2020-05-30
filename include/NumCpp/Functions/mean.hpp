@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "Numcpp/Core/Shape.hpp"
+#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
