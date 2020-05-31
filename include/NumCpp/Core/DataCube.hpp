@@ -137,7 +137,7 @@ namespace nc
 
             for (auto& ndarray : cube_)
             {
-                ofile.write(reinterpret_cast<const char*>(ndarray.cbegin()), ndarray.size() * sizeof(dtype));
+                ofile.write(reinterpret_cast<const char*>(ndarray.data()), ndarray.size() * sizeof(dtype));
             }
 
             ofile.close();

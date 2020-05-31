@@ -39,6 +39,7 @@
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/NdArray/NdArrayIterators.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
@@ -57,6 +58,7 @@
 #include <iostream>
 #include <iterator>
 #include <list>
+#include <memory>
 #include <numeric>
 #include <set>
 #include <string>
@@ -72,29 +74,41 @@ namespace nc
     class NdArrayBase 
     {
     public:
-        virtual ~NdArrayBase() = default;
+        virtual ~NdArrayBase() noexcept = default;
     };
 
     //================================================================================
     // Class Description:
-    ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype = double>
+    ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
+    template<typename dtype, class _Alloc = std::allocator<dtype>>
     class NdArray final : NdArrayBase
     {
+    private:
+        STATIC_ASSERT_VALID_DTYPE(dtype);
+
+        using _Alty = typename std::allocator_traits<_Alloc>::template rebind_alloc<dtype>;
+        using _Alty_traits = std::allocator_traits<_Alty>;
+
     public:
-        //====================================Typedefs================================
-        using value_type = dtype;
-        using iterator = dtype*;
-        using const_iterator = const dtype*;
+        using value_type      = dtype;
+        using allocator_type  = _Alloc;
+        using pointer         = typename _Alty_traits::pointer;
+        using const_pointer   = typename _Alty_traits::const_pointer;
+        using reference       = dtype&;
+        using const_reference = const dtype&;
+        using size_type       = typename _Alty_traits::size_type;
+        using difference_type = typename _Alty_traits::difference_type;
+
+        using iterator               = NdArrayIterator<dtype, pointer, difference_type>;
+        using const_iterator         = NdArrayConstIterator<dtype, pointer, difference_type>;
+        using reverse_iterator       = std::reverse_iterator<iterator>;
+        using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
         //============================================================================
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() noexcept
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-        }
+        NdArray() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -107,8 +121,6 @@ namespace nc
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
         }
 
@@ -123,8 +135,6 @@ namespace nc
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
         }
 
@@ -139,8 +149,6 @@ namespace nc
             shape_(inShape),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
         }
 
@@ -155,8 +163,6 @@ namespace nc
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (size_ > 0)
             {
@@ -174,8 +180,6 @@ namespace nc
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             for (const auto& list : inList)
             {
                 if (shape_.cols == 0)
@@ -213,8 +217,6 @@ namespace nc
             shape_(1, static_cast<uint32>(ArraySize)),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             if (copy)
             {
                 newArray();
@@ -243,8 +245,6 @@ namespace nc
             shape_(static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size)),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             if (copy)
             {
                 newArray();
@@ -274,8 +274,6 @@ namespace nc
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             if (copy)
             {
                 newArray();
@@ -300,8 +298,6 @@ namespace nc
         explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) :
             shape_(static_cast<uint32>(in2dVector.size()), 0)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             for (const auto& row : in2dVector)
             {
                 if (shape_.cols == 0)
@@ -338,8 +334,6 @@ namespace nc
             shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             if (copy)
             {
                 newArray();
@@ -367,8 +361,6 @@ namespace nc
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (size_ > 0)
             {
@@ -385,8 +377,6 @@ namespace nc
         explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) :
             shape_(static_cast<uint32>(in2dDeque.size()), 0)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             for (const auto& row : in2dDeque)
             {
                 if (shape_.cols == 0)
@@ -421,8 +411,6 @@ namespace nc
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (size_ > 0)
             {
@@ -443,8 +431,6 @@ namespace nc
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (size_ > 0)
             {
@@ -463,8 +449,6 @@ namespace nc
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (size_ > 0)
             {
@@ -484,8 +468,6 @@ namespace nc
             shape_(1, inSize),
             size_(inSize)
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (inPtr != nullptr && size_ > 0)
             {
@@ -506,8 +488,6 @@ namespace nc
             shape_(numRows, numCols),
             size_(shape_.size())
         {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-
             newArray();
             if (inPtr != nullptr && size_ > 0)
             {
@@ -530,9 +510,7 @@ namespace nc
             size_(size),
             array_(inPtr),
             ownsPtr_(takeOwnership)
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -550,9 +528,7 @@ namespace nc
             size_(numRows * numCols),
             array_(inPtr),
             ownsPtr_(takeOwnership)
-        {
-            STATIC_ASSERT_VALID_DTYPE(dtype);
-        }
+        {}
 
         //============================================================================
         // Method Description:
@@ -1140,9 +1116,7 @@ namespace nc
         ///
         iterator begin()
         {
-            checkNullPtr();
-
-            return array_;
+            return iterator(array_);
         }
 
         //============================================================================
@@ -1255,7 +1229,7 @@ namespace nc
         {
             checkNullPtr();
 
-            return array_;
+            return const_iterator(array_);
         }
 
         //============================================================================
@@ -2062,7 +2036,18 @@ namespace nc
         ///						Returns the raw pointer to the underlying data
         /// @return dtype*
         ///
-        dtype* data() const
+        dtype* data()
+        {
+            checkNullPtr();
+            return array_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the raw pointer to the underlying data
+        /// @return dtype*
+        ///
+        const dtype* data() const
         {
             checkNullPtr();
             return array_;
@@ -4212,8 +4197,8 @@ namespace nc
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
-    template<typename dtype>
-    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype>::nonzero() const noexcept
+    template<typename dtype, class _Alloc>
+    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype, _Alloc>::nonzero() const noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

@@ -2692,7 +2692,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray frombuffer(const NdArray<dtype>& inArray)
     {
-        auto buffer = reinterpret_cast<char*>(inArray.data());
+        auto buffer = reinterpret_cast<const char*>(inArray.data());
         return nc2Boost(nc::frombuffer<dtype>(buffer, static_cast<uint32>(inArray.nbytes())));
     }
 

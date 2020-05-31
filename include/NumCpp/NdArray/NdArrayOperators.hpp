@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Holds 1D and 2D arrays, the main work horse of the NumCpp library
+/// Operators for the NdArray class
 ///
 #pragma once
 
