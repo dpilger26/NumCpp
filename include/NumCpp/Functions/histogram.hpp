@@ -65,14 +65,14 @@ namespace nc
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);
 
-        const bool useEndPoint = true;
+        constexpr bool useEndPoint = true;
         NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
             static_cast<double>(inArray.max().item()), inNumBins + 1, useEndPoint);
 
         for (uint32 i = 0; i < inArray.size(); ++i)
         {
             // binary search to find the bin idx
-            const bool keepSearching = true;
+            constexpr bool keepSearching = true;
             uint32 lowIdx = 0;
             uint32 highIdx = binEdges.size() - 1;
             while (keepSearching)

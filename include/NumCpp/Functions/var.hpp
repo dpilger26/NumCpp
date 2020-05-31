@@ -55,7 +55,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         NdArray<double> stdValues = stdev(inArray, inAxis);
-        auto function = [](double& value) noexcept -> void
+        const auto function = [](double& value) noexcept -> void
         {
             value *= value;
         };
@@ -82,7 +82,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         NdArray<std::complex<double>> stdValues = stdev(inArray, inAxis);
-        auto function = [](std::complex<double>& value) noexcept -> void
+        const auto function = [](std::complex<double>& value) noexcept -> void
         {
             value *= value;
         };

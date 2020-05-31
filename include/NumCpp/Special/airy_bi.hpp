@@ -49,7 +49,7 @@ namespace nc
         ///				calculated-result-type 
         ///
         template<typename dtype>
-        auto airy_bi(dtype inValue) noexcept
+        auto airy_bi(dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -67,12 +67,12 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto airy_bi(const NdArray<dtype>& inArray) noexcept
+        auto airy_bi(const NdArray<dtype>& inArray)
         {
             NdArray<decltype(airy_bi(dtype{ 0 }))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> auto
+                [](dtype inValue) -> auto
                 { 
                     return airy_bi(inValue);
                 });

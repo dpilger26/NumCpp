@@ -53,6 +53,8 @@ namespace nc
         template<typename dtype>
         dtype uniform(dtype inLow, dtype inHigh)
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             return randFloat(inLow, inHigh);
         }
 
@@ -74,6 +76,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             return randFloat(inShape, inLow, inHigh);
         }
     }

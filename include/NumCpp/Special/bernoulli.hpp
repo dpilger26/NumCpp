@@ -47,7 +47,7 @@ namespace nc
         /// @return
         ///				double
         ///
-        inline double bernoilli(uint32 n) noexcept
+        inline double bernoilli(uint32 n)
         {
             if (n == 1)
             {
@@ -70,12 +70,12 @@ namespace nc
         /// @return
         ///				NdArray<double>
         ///
-        inline NdArray<double> bernoilli(const NdArray<uint32>& inArray) noexcept
+        inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) noexcept -> double
+                [](uint32 inValue) -> double
                 { 
                     return bernoilli(inValue);
                 });

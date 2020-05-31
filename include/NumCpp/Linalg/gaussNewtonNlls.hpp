@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Functions/rms.hpp"
 #include "NumCpp/Linalg/inv.hpp"
@@ -71,9 +72,9 @@ namespace nc
         /// @return     std::pair of NdArray of solved parameter values, and rms of the residuals value
         ///
         template<typename dtype, typename ...Params,
-            nc::enable_if_t<std::is_arithmetic<dtype>::value, int> = 0,
-            nc::enable_if_t<all_arithmetic<Params...>::value, int> = 0,
-            nc::enable_if_t<all_same<dtype, Params...>::value, int> = 0
+            nc::enable_if_t<is_arithmetic_v<dtype>, int> = 0,
+            nc::enable_if_t<all_arithmetic_v<Params...>, int> = 0,
+            nc::enable_if_t<all_same_v<dtype, Params...>, int> = 0
         >
         std::pair<NdArray<double>, double> gaussNewtonNlls(
             const uint32 numIterations, 
@@ -83,6 +84,8 @@ namespace nc
             const std::array<std::function<dtype(const NdArray<dtype>&, const NdArray<dtype>&)>, sizeof...(Params)>& derivatives,
             Params... initialGuess)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             const auto coordinatesShape = coordinates.shape();
 
             if (coordinatesShape.rows != measurements.size())

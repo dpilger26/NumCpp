@@ -57,7 +57,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12) noexcept
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

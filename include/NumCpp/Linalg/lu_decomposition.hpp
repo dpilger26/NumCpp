@@ -59,7 +59,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            auto shape = inMatrix.shape();
+            const auto shape = inMatrix.shape();
             if(!shape.issquare()) 
             {
                 THROW_RUNTIME_ERROR("Input matrix should be square.");

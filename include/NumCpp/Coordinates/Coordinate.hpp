@@ -52,7 +52,7 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
             Coordinate() noexcept = default;
 
@@ -190,7 +190,7 @@ namespace nc
             ///
             /// @return     NdArray
             ///
-            NdArray<double> xyz() const
+            NdArray<double> xyz() const noexcept
             {
                 NdArray<double> out = { x_, y_, z_ };
                 return out;
@@ -203,7 +203,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degreeSeperation(const Coordinate& inOtherCoordinate) const
+            double degreeSeperation(const Coordinate& inOtherCoordinate) const noexcept
             {
                 return rad2deg(radianSeperation(inOtherCoordinate));
             }
@@ -228,7 +228,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radianSeperation(const Coordinate& inOtherCoordinate) const
+            double radianSeperation(const Coordinate& inOtherCoordinate) const noexcept
             {
                 return std::acos(dot(xyz(), inOtherCoordinate.xyz()).item());
             }
@@ -332,7 +332,7 @@ namespace nc
                 ra_ = RA(degreesRa);
 
                 const double r = std::sqrt(utils::sqr(x_) + utils::sqr(y_) + utils::sqr(z_));
-                double degreesDec = rad2deg(std::asin(z_ / r));
+                const double degreesDec = rad2deg(std::asin(z_ / r));
                 dec_ = Dec(degreesDec);
             }
 

@@ -55,7 +55,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double sumOfSquares = 0.0;
-        auto function = [&sumOfSquares](dtype value) noexcept -> void
+        const auto function = [&sumOfSquares](dtype value) noexcept -> void
         {
             sumOfSquares += utils::sqr(static_cast<double>(value));
         };
@@ -117,7 +117,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> sumOfSquares(0.0, 0.0);
-        auto function = [&sumOfSquares](const std::complex<dtype>& value) noexcept -> void
+        const auto function = [&sumOfSquares](const std::complex<dtype>& value) noexcept -> void
         {
             sumOfSquares += utils::sqr(complex_cast<double>(value));
         };

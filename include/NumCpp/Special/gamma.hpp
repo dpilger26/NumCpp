@@ -48,7 +48,7 @@ namespace nc
         ///				calculated-result-type
         ///
         template<typename dtype>
-        auto gamma(dtype inValue) noexcept
+        auto gamma(dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -65,12 +65,12 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto gamma(const NdArray<dtype>& inArray) noexcept
+        auto gamma(const NdArray<dtype>& inArray)
         {
             NdArray<decltype(gamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> auto
+                [](dtype inValue) -> auto
                 { 
                     return gamma(inValue); 
                 });

@@ -48,6 +48,8 @@ namespace nc
         template<typename dtype>
         std::string value2str(dtype inValue) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::stringstream ss;
             ss << inValue;
             return ss.str();

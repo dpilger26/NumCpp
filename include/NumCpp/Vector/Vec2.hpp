@@ -134,7 +134,7 @@ namespace nc
         ///
         Vec2 clampMagnitude(double maxLength) const noexcept
         {
-            double magnitude = norm();
+            const double magnitude = norm();
             if (magnitude <= maxLength)
             {
                 return *this;
@@ -207,8 +207,8 @@ namespace nc
 
             Vec2 trajectory = otherVec;
             trajectory -= *this;
-            double xInterp = utils::interp(0.0, trajectory.x, t);
-            double yInterp = utils::interp(0.0, trajectory.y, t);
+            const double xInterp = utils::interp(0.0, trajectory.x, t);
+            const double yInterp = utils::interp(0.0, trajectory.y, t);
 
             return Vec2(*this) += Vec2(xInterp, yInterp);
         }
@@ -244,7 +244,7 @@ namespace nc
         ///
         Vec2 project(const Vec2& otherVec) const noexcept
         {
-            double projectedMagnitude = norm() * std::cos(angle(otherVec));
+            const double projectedMagnitude = norm() * std::cos(angle(otherVec));
             return otherVec.normalize() *= projectedMagnitude;
         }
 

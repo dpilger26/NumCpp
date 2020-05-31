@@ -47,7 +47,7 @@ namespace nc
         class Pixel
         {
         public:
-            //==================================Attributes================================///
+            //==================================Attributes================================
             mutable int32	clusterId{ -1 };
             uint32	        row{ 0 };
             uint32	        col{ 0 };

@@ -87,7 +87,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Newton() noexcept override = default;
+            ~Newton() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -130,7 +130,7 @@ namespace nc
             /// @param fxPrime: the derivate of the function evaluated at the current x value
             /// @return x
             ///
-            double calculateX(double x, double fx, double fxPrime)
+            double calculateX(double x, double fx, double fxPrime) noexcept
             {
                 return x - fx / fxPrime;
             }

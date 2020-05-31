@@ -49,7 +49,7 @@ namespace nc
         ///				calculated-result-type
         ///
         template<typename dtype>
-        auto erfc_inv(dtype inValue) noexcept
+        auto erfc_inv(dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -67,12 +67,12 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto erfc_inv(const NdArray<dtype>& inArray) noexcept
+        auto erfc_inv(const NdArray<dtype>& inArray)
         {
             NdArray<decltype(erfc_inv(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> auto
+                [](dtype inValue) -> auto
                 { 
                     return erfc_inv(inValue);
                 });

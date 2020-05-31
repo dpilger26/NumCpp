@@ -225,7 +225,7 @@ namespace nc
             /// @param
             ///              inCluster
             ///
-            void centerOfMass(const Cluster<dtype>& inCluster)
+            void centerOfMass(const Cluster<dtype>& inCluster) noexcept
             {
                 const Shape clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);

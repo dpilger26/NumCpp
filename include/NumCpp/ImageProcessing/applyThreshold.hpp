@@ -47,6 +47,8 @@ namespace nc
         template<typename dtype>
         NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return inImageArray > inThreshold;
         }
     }

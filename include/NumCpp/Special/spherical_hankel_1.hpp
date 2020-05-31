@@ -50,7 +50,7 @@ namespace nc
         ///				calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
-        auto spherical_hankel_1(dtype1 inV, dtype2 inX) noexcept
+        auto spherical_hankel_1(dtype1 inV, dtype2 inX)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -73,7 +73,7 @@ namespace nc
             NdArray<decltype(spherical_hankel_1(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [inV](dtype2 inValue) noexcept -> auto
+                [inV](dtype2 inValue) -> auto
                 { 
                     return spherical_hankel_1(inV, inValue); 
                 });

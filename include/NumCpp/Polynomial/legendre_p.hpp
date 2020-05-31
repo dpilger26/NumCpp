@@ -49,7 +49,7 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double legendre_p(int32 n, dtype x) noexcept
+        double legendre_p(int32 n, dtype x)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double legendre_p(int32 n, int32 m, dtype x) noexcept
+        double legendre_p(int32 n, int32 m, dtype x)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -98,7 +98,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) noexcept -> double
+            const auto function = [n](dtype x) -> double
             {
                 return legendre_p(n, x);
             };
@@ -123,7 +123,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n, m](dtype x) noexcept -> double
+            const auto function = [n, m](dtype x) -> double
             {
                 return legendre_p(n, m, x);
             };

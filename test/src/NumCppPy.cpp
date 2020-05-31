@@ -4873,6 +4873,9 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def_readonly("first", &uint32Pair::first)
         .def_readonly("second", &uint32Pair::second);
 
+    // Version.hpp
+    bp::scope().attr("VERSION") = VERSION;
+
     // Constants.hpp
     bp::scope().attr("c") = constants::c;
     bp::scope().attr("e") = constants::e;
@@ -4880,7 +4883,16 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::scope().attr("pi") = constants::pi;
     bp::scope().attr("nan") = constants::nan;
     bp::scope().attr("j") = constants::j;
-    bp::scope().attr("VERSION") = VERSION;
+    bp::scope().attr("DAYS_PER_WEEK") = constants::DAYS_PER_WEEK;
+    bp::scope().attr("MINUTES_PER_HOUR") = constants::MINUTES_PER_HOUR;
+    bp::scope().attr("SECONDS_PER_MINUTE") = constants::SECONDS_PER_MINUTE;
+    bp::scope().attr("MILLISECONDS_PER_SECOND") = constants::MILLISECONDS_PER_SECOND;
+    bp::scope().attr("SECONDS_PER_HOUR") = constants::SECONDS_PER_HOUR;
+    bp::scope().attr("HOURS_PER_DAY") = constants::HOURS_PER_DAY;
+    bp::scope().attr("MINUTES_PER_DAY") = constants::MINUTES_PER_DAY;
+    bp::scope().attr("SECONDS_PER_DAY") = constants::SECONDS_PER_DAY;
+    bp::scope().attr("MILLISECONDS_PER_DAY") = constants::MILLISECONDS_PER_DAY;
+    bp::scope().attr("SECONDS_PER_WEEK") = constants::SECONDS_PER_WEEK;
 
     // PythonInterface.hpp
     bp::def("list2vector", &list2vector<int>);
@@ -6313,6 +6325,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
     bp::def("matrix_power", &linalg::matrix_power<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
+    bp::def("multi_dot", &LinalgInterface::multi_dot<std::complex<double>>);
     bp::def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     bp::def("svd", &linalg::svd<double>);
 

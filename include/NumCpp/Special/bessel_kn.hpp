@@ -50,7 +50,7 @@ namespace nc
         ///				calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
-        auto bessel_kn(dtype1 inV, dtype2 inX) noexcept
+        auto bessel_kn(dtype1 inV, dtype2 inX)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -68,12 +68,12 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype1, typename dtype2>
-        auto bessel_kn(dtype1 inV, const NdArray<dtype2>& inArrayX) noexcept
+        auto bessel_kn(dtype1 inV, const NdArray<dtype2>& inArrayX)
         {
             NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype2 inX) noexcept -> auto
+                [inV](dtype2 inX) -> auto
                 { 
                     return bessel_kn(inV, inX); 
                 });

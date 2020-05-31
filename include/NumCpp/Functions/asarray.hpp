@@ -74,7 +74,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> > inList) noexcept
+    NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> > inList)
     {
         return NdArray<dtype>(inList);
     }

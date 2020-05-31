@@ -66,7 +66,7 @@ namespace nc
     ///				NdArray<double>
     ///
     template<typename dtype>
-    dtype gcd(const NdArray<dtype>& inArray) noexcept
+    dtype gcd(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;

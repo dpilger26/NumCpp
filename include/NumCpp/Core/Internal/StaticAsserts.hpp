@@ -30,8 +30,6 @@
 
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 
-#include <boost/type_traits/is_complex.hpp>
-
 #include <type_traits>
 
 #define STATIC_ASSERT_VALID_DTYPE(dtype) { \
@@ -39,23 +37,23 @@
 }
 
 #define STATIC_ASSERT_ARITHMETIC(dtype) { \
-    static_assert(std::is_arithmetic<dtype>::value, "Can only be used with arithmetic types"); \
+    static_assert(is_arithmetic_v<dtype>, "Can only be used with arithmetic types"); \
 }
 
 #define STATIC_ASSERT_INTEGER(dtype) { \
-    static_assert(std::is_integral<dtype>::value, "Can only be used with integer types"); \
+    static_assert(is_integral_v<dtype>, "Can only be used with integer types"); \
 }
 
 #define STATIC_ASSERT_FLOAT(dtype) { \
-    static_assert(std::is_floating_point<dtype>::value, "Can only be used with float types"); \
+    static_assert(is_floating_point_v<dtype>, "Can only be used with float types"); \
 }
 
 #define STATIC_ASSERT_COMPLEX(dtype) { \
-    static_assert(boost::is_complex<dtype>::value, \
+    static_assert(is_complex_v<dtype>, \
     "Can only be used with std::complex types"); \
 }
 
 #define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype) { \
-    static_assert(std::is_arithmetic<dtype>::value || boost::is_complex<dtype>::value, \
+    static_assert(std::is_arithmetic<dtype>::value || is_complex_v<dtype>, \
     "Can only be used with arithmetic types or std::complex types"); \
 }

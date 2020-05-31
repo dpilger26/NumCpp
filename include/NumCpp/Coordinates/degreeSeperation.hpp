@@ -57,9 +57,9 @@ namespace nc
         ///
         /// @return             degrees
         ///
-        inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2) noexcept
+        inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
         {
-            Coordinate inCoord1(inVector1);
+            const Coordinate inCoord1(inVector1);
             return inCoord1.degreeSeperation(inVector2);
         }
     }

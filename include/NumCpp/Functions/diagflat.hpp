@@ -53,11 +53,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        uint32 absK = static_cast<uint32>(std::abs(k));
+        const uint32 absK = static_cast<uint32>(std::abs(k));
         NdArray<dtype> returnArray(inArray.size() + absK);
 
-        uint32 rowOffset = k < 0 ? absK : 0;
-        uint32 colOffset = k > 0 ? absK : 0;
+        const uint32 rowOffset = k < 0 ? absK : 0;
+        const uint32 colOffset = k > 0 ? absK : 0;
 
         returnArray.zeros();
         for (uint32 i = 0; i < inArray.size(); ++i)

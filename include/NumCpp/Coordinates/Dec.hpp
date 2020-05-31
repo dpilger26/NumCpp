@@ -52,7 +52,7 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
             Dec() noexcept = default;
 
@@ -71,7 +71,7 @@ namespace nc
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
-                double absDegrees = std::abs(degrees_);
+                const double absDegrees = std::abs(degrees_);
                 degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
 
                 const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;

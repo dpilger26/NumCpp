@@ -48,7 +48,7 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double chebyshev_t(uint32 n, dtype x) noexcept
+        double chebyshev_t(uint32 n, dtype x)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -65,11 +65,11 @@ namespace nc
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> chebyshev_t(uint32 n, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double> chebyshev_t(uint32 n, const NdArray<dtype>& inArrayX)
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) noexcept -> double
+            const auto function = [n](dtype x) -> double
             {
                 return chebyshev_t(n, x);
             };

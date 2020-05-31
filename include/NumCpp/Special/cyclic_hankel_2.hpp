@@ -50,7 +50,7 @@ namespace nc
         ///				std::complex<>
         ///
         template<typename dtype1, typename dtype2>
-        auto cyclic_hankel_2(dtype1 inV, dtype2 inX) noexcept
+        auto cyclic_hankel_2(dtype1 inV, dtype2 inX)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -68,12 +68,12 @@ namespace nc
         ///				NdArray<std::complex>
         ///
         template<typename dtype1, typename dtype2>
-        auto cyclic_hankel_2(dtype1 inV, const NdArray<dtype2>& inX) noexcept
+        auto cyclic_hankel_2(dtype1 inV, const NdArray<dtype2>& inX)
         {
             NdArray<decltype(cyclic_hankel_2(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inX.shape());
 
             stl_algorithms::transform(inX.cbegin(), inX.cend(), returnArray.begin(),
-                [inV](dtype2 x) noexcept -> auto
+                [inV](dtype2 x) -> auto
             { 
                 return cyclic_hankel_2(inV, x); 
             });

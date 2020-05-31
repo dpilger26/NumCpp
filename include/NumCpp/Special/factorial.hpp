@@ -70,12 +70,12 @@ namespace nc
         /// @return
         ///				NdArray<double>
         ///
-        inline NdArray<double> factorial(const NdArray<uint32>& inArray) noexcept
+        inline NdArray<double> factorial(const NdArray<uint32>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) noexcept -> double
+                [](uint32 inValue) -> double
                 { 
                     return factorial(inValue); 
                 });

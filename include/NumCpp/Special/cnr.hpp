@@ -49,7 +49,7 @@ namespace nc
         /// @return
         ///				double
         ///
-        inline double cnr(uint32 n, uint32 r) noexcept
+        inline double cnr(uint32 n, uint32 r)
         {
             return pnr(n, r) / factorial(r);
         }

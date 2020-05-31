@@ -115,7 +115,7 @@ namespace nc
             /// @return
             ///				bool
             ///
-            static bool isValid(const NdArray<double>& inArray) noexcept
+            static bool isValid(const NdArray<double>& inArray)
             {
                 const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&

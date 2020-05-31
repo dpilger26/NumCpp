@@ -449,7 +449,7 @@ namespace nc
                     dotProduct *= -1;
                 }
 
-                const double DOT_THRESHOLD = 0.9995;
+                constexpr double DOT_THRESHOLD = 0.9995;
                 if (dotProduct > DOT_THRESHOLD) {
                     // If the inputs are too close for comfort, linearly interpolate
                     // and normalize the result.
@@ -537,7 +537,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> toNdArray() const
+            NdArray<double> toNdArray() const noexcept
             {
                 auto componentsCopy = components_;
                 return NdArray<double>(componentsCopy);
@@ -554,7 +554,7 @@ namespace nc
             ///
             static Quaternion xRotation(double inAngle)
             {
-                Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
+                const Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -581,7 +581,7 @@ namespace nc
             ///
             static Quaternion yRotation(double inAngle)
             {
-                Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
+                const Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -596,7 +596,7 @@ namespace nc
             ///
             static Quaternion zRotation(double inAngle)
             {
-                Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
+                const Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -611,7 +611,7 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
-                auto comparitor = [](double value1, double value2) noexcept -> bool
+                const auto comparitor = [](double value1, double value2) noexcept -> bool
                 {
                     return utils::essentiallyEqual(value1, value2);
                 };
@@ -757,8 +757,8 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input vector must be a cartesion vector of length = 3.");
                 }
 
-                auto p = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
-                auto pPrime = *this * p * this->inverse();
+                const auto p = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
+                const auto pPrime = *this * p * this->inverse();
 
                 NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
                 rotatedVec *= norm(inVec).item();

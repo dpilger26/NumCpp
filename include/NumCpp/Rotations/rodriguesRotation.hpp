@@ -49,7 +49,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        inline Vec3 rodriguesRotation(const Vec3& k, double theta, const Vec3& v)
+        inline Vec3 rodriguesRotation(const Vec3& k, double theta, const Vec3& v) noexcept
         {
             const auto kUnit = k.normalize();
 
@@ -58,7 +58,7 @@ namespace nc
             auto kCrossV = kUnit.cross(v);
             kCrossV *= std::sin(theta);
 
-            auto kDotV = kUnit.dot(v);
+            const auto kDotV = kUnit.dot(v);
             auto kkDotV = kUnit * kDotV;
             kkDotV *= 1 - std::cos(theta);
 
@@ -80,7 +80,7 @@ namespace nc
         /// @return NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> rodriguesRotation(const NdArray<dtype>& k, double theta, NdArray<dtype>& v)
+        NdArray<double> rodriguesRotation(const NdArray<dtype>& k, double theta, const NdArray<dtype>& v)
         {
             return rodriguesRotation(Vec3(k), theta, Vec3(v)).toNdArray();
         }

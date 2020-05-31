@@ -57,9 +57,9 @@ namespace nc
         ///
         /// @return             radians
         ///
-        inline double radianSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2) noexcept
+        inline double radianSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
         {
-            Coordinate inCoord1(inVector1);
+            const Coordinate inCoord1(inVector1);
             return inCoord1.radianSeperation(inVector2);
         }
     }

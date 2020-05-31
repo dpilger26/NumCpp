@@ -48,7 +48,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype standardNormal() noexcept
+        dtype standardNormal()
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -69,7 +69,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> standardNormal(const Shape& inShape) noexcept
+        NdArray<dtype> standardNormal(const Shape& inShape)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

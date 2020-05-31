@@ -77,7 +77,7 @@ namespace nc
             const uint32 fileSize = static_cast<uint32>(file.tellg());
             file.seekg(0, file.beg);
 
-            const auto fileBuffer = std::unique_ptr<char>(new char[fileSize]);
+            const auto fileBuffer = std::make_unique<char[]>(fileSize);
             file.read(fileBuffer.get(), fileSize);
 
             if (file.bad() || file.fail())

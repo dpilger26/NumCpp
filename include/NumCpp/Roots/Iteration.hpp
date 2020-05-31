@@ -102,7 +102,7 @@ namespace nc
             ///
             /// @return the number of iterations prior to incramenting
             ///
-            void incrementNumberOfIterations() noexcept
+            void incrementNumberOfIterations()
             { 
                 ++numIterations_;
                 if (numIterations_ > maxNumIterations_)

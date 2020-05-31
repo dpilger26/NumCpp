@@ -207,7 +207,7 @@ namespace nc
                     stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), multiplies);
 
-                    std::complex<double> sum = std::accumulate(weightedArray.begin(), weightedArray.end(),
+                    const std::complex<double> sum = std::accumulate(weightedArray.begin(), weightedArray.end(),
                         std::complex<double>(0.0));
                     returnArray(0, row) = sum / weightSum;
                 }
@@ -232,7 +232,7 @@ namespace nc
                     stl_algorithms::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), multiplies);
 
-                    std::complex<double> sum = std::accumulate(weightedArray.begin(), weightedArray.end(),
+                    const std::complex<double> sum = std::accumulate(weightedArray.begin(), weightedArray.end(),
                         std::complex<double>(0.0));
                     returnArray(0, row) = sum / weightSum;
                 }

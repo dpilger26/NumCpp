@@ -90,7 +90,7 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt, class OutputIt>
-        OutputIt copy(InputIt first, InputIt last, OutputIt destination)
+        OutputIt copy(InputIt first, InputIt last, OutputIt destination) noexcept
         {
             return std::copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -110,7 +110,7 @@ namespace nc
         ///
         template<class InputIt, class T>
         typename std::iterator_traits<InputIt>::difference_type
-            count(InputIt first, InputIt last, const T &value)
+            count(InputIt first, InputIt last, const T &value) noexcept
         {
             return std::count(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -169,7 +169,7 @@ namespace nc
         /// @param value: the function to apply to the input iterators
         ///
         template<class ForwardIt, class T>
-        void fill(ForwardIt first, ForwardIt last, const T& value)
+        void fill(ForwardIt first, ForwardIt last, const T& value) noexcept
         {
             return std::fill(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -190,7 +190,7 @@ namespace nc
         /// @return InputIt
         ///
         template<class InputIt, class T>
-        InputIt find(InputIt first, InputIt last, const T& value)
+        InputIt find(InputIt first, InputIt last, const T& value) noexcept
         {
             return std::find(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -412,7 +412,7 @@ namespace nc
         /// @param last: the last iterator of the range
         ///
         template<class RandomIt>
-        void nth_element(RandomIt first, RandomIt nth, RandomIt last)
+        void nth_element(RandomIt first, RandomIt nth, RandomIt last) noexcept
         {
             std::nth_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -451,7 +451,7 @@ namespace nc
         ///
         template<class ForwardIt, class T>
         void replace(ForwardIt first, ForwardIt last,
-            const T& oldValue, const T& newValue)
+            const T& oldValue, const T& newValue) noexcept
         {
             std::replace(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -468,7 +468,7 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class BidirIt>
-        void reverse(BidirIt first, BidirIt last)
+        void reverse(BidirIt first, BidirIt last) noexcept
         {
             std::reverse(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -486,7 +486,7 @@ namespace nc
         /// @param last: the last iterator of the range
         ///
         template<class ForwardIt>
-        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last)
+        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last) noexcept
         {
             std::rotate(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -556,7 +556,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt>
         OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination)
+            OutputIt destination) noexcept
         {
             return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -644,7 +644,7 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class RandomIt>
-        void sort(RandomIt first, RandomIt last)
+        void sort(RandomIt first, RandomIt last) noexcept
         {
             return std::sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -718,7 +718,7 @@ namespace nc
         ///
         template<class InputIt, class OutputIt, class UnaryOperation>
         OutputIt transform(InputIt first, InputIt last, OutputIt destination,
-            UnaryOperation unaryFunction) noexcept
+            UnaryOperation unaryFunction)
         {
             return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED

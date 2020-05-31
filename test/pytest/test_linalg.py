@@ -133,6 +133,34 @@ def test_linalg():
     assert np.array_equal(np.round(NumCpp.multi_dot(cArray1, cArray2, cArray3, cArray4), 9),
                           np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9))
 
+    shapeInput = np.random.randint(5, 50, [2, ])
+    shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumCpp.Shape(shape1.cols, np.random.randint(5, 50, [1, ]).item())
+    shape3 = NumCpp.Shape(shape2.cols, np.random.randint(5, 50, [1, ]).item())
+    shape4 = NumCpp.Shape(shape3.cols, np.random.randint(5, 50, [1, ]).item())
+    cArray1 = NumCpp.NdArrayComplexDouble(shape1)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape2)
+    cArray3 = NumCpp.NdArrayComplexDouble(shape3)
+    cArray4 = NumCpp.NdArrayComplexDouble(shape4)
+    real1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    imag1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data1 = real1 + 1j * imag1
+    real2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    imag2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data2 = real2 + 1j * imag2
+    real3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    imag3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data3 = real3 + 1j * imag3
+    real4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    imag4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    data4 = real4 + 1j * imag4
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    assert np.array_equal(np.round(NumCpp.multi_dot(cArray1, cArray2, cArray3, cArray4), 9),
+                          np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9))
+
     sizeInput = np.random.randint(5, 50)
     shape = NumCpp.Shape(sizeInput)
     cArray = NumCpp.NdArray(shape)

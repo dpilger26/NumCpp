@@ -127,7 +127,7 @@ namespace nc
         std::string		unit_{ "" };
         TimePoint		start_{};
 
-        void setUnits()
+        void setUnits() noexcept
         {
             if (std::is_same<TimeUnit, std::chrono::hours>::value)
             {

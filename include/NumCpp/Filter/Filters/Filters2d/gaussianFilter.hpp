@@ -65,7 +65,7 @@ namespace nc
             }
 
             // calculate the kernel size based off of the input sigma value
-            const uint32 MIN_KERNEL_SIZE = 5;
+            constexpr uint32 MIN_KERNEL_SIZE = 5;
             uint32 kernelSize = std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); // 4 standard deviations
             if (kernelSize % 2 == 0)
             {

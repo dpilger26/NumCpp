@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Brent() noexcept override = default;
+            ~Brent() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -251,7 +251,7 @@ namespace nc
             /// @return bool
             ///
             bool useBisection(const bool bisection, const double b, const double lastB,
-                const double penultimateB, const double s) const
+                const double penultimateB, const double s) const noexcept
             {
                 const double DELTA = epsilon_ + std::numeric_limits<double>::min();
 

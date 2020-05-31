@@ -71,12 +71,12 @@ namespace nc
         /// @return
         ///				NdArray<uint32>
         ///
-        inline NdArray<uint32> prime(const NdArray<uint32>& inArray) noexcept
+        inline NdArray<uint32> prime(const NdArray<uint32>& inArray)
         {
             NdArray<uint32> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) noexcept -> uint32
+                [](uint32 inValue) -> uint32
                 { 
                     return prime(inValue); 
                 });

@@ -58,7 +58,7 @@ namespace nc
         double meanValue = 0.0;
         double sum = 0.0;
 
-        auto function = [&sum, &meanValue](dtype value) noexcept-> void
+        const auto function = [&sum, &meanValue](dtype value) noexcept-> void
         {
             sum += utils::sqr(static_cast<double>(value) - meanValue);
         };
@@ -130,7 +130,7 @@ namespace nc
         std::complex<double> meanValue(0.0, 0.0);
         std::complex<double> sum(0.0, 0.0);
 
-        auto function = [&sum, &meanValue](std::complex<dtype> value) noexcept-> void
+        const auto function = [&sum, &meanValue](std::complex<dtype> value) noexcept-> void
         {
             sum += utils::sqr(complex_cast<double>(value) - meanValue);
         };

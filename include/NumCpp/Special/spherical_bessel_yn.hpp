@@ -48,7 +48,7 @@ namespace nc
         ///				calculated-result-type
         ///
         template<typename dtype>
-        auto spherical_bessel_yn(uint32 inV, dtype inX) noexcept
+        auto spherical_bessel_yn(uint32 inV, dtype inX)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -70,7 +70,7 @@ namespace nc
             NdArray<decltype(arccos(dtype{0}))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) noexcept -> auto
+                [inV](dtype inX) -> auto
                 { 
                     return spherical_bessel_yn(inV, inX);
                 });

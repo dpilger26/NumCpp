@@ -99,7 +99,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        inline NdArray<double> hat(const Vec3& inVec)
+        inline NdArray<double> hat(const Vec3& inVec) noexcept
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }

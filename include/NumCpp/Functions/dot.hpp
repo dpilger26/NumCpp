@@ -73,7 +73,7 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
+            const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
                 inArray2.cbegin(), std::complex<dtype>{0});
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
@@ -129,7 +129,7 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
+            const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
                 inArray2.cbegin(), std::complex<dtype>{0});
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;

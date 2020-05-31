@@ -89,7 +89,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Cluster<dtype>& rhs) const
+            bool operator==(const Cluster<dtype>& rhs) const noexcept
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -109,7 +109,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Cluster<dtype>& rhs) const
+            bool operator!=(const Cluster<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }

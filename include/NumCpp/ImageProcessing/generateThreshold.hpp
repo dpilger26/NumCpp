@@ -109,7 +109,7 @@ namespace nc
             uint32 indexHigh = histSize - 1;
             uint32 index = indexHigh / 2; // integer division
 
-            const bool keepGoing = true;
+            constexpr bool keepGoing = true;
             while (keepGoing)
             {
                 const double value = survivalFunction[index];

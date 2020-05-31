@@ -30,5 +30,5 @@
 
 namespace nc
 {
-    const char VERSION[] = "1.4.0"; ///< Current NumCpp version number
+    constexpr char VERSION[] = "1.4.0"; ///< Current NumCpp version number
 }

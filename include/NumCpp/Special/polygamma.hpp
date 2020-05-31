@@ -49,7 +49,7 @@ namespace nc
         ///				calculated-result-type
         ///
         template<typename dtype>
-        auto polygamma(uint32 n, dtype inValue) noexcept
+        auto polygamma(uint32 n, dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
             NdArray<decltype(polygamma(n, dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [n](dtype inValue) noexcept -> auto
+                [n](dtype inValue) -> auto
                 { 
                     return polygamma(n, inValue);
                 });

@@ -63,7 +63,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> multiply(const NdArray<dtype>& inArray, dtype value)
+    NdArray<dtype> multiply(const NdArray<dtype>& inArray, dtype value) noexcept
     {
         return inArray * value;
     }
@@ -80,7 +80,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> multiply(dtype value, const NdArray<dtype>& inArray)
+    NdArray<dtype> multiply(dtype value, const NdArray<dtype>& inArray) noexcept
     {
         return value * inArray;
     }
@@ -131,7 +131,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> multiply(const NdArray<dtype>& inArray, const std::complex<dtype>& value)
+    NdArray<std::complex<dtype>> multiply(const NdArray<dtype>& inArray, const std::complex<dtype>& value) noexcept
     {
         return inArray * value;
     }
@@ -148,7 +148,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> multiply(const std::complex<dtype>& value, const NdArray<dtype>& inArray)
+    NdArray<std::complex<dtype>> multiply(const std::complex<dtype>& value, const NdArray<dtype>& inArray) noexcept
     {
         return value * inArray;
     }
@@ -165,7 +165,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> multiply(const NdArray<std::complex<dtype>>& inArray, dtype value)
+    NdArray<std::complex<dtype>> multiply(const NdArray<std::complex<dtype>>& inArray, dtype value) noexcept
     {
         return inArray * value;
     }
@@ -182,7 +182,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> multiply(dtype value, const NdArray<std::complex<dtype>>& inArray)
+    NdArray<std::complex<dtype>> multiply(dtype value, const NdArray<std::complex<dtype>>& inArray) noexcept
     {
         return value * inArray;
     }

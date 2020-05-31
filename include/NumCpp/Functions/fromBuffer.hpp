@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes) noexcept
+    NdArray<dtype> frombuffer(const char* inBufferPtr, uint32 inNumBytes)
     {
         if (inNumBytes % sizeof(dtype) != 0)
         {
@@ -54,6 +54,6 @@ namespace nc
         }
 
         const uint32 numElements = static_cast<uint32>(inNumBytes / sizeof(dtype));
-        return NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), numElements);
+        return NdArray<dtype>(reinterpret_cast<const dtype*>(inBufferPtr), numElements);
     }
 }

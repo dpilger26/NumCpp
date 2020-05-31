@@ -69,7 +69,7 @@ namespace nc
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        double rowExpSum = static_cast<double>(expSums[row]);
+                        const double rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
@@ -83,7 +83,7 @@ namespace nc
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        auto rowExpSum = static_cast<double>(expSums[row]);
+                        const auto rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }

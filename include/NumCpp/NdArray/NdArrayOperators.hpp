@@ -84,7 +84,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
         {
             return val1 + val2;
         };
@@ -97,7 +97,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (3)
+    ///						Adds the scaler to the array (3)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -109,7 +109,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value += rhs;
         };
@@ -121,7 +121,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (4)
+    ///						Adds the scaler to the array (4)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -133,7 +133,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
         {
             return value += rhs;
         };
@@ -187,7 +187,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
         {
             return val1 + val2;
         };
@@ -216,7 +216,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (4)
+    ///						Adds the scaler to the array (4)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -227,7 +227,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> dtype 
+        const auto function = [rhs](dtype value) noexcept -> dtype 
         {
             return value + rhs;
         };
@@ -241,7 +241,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (5)
+    ///						Adds the scaler to the array (5)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -255,7 +255,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (6)
+    ///						Adds the scaler to the array (6)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -266,7 +266,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return value + rhs;
         };
@@ -280,7 +280,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (7)
+    ///						Adds the scaler to the array (7)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -294,7 +294,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (8)
+    ///						Adds the scaler to the array (8)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -305,7 +305,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return value + rhs;
         };
@@ -319,7 +319,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scalar to the array (9)
+    ///						Adds the scaler to the array (9)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -373,7 +373,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
         {
             return val1 - val2;
         };
@@ -386,7 +386,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (3)
+    ///						Subtracts the scaler from the array (3)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -398,7 +398,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value -= rhs;
         };
@@ -410,7 +410,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (4)
+    ///						Subtracts the scaler from the array (4)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -422,7 +422,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
         {
             return value -= rhs;
         };
@@ -476,7 +476,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
         {
             return val1 - val2;
         };
@@ -507,7 +507,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
         {
             return val1 - val2;
         };
@@ -522,7 +522,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (4)
+    ///						Subtracts the scaler from the array (4)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -533,7 +533,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> dtype 
+        const auto function = [rhs](dtype value) noexcept -> dtype 
         {
             return value - rhs;
         };
@@ -547,7 +547,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (5)
+    ///						Subtracts the scaler from the array (5)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -558,7 +558,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [lhs](dtype value) noexcept -> dtype 
+        const auto function = [lhs](dtype value) noexcept -> dtype 
         {
             return lhs - value;
         };
@@ -572,7 +572,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (6)
+    ///						Subtracts the scaler from the array (6)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -583,7 +583,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return value - rhs;
         };
@@ -597,7 +597,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (7)
+    ///						Subtracts the scaler from the array (7)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -608,7 +608,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return lhs - value;
         };
@@ -622,7 +622,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (8)
+    ///						Subtracts the scaler from the array (8)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -633,7 +633,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return value - rhs;
         };
@@ -647,7 +647,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scalar from the array (9)
+    ///						Subtracts the scaler from the array (9)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -658,7 +658,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return lhs - value;
         };
@@ -679,7 +679,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) noexcept
     {
-        auto function = [](dtype value) noexcept -> dtype
+        const auto function = [](dtype value) noexcept -> dtype
         {
             return -value;
         };
@@ -731,7 +731,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
         {
             return val1 * val2;
         };
@@ -744,7 +744,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (3)
+    ///						Multiplies the scaler to the array (3)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -756,7 +756,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value *= rhs;
         };
@@ -768,7 +768,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (4)
+    ///						Multiplies the scaler to the array (4)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -780,7 +780,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
         {
             return value *= rhs;
         };
@@ -834,7 +834,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
         {
             return val1 * val2;
         };
@@ -863,7 +863,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (4)
+    ///						Multiplies the scaler to the array (4)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -874,7 +874,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> dtype 
+        const auto function = [rhs](dtype value) noexcept -> dtype 
         {
             return value * rhs;
         };
@@ -888,7 +888,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (5)
+    ///						Multiplies the scaler to the array (5)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -902,7 +902,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (6)
+    ///						Multiplies the scaler to the array (6)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -913,7 +913,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return value * rhs;
         };
@@ -927,7 +927,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (7)
+    ///						Multiplies the scaler to the array (7)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -941,7 +941,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (8)
+    ///						Multiplies the scaler to the array (8)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -952,7 +952,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return value * rhs;
         };
@@ -966,7 +966,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Multiplies the scalar to the array (9)
+    ///						Multiplies the scaler to the array (9)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1020,7 +1020,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](std::complex<dtype>& val1, dtype val2) -> std::complex<dtype>
         {
             return val1 / val2;
         };
@@ -1033,7 +1033,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (3)
+    ///						Divides the scaler from the array (3)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1045,7 +1045,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value /= rhs;
         };
@@ -1057,7 +1057,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (4)
+    ///						Divides the scaler from the array (4)
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1069,7 +1069,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) noexcept -> std::complex<dtype>
         {
             return value /= rhs;
         };
@@ -1125,7 +1125,7 @@ namespace nc
 
         NdArray<std::complex<dtype>> returnArray(lhs.shape());
 
-        auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
+        const auto function = [](dtype val1, const std::complex<dtype>& val2) -> std::complex<dtype>
         {
             return val1 / val2;
         };
@@ -1154,7 +1154,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
+        const auto function = [](const std::complex<dtype>&val1, dtype val2) -> std::complex<dtype>
         {
             return val1 / val2;
         };
@@ -1169,7 +1169,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (4)
+    ///						Divides the scaler from the array (4)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1180,7 +1180,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> dtype 
+        const auto function = [rhs](dtype value) noexcept -> dtype 
         {
             return value / rhs;
         };
@@ -1194,7 +1194,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (5)
+    ///						Divides the scaler from the array (5)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1205,7 +1205,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        auto function = [lhs](dtype value) noexcept -> dtype 
+        const auto function = [lhs](dtype value) noexcept -> dtype 
         {
             return lhs / value;
         };
@@ -1219,7 +1219,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (6)
+    ///						Divides the scaler from the array (6)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1230,7 +1230,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return value / rhs;
         };
@@ -1244,7 +1244,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (7)
+    ///						Divides the scaler from the array (7)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1255,7 +1255,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
+        const auto function = [lhs](dtype value) noexcept -> std::complex<dtype> 
         {
             return lhs / value;
         };
@@ -1269,7 +1269,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (8)
+    ///						Divides the scaler from the array (8)
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1280,7 +1280,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return value / rhs;
         };
@@ -1294,7 +1294,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Divides the scalar from the array (9)
+    ///						Divides the scaler from the array (9)
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1305,7 +1305,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
+        const auto function = [lhs](std::complex<dtype> value) noexcept -> std::complex<dtype> 
         {
             return lhs / value;
         };
@@ -1343,7 +1343,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Modulus the scalar to the array
+    ///						Modulus the scaler to the array
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1355,7 +1355,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value %= rhs;
         };
@@ -1383,7 +1383,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Modulus of the array and the scalar
+    ///						Modulus of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1399,7 +1399,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Modulus of the scalar and the array
+    ///						Modulus of the scaler and the array
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1444,7 +1444,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Bitwise or the scalar to the array
+    ///						Bitwise or the scaler to the array
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1456,7 +1456,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value |= rhs;
         };
@@ -1484,7 +1484,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the bitwise or of the array and the scalar
+    ///						Takes the bitwise or of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1538,7 +1538,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Bitwise and the scalar to the array
+    ///						Bitwise and the scaler to the array
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1550,7 +1550,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value &= rhs;
         };
@@ -1578,7 +1578,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the bitwise and of the array and the scalar
+    ///						Takes the bitwise and of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1632,7 +1632,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Bitwise xor the scalar to the array
+    ///						Bitwise xor the scaler to the array
     ///
     /// @param      lhs
     ///	@param      rhs
@@ -1644,7 +1644,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [rhs](dtype& value) noexcept -> dtype
+        const auto function = [rhs](dtype& value) noexcept -> dtype
         {
             return value ^= rhs;
         };
@@ -1672,7 +1672,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the bitwise xor of the array and the scalar
+    ///						Takes the bitwise xor of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1712,7 +1712,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [](dtype value) noexcept -> dtype
+        const auto function = [](dtype value) noexcept -> dtype
         {
             return ~value;
         };
@@ -1743,7 +1743,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](dtype value1, dtype value2) noexcept -> bool
+        const auto function = [](dtype value1, dtype value2) noexcept -> bool
         {
             return value1 && value2;
         };
@@ -1757,7 +1757,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the and of the array and the scalar
+    ///						Takes the and of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1770,7 +1770,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [rhs](dtype value) noexcept -> bool
+        const auto function = [rhs](dtype value) noexcept -> bool
         {
             return value && rhs;
         };
@@ -1783,7 +1783,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the and of the array and the scalar
+    ///						Takes the and of the array and the scaler
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1813,7 +1813,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        auto function = [](dtype value1, dtype value2) noexcept -> bool
+        const auto function = [](dtype value1, dtype value2) noexcept -> bool
         {
             return value1 || value2;
         };
@@ -1827,7 +1827,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the or of the array and the scalar
+    ///						Takes the or of the array and the scaler
     ///
     /// @param      lhs
     ///	@param  	rhs
@@ -1840,7 +1840,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [rhs](dtype value) noexcept -> bool
+        const auto function = [rhs](dtype value) noexcept -> bool
         {
             return value || rhs;
         };
@@ -1853,7 +1853,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Takes the or of the array and the scalar
+    ///						Takes the or of the array and the scaler
     ///
     ///	@param  	lhs
     /// @param      rhs
@@ -1879,7 +1879,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        auto function = [](dtype value) noexcept -> dtype
+        const auto function = [](dtype value) noexcept -> dtype
         {
             return !value;
         };
@@ -1907,7 +1907,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto equalTo = [](dtype lhs, dtype rhs)
+        const auto equalTo = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return utils::essentiallyEqual(lhs, rhs);
         };
@@ -1923,7 +1923,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						an array and a scalar
+    ///						an array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -1934,7 +1934,7 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        auto equalTo = [inValue](dtype value) noexcept -> bool
+        const auto equalTo = [inValue](dtype value) noexcept -> bool
         {
             return utils::essentiallyEqual(inValue, value);
         };
@@ -1948,7 +1948,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						an array and a scalar
+    ///						an array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -1977,7 +1977,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto notEqualTo = [](dtype lhs, dtype rhs)
+        const auto notEqualTo = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return !utils::essentiallyEqual(lhs, rhs);
         };
@@ -1993,7 +1993,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						an array and a scalar
+    ///						an array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -2004,7 +2004,7 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        auto notEqualTo = [inValue](dtype value) noexcept -> bool
+        const auto notEqualTo = [inValue](dtype value) noexcept -> bool
         {
             return !utils::essentiallyEqual(inValue, value);
         };
@@ -2018,7 +2018,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						an array and a scalar
+    ///						an array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -2051,7 +2051,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs < rhs;
         };
@@ -2065,7 +2065,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -2078,7 +2078,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value < inValue;
         };
@@ -2092,7 +2092,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -2105,7 +2105,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue < value;
         };
@@ -2137,7 +2137,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs > rhs;
         };
@@ -2154,7 +2154,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -2167,7 +2167,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value > inValue;
         };
@@ -2181,7 +2181,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -2194,7 +2194,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue > value;
         };
@@ -2226,7 +2226,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs <= rhs;
         };
@@ -2240,7 +2240,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -2253,7 +2253,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value <= inValue;
         };
@@ -2267,7 +2267,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -2280,7 +2280,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue <= value;
         };
@@ -2312,7 +2312,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [](dtype lhs, dtype rhs) noexcept -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs >= rhs;
         };
@@ -2326,7 +2326,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     /// @param      lhs
     ///	@param  	inValue
@@ -2339,7 +2339,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value >= inValue;
         };
@@ -2353,7 +2353,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Returns an array of booleans of element wise comparison
-    ///						the array and a scalar
+    ///						the array and a scaler
     ///
     ///	@param  	inValue
     /// @param      inArray
@@ -2366,7 +2366,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        auto function = [inValue](dtype value) noexcept -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue >= value;
         };
@@ -2391,7 +2391,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [inNumBits](dtype& value) noexcept -> void
+        const auto function = [inNumBits](dtype& value) noexcept -> void
         {
             value <<= inNumBits;
         };
@@ -2434,7 +2434,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        auto function = [inNumBits](dtype& value) noexcept -> void
+        const auto function = [inNumBits](dtype& value) noexcept -> void
         {
             value >>= inNumBits;
         };
@@ -2475,7 +2475,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [](dtype& value) noexcept -> void
+        const auto function = [](dtype& value) noexcept -> void
         {
             ++value;
         };
@@ -2513,7 +2513,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        auto function = [](dtype& value) noexcept -> void
+        const auto function = [](dtype& value) noexcept -> void
         {
             --value;
         };

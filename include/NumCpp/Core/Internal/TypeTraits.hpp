@@ -42,6 +42,27 @@ namespace nc
 
     //============================================================================
     // Class Description:
+    ///	std::is_arithmetic helper, for c++11 compatibility
+    ///
+    template<typename T>
+    constexpr bool is_arithmetic_v = std::is_arithmetic<T>::value;
+
+    //============================================================================
+    // Class Description:
+    ///	std::is_integral helper, for c++11 compatibility
+    ///
+    template<typename T>
+    constexpr bool is_integral_v = std::is_integral<T>::value;
+
+    //============================================================================
+    // Class Description:
+    ///	std::is_floating_point helper, for c++11 compatibility
+    ///
+    template<typename T>
+    constexpr bool is_floating_point_v = std::is_floating_point<T>::value;
+
+    //============================================================================
+    // Class Description:
     ///	Template class for determining if all of the types are arithmetic
     ///
     template <typename... Ts>
@@ -69,6 +90,13 @@ namespace nc
 
     //============================================================================
     // Class Description:
+    ///	all_arithmetic helper
+    ///
+    template<typename... Ts>
+    constexpr bool all_arithmetic_v = all_arithmetic<Ts...>::value;
+
+    //============================================================================
+    // Class Description:
     ///	Template class for determining if all of the types are the same as another type
     ///
     template <typename T1, typename... Ts>
@@ -93,6 +121,13 @@ namespace nc
     {
         static constexpr bool value = std::is_same<T1, T2>::value;
     };
+
+    //============================================================================
+    // Class Description:
+    ///	all_same helper
+    ///
+    template<typename... Ts>
+    constexpr bool all_same_v = all_same<Ts...>::value;
 
     //============================================================================
     // Class Description:

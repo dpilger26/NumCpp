@@ -51,7 +51,7 @@ namespace nc
         /// @param				outVt: NdArray output V transpose
         ///
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

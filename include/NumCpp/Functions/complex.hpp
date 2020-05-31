@@ -101,7 +101,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag) noexcept
+    auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)
     {
         if (inReal.shape() != inImag.shape())
         {

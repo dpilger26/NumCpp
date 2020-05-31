@@ -82,7 +82,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Bisection() noexcept override = default;
+            ~Bisection() noexcept = default;
 
             //============================================================================
             // Method Description:

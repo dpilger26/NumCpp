@@ -48,7 +48,7 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
             RA() noexcept = default;
 

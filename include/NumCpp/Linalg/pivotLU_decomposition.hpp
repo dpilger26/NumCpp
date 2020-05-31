@@ -60,7 +60,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            auto shape = inMatrix.shape();
+            const auto shape = inMatrix.shape();
 
             if(!shape.issquare()) 
             {
@@ -83,7 +83,7 @@ namespace nc
                         s += std::fabs(uMatrix(i, j));
                     }
 
-                    double q = std::fabs(uMatrix(i, k)) / s;
+                    const double q = std::fabs(uMatrix(i, k)) / s;
                     if(q > max)
                     {
                         max = q;

@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc) noexcept
+    void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)
     {
         stl_algorithms::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
     }

@@ -66,7 +66,7 @@ namespace nc
     ///				NdArray<double>
     ///
     template<typename dtype>
-    dtype lcm(const NdArray<dtype>& inArray) noexcept
+    dtype lcm(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_INTEGER(dtype);
 

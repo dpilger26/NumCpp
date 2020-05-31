@@ -39,7 +39,7 @@ namespace nc
     //============================================================================
     // Method Description:
     ///						Return coordinate matrices from coordinate vectors.
-    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
     ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
     ///                     If input arrays are not one dimensional they will be flattened.
     ///
@@ -85,7 +85,7 @@ namespace nc
     //============================================================================
 // Method Description:
 ///						Return coordinate matrices from coordinate vectors.
-///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
 ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
 ///
 ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
@@ -97,7 +97,7 @@ namespace nc
 ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
 ///
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2) noexcept
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
     {
         return meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2));
     }

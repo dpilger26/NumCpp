@@ -151,7 +151,7 @@ namespace nc
         ///
         Vec3 clampMagnitude(double maxLength) const noexcept
         {
-            double magnitude = norm();
+            const double magnitude = norm();
             if (magnitude <= maxLength)
             {
                 return *this;
@@ -173,9 +173,9 @@ namespace nc
         ///
         Vec3 cross(const Vec3& otherVec) const noexcept
         {
-            double crossX = y * otherVec.z - z * otherVec.y;
-            double crossY = -(x * otherVec.z - z * otherVec.x);
-            double crossZ = x * otherVec.y - y * otherVec.x;
+            const double crossX = y * otherVec.z - z * otherVec.y;
+            const double crossY = -(x * otherVec.z - z * otherVec.x);
+            const double crossZ = x * otherVec.y - y * otherVec.x;
 
             return Vec3(crossX, crossY, crossZ);
         }
@@ -251,9 +251,9 @@ namespace nc
 
             Vec3 trajectory = otherVec;
             trajectory -= *this;
-            double xInterp = utils::interp(0.0, trajectory.x, t);
-            double yInterp = utils::interp(0.0, trajectory.y, t);
-            double zInterp = utils::interp(0.0, trajectory.z, t);
+            const double xInterp = utils::interp(0.0, trajectory.x, t);
+            const double yInterp = utils::interp(0.0, trajectory.y, t);
+            const double zInterp = utils::interp(0.0, trajectory.z, t);
 
             return Vec3(*this) += Vec3(xInterp, yInterp, zInterp);
         }
@@ -289,7 +289,7 @@ namespace nc
         ///
         Vec3 project(const Vec3& otherVec) const noexcept
         {
-            double projectedMagnitude = norm() * std::cos(angle(otherVec));
+            const double projectedMagnitude = norm() * std::cos(angle(otherVec));
             return otherVec.normalize() *= projectedMagnitude;
         }
 
