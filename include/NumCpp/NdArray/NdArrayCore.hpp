@@ -197,7 +197,7 @@ namespace nc
             uint32 row = 0;
             for (const auto& list : inList)
             {
-                const auto ptr = begin() + row * shape_.cols;
+                const auto ptr = begin() += row * shape_.cols;
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
@@ -1126,7 +1126,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return begin() + inRow * shape_.cols;
+            return begin() += (inRow * shape_.cols);
         }
 
         //============================================================================
