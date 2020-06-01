@@ -97,7 +97,7 @@ namespace nc
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
             const double dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
-            survivalFunction[-1] = 0;
+            survivalFunction[-1] = 0.0;
             for (int32 i = histSize - 1; i > -1; --i)
             {
                 double histValue = histogram[i] / dNumPixels;

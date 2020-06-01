@@ -96,7 +96,7 @@ namespace nc
         using const_pointer   = typename _Alty_traits::const_pointer;
         using reference       = dtype&;
         using const_reference = const dtype&;
-        using size_type       = typename _Alty_traits::size_type;
+        using size_type       = uint32;
         using difference_type = typename _Alty_traits::difference_type;
 
         using iterator               = NdArrayIterator<dtype, pointer, difference_type>;
@@ -117,7 +117,7 @@ namespace nc
         /// @param
         ///				inSquareSize: square number of rows and columns
         ///
-        explicit NdArray(uint32 inSquareSize) noexcept :
+        explicit NdArray(size_type inSquareSize) noexcept :
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize)
         {
@@ -131,7 +131,7 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray(uint32 inNumRows, uint32 inNumCols) noexcept :
+        NdArray(size_type inNumRows, size_type inNumCols) noexcept :
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols)
         {
@@ -166,7 +166,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+                stl_algorithms::copy(inList.begin(), inList.end(), begin());
             }
         }
 
@@ -197,7 +197,7 @@ namespace nc
             uint32 row = 0;
             for (const auto& list : inList)
             {
-                auto ptr = array_ + row * shape_.cols;
+                auto ptr = begin() + row * shape_.cols;
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
@@ -222,7 +222,7 @@ namespace nc
                 newArray();
                 if (size_ > 0)
                 {
-                    stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+                    stl_algorithms::copy(inArray.begin(), inArray.end(), begin());
                 }
             }
             else
@@ -251,7 +251,7 @@ namespace nc
                 if (size_ > 0)
                 {
                     const auto start = in2dArray.front().begin();
-                    stl_algorithms::copy(start, start + size_, array_);
+                    stl_algorithms::copy(start, start + size_, begin());
                 }
             }
             else
@@ -279,7 +279,7 @@ namespace nc
                 newArray();
                 if (size_ > 0)
                 {
-                    stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+                    stl_algorithms::copy(inVector.begin(), inVector.end(), begin());
                 }
             }
             else
@@ -313,7 +313,7 @@ namespace nc
             size_ = shape_.size();
 
             newArray();
-            auto currentPosition = array_;
+            auto currentPosition = begin();
             for (const auto& row : in2dVector)
             {
                 stl_algorithms::copy(row.begin(), row.end(), currentPosition);
@@ -340,7 +340,7 @@ namespace nc
                 if (size_ > 0)
                 {
                     const auto start = in2dArray.front().begin();
-                    stl_algorithms::copy(start, start + size_, array_);
+                    stl_algorithms::copy(start, start + size_, begin());
                 }
             }
             else
@@ -364,7 +364,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+                stl_algorithms::copy(inDeque.begin(), inDeque.end(), begin());
             }
         }
 
@@ -392,7 +392,7 @@ namespace nc
             size_ = shape_.size();
 
             newArray();
-            auto currentPosition = array_;
+            auto currentPosition = begin();
             for (const auto& row : in2dDeque)
             {
                 stl_algorithms::copy(row.begin(), row.end(), currentPosition);
@@ -414,7 +414,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inList.begin(), inList.end(), array_);
+                stl_algorithms::copy(inList.begin(), inList.end(), begin());
             }
         }
 
@@ -434,7 +434,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inFirst, inLast, array_);
+                stl_algorithms::copy(inFirst, inLast, begin());
             }
         }
 
@@ -452,7 +452,7 @@ namespace nc
             newArray();
             if (size_ > 0)
             {
-                stl_algorithms::copy(inFirst, inLast, array_);
+                stl_algorithms::copy(inFirst, inLast, begin());
             }
         }
 
@@ -461,10 +461,10 @@ namespace nc
         ///						Constructor.  Copies the contents of the buffer into 
         ///                     the array.
         ///
-        /// @param				inPtr: dtype* to beginning of buffer
+        /// @param				inPtr: const_pointer to beginning of buffer
         /// @param				inSize: number of elements in buffer
         ///
-        explicit NdArray(const dtype* inPtr, uint32 inSize) noexcept :
+        explicit NdArray(const_pointer inPtr, size_type inSize) noexcept :
             shape_(1, inSize),
             size_(inSize)
         {
@@ -480,11 +480,11 @@ namespace nc
         ///						Constructor.  Copies the contents of the buffer into 
         ///                     the array.
         ///
-        /// @param				inPtr: dtype* to beginning of buffer
+        /// @param				inPtr: const_pointer to beginning of buffer
         /// @param				numRows: number of rows of the buffer
         /// @param				numCols: number of cols of the buffer
         ///
-        explicit NdArray(const dtype* inPtr, uint32 numRows, uint32 numCols) noexcept :
+        explicit NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) noexcept :
             shape_(numRows, numCols),
             size_(shape_.size())
         {
@@ -500,12 +500,12 @@ namespace nc
         ///						Constructor. Operates as a shell around an already existing
         ///                     array of data.
         ///
-        /// @param				inPtr: dtype* to beginning of the array
+        /// @param				inPtr: pointer to beginning of the array
         /// @param				size: the number of elements in the array
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(dtype* inPtr, uint32 size, bool takeOwnership) noexcept :
+        explicit NdArray(pointer inPtr, uint32 size, bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -517,13 +517,13 @@ namespace nc
         ///						Constructor. Operates as a shell around an already existing
         ///                     array of data.
         ///
-        /// @param				inPtr: dtype* to beginning of the array
+        /// @param				inPtr: pointer to beginning of the array
         /// @param				numRows: the number of rows in the array
         /// @param              numCols: the nubmer of column in the array
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
+        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
@@ -563,7 +563,8 @@ namespace nc
             array_(inOtherArray.array_),
             ownsPtr_(inOtherArray.ownsPtr_)
         {
-            inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
+            inOtherArray.shape_.rows = inOtherArray.shape_.cols = 0;
+            inOtherArray.size_ = 0;
             inOtherArray.ownsPtr_ = false;
             inOtherArray.array_ = nullptr;
         }
@@ -612,7 +613,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(dtype inValue) noexcept
+        NdArray<dtype>& operator=(value_type inValue) noexcept
         {
             if (array_ != nullptr)
             {
@@ -659,10 +660,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& operator[](int32 inIndex)
+        reference operator[](int32 inIndex) noexcept
         {
-            checkNullPtr();
-
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -680,10 +679,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator[](int32 inIndex) const
+        const_reference operator[](int32 inIndex) const noexcept
         {
-            checkNullPtr();
-
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -701,10 +698,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& operator()(int32 inRowIndex, int32 inColIndex)
+        reference operator()(int32 inRowIndex, int32 inColIndex) noexcept
         {
-            checkNullPtr();
-
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -727,10 +722,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
+        const_reference operator()(int32 inRowIndex, int32 inColIndex) const noexcept
         {
-            checkNullPtr();
-
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -941,7 +934,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& at(int32 inIndex)
+        reference at(int32 inIndex)
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -964,7 +957,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& at(int32 inIndex) const
+        const_reference at(int32 inIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -987,7 +980,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& at(int32 inRowIndex, int32 inColIndex)
+        reference at(int32 inRowIndex, int32 inColIndex)
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -1019,7 +1012,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& at(int32 inRowIndex, int32 inColIndex) const
+        const_reference at(int32 inRowIndex, int32 inColIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -1053,8 +1046,6 @@ namespace nc
         ///
         NdArray<dtype> at(const Slice& inSlice) const
         {
-            checkNullPtr();
-
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
             return operator[](inSlice);
@@ -1110,7 +1101,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to the beginning of the flattened array	None
+        ///						iterator to the beginning of the flattened array
         /// @return
         ///				iterator
         ///
@@ -1128,7 +1119,7 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator begin(uint32 inRow)
+        iterator begin(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
@@ -1140,7 +1131,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array	None
+        ///						const iterator to the beginning of the flattened array
         /// @return
         ///				const_iterator
         ///
@@ -1158,9 +1149,64 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator begin(uint32 inRow) const
+        const_iterator begin(size_type inRow) const
         {
             return cbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the beginning of the flattened array
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rbegin()
+        {
+            return reverse_iterator(array_);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rbegin(size_type inRow)
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return begin() + inRow * shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_iterator rbegin() const noexcept
+        {
+            return crbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_iterator rbegin(size_type inRow) const
+        {
+            return crbegin(inRow);
         }
 
         //============================================================================
@@ -1171,7 +1217,7 @@ namespace nc
         ///
         iterator end() noexcept
         {
-            return begin() + size_;
+            return begin() += size_;
         }
 
         //============================================================================
@@ -1183,14 +1229,14 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator end(uint32 inRow)
+        iterator end(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return begin(inRow) + shape_.cols;
+            return begin(inRow) += shape_.cols;
         }
 
         //============================================================================
@@ -1213,9 +1259,64 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator end(uint32 inRow) const
+        const_iterator end(size_type inRow) const
         {
             return cend(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rend() noexcept
+        {
+            return rbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rend(size_type inRow)
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return rbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator rend() const noexcept
+        {
+            return crend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator rend(size_type inRow) const
+        {
+            return crend(inRow);
         }
 
         //============================================================================
@@ -1225,10 +1326,8 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cbegin() const
+        const_iterator cbegin() const noexcept
         {
-            checkNullPtr();
-
             return const_iterator(array_);
         }
 
@@ -1241,14 +1340,45 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cbegin(uint32 inRow) const
+        const_iterator cbegin(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return cbegin() + inRow * shape_.cols;
+            return cbegin() += (inRow * shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_iterator crbegin() const noexcept
+        {
+            return const_reverse_iterator(array_);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crbegin(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin() += (inRow * shape_.cols);
         }
 
         //============================================================================
@@ -1260,7 +1390,7 @@ namespace nc
         ///
         const_iterator cend() const noexcept
         {
-            return cbegin() + size_;
+            return cbegin() += size_;
         }
 
         //============================================================================
@@ -1272,14 +1402,45 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cend(uint32 inRow) const
+        const_iterator cend(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return cbegin(inRow) + shape_.cols;
+            return cbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend() const noexcept
+        {
+            return crbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin(inRow) += shape_.cols;
         }
 
         //============================================================================
@@ -1645,7 +1806,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const dtype& value) noexcept -> dtypeOut
+            const auto function = [](const_reference value) noexcept -> dtypeOut
             {
                 return std::complex<typename dtypeOut::value_type>(value);
             };
@@ -1679,7 +1840,7 @@ namespace nc
             }
             else
             {
-                const auto function = [](const dtype& value) noexcept -> dtypeOut
+                const auto function = [](const_reference value) noexcept -> dtypeOut
                 {
                     return complex_cast<typename dtypeOut::value_type>(value);
                 };
@@ -1708,7 +1869,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const dtype& value) noexcept -> dtypeOut
+            const auto function = [](const_reference value) noexcept -> dtypeOut
             {
                 return static_cast<dtypeOut>(value.real());
             };
@@ -1725,7 +1886,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype back() const noexcept
+        value_type back() const noexcept
         {
             return *(cend() - 1);
         }
@@ -1737,7 +1898,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& back() noexcept
+        reference back() noexcept
         {
             return *(end() - 1);
         }
@@ -1749,7 +1910,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype back(uint32 row) const noexcept
+        value_type back(uint32 row) const noexcept
         {
             return *(cend(row) - 1);
         }
@@ -1761,7 +1922,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& back(uint32 row) noexcept
+        reference back(uint32 row) noexcept
         {
             return *(end(row) - 1);
         }
@@ -1816,7 +1977,7 @@ namespace nc
         /// @return
         ///				clipped value
         ///
-        NdArray<dtype> clip(dtype inMin, dtype inMax) const noexcept
+        NdArray<dtype> clip(value_type inMin, value_type inMax) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1852,7 +2013,7 @@ namespace nc
         /// @return
         ///				bool
         ///
-        NdArray<bool> contains(dtype inValue, Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2034,22 +2195,20 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Returns the raw pointer to the underlying data
-        /// @return dtype*
+        /// @return pointer
         ///
-        dtype* data()
+        pointer data() noexcept
         {
-            checkNullPtr();
             return array_;
         }
 
         //============================================================================
         // Method Description:
         ///						Returns the raw pointer to the underlying data
-        /// @return dtype*
+        /// @return const_pointer
         ///
-        const dtype* data() const
+        const_pointer data() const noexcept
         {
-            checkNullPtr();
             return array_;
         }
 
@@ -2058,9 +2217,9 @@ namespace nc
         ///						Releases the internal data pointer so that the destructor
         ///                     will not call delete on it, and returns the raw pointer
         ///                     to the underlying data.
-        /// @return dtype*
+        /// @return pointer
         ///
-        dtype* dataRelease()
+        pointer dataRelease()
         {
             ownsPtr_ = false;
             return data();
@@ -2194,8 +2353,6 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            checkNullPtr();
-
             filesystem::File f(inFilename);
             if (!f.hasExt())
             {
@@ -2208,7 +2365,10 @@ namespace nc
                 THROW_RUNTIME_ERROR("Unable to open the input file:\n\t" + inFilename);
             }
 
-            ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
+            if (array_ != nullptr)
+            {
+                ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
+            }
             ofile.close();
         }
 
@@ -2237,7 +2397,7 @@ namespace nc
         /// @return
         ///				None
         ///
-        NdArray<dtype>& fill(dtype inFillValue) noexcept
+        NdArray<dtype>& fill(value_type inFillValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inFillValue);
             return *this;
@@ -2292,7 +2452,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype front() const noexcept
+        value_type front() const noexcept
         {
             return *cbegin();
         }
@@ -2304,7 +2464,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& front() noexcept
+        reference front() noexcept
         {
             return *begin();
         }
@@ -2316,7 +2476,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype front(uint32 row) const noexcept
+        value_type front(uint32 row) const noexcept
         {
             return *cbegin(row);
         }
@@ -2328,7 +2488,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& front(uint32 row) noexcept
+        reference front(uint32 row) noexcept
         {
             return *begin(row);
         }
@@ -2460,7 +2620,7 @@ namespace nc
         /// @return
         ///				array element
         ///
-        dtype item() const
+        value_type item() const
         {
             if (size_ != 1)
             {
@@ -3177,7 +3337,7 @@ namespace nc
         /// @param				inIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inIndex, dtype inValue)
+        NdArray<dtype>& put(int32 inIndex, value_type inValue)
         {
             at(inIndex) = inValue;
 
@@ -3194,7 +3354,7 @@ namespace nc
         /// @param				inCol
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRow, int32 inCol, dtype inValue)
+        NdArray<dtype>& put(int32 inRow, int32 inCol, value_type inValue)
         {
             at(inRow, inCol) = inValue;
 
@@ -3210,7 +3370,7 @@ namespace nc
         /// @param				inIndices
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const NdArray<uint32>& inIndices, dtype inValue)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, value_type inValue)
         {
             for (auto index : inIndices)
             {
@@ -3254,7 +3414,7 @@ namespace nc
         /// @param				inSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inSlice, value_type inValue)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -3300,7 +3460,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -3330,7 +3490,7 @@ namespace nc
         /// @param				inColIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -3354,7 +3514,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, value_type inValue)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -3456,7 +3616,7 @@ namespace nc
         /// @param				inMask
         /// @param				inValue
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, dtype inValue)
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, value_type inValue)
         {
             if (inMask.shape() != shape_)
             {
@@ -3563,7 +3723,7 @@ namespace nc
         /// @param  oldValue: the value to replace
         /// @param  newValue: the value to replace with
         ///
-        void replace(dtype oldValue, dtype newValue) noexcept
+        void replace(value_type oldValue, value_type newValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3581,7 +3741,7 @@ namespace nc
         ///
         /// @param      inSize
         ///
-        NdArray<dtype>& reshape(uint32 inSize)
+        NdArray<dtype>& reshape(size_type inSize)
         {
             if (inSize != size_)
             {
@@ -3820,7 +3980,7 @@ namespace nc
         /// @return
         ///				size
         ///
-        uint32 size() const noexcept
+        size_type size() const noexcept
         {
             return size_;
         }
@@ -4047,7 +4207,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4131,22 +4291,10 @@ namespace nc
         //====================================Attributes==============================
         allocator_type  allocator_{};
         Shape           shape_{ 0, 0 };
-        uint32          size_{ 0 };
+        size_type       size_{ 0 };
         Endian          endianess_{ Endian::NATIVE };
-        dtype*          array_{ nullptr };
+        pointer         array_{ nullptr };
         bool            ownsPtr_{ false };
-
-        //============================================================================
-        // Method Description:
-        ///						Checks the array_ pointer for nullness on access
-        ///
-        void checkNullPtr() const
-        {
-            if (array_ == nullptr)
-            {
-                THROW_RUNTIME_ERROR("trying to access an empty array");
-            }
-        }
 
         //============================================================================
         // Method Description:
