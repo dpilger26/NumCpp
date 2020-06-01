@@ -80,18 +80,18 @@ namespace nc
     //================================================================================
     // Class Description:
     ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype, class _Alloc = std::allocator<dtype>>
+    template<typename dtype, class Allocator = std::allocator<dtype>>
     class NdArray final : NdArrayBase
     {
     private:
         STATIC_ASSERT_VALID_DTYPE(dtype);
 
-        using _Alty = typename std::allocator_traits<_Alloc>::template rebind_alloc<dtype>;
+        using _Alty = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
         using _Alty_traits = std::allocator_traits<_Alty>;
 
     public:
         using value_type      = dtype;
-        using allocator_type  = _Alloc;
+        using allocator_type  = _Alty;
         using pointer         = typename _Alty_traits::pointer;
         using const_pointer   = typename _Alty_traits::const_pointer;
         using reference       = dtype&;
@@ -4129,10 +4129,11 @@ namespace nc
 
     private:
         //====================================Attributes==============================
-        Shape			shape_{ 0, 0 };
-        uint32			size_{ 0 };
+        allocator_type  allocator_{};
+        Shape           shape_{ 0, 0 };
+        uint32          size_{ 0 };
         Endian          endianess_{ Endian::NATIVE };
-        dtype*			array_{ nullptr };
+        dtype*          array_{ nullptr };
         bool            ownsPtr_{ false };
 
         //============================================================================
@@ -4155,7 +4156,7 @@ namespace nc
         {
             if (ownsPtr_ && array_ != nullptr)
             {
-                delete[] array_;
+                allocator_.deallocate(array_, size_);
             }
 
             array_ = nullptr;
@@ -4173,7 +4174,7 @@ namespace nc
         {
             if (size_ > 0)
             {
-                array_ = new dtype[size_];
+                array_ = allocator_.allocate(size_);
                 ownsPtr_ = true;
             }
         }

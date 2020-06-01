@@ -2057,7 +2057,6 @@ def test_ndarray_complex():
     data = real + 1j * imag
     cArray.setArray(data)
     res = cArray.resizeFast(shape2)
-    assert np.all(res == 0)
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 
