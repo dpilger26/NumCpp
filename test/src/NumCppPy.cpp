@@ -54,6 +54,25 @@ namespace ShapeInterface
 
 //================================================================================
 
+namespace IteratorInterface
+{
+    template<typename Iterator>
+    typename Iterator::value_type dereference(const Iterator& self)
+    {
+        return *self;
+    }
+
+    //================================================================================
+
+    template<typename Iterator>
+    typename Iterator::value_type access(const Iterator& self, typename Iterator::difference_type offset)
+    {
+        return self[offset];
+    }
+}
+
+//================================================================================
+
 namespace NdArrayInterface
 {
     template<typename dtype>
@@ -4961,7 +4980,100 @@ BOOST_PYTHON_MODULE(NumCpp)
         .value("LITTLE", Endian::LITTLE);
 
     // NdArray.hpp
-    typedef NdArray<double> NdArrayDouble;
+    using NdArrayDouble = NdArray<double>;
+    using NdArrayDoubleIterator = NdArrayDouble::iterator;
+    using NdArrayDoubleConstIterator = NdArrayDouble::const_iterator;
+    using NdArrayDoubleReverseIterator = NdArrayDouble::reverse_iterator;
+    using NdArrayDoubleConstReverseIterator = NdArrayDouble::const_reverse_iterator;
+
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleIterator::operator++;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleIterator::operator++;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleIterator::operator--;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPost)(int) noexcept = &NdArrayDoubleIterator::operator--;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusEqual)(NdArrayDoubleIterator::difference_type) noexcept = &NdArrayDoubleIterator::operator+=;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator+;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusEqual)(NdArrayDoubleIterator::difference_type) noexcept = &NdArrayDoubleIterator::operator-=;
+    NdArrayDoubleIterator(NdArrayDoubleIterator::*iteratorOperatorMinus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator-;
+
+    bp::class_<NdArrayDoubleIterator>
+        ("NdArrayDoubleIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleIterator>)
+        .def("operatorPlusPlusPre", iteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", iteratorOperatorPlusPlusPost)
+        .def("operatorMinusMinusPre", iteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", iteratorOperatorMinusMinusPost)
+        .def("__iadd__", iteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", iteratorOperatorPlus)
+        .def("__isub__", iteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", iteratorOperatorMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayDoubleIterator>);
+
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleConstIterator::operator++;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleConstIterator::operator++;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleConstIterator::operator--;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPost)(int) noexcept = &NdArrayDoubleConstIterator::operator--;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusEqual)(NdArrayDoubleConstIterator::difference_type) noexcept = &NdArrayDoubleConstIterator::operator+=;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator+;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusEqual)(NdArrayDoubleConstIterator::difference_type) noexcept = &NdArrayDoubleConstIterator::operator-=;
+    NdArrayDoubleConstIterator(NdArrayDoubleConstIterator::*constIteratorOperatorMinus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator-;
+
+    bp::class_<NdArrayDoubleConstIterator>
+        ("NdArrayDoubleConstIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstIterator>)
+        .def("operatorPlusPlusPre", constIteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", constIteratorOperatorPlusPlusPost)
+        .def("operatorMinusMinusPre", constIteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", constIteratorOperatorMinusMinusPost)
+        .def("__iadd__", constIteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", constIteratorOperatorPlus)
+        .def("__isub__", constIteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", constIteratorOperatorMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstIterator>);
+
+    NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleReverseIterator::operator++;
+    NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusPlusPost)(int) = &NdArrayDoubleReverseIterator::operator++;
+    NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusMinusPre)() = &NdArrayDoubleReverseIterator::operator--;
+    NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusMinusPost)(int) = &NdArrayDoubleReverseIterator::operator--;
+    NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusEqual)(NdArrayDoubleReverseIterator::difference_type) = &NdArrayDoubleReverseIterator::operator+=;
+    NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator+;
+    NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusEqual)(NdArrayDoubleReverseIterator::difference_type) = &NdArrayDoubleReverseIterator::operator-=;
+    NdArrayDoubleReverseIterator(NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator-;
+
+    bp::class_<NdArrayDoubleReverseIterator>
+        ("NdArrayDoubleReverseIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleReverseIterator>)
+        .def("operatorPlusPlusPre", reverseIteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", reverseIteratorOperatorPlusPlusPost)
+        .def("operatorMinusMinusPre", reverseIteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", reverseIteratorOperatorMinusMinusPost)
+        .def("__iadd__", reverseIteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", reverseIteratorOperatorPlus)
+        .def("__isub__", reverseIteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", reverseIteratorOperatorMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseIterator>);
+
+    NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleConstReverseIterator::operator++;
+    NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusPlusPost)(int) = &NdArrayDoubleConstReverseIterator::operator++;
+    NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusMinusPre)() = &NdArrayDoubleConstReverseIterator::operator--;
+    NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusMinusPost)(int) = &NdArrayDoubleConstReverseIterator::operator--;
+    NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusEqual)(NdArrayDoubleConstReverseIterator::difference_type) = &NdArrayDoubleConstReverseIterator::operator+=;
+    NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator+;
+    NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusEqual)(NdArrayDoubleConstReverseIterator::difference_type) = &NdArrayDoubleConstReverseIterator::operator-=;
+    NdArrayDoubleConstReverseIterator(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator-;
+
+    bp::class_<NdArrayDoubleConstReverseIterator>
+        ("NdArrayDoubleConstReverseIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstReverseIterator>)
+        .def("operatorPlusPlusPre", constReverseIteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", constReverseIteratorOperatorPlusPlusPost)
+        .def("operatorMinusMinusPre", constReverseIteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", constReverseIteratorOperatorMinusMinusPost)
+        .def("__iadd__", constReverseIteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", constReverseIteratorOperatorPlus)
+        .def("__isub__", constReverseIteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", constReverseIteratorOperatorMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
+
     bp::class_<NdArrayDouble>
         ("NdArray", bp::init<>())
         .def(bp::init<uint32>())
