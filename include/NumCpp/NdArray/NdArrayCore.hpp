@@ -197,7 +197,7 @@ namespace nc
             uint32 row = 0;
             for (const auto& list : inList)
             {
-                auto ptr = begin() + row * shape_.cols;
+                const auto ptr = begin() + row * shape_.cols;
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
@@ -1105,7 +1105,7 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator begin()
+        iterator begin() noexcept
         {
             return iterator(array_);
         }
@@ -1160,7 +1160,7 @@ namespace nc
         /// @return
         ///				reverse_iterator
         ///
-        reverse_iterator rbegin()
+        reverse_iterator rbegin() noexcept
         {
             return reverse_iterator(array_);
         }
@@ -2796,7 +2796,7 @@ namespace nc
                     const bool isEven = shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        uint32 middleIdx = shape_.cols / 2;  // integer division
+                        const uint32 middleIdx = shape_.cols / 2;  // integer division
                         stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middleIdx,
                             copyArray.end(row), comparitor);
 

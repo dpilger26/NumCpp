@@ -518,7 +518,7 @@ namespace nc
             // Description:
             ///              reorders the input matrix
             ///
-            void reorder()
+            void reorder() noexcept
             {
                 uint32  i = 0;
                 uint32  j = 0;

@@ -81,7 +81,7 @@ namespace nc
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 const Shape appendShape = inAppendValues.shape();
                 if (inShape.rows != appendShape.rows)
                 {
