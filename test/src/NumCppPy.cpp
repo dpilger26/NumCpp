@@ -5074,6 +5074,35 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", constReverseIteratorOperatorMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
 
+    NdArrayDouble::reference(NdArrayDouble::*atSingleScaler)(int32) = &NdArrayDouble::at;
+    NdArrayDouble::const_reference(NdArrayDouble::*atSingleScalerConst)(int32) const= &NdArrayDouble::at;
+    NdArrayDouble::reference(NdArrayDouble::*atRowColScalers)(int32, int32) = &NdArrayDouble::at;
+    NdArrayDouble::const_reference(NdArrayDouble::*atRowColScalersConst)(int32, int32) const = &NdArrayDouble::at;
+    NdArrayDouble(NdArrayDouble::*atSlice)(const Slice&) const = &NdArrayDouble::at;
+    NdArrayDouble(NdArrayDouble::*atSliceSlice)(const Slice&, const Slice&) const = &NdArrayDouble::at;
+    NdArrayDouble(NdArrayDouble::*atSliceInt)(const Slice&, int32) const = &NdArrayDouble::at;
+    NdArrayDouble(NdArrayDouble::*atIntSlice)(int32, const Slice&) const = &NdArrayDouble::at;
+
+    NdArrayDoubleIterator(NdArrayDouble::*begin)() noexcept = &NdArrayDouble::begin;
+    NdArrayDoubleIterator(NdArrayDouble::*beginRow)(NdArrayDouble::size_type) = &NdArrayDouble::begin;
+    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const noexcept = &NdArrayDouble::begin;
+    NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::begin;
+
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)() noexcept = &NdArrayDouble::rbegin;
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const noexcept = &NdArrayDouble::rbegin;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rbegin;
+
+    NdArrayDoubleIterator(NdArrayDouble::*end)() noexcept = &NdArrayDouble::end;
+    NdArrayDoubleIterator(NdArrayDouble::*endRow)(NdArrayDouble::size_type) = &NdArrayDouble::end;
+    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const noexcept = &NdArrayDouble::end;
+    NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::end;
+
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rend)() noexcept = &NdArrayDouble::rend;
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const noexcept = &NdArrayDouble::rend;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rend;
+
     bp::class_<NdArrayDouble>
         ("NdArray", bp::init<>())
         .def(bp::init<uint32>())
@@ -5086,6 +5115,30 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("setArray", &NdArrayInterface::setArray<double>)
         .def("rSlice", &NdArrayDouble::rSlice)
         .def("cSlice", &NdArrayDouble::cSlice)
+        .def("at", atSingleScaler, bp::return_value_policy<bp::return_by_value>())
+        .def("atConst", atSingleScalerConst, bp::return_value_policy<bp::return_by_value>())
+        .def("at", atRowColScalers, bp::return_value_policy<bp::return_by_value>())
+        .def("atConst", atRowColScalersConst, bp::return_value_policy<bp::return_by_value>())
+        .def("at", atSlice)
+        .def("at", atSliceSlice)
+        .def("at", atSliceInt)
+        .def("at", atIntSlice)
+        .def("begin", begin)
+        .def("begin", beginRow)
+        .def("beginConst", beginConst)
+        .def("beginConst", beginRowConst)
+        .def("rbegin", rbegin)
+        .def("rbegin", rbeginRow)
+        .def("rbeginConst", rbeginConst)
+        .def("rbeginConst", rbeginRowConst)
+        .def("end", end)
+        .def("end", endRow)
+        .def("endConst", endConst)
+        .def("endConst", endRowConst)
+        .def("rend", rend)
+        .def("rend", rendRow)
+        .def("rendConst", rendConst)
+        .def("rendConst", rendRowConst)
         .def("all", &NdArrayInterface::all<double>)
         .def("any", &NdArrayInterface::any<double>)
         .def("argmax", &NdArrayInterface::argmax<double>)

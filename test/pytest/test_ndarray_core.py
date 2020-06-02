@@ -94,6 +94,237 @@ def test_ndarray():
                                      NumCpp.Slice(startCol, stopCol, stepCol)).astype(np.uint32),
                           data[startRow:stopRow:stepRow, startCol:stopCol:stepCol])
 
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    startRow = np.random.randint(0, shapeInput[0] // 10, [1, ]).item()
+    stopRow = np.random.randint(startRow + 1, shapeInput[0], [1, ]).item()
+    stepRow = np.random.randint(1, shapeInput[0] // 10, [1, ]).item()
+    col = np.random.randint(0, shapeInput[1], [1, ]).item()
+    assert np.array_equal(cArray.get(NumCpp.Slice(startRow, stopRow, stepRow), col).flatten(),
+                          data[startRow:stopRow:stepRow, col])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    row = np.random.randint(0, shapeInput[0], [1, ]).item()
+    startCol = np.random.randint(0, shapeInput[1] // 10, [1, ]).item()
+    stopCol = np.random.randint(startCol + 1, shapeInput[1], [1, ]).item()
+    stepCol = np.random.randint(1, shapeInput[1] // 10, [1, ]).item()
+    assert np.array_equal(cArray.get(row, NumCpp.Slice(startCol, stopCol, stepCol)).flatten(),
+                          data[row, startCol:stopCol:stepCol])
+
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    randomIdx = np.random.randint(0, shapeInput.prod(), [1, ]).item()
+    assert cArray.at(randomIdx) == data.flatten()[randomIdx]
+
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    randomRowIdx = np.random.randint(0, shapeInput[0], [1, ]).item()
+    randomColIdx = np.random.randint(0, shapeInput[1], [1, ]).item()
+    assert cArray.at(randomRowIdx, randomColIdx) == data[randomRowIdx, randomColIdx]
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    start = np.random.randint(0, shapeInput.prod() // 10, [1, ]).item()
+    stop = np.random.randint(start + 1, shapeInput.prod(), [1, ]).item()
+    step = np.random.randint(1, shapeInput.prod() // 10, [1, ]).item()
+    assert np.array_equal(cArray.at(NumCpp.Slice(start, stop, step)).getNumpyArray().flatten().astype(np.uint32),
+                          data.flatten()[start:stop:step])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    startRow = np.random.randint(0, shapeInput[0] // 10, [1, ]).item()
+    stopRow = np.random.randint(startRow + 1, shapeInput[0], [1, ]).item()
+    stepRow = np.random.randint(1, shapeInput[0] // 10, [1, ]).item()
+    startCol = np.random.randint(0, shapeInput[1] // 10, [1, ]).item()
+    stopCol = np.random.randint(startCol + 1, shapeInput[1], [1, ]).item()
+    stepCol = np.random.randint(1, shapeInput[1] // 10, [1, ]).item()
+    assert np.array_equal(cArray.at(NumCpp.Slice(startRow, stopRow, stepRow),
+                                    NumCpp.Slice(startCol, stopCol, stepCol)).getNumpyArray().astype(np.uint32),
+                          data[startRow:stopRow:stepRow, startCol:stopCol:stepCol])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    startRow = np.random.randint(0, shapeInput[0] // 10, [1, ]).item()
+    stopRow = np.random.randint(startRow + 1, shapeInput[0], [1, ]).item()
+    stepRow = np.random.randint(1, shapeInput[0] // 10, [1, ]).item()
+    col = np.random.randint(0, shapeInput[1], [1, ]).item()
+    assert np.array_equal(cArray.at(NumCpp.Slice(startRow, stopRow, stepRow), col).getNumpyArray().flatten(),
+                          data[startRow:stopRow:stepRow, col])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    row = np.random.randint(0, shapeInput[0], [1, ]).item()
+    startCol = np.random.randint(0, shapeInput[1] // 10, [1, ]).item()
+    stopCol = np.random.randint(startCol + 1, shapeInput[1], [1, ]).item()
+    stepCol = np.random.randint(1, shapeInput[1] // 10, [1, ]).item()
+    assert np.array_equal(cArray.at(row, NumCpp.Slice(startCol, stopCol, stepCol)).getNumpyArray().flatten(),
+                          data[row, startCol:stopCol:stepCol])
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.begin()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.begin(row)
+    assert beg.operatorDereference() == data[row, 0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.beginConst()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.beginConst(row)
+    assert beg.operatorDereference() == data[row, 0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rbegin()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.rbegin(row)
+    assert beg.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rbeginConst()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.rbeginConst(row)
+    assert beg.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.end()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    end = cArray.end(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.endConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    end = cArray.endConst(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rbegin()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.rbegin(row)
+    assert beg.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rbeginConst()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    row = np.random.randint(0, shape.rows, [1, ]).item()
+    beg = cArray.rbeginConst(row)
+    assert beg.operatorDereference() == data[row, -1]
+
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

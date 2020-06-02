@@ -1162,7 +1162,7 @@ namespace nc
         ///
         reverse_iterator rbegin() noexcept
         {
-            return reverse_iterator(array_);
+            return reverse_iterator(end());
         }
 
         //============================================================================
@@ -1181,7 +1181,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return begin() + inRow * shape_.cols;
+            return rbegin() += (shape_.rows - inRow - 1) * shape_.cols;
         }
 
         //============================================================================
@@ -1359,7 +1359,7 @@ namespace nc
         ///
         const_reverse_iterator crbegin() const noexcept
         {
-            return const_reverse_iterator(array_);
+            return const_reverse_iterator(cend());
         }
 
         //============================================================================
@@ -1378,7 +1378,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return crbegin() += (inRow * shape_.cols);
+            return crbegin() += (shape_.rows - inRow - 1) * shape_.cols;
         }
 
         //============================================================================
