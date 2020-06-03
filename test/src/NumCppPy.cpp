@@ -1,9 +1,11 @@
 #include "NumCpp.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 
+#include <algorithm>
 #include <array>
 #include <cstdio>
 #include <complex>
+#include <deque>
 #include <forward_list>
 #include <functional>
 #include <iostream>
@@ -135,6 +137,262 @@ namespace NdArrayInterface
             test[5] == dtype{ 9 } &&
             test[6] == dtype{ 0 } &&
             test[7] == dtype{ 8 };
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dArrayConstructor(T value1, T value2)
+    {
+        std::array<T, 2> arr = {value1, value2};
+        auto newNcArray = NdArray<T>(arr);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dArrayConstructor(T value1, T value2)
+    {
+        std::array<std::array<T, 2>, 2> arr2d;
+        arr2d[0][0] = value1;
+        arr2d[0][1] = value2;
+        arr2d[1][0] = value1;
+        arr2d[1][1] = value2;
+        auto newNcArray = NdArray<T>(arr2d);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dVectorConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::vector<T> vec(ncArray.size());
+        std::copy(ncArray.cbegin(), ncArray.cend(), vec.begin());
+
+        auto newNcArray = NdArray<T>(vec);
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dVectorConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::vector<std::vector<T>> vec2d(ncArray.numRows(), std::vector<T>(ncArray.numCols()));
+        for (uint32 row = 0; row < ncArray.numRows(); ++row)
+        {
+            std::copy(ncArray.cbegin(row), ncArray.cend(row), vec2d[row].begin());
+        }
+
+        auto newNcArray = NdArray<T>(vec2d);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dVectorArrayConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+        if (ncArray.numCols() != 2)
+        {
+            throw std::invalid_argument("Input array must be [n, 2] shape.");
+        }
+
+        std::vector<std::array<T, 2>> vec2d(ncArray.numRows());
+        for (uint32 row = 0; row < ncArray.numRows(); ++row)
+        {
+            std::copy(ncArray.cbegin(row), ncArray.cend(row), vec2d[row].begin());
+        }
+
+        auto newNcArray = NdArray<T>(vec2d);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dDequeConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::deque<T> deq(ncArray.size());
+        std::copy(ncArray.cbegin(), ncArray.cend(), deq.begin());
+
+        auto newNcArray = NdArray<T>(deq);
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dDequeConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::deque<std::deque<T>> deq2d(ncArray.numRows(), std::deque<T>(ncArray.numCols()));
+        for (uint32 row = 0; row < ncArray.numRows(); ++row)
+        {
+            std::copy(ncArray.cbegin(row), ncArray.cend(row), deq2d[row].begin());
+        }
+
+        auto newNcArray = NdArray<T>(deq2d);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dListConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::list<T> list(ncArray.size());
+        std::copy(ncArray.cbegin(), ncArray.cend(), list.begin());
+
+        auto newNcArray = NdArray<T>(list);
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dIteratorConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+
+        std::vector<T> vec(ncArray.size());
+        std::copy(ncArray.cbegin(), ncArray.cend(), vec.begin());
+
+        auto newNcArray = NdArray<T>(vec.cbegin(), vec.cend());
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dIteratorConstructor2(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray.cbegin(), ncArray.cend());
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dPointerConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray.data(), ncArray.size());
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dPointerConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray.data(), ncArray.numRows(), ncArray.numCols());
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test1dPointerShellConstructor(np::ndarray inArray)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.size(), true);
+
+        return nc2Boost(newNcArray.reshape(ncArray.shape()));
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray test2dPointerShellConstructor(np::ndarray inArray)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.numRows(), ncArray.numCols(), true);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray testCopyConstructor(np::ndarray inArray)
+    {
+        const auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(ncArray);
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray testMoveConstructor(np::ndarray inArray)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        auto newNcArray = NdArray<T>(std::move(ncArray));
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray testAssignementOperator(np::ndarray inArray)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        NdArray<T> newNcArray;
+        newNcArray = ncArray;
+
+        return nc2Boost(newNcArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray testAssignementScalerOperator(np::ndarray inArray, T value)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        ncArray = value;
+
+        return nc2Boost(ncArray);
+    }
+
+    //================================================================================
+
+    template<typename T>
+    np::ndarray testMoveAssignementOperator(np::ndarray inArray)
+    {
+        auto ncArray = boost2Nc<T>(inArray);
+        NdArray<T> newNcArray;
+        newNcArray = std::move(ncArray);
+
+        return nc2Boost(newNcArray);
     }
 
     //================================================================================
@@ -294,6 +552,22 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    dtype backRow(const NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    {
+        return self.back(row);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype backRowReference(NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    {
+        return self.back(row);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray clip(const NdArray<dtype>& self, dtype inMin, dtype inMax)
     {
         return nc2Boost(self.clip(inMin, inMax));
@@ -391,9 +665,33 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    dtype frontRow(const NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    {
+        return self.front(row);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype frontRowReference(NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    {
+        return self.front(row);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype getValueFlat(NdArray<dtype>& self, int32 inIndex)
     {
-        return self.at(inIndex);
+        return self[inIndex];
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype getValueFlatConst(const NdArray<dtype>& self, int32 inIndex)
+    {
+        return self[inIndex];
     }
 
     //================================================================================
@@ -401,15 +699,40 @@ namespace NdArrayInterface
     template<typename dtype>
     dtype getValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
     {
-        return self.at(inRow, inCol);
+        return self(inRow, inCol);
     }
 
     //================================================================================
 
     template<typename dtype>
+    dtype getValueRowColConst(const NdArray<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return self(inRow, inCol);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getMask(const NdArray<dtype>& self, const NdArray<bool>& mask)
+    {
+        return nc2Boost(self[mask]);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getIndices(const NdArray<dtype>& self, const NdArray<typename NdArray<dtype>::size_type>& indices)
+    {
+        return nc2Boost(self[indices]);
+    }
+
+    //================================================================================
+
+
+    template<typename dtype>
     np::ndarray getSlice1D(const NdArray<dtype>& self, const Slice& inSlice)
     {
-        return nc2Boost(self.at(inSlice));
+        return nc2Boost(self[inSlice]);
     }
 
     //================================================================================
@@ -417,7 +740,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2D(const NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
     {
-        return nc2Boost(self.at(inRowSlice, inColSlice));
+        return nc2Boost(self(inRowSlice, inColSlice));
     }
 
     //================================================================================
@@ -425,7 +748,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2DCol(const NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
     {
-        return nc2Boost(self.at(inRowSlice, inColIndex));
+        return nc2Boost(self(inRowSlice, inColIndex));
     }
 
     //================================================================================
@@ -433,7 +756,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2DRow(const NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
     {
-        return nc2Boost(self.at(inRowIndex, inColSlice));
+        return nc2Boost(self(inRowIndex, inColSlice));
     }
 
 
@@ -5103,18 +5426,47 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const noexcept = &NdArrayDouble::rend;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rend;
 
+    bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>);
+    bp::def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>);
+    bp::def("test1dArrayConstructor", &NdArrayInterface::test1dArrayConstructor<double>);
+    bp::def("test2dArrayConstructor", &NdArrayInterface::test2dArrayConstructor<double>);
+    bp::def("test1dVectorConstructor", &NdArrayInterface::test1dVectorConstructor<double>);
+    bp::def("test2dVectorConstructor", &NdArrayInterface::test2dVectorConstructor<double>);
+    bp::def("test2dVectorArrayConstructor", &NdArrayInterface::test2dVectorArrayConstructor<double>);
+    bp::def("test1dDequeConstructor", &NdArrayInterface::test1dDequeConstructor<double>);
+    bp::def("test2dDequeConstructor", &NdArrayInterface::test2dDequeConstructor<double>);
+    bp::def("test1dListConstructor", &NdArrayInterface::test1dListConstructor<double>);
+    bp::def("test1dIteratorConstructor", &NdArrayInterface::test1dIteratorConstructor<double>);
+    bp::def("test1dIteratorConstructor2", &NdArrayInterface::test1dIteratorConstructor<double>);
+    bp::def("test1dPointerConstructor", &NdArrayInterface::test1dPointerConstructor<double>);
+    bp::def("test2dPointerConstructor", &NdArrayInterface::test2dPointerConstructor<double>);
+    bp::def("test1dPointerShellConstructor", &NdArrayInterface::test1dPointerShellConstructor<double>);
+    bp::def("test2dPointerShellConstructor", &NdArrayInterface::test2dPointerShellConstructor<double>);
+    bp::def("testCopyConstructor", &NdArrayInterface::testCopyConstructor<double>);
+    bp::def("testMoveConstructor", &NdArrayInterface::testMoveConstructor<double>);
+    bp::def("testAssignementOperator", &NdArrayInterface::testAssignementOperator<double>);
+    bp::def("testAssignementScalerOperator", &NdArrayInterface::testAssignementScalerOperator<double>);
+    bp::def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
+
     bp::class_<NdArrayDouble>
         ("NdArray", bp::init<>())
-        .def(bp::init<uint32>())
-        .def(bp::init<uint32, uint32>())
+        .def(bp::init<NdArrayDouble::size_type>())
+        .def(bp::init<NdArrayDouble::size_type, NdArrayDouble::size_type>())
         .def(bp::init<Shape>())
-        .def(bp::init<NdArrayDouble>())
-        .def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
-        .def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
         .def("setArray", &NdArrayInterface::setArray<double>)
         .def("rSlice", &NdArrayDouble::rSlice)
         .def("cSlice", &NdArrayDouble::cSlice)
+        .def("get", &NdArrayInterface::getValueFlat<double>)
+        .def("getConst", &NdArrayInterface::getValueFlatConst<double>)
+        .def("get", &NdArrayInterface::getValueRowCol<double>)
+        .def("getConst", &NdArrayInterface::getValueRowColConst<double>)
+        .def("get", &NdArrayInterface::getMask<double>)
+        .def("get", &NdArrayInterface::getIndices<double>)
+        .def("get", &NdArrayInterface::getSlice1D<double>)
+        .def("get", &NdArrayInterface::getSlice2D<double>)
+        .def("get", &NdArrayInterface::getSlice2DRow<double>)
+        .def("get", &NdArrayInterface::getSlice2DCol<double>)
         .def("at", atSingleScaler, bp::return_value_policy<bp::return_by_value>())
         .def("atConst", atSingleScalerConst, bp::return_value_policy<bp::return_by_value>())
         .def("at", atRowColScalers, bp::return_value_policy<bp::return_by_value>())
@@ -5148,10 +5500,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("astypeComplex", &NdArrayDouble::astype<std::complex<double>>)
         .def("back", &NdArrayInterface::back<double>)
         .def("backReference", &NdArrayInterface::backReference<double>)
+        .def("back", &NdArrayInterface::backRow<double>)
+        .def("backReference", &NdArrayInterface::backRowReference<double>)
         .def("clip", &NdArrayInterface::clip<double>)
-        .def("copy", &NdArrayInterface::copy<double>)
         .def("column", &NdArrayDouble::column)
         .def("contains", &NdArrayInterface::contains<double>)
+        .def("copy", &NdArrayInterface::copy<double>)
         .def("cumprod", &NdArrayInterface::cumprod<double>)
         .def("cumsum", &NdArrayInterface::cumsum<double>)
         .def("diagonal", &NdArrayInterface::diagonal<double>)
@@ -5162,12 +5516,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("flatten", &NdArrayInterface::flatten<double>)
         .def("front", &NdArrayInterface::front<double>)
         .def("frontReference", &NdArrayInterface::frontReference<double>)
-        .def("get", &NdArrayInterface::getValueFlat<double>)
-        .def("get", &NdArrayInterface::getValueRowCol<double>)
-        .def("get", &NdArrayInterface::getSlice1D<double>)
-        .def("get", &NdArrayInterface::getSlice2D<double>)
-        .def("get", &NdArrayInterface::getSlice2DRow<double>)
-        .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("front", &NdArrayInterface::frontRow<double>)
+        .def("frontReference", &NdArrayInterface::frontRowReference<double>)
         .def("getByIndices", &NdArrayInterface::getByIndices<double>)
         .def("getByMask", &NdArrayInterface::getByMask<double>)
         .def("isempty", &NdArrayDouble::isempty)

@@ -7,6 +7,7 @@ import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
+
 ####################################################################################
 def factors(n):
     return set(reduce(list.__add__,
@@ -41,15 +42,133 @@ def test_ndarray():
     assert cArray.shape().cols == shape.cols
     assert cArray.size() == shape.rows * shape.cols
 
-    assert NumCpp.NdArray.test1DListContructor()
-    assert NumCpp.NdArray.test2DListContructor()
+    assert NumCpp.test1DListContructor()
+    assert NumCpp.test2DListContructor()
+
+    values = np.random.randint(0, 100, [2, ])
+    cArray = NumCpp.test1dArrayConstructor(values[0].item(), values[1].item())
+    assert np.array_equal(cArray.flatten(), values)
+
+    values = np.random.randint(0, 100, [2, ])
+    cArray = NumCpp.test2dArrayConstructor(values[0].item(), values[1].item())
+    assert np.array_equal(cArray, np.vstack([values, values]))
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dVectorConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test2dVectorConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    numRows = np.random.randint(1, 100)
+    data = np.random.randint(0, 100, [numRows, 2])
+    cArray = NumCpp.test2dVectorConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dDequeConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test2dDequeConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dListConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dIteratorConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dIteratorConstructor2(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dPointerConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test2dPointerConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test1dPointerShellConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.test2dPointerShellConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.testCopyConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.testMoveConstructor(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.testAssignementOperator(data)
+    assert np.array_equal(cArray, data)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    value = np.random.randint(0, 100)
+    cArray = NumCpp.testAssignementScalerOperator(data, value)
+    assert cArray.shape == data.shape
+    assert np.all(cArray == value)
+
+    shape = np.random.randint(1, 100, [2, ])
+    data = np.random.randint(0, 100, shape)
+    cArray = NumCpp.testMoveAssignementOperator(data)
+    assert np.array_equal(cArray, data)
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(np.random.randint(1, 100, [shape.rows, shape.cols]))
-    cArray2 = NumCpp.NdArray(cArray)
-    assert np.array_equal(np.round(cArray2.getNumpyArray(), 10), np.round(cArray.getNumpyArray(), 10))
+    rSlice = cArray.rSlice(0, 1)
+    cSlice = cArray.cSlice(0, 1)
+    assert rSlice.start == 0
+    assert rSlice.step == 1
+    assert rSlice.stop == shape.rows
+    assert cSlice.start == 0
+    assert cSlice.step == 1
+    assert cSlice.stop == shape.cols
+
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(np.random.randint(1, 100, [shape.rows, shape.cols]))
+    rowStart = np.random.randint(0, shape.rows)
+    colStart = np.random.randint(0, shape.cols)
+    rowStep = np.random.randint(0, 5)
+    colStep = np.random.randint(0, 5)
+    rSlice = cArray.rSlice(rowStart, rowStep)
+    cSlice = cArray.cSlice(colStart, colStep)
+    assert rSlice.start == rowStart
+    assert rSlice.step == rowStep
+    assert rSlice.stop == shape.rows
+    assert cSlice.start == colStart
+    assert cSlice.step == colStep
+    assert cSlice.stop == shape.cols
 
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -64,9 +183,47 @@ def test_ndarray():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
+    randomIdx = np.random.randint(0, shapeInput.prod(), [1, ]).item()
+    assert cArray.getConst(randomIdx) == data.flatten()[randomIdx]
+
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
     randomRowIdx = np.random.randint(0, shapeInput[0], [1, ]).item()
     randomColIdx = np.random.randint(0, shapeInput[1], [1, ]).item()
     assert cArray.get(randomRowIdx, randomColIdx) == data[randomRowIdx, randomColIdx]
+
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    randomRowIdx = np.random.randint(0, shapeInput[0], [1, ]).item()
+    randomColIdx = np.random.randint(0, shapeInput[1], [1, ]).item()
+    assert cArray.getConst(randomRowIdx, randomColIdx) == data[randomRowIdx, randomColIdx]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, shapeInput)
+    cArray.setArray(data)
+    numIndices = np.random.randint(0, shape.size(), [1, ]).item()
+    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    cIndices = NumCpp.NdArrayUInt32(1, numIndices)
+    cIndices.setArray(indices)
+    assert np.array_equal(cArray.get(cIndices).flatten(), data.flatten()[indices])
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, shapeInput)
+    cArray.setArray(data)
+    mask = data > np.random.randint(1, np.max(data), [1, ]).item()
+    cMask = NumCpp.NdArrayBool(shape)
+    cMask.setArray(mask)
+    assert np.array_equal(cArray.get(cMask).flatten(), data[mask].flatten())
 
     shapeInput = np.random.randint(100, 500, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -487,9 +644,18 @@ def test_ndarray():
     assert np.array_equal(cArrayCast, data.astype(np.double))
     warnings.filters.pop()
     assert cArrayCast.dtype == np.double
-    
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
     assert cArray.back() == data.flatten()[-1]
     assert cArray.backReference() == data.flatten()[-1]
+
+    row = np.random.randint(0, shape.rows)
+    assert cArray.back(row) == data[row, -1]
+    assert cArray.backReference(row) == data[row, -1]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -664,14 +830,17 @@ def test_ndarray():
     cArray.setArray(data)
     assert np.array_equal(cArray.flatnonzero().flatten().astype(np.uint32), np.flatnonzero(data))
 
-    shapeInput = np.random.randint(1, 50, [2, ])
+    shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.array_equal(cArray.flatten().astype(np.uint32), data.reshape([1, data.size]))
     assert cArray.front() == data.flatten()[0]
     assert cArray.frontReference() == data.flatten()[0]
+
+    row = np.random.randint(0, shape.rows)
+    assert cArray.front(row) == data[row, 0]
+    assert cArray.frontReference(row) == data[row, 0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

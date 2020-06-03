@@ -486,4 +486,465 @@ namespace nc
     {
         return next += offset;
     }
+
+    //================================================================================
+    // Class Description:
+    ///	Custom column const_iterator for NdArray
+    template<typename dtype, 
+        typename SizeType,
+        typename PointerType, 
+        typename DifferenceType>
+    class NdArrayConstColumnIterator
+    {
+    private: 
+        using self_type = NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType>;
+
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using value_type        = dtype;
+        using size_type         = SizeType;
+        using pointer           = PointerType;
+        using reference         = const value_type&;
+        using difference_type   = DifferenceType;
+
+        //============================================================================
+        // Method Description:
+        ///	Default Constructor
+        ///
+        NdArrayConstColumnIterator() noexcept = default;
+
+        //============================================================================
+        // Method Description:
+        ///	Constructor
+        ///
+        /// @param ptr: the iterator pointer
+        ///
+        NdArrayConstColumnIterator(pointer ptr, SizeType numRows) noexcept :
+            ptr_(ptr),
+            numRows_(numRows)
+        {}
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator dereference
+        ///
+        /// @return reference
+        ///
+        reference operator*() const noexcept
+        {
+            return *ptr_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator pointer operator
+        ///
+        /// @return pointer
+        ///
+        pointer operator->() const noexcept
+        {
+            return ptr_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator prefix incrament operator
+        ///
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator++() noexcept
+        {
+            ptr_ += numRows_;
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator postfix incrament operator
+        ///
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator++(int) noexcept
+        {
+            self_type tmp = *this;
+            ++*this;
+            return tmp;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator prefix decrament operator
+        ///
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator--() noexcept
+        {
+            ptr_ -= numRows_;
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator postfix decrament operator
+        ///
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator--(int) noexcept
+        {
+            self_type tmp = *this;
+            --*this;
+            return tmp;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator addition assignement operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator+=(const difference_type offset) noexcept
+        {
+            ptr_ += offset * numRows_;
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator addition operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator+(const difference_type offset) const noexcept
+        {
+            self_type tmp = *this;
+            return tmp += offset;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator subtraction assignement operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator-=(const difference_type offset) noexcept
+        {
+            return *this += -offset;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator subtraction operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator-(const difference_type offset) const noexcept
+        {
+            self_type tmp = *this;
+            return tmp -= offset;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator difference operator
+        ///
+        /// @param rhs
+        /// @return difference_type
+        ///
+        difference_type operator-(const self_type& rhs) const noexcept
+        {
+            return (ptr_ - rhs.ptr_) % (numRows_ - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator access operator
+        ///
+        /// @param offset
+        /// @return reference
+        ///
+        reference operator[](const difference_type offset) const noexcept
+        {
+            return *(*this + offset);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator equality operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator==(const self_type& rhs) const noexcept
+        {
+            return ptr_ == rhs.ptr_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator not-equality operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator!=(const self_type& rhs) const noexcept
+        {
+            return !(*this == rhs);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator less than operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator<(const self_type& rhs) const noexcept
+        {
+            return ptr_ < rhs.ptr_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator greater than operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator>(const self_type& rhs) const noexcept
+        {
+            return rhs < *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator less than equal operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator<=(const self_type& rhs) const noexcept
+        {
+            return !(rhs < *this);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator greater than equal operator
+        ///
+        /// @param rhs
+        /// @return bool
+        ///
+        bool operator>=(const self_type& rhs) const noexcept
+        {
+            return !(*this < rhs);
+        }
+
+    private:
+        pointer     ptr_;
+        SizeType    numRows_{ 0 };
+    };
+
+    //============================================================================
+    // Method Description:
+    ///	Iterator addition operator
+    ///
+    /// @param offset
+    /// @param next
+    /// @return bool
+    ///
+    template <class dtype,
+        typename SizeType,
+        typename PointerType,
+        typename DifferenceType>
+    NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType> operator+(
+        typename NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType>::difference_type offset,
+        NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) noexcept
+    {
+        return next += offset;
+    }
+
+    //================================================================================
+    // Class Description:
+    ///	Custom column iterator for NdArray
+    template<typename dtype,
+        typename SizeType,
+        typename PointerType, 
+        typename DifferenceType>
+    class NdArrayColumnIterator : public NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType>
+    {
+    private:
+        using MyBase    = NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType>;
+        using self_type = NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType>;
+
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using value_type        = dtype;
+        using size_type         = SizeType;
+        using pointer           = PointerType;
+        using reference         = value_type&;
+        using difference_type   = DifferenceType;
+
+        using MyBase::MyBase;
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator dereference
+        ///
+        /// @return reference
+        ///
+        reference operator*() const noexcept
+        {
+            return const_cast<reference>(MyBase::operator*());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator pointer operator
+        ///
+        /// @return pointer
+        ///
+        const pointer operator->() const noexcept
+        {
+            return const_cast<const pointer>(MyBase::operator->());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator prefix incrament operator
+        ///
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator++() noexcept
+        {
+            MyBase::operator++();
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator postfix incrament operator
+        ///
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator++(int) noexcept
+        {
+            self_type tmp = *this;
+            MyBase::operator++();
+            return tmp;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator prefix decrament operator
+        ///
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator--() noexcept
+        {
+            MyBase::operator--();
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator postfix decrament operator
+        ///
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator--(int) noexcept
+        {
+            self_type tmp = *this;
+            MyBase::operator--();
+            return tmp;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator addition assignement operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator+=(const difference_type offset) noexcept
+        {
+            MyBase::operator+=(offset);
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator addition operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator
+        ///
+        self_type operator+(const difference_type offset) const noexcept
+        {
+            self_type tmp = *this;
+            return tmp += offset;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator subtraction assignement operator
+        ///
+        /// @param offset
+        /// @return NdArrayConstIterator&
+        ///
+        self_type& operator-=(const difference_type offset) noexcept
+        {
+            MyBase::operator-=(offset);
+            return *this;
+        }
+
+        using MyBase::operator-;
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator difference operator
+        ///
+        /// @param rhs
+        /// @return difference_type
+        ///
+        self_type operator-(const difference_type offset) const noexcept
+        {
+            self_type tmp = *this;
+            return tmp -= offset;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Iterator access operator
+        ///
+        /// @param offset
+        /// @return reference
+        ///
+        reference operator[](const difference_type offset) const noexcept
+        {
+            return const_cast<reference>(MyBase::operator[](offset));
+        }
+    };
+
+    //============================================================================
+    // Method Description:
+    ///	Iterator addition operator
+    ///
+    /// @param offset
+    /// @param next
+    /// @return bool
+    ///
+    template <class dtype,
+        typename SizeType,
+        typename PointerType,
+        typename DifferenceType>
+        NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType> operator+(
+        typename NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType>::difference_type offset,
+            NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) noexcept
+    {
+        return next += offset;
+    }
 }

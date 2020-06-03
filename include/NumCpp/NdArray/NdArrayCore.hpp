@@ -86,23 +86,28 @@ namespace nc
     private:
         STATIC_ASSERT_VALID_DTYPE(dtype);
 
-        using _Alty = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
-        using _Alty_traits = std::allocator_traits<_Alty>;
+        using _Alty         = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
+        using _Alty_traits  = std::allocator_traits<_Alty>;
 
     public:
-        using value_type      = dtype;
-        using allocator_type  = _Alty;
-        using pointer         = typename _Alty_traits::pointer;
-        using const_pointer   = typename _Alty_traits::const_pointer;
-        using reference       = dtype&;
-        using const_reference = const dtype&;
-        using size_type       = uint32;
-        using difference_type = typename _Alty_traits::difference_type;
+        using value_type                    = dtype;
+        using allocator_type                = _Alty;
+        using pointer                       = typename _Alty_traits::pointer;
+        using const_pointer                 = typename _Alty_traits::const_pointer;
+        using reference                     = dtype&;
+        using const_reference               = const dtype&;
+        using size_type                     = uint32;
+        using difference_type               = typename _Alty_traits::difference_type;
 
-        using iterator               = NdArrayIterator<dtype, pointer, difference_type>;
-        using const_iterator         = NdArrayConstIterator<dtype, pointer, difference_type>;
-        using reverse_iterator       = std::reverse_iterator<iterator>;
-        using const_reverse_iterator = std::reverse_iterator<const_iterator>;
+        using iterator                      = NdArrayIterator<dtype, pointer, difference_type>;
+        using const_iterator                = NdArrayConstIterator<dtype, pointer, difference_type>;
+        using reverse_iterator              = std::reverse_iterator<iterator>;
+        using const_reverse_iterator        = std::reverse_iterator<const_iterator>;
+
+        using column_iterator               = NdArrayColumnIterator<dtype, pointer, difference_type, size_type>;
+        using const_column_iterator         = NdArrayConstColumnIterator<dtype, pointer, difference_type, size_type>;
+        using reverse_column_iterator       = std::reverse_iterator<column_iterator>;
+        using const_reverse_column_iterator = std::reverse_iterator<const_column_iterator>;
 
         //============================================================================
         // Method Description:
@@ -117,7 +122,7 @@ namespace nc
         /// @param
         ///				inSquareSize: square number of rows and columns
         ///
-        explicit NdArray(size_type inSquareSize) noexcept :
+        explicit NdArray(size_type inSquareSize) :
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize)
         {
@@ -131,7 +136,7 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray(size_type inNumRows, size_type inNumCols) noexcept :
+        NdArray(size_type inNumRows, size_type inNumCols) :
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols)
         {
@@ -145,7 +150,7 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        explicit NdArray(const Shape& inShape) noexcept :
+        explicit NdArray(const Shape& inShape) :
             shape_(inShape),
             size_(shape_.size())
         {
@@ -159,7 +164,7 @@ namespace nc
         /// @param
         ///				inList
         ///
-        NdArray(const std::initializer_list<dtype>& inList) noexcept :
+        NdArray(const std::initializer_list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
@@ -213,7 +218,7 @@ namespace nc
         ///
         template<size_t ArraySize, 
             std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept :
+        NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) :
             shape_(1, static_cast<uint32>(ArraySize)),
             size_(shape_.size())
         {
@@ -241,7 +246,7 @@ namespace nc
         ///                   act as a non-owning shell. Default true.
         ///
         template<size_t Dim0Size, size_t Dim1Size>
-        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) noexcept :
+        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) :
             shape_(static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size)),
             size_(shape_.size())
         {
@@ -270,7 +275,7 @@ namespace nc
         ///                   act as a non-owning shell. Default true.
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::vector<dtype>& inVector, bool copy = true) noexcept :
+        NdArray(std::vector<dtype>& inVector, bool copy = true) :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size())
         {
@@ -330,7 +335,7 @@ namespace nc
         ///                   act as a non-owning shell. Default true.
         ///
         template<size_t Dim1Size>
-        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) noexcept :
+        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) :
             shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
             size_(shape_.size())
         {
@@ -357,7 +362,7 @@ namespace nc
         /// @param      inDeque
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(const std::deque<dtype>& inDeque) noexcept :
+        NdArray(const std::deque<dtype>& inDeque) :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size())
         {
@@ -407,7 +412,7 @@ namespace nc
         /// @param
         ///				inList
         ///
-        explicit NdArray(const std::list<dtype>& inList) noexcept :
+        explicit NdArray(const std::list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
@@ -427,25 +432,7 @@ namespace nc
         ///
         template<typename Iterator,
             std::enable_if_t<std::is_same<typename std::iterator_traits<Iterator>::value_type, dtype>::value, int> = 0>
-        NdArray(Iterator inFirst, Iterator inLast) noexcept :
-            shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
-            size_(shape_.size())
-        {
-            newArray();
-            if (size_ > 0)
-            {
-                stl_algorithms::copy(inFirst, inLast, begin());
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Constructor
-        ///
-        /// @param				inFirst
-        /// @param				inLast
-        ///
-        NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
+        NdArray(Iterator inFirst, Iterator inLast) :
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
         {
@@ -464,7 +451,7 @@ namespace nc
         /// @param				inPtr: const_pointer to beginning of buffer
         /// @param				inSize: number of elements in buffer
         ///
-        explicit NdArray(const_pointer inPtr, size_type inSize) noexcept :
+        explicit NdArray(const_pointer inPtr, size_type inSize) :
             shape_(1, inSize),
             size_(inSize)
         {
@@ -484,7 +471,7 @@ namespace nc
         /// @param				numRows: number of rows of the buffer
         /// @param				numCols: number of cols of the buffer
         ///
-        explicit NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) noexcept :
+        explicit NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) :
             shape_(numRows, numCols),
             size_(shape_.size())
         {
@@ -537,7 +524,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray<dtype>& inOtherArray) noexcept :
+        NdArray(const NdArray<dtype>& inOtherArray) :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_)
@@ -587,7 +574,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(const NdArray<dtype>& rhs) noexcept
+        NdArray<dtype>& operator=(const NdArray<dtype>& rhs)
         {
             if (&rhs != this)
             {
@@ -779,7 +766,7 @@ namespace nc
 
             auto indices = inMask.flatnonzero();
             auto outArray = NdArray<dtype>(1, indices.size());
-            for (uint32 i = 0; i < indices.size(); ++i)
+            for (size_type i = 0; i < indices.size(); ++i)
             {
                 outArray[i] = operator[](indices[i]);
             }
@@ -796,15 +783,15 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<uint32>& inIndices) const
+        NdArray<dtype> operator[](const NdArray<size_type>& inIndices) const
         {
             if (inIndices.max().item() > size_ - 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input indices must be less than the array size.");
             }
 
-            auto outArray = NdArray<dtype>(1, static_cast<uint32>(inIndices.size()));
-            uint32 i = 0;
+            auto outArray = NdArray<dtype>(1, static_cast<size_type>(inIndices.size()));
+            size_type i = 0;
             for (auto& index : inIndices)
             {
                 outArray[i++] = operator[](index);
@@ -1910,7 +1897,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type back(uint32 row) const noexcept
+        value_type back(size_type row) const noexcept
         {
             return *(cend(row) - 1);
         }
@@ -1922,7 +1909,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        reference back(uint32 row) noexcept
+        reference back(size_type row) noexcept
         {
             return *(end(row) - 1);
         }
@@ -2476,7 +2463,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type front(uint32 row) const noexcept
+        value_type front(size_type row) const noexcept
         {
             return *cbegin(row);
         }
@@ -2488,7 +2475,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        reference front(uint32 row) noexcept
+        reference front(size_type row) noexcept
         {
             return *begin(row);
         }
