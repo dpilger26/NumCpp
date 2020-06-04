@@ -656,7 +656,10 @@ namespace nc
         ///
         difference_type operator-(const self_type& rhs) const noexcept
         {
-            return (ptr_ - rhs.ptr_) % (numRows_ - 1);
+            const auto idx = ptr_ - rhs.ptr_;
+            const auto row = idx / numRows_;
+            const auto col = idx % numRows_;
+            return row + col * numRows_;
         }
 
         //============================================================================
@@ -704,7 +707,7 @@ namespace nc
         ///
         bool operator<(const self_type& rhs) const noexcept
         {
-            return ptr_ < rhs.ptr_;
+            return ptr_ - rhs.ptr_ < 0;
         }
 
         //============================================================================
@@ -716,7 +719,7 @@ namespace nc
         ///
         bool operator>(const self_type& rhs) const noexcept
         {
-            return rhs < *this;
+            return ptr_ - rhs.ptr_ > 0;
         }
 
         //============================================================================
