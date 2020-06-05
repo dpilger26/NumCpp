@@ -6,7 +6,7 @@ import NumCpp  # noqa E402
 
 
 ####################################################################################
-def test_ndarray():
+def test_plus_equal():
     np.random.seed(666)
 
     # (1) Arithmetic Arrays
@@ -74,6 +74,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorPlusEqual(lhsC, rhs), lhs + rhs)
 
+
+####################################################################################
+def test_plus():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -198,6 +201,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorPlus(rhs, lhsC), rhs + lhs)
 
+
+####################################################################################
+def test_negative():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -214,6 +220,9 @@ def test_ndarray():
     cArray.setArray(data)
     assert np.array_equal(NumCpp.operatorNegative(cArray), -data)
 
+
+####################################################################################
+def test_minus_equal():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -279,6 +288,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMinusEqual(lhsC, rhs), lhs - rhs)
 
+
+####################################################################################
+def test_minus():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -403,6 +415,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMinus(rhs, lhsC), rhs - lhs)
 
+
+####################################################################################
+def test_multiply_equal():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -468,6 +483,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhs), lhs * rhs)
 
+
+####################################################################################
+def test_multiply():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -592,6 +610,9 @@ def test_ndarray():
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(rhs, lhsC), rhs * lhs)
 
+
+####################################################################################
+def test_divide_equal():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -663,6 +684,9 @@ def test_ndarray():
     assert np.array_equal(np.round(NumCpp.operatorDivideEqual(lhsC, rhs), 9),
                           np.round(lhs / rhs, 9))
 
+
+####################################################################################
+def test_divide():
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -799,6 +823,9 @@ def test_ndarray():
     assert np.array_equal(np.round(NumCpp.operatorDivide(rhs, lhsC), 9),
                           np.round(rhs / lhs, 9))
 
+
+####################################################################################
+def test_equality():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -859,6 +886,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorEquality(cArray1, cArray2), data1 == data2)
 
+
+####################################################################################
+def test_not_equality():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -919,6 +949,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorNotEquality(cArray1, cArray2), data1 != data2)
 
+
+####################################################################################
+def test_less():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -979,6 +1012,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorLess(cArray1, cArray2), data1 < data2)
 
+
+####################################################################################
+def test_greater():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1039,6 +1075,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorGreater(cArray1, cArray2), data1 > data2)
 
+
+####################################################################################
+def test_less_equal():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1099,6 +1138,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorLessEqual(cArray1, cArray2), data1 <= data2)
 
+
+####################################################################################
+def test_greater_equal():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1159,6 +1201,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorGreaterEqual(cArray1, cArray2), data1 >= data2)
 
+
+####################################################################################
+def test_plus_plus():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1172,6 +1217,16 @@ def test_ndarray():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
+    assert np.array_equal(NumCpp.operatorPrePlusPlus(cArray), data + 1)
+
+
+####################################################################################
+def test_minus_minus():
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
     assert np.array_equal(NumCpp.operatorPostMinusMinus(cArray), data)
     assert np.array_equal(cArray.getNumpyArray(), data - 1)
 
@@ -1180,15 +1235,11 @@ def test_ndarray():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.operatorPrePlusPlus(cArray), data + 1)
-
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
-    cArray.setArray(data)
     assert np.array_equal(NumCpp.operatorPreMinusMinus(cArray), data - 1)
 
+
+####################################################################################
+def test_modulus():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1215,6 +1266,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorModulusArray(cArray1, cArray2), data1 % data2)
 
+
+####################################################################################
+def test_bitwise_or():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1241,6 +1295,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorBitwiseOrArray(cArray1, cArray2), np.bitwise_or(data1, data2))
 
+
+####################################################################################
+def test_bitwise_and():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1267,6 +1324,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorBitwiseAndArray(cArray1, cArray2), np.bitwise_and(data1, data2))
 
+
+####################################################################################
+def test_bitwise_xor():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1293,6 +1353,9 @@ def test_ndarray():
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.operatorBitwiseXorArray(cArray1, cArray2), np.bitwise_xor(data1, data2))
 
+
+####################################################################################
+def test_bitwise_not():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1300,6 +1363,9 @@ def test_ndarray():
     cArray.setArray(data)
     assert np.array_equal(NumCpp.operatorBitwiseNot(cArray), ~data)
 
+
+####################################################################################
+def test_logical_and():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
@@ -1326,6 +1392,9 @@ def test_ndarray():
     randScalar = np.random.randint(1, 100, [1, ]).item()
     assert np.array_equal(NumCpp.operatorLogicalAndScalar(randScalar, cArray), np.logical_and(randScalar, data))
 
+
+####################################################################################
+def test_logical_or():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
@@ -1352,6 +1421,9 @@ def test_ndarray():
     randScalar = np.random.randint(1, 100, [1, ]).item()
     assert np.array_equal(NumCpp.operatorLogicalOrScalar(randScalar, cArray), np.logical_or(randScalar, data))
 
+
+####################################################################################
+def test_not():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1359,6 +1431,9 @@ def test_ndarray():
     cArray.setArray(data)
     assert np.array_equal(NumCpp.operatorNot(cArray), np.logical_not(data))
 
+
+####################################################################################
+def test_bitshift_left():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
@@ -1367,6 +1442,9 @@ def test_ndarray():
     randScaler = np.random.randint(1, 10, [1, ]).item()
     assert np.array_equal(NumCpp.operatorBitshiftLeft(cArray, randScaler), data << randScaler)
 
+
+####################################################################################
+def test_bitshift_right():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
