@@ -7,11 +7,11 @@ import os
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
+np.random.seed(666)
+
 
 ####################################################################################
-def test_coordinates():
-    np.random.seed(666)
-
+def test_ra():
     ra = NumCpp.Ra()
     assert ra
 
@@ -44,6 +44,9 @@ def test_coordinates():
 
     ra.print()
 
+
+####################################################################################
+def test_dec():
     dec = NumCpp.Dec()
     assert dec
 
@@ -82,6 +85,9 @@ def test_coordinates():
 
     dec.print()
 
+
+####################################################################################
+def test_coord():
     coord = NumCpp.Coordinate()
     assert coord
 

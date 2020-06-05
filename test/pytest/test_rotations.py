@@ -4,11 +4,11 @@ import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
+np.random.seed(666)
+
 
 ####################################################################################
 def test_quaternion():
-    np.random.seed(666)
-
     assert NumCpp.Quaternion()
 
     quat = np.random.randint(1, 10, [4, ])
@@ -240,8 +240,6 @@ def test_quaternion():
 
 ####################################################################################
 def test_dcm():
-    np.random.seed(666)
-
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
@@ -277,8 +275,6 @@ def test_dcm():
 
 ####################################################################################
 def test_functions():
-    np.random.seed(666)
-
     k = np.random.randint(1, 5, [3, 1]).astype(np.double)
     v = np.random.randint(1, 5, [3, 1]).astype(np.double)
     theta = np.random.rand(1).item() * np.pi * 2

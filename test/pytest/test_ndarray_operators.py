@@ -4,11 +4,11 @@ import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
+np.random.seed(666)
+
 
 ####################################################################################
 def test_plus_equal():
-    np.random.seed(666)
-
     # (1) Arithmetic Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

@@ -7,9 +7,17 @@ import NumCpp  # noqa E402
 
 
 ####################################################################################
-def test_poly1D():
+ORDER_MAX = 5
+DECIMALS_ROUND = 7
+
+
+####################################################################################
+def test_seed():
     np.random.seed(666)
 
+
+####################################################################################
+def test_poly1D():
     numCoefficients = np.random.randint(3, 10, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -59,12 +67,7 @@ def test_poly1D():
 
 
 ####################################################################################
-def test_functions():
-    np.random.seed(666)
-
-    ORDER_MAX = 5
-    DECIMALS_ROUND = 7
-
+def test_chebyshev():
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -113,6 +116,9 @@ def test_functions():
 
     assert allTrue
 
+
+####################################################################################
+def test_hermite():
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -137,6 +143,9 @@ def test_functions():
 
     assert allTrue
 
+
+####################################################################################
+def test_laguerre():
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -187,6 +196,9 @@ def test_functions():
 
     assert allTrue
 
+
+####################################################################################
+def test_legendre():
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -232,6 +244,9 @@ def test_functions():
 
     assert allTrue
 
+
+####################################################################################
+def test_spherical_harmonic():
     allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)

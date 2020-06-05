@@ -4,11 +4,11 @@ import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
+np.random.seed(666)
+
 
 ####################################################################################
-def test_linalg():
-    np.random.seed(666)
-
+def test_cholesky():
     shapeInput = np.random.randint(5, 50, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -18,6 +18,9 @@ def test_linalg():
     cArray.setArray(b)
     assert np.array_equal(np.round(NumCpp.cholesky(cArray).getNumpyArray()), np.round(aL))
 
+
+####################################################################################
+def test_det():
     order = 2
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
@@ -39,12 +42,18 @@ def test_linalg():
     cArray.setArray(data)
     assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
 
+
+####################################################################################
+def test_hat():
     shape = NumCpp.Shape(1, 3)
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).flatten()
     cArray.setArray(data)
     assert np.array_equal(NumCpp.hat(cArray), hat(data))
 
+
+####################################################################################
+def test_inv():
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
@@ -52,6 +61,9 @@ def test_linalg():
     cArray.setArray(data)
     assert np.array_equal(np.round(NumCpp.inv(cArray).getNumpyArray(), 9), np.round(np.linalg.inv(data), 9))
 
+
+####################################################################################
+def test_lstsq():
     shapeInput = np.random.randint(5, 50, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     aArray = NumCpp.NdArray(shape)
@@ -63,6 +75,9 @@ def test_linalg():
     x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
     assert np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 9))
 
+
+####################################################################################
+def test_lu_decomposition():
     sizeInput = np.random.randint(5, 50)
     shape = NumCpp.Shape(sizeInput)
     cArray = NumCpp.NdArray(shape)
@@ -74,6 +89,9 @@ def test_linalg():
     p = np.round(np.dot(ll.getNumpyArray(), u.getNumpyArray())).astype(np.int)
     assert np.array_equal(p, data)
 
+
+####################################################################################
+def test_matrix_power():
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
@@ -113,6 +131,9 @@ def test_linalg():
     assert np.array_equal(np.round(NumCpp.matrix_power(cArray, power).getNumpyArray(), 9),
                           np.round(np.linalg.matrix_power(data, power), 9))
 
+
+####################################################################################
+def test_multi_dot():
     shapeInput = np.random.randint(5, 50, [2, ])
     shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     shape2 = NumCpp.Shape(shape1.cols, np.random.randint(5, 50, [1, ]).item())
@@ -161,6 +182,9 @@ def test_linalg():
     assert np.array_equal(np.round(NumCpp.multi_dot(cArray1, cArray2, cArray3, cArray4), 9),
                           np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9))
 
+
+####################################################################################
+def test_pivotLU_decomposition():
     sizeInput = np.random.randint(5, 50)
     shape = NumCpp.Shape(sizeInput)
     cArray = NumCpp.NdArray(shape)

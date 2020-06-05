@@ -9,7 +9,7 @@ import NumCpp  # noqa E402
 ####################################################################################
 def test_1D():
     np.random.seed(2)
-
+    
     modes = {'reflect': NumCpp.Mode.REFLECT,
              'constant': NumCpp.Mode.CONSTANT,
              'nearest': NumCpp.Mode.NEAREST,

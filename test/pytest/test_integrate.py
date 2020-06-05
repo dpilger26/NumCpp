@@ -10,9 +10,12 @@ NUM_DECIMALS_ROUND = 1
 
 
 ####################################################################################
-def test_integrate():
+def test_seed():
     np.random.seed(666)
 
+
+####################################################################################
+def test_gauss_legendre():
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -25,6 +28,9 @@ def test_integrate():
     areaC = np.round(NumCpp.integrate_gauss_legendre(polyC, a, b), NUM_DECIMALS_ROUND)
     assert area == areaC
 
+
+####################################################################################
+def test_romberg():
     PERCENT_LEEWAY = 0.1
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
@@ -40,6 +46,9 @@ def test_integrate():
     areaLow, areaHigh = np.sort([area * (1 - PERCENT_LEEWAY), area * (1 + PERCENT_LEEWAY)])
     assert areaLow < areaC < areaHigh
 
+
+####################################################################################
+def test_simpson():
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -52,6 +61,9 @@ def test_integrate():
     areaC = np.round(NumCpp.integrate_simpson(polyC, a, b), NUM_DECIMALS_ROUND)
     assert area == areaC
 
+
+####################################################################################
+def test_trapazoidal():
     numCoefficients = np.random.randint(2, 5, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
