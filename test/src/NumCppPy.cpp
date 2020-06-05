@@ -5309,6 +5309,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     using NdArrayDoubleReverseIterator = NdArrayDouble::reverse_iterator;
     using NdArrayDoubleConstReverseIterator = NdArrayDouble::const_reverse_iterator;
 
+    using ComplexDouble = std::complex<double>;
+    using NdArrayComplexDouble = NdArray<ComplexDouble>;
+    using NdArrayComplexDoubleIterator = NdArrayComplexDouble::iterator;
+    using NdArrayComplexDoubleConstIterator = NdArrayComplexDouble::const_iterator;
+    using NdArrayComplexDoubleReverseIterator = NdArrayComplexDouble::reverse_iterator;
+    using NdArrayComplexDoubleConstReverseIterator = NdArrayComplexDouble::const_reverse_iterator;
+
     NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleIterator::operator++;
     NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleIterator::operator++;
     NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleIterator::operator--;
@@ -5317,6 +5324,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator+;
     NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusEqual)(NdArrayDoubleIterator::difference_type) noexcept = &NdArrayDoubleIterator::operator-=;
     NdArrayDoubleIterator(NdArrayDoubleIterator::*iteratorOperatorMinus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator-;
+
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPre)() noexcept = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPost)(int) noexcept = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPre)() noexcept = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPost)(int) noexcept = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusEqual)(NdArrayComplexDoubleIterator::difference_type) noexcept = &NdArrayComplexDoubleIterator::operator+=;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlus)(NdArrayComplexDoubleIterator::difference_type) const noexcept = &NdArrayComplexDoubleIterator::operator+;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusEqual)(NdArrayComplexDoubleIterator::difference_type) noexcept = &NdArrayComplexDoubleIterator::operator-=;
+    NdArrayComplexDoubleIterator(NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinus)(NdArrayComplexDoubleIterator::difference_type) const noexcept = &NdArrayComplexDoubleIterator::operator-;
 
     bp::class_<NdArrayDoubleIterator>
         ("NdArrayDoubleIterator", bp::init<>())
@@ -5331,6 +5347,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", iteratorOperatorMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleIterator>);
 
+    bp::class_<NdArrayComplexDoubleIterator>
+        ("NdArrayComplexDoubleIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleIterator>)
+        .def("operatorPlusPlusPre", iteratorOperatorComplexComplexPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", iteratorOperatorComplexComplexPlusPlusPost)
+        .def("operatorMinusMinusPre", iteratorOperatorComplexComplexMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", iteratorOperatorComplexComplexMinusMinusPost)
+        .def("__iadd__", iteratorOperatorComplexComplexPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", iteratorOperatorComplexComplexPlus)
+        .def("__isub__", iteratorOperatorComplexComplexMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", iteratorOperatorComplexComplexMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleIterator>);
+
     NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleConstIterator::operator++;
     NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleConstIterator::operator++;
     NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleConstIterator::operator--;
@@ -5339,6 +5368,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator+;
     NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusEqual)(NdArrayDoubleConstIterator::difference_type) noexcept = &NdArrayDoubleConstIterator::operator-=;
     NdArrayDoubleConstIterator(NdArrayDoubleConstIterator::*constIteratorOperatorMinus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator-;
+
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPre)() noexcept = &NdArrayComplexDoubleConstIterator::operator++;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPost)(int) noexcept = &NdArrayComplexDoubleConstIterator::operator++;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPre)() noexcept = &NdArrayComplexDoubleConstIterator::operator--;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPost)(int) noexcept = &NdArrayComplexDoubleConstIterator::operator--;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusEqual)(NdArrayComplexDoubleConstIterator::difference_type) noexcept = &NdArrayComplexDoubleConstIterator::operator+=;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstIterator::difference_type) const noexcept = &NdArrayComplexDoubleConstIterator::operator+;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstIterator::difference_type) noexcept = &NdArrayComplexDoubleConstIterator::operator-=;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstIterator::difference_type) const noexcept = &NdArrayComplexDoubleConstIterator::operator-;
 
     bp::class_<NdArrayDoubleConstIterator>
         ("NdArrayDoubleConstIterator", bp::init<>())
@@ -5353,6 +5391,20 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", constIteratorOperatorMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstIterator>);
 
+
+    bp::class_<NdArrayComplexDoubleConstIterator>
+        ("NdArrayComplexDoubleConstIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstIterator>)
+        .def("operatorPlusPlusPre", constIteratorOperatorComplexPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", constIteratorOperatorComplexPlusPlusPost)
+        .def("operatorMinusMinusPre", constIteratorOperatorComplexMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", constIteratorOperatorComplexMinusMinusPost)
+        .def("__iadd__", constIteratorOperatorComplexPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", constIteratorOperatorComplexPlus)
+        .def("__isub__", constIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", constIteratorOperatorComplexMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstIterator>);
+
     NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleReverseIterator::operator++;
     NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusPlusPost)(int) = &NdArrayDoubleReverseIterator::operator++;
     NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusMinusPre)() = &NdArrayDoubleReverseIterator::operator--;
@@ -5361,6 +5413,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator+;
     NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusEqual)(NdArrayDoubleReverseIterator::difference_type) = &NdArrayDoubleReverseIterator::operator-=;
     NdArrayDoubleReverseIterator(NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator-;
+
+    NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleReverseIterator::operator++;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleReverseIterator::operator++;
+    NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinusMinusPre)() = &NdArrayComplexDoubleReverseIterator::operator--;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinusMinusPost)(int) = &NdArrayComplexDoubleReverseIterator::operator--;
+    NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlusEqual)(NdArrayComplexDoubleReverseIterator::difference_type) = &NdArrayComplexDoubleReverseIterator::operator+=;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlus)(NdArrayComplexDoubleReverseIterator::difference_type) const = &NdArrayComplexDoubleReverseIterator::operator+;
+    NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleReverseIterator::difference_type) = &NdArrayComplexDoubleReverseIterator::operator-=;
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinus)(NdArrayComplexDoubleReverseIterator::difference_type) const = &NdArrayComplexDoubleReverseIterator::operator-;
 
     bp::class_<NdArrayDoubleReverseIterator>
         ("NdArrayDoubleReverseIterator", bp::init<>())
@@ -5375,6 +5436,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", reverseIteratorOperatorMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseIterator>);
 
+    bp::class_<NdArrayComplexDoubleReverseIterator>
+        ("NdArrayComplexDoubleReverseIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleReverseIterator>)
+        .def("operatorPlusPlusPre", reverseIteratorOperatorComplexPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", reverseIteratorOperatorComplexPlusPlusPost)
+        .def("operatorMinusMinusPre", reverseIteratorOperatorComplexMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", reverseIteratorOperatorComplexMinusMinusPost)
+        .def("__iadd__", reverseIteratorOperatorComplexPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", reverseIteratorOperatorComplexPlus)
+        .def("__isub__", reverseIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", reverseIteratorOperatorComplexMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseIterator>);
+
     NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleConstReverseIterator::operator++;
     NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusPlusPost)(int) = &NdArrayDoubleConstReverseIterator::operator++;
     NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusMinusPre)() = &NdArrayDoubleConstReverseIterator::operator--;
@@ -5383,6 +5457,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator+;
     NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusEqual)(NdArrayDoubleConstReverseIterator::difference_type) = &NdArrayDoubleConstReverseIterator::operator-=;
     NdArrayDoubleConstReverseIterator(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator-;
+
+    NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleConstReverseIterator::operator++;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleConstReverseIterator::operator++;
+    NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinusMinusPre)() = &NdArrayComplexDoubleConstReverseIterator::operator--;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinusMinusPost)(int) = &NdArrayComplexDoubleConstReverseIterator::operator--;
+    NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlusEqual)(NdArrayComplexDoubleConstReverseIterator::difference_type) = &NdArrayComplexDoubleConstReverseIterator::operator+=;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstReverseIterator::difference_type) const = &NdArrayComplexDoubleConstReverseIterator::operator+;
+    NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstReverseIterator::difference_type) = &NdArrayComplexDoubleConstReverseIterator::operator-=;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstReverseIterator::difference_type) const = &NdArrayComplexDoubleConstReverseIterator::operator-;
 
     bp::class_<NdArrayDoubleConstReverseIterator>
         ("NdArrayDoubleConstReverseIterator", bp::init<>())
@@ -5397,6 +5480,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", constReverseIteratorOperatorMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
 
+    bp::class_<NdArrayComplexDoubleConstReverseIterator>
+        ("NdArrayComplexDoubleConstReverseIterator", bp::init<>())
+        .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstReverseIterator>)
+        .def("operatorPlusPlusPre", constReverseIteratorOperatorComplexPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", constReverseIteratorOperatorComplexPlusPlusPost)
+        .def("operatorMinusMinusPre", constReverseIteratorOperatorComplexMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", constReverseIteratorOperatorComplexMinusMinusPost)
+        .def("__iadd__", constReverseIteratorOperatorComplexPlusEqual, bp::return_internal_reference<>())
+        .def("__add__", constReverseIteratorOperatorComplexPlus)
+        .def("__isub__", constReverseIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", constReverseIteratorOperatorComplexMinus)
+        .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseIterator>);
+
     NdArrayDouble::reference(NdArrayDouble::*atSingleScaler)(int32) = &NdArrayDouble::at;
     NdArrayDouble::const_reference(NdArrayDouble::*atSingleScalerConst)(int32) const= &NdArrayDouble::at;
     NdArrayDouble::reference(NdArrayDouble::*atRowColScalers)(int32, int32) = &NdArrayDouble::at;
@@ -5406,47 +5502,97 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDouble(NdArrayDouble::*atSliceInt)(const Slice&, int32) const = &NdArrayDouble::at;
     NdArrayDouble(NdArrayDouble::*atIntSlice)(int32, const Slice&) const = &NdArrayDouble::at;
 
+    NdArrayComplexDouble::reference(NdArrayComplexDouble::*atComplexSingleScaler)(int32) = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::const_reference(NdArrayComplexDouble::*atComplexSingleScalerConst)(int32) const= &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::reference(NdArrayComplexDouble::*atComplexRowColScalers)(int32, int32) = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::const_reference(NdArrayComplexDouble::*atComplexRowColScalersConst)(int32, int32) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSlice)(const Slice&) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSliceSlice)(const Slice&, const Slice&) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSliceInt)(const Slice&, int32) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexIntSlice)(int32, const Slice&) const = &NdArrayComplexDouble::at;
+
     NdArrayDoubleIterator(NdArrayDouble::*begin)() noexcept = &NdArrayDouble::begin;
     NdArrayDoubleIterator(NdArrayDouble::*beginRow)(NdArrayDouble::size_type) = &NdArrayDouble::begin;
     NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const noexcept = &NdArrayDouble::begin;
     NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::begin;
+
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginComplex)() noexcept = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const noexcept = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::begin;
 
     NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)() noexcept = &NdArrayDouble::rbegin;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const noexcept = &NdArrayDouble::rbegin;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rbegin;
 
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginComplex)() noexcept = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const noexcept = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rbegin;
+
     NdArrayDoubleIterator(NdArrayDouble::*end)() noexcept = &NdArrayDouble::end;
     NdArrayDoubleIterator(NdArrayDouble::*endRow)(NdArrayDouble::size_type) = &NdArrayDouble::end;
     NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const noexcept = &NdArrayDouble::end;
     NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::end;
+
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endComplex)() noexcept = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const noexcept = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::end;
 
     NdArrayDoubleReverseIterator(NdArrayDouble::*rend)() noexcept = &NdArrayDouble::rend;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const noexcept = &NdArrayDouble::rend;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rend;
 
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendComplex)() noexcept = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const noexcept = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rend;
+
     bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>);
+    bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<ComplexDouble>);
     bp::def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>);
+    bp::def("test2DListContructor", &NdArrayInterface::test2DListContructor<ComplexDouble>);
     bp::def("test1dArrayConstructor", &NdArrayInterface::test1dArrayConstructor<double>);
+    bp::def("test1dArrayConstructor", &NdArrayInterface::test1dArrayConstructor<ComplexDouble>);
     bp::def("test2dArrayConstructor", &NdArrayInterface::test2dArrayConstructor<double>);
+    bp::def("test2dArrayConstructor", &NdArrayInterface::test2dArrayConstructor<ComplexDouble>);
     bp::def("test1dVectorConstructor", &NdArrayInterface::test1dVectorConstructor<double>);
+    bp::def("test1dVectorConstructor", &NdArrayInterface::test1dVectorConstructor<ComplexDouble>);
     bp::def("test2dVectorConstructor", &NdArrayInterface::test2dVectorConstructor<double>);
+    bp::def("test2dVectorConstructor", &NdArrayInterface::test2dVectorConstructor<ComplexDouble>);
     bp::def("test2dVectorArrayConstructor", &NdArrayInterface::test2dVectorArrayConstructor<double>);
+    bp::def("test2dVectorArrayConstructor", &NdArrayInterface::test2dVectorArrayConstructor<ComplexDouble>);
     bp::def("test1dDequeConstructor", &NdArrayInterface::test1dDequeConstructor<double>);
+    bp::def("test1dDequeConstructor", &NdArrayInterface::test1dDequeConstructor<ComplexDouble>);
     bp::def("test2dDequeConstructor", &NdArrayInterface::test2dDequeConstructor<double>);
+    bp::def("test2dDequeConstructor", &NdArrayInterface::test2dDequeConstructor<ComplexDouble>);
     bp::def("test1dListConstructor", &NdArrayInterface::test1dListConstructor<double>);
+    bp::def("test1dListConstructor", &NdArrayInterface::test1dListConstructor<ComplexDouble>);
     bp::def("test1dIteratorConstructor", &NdArrayInterface::test1dIteratorConstructor<double>);
+    bp::def("test1dIteratorConstructor", &NdArrayInterface::test1dIteratorConstructor<ComplexDouble>);
     bp::def("test1dIteratorConstructor2", &NdArrayInterface::test1dIteratorConstructor<double>);
+    bp::def("test1dIteratorConstructor2", &NdArrayInterface::test1dIteratorConstructor<ComplexDouble>);
     bp::def("test1dPointerConstructor", &NdArrayInterface::test1dPointerConstructor<double>);
+    bp::def("test1dPointerConstructor", &NdArrayInterface::test1dPointerConstructor<ComplexDouble>);
     bp::def("test2dPointerConstructor", &NdArrayInterface::test2dPointerConstructor<double>);
+    bp::def("test2dPointerConstructor", &NdArrayInterface::test2dPointerConstructor<ComplexDouble>);
     bp::def("test1dPointerShellConstructor", &NdArrayInterface::test1dPointerShellConstructor<double>);
+    bp::def("test1dPointerShellConstructor", &NdArrayInterface::test1dPointerShellConstructor<ComplexDouble>);
     bp::def("test2dPointerShellConstructor", &NdArrayInterface::test2dPointerShellConstructor<double>);
+    bp::def("test2dPointerShellConstructor", &NdArrayInterface::test2dPointerShellConstructor<ComplexDouble>);
     bp::def("testCopyConstructor", &NdArrayInterface::testCopyConstructor<double>);
+    bp::def("testCopyConstructor", &NdArrayInterface::testCopyConstructor<ComplexDouble>);
     bp::def("testMoveConstructor", &NdArrayInterface::testMoveConstructor<double>);
+    bp::def("testMoveConstructor", &NdArrayInterface::testMoveConstructor<ComplexDouble>);
     bp::def("testAssignementOperator", &NdArrayInterface::testAssignementOperator<double>);
+    bp::def("testAssignementOperator", &NdArrayInterface::testAssignementOperator<ComplexDouble>);
     bp::def("testAssignementScalerOperator", &NdArrayInterface::testAssignementScalerOperator<double>);
+    bp::def("testAssignementScalerOperator", &NdArrayInterface::testAssignementScalerOperator<ComplexDouble>);
     bp::def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
+    bp::def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<ComplexDouble>);
 
     bp::class_<NdArrayDouble>
         ("NdArray", bp::init<>())
@@ -5497,7 +5643,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("argmin", &NdArrayInterface::argmin<double>)
         .def("argsort", &NdArrayInterface::argsort<double>)
         .def("astypeUint32", &NdArrayDouble::astype<uint32>)
-        .def("astypeComplex", &NdArrayDouble::astype<std::complex<double>>)
+        .def("astypeComplex", &NdArrayDouble::astype<ComplexDouble>)
         .def("back", &NdArrayInterface::back<double>)
         .def("backReference", &NdArrayInterface::backReference<double>)
         .def("back", &NdArrayInterface::backRow<double>)
@@ -5576,129 +5722,129 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zeros", &NdArrayDouble::zeros, bp::return_internal_reference<>());
 
     bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>); // (1)
-    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<ComplexDouble>); // (1)
     bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithArray<double>); // (2)
     bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<double>); // (3)
-    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<ComplexDouble>); // (3)
     bp::def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithScaler<double>); // (4)
 
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusArray<double>); // (1)
-    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArray<std::complex<double>>); // (1)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArray<ComplexDouble>); // (1)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexArray<double>); // (2)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithArray<double>); // (3)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<double>); // (4)
-    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<ComplexDouble>); // (4)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<double>); // (5)
-    bp::def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<ComplexDouble>); // (5)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexScaler<double>); // (6)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexScalerArithArray<double>); // (7)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithScaler<double>); // (8)
     bp::def("operatorPlus", &NdArrayInterface::operatorPlusArithScalerComplexArray<double>); // (9)
 
     bp::def("operatorNegative", &NdArrayInterface::operatorNegative<double>);
-    bp::def("operatorNegative", &NdArrayInterface::operatorNegative<std::complex<double>>);
+    bp::def("operatorNegative", &NdArrayInterface::operatorNegative<ComplexDouble>);
 
     bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<double>); // (1)
-    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<ComplexDouble>); // (1)
     bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithArray<double>); // (2)
     bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<double>); // (3)
-    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<ComplexDouble>); // (3)
     bp::def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithScaler<double>); // (4)
 
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusArray<double>); // (1)
-    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArray<std::complex<double>>); // (1)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArray<ComplexDouble>); // (1)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexArray<double>); // (2)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithArray<double>); // (3)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<double>); // (4)
-    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<ComplexDouble>); // (4)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<double>); // (5)
-    bp::def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<ComplexDouble>); // (5)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexScaler<double>); // (6)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexScalerArithArray<double>); // (7)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithScaler<double>); // (8)
     bp::def("operatorMinus", &NdArrayInterface::operatorMinusArithScalerComplexArray<double>); // (9)
 
     bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<double>); // (1)
-    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<ComplexDouble>); // (1)
     bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithArray<double>); // (2)
     bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<double>); // (3)
-    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<ComplexDouble>); // (3)
     bp::def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithScaler<double>); // (4)
 
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<double>); // (1)
-    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<std::complex<double>>); // (1)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<ComplexDouble>); // (1)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexArray<double>); // (2)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithArray<double>); // (3)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<double>); // (4)
-    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<ComplexDouble>); // (4)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<double>); // (5)
-    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<ComplexDouble>); // (5)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexScaler<double>); // (6)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexScalerArithArray<double>); // (7)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithScaler<double>); // (8)
     bp::def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithScalerComplexArray<double>); // (9)
 
     bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<double>); // (1)
-    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<std::complex<double>>); // (1)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<ComplexDouble>); // (1)
     bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithArray<double>); // (2)
     bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<double>); // (3)
-    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<std::complex<double>>); // (3)
+    bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<ComplexDouble>); // (3)
     bp::def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithScaler<double>); // (4)
 
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideArray<double>); // (1)
-    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArray<std::complex<double>>); // (1)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArray<ComplexDouble>); // (1)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexArray<double>); // (2)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithArray<double>); // (3)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<double>); // (4)
-    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<std::complex<double>>); // (4)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<ComplexDouble>); // (4)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<double>); // (5)
-    bp::def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<std::complex<double>>); // (5)
+    bp::def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<ComplexDouble>); // (5)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexScaler<double>); // (6)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexScalerArithArray<double>); // (7)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithScaler<double>); // (8)
     bp::def("operatorDivide", &NdArrayInterface::operatorDivideArithScalerComplexArray<double>); // (9)
 
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<double>);
-    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<std::complex<double>>);
+    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<ComplexDouble>);
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<double>);
-    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<std::complex<double>>);
+    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<ComplexDouble>);
     bp::def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>);
-    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityArray<std::complex<double>>);
+    bp::def("operatorEquality", &NdArrayInterface::operatorEqualityArray<ComplexDouble>);
 
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>);
-    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<std::complex<double>>);
+    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<ComplexDouble>);
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<double>);
-    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<std::complex<double>>);
+    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<ComplexDouble>);
     bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>);
-    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<std::complex<double>>);
+    bp::def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<ComplexDouble>);
 
     bp::def("operatorLess", &NdArrayInterface::operatorLessScaler<double>);
-    bp::def("operatorLess", &NdArrayInterface::operatorLessScaler<std::complex<double>>);
+    bp::def("operatorLess", &NdArrayInterface::operatorLessScaler<ComplexDouble>);
     bp::def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<double>);
-    bp::def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<std::complex<double>>);
+    bp::def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<ComplexDouble>);
     bp::def("operatorLess", &NdArrayInterface::operatorLessArray<double>);
-    bp::def("operatorLess", &NdArrayInterface::operatorLessArray<std::complex<double>>);
+    bp::def("operatorLess", &NdArrayInterface::operatorLessArray<ComplexDouble>);
 
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<double>);
-    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<std::complex<double>>);
+    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<ComplexDouble>);
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<double>);
-    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<std::complex<double>>);
+    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<ComplexDouble>);
     bp::def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>);
-    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterArray<std::complex<double>>);
+    bp::def("operatorGreater", &NdArrayInterface::operatorGreaterArray<ComplexDouble>);
 
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<double>);
-    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<std::complex<double>>);
+    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<ComplexDouble>);
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<double>);
-    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<std::complex<double>>);
+    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<ComplexDouble>);
     bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>);
-    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<std::complex<double>>);
+    bp::def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<ComplexDouble>);
 
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<double>);
-    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<std::complex<double>>);
+    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<ComplexDouble>);
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<double>);
-    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<std::complex<double>>);
+    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<ComplexDouble>);
     bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>);
-    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<std::complex<double>>);
+    bp::def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<ComplexDouble>);
 
     bp::def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>);
     bp::def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>);
@@ -5921,8 +6067,6 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<uint32>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<uint32>>);
 
-    typedef std::complex<double> ComplexDouble;
-    typedef NdArray<ComplexDouble> NdArrayComplexDouble;
     bp::class_<NdArrayComplexDouble>
         ("NdArrayComplexDouble", bp::init<>())
         .def(bp::init<uint32>())
@@ -5933,6 +6077,40 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("test2DListContructor", &NdArrayInterface::test2DListContructor<ComplexDouble>).staticmethod("test2DListContructor")
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<ComplexDouble>)
         .def("setArray", &NdArrayInterface::setArray<ComplexDouble>)
+        .def("get", &NdArrayInterface::getValueFlat<ComplexDouble>)
+        .def("getConst", &NdArrayInterface::getValueFlatConst<ComplexDouble>)
+        .def("get", &NdArrayInterface::getValueRowCol<ComplexDouble>)
+        .def("getConst", &NdArrayInterface::getValueRowColConst<ComplexDouble>)
+        .def("get", &NdArrayInterface::getMask<ComplexDouble>)
+        .def("get", &NdArrayInterface::getIndices<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice1D<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2D<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2DRow<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSlice2DCol<ComplexDouble>)
+        .def("at", atComplexSingleScaler, bp::return_value_policy<bp::return_by_value>())
+        .def("atConst", atComplexSingleScalerConst, bp::return_value_policy<bp::return_by_value>())
+        .def("at", atComplexRowColScalers, bp::return_value_policy<bp::return_by_value>())
+        .def("atConst", atComplexRowColScalersConst, bp::return_value_policy<bp::return_by_value>())
+        .def("at", atComplexSlice)
+        .def("at", atComplexSliceSlice)
+        .def("at", atComplexSliceInt)
+        .def("at", atComplexIntSlice)
+        .def("begin", beginComplex)
+        .def("begin", beginRowComplex)
+        .def("beginConst", beginConstComplex)
+        .def("beginConst", beginRowConstComplex)
+        .def("rbegin", rbeginComplex)
+        .def("rbegin", rbeginRowComplex)
+        .def("rbeginConst", rbeginConstComplex)
+        .def("rbeginConst", rbeginRowConstComplex)
+        .def("end", endComplex)
+        .def("end", endRowComplex)
+        .def("endConst", endConstComplex)
+        .def("endConst", endRowConstComplex)
+        .def("rend", rendComplex)
+        .def("rend", rendRowComplex)
+        .def("rendConst", rendConstComplex)
+        .def("rendConst", rendRowConstComplex)
         .def("rSlice", &NdArrayComplexDouble::rSlice)
         .def("cSlice", &NdArrayComplexDouble::cSlice)
         .def("all", &NdArrayInterface::all<ComplexDouble>)
@@ -5944,6 +6122,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("astypeComplexFloat", &NdArrayComplexDouble::astype<std::complex<float>>)
         .def("back", &NdArrayInterface::back<ComplexDouble>)
         .def("backReference", &NdArrayInterface::backReference<ComplexDouble>)
+        .def("back", &NdArrayInterface::backRow<ComplexDouble>)
+        .def("backReference", &NdArrayInterface::backRowReference<ComplexDouble>)
         .def("clip", &NdArrayInterface::clip<ComplexDouble>)
         .def("column", &NdArrayComplexDouble::column)
         .def("copy", &NdArrayInterface::copy<ComplexDouble>)
@@ -5958,6 +6138,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("flatten", &NdArrayInterface::flatten<ComplexDouble>)
         .def("front", &NdArrayInterface::front<ComplexDouble>)
         .def("frontReference", &NdArrayInterface::frontReference<ComplexDouble>)
+        .def("front", &NdArrayInterface::frontRow<ComplexDouble>)
+        .def("frontReference", &NdArrayInterface::frontRowReference<ComplexDouble>)
         .def("get", &NdArrayInterface::getValueFlat<ComplexDouble>)
         .def("get", &NdArrayInterface::getValueRowCol<ComplexDouble>)
         .def("get", &NdArrayInterface::getSlice1D<ComplexDouble>)
@@ -6024,125 +6206,125 @@ BOOST_PYTHON_MODULE(NumCpp)
     // Functions.hpp
     bp::def("absScaler", &FunctionsInterface::absScaler<double>);
     bp::def("absArray", &FunctionsInterface::absArray<double>);
-    bp::def("absScaler", &FunctionsInterface::absScaler<std::complex<double>>);
-    bp::def("absArray", &FunctionsInterface::absArray<std::complex<double>>);
+    bp::def("absScaler", &FunctionsInterface::absScaler<ComplexDouble>);
+    bp::def("absArray", &FunctionsInterface::absArray<ComplexDouble>);
     bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<double>>);
     bp::def("add", &FunctionsInterface::add<NdArray<double>, double>);
     bp::def("add", &FunctionsInterface::add<double, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, std::complex<double>>);
-    bp::def("add", &FunctionsInterface::add<std::complex<double>, NdArray<std::complex<double>>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<std::complex<double>>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, std::complex<double>>);
-    bp::def("add", &FunctionsInterface::add<std::complex<double>, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<std::complex<double>>, double>);
-    bp::def("add", &FunctionsInterface::add<double, NdArray<std::complex<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, ComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArray<ComplexDouble>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<ComplexDouble>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double>, ComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArray<double>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, double>);
+    bp::def("add", &FunctionsInterface::add<double, NdArray<ComplexDouble>>);
     bp::def("alen", &alen<double>);
     bp::def("all", &FunctionsInterface::allArray<double>);
-    bp::def("all", &FunctionsInterface::allArray<std::complex<double>>);
+    bp::def("all", &FunctionsInterface::allArray<ComplexDouble>);
     bp::def("allclose", &allclose<double>);
     bp::def("amax", &FunctionsInterface::amaxArray<double>);
-    bp::def("amax", &FunctionsInterface::amaxArray<std::complex<double>>);
+    bp::def("amax", &FunctionsInterface::amaxArray<ComplexDouble>);
     bp::def("amin", &FunctionsInterface::aminArray<double>);
-    bp::def("amin", &FunctionsInterface::aminArray<std::complex<double>>);
+    bp::def("amin", &FunctionsInterface::aminArray<ComplexDouble>);
     bp::def("angleScaler", &FunctionsInterface::angleScaler<double>);
     bp::def("angleArray", &FunctionsInterface::angleArray<double>);
     bp::def("any", &FunctionsInterface::anyArray<double>);
-    bp::def("any", &FunctionsInterface::anyArray<std::complex<double>>);
+    bp::def("any", &FunctionsInterface::anyArray<ComplexDouble>);
     bp::def("append", &append<double>);
     bp::def("applyPoly1d", &applyPoly1d<double>);
     bp::def("arange", &FunctionsInterface::arangeArray<double>);
     bp::def("arccosScaler", &FunctionsInterface::arccosScaler<double>);
     bp::def("arccosArray", &FunctionsInterface::arccosArray<double>);
-    bp::def("arccosScaler", &FunctionsInterface::arccosScaler<std::complex<double>>);
-    bp::def("arccosArray", &FunctionsInterface::arccosArray<std::complex<double>>);
+    bp::def("arccosScaler", &FunctionsInterface::arccosScaler<ComplexDouble>);
+    bp::def("arccosArray", &FunctionsInterface::arccosArray<ComplexDouble>);
     bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<double>);
     bp::def("arccoshArray", &FunctionsInterface::arccoshArray<double>);
-    bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<std::complex<double>>);
-    bp::def("arccoshArray", &FunctionsInterface::arccoshArray<std::complex<double>>);
+    bp::def("arccoshScaler", &FunctionsInterface::arccoshScaler<ComplexDouble>);
+    bp::def("arccoshArray", &FunctionsInterface::arccoshArray<ComplexDouble>);
     bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<double>);
     bp::def("arcsinArray", &FunctionsInterface::arcsinArray<double>);
-    bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<std::complex<double>>);
-    bp::def("arcsinArray", &FunctionsInterface::arcsinArray<std::complex<double>>);
+    bp::def("arcsinScaler", &FunctionsInterface::arcsinScaler<ComplexDouble>);
+    bp::def("arcsinArray", &FunctionsInterface::arcsinArray<ComplexDouble>);
     bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<double>);
     bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<double>);
-    bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<std::complex<double>>);
-    bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<std::complex<double>>);
+    bp::def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<ComplexDouble>);
+    bp::def("arcsinhArray", &FunctionsInterface::arcsinhArray<ComplexDouble>);
     bp::def("arctanScaler", &FunctionsInterface::arctanScaler<double>);
     bp::def("arctanArray", &FunctionsInterface::arctanArray<double>);
-    bp::def("arctanScaler", &FunctionsInterface::arctanScaler<std::complex<double>>);
-    bp::def("arctanArray", &FunctionsInterface::arctanArray<std::complex<double>>);
+    bp::def("arctanScaler", &FunctionsInterface::arctanScaler<ComplexDouble>);
+    bp::def("arctanArray", &FunctionsInterface::arctanArray<ComplexDouble>);
     bp::def("arctan2Scaler", &FunctionsInterface::arctan2Scaler<double>);
     bp::def("arctan2Array", &FunctionsInterface::arctan2Array<double>);
     bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<double>);
     bp::def("arctanhArray", &FunctionsInterface::arctanhArray<double>);
-    bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<std::complex<double>>);
-    bp::def("arctanhArray", &FunctionsInterface::arctanhArray<std::complex<double>>);
+    bp::def("arctanhScaler", &FunctionsInterface::arctanhScaler<ComplexDouble>);
+    bp::def("arctanhArray", &FunctionsInterface::arctanhArray<ComplexDouble>);
     bp::def("argmax", &FunctionsInterface::argmaxArray<double>);
-    bp::def("argmax", &FunctionsInterface::argmaxArray<std::complex<double>>);
+    bp::def("argmax", &FunctionsInterface::argmaxArray<ComplexDouble>);
     bp::def("argmin", &FunctionsInterface::argminArray<double>);
-    bp::def("argmin", &FunctionsInterface::argminArray<std::complex<double>>);
+    bp::def("argmin", &FunctionsInterface::argminArray<ComplexDouble>);
     bp::def("argsort", &FunctionsInterface::argsortArray<double>);
-    bp::def("argsort", &FunctionsInterface::argsortArray<std::complex<double>>);
+    bp::def("argsort", &FunctionsInterface::argsortArray<ComplexDouble>);
     bp::def("argwhere", &FunctionsInterface::argwhere<double>);
-    bp::def("argwhere", &FunctionsInterface::argwhere<std::complex<double>>);
+    bp::def("argwhere", &FunctionsInterface::argwhere<ComplexDouble>);
     bp::def("aroundScaler", &FunctionsInterface::aroundScaler<double>);
     bp::def("aroundArray", &FunctionsInterface::aroundArray<double>);
     bp::def("array_equal", &array_equal<double>);
-    bp::def("array_equal", &array_equal<std::complex<double>>);
+    bp::def("array_equal", &array_equal<ComplexDouble>);
     bp::def("array_equiv", &array_equiv<double>);
-    bp::def("array_equiv", &array_equiv<std::complex<double>>);
+    bp::def("array_equiv", &array_equiv<ComplexDouble>);
     bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<double>);
-    bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<std::complex<double>>);
+    bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<ComplexDouble>);
     bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<double>);
-    bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<std::complex<double>>);
+    bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<ComplexDouble>);
     bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<double>);
-    bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<std::complex<double>>);
+    bp::def("asarrayArray1D", &FunctionsInterface::asarrayArray1D<ComplexDouble>);
     bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<double>);
-    bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<std::complex<double>>);
+    bp::def("asarrayArray1DCopy", &FunctionsInterface::asarrayArray1DCopy<ComplexDouble>);
     bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<double>);
-    bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<std::complex<double>>);
+    bp::def("asarrayArray2D", &FunctionsInterface::asarrayArray2D<ComplexDouble>);
     bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<double>);
-    bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<std::complex<double>>);
+    bp::def("asarrayArray2DCopy", &FunctionsInterface::asarrayArray2DCopy<ComplexDouble>);
     bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<double>);
-    bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<std::complex<double>>);
+    bp::def("asarrayVector1D", &FunctionsInterface::asarrayVector1D<ComplexDouble>);
     bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<double>);
-    bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<std::complex<double>>);
+    bp::def("asarrayVector1DCopy", &FunctionsInterface::asarrayVector1DCopy<ComplexDouble>);
     bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<double>);
-    bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<std::complex<double>>);
+    bp::def("asarrayVector2D", &FunctionsInterface::asarrayVector2D<ComplexDouble>);
     bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<double>);
-    bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<std::complex<double>>);
+    bp::def("asarrayVectorArray2D", &FunctionsInterface::asarrayVectorArray2D<ComplexDouble>);
     bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<double>);
-    bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<std::complex<double>>);
+    bp::def("asarrayVectorArray2DCopy", &FunctionsInterface::asarrayVectorArray2DCopy<ComplexDouble>);
     bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<double>);
-    bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<std::complex<double>>);
+    bp::def("asarrayDeque1D", &FunctionsInterface::asarrayDeque1D<ComplexDouble>);
     bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<double>);
-    bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<std::complex<double>>);
+    bp::def("asarrayDeque2D", &FunctionsInterface::asarrayDeque2D<ComplexDouble>);
     bp::def("asarrayList", &FunctionsInterface::asarrayList<double>);
-    bp::def("asarrayList", &FunctionsInterface::asarrayList<std::complex<double>>);
+    bp::def("asarrayList", &FunctionsInterface::asarrayList<ComplexDouble>);
     bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<double>);
-    bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<std::complex<double>>);
+    bp::def("asarrayIterators", &FunctionsInterface::asarrayIterators<ComplexDouble>);
     bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<double>);
-    bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<std::complex<double>>);
+    bp::def("asarrayPointerIterators", &FunctionsInterface::asarrayPointerIterators<ComplexDouble>);
     bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<double>);
-    bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<std::complex<double>>);
+    bp::def("asarrayPointer", &FunctionsInterface::asarrayPointer<ComplexDouble>);
     bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<double>);
-    bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<std::complex<double>>);
+    bp::def("asarrayPointer2D", &FunctionsInterface::asarrayPointer2D<ComplexDouble>);
     bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<double>);
-    bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<std::complex<double>>);
+    bp::def("asarrayPointerShell", &FunctionsInterface::asarrayPointerShell<ComplexDouble>);
     bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<double>);
-    bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<std::complex<double>>);
+    bp::def("asarrayPointerShell2D", &FunctionsInterface::asarrayPointerShell2D<ComplexDouble>);
     bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<double>);
-    bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<std::complex<double>>);
+    bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<ComplexDouble>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<double>);
-    bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<std::complex<double>>);
+    bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<ComplexDouble>);
     bp::def("astypeDoubleToUint32", &astype<uint32, double>);
-    bp::def("astypeDoubleToComplex", &astype<std::complex<double>, double>);
-    bp::def("astypeComplexToComplex", &astype<std::complex<float>, std::complex<double>>);
-    bp::def("astypeComplexToDouble", &astype<double, std::complex<double>>);
+    bp::def("astypeDoubleToComplex", &astype<ComplexDouble, double>);
+    bp::def("astypeComplexToComplex", &astype<std::complex<float>, ComplexDouble>);
+    bp::def("astypeComplexToDouble", &astype<double, ComplexDouble>);
     bp::def("average", &FunctionsInterface::average<double>);
-    bp::def("average", &FunctionsInterface::average<std::complex<double>>);
+    bp::def("average", &FunctionsInterface::average<ComplexDouble>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeightedComplex<double>);
 
@@ -6172,9 +6354,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("centerOfMass", &FunctionsInterface::centerOfMass<double>);
     bp::def("ceilArray", &FunctionsInterface::ceilArray<double>);
     bp::def("clipScaler", &FunctionsInterface::clipScaler<double>);
-    bp::def("clipScaler", &FunctionsInterface::clipScaler<std::complex<double>>);
+    bp::def("clipScaler", &FunctionsInterface::clipScaler<ComplexDouble>);
     bp::def("clipArray", &FunctionsInterface::clipArray<double>);
-    bp::def("clipArray", &FunctionsInterface::clipArray<std::complex<double>>);
+    bp::def("clipArray", &FunctionsInterface::clipArray<ComplexDouble>);
     bp::def("column_stack", &FunctionsInterface::column_stack<double>);
     bp::def("complexScaler", &FunctionsInterface::complexScalerSingle<double>);
     bp::def("complexScaler", &FunctionsInterface::complexScaler<double>);
@@ -6184,28 +6366,28 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("conjArray", &FunctionsInterface::conjArray<double>);
     bp::def("concatenate", &FunctionsInterface::concatenate<double>);
     bp::def("contains", &contains<double>);
-    bp::def("contains", &contains<std::complex<double>>);
+    bp::def("contains", &contains<ComplexDouble>);
     bp::def("copy", &FunctionsInterface::copy<double>);
     bp::def("copysign", &FunctionsInterface::copySign<double>);
     bp::def("copyto", &FunctionsInterface::copyto<double>);
     bp::def("cosScaler", &FunctionsInterface::cosScaler<double>);
-    bp::def("cosScaler", &FunctionsInterface::cosScaler<std::complex<double>>);
+    bp::def("cosScaler", &FunctionsInterface::cosScaler<ComplexDouble>);
     bp::def("cosArray", &FunctionsInterface::cosArray<double>);
-    bp::def("cosArray", &FunctionsInterface::cosArray<std::complex<double>>);
+    bp::def("cosArray", &FunctionsInterface::cosArray<ComplexDouble>);
     bp::def("coshScaler", &FunctionsInterface::coshScaler<double>);
-    bp::def("coshScaler", &FunctionsInterface::coshScaler<std::complex<double>>);
+    bp::def("coshScaler", &FunctionsInterface::coshScaler<ComplexDouble>);
     bp::def("coshArray", &FunctionsInterface::coshArray<double>);
-    bp::def("coshArray", &FunctionsInterface::coshArray<std::complex<double>>);
+    bp::def("coshArray", &FunctionsInterface::coshArray<ComplexDouble>);
     bp::def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
-    bp::def("count_nonzero", &FunctionsInterface::count_nonzero<std::complex<double>>);
+    bp::def("count_nonzero", &FunctionsInterface::count_nonzero<ComplexDouble>);
     bp::def("cross", &cross<double>);
-    bp::def("cross", &cross<std::complex<double>>);
+    bp::def("cross", &cross<ComplexDouble>);
     bp::def("cube", &FunctionsInterface::cubeArray<double>);
-    bp::def("cube", &FunctionsInterface::cubeArray<std::complex<double>>);
+    bp::def("cube", &FunctionsInterface::cubeArray<ComplexDouble>);
     bp::def("cumprod", &FunctionsInterface::cumprodArray<double>);
-    bp::def("cumprod", &FunctionsInterface::cumprodArray<std::complex<double>>);
+    bp::def("cumprod", &FunctionsInterface::cumprodArray<ComplexDouble>);
     bp::def("cumsum", &FunctionsInterface::cumsumArray<double>);
-    bp::def("cumsum", &FunctionsInterface::cumsumArray<std::complex<double>>);
+    bp::def("cumsum", &FunctionsInterface::cumsumArray<ComplexDouble>);
 
     bp::def("deg2radScaler", &FunctionsInterface::deg2radScaler<double>);
     bp::def("deg2radArray", &FunctionsInterface::deg2radArray<double>);
@@ -6214,54 +6396,54 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("deleteIndicesScaler", &FunctionsInterface::deleteIndicesScaler<double>);
     bp::def("deleteIndicesSlice", &FunctionsInterface::deleteIndicesSlice<double>);
     bp::def("diag", &FunctionsInterface::diag<double>);
-    bp::def("diag", &FunctionsInterface::diag<std::complex<double>>);
+    bp::def("diag", &FunctionsInterface::diag<ComplexDouble>);
     bp::def("diagflat", &FunctionsInterface::diagflat<double>);
-    bp::def("diagflat", &FunctionsInterface::diagflat<std::complex<double>>);
+    bp::def("diagflat", &FunctionsInterface::diagflat<ComplexDouble>);
     bp::def("diagonal", &FunctionsInterface::diagonal<double>);
-    bp::def("diagonal", &FunctionsInterface::diagonal<std::complex<double>>);
+    bp::def("diagonal", &FunctionsInterface::diagonal<ComplexDouble>);
     bp::def("diff", &FunctionsInterface::diff<double>);
-    bp::def("diff", &FunctionsInterface::diff<std::complex<double>>);
+    bp::def("diff", &FunctionsInterface::diff<ComplexDouble>);
     bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<double>>);
     bp::def("divide", &FunctionsInterface::divide<NdArray<double>, double>);
     bp::def("divide", &FunctionsInterface::divide<double, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, std::complex<double>>);
-    bp::def("divide", &FunctionsInterface::divide<std::complex<double>, NdArray<std::complex<double>>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<std::complex<double>>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, std::complex<double>>);
-    bp::def("divide", &FunctionsInterface::divide<std::complex<double>, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<std::complex<double>>, double>);
-    bp::def("divide", &FunctionsInterface::divide<double, NdArray<std::complex<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, ComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<ComplexDouble>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<ComplexDouble>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, ComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<double>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, double>);
+    bp::def("divide", &FunctionsInterface::divide<double, NdArray<ComplexDouble>>);
     bp::def("dot", &FunctionsInterface::dot<double, double>);
-    bp::def("dot", &FunctionsInterface::dot<std::complex<double>, std::complex<double>>);
-    bp::def("dot", &FunctionsInterface::dot<double, std::complex<double>>);
-    bp::def("dot", &FunctionsInterface::dot<std::complex<double>, double>);
+    bp::def("dot", &FunctionsInterface::dot<ComplexDouble, ComplexDouble>);
+    bp::def("dot", &FunctionsInterface::dot<double, ComplexDouble>);
+    bp::def("dot", &FunctionsInterface::dot<ComplexDouble, double>);
     bp::def("dump", &dump<double>);
-    bp::def("dump", &dump<std::complex<double>>);
+    bp::def("dump", &dump<ComplexDouble>);
 
     bp::def("emptyRowCol", &FunctionsInterface::emptyRowCol<double>);
     bp::def("emptyShape", &FunctionsInterface::emptyShape<double>);
     bp::def("empty_like", &empty_like<double>);
     bp::def("endianess", &endianess<double>);
     bp::def("equal", &FunctionsInterface::equal<double>);
-    bp::def("equal", &FunctionsInterface::equal<std::complex<double>>);
+    bp::def("equal", &FunctionsInterface::equal<ComplexDouble>);
     bp::def("expScaler", &FunctionsInterface::expScaler<double>);
-    bp::def("expScaler", &FunctionsInterface::expScaler<std::complex<double>>);
+    bp::def("expScaler", &FunctionsInterface::expScaler<ComplexDouble>);
     bp::def("expArray", &FunctionsInterface::expArray<double>);
-    bp::def("expArray", &FunctionsInterface::expArray<std::complex<double>>);
+    bp::def("expArray", &FunctionsInterface::expArray<ComplexDouble>);
     bp::def("exp2Scaler", &FunctionsInterface::exp2Scaler<double>);
     bp::def("exp2Array", &FunctionsInterface::exp2Array<double>);
     bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<double>);
-    bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<std::complex<double>>);
+    bp::def("expm1Scaler", &FunctionsInterface::expm1Scaler<ComplexDouble>);
     bp::def("expm1Array", &FunctionsInterface::expm1Array<double>);
-    bp::def("expm1Array", &FunctionsInterface::expm1Array<std::complex<double>>);
+    bp::def("expm1Array", &FunctionsInterface::expm1Array<ComplexDouble>);
     bp::def("eye1D", &FunctionsInterface::eye1D<double>);
-    bp::def("eye1DComplex", &FunctionsInterface::eye1D<std::complex<double>>);
+    bp::def("eye1DComplex", &FunctionsInterface::eye1D<ComplexDouble>);
     bp::def("eye2D", &FunctionsInterface::eye2D<double>);
-    bp::def("eye2DComplex", &FunctionsInterface::eye2D<std::complex<double>>);
+    bp::def("eye2DComplex", &FunctionsInterface::eye2D<ComplexDouble>);
     bp::def("eyeShape", &FunctionsInterface::eyeShape<double>);
-    bp::def("eyeShapeComplex", &FunctionsInterface::eyeShape<std::complex<double>>);
+    bp::def("eyeShapeComplex", &FunctionsInterface::eyeShape<ComplexDouble>);
 
     bp::def("fillDiagonal", &fillDiagonal<double>);
     bp::def("find", &FunctionsInterface::find);
@@ -6270,7 +6452,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("fixArray", &FunctionsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
     bp::def("flatnonzero", &flatnonzero<double>);
-    bp::def("flatnonzero", &flatnonzero<std::complex<double>>);
+    bp::def("flatnonzero", &flatnonzero<ComplexDouble>);
     bp::def("flip", &flip<double>);
     bp::def("fliplr", &fliplr<double>);
     bp::def("flipud", &flipud<double>);
@@ -6279,37 +6461,37 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("floor_divideScaler", &FunctionsInterface::floor_divideScaler<double>);
     bp::def("floor_divideArray", &FunctionsInterface::floor_divideArray<double>);
     bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<double>);
-    bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<std::complex<double>>);
+    bp::def("fmaxScaler", &FunctionsInterface::fmaxScaler<ComplexDouble>);
     bp::def("fmaxArray", &FunctionsInterface::fmaxArray<double>);
-    bp::def("fmaxArray", &FunctionsInterface::fmaxArray<std::complex<double>>);
+    bp::def("fmaxArray", &FunctionsInterface::fmaxArray<ComplexDouble>);
     bp::def("fminScaler", &FunctionsInterface::fminScaler<double>);
-    bp::def("fminScaler", &FunctionsInterface::fminScaler<std::complex<double>>);
+    bp::def("fminScaler", &FunctionsInterface::fminScaler<ComplexDouble>);
     bp::def("fminArray", &FunctionsInterface::fminArray<double>);
-    bp::def("fminArray", &FunctionsInterface::fminArray<std::complex<double>>);
+    bp::def("fminArray", &FunctionsInterface::fminArray<ComplexDouble>);
     bp::def("fmodScaler", &FunctionsInterface::fmodScaler<uint32>);
     bp::def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
     bp::def("frombuffer", &FunctionsInterface::frombuffer<double>);
-    bp::def("frombuffer", &FunctionsInterface::frombuffer<std::complex<double>>);
+    bp::def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
     bp::def("fromfile", &fromfile<double>);
     bp::def("fromiter", &FunctionsInterface::fromiter<double>);
-    bp::def("fromiter", &FunctionsInterface::fromiter<std::complex<double>>);
+    bp::def("fromiter", &FunctionsInterface::fromiter<ComplexDouble>);
     bp::def("fullSquare", &FunctionsInterface::fullSquare<double>);
-    bp::def("fullSquareComplex", &FunctionsInterface::fullSquare<std::complex<double>>);
+    bp::def("fullSquareComplex", &FunctionsInterface::fullSquare<ComplexDouble>);
     bp::def("fullRowCol", &FunctionsInterface::fullRowCol<double>);
-    bp::def("fullRowColComplex", &FunctionsInterface::fullRowCol<std::complex<double>>);
+    bp::def("fullRowColComplex", &FunctionsInterface::fullRowCol<ComplexDouble>);
     bp::def("fullShape", &FunctionsInterface::fullShape<double>);
-    bp::def("fullShapeComplex", &FunctionsInterface::fullShape<std::complex<double>>);
+    bp::def("fullShapeComplex", &FunctionsInterface::fullShape<ComplexDouble>);
     bp::def("full_like", &full_like<double>);
-    bp::def("full_likeComplex", &full_like<std::complex<double>>);
+    bp::def("full_likeComplex", &full_like<ComplexDouble>);
 
     bp::def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
     bp::def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
     bp::def("greater", &greater<double>);
-    bp::def("greater", &greater<std::complex<double>>);
+    bp::def("greater", &greater<ComplexDouble>);
     bp::def("greater_equal", &greater_equal<double>);
-    bp::def("greater_equal", &greater_equal<std::complex<double>>);
+    bp::def("greater_equal", &greater_equal<ComplexDouble>);
     bp::def("gradient", &FunctionsInterface::gradient<double>);
-    bp::def("gradient", &FunctionsInterface::gradient<std::complex<double>>);
+    bp::def("gradient", &FunctionsInterface::gradient<ComplexDouble>);
 
     bp::def("histogram", &FunctionsInterface::histogram<double>);
     bp::def("hstack", &FunctionsInterface::hstack<double>);
@@ -6318,7 +6500,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("hypotArray", &FunctionsInterface::hypotArray<double>);
 
     bp::def("identity", &identity<double>);
-    bp::def("identityComplex", &identity<std::complex<double>>);
+    bp::def("identityComplex", &identity<ComplexDouble>);
     bp::def("imagScaler", &FunctionsInterface::imagScaler<double>);
     bp::def("imagArray", &FunctionsInterface::imagArray<double>);
     bp::def("interp", &FunctionsInterface::interp<double>);
@@ -6336,18 +6518,18 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("ldexpArray", &FunctionsInterface::ldexpArray<double>);
     bp::def("left_shift", &left_shift<uint32>);
     bp::def("less", &less<double>);
-    bp::def("less", &less<std::complex<double>>);
+    bp::def("less", &less<ComplexDouble>);
     bp::def("less_equal", &less_equal<double>);
-    bp::def("less_equal", &less_equal<std::complex<double>>);
+    bp::def("less_equal", &less_equal<ComplexDouble>);
     bp::def("linspace", &linspace<double>);
     bp::def("load", &load<double>);
     bp::def("logScaler", &FunctionsInterface::logScaler<double>);
     bp::def("logArray", &FunctionsInterface::logArray<double>);
-    bp::def("logScaler", &FunctionsInterface::logScaler<std::complex<double>>);
-    bp::def("logArray", &FunctionsInterface::logArray<std::complex<double>>);
+    bp::def("logScaler", &FunctionsInterface::logScaler<ComplexDouble>);
+    bp::def("logArray", &FunctionsInterface::logArray<ComplexDouble>);
     bp::def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
-    bp::def("log10Array", &FunctionsInterface::log10Array<std::complex<double>>);
-    bp::def("log10Scaler", &FunctionsInterface::log10Scaler<std::complex<double>>);
+    bp::def("log10Array", &FunctionsInterface::log10Array<ComplexDouble>);
+    bp::def("log10Scaler", &FunctionsInterface::log10Scaler<ComplexDouble>);
     bp::def("log10Array", &FunctionsInterface::log10Array<double>);
     bp::def("log1pScaler", &FunctionsInterface::log1pScaler<double>);
     bp::def("log1pArray", &FunctionsInterface::log1pArray<double>);
@@ -6359,36 +6541,36 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("logical_xor", &logical_xor<double>);
 
     bp::def("matmul", &FunctionsInterface::matmul<double, double>);
-    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>, std::complex<double>>);
-    bp::def("matmul", &FunctionsInterface::matmul<double, std::complex<double>>);
-    bp::def("matmul", &FunctionsInterface::matmul<std::complex<double>, double>);
+    bp::def("matmul", &FunctionsInterface::matmul<ComplexDouble, ComplexDouble>);
+    bp::def("matmul", &FunctionsInterface::matmul<double, ComplexDouble>);
+    bp::def("matmul", &FunctionsInterface::matmul<ComplexDouble, double>);
     bp::def("max", &FunctionsInterface::max<double>);
-    bp::def("max", &FunctionsInterface::max<std::complex<double>>);
+    bp::def("max", &FunctionsInterface::max<ComplexDouble>);
     bp::def("maximum", &FunctionsInterface::maximum<double>);
-    bp::def("maximum", &FunctionsInterface::maximum<std::complex<double>>);
+    bp::def("maximum", &FunctionsInterface::maximum<ComplexDouble>);
     NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>; 
     bp::def("mean", meanDouble);
-    NdArray<std::complex<double>> (*meanComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &mean<double>; 
+    NdArray<ComplexDouble> (*meanComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mean<double>; 
     bp::def("mean", meanComplexDouble);
     bp::def("median", &median<double>);
     bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
     bp::def("min", &FunctionsInterface::min<double>);
-    bp::def("min", &FunctionsInterface::min<std::complex<double>>);
+    bp::def("min", &FunctionsInterface::min<ComplexDouble>);
     bp::def("minimum", &FunctionsInterface::minimum<double>);
-    bp::def("minimum", &FunctionsInterface::minimum<std::complex<double>>);
+    bp::def("minimum", &FunctionsInterface::minimum<ComplexDouble>);
     bp::def("mod", &mod<uint32>);
     bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<double>>);
     bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, double>);
     bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, std::complex<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>, NdArray<std::complex<double>>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<std::complex<double>>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, std::complex<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<std::complex<double>, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<std::complex<double>>, double>);
-    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<std::complex<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, ComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArray<ComplexDouble>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<ComplexDouble>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, ComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArray<double>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<ComplexDouble>>);
 
     bp::def("nanargmax", &nanargmax<double>);
     bp::def("nanargmin", &nanargmin<double>);
@@ -6409,54 +6591,54 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("nansum", &nansum<double>);
     bp::def("nanvar", &nanvar<double>);
     bp::def("nbytes", &nbytes<double>);
-    bp::def("nbytes", &nbytes<std::complex<double>>);
+    bp::def("nbytes", &nbytes<ComplexDouble>);
     bp::def("negative", &negative<double>);
-    bp::def("negative", &negative<std::complex<double>>);
+    bp::def("negative", &negative<ComplexDouble>);
     bp::def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
     bp::def("none", &FunctionsInterface::noneArray<double>);
-    bp::def("none", &FunctionsInterface::noneArray<std::complex<double>>);
+    bp::def("none", &FunctionsInterface::noneArray<ComplexDouble>);
     bp::def("nonzero", &nonzero<double>);
-    bp::def("nonzero", &nonzero<std::complex<double>>);
+    bp::def("nonzero", &nonzero<ComplexDouble>);
     NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>; 
     bp::def("norm", normDouble);
-    NdArray<std::complex<double>> (*normComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &norm<double>; 
+    NdArray<ComplexDouble> (*normComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &norm<double>; 
     bp::def("norm", normComplexDouble);
     bp::def("not_equal", &not_equal<double>);
-    bp::def("not_equal", &not_equal<std::complex<double>>);
+    bp::def("not_equal", &not_equal<ComplexDouble>);
 
     bp::def("onesSquare", &FunctionsInterface::onesSquare<double>);
-    bp::def("onesSquareComplex", &FunctionsInterface::onesSquare<std::complex<double>>);
+    bp::def("onesSquareComplex", &FunctionsInterface::onesSquare<ComplexDouble>);
     bp::def("onesRowCol", &FunctionsInterface::onesRowCol<double>);
-    bp::def("onesRowColComplex", &FunctionsInterface::onesRowCol<std::complex<double>>);
+    bp::def("onesRowColComplex", &FunctionsInterface::onesRowCol<ComplexDouble>);
     bp::def("onesShape", &FunctionsInterface::onesShape<double>);
-    bp::def("onesShapeComplex", &FunctionsInterface::onesShape<std::complex<double>>);
+    bp::def("onesShapeComplex", &FunctionsInterface::onesShape<ComplexDouble>);
     bp::def("ones_like", &ones_like<double, double>);
-    bp::def("ones_likeComplex", &ones_like<std::complex<double>, double>);
+    bp::def("ones_likeComplex", &ones_like<ComplexDouble, double>);
     bp::def("outer", &FunctionsInterface::outer<double>);
-    bp::def("outer", &FunctionsInterface::outer<std::complex<double>>);
+    bp::def("outer", &FunctionsInterface::outer<ComplexDouble>);
 
     bp::def("pad", &pad<double>);
-    bp::def("pad", &pad<std::complex<double>>);
+    bp::def("pad", &pad<ComplexDouble>);
     bp::def("partition", &partition<double>);
-    bp::def("partition", &partition<std::complex<double>>);
+    bp::def("partition", &partition<ComplexDouble>);
     bp::def("percentile", &percentile<double>);
     bp::def("polarScaler", &FunctionsInterface::polarScaler<double>);
     bp::def("polarArray", &FunctionsInterface::polarArray<double>);
     bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
     bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<double>);
-    bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<std::complex<double>>);
-    bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<std::complex<double>>);
+    bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<ComplexDouble>);
+    bp::def("powerArrayArray", &FunctionsInterface::powerArrayArray<ComplexDouble>);
     bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<double>);
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
-    bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<std::complex<double>>);
-    bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<std::complex<double>>);
+    bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<ComplexDouble>);
+    bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<ComplexDouble>);
     bp::def("prod", &prod<double>);
-    bp::def("prod", &prod<std::complex<double>>);
+    bp::def("prod", &prod<ComplexDouble>);
     bp::def("projScaler", &FunctionsInterface::projScaler<double>);
     bp::def("projArray", &FunctionsInterface::projArray<double>);
     bp::def("ptp", &ptp<double>);
-    bp::def("ptp", &ptp<std::complex<double>>);
+    bp::def("ptp", &ptp<ComplexDouble>);
     bp::def("put", &put<double>, bp::return_internal_reference<>());
     bp::def("putmask", &FunctionsInterface::putmask<double>);
     bp::def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
@@ -6467,13 +6649,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("radiansArray", &FunctionsInterface::radiansArray<double>);
     bp::def("ravel", &FunctionsInterface::ravel<double>, bp::return_internal_reference<>());
     bp::def("reciprocal", &FunctionsInterface::reciprocal<double>);
-    bp::def("reciprocal", &FunctionsInterface::reciprocal<std::complex<double>>);
+    bp::def("reciprocal", &FunctionsInterface::reciprocal<ComplexDouble>);
     bp::def("realScaler", &FunctionsInterface::realScaler<double>);
     bp::def("realArray", &FunctionsInterface::realArray<double>);
     bp::def("remainderScaler", &FunctionsInterface::remainderScaler<double>);
     bp::def("remainderArray", &FunctionsInterface::remainderArray<double>);
     bp::def("replace", &FunctionsInterface::replace<double>);
-    bp::def("replace", &FunctionsInterface::replace<std::complex<double>>);
+    bp::def("replace", &FunctionsInterface::replace<ComplexDouble>);
     bp::def("reshape", &FunctionsInterface::reshapeInt<double>, bp::return_internal_reference<>());
     bp::def("reshape", &FunctionsInterface::reshapeShape<double>, bp::return_internal_reference<>());
     bp::def("reshape", &FunctionsInterface::reshapeValues<double>, bp::return_internal_reference<>());
@@ -6487,7 +6669,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("rintArray", &FunctionsInterface::rintArray<double>);
     NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>; 
     bp::def("rms", rmsDouble);
-    NdArray<std::complex<double>> (*rmsComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &rms<double>; 
+    NdArray<ComplexDouble> (*rmsComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &rms<double>; 
     bp::def("rms", rmsComplexDouble);
     bp::def("roll", &roll<double>);
     bp::def("rot90", &rot90<double>);
@@ -6498,86 +6680,86 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("setdiff1d", &setdiff1d<uint32>);
     bp::def("setdiff1d", &setdiff1d<std::complex<uint32>>);
     bp::def("signScaler", &FunctionsInterface::signScaler<double>);
-    bp::def("signScaler", &FunctionsInterface::signScaler<std::complex<double>>);
+    bp::def("signScaler", &FunctionsInterface::signScaler<ComplexDouble>);
     bp::def("signArray", &FunctionsInterface::signArray<double>);
-    bp::def("signArray", &FunctionsInterface::signArray<std::complex<double>>);
+    bp::def("signArray", &FunctionsInterface::signArray<ComplexDouble>);
     bp::def("signbitScaler", &FunctionsInterface::signbitScaler<double>);
     bp::def("signbitArray", &FunctionsInterface::signbitArray<double>);
     bp::def("sinScaler", &FunctionsInterface::sinScaler<double>);
-    bp::def("sinScaler", &FunctionsInterface::sinScaler<std::complex<double>>);
+    bp::def("sinScaler", &FunctionsInterface::sinScaler<ComplexDouble>);
     bp::def("sinArray", &FunctionsInterface::sinArray<double>);
-    bp::def("sinArray", &FunctionsInterface::sinArray<std::complex<double>>);
+    bp::def("sinArray", &FunctionsInterface::sinArray<ComplexDouble>);
     bp::def("sincScaler", &FunctionsInterface::sincScaler<double>);
     bp::def("sincArray", &FunctionsInterface::sincArray<double>);
-    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<std::complex<double>>);
+    bp::def("sinhScaler", &FunctionsInterface::sinhScaler<ComplexDouble>);
     bp::def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<double>);
-    bp::def("sinhArray", &FunctionsInterface::sinhArray<std::complex<double>>);
+    bp::def("sinhArray", &FunctionsInterface::sinhArray<ComplexDouble>);
     bp::def("size", &size<double>);
     bp::def("sort", &sort<double>);
-    bp::def("sort", &sort<std::complex<double>>);
+    bp::def("sort", &sort<ComplexDouble>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
-    bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<std::complex<double>>);
+    bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<ComplexDouble>);
     bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
-    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<std::complex<double>>);
+    bp::def("sqrtArray", &FunctionsInterface::sqrtArray<ComplexDouble>);
     bp::def("squareScaler", &FunctionsInterface::squareScaler<double>);
-    bp::def("squareScaler", &FunctionsInterface::squareScaler<std::complex<double>>);
+    bp::def("squareScaler", &FunctionsInterface::squareScaler<ComplexDouble>);
     bp::def("squareArray", &FunctionsInterface::squareArray<double>);
-    bp::def("squareArray", &FunctionsInterface::squareArray<std::complex<double>>);
+    bp::def("squareArray", &FunctionsInterface::squareArray<ComplexDouble>);
     bp::def("stack", &FunctionsInterface::stack<double>);
     NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevDouble);
-    NdArray<std::complex<double>> (*stdevComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &stdev<double>; 
+    NdArray<ComplexDouble> (*stdevComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevComplexDouble);
     bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<double>>);
     bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, double>);
     bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, NdArray<std::complex<double>>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, std::complex<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<std::complex<double>, NdArray<std::complex<double>>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<std::complex<double>>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, std::complex<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<std::complex<double>, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<std::complex<double>>, double>);
-    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<std::complex<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, ComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArray<ComplexDouble>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<ComplexDouble>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, ComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArray<double>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, double>);
+    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<ComplexDouble>>);
     bp::def("sum", &sum<double>);
-    bp::def("sum", &sum<std::complex<double>>);
+    bp::def("sum", &sum<ComplexDouble>);
     bp::def("swapaxes", &swapaxes<double>);
     bp::def("swap", &nc::swap<double>);
 
     bp::def("tanScaler", &FunctionsInterface::tanScaler<double>);
-    bp::def("tanScaler", &FunctionsInterface::tanScaler<std::complex<double>>);
+    bp::def("tanScaler", &FunctionsInterface::tanScaler<ComplexDouble>);
     bp::def("tanArray", &FunctionsInterface::tanArray<double>);
-    bp::def("tanArray", &FunctionsInterface::tanArray<std::complex<double>>);
+    bp::def("tanArray", &FunctionsInterface::tanArray<ComplexDouble>);
     bp::def("tanhScaler", &FunctionsInterface::tanhScaler<double>);
-    bp::def("tanhScaler", &FunctionsInterface::tanhScaler<std::complex<double>>);
+    bp::def("tanhScaler", &FunctionsInterface::tanhScaler<ComplexDouble>);
     bp::def("tanhArray", &FunctionsInterface::tanhArray<double>);
-    bp::def("tanhArray", &FunctionsInterface::tanhArray<std::complex<double>>);
+    bp::def("tanhArray", &FunctionsInterface::tanhArray<ComplexDouble>);
     bp::def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
     bp::def("tileShape", &FunctionsInterface::tileShape<double>);
     bp::def("tileList", &FunctionsInterface::tileList<double>);
     bp::def("tofile", &tofile<double>);
     bp::def("toStlVector", &toStlVector<double>);
     bp::def("trace", &trace<double>);
-    bp::def("trace", &trace<std::complex<double>>);
+    bp::def("trace", &trace<ComplexDouble>);
     bp::def("transpose", &transpose<double>);
     bp::def("trapzDx", &FunctionsInterface::trapzDx<double>);
     bp::def("trapz", &FunctionsInterface::trapz<double>);
     bp::def("trilSquare", &FunctionsInterface::trilSquare<double>);
-    bp::def("trilSquareComplex", &FunctionsInterface::trilSquare<std::complex<double>>);
+    bp::def("trilSquareComplex", &FunctionsInterface::trilSquare<ComplexDouble>);
     bp::def("trilRect", &FunctionsInterface::trilRect<double>);
-    bp::def("trilRectComplex", &FunctionsInterface::trilRect<std::complex<double>>);
+    bp::def("trilRectComplex", &FunctionsInterface::trilRect<ComplexDouble>);
     bp::def("trilArray", &FunctionsInterface::trilArray<double>);
-    bp::def("trilArray", &FunctionsInterface::trilArray<std::complex<double>>);
+    bp::def("trilArray", &FunctionsInterface::trilArray<ComplexDouble>);
     bp::def("triuSquare", &FunctionsInterface::triuSquare<double>);
-    bp::def("triuSquareComplex", &FunctionsInterface::triuSquare<std::complex<double>>);
+    bp::def("triuSquareComplex", &FunctionsInterface::triuSquare<ComplexDouble>);
     bp::def("triuRect", &FunctionsInterface::triuRect<double>);
-    bp::def("triuRectComplex", &FunctionsInterface::triuRect<std::complex<double>>);
+    bp::def("triuRectComplex", &FunctionsInterface::triuRect<ComplexDouble>);
     bp::def("triuArray", &FunctionsInterface::triuArray<double>);
-    bp::def("triuArray", &FunctionsInterface::triuArray<std::complex<double>>);
+    bp::def("triuArray", &FunctionsInterface::triuArray<ComplexDouble>);
     bp::def("trim_zeros", &trim_zeros<double>);
-    bp::def("trim_zeros", &trim_zeros<std::complex<double>>);
+    bp::def("trim_zeros", &trim_zeros<ComplexDouble>);
     bp::def("truncScaler", &FunctionsInterface::truncScaler<double>);
     bp::def("truncArray", &FunctionsInterface::truncArray<double>);
 
@@ -6590,34 +6772,34 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
     bp::def("var", varDouble);
-    NdArray<std::complex<double>> (*varComplexDouble)(const NdArray<std::complex<double>>&, Axis) = &var<double>; 
+    NdArray<ComplexDouble> (*varComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &var<double>; 
     bp::def("var", varComplexDouble);
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
     bp::def("where", &FunctionsInterface::where<double>);
-    bp::def("where", &FunctionsInterface::where<std::complex<double>>);
+    bp::def("where", &FunctionsInterface::where<ComplexDouble>);
 
     bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
-    bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<std::complex<double>>);
+    bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<ComplexDouble>);
     bp::def("zerosRowCol", &FunctionsInterface::zerosRowCol<double>);
-    bp::def("zerosRowColComplex", &FunctionsInterface::zerosRowCol<std::complex<double>>);
+    bp::def("zerosRowColComplex", &FunctionsInterface::zerosRowCol<ComplexDouble>);
     bp::def("zerosShape", &FunctionsInterface::zerosShape<double>);
-    bp::def("zerosShapeComplex", &FunctionsInterface::zerosShape<std::complex<double>>);
+    bp::def("zerosShapeComplex", &FunctionsInterface::zerosShape<ComplexDouble>);
     bp::def("zerosList", &FunctionsInterface::zerosList<double>);
-    bp::def("zerosListComplex", &FunctionsInterface::zerosList<std::complex<double>>);
+    bp::def("zerosListComplex", &FunctionsInterface::zerosList<ComplexDouble>);
     bp::def("zeros_like", &zeros_like<double, double>);
-    bp::def("zeros_likeComplex", &zeros_like<std::complex<double>, double>);
+    bp::def("zeros_likeComplex", &zeros_like<ComplexDouble, double>);
 
     // Utils.hpp
     bp::def("num2str", &utils::num2str<double>);
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
-    bp::def("power", &utils::power<std::complex<double>>);
+    bp::def("power", &utils::power<ComplexDouble>);
     decltype(utils::powerf<double, double>(double{ 0 }, double{ 0 }))(*powerf_double)(double, double) = &utils::powerf<double, double>;
     bp::def("powerf", powerf_double);
-    decltype(utils::powerf<std::complex<double>, std::complex<double>>(std::complex<double>{ 0 }, std::complex<double>{ 0 }))(*powerf_complexDouble)
-        (std::complex<double>, std::complex<double>) = &utils::powerf<std::complex<double>, std::complex<double>>;
+    decltype(utils::powerf<ComplexDouble, ComplexDouble>(ComplexDouble{ 0 }, ComplexDouble{ 0 }))(*powerf_complexDouble)
+        (ComplexDouble, ComplexDouble) = &utils::powerf<ComplexDouble, ComplexDouble>;
     bp::def("powerf_complex", powerf_complexDouble);
 
     bp::def("num2str", &utils::num2str<float>);
@@ -6840,7 +7022,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
     bp::def("matrix_power", &linalg::matrix_power<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
-    bp::def("multi_dot", &LinalgInterface::multi_dot<std::complex<double>>);
+    bp::def("multi_dot", &LinalgInterface::multi_dot<ComplexDouble>);
     bp::def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     bp::def("svd", &linalg::svd<double>);
 
