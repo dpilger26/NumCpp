@@ -6650,7 +6650,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("projArray", &FunctionsInterface::projArray<double>);
     bp::def("ptp", &ptp<double>);
     bp::def("ptp", &ptp<ComplexDouble>);
-    bp::def("put", &put<double>, bp::return_internal_reference<>());
+    NdArray<double>& (*putDoubleValue)(NdArray<double>&, const NdArray<uint32>&, double) = &put<double>;
+    bp::def("put", putDoubleValue, bp::return_internal_reference<>());
+    NdArray<double>& (*putDoubleArray)(NdArray<double>&, const NdArray<uint32>&, const NdArray<double>&) = &put<double>;
+    bp::def("put", putDoubleArray, bp::return_internal_reference<>());
     bp::def("putmask", &FunctionsInterface::putmask<double>);
     bp::def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
 
