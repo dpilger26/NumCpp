@@ -2773,7 +2773,7 @@ def test_findN():
     data = np.random.randn(shape.rows, shape.cols) * 100
     cArray.setArray(data)
     value = data.mean()
-    cMask = NumCpp.operatorGreater(cArray ,value)
+    cMask = NumCpp.operatorGreater(cArray, value)
     cMaskArray = NumCpp.NdArrayBool(cMask.shape[0], cMask.shape[1])
     cMaskArray.setArray(cMask)
     idxs = NumCpp.findN(cMaskArray, 8).astype(np.int64)

@@ -5248,8 +5248,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("bits", &DtypeInfoUint32::bits).staticmethod("bits")
         .def("epsilon", &DtypeInfoUint32::epsilon).staticmethod("epsilon")
         .def("isInteger", &DtypeInfoUint32::isInteger).staticmethod("isInteger")
+        .def("isSigned", &DtypeInfoUint32::isSigned).staticmethod("isSigned")
         .def("min", &DtypeInfoUint32::min).staticmethod("min")
         .def("max", &DtypeInfoUint32::max).staticmethod("max");
+
+    typedef DtypeInfo<std::complex<double>> DtypeInfoComplexDouble;
+    bp::class_<DtypeInfoComplexDouble>
+        ("DtypeInfoComplexDouble", bp::init<>())
+        .def("bits", &DtypeInfoComplexDouble::bits).staticmethod("bits")
+        .def("epsilon", &DtypeInfoComplexDouble::epsilon).staticmethod("epsilon")
+        .def("isInteger", &DtypeInfoComplexDouble::isInteger).staticmethod("isInteger")
+        .def("isSigned", &DtypeInfoComplexDouble::isSigned).staticmethod("isSigned")
+        .def("min", &DtypeInfoComplexDouble::min).staticmethod("min")
+        .def("max", &DtypeInfoComplexDouble::max).staticmethod("max");
 
     // Shape.hpp
     bp::class_<Shape>

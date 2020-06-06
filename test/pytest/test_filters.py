@@ -6,16 +6,20 @@ sys.path.append(os.path.abspath(r'../lib'))
 import NumCpp  # noqa E402
 
 
-####################################################################################
-def test_1D():
-    np.random.seed(2)
-    
-    modes = {'reflect': NumCpp.Mode.REFLECT,
-             'constant': NumCpp.Mode.CONSTANT,
-             'nearest': NumCpp.Mode.NEAREST,
-             'mirror': NumCpp.Mode.MIRROR,
-             'wrap': NumCpp.Mode.WRAP}
+modes = {'reflect': NumCpp.Mode.REFLECT,
+            'constant': NumCpp.Mode.CONSTANT,
+            'nearest': NumCpp.Mode.NEAREST,
+            'mirror': NumCpp.Mode.MIRROR,
+            'wrap': NumCpp.Mode.WRAP}
 
+
+####################################################################################
+def test_seed():
+    np.random.seed(4)
+
+
+####################################################################################
+def test_complementaryMedianFilter1d():
     for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
@@ -34,6 +38,10 @@ def test_1D():
                                                   mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_convolve1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -50,6 +58,10 @@ def test_1D():
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
 
+
+####################################################################################
+def test_gaussianFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -64,6 +76,10 @@ def test_1D():
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 7), np.round(dataOutPy, 7))
 
+
+####################################################################################
+def test_maximumFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -78,6 +94,10 @@ def test_1D():
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_medianFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -92,6 +112,10 @@ def test_1D():
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_minumumFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -106,6 +130,10 @@ def test_1D():
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_percentileFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -125,6 +153,10 @@ def test_1D():
                                            mode=mode, cval=constantValue, extra_arguments=(percentile,))
         assert np.array_equal(np.round(dataOutC, 7), np.round(dataOutPy, 7))
 
+
+####################################################################################
+def test_rankFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -139,6 +171,10 @@ def test_1D():
         dataOutPy = filters.rank_filter(data, rank, footprint=np.ones([kernalSize, ]), mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_uniformFilter1d():
+    for mode in modes.keys():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
@@ -155,15 +191,7 @@ def test_1D():
 
 
 ####################################################################################
-def test_2D():
-    np.random.seed(5)
-
-    modes = {'reflect': NumCpp.Mode.REFLECT,
-             'constant': NumCpp.Mode.CONSTANT,
-             'nearest': NumCpp.Mode.NEAREST,
-             'mirror': NumCpp.Mode.MIRROR,
-             'wrap': NumCpp.Mode.WRAP}
-
+def test_complementaryMedianFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
@@ -178,6 +206,10 @@ def test_2D():
         dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_convolve():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -194,6 +226,10 @@ def test_2D():
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_gaussianFilter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -205,6 +241,10 @@ def test_2D():
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 2), np.round(dataOutPy, 2))
 
+
+####################################################################################
+def test_laplaceFilter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -215,6 +255,10 @@ def test_2D():
         dataOutPy = filters.laplace(data, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_maximumFilter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -228,6 +272,10 @@ def test_2D():
         dataOutPy = filters.maximum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_median_filter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -241,6 +289,10 @@ def test_2D():
         dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_minimum_filter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -254,6 +306,10 @@ def test_2D():
         dataOutPy = filters.minimum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_percentileFilter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -268,6 +324,10 @@ def test_2D():
         dataOutPy = filters.percentile_filter(data, percentile, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_rankFilter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
@@ -282,6 +342,10 @@ def test_2D():
         dataOutPy = filters.rank_filter(data, rank, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
+
+####################################################################################
+def test_uniform_filter():
+    for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)

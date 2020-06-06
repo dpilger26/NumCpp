@@ -9,13 +9,14 @@ import NumCpp  # noqa E402
 ####################################################################################
 NUM_DECIMALS_ROUND = 7
 
+
 ####################################################################################
 def test_seed():
     np.random.seed(26)
 
 
 ####################################################################################
-def test_airy():
+def test_airy_ai():
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_ai_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[0].item(), NUM_DECIMALS_ROUND))
@@ -28,6 +29,9 @@ def test_airy():
     assert np.array_equal(roundArray(NumCpp.airy_ai_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.airy(data)[0], NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_airy_ai_prime():
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_ai_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[1].item(), NUM_DECIMALS_ROUND))
@@ -40,6 +44,9 @@ def test_airy():
     assert np.array_equal(roundArray(NumCpp.airy_ai_prime_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.airy(data)[1], NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_airy_bi():
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_bi_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[2].item(), NUM_DECIMALS_ROUND))
@@ -52,6 +59,9 @@ def test_airy():
     assert np.array_equal(roundArray(NumCpp.airy_bi_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.airy(data)[2], NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_airy_bi_prime():
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_bi_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[3].item(), NUM_DECIMALS_ROUND))
@@ -73,7 +83,7 @@ def test_bernoulli():
 
 
 ####################################################################################
-def test_cylindrical_bessel():
+def test_cylindrical_bessel_i():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_in_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -88,6 +98,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_in_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.iv(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_i_prime():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_in_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -102,6 +115,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_in_prime_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.ivp(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_j():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -116,6 +132,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_jn_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.jv(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_j_prime():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_jn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -130,6 +149,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_jn_prime_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.jvp(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_k():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_kn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -144,6 +166,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_kn_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.kn(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_k_prime():
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_kn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -158,6 +183,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_kn_prime_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.kvp(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_y():
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -172,6 +200,9 @@ def test_cylindrical_bessel():
     assert np.array_equal(roundArray(NumCpp.bessel_yn_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.yn(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_bessel_y_prime():
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_yn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -214,7 +245,7 @@ def test_cnr():
 
 
 ####################################################################################
-def test_cylindrical_hankel1():
+def test_cylindrical_hankel_1():
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
     assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
@@ -229,6 +260,9 @@ def test_cylindrical_hankel1():
     assert np.array_equal(roundComplexArray(NumCpp.cyclic_hankel_1_Array(order, value), NUM_DECIMALS_ROUND),
                           roundComplexArray(sp.hankel1(order, valuePy), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_cylindrical_hankel_2():
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
     assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
@@ -459,7 +493,7 @@ def test_softmax():
 
 
 ####################################################################################
-def test_spherical_bessel():
+def test_spherical_bessel_j():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.spherical_bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -474,6 +508,9 @@ def test_spherical_bessel():
     assert np.array_equal(roundArray(NumCpp.spherical_bessel_jn_Array(order, cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.spherical_jn(order, data), NUM_DECIMALS_ROUND))
 
+
+####################################################################################
+def test_spherical_bessel_y():
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.spherical_bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -490,7 +527,7 @@ def test_spherical_bessel():
 
 
 ####################################################################################
-def test_spherical_hankel():
+def test_spherical_hankel_1():
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
@@ -504,6 +541,10 @@ def test_spherical_hankel():
     value.setArray(valuePy)
     assert NumCpp.spherical_hankel_1_Array(order, value) is not None
 
+
+####################################################################################
+def test_spherical_hankel_1():
+    # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert NumCpp.spherical_hankel_2_Scaler(order, value) is not None

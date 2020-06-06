@@ -17,7 +17,7 @@ def test_seed():
 
 
 ####################################################################################
-def test_poly1D():
+def test_poly1D_coefficents_constructor():
     numCoefficients = np.random.randint(3, 10, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
@@ -25,6 +25,9 @@ def test_poly1D():
     polyC = NumCpp.Poly1d(coefficientsC, False)
     assert np.array_equal(polyC.coefficients().getNumpyArray().flatten(), coefficients)
 
+
+####################################################################################
+def test_poly1D_roots_constructor():
     numRoots = np.random.randint(3, 10, [1, ]).item()
     roots = np.random.randint(-20, 20, [numRoots, ])
     rootsC = NumCpp.NdArray(1, numRoots)
@@ -32,6 +35,16 @@ def test_poly1D():
     poly = np.poly1d(roots, True)
     polyC = NumCpp.Poly1d(rootsC, True)
     assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients)
+
+
+####################################################################################
+def test_poly1D_integ_deriv_area_order():
+    numRoots = np.random.randint(3, 10, [1, ]).item()
+    roots = np.random.randint(-20, 20, [numRoots, ])
+    rootsC = NumCpp.NdArray(1, numRoots)
+    rootsC.setArray(roots)
+    poly = np.poly1d(roots, True)
+    polyC = NumCpp.Poly1d(rootsC, True)
 
     bounds = np.random.rand(2) * 100 - 50
     bounds = np.sort(bounds)
@@ -43,6 +56,16 @@ def test_poly1D():
 
     value = np.random.randint(-20, 20, [1, ]).item()
     assert polyC[value] == poly(value)
+
+
+####################################################################################
+def test_poly1D_operators():
+    numRoots = np.random.randint(3, 10, [1, ]).item()
+    roots = np.random.randint(-20, 20, [numRoots, ])
+    rootsC = NumCpp.NdArray(1, numRoots)
+    rootsC.setArray(roots)
+    poly = np.poly1d(roots, True)
+    polyC = NumCpp.Poly1d(rootsC, True)
 
     numCoefficients = np.random.randint(3, 10, [1, ]).item()
     coefficients = np.random.randint(-20, 20, [numCoefficients, ])

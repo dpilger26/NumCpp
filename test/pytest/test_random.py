@@ -6,6 +6,7 @@ import NumCpp  # noqa E402
 
 np.random.seed(666)
 
+
 # it is kind of hard to test randomness so my criteria for passing will
 # simply be whether or not it crashes
 ####################################################################################

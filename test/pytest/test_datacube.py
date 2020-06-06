@@ -8,14 +8,20 @@ np.random.seed(666)
 
 
 ####################################################################################
-def test_dataCube():
+def test_default_constructor():
     dataCube = NumCpp.DataCube()
     assert dataCube.isempty()
 
+
+####################################################################################
+def test_size_constructor():
     size = np.random.randint(10, 20, [1, ]).item()
     dataCube = NumCpp.DataCube(size)
     assert dataCube.size() == size
 
+
+####################################################################################
+def test_methods():
     shape = np.random.randint(10, 100, [3, ])
     cShape = NumCpp.Shape(shape[0].item(), shape[1].item())
     data = np.random.randint(0, 100, shape)

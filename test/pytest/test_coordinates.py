@@ -11,10 +11,13 @@ np.random.seed(666)
 
 
 ####################################################################################
-def test_ra():
+def test_ra_default_constructor():
     ra = NumCpp.Ra()
     assert ra
 
+
+####################################################################################
+def test_ra_degrees_constructor():
     randDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(randDegrees)
     raPy = Longitude(randDegrees, unit=u.deg)
@@ -24,6 +27,9 @@ def test_ra():
     assert round(ra.seconds(), 9) == round(raPy.hms.s, 9)
     assert round(ra.radians(), 9) == round(np.deg2rad(randDegrees), 9)
 
+
+####################################################################################
+def test_ra_hms_constructor():
     hours = np.random.randint(0, 24, [1, ], dtype=np.uint8).item()
     minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
     seconds = np.random.rand(1).astype(np.double).item() * 60
@@ -35,21 +41,40 @@ def test_ra():
     assert round(ra.seconds(), 9) == round(seconds, 9)
     assert round(ra.radians(), 9) == round(np.deg2rad(degreesPy), 9)
 
+
+####################################################################################
+def test_ra_copy_constructor():
+    ra = NumCpp.Ra()
+    assert ra
+
     ra2 = NumCpp.Ra(ra)
     assert ra == ra2
+
+
+####################################################################################
+def test_ra_equality_operator():
+    ra = NumCpp.Ra()
+    assert ra
 
     randDegrees = np.random.rand(1).item() * 360
     ra2 = NumCpp.Ra(randDegrees)
     assert ra != ra2
 
+
+####################################################################################
+def test_ra_print():
+    ra = NumCpp.Ra()
     ra.print()
 
 
 ####################################################################################
-def test_dec():
+def test_dec_default_constructor():
     dec = NumCpp.Dec()
     assert dec
 
+
+####################################################################################
+def test_dec_degree_constructor():
     randDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(randDegrees)
     decPy = Latitude(randDegrees, unit=u.deg)
@@ -61,6 +86,9 @@ def test_dec():
     assert round(dec.seconds(), 8) == round(abs(decPy.dms.s), 8)
     assert round(dec.radians(), 8) == round(np.deg2rad(randDegrees), 8)
 
+
+####################################################################################
+def test_dec_hms_constructor():
     sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
     degrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
     minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
@@ -76,21 +104,40 @@ def test_dec():
     assert round(dec.seconds(), 9) == round(seconds, 9)
     assert round(dec.radians(), 8) == round(np.deg2rad(degreesPy), 8)
 
+
+####################################################################################
+def test_dec_copy_constructor():
+    dec = NumCpp.Dec()
+    assert dec
+
     dec2 = NumCpp.Dec(dec)
     assert dec == dec2
+
+
+####################################################################################
+def test_equality_operator():
+    dec = NumCpp.Dec()
+    assert dec
 
     randDegrees = np.random.rand(1).item() * 180 - 90
     dec2 = NumCpp.Dec(randDegrees)
     assert dec != dec2
 
+
+####################################################################################
+def test_dec_print():
+    dec = NumCpp.Dec()
     dec.print()
 
 
 ####################################################################################
-def test_coord():
+def test_coord_default_constructor():
     coord = NumCpp.Coordinate()
     assert coord
 
+
+####################################################################################
+def test_coord_degree_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -104,6 +151,9 @@ def test_coord():
     assert round(cCoord.y(), 10) == round(pyCoord.cartesian.y.value, 10)
     assert round(cCoord.z(), 10) == round(pyCoord.cartesian.z.value, 10)
 
+
+####################################################################################
+def test_coord_radec_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -117,6 +167,9 @@ def test_coord():
     assert round(cCoord.y(), 10) == round(pyCoord.cartesian.y.value, 10)
     assert round(cCoord.z(), 10) == round(pyCoord.cartesian.z.value, 10)
 
+
+####################################################################################
+def test_coord_cartesian_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -129,6 +182,9 @@ def test_coord():
     assert round(cCoord.y(), 9) == round(pyCoord.cartesian.y.value, 9)
     assert round(cCoord.z(), 9) == round(pyCoord.cartesian.z.value, 9)
 
+
+####################################################################################
+def test_coord_cartesian_vector_constructor():
     raDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
@@ -144,6 +200,9 @@ def test_coord():
     assert round(cCoord.y(), 9) == round(pyCoord.cartesian.y.value, 9)
     assert round(cCoord.z(), 9) == round(pyCoord.cartesian.z.value, 9)
 
+
+####################################################################################
+def test_coord_rms_constructor():
     raHours = np.random.randint(0, 24, [1, ], dtype=np.uint8).item()
     raMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
     raSeconds = np.random.rand(1).astype(np.double).item() * 60
@@ -174,35 +233,104 @@ def test_coord():
     assert round(cCoord.y(), 9) == round(pyCoord.cartesian.y.value, 9)
     assert round(cCoord.z(), 9) == round(pyCoord.cartesian.z.value, 9)
 
+
+####################################################################################
+def test_coord_copy_constructor_and_equality_operator():
+    cCoord = NumCpp.Coordinate()
+    assert cCoord
     cCoord2 = NumCpp.Coordinate(cCoord)
     assert cCoord2 == cCoord
+
+
+####################################################################################
+def test_coord_not_equality_operator():
+    cCoord = NumCpp.Coordinate()
 
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
     cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
     assert cCoord2 != cCoord
 
+
+####################################################################################
+def test_coord_xyz():
+    cCoord = NumCpp.Coordinate()
     xyz = [cCoord.x(), cCoord.y(), cCoord.z()]
     assert np.array_equal(cCoord.xyz().getNumpyArray().flatten(), xyz)
 
+
+####################################################################################
+def test_coord_degreeSeperation():
+    cCoord = NumCpp.Coordinate()
+
+    raDegrees = np.random.rand(1).item() * 360
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+
     cDegSep = cCoord.degreeSeperation(cCoord2)
     pyDegSep = pyCoord.separation(pyCoord2).value
     assert round(cDegSep, 9) == round(pyDegSep, 9)
 
+
+####################################################################################
+def test_coord_radianSeperation():
+    cCoord = NumCpp.Coordinate()
+
+    raDegrees = np.random.rand(1).item() * 360
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+
     cRadSep = cCoord.radianSeperation(cCoord2)
-    pyRadSep = np.deg2rad(pyDegSep)
+    pyRadSep = np.deg2rad(pyCoord.separation(pyCoord2).value)
+
     assert round(cRadSep, 9) == round(pyRadSep, 9)
+
+
+####################################################################################
+def test_coord_degreeSeperation_vec():
+    cCoord = NumCpp.Coordinate()
+
+    raDegrees = np.random.rand(1).item() * 360
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
 
     vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cDegSep = cCoord.degreeSeperation(cArray)
+    pyDegSep = pyCoord.separation(pyCoord2).value
     assert round(cDegSep, 9) == round(pyDegSep, 9)
 
+
+####################################################################################
+def test_coord_radianSeperation_vec():
+    cCoord = NumCpp.Coordinate()
+
+    raDegrees = np.random.rand(1).item() * 360
+    decDegrees = np.random.rand(1).item() * 180 - 90
+    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
+
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+
+    vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
-    cDegSep = cCoord.radianSeperation(cArray)
-    assert round(cDegSep, 9) == round(pyRadSep, 9)
+    cRadSep = cCoord.radianSeperation(cArray)
+    pyRadSep = np.radians(pyCoord.separation(pyCoord2).value)
+    assert round(cRadSep, 9) == round(pyRadSep, 9)
 
+
+####################################################################################
+def test_coorc_print():
+    cCoord = NumCpp.Coordinate()
     cCoord.print()
