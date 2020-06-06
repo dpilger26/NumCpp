@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
@@ -48,11 +49,13 @@ namespace nc
     template<typename dtype>
     NdArray<bool> logical_not(const NdArray<dtype>& inArray) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> bool
             { 
-                return inValue == 0;
+                return inValue == dtype{ 0 };
             });
 
         return returnArray;

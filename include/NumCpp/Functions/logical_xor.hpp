@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <string>
@@ -51,6 +52,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
@@ -60,7 +63,7 @@ namespace nc
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, dtype inValue2) noexcept -> bool
             { 
-                return (inValue1 != 0) != (inValue2 != 0); 
+                return (inValue1 != dtype{ 0 }) != (inValue2 != dtype{ 0 });
             });
 
         return returnArray;
