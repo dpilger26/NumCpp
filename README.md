@@ -9,7 +9,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 1.4.0
+## Version: 2.0.0
 
 ## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
