@@ -86,6 +86,35 @@ def test_poly1D_fit():
 
 
 ####################################################################################
+def test_poly1D_fit_weighted():
+    polyOrder = np.random.randint(2, 5)
+    numMeasurements = np.random.randint(50, 100)
+    xValues = np.random.rand(numMeasurements) * 100 - 50
+    coefficients = np.random.rand(polyOrder + 1) * 5 - 10
+    yValues = []
+    for x in xValues:
+        y = 0
+        for order in range(polyOrder + 1):
+            y += coefficients[order] * x ** order
+        yValues.append(y + np.random.randn(1).item())
+    yValues = np.array(yValues)
+    yValues = yValues.reshape(yValues.size, 1)
+    weights = np.random.rand(numMeasurements)
+
+    cX = NumCpp.NdArray(1, xValues.size)
+    cY = NumCpp.NdArray(yValues.size, 1)
+    cWeights = NumCpp.NdArray(1, xValues.size)
+    cX.setArray(xValues)
+    cY.setArray(yValues)
+    cWeights.setArray(weights)
+
+    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder, w=weights).convert().coef
+    polyC = NumCpp.Poly1d.fitWeighted(cX, cY, cWeights, polyOrder).coefficients().getNumpyArray().flatten()
+
+    assert np.array_equal(np.round(poly, 1), np.round(polyC, 1))
+
+
+####################################################################################
 def test_poly1D_operators():
     numRoots = np.random.randint(3, 10, [1, ]).item()
     roots = np.random.randint(-20, 20, [numRoots, ])

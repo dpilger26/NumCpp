@@ -7275,13 +7275,18 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     // Polynomial.hpp
     typedef polynomial::Poly1d<double> Poly1d;
+
+    Poly1d(*fit)(const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
+    Poly1d (*fitWeighted)(const NdArrayDouble&, const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
+
     bp::class_<Poly1d>
         ("Poly1d", bp::init<>())
         .def(bp::init<NdArray<double>, bool>())
         .def("area", &Poly1d::area)
         .def("coefficients", &Poly1d::coefficients)
         .def("deriv", &Poly1d::deriv)
-        .def("fit", &Poly1d::fit).staticmethod("fit")
+        .def("fit", fit).staticmethod("fit")
+        .def("fitWeighted", fitWeighted).staticmethod("fitWeighted")
         .def("integ", &Poly1d::integ)
         .def("order", &Poly1d::order)
         .def("print", &Poly1d::print)

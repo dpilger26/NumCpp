@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -191,7 +192,9 @@ namespace nc
             /// @return Poly1d
             static Poly1d<double> fit(const NdArray<dtype>& xValues, const NdArray<dtype>& yValues, uint8 polyOrder)
             {
-                if (xValues.size() != yValues.size())
+                const auto numMeasurements = xValues.size();
+
+                if (yValues.size() != numMeasurements)
                 {
                     THROW_INVALID_ARGUMENT_ERROR("Input x and y arrays must be of equal size.");
                 }
@@ -206,18 +209,14 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("Input y must be a flattened [n, 1] array.");
                 }
 
-                NdArray<double> a(xValues.size(), polyOrder + 1);
-                a.put(a.rSlice(), 0, 1.0);
-
-                uint32 idx = 0;
-                for (auto x : xValues)
+                NdArray<double> a(numMeasurements, polyOrder + 1);
+                for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
                 {
-                    for (uint8 order = 1; order < a.numCols(); ++order)
+                    const auto xDouble = static_cast<double>(xValues[measIdx]);
+                    for (uint8 order = 0; order < a.numCols(); ++order)
                     {
-                        a(idx, order) = utils::power(static_cast<double>(x), order);
+                        a(measIdx, order) = utils::power(xDouble, order);
                     }
-
-                    ++idx;
                 }
 
                 NdArray<double> aInv;
@@ -233,7 +232,87 @@ namespace nc
                     aInv = aTaInv.dot(aT);
                 }
               
-                auto x = aInv.dot(yValues);
+                auto x = aInv.dot(yValues.template astype<double>());
+                return Poly1d<double>(x);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	Polynomial linear least squares regression: Ax = b
+            ///
+            /// @param xValues: the x measurements [1, n] or [n, 1] array
+            /// @param yValues: the y measurements [n, 1] array
+            /// @param weights: the measurement weights [1, n] or [n, 1] array
+            /// @param polyOrder: the order of the poly nomial to fit
+            /// @return Poly1d
+            static Poly1d<double> fit(const NdArray<dtype>& xValues, const NdArray<dtype>& yValues,
+                const NdArray<dtype>& weights, uint8 polyOrder)
+            {
+                const auto numMeasurements = xValues.size();
+
+                if (yValues.size() != numMeasurements)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input x and y arrays must be of equal size.");
+                }
+
+                if (weights.size() != numMeasurements)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input x and weights arrays must be of equal size.");
+                }
+
+                if (!xValues.isflat())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input x must be a flattened [1, n] or [n, 1] array.");
+                }
+
+                if (!yValues.isflat())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input y must be a flattened [n, 1] array.");
+                }
+
+                if (!weights.isflat())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input weights must be a flattened [1, n] or [n, 1] array.");
+                }
+
+                NdArray<double> a(numMeasurements, polyOrder + 1);
+                for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
+                {
+                    const auto xDouble = static_cast<double>(xValues[measIdx]);
+                    for (uint8 order = 0; order < a.numCols(); ++order)
+                    {
+                        a(measIdx, order) = utils::power(xDouble, order);
+                    }
+                }
+
+                NdArray<double> aWeighted(a.shape());
+                NdArray<double> yWeighted(yValues.shape());
+
+                for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
+                {
+                    const auto weight = static_cast<double>(weights[measIdx]);
+
+                    yWeighted[measIdx] = yValues[measIdx] * weight;
+                    for (uint8 order = 0; order < a.numCols(); ++order)
+                    {
+                        aWeighted(measIdx, order) = a(measIdx, order) * weight;
+                    }
+                }
+
+                NdArray<double> aInv;
+                if (aWeighted.issquare())
+                {
+                    aInv = linalg::inv(aWeighted);
+                }
+                else
+                {
+                    // psuedo-inverse
+                    auto aT = a.transpose();
+                    auto aTaInv = linalg::inv(aT.dot(aWeighted));
+                    aInv = aTaInv.dot(aT);
+                }
+
+                auto x = aInv.dot(yWeighted);
                 return Poly1d<double>(x);
             }
 
