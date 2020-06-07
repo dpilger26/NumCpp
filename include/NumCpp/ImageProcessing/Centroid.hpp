@@ -48,15 +48,15 @@ namespace nc
         template<typename dtype>
         class Centroid
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //=============================================================================
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() noexcept
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            Centroid() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -68,8 +68,6 @@ namespace nc
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-
                 centerOfMass(inCluster);
             }
 

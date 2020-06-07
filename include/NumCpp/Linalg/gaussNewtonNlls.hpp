@@ -114,7 +114,6 @@ namespace nc
                     }
                 }
 
-                //std::cout << jacobian;
                 // perform the gauss-newton linear algebra
                 const auto jacobianT = jacobian.transpose();
                 const auto jacobianPsuedoInverse = linalg::inv(jacobianT.dot(jacobian));

@@ -52,6 +52,9 @@ namespace nc
         template<typename dtype>
         class ClusterMaker
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //================================Typedefs=====================================
             using const_iterator = typename std::vector<Cluster<dtype> >::const_iterator;
@@ -71,8 +74,6 @@ namespace nc
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-
                 if (xcds_->shape() != intensities_->shape())
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input xcd and intensity arrays must be the same shape.");

@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -55,16 +56,16 @@ namespace nc
         template<typename dtype>
         class Poly1d
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //============================================================================
             // Method Description:
             ///						Default Constructor (not very usefull, but needed for other
             ///                     containers.
             ///
-            Poly1d() noexcept
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            Poly1d() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -76,8 +77,6 @@ namespace nc
             ///
             Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-
                 if (inValues.size() > DtypeInfo<uint8>::max())
                 {
                     THROW_INVALID_ARGUMENT_ERROR("can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()));
@@ -158,6 +157,7 @@ namespace nc
             // Method Description:
             ///						Takes the derivative of the polynomial
             ///
+            /// @return Poly1d
             Poly1d<dtype> deriv() const noexcept
             {
                 const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
@@ -183,8 +183,65 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///	Polynomial linear least squares regression: Ax = b
+            ///
+            /// @param xValues: the x measurements [1, n] or [n, 1] array
+            /// @param yValues: the y measurements [n, 1] array
+            /// @param polyOrder: the order of the poly nomial to fit
+            /// @return Poly1d
+            static Poly1d<double> fit(const NdArray<dtype>& xValues, const NdArray<dtype>& yValues, uint8 polyOrder)
+            {
+                if (xValues.size() != yValues.size())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input x and y arrays must be of equal size.");
+                }
+
+                if (!xValues.isflat())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input x must be a flattened [1, n] or [n, 1] array.");
+                }
+
+                if (!yValues.isflat())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Input y must be a flattened [n, 1] array.");
+                }
+
+                NdArray<double> a(xValues.size(), polyOrder + 1);
+                a.put(a.rSlice(), 0, 1.0);
+
+                uint32 idx = 0;
+                for (auto x : xValues)
+                {
+                    for (uint8 order = 1; order < a.numCols(); ++order)
+                    {
+                        a(idx, order) = utils::power(static_cast<double>(x), order);
+                    }
+
+                    ++idx;
+                }
+
+                NdArray<double> aInv;
+                if (a.issquare())
+                {
+                    aInv = linalg::inv(a);
+                }
+                else
+                {
+                    // psuedo-inverse
+                    auto aT = a.transpose();
+                    auto aTaInv = linalg::inv(aT.dot(a));
+                    aInv = aTaInv.dot(aT);
+                }
+              
+                auto x = aInv.dot(yValues);
+                return Poly1d<double>(x);
+            }
+
+            //============================================================================
+            // Method Description:
             ///						Calculates the integral of the polynomial
             ///
+            /// @return Poly1d
             Poly1d<double> integ() const noexcept
             {
                 const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());

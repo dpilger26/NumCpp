@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.polynomial.polynomial import Polynomial
 import scipy.special as sp
 import os
 import sys
@@ -56,6 +57,32 @@ def test_poly1D_integ_deriv_area_order():
 
     value = np.random.randint(-20, 20, [1, ]).item()
     assert polyC[value] == poly(value)
+
+
+####################################################################################
+def test_poly1D_fit():
+    polyOrder = np.random.randint(2, 5)
+    numMeasurements = np.random.randint(50, 100)
+    xValues = np.random.rand(numMeasurements) * 100 - 50
+    coefficients = np.random.rand(polyOrder + 1) * 5 - 10
+    yValues = []
+    for x in xValues:
+        y = 0
+        for order in range(polyOrder + 1):
+            y += coefficients[order] * x ** order
+        yValues.append(y + np.random.randn(1).item())
+    yValues = np.array(yValues)
+    yValues = yValues.reshape(yValues.size, 1)
+
+    cX = NumCpp.NdArray(1, xValues.size)
+    cY = NumCpp.NdArray(yValues.size, 1)
+    cX.setArray(xValues)
+    cY.setArray(yValues)
+
+    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder).convert().coef
+    polyC = NumCpp.Poly1d.fit(cX, cY, polyOrder).coefficients().getNumpyArray().flatten()
+
+    assert np.array_equal(np.round(poly, 5), np.round(polyC, 5))
 
 
 ####################################################################################

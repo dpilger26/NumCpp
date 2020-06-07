@@ -46,6 +46,9 @@ namespace nc
         template<typename dtype>
         class Pixel
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //==================================Attributes================================
             mutable int32	clusterId{ -1 };
@@ -57,10 +60,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            constexpr Pixel() noexcept
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            constexpr Pixel() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -74,9 +74,7 @@ namespace nc
                 row(inRow),
                 col(inCol),
                 intensity(inIntensity)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            {}
 
             //=============================================================================
             // Description:

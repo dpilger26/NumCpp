@@ -53,6 +53,9 @@ namespace nc
         template<typename dtype>
         class Cluster
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //================================Typedefs===============================
             using const_iterator = typename std::vector<Pixel<dtype> >::const_iterator;
@@ -61,10 +64,7 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() noexcept
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            Cluster() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -75,9 +75,7 @@ namespace nc
             ///
             Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-            }
+            {}
 
             //=============================================================================
             // Description:
