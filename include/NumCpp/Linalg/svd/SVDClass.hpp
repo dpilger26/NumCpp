@@ -55,7 +55,7 @@ namespace nc
             /// @param
             ///              inMatrix: matrix to perform SVD on
             ///
-            SVD(const NdArray<double>& inMatrix) :
+            SVD(const NdArray<double, Alloc>& inMatrix) :
                 m_(inMatrix.shape().rows),
                 n_(inMatrix.shape().cols),
                 u_(inMatrix),
@@ -75,7 +75,7 @@ namespace nc
             /// @return
             ///              u matrix
             ///
-            const NdArray<double>& u() noexcept
+            const NdArray<double, Alloc>& u() noexcept
             {
                 return u_;
             }
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              v matrix
             ///
-            const NdArray<double>& v() noexcept
+            const NdArray<double, Alloc>& v() noexcept
             {
                 return v_;
             }
@@ -99,7 +99,7 @@ namespace nc
             /// @return
             ///              s matrix
             ///
-            const NdArray<double>& s() noexcept
+            const NdArray<double, Alloc>& s() noexcept
             {
                 return s_;
             }
@@ -114,7 +114,7 @@ namespace nc
             /// @return
             ///              NdArray
             ///
-            NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
+            NdArray<double, Alloc> solve(const NdArray<double, Alloc>& inInput, double inThresh = -1.0)
             {
                 double ss = 0.0;
 
@@ -123,9 +123,9 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("bad sizes.");
                 }
 
-                NdArray<double> returnArray(1, n_);
+                NdArray<double, Alloc> returnArray(1, n_);
 
-                NdArray<double> tmp(1, n_);
+                NdArray<double, Alloc> tmp(1, n_);
 
                 tsh_ = (inThresh >= 0. ? inThresh : 0.5 * sqrt(m_ + n_ + 1.) * s_.front() * eps_);
 
@@ -199,7 +199,7 @@ namespace nc
                 double  y = 0.0;
                 double  z = 0.0;
 
-                NdArray<double> rv1(n_, 1);
+                NdArray<double, Alloc> rv1(n_, 1);
 
                 for (i = 0; i < n_; ++i)
                 {
@@ -527,8 +527,8 @@ namespace nc
                 uint32  inc = 1;
 
                 double			sw = 0.0;
-                NdArray<double> su(m_, 1);
-                NdArray<double> sv(n_, 1);
+                NdArray<double, Alloc> su(m_, 1);
+                NdArray<double, Alloc> sv(n_, 1);
 
                 do
                 {
@@ -647,9 +647,9 @@ namespace nc
             // ===============================Attributes====================================
             const uint32		m_;
             const uint32		n_;
-            NdArray<double>     u_;
-            NdArray<double>     v_;
-            NdArray<double>     s_;
+            NdArray<double, Alloc>     u_;
+            NdArray<double, Alloc>     v_;
+            NdArray<double, Alloc>     s_;
             double				eps_;
             double				tsh_;
         };

@@ -74,7 +74,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
+        NdArray<dtype, Alloc> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             STATIC_ASSERT_FLOAT(dtype);
 

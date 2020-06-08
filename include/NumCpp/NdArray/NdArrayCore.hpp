@@ -524,7 +524,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray<dtype>& inOtherArray) :
+        NdArray(const NdArray<dtype, Alloc>& inOtherArray) :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_)
@@ -543,7 +543,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
+        NdArray(NdArray<dtype, Alloc>&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -572,9 +572,9 @@ namespace nc
         /// @param
         ///				rhs
         /// @return
-        ///				NdArray<dtype>
+        ///				NdArray<dtype, Alloc>
         ///
-        NdArray<dtype>& operator=(const NdArray<dtype>& rhs)
+        NdArray<dtype, Alloc>& operator=(const NdArray<dtype, Alloc>& rhs)
         {
             if (&rhs != this)
             {
@@ -598,9 +598,9 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				NdArray<dtype>
+        ///				NdArray<dtype, Alloc>
         ///
-        NdArray<dtype>& operator=(value_type inValue) noexcept
+        NdArray<dtype, Alloc>& operator=(value_type inValue) noexcept
         {
             if (array_ != nullptr)
             {
@@ -617,9 +617,9 @@ namespace nc
         /// @param
         ///				rhs
         /// @return
-        ///				NdArray<dtype>
+        ///				NdArray<dtype, Alloc>
         ///
-        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept
+        NdArray<dtype, Alloc>& operator=(NdArray<dtype, Alloc>&& rhs) noexcept
         {
             if (&rhs != this)
             {
@@ -734,12 +734,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const Slice& inSlice) const
+        NdArray<dtype, Alloc> operator[](const Slice& inSlice) const
         {
             Slice inSliceCopy(inSlice);
 
             uint32 counter = 0;
-            NdArray<dtype> returnArray(1, inSliceCopy.numElements(size_));
+            NdArray<dtype, Alloc> returnArray(1, inSliceCopy.numElements(size_));
             for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
             {
                 returnArray[counter++] = at(i);
@@ -757,7 +757,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<bool>& inMask) const
+        NdArray<dtype, Alloc> operator[](const NdArray<bool, Alloc>& inMask) const
         {
             if (inMask.shape() != shape_)
             {
@@ -765,7 +765,7 @@ namespace nc
             }
 
             auto indices = inMask.flatnonzero();
-            auto outArray = NdArray<dtype>(1, indices.size());
+            auto outArray = NdArray<dtype, Alloc>(1, indices.size());
             for (size_type i = 0; i < indices.size(); ++i)
             {
                 outArray[i] = operator[](indices[i]);
@@ -783,14 +783,14 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<size_type>& inIndices) const
+        NdArray<dtype, Alloc> operator[](const NdArray<size_type, Alloc>& inIndices) const
         {
             if (inIndices.max().item() > size_ - 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input indices must be less than the array size.");
             }
 
-            auto outArray = NdArray<dtype>(1, static_cast<size_type>(inIndices.size()));
+            auto outArray = NdArray<dtype, Alloc>(1, static_cast<size_type>(inIndices.size()));
             size_type i = 0;
             for (auto& index : inIndices)
             {
@@ -810,12 +810,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
+        NdArray<dtype, Alloc> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
 
-            NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), inColSliceCopy.numElements(shape_.cols));
+            NdArray<dtype, Alloc> returnArray(inRowSliceCopy.numElements(shape_.rows), inColSliceCopy.numElements(shape_.cols));
 
             uint32 rowCounter = 0;
             uint32 colCounter = 0;
@@ -842,11 +842,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(const Slice& inRowSlice, int32 inColIndex) const
+        NdArray<dtype, Alloc> operator()(const Slice& inRowSlice, int32 inColIndex) const
         {
             Slice inRowSliceCopy(inRowSlice);
 
-            NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), 1);
+            NdArray<dtype, Alloc> returnArray(inRowSliceCopy.numElements(shape_.rows), 1);
 
             uint32 rowCounter = 0;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
@@ -867,11 +867,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(int32 inRowIndex, const Slice& inColSlice) const
+        NdArray<dtype, Alloc> operator()(int32 inRowIndex, const Slice& inColSlice) const
         {
             Slice inColSliceCopy(inColSlice);
 
-            NdArray<dtype> returnArray(1, inColSliceCopy.numElements(shape_.cols));
+            NdArray<dtype, Alloc> returnArray(1, inColSliceCopy.numElements(shape_.cols));
 
             uint32 colCounter = 0;
             for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
@@ -1031,7 +1031,7 @@ namespace nc
         /// @return
         ///				Ndarray
         ///
-        NdArray<dtype> at(const Slice& inSlice) const
+        NdArray<dtype, Alloc> at(const Slice& inSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1047,7 +1047,7 @@ namespace nc
         /// @return
         ///				Ndarray
         ///
-        NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
+        NdArray<dtype, Alloc> at(const Slice& inRowSlice, const Slice& inColSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1063,7 +1063,7 @@ namespace nc
         /// @return
         ///				Ndarray
         ///
-        NdArray<dtype> at(const Slice& inRowSlice, int32 inColIndex) const
+        NdArray<dtype, Alloc> at(const Slice& inRowSlice, int32 inColIndex) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1079,7 +1079,7 @@ namespace nc
         /// @return
         ///				Ndarray
         ///
-        NdArray<dtype> at(int32 inRowIndex, const Slice& inColSlice) const
+        NdArray<dtype, Alloc> at(int32 inRowIndex, const Slice& inColSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1441,7 +1441,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> all(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool, Alloc> all(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1454,12 +1454,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { stl_algorithms::all_of(cbegin(), cend(), function) };
+                    NdArray<bool, Alloc> returnArray = { stl_algorithms::all_of(cbegin(), cend(), function) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<bool> returnArray(1, shape_.rows);
+                    NdArray<bool, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::all_of(cbegin(row), cend(row), function);
@@ -1469,8 +1469,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<bool, Alloc> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
@@ -1480,7 +1480,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    return NdArray<bool, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -1496,7 +1496,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> any(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool, Alloc> any(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1509,12 +1509,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { stl_algorithms::any_of(cbegin(), cend(), function) };
+                    NdArray<bool, Alloc> returnArray = { stl_algorithms::any_of(cbegin(), cend(), function) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<bool> returnArray(1, shape_.rows);
+                    NdArray<bool, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::any_of(cbegin(row), cend(row), function);
@@ -1524,8 +1524,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<bool, Alloc> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
@@ -1535,7 +1535,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    return NdArray<bool, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -1552,7 +1552,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32, Alloc> argmax(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1565,13 +1565,13 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::max_element(cbegin(), 
+                    NdArray<uint32, Alloc> returnArray = { static_cast<uint32>(stl_algorithms::max_element(cbegin(), 
                         cend(), comparitor) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<uint32> returnArray(1, shape_.rows);
+                    NdArray<uint32, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(cbegin(row), 
@@ -1582,8 +1582,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<uint32, Alloc> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(arrayTransposed.cbegin(row),
@@ -1594,7 +1594,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    return NdArray<uint32, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -1611,7 +1611,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32, Alloc> argmin(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1624,13 +1624,13 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::min_element(cbegin(), 
+                    NdArray<uint32, Alloc> returnArray = { static_cast<uint32>(stl_algorithms::min_element(cbegin(), 
                         cend(), comparitor) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<uint32> returnArray(1, shape_.rows);
+                    NdArray<uint32, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(cbegin(row), 
@@ -1641,8 +1641,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<uint32, Alloc> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(arrayTransposed.cbegin(row),
@@ -1653,7 +1653,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    return NdArray<uint32, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -1669,7 +1669,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32, Alloc> argsort(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1686,11 +1686,11 @@ namespace nc
                     };
 
                     stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
-                    return NdArray<uint32>(idx);
+                    return NdArray<uint32, Alloc>(idx);
                 }
                 case Axis::COL:
                 {
-                    NdArray<uint32> returnArray(shape_);
+                    NdArray<uint32, Alloc> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         std::vector<uint32> idx(shape_.cols);
@@ -1712,8 +1712,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<uint32> returnArray(shape_.cols, shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<uint32, Alloc> returnArray(shape_.cols, shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
@@ -1735,7 +1735,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    return NdArray<uint32, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -1754,9 +1754,9 @@ namespace nc
             enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
             enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
             enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
-        NdArray<dtypeOut> astype() const noexcept
+        NdArray<dtypeOut, Alloc> astype() const noexcept
         {
-            NdArray<dtypeOut> outArray(shape_);
+            NdArray<dtypeOut, Alloc> outArray(shape_);
 
             if (std::is_same<dtypeOut, dtype>::value)
             {
@@ -1789,9 +1789,9 @@ namespace nc
             enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
             enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
             enable_if_t<is_complex_v<dtypeOut>, int> = 0>
-            NdArray<dtypeOut> astype() const noexcept
+            NdArray<dtypeOut, Alloc> astype() const noexcept
         {
-            NdArray<dtypeOut> outArray(shape_);
+            NdArray<dtypeOut, Alloc> outArray(shape_);
 
             const auto function = [](const_reference value) noexcept -> dtypeOut
             {
@@ -1817,9 +1817,9 @@ namespace nc
             enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
             enable_if_t<is_complex_v<dtype_>, int> = 0,
             enable_if_t<is_complex_v<dtypeOut>, int> = 0>
-        NdArray<dtypeOut> astype() const noexcept
+        NdArray<dtypeOut, Alloc> astype() const noexcept
         {
-            NdArray<dtypeOut> outArray(shape_);
+            NdArray<dtypeOut, Alloc> outArray(shape_);
 
             if (std::is_same<dtypeOut, dtype>::value)
             {
@@ -1852,9 +1852,9 @@ namespace nc
             enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
             enable_if_t<is_complex_v<dtype_>, int> = 0,
             enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
-            NdArray<dtypeOut> astype() const noexcept
+            NdArray<dtypeOut, Alloc> astype() const noexcept
         {
-            NdArray<dtypeOut> outArray(shape_);
+            NdArray<dtypeOut, Alloc> outArray(shape_);
 
             const auto function = [](const_reference value) noexcept -> dtypeOut
             {
@@ -1923,7 +1923,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype>& byteswap() noexcept
+        NdArray<dtype, Alloc>& byteswap() noexcept
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -1964,11 +1964,11 @@ namespace nc
         /// @return
         ///				clipped value
         ///
-        NdArray<dtype> clip(value_type inMin, value_type inMax) const noexcept
+        NdArray<dtype, Alloc> clip(value_type inMin, value_type inMax) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            NdArray<dtype> outArray(shape_);
+            NdArray<dtype, Alloc> outArray(shape_);
             boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax, 
                 [](dtype lhs, dtype rhs) -> bool
                 {
@@ -1986,7 +1986,7 @@ namespace nc
         /// @return
         ///				Shape
         ///
-        NdArray<dtype> column(uint32 inColumn)
+        NdArray<dtype, Alloc> column(uint32 inColumn)
         {
             return operator()(rSlice(), inColumn);
         }
@@ -2000,7 +2000,7 @@ namespace nc
         /// @return
         ///				bool
         ///
-        NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool, Alloc> contains(value_type inValue, Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2008,12 +2008,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { stl_algorithms::find(cbegin(), cend(), inValue) != cend() };
+                    NdArray<bool, Alloc> returnArray = { stl_algorithms::find(cbegin(), cend(), inValue) != cend() };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<bool> returnArray(1, shape_.rows);
+                    NdArray<bool, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::find(cbegin(row), cend(row), inValue) != cend(row);
@@ -2023,8 +2023,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transArray = transpose();
-                    NdArray<bool> returnArray(1, transArray.shape_.rows);
+                    NdArray<dtype, Alloc> transArray = transpose();
+                    NdArray<bool, Alloc> returnArray(1, transArray.shape_.rows);
                     for (uint32 row = 0; row < transArray.shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
@@ -2034,7 +2034,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    return NdArray<bool, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2048,9 +2048,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> copy() const noexcept
+        NdArray<dtype, Alloc> copy() const noexcept
         {
-            return NdArray<dtype>(*this);
+            return NdArray<dtype, Alloc>(*this);
         }
 
         //============================================================================
@@ -2064,7 +2064,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> cumprod(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2072,7 +2072,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray(1, size_);
+                    NdArray<dtype, Alloc> returnArray(1, size_);
                     returnArray[0] = front();
                     for (uint32 i = 1; i < size_; ++i)
                     {
@@ -2083,7 +2083,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    NdArray<dtype, Alloc> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(row, 0) = operator()(row, 0);
@@ -2097,7 +2097,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    NdArray<dtype, Alloc> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
                         returnArray(0, col) = operator()(0, col);
@@ -2111,7 +2111,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2127,7 +2127,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> cumsum(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2135,7 +2135,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray(1, size_);
+                    NdArray<dtype, Alloc> returnArray(1, size_);
                     returnArray[0] = front();
                     for (uint32 i = 1; i < size_; ++i)
                     {
@@ -2146,7 +2146,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    NdArray<dtype, Alloc> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(row, 0) = operator()(row, 0);
@@ -2160,7 +2160,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    NdArray<dtype, Alloc> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
                         returnArray(0, col) = operator()(0, col);
@@ -2174,7 +2174,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2223,7 +2223,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        NdArray<dtype, Alloc> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
             switch (inAxis)
             {
@@ -2247,7 +2247,7 @@ namespace nc
                         ++col;
                     }
 
-                    return NdArray<dtype>(diagnolValues);
+                    return NdArray<dtype, Alloc>(diagnolValues);
                 }
                 case Axis::COL:
                 {
@@ -2269,11 +2269,11 @@ namespace nc
                         ++col;
                     }
 
-                    return NdArray<dtype>(diagnolValues);
+                    return NdArray<dtype, Alloc>(diagnolValues);
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2292,20 +2292,20 @@ namespace nc
         /// @return
         ///				dot product
         ///
-        NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
+        NdArray<dtype, Alloc> dot(const NdArray<dtype, Alloc>& inOtherArray) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
                 dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
-                NdArray<dtype> returnArray = { dotProduct };
+                NdArray<dtype, Alloc> returnArray = { dotProduct };
                 return returnArray;
             }
             else if (shape_.cols == inOtherArray.shape_.rows)
             {
                 // 2D array, use matrix multiplication
-                NdArray<dtype> returnArray(shape_.rows, inOtherArray.shape_.cols);
+                NdArray<dtype, Alloc> returnArray(shape_.rows, inOtherArray.shape_.cols);
                 auto otherArrayT = inOtherArray.transpose();
 
                 for (uint32 i = 0; i < shape_.rows; ++i)
@@ -2326,7 +2326,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
 
-            return NdArray<dtype>(); // get rid of compiler warning
+            return NdArray<dtype, Alloc>(); // get rid of compiler warning
         }
 
         //============================================================================
@@ -2384,7 +2384,7 @@ namespace nc
         /// @return
         ///				None
         ///
-        NdArray<dtype>& fill(value_type inFillValue) noexcept
+        NdArray<dtype, Alloc>& fill(value_type inFillValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inFillValue);
             return *this;
@@ -2398,7 +2398,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> flatnonzero() const noexcept
+        NdArray<uint32, Alloc> flatnonzero() const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2413,7 +2413,7 @@ namespace nc
                 ++idx;
             }
 
-            return NdArray<uint32>(indices);
+            return NdArray<uint32, Alloc>(indices);
         }
 
         //============================================================================
@@ -2425,9 +2425,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> flatten() const noexcept
+        NdArray<dtype, Alloc> flatten() const noexcept
         {
-            NdArray<dtype> outArray(1, size_);
+            NdArray<dtype, Alloc> outArray(1, size_);
             stl_algorithms::copy(cbegin(), cend(), outArray.begin());
             return outArray;
         }
@@ -2489,7 +2489,7 @@ namespace nc
         /// @return
         ///				values
         ///
-        NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
+        NdArray<dtype, Alloc> getByIndices(const NdArray<uint32, Alloc>& inIndices) const
         {
             return operator[](inIndices);
         }
@@ -2505,7 +2505,7 @@ namespace nc
         /// @return
         ///				values
         ///
-        NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
+        NdArray<dtype, Alloc> getByMask(const NdArray<bool, Alloc>& inMask) const
         {
             return operator[](inMask);
         }
@@ -2543,7 +2543,7 @@ namespace nc
         /// @param inAxis
         /// @return boolean
         ///
-        NdArray<bool> issorted(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool, Alloc> issorted(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2560,7 +2560,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<bool> returnArray(shape_.cols, 1);
+                    NdArray<bool, Alloc> returnArray(shape_.cols, 1);
                     auto transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
@@ -2572,7 +2572,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<bool> returnArray(1, shape_.rows);
+                    NdArray<bool, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::is_sorted(cbegin(row), cend(row), comparitor);
@@ -2582,7 +2582,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    return NdArray<bool, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2628,7 +2628,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> max(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> max(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2641,12 +2641,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::max_element(cbegin(), cend(), comparitor) };
+                    NdArray<dtype, Alloc> returnArray = { *stl_algorithms::max_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::max_element(cbegin(row), cend(row), comparitor);
@@ -2656,8 +2656,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype, Alloc> transposedArray = transpose();
+                    NdArray<dtype, Alloc> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::max_element(transposedArray.cbegin(row), 
@@ -2668,7 +2668,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2684,7 +2684,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> min(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> min(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2697,12 +2697,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::min_element(cbegin(), cend(), comparitor) };
+                    NdArray<dtype, Alloc> returnArray = { *stl_algorithms::min_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::min_element(cbegin(row), cend(row), comparitor);
@@ -2712,8 +2712,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype, Alloc> transposedArray = transpose();
+                    NdArray<dtype, Alloc> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::min_element(transposedArray.cbegin(row), 
@@ -2724,7 +2724,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2742,7 +2742,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> median(Axis inAxis = Axis::NONE) const
+        NdArray<dtype, Alloc> median(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2760,7 +2760,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> copyArray(*this);
+                    NdArray<dtype, Alloc> copyArray(*this);
 
                     const uint32 middleIdx = size_ / 2;  // integer division
                     stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middleIdx, copyArray.end(), comparitor);
@@ -2777,8 +2777,8 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> copyArray(*this);
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> copyArray(*this);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
 
                     const bool isEven = shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
@@ -2803,8 +2803,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype, Alloc> transposedArray = transpose();
+                    NdArray<dtype, Alloc> returnArray(1, transposedArray.shape_.rows);
 
                     const bool isEven = shape_.rows % 2 == 0;
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
@@ -2829,7 +2829,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -2839,7 +2839,7 @@ namespace nc
         ///						Fills the array with nans.
         ///
         ///
-        NdArray<dtype>& nans() noexcept
+        NdArray<dtype, Alloc>& nans() noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -2875,7 +2875,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> newbyteorder(Endian inEndianess) const noexcept
+        NdArray<dtype, Alloc> newbyteorder(Endian inEndianess) const noexcept
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -2891,7 +2891,7 @@ namespace nc
                         }
                         case Endian::BIG:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
 
@@ -2900,7 +2900,7 @@ namespace nc
                         }
                         case Endian::LITTLE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
 
@@ -2909,7 +2909,7 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            return NdArray<dtype, Alloc>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2920,7 +2920,7 @@ namespace nc
                     {
                         case Endian::NATIVE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
 
@@ -2933,7 +2933,7 @@ namespace nc
                         }
                         case Endian::LITTLE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
@@ -2946,7 +2946,7 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            return NdArray<dtype, Alloc>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2957,7 +2957,7 @@ namespace nc
                     {
                         case Endian::NATIVE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
 
@@ -2966,7 +2966,7 @@ namespace nc
                         }
                         case Endian::BIG:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            NdArray<dtype, Alloc> outArray(shape_);
 
                             const auto function = [](dtype value) noexcept -> dtype
                             {
@@ -2984,14 +2984,14 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            return NdArray<dtype, Alloc>(); // get rid of compiler warning
                         }
                     }
                     break;
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -3007,7 +3007,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> none(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool, Alloc> none(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3020,12 +3020,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { stl_algorithms::none_of(cbegin(), cend(), function) };
+                    NdArray<bool, Alloc> returnArray = { stl_algorithms::none_of(cbegin(), cend(), function) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<bool> returnArray(1, shape_.rows);
+                    NdArray<bool, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::none_of(cbegin(row), cend(row), function);
@@ -3035,8 +3035,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+                    NdArray<dtype, Alloc> arrayTransposed = transpose();
+                    NdArray<bool, Alloc> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = stl_algorithms::none_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
@@ -3046,7 +3046,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    return NdArray<bool, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -3062,7 +3062,7 @@ namespace nc
         ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
         ///             column indices
         ///
-        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const noexcept;
+        std::pair<NdArray<uint32, Alloc>, NdArray<uint32>, Alloc> nonzero() const noexcept;
 
         //============================================================================
         // Method Description:
@@ -3095,7 +3095,7 @@ namespace nc
         ///						Fills the array with ones
         ///
         ///
-        NdArray<dtype>& ones() noexcept
+        NdArray<dtype, Alloc>& ones() noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3130,7 +3130,7 @@ namespace nc
         /// @return
         ///				None
         ///
-        NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
+        NdArray<dtype, Alloc>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3177,7 +3177,7 @@ namespace nc
                         THROW_INVALID_ARGUMENT_ERROR(errStr);
                     }
 
-                    NdArray<dtype> transposedArray = transpose();
+                    NdArray<dtype, Alloc> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth,
@@ -3214,7 +3214,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> prod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> prod(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3224,12 +3224,12 @@ namespace nc
                 {
                     dtype product = std::accumulate(cbegin(), cend(),
                         dtype{ 1 }, std::multiplies<dtype>());
-                    NdArray<dtype> returnArray = { product };
+                    NdArray<dtype, Alloc> returnArray = { product };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(cbegin(row), cend(row),
@@ -3240,8 +3240,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype, Alloc> transposedArray = transpose();
+                    NdArray<dtype, Alloc> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row),
@@ -3252,7 +3252,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -3268,7 +3268,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> ptp(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3282,12 +3282,12 @@ namespace nc
                 case Axis::NONE:
                 {
                     const auto result = stl_algorithms::minmax_element(cbegin(), cend(), comparitor);
-                    NdArray<dtype> returnArray = { *result.second - *result.first };
+                    NdArray<dtype, Alloc> returnArray = { *result.second - *result.first };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         const auto result = stl_algorithms::minmax_element(cbegin(row), cend(row), comparitor);
@@ -3298,8 +3298,8 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype, Alloc> transposedArray = transpose();
+                    NdArray<dtype, Alloc> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         const auto result = stl_algorithms::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row), comparitor);
@@ -3310,7 +3310,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -3324,7 +3324,7 @@ namespace nc
         /// @param				inIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inIndex, value_type inValue)
+        NdArray<dtype, Alloc>& put(int32 inIndex, value_type inValue)
         {
             at(inIndex) = inValue;
 
@@ -3341,7 +3341,7 @@ namespace nc
         /// @param				inCol
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRow, int32 inCol, value_type inValue)
+        NdArray<dtype, Alloc>& put(int32 inRow, int32 inCol, value_type inValue)
         {
             at(inRow, inCol) = inValue;
 
@@ -3357,7 +3357,7 @@ namespace nc
         /// @param				inIndices
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const NdArray<uint32>& inIndices, value_type inValue)
+        NdArray<dtype, Alloc>& put(const NdArray<uint32, Alloc>& inIndices, value_type inValue)
         {
             for (auto index : inIndices)
             {
@@ -3376,7 +3376,7 @@ namespace nc
         /// @param				inIndices
         /// @param				inValues
         ///
-        NdArray<dtype>& put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& put(const NdArray<uint32, Alloc>& inIndices, const NdArray<dtype, Alloc>& inValues)
         {
             if (inIndices.size() != inValues.size())
             {
@@ -3401,7 +3401,7 @@ namespace nc
         /// @param				inSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inSlice, value_type inValue)
+        NdArray<dtype, Alloc>& put(const Slice& inSlice, value_type inValue)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -3423,7 +3423,7 @@ namespace nc
         /// @param				inSlice
         /// @param  			inValues
         ///
-        NdArray<dtype>& put(const Slice& inSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& put(const Slice& inSlice, const NdArray<dtype, Alloc>& inValues)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -3434,7 +3434,7 @@ namespace nc
                 indices.push_back(i);
             }
 
-            return put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32, Alloc>(indices), inValues);
         }
 
         //============================================================================
@@ -3447,7 +3447,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
+        NdArray<dtype, Alloc>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -3477,7 +3477,7 @@ namespace nc
         /// @param				inColIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, value_type inValue)
+        NdArray<dtype, Alloc>& put(const Slice& inRowSlice, int32 inColIndex, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -3501,7 +3501,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, value_type inValue)
+        NdArray<dtype, Alloc>& put(int32 inRowIndex, const Slice& inColSlice, value_type inValue)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -3525,7 +3525,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValues
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype, Alloc>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -3543,7 +3543,7 @@ namespace nc
                 }
             }
 
-            return put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32, Alloc>(indices), inValues);
         }
 
         //============================================================================
@@ -3556,7 +3556,7 @@ namespace nc
         /// @param				inColIndex
         /// @param				inValues
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype, Alloc>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -3568,7 +3568,7 @@ namespace nc
                 indices.push_back(index);
             }
 
-            return put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32, Alloc>(indices), inValues);
         }
 
         //============================================================================
@@ -3581,7 +3581,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValues
         ///
-        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype, Alloc>& inValues)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -3593,7 +3593,7 @@ namespace nc
                 indices.push_back(index);
             }
 
-            return put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32, Alloc>(indices), inValues);
         }
 
         //============================================================================
@@ -3603,7 +3603,7 @@ namespace nc
         /// @param				inMask
         /// @param				inValue
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, value_type inValue)
+        NdArray<dtype, Alloc>& putMask(const NdArray<bool, Alloc>& inMask, value_type inValue)
         {
             if (inMask.shape() != shape_)
             {
@@ -3620,7 +3620,7 @@ namespace nc
         /// @param				inMask
         /// @param				inValues
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        NdArray<dtype, Alloc>& putMask(const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inValues)
         {
             if (inMask.shape() != shape_)
             {
@@ -3638,7 +3638,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& ravel()
+        NdArray<dtype, Alloc>& ravel()
         {
             reshape(size_);
             return *this;
@@ -3655,9 +3655,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const noexcept
+        NdArray<dtype, Alloc> repeat(uint32 inNumRows, uint32 inNumCols) const noexcept
         {
-            NdArray<dtype> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
+            NdArray<dtype, Alloc> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
 
             for (uint32 row = 0; row < inNumRows; ++row)
             {
@@ -3680,7 +3680,7 @@ namespace nc
                         }
                     }
 
-                    returnArray.put(NdArray<uint32>(indices), *this);
+                    returnArray.put(NdArray<uint32, Alloc>(indices), *this);
                 }
             }
 
@@ -3698,7 +3698,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> repeat(const Shape& inRepeatShape) const noexcept
+        NdArray<dtype, Alloc> repeat(const Shape& inRepeatShape) const noexcept
         {
             return repeat(inRepeatShape.rows, inRepeatShape.cols);
         }
@@ -3728,7 +3728,7 @@ namespace nc
         ///
         /// @param      inSize
         ///
-        NdArray<dtype>& reshape(size_type inSize)
+        NdArray<dtype, Alloc>& reshape(size_type inSize)
         {
             if (inSize != size_)
             {
@@ -3755,7 +3755,7 @@ namespace nc
         /// @param      inNumRows
         /// @param      inNumCols
         ///
-        NdArray<dtype>& reshape(int32 inNumRows, int32 inNumCols)
+        NdArray<dtype, Alloc>& reshape(int32 inNumRows, int32 inNumCols)
         {
             if (inNumRows < 0)
             {
@@ -3810,7 +3810,7 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        NdArray<dtype>& reshape(const Shape& inShape)
+        NdArray<dtype, Alloc>& reshape(const Shape& inShape)
         {
             return reshape(inShape.rows, inShape.cols);
         }
@@ -3825,7 +3825,7 @@ namespace nc
         /// @param      inNumRows
         /// @param      inNumCols
         ///
-        NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype, Alloc>& resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             newArray(Shape(inNumRows, inNumCols));
             return *this;
@@ -3841,7 +3841,7 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        NdArray<dtype>& resizeFast(const Shape& inShape) noexcept
+        NdArray<dtype, Alloc>& resizeFast(const Shape& inShape) noexcept
         {
             return resizeFast(inShape.rows, inShape.cols);
         }
@@ -3858,7 +3858,7 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype, Alloc>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             std::vector<dtype> oldData(size_);
             stl_algorithms::copy(begin(), end(), oldData.begin());
@@ -3898,7 +3898,7 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        NdArray<dtype>& resizeSlow(const Shape& inShape) noexcept
+        NdArray<dtype, Alloc>& resizeSlow(const Shape& inShape) noexcept
         {
             return resizeSlow(inShape.rows, inShape.cols);
         }
@@ -3915,11 +3915,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> round(uint8 inNumDecimals = 0) const noexcept
+        NdArray<dtype, Alloc> round(uint8 inNumDecimals = 0) const noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            NdArray<dtype> returnArray(shape_);
+            NdArray<dtype, Alloc> returnArray(shape_);
             const double multFactor = utils::power(10.0, inNumDecimals);
             const auto function = [multFactor](dtype value) noexcept -> dtype
             {
@@ -3939,9 +3939,9 @@ namespace nc
         /// @return
         ///				Shape
         ///
-        NdArray<dtype> row(uint32 inRow)
+        NdArray<dtype, Alloc> row(uint32 inRow)
         {
-            return NdArray<dtype>(cbegin(inRow), cend(inRow));
+            return NdArray<dtype, Alloc>(cbegin(inRow), cend(inRow));
         }
 
         //============================================================================
@@ -3983,7 +3983,7 @@ namespace nc
         /// @return
         ///				size
         ///
-        NdArray<dtype>& sort(Axis inAxis = Axis::NONE) noexcept
+        NdArray<dtype, Alloc>& sort(Axis inAxis = Axis::NONE) noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4009,7 +4009,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
+                    NdArray<dtype, Alloc> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         stl_algorithms::sort(transposedArray.begin(row), transposedArray.end(row), comparitor);
@@ -4068,7 +4068,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> sum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype, Alloc> sum(Axis inAxis = Axis::NONE) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4076,12 +4076,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { std::accumulate(cbegin(), cend(), dtype{ 0 }) };
+                    NdArray<dtype, Alloc> returnArray = { std::accumulate(cbegin(), cend(), dtype{ 0 }) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<dtype, Alloc> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(cbegin(row), cend(row), dtype{ 0 });
@@ -4091,9 +4091,9 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
+                    NdArray<dtype, Alloc> transposedArray = transpose();
                     const Shape transShape = transposedArray.shape();
-                    NdArray<dtype> returnArray(1, transShape.rows);
+                    NdArray<dtype, Alloc> returnArray(1, transShape.rows);
                     for (uint32 row = 0; row < transShape.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), dtype{ 0 });
@@ -4103,7 +4103,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    return NdArray<dtype, Alloc>(); // get rid of compiler warning
                 }
             }
         }
@@ -4117,7 +4117,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> swapaxes() const noexcept
+        NdArray<dtype, Alloc> swapaxes() const noexcept
         {
             return transpose();
         }
@@ -4248,9 +4248,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> transpose() const noexcept
+        NdArray<dtype, Alloc> transpose() const noexcept
         {
-            NdArray<dtype> transArray(shape_.cols, shape_.rows);
+            NdArray<dtype, Alloc> transArray(shape_.cols, shape_.rows);
             for (uint32 row = 0; row < shape_.rows; ++row)
             {
                 for (uint32 col = 0; col < shape_.cols; ++col)
@@ -4266,7 +4266,7 @@ namespace nc
         ///						Fills the array with zeros
         ///
         ///
-        NdArray<dtype>& zeros() noexcept 
+        NdArray<dtype, Alloc>& zeros() noexcept 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
             
@@ -4334,7 +4334,7 @@ namespace nc
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
     template<typename dtype, class _Alloc>
-    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype, _Alloc>::nonzero() const noexcept
+    std::pair<NdArray<uint32, Alloc>, NdArray<uint32>, Alloc> NdArray<dtype, _Alloc>::nonzero() const noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4353,6 +4353,6 @@ namespace nc
             }
         }
 
-        return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
+        return std::make_pair(NdArray<uint32, Alloc>(rowIndices), NdArray<uint32, Alloc>(colIndices));
     }
 }

@@ -68,9 +68,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> power(const NdArray<dtype>& inArray, uint8 inExponent) noexcept
+    NdArray<dtype, Alloc> power(const NdArray<dtype, Alloc>& inArray, uint8 inExponent) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape());
+        NdArray<dtype, Alloc> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> dtype
             {
@@ -92,14 +92,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
+    NdArray<dtype, Alloc> power(const NdArray<dtype, Alloc>& inArray, const NdArray<uint8, Alloc>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<dtype> returnArray(inArray.shape());
+        NdArray<dtype, Alloc> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, uint8 inExponent) noexcept -> dtype
             {

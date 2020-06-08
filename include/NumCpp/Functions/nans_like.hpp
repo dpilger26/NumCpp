@@ -42,9 +42,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nans_like(const NdArray<dtype>& inArray) noexcept
+    NdArray<double, Alloc> nans_like(const NdArray<dtype, Alloc>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<double, Alloc> returnArray(inArray.shape());
         returnArray.nans();
         return returnArray;
     }

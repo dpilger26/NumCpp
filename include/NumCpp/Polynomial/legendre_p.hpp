@@ -91,12 +91,12 @@ namespace nc
         /// @param      n: the order of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double, Alloc> legendre_p(int32 n, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<double, Alloc> returnArray(inArrayX.shape());
 
             const auto function = [n](dtype x) -> double
             {
@@ -116,12 +116,12 @@ namespace nc
         /// @param      m: the degree of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, int32 m, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double, Alloc> legendre_p(int32 n, int32 m, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<double, Alloc> returnArray(inArrayX.shape());
 
             const auto function = [n, m](dtype x) -> double
             {

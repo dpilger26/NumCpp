@@ -67,9 +67,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto airy_ai(const NdArray<dtype>& inArray)
+        auto airy_ai(const NdArray<dtype, Alloc>& inArray)
         {
-            NdArray<decltype(airy_ai(dtype{ 0 })) > returnArray(inArray.shape());
+            NdArray<decltype(airy_ai(dtype{ 0 })) , Alloc> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

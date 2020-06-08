@@ -40,6 +40,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <memory>
 #include <string>
 
 namespace nc
@@ -121,7 +122,8 @@ namespace nc
             ///
             /// @param				inCartesianVector
             ///
-            Coordinate(const NdArray<double> inCartesianVector)
+            template<class Alloc = std::allocator<double>>
+            Coordinate(const NdArray<double, Alloc> inCartesianVector)
             {
                 if (inCartesianVector.size() != 3)
                 {
@@ -190,9 +192,10 @@ namespace nc
             ///
             /// @return     NdArray
             ///
-            NdArray<double> xyz() const noexcept
+            template<class Alloc = std::allocator<double>>
+            NdArray<double, Alloc> xyz() const noexcept
             {
-                NdArray<double> out = { x_, y_, z_ };
+                NdArray<double, Alloc> out = { x_, y_, z_ };
                 return out;
             }
 
@@ -216,7 +219,8 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degreeSeperation(const NdArray<double>& inVector) const
+            template<class Alloc = std::allocator<double>>
+            double degreeSeperation(const NdArray<double, Alloc>& inVector) const
             {
                 return rad2deg(radianSeperation(inVector));
             }
@@ -228,9 +232,10 @@ namespace nc
             ///
             /// @return     radians
             ///
+            template<class Alloc = std::allocator<double>>
             double radianSeperation(const Coordinate& inOtherCoordinate) const noexcept
             {
-                return std::acos(dot(xyz(), inOtherCoordinate.xyz()).item());
+                return std::acos(dot(xyz<Alloc>(), inOtherCoordinate.xyz<Alloc>()).item());
             }
 
             //============================================================================
@@ -241,7 +246,8 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radianSeperation(const NdArray<double>& inVector) const
+            template<class Alloc = std::allocator<double>>
+            double radianSeperation(const NdArray<double, Alloc>& inVector) const
             {
                 if (inVector.size() != 3)
                 {

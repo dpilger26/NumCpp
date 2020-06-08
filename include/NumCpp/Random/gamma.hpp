@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
+        NdArray<dtype, Alloc> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input scale should be greater than zero.");
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
 

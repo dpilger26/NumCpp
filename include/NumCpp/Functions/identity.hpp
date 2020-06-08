@@ -47,9 +47,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> identity(uint32 inSquareSize) noexcept
+    NdArray<dtype, Alloc> identity(uint32 inSquareSize) noexcept
     {
-        NdArray<dtype> returnArray(inSquareSize);
+        NdArray<dtype, Alloc> returnArray(inSquareSize);
         returnArray.zeros();
         for (uint32 i = 0; i < inSquareSize; ++i)
         {

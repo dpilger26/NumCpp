@@ -67,12 +67,12 @@ namespace nc
         /// @param      n: the order of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> legendre_q(int32 n, const NdArray<dtype>& inArrayX)
+        NdArray<double, Alloc> legendre_q(int32 n, const NdArray<dtype, Alloc>& inArrayX)
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<double, Alloc> returnArray(inArrayX.shape());
 
             const auto function = [n](dtype x) -> double
             {

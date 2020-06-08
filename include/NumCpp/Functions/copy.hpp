@@ -44,8 +44,8 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> copy(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype, Alloc> copy(const NdArray<dtype, Alloc>& inArray) noexcept
     {
-        return NdArray<dtype>(inArray);
+        return NdArray<dtype, Alloc>(inArray);
     }
 }

@@ -33,6 +33,8 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -49,14 +51,15 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype>
-            NdArray<dtype> constant1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
+            template<typename dtype, class Alloc = std::allocator<dtype>>
+            NdArray<dtype, Alloc> constant1d(const NdArray<dtype, Alloc>& inImage,
+                uint32 inBoundarySize, dtype inConstantValue)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
                 const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
-                NdArray<dtype> outArray(1, outSize);
+                NdArray<dtype, Alloc> outArray(1, outSize);
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
                 // left

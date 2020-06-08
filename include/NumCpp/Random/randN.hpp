@@ -70,11 +70,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randN(const Shape& inShape) noexcept
+        NdArray<dtype, Alloc> randN(const Shape& inShape) noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             boost::random::normal_distribution<dtype> dist;
 

@@ -54,7 +54,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
+    NdArray<double, Alloc> gradient(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::ROW)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -69,7 +69,7 @@ namespace nc
                 }
 
                 // first do the first and last rows
-                auto returnArray = NdArray<double>(inShape);
+                auto returnArray = NdArray<double, Alloc>(inShape);
                 for (uint32 col = 0; col < inShape.cols; ++col)
                 {
                     returnArray(0, col) = static_cast<double>(inArray(1, col)) - static_cast<double>(inArray(0, col));
@@ -96,7 +96,7 @@ namespace nc
                 }
 
                 // first do the first and last columns
-                auto returnArray = NdArray<double>(inShape);
+                auto returnArray = NdArray<double, Alloc>(inShape);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     returnArray(row, 0) = static_cast<double>(inArray(row, 1)) - static_cast<double>(inArray(row, 0));
@@ -122,7 +122,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array must have more than 1 element.");
                 }
 
-                auto returnArray = NdArray<double>(1, inArray.size());
+                auto returnArray = NdArray<double, Alloc>(1, inArray.size());
                 returnArray[0] = static_cast<double>(inArray[1]) - static_cast<double>(inArray[0]);
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
@@ -150,7 +150,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> gradient(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::ROW)
+    NdArray<std::complex<double>, Alloc> gradient(const NdArray<std::complex<dtype>, Alloc>& inArray, Axis inAxis = Axis::ROW)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

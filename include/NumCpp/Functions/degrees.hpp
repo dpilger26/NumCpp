@@ -62,7 +62,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto degrees(const NdArray<dtype>& inArray) noexcept
+    auto degrees(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return rad2deg(inArray);
     }

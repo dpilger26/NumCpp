@@ -57,7 +57,7 @@ namespace nc
         inline double romberg(const double low, const double high, const uint8 n,
             const std::function<double(double)>& f)
         {
-            NdArray<double> rombergIntegral(n);
+            NdArray<double, Alloc> rombergIntegral(n);
 
             //R(0,0) Start with trapezoidal integration with N = 1
             rombergIntegral(0, 0) = trapazoidal(low, high, 1, f);

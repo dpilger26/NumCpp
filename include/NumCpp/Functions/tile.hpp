@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
+    NdArray<dtype, Alloc> tile(const NdArray<dtype, Alloc>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
     {
         return inArray.repeat(inNumRows, inNumCols);
     }
@@ -63,7 +63,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps) noexcept
+    NdArray<dtype, Alloc> tile(const NdArray<dtype, Alloc>& inArray, const Shape& inReps) noexcept
     {
         return inArray.repeat(inReps);
     }

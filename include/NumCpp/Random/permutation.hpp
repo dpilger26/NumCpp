@@ -50,11 +50,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(dtype inValue) noexcept
+        NdArray<dtype, Alloc> permutation(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            NdArray<dtype> returnArray = arange(inValue);
+            NdArray<dtype, Alloc> returnArray = arange(inValue);
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }
@@ -71,11 +71,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(const NdArray<dtype>& inArray) noexcept
+        NdArray<dtype, Alloc> permutation(const NdArray<dtype, Alloc>& inArray) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            NdArray<dtype> returnArray(inArray);
+            NdArray<dtype, Alloc> returnArray(inArray);
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }

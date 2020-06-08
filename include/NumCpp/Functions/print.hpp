@@ -45,7 +45,7 @@ namespace nc
     ///				None
     ///
     template<typename dtype>
-    void print(const NdArray<dtype>& inArray) noexcept
+    void print(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

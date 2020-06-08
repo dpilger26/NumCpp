@@ -50,11 +50,11 @@ namespace nc
         ///				3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept
+        NdArray<dtype, Alloc> hat(dtype inX, dtype inY, dtype inZ) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            NdArray<dtype> returnArray(3);
+            NdArray<dtype, Alloc> returnArray(3);
             returnArray(0, 0) = 0.0;
             returnArray(0, 1) = -inZ;
             returnArray(0, 2) = inY;
@@ -78,7 +78,7 @@ namespace nc
         ///				3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(const NdArray<dtype>& inVec)
+        NdArray<dtype, Alloc> hat(const NdArray<dtype, Alloc>& inVec)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -99,7 +99,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        inline NdArray<double> hat(const Vec3& inVec) noexcept
+        inline NdArray<double, Alloc> hat(const Vec3& inVec) noexcept
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }

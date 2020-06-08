@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> replace(const NdArray<dtype>& inArray, dtype oldValue, dtype newValue) noexcept
+    NdArray<dtype, Alloc> replace(const NdArray<dtype, Alloc>& inArray, dtype oldValue, dtype newValue) noexcept
     {
         auto returnArray = inArray.copy();
         returnArray.replace(oldValue, newValue);

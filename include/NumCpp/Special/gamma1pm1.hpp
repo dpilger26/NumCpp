@@ -65,9 +65,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto gamma1pm1(const NdArray<dtype>& inArray)
+        auto gamma1pm1(const NdArray<dtype, Alloc>& inArray)
         {
-            NdArray<decltype(gamma1pm1(dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(gamma1pm1(dtype{0})), Alloc> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
+    NdArray<dtype, Alloc> pad(const NdArray<dtype, Alloc>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -57,7 +57,7 @@ namespace nc
         outShape.rows += 2 * inPadWidth;
         outShape.cols += 2 * inPadWidth;
 
-        NdArray<dtype> returnArray(outShape);
+        NdArray<dtype, Alloc> returnArray(outShape);
         returnArray.fill(inPadValue);
         returnArray.put(Slice(inPadWidth, inPadWidth + inShape.rows), Slice(inPadWidth, inPadWidth + inShape.cols), inArray);
 

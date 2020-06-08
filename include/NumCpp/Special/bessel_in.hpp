@@ -68,9 +68,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype1, typename dtype2>
-        auto bessel_in(dtype1 inV, const NdArray<dtype2>& inArrayX)
+        auto bessel_in(dtype1 inV, const NdArray<dtype2, Alloc>& inArrayX)
         {
-            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
+            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 })), Alloc> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype2 inX) -> auto

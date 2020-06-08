@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double, Alloc> mean(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -60,13 +60,13 @@ namespace nc
             case Axis::NONE:
             {
                 auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), 0.0);
-                NdArray<double> returnArray = { sum /= static_cast<double>(inArray.size()) };
+                NdArray<double, Alloc> returnArray = { sum /= static_cast<double>(inArray.size()) };
 
                 return returnArray;
             }
             case Axis::COL:
             {
-                NdArray<double> returnArray(1, inArray.numRows());
+                NdArray<double, Alloc> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0);
@@ -77,8 +77,8 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
-                NdArray<double> returnArray(1, transposedArray.numRows());
+                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
+                NdArray<double, Alloc> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
@@ -89,7 +89,7 @@ namespace nc
             }
             default:
             {
-                return NdArray<double>(); // get rid of compiler warning
+                return NdArray<double, Alloc>(); // get rid of compiler warning
             }
         }
     }
@@ -107,7 +107,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> mean(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>, Alloc> mean(const NdArray<std::complex<dtype>, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -116,13 +116,13 @@ namespace nc
             case Axis::NONE:
             {
                 auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), std::complex<double>(0.0));
-                NdArray<std::complex<double>> returnArray = { sum /= std::complex<double>(inArray.size()) };
+                NdArray<std::complex<double>, Alloc> returnArray = { sum /= std::complex<double>(inArray.size()) };
 
                 return returnArray;
             }
             case Axis::COL:
             {
-                NdArray<std::complex<double>> returnArray(1, inArray.numRows());
+                NdArray<std::complex<double>, Alloc> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), std::complex<double>(0.0));
@@ -133,8 +133,8 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<double>> transposedArray = inArray.transpose();
-                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
+                NdArray<std::complex<double>, Alloc> transposedArray = inArray.transpose();
+                NdArray<std::complex<double>, Alloc> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     auto sum = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 

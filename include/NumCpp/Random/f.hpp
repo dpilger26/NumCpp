@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
+        NdArray<dtype, Alloc> f(const Shape& inShape, dtype inDofN, dtype inDofD)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("denominator degrees of freedom should be greater than zero.");
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
 

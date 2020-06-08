@@ -36,6 +36,7 @@
 #include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -56,8 +57,8 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        NdArray<dtype, Alloc> rankFilter(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize, uint32 inRank,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inRank < 0 || inRank >= utils::sqr(inSize))
@@ -65,8 +66,8 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("rank not within filter footprint size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype, Alloc> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype, Alloc> output(inImageArray.shape());
 
             const Shape inShape = inImageArray.shape();
             const uint32 boundarySize = inSize / 2; // integer division
@@ -77,7 +78,7 @@ namespace nc
             {
                 for (uint32 col = boundarySize; col < endPointCol; ++col)
                 {
-                    NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                    NdArray<dtype, Alloc> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
                     output(row - boundarySize, col - boundarySize) = sort(window)[inRank];

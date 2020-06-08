@@ -80,12 +80,12 @@ namespace nc
         /// @param      n: the order of the leguerre polynomial
         /// @param      inArrayX: the input value
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> laguerre(uint32 n, const NdArray<dtype>& inArrayX)
+        NdArray<double, Alloc> laguerre(uint32 n, const NdArray<dtype, Alloc>& inArrayX)
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<double, Alloc> returnArray(inArrayX.shape());
 
             const auto function = [n](dtype x) -> double
             {
@@ -105,12 +105,12 @@ namespace nc
         /// @param      m: the degree of the legendre polynomial
         /// @param      inArrayX: the input value
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> laguerre(uint32 n, uint32 m, const NdArray<dtype>& inArrayX)
+        NdArray<double, Alloc> laguerre(uint32 n, uint32 m, const NdArray<dtype, Alloc>& inArrayX)
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<double, Alloc> returnArray(inArrayX.shape());
 
             const auto function = [n, m](dtype x) -> double
             {

@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)
+        NdArray<dtype, Alloc> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             const boost::random::weibull_distribution<dtype> dist(inA, inB);
 

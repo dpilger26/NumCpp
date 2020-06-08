@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype, Alloc> diff(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -63,10 +63,10 @@ namespace nc
             {
                 if (inArray.size() < 2)
                 {
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype, Alloc>(0);
                 }
 
-                NdArray<dtype> returnArray(1, inArray.size() - 1);
+                NdArray<dtype, Alloc> returnArray(1, inArray.size() - 1);
                 stl_algorithms::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
                     [](dtype inValue1, dtype inValue2) noexcept -> dtype
                     {
@@ -79,10 +79,10 @@ namespace nc
             {
                 if (inShape.cols < 2)
                 {
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype, Alloc>(0);
                 }
 
-                NdArray<dtype> returnArray(inShape.rows, inShape.cols - 1);
+                NdArray<dtype, Alloc> returnArray(inShape.rows, inShape.cols - 1);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
@@ -98,12 +98,12 @@ namespace nc
             {
                 if (inShape.rows < 2)
                 {
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype, Alloc>(0);
                 }
 
-                NdArray<dtype> transArray = inArray.transpose();
+                NdArray<dtype, Alloc> transArray = inArray.transpose();
                 const Shape transShape = transArray.shape();
-                NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
+                NdArray<dtype, Alloc> returnArray(transShape.rows, transShape.cols - 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     stl_algorithms::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
@@ -119,7 +119,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

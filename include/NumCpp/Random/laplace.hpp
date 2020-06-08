@@ -74,11 +74,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
+        NdArray<dtype, Alloc> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
 

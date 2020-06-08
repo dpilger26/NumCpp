@@ -91,7 +91,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
+        NdArray<dtype, Alloc> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -104,7 +104,7 @@ namespace nc
                 std::swap(inLow, inHigh);
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             const boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
 

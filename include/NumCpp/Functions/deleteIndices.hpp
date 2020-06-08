@@ -50,10 +50,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
+    NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, const NdArray<uint32, Alloc>& inArrayIdxs, Axis inAxis = Axis::NONE)
     {
         // make sure that the indices are unique first
-        NdArray<uint32> indices = unique(inArrayIdxs);
+        NdArray<uint32, Alloc> indices = unique(inArrayIdxs);
 
         switch (inAxis)
         {
@@ -70,7 +70,7 @@ namespace nc
                     values.push_back(inArray[i]);
                 }
 
-                return NdArray<dtype>(values);
+                return NdArray<dtype, Alloc>(values);
             }
             case Axis::ROW:
             {
@@ -81,7 +81,7 @@ namespace nc
                 }
 
                 const uint32 numNewRows = inShape.rows - indices.size();
-                NdArray<dtype> returnArray(numNewRows, inShape.cols);
+                NdArray<dtype, Alloc> returnArray(numNewRows, inShape.cols);
 
                 uint32 rowCounter = 0;
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -109,7 +109,7 @@ namespace nc
                 }
 
                 const uint32 numNewCols = inShape.cols - indices.size();
-                NdArray<dtype> returnArray(inShape.rows, numNewCols);
+                NdArray<dtype, Alloc> returnArray(inShape.rows, numNewCols);
 
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -133,7 +133,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }
@@ -149,7 +149,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
+    NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
     {
         Slice sliceCopy(inIndicesSlice);
 
@@ -178,7 +178,7 @@ namespace nc
             indices.push_back(i);
         }
 
-        return deleteIndices(inArray, NdArray<uint32>(indices), inAxis);
+        return deleteIndices(inArray, NdArray<uint32, Alloc>(indices), inAxis);
     }
 
     //============================================================================
@@ -192,9 +192,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
+    NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
     {
-        NdArray<uint32> inIndices = { inIndex };
+        NdArray<uint32, Alloc> inIndices = { inIndex };
         return deleteIndices(inArray, inIndices, inAxis);
     }
 }

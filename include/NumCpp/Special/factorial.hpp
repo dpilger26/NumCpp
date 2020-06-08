@@ -68,11 +68,11 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray<double, Alloc>
         ///
-        inline NdArray<double> factorial(const NdArray<uint32>& inArray)
+        inline NdArray<double, Alloc> factorial(const NdArray<uint32, Alloc>& inArray)
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<double, Alloc> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> double

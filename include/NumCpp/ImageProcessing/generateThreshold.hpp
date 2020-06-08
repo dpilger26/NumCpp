@@ -37,6 +37,7 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
+#include <memory>
 #include <string>
 
 namespace nc
@@ -54,8 +55,8 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        template<typename dtype>
-        dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        dtype generateThreshold(const NdArray<dtype, Alloc>& inImageArray, double inRate)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -86,7 +87,7 @@ namespace nc
 
             const uint32 histSize = static_cast<uint32>(maxValue - minValue + 1);
 
-            NdArray<double> histogram(1, histSize);
+            NdArray<double, Alloc> histogram(1, histSize);
             histogram.zeros();
             for (auto intensity : inImageArray)
             {
@@ -96,7 +97,7 @@ namespace nc
 
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
             const double dNumPixels = static_cast<double>(inImageArray.size());
-            NdArray<double> survivalFunction(1, histSize + 1);
+            NdArray<double, Alloc> survivalFunction(1, histSize + 1);
             survivalFunction[-1] = 0.0;
             for (int32 i = histSize - 1; i > -1; --i)
             {

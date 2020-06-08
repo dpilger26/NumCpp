@@ -54,11 +54,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        NdArray<dtype, Alloc> multi_dot(const std::initializer_list<NdArray<dtype, Alloc> >& inList)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
+            typename std::initializer_list<NdArray<dtype, Alloc> >::iterator iter = inList.begin();
 
             if (inList.size() == 0)
             {
@@ -69,7 +69,7 @@ namespace nc
                 return iter->copy();
             }
 
-            NdArray<dtype> returnArray = dot<dtype>(*iter, *(iter + 1));
+            NdArray<dtype, Alloc> returnArray = dot<dtype>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {

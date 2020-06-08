@@ -46,7 +46,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype choice(const NdArray<dtype>& inArray)
+        dtype choice(const NdArray<dtype, Alloc>& inArray)
         {
             uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
             return inArray[randIdx];
@@ -63,9 +63,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum)
+        NdArray<dtype, Alloc> choice(const NdArray<dtype, Alloc>& inArray, uint32 inNum)
         {
-            NdArray<dtype> outArray(1, inNum);
+            NdArray<dtype, Alloc> outArray(1, inNum);
             for (uint32 i = 0; i < inNum; ++i)
             {
                 uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();

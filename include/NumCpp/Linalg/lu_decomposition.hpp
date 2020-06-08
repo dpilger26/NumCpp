@@ -55,7 +55,7 @@ namespace nc
         /// @return             std::pair<NdArray, NdArray> of the decomposed L and U matrices
         ///
         template<typename dtype>
-        std::pair<NdArray<double>, NdArray<double> > lu_decomposition(const NdArray<dtype>& inMatrix)
+        std::pair<NdArray<double, Alloc>, NdArray<double, Alloc> > lu_decomposition(const NdArray<dtype, Alloc>& inMatrix)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -65,8 +65,8 @@ namespace nc
                 THROW_RUNTIME_ERROR("Input matrix should be square.");
             }
 
-            NdArray<double> lMatrix = zeros_like<double>(inMatrix);
-            NdArray<double> uMatrix = inMatrix.template astype<double>();
+            NdArray<double, Alloc> lMatrix = zeros_like<double>(inMatrix);
+            NdArray<double, Alloc> uMatrix = inMatrix.template astype<double>();
 
             for(uint32 col = 0; col < shape.cols; ++col)
             {

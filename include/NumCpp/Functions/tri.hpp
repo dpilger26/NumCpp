@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) noexcept
+    NdArray<dtype, Alloc> tril(uint32 inN, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -64,7 +64,7 @@ namespace nc
             rowStart = inOffset * -1;
         }
 
-        NdArray<dtype> returnArray(inN);
+        NdArray<dtype, Alloc> returnArray(inN);
         returnArray.zeros();
         for (uint32 row = rowStart; row < inN; ++row)
         {
@@ -97,7 +97,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
+    NdArray<dtype, Alloc> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -112,7 +112,7 @@ namespace nc
             rowStart = inOffset * -1;
         }
 
-        NdArray<dtype> returnArray(inN, inM);
+        NdArray<dtype, Alloc> returnArray(inN, inM);
         returnArray.zeros();
         for (uint32 row = rowStart; row < inN; ++row)
         {
@@ -132,7 +132,7 @@ namespace nc
 
     // forward declare
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept;
+    NdArray<dtype, Alloc> triu(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept;
 
     //============================================================================
     // Method Description:
@@ -152,7 +152,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
+    NdArray<dtype, Alloc> tril(const NdArray<dtype, Alloc>& inArray, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -177,7 +177,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
+    NdArray<dtype, Alloc> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -195,7 +195,7 @@ namespace nc
             rowStart = inOffset * -1;
         }
 
-        NdArray<dtype> returnArray(inN, inM);
+        NdArray<dtype, Alloc> returnArray(inN, inM);
         returnArray.ones();
         for (uint32 row = rowStart; row < inN; ++row)
         {
@@ -227,7 +227,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) noexcept
+    NdArray<dtype, Alloc> triu(uint32 inN, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -252,7 +252,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
+    NdArray<dtype, Alloc> triu(const NdArray<dtype, Alloc>& inArray, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

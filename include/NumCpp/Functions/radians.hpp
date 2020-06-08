@@ -62,7 +62,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto radians(const NdArray<dtype>& inArray) noexcept
+    auto radians(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return deg2rad(inArray);
     }

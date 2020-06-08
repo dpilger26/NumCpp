@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(uint32 inSquareSize) noexcept
+    inline NdArray<double, Alloc> nans(uint32 inSquareSize) noexcept
     {
         return full(inSquareSize, constants::nan);
     }
@@ -60,7 +60,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) noexcept
+    inline NdArray<double, Alloc> nans(uint32 inNumRows, uint32 inNumCols) noexcept
     {
         return full(inNumRows, inNumCols, constants::nan);
     }
@@ -75,7 +75,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(const Shape& inShape) noexcept
+    inline NdArray<double, Alloc> nans(const Shape& inShape) noexcept
     {
         return full(inShape, constants::nan);
     }

@@ -39,6 +39,7 @@
 #include "NumCpp/ImageProcessing/windowExceedances.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -58,8 +59,9 @@ namespace nc
         /// @return
         ///				std::vector<Centroid>
         ///
-        template<typename dtype>
-        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        std::vector<Centroid<dtype, Alloc>, Alloc> generateCentroids(const NdArray<dtype, Alloc>& inImageArray,
+            double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -82,7 +84,7 @@ namespace nc
             dtype threshold = generateThreshold(inImageArray, inRate);
 
             // apply the threshold to get xcds
-            NdArray<bool> xcds = applyThreshold(inImageArray, threshold);
+            NdArray<bool, Alloc> xcds = applyThreshold(inImageArray, threshold);
 
             // window around the xcds
             if (borderWidthPre > 0)
@@ -91,7 +93,7 @@ namespace nc
             }
 
             // cluster the exceedances
-            std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
+            std::vector<Cluster<dtype, Alloc>, Alloc> clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
 
             // centroid the clusters
             return centroidClusters(clusters);

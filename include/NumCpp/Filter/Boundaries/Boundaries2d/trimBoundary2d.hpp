@@ -34,6 +34,8 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -49,8 +51,8 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype>
-            NdArray<dtype> trimBoundary2d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
+            template<typename dtype, class Alloc = std::allocator<dtype>>
+            NdArray<dtype, Alloc> trimBoundary2d(const NdArray<dtype, Alloc>& inImageWithBoundary, uint32 inSize)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 

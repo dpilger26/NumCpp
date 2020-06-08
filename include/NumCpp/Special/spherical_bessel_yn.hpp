@@ -65,9 +65,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX) noexcept
+        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
-            NdArray<decltype(arccos(dtype{0}))> returnArray(inArrayX.shape());
+            NdArray<decltype(arccos(dtype{0})), Alloc> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype inX) -> auto

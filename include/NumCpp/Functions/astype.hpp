@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> astype(const NdArray<dtype> inArray) noexcept
+    NdArray<dtypeOut, Alloc> astype(const NdArray<dtype, Alloc> inArray) noexcept
     {
         return inArray.template astype<dtypeOut>();
     }

@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
+    NdArray<dtype, Alloc> trim_zeros(const NdArray<dtype, Alloc>& inArray, const std::string inTrim = "fb")
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -72,10 +72,10 @@ namespace nc
 
             if (place == inArray.size())
             {
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
 
-            NdArray<dtype> returnArray(1, inArray.size() - place);
+            NdArray<dtype, Alloc> returnArray(1, inArray.size() - place);
             stl_algorithms::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
 
             return returnArray;
@@ -97,10 +97,10 @@ namespace nc
 
             if (place == 0 || (place == 1 && inArray[0] == dtype{ 0 }))
             {
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
 
-            NdArray<dtype> returnArray(1, place);
+            NdArray<dtype, Alloc> returnArray(1, place);
             stl_algorithms::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
 
             return returnArray;
@@ -122,7 +122,7 @@ namespace nc
 
             if (placeBegin == inArray.size())
             {
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
 
             uint32 placeEnd = inArray.size();
@@ -140,10 +140,10 @@ namespace nc
 
             if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == dtype{ 0 }))
             {
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
 
-            NdArray<dtype> returnArray(1, placeEnd - placeBegin);
+            NdArray<dtype, Alloc> returnArray(1, placeEnd - placeBegin);
             stl_algorithms::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
 
             return returnArray;
@@ -153,6 +153,6 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
         }
 
-        return NdArray<dtype>();  // getting rid of compiler warning
+        return NdArray<dtype, Alloc>();  // getting rid of compiler warning
     }
 }

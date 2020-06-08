@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype, Alloc> roll(const NdArray<dtype, Alloc>& inArray, int32 inShift, Axis inAxis = Axis::NONE) noexcept
     {
         switch (inAxis)
         {
@@ -63,7 +63,7 @@ namespace nc
                     shift = inArray.size() - shift;
                 }
 
-                NdArray<dtype> returnArray(inArray);
+                NdArray<dtype, Alloc> returnArray(inArray);
                 stl_algorithms::rotate(returnArray.begin(), returnArray.begin() + shift, returnArray.end());
 
                 return returnArray;
@@ -78,7 +78,7 @@ namespace nc
                     shift = inShape.cols - shift;
                 }
 
-                NdArray<dtype> returnArray(inArray);
+                NdArray<dtype, Alloc> returnArray(inArray);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
@@ -96,7 +96,7 @@ namespace nc
                     shift = inShape.rows - shift;
                 }
 
-                NdArray<dtype> returnArray = inArray.transpose();
+                NdArray<dtype, Alloc> returnArray = inArray.transpose();
                 for (uint32 row = 0; row < inShape.cols; ++row)
                 {
                     stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
@@ -108,7 +108,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

@@ -76,12 +76,12 @@ namespace nc
             nc::enable_if_t<all_arithmetic_v<Params...>, int> = 0,
             nc::enable_if_t<all_same_v<dtype, Params...>, int> = 0
         >
-        std::pair<NdArray<double>, double> gaussNewtonNlls(
+        std::pair<NdArray<double, Alloc>, double> gaussNewtonNlls(
             const uint32 numIterations, 
-            const NdArray<dtype>& coordinates,
-            const NdArray<dtype>& measurements,
-            const std::function<dtype(const NdArray<dtype>&, const NdArray<dtype>&)>& function,
-            const std::array<std::function<dtype(const NdArray<dtype>&, const NdArray<dtype>&)>, sizeof...(Params)>& derivatives,
+            const NdArray<dtype, Alloc>& coordinates,
+            const NdArray<dtype, Alloc>& measurements,
+            const std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&), Alloc>& function,
+            const std::array<std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&), Alloc>, sizeof...(Params)>& derivatives,
             Params... initialGuess)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
@@ -93,9 +93,9 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("coordinates number of rows, and measurements size must be the same.");
             }
 
-            NdArray<double> beta = NdArray<dtype>({initialGuess...}).template astype<double>().transpose();
-            NdArray<double> residuals(coordinatesShape.rows, 1);
-            NdArray<double> jacobian(coordinatesShape.rows, sizeof...(Params));
+            NdArray<double, Alloc> beta = NdArray<dtype, Alloc>({initialGuess...}).template astype<double>().transpose();
+            NdArray<double, Alloc> residuals(coordinatesShape.rows, 1);
+            NdArray<double, Alloc> jacobian(coordinatesShape.rows, sizeof...(Params));
 
             const auto colSlice = coordinates.cSlice();
             for (uint32 iteration = 1; iteration <= numIterations; ++iteration)

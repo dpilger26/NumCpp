@@ -53,11 +53,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
+    NdArray<double, Alloc> reciprocal(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<double, Alloc> returnArray(inArray.shape());
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
@@ -84,11 +84,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) noexcept
+    NdArray<std::complex<double>, Alloc> reciprocal(const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        NdArray<std::complex<double>> returnArray(inArray.shape());
+        NdArray<std::complex<double>, Alloc> returnArray(inArray.shape());
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),

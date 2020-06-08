@@ -39,6 +39,7 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
@@ -50,7 +51,7 @@ namespace nc
         //================================================================================
         // Class Description:
         ///						Holds the information for a cluster of pixels
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         class Cluster
         {
         private:
@@ -58,7 +59,7 @@ namespace nc
 
         public:
             //================================Typedefs===============================
-            using const_iterator = typename std::vector<Pixel<dtype> >::const_iterator;
+            using const_iterator = typename std::vector<Pixel<dtype>, Alloc>::const_iterator;
 
             //=============================================================================
             // Description:
@@ -87,7 +88,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Cluster<dtype>& rhs) const noexcept
+            bool operator==(const Cluster<dtype, Alloc>& rhs) const noexcept
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -107,7 +108,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Cluster<dtype>& rhs) const noexcept
+            bool operator!=(const Cluster<dtype, Alloc>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -363,7 +364,7 @@ namespace nc
             /// @return
             ///              std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Cluster<dtype>& inCluster)
+            friend std::ostream& operator<<(std::ostream& inStream, const Cluster<dtype, Alloc>& inCluster)
             {
                 inStream << inCluster.str();
                 return inStream;
@@ -371,18 +372,18 @@ namespace nc
 
         private:
             //================================Attributes===============================
-            int32                       clusterId_{ -1 };
-            std::vector<Pixel<dtype> >  pixels_{};
+            int32                               clusterId_{ -1 };
+            std::vector<Pixel<dtype>, Alloc>    pixels_{};
 
-            uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      rowMax_{ 0 };
-            uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      colMax_{ 0 };
+            uint32                              rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                              rowMax_{ 0 };
+            uint32                              colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                              colMax_{ 0 };
 
-            dtype                       intensity_{ 0 };
-            dtype                       peakPixelIntensity_{ 0 };
+            dtype                               intensity_{ 0 };
+            dtype                               peakPixelIntensity_{ 0 };
 
-            double                      eod_{ 1.0 };
+            double                              eod_{ 1.0 };
         };
     }
 }

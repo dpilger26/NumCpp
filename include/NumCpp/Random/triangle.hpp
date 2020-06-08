@@ -102,7 +102,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
+        NdArray<dtype, Alloc> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -128,7 +128,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("inputs must be a <= b <= c.");
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             boost::random::triangle_distribution<dtype> dist(inA, inB, inC);
 

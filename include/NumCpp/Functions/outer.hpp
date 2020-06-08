@@ -48,7 +48,7 @@ namespace nc
     /// @return         NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype, Alloc> outer(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -59,7 +59,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Input arrays must be the same length");
         }
 
-        auto returnArray = NdArray<dtype>(size);
+        auto returnArray = NdArray<dtype, Alloc>(size);
         for (uint32 row = 0; row < size; ++row)
         {
             const auto array1Value = inArray1[row];

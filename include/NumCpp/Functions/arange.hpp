@@ -58,7 +58,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
+    NdArray<dtype, Alloc> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -94,7 +94,7 @@ namespace nc
             }
         }
 
-        return NdArray<dtype>(values);
+        return NdArray<dtype, Alloc>(values);
     }
 
     //============================================================================
@@ -117,7 +117,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> arange(dtype inStop)
+    NdArray<dtype, Alloc> arange(dtype inStop)
     {
         if (inStop <= 0)
         {
@@ -147,7 +147,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> arange(const Slice& inSlice)
+    NdArray<dtype, Alloc> arange(const Slice& inSlice)
     {
         return arange<dtype>(inSlice.start, inSlice.stop, inSlice.step);
     }

@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype, Alloc> divide(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1 / inArray2;
     }
@@ -63,7 +63,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> divide(const NdArray<dtype>& inArray, dtype value) noexcept
+    NdArray<dtype, Alloc> divide(const NdArray<dtype, Alloc>& inArray, dtype value) noexcept
     {
         return inArray / value;
     }
@@ -80,7 +80,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> divide(dtype value, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype, Alloc> divide(dtype value, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return value / inArray;
     }
@@ -97,7 +97,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
+    NdArray<std::complex<dtype>, Alloc> divide(const NdArray<dtype, Alloc>& inArray1, const NdArray<std::complex<dtype>, Alloc>& inArray2)
     {
         return inArray1 / inArray2;
     }
@@ -114,7 +114,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<std::complex<dtype>, Alloc> divide(const NdArray<std::complex<dtype>, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1 / inArray2;
     }
@@ -131,7 +131,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(const NdArray<dtype>& inArray, const std::complex<dtype>& value) noexcept
+    NdArray<std::complex<dtype>, Alloc> divide(const NdArray<dtype, Alloc>& inArray, const std::complex<dtype>& value) noexcept
     {
         return inArray / value;
     }
@@ -148,7 +148,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(const std::complex<dtype>& value, const NdArray<dtype>& inArray) noexcept
+    NdArray<std::complex<dtype>, Alloc> divide(const std::complex<dtype>& value, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return value / inArray;
     }
@@ -165,7 +165,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(const NdArray<std::complex<dtype>>& inArray, dtype value) noexcept
+    NdArray<std::complex<dtype>, Alloc> divide(const NdArray<std::complex<dtype>, Alloc>& inArray, dtype value) noexcept
     {
         return inArray / value;
     }
@@ -182,7 +182,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> divide(dtype value, const NdArray<std::complex<dtype>>& inArray) noexcept
+    NdArray<std::complex<dtype>, Alloc> divide(dtype value, const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         return value / inArray;
     }

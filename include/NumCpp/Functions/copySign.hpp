@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype, Alloc> copySign(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -59,7 +59,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input arrays are not consistant.");
         }
 
-        NdArray<dtype> returnArray(inArray1.shape());
+        NdArray<dtype, Alloc> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, dtype inValue2) noexcept -> dtype
             { 

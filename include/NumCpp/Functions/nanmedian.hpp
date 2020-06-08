@@ -54,7 +54,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype, Alloc> nanmedian(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -73,14 +73,14 @@ namespace nc
 
                 const uint32 middle = static_cast<uint32>(values.size()) / 2;
                 stl_algorithms::nth_element(values.begin(), values.begin() + middle, values.end());
-                NdArray<dtype> returnArray = { values[middle] };
+                NdArray<dtype, Alloc> returnArray = { values[middle] };
 
                 return returnArray;
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     std::vector<dtype> values;
@@ -101,9 +101,9 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
                 const Shape inShape = transposedArray.shape();
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     std::vector<dtype> values;
@@ -126,7 +126,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

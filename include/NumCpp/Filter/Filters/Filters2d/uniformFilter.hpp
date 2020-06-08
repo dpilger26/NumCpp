@@ -35,6 +35,8 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
 #include "NumCpp/Functions/mean.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -52,12 +54,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        NdArray<dtype, Alloc> uniformFilter(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype, Alloc> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype, Alloc> output(inImageArray.shape());
 
             const Shape inShape = inImageArray.shape();
             const uint32 boundarySize = inSize / 2; // integer division
@@ -68,7 +70,7 @@ namespace nc
             {
                 for (uint32 col = boundarySize; col < endPointCol; ++col)
                 {
-                    NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                    NdArray<dtype, Alloc> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
                     output(row - boundarySize, col - boundarySize) = mean(window).item();

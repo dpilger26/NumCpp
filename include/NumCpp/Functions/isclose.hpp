@@ -57,7 +57,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
+    NdArray<bool, Alloc> isclose(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -66,7 +66,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<bool> returnArray(inArray1.shape());
+        NdArray<bool, Alloc> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
             { 

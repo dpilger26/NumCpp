@@ -47,10 +47,10 @@ namespace nc
         ///
         /// @param      inArray
         /// @param      inAxis (Optional, default NONE)
-        /// @return     NdArray<double>
+        /// @return     NdArray<double, Alloc>
         ///
         template<typename dtype>
-        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+        NdArray<double, Alloc> softmax(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -94,7 +94,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<double, Alloc>(0);
                 }
             }
         }

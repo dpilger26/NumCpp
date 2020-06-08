@@ -67,9 +67,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fix(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype, Alloc> fix(const NdArray<dtype, Alloc>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<double, Alloc> returnArray(inArray.shape());
 
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double

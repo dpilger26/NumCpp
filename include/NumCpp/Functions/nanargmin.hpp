@@ -51,11 +51,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<uint32, Alloc> nanargmin(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
-        NdArray<dtype> arrayCopy(inArray);
+        NdArray<dtype, Alloc> arrayCopy(inArray);
         stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void
             { 

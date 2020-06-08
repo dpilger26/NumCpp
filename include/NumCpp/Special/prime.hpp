@@ -69,11 +69,11 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<uint32>
+        ///				NdArray<uint32, Alloc>
         ///
-        inline NdArray<uint32> prime(const NdArray<uint32>& inArray)
+        inline NdArray<uint32, Alloc> prime(const NdArray<uint32, Alloc>& inArray)
         {
-            NdArray<uint32> returnArray(inArray.shape());
+            NdArray<uint32, Alloc> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> uint32

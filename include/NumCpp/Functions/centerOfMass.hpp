@@ -45,7 +45,7 @@ namespace nc
     /// @return     NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
     ///
     template<typename dtype>
-    NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double, Alloc> centerOfMass(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -78,10 +78,10 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<double> returnArray(1, shape.cols);
+                NdArray<double, Alloc> returnArray(1, shape.cols);
                 returnArray.zeros();
 
-                const NdArray<double> inten = inArray.template astype<double>().sum(inAxis);
+                const NdArray<double, Alloc> inten = inArray.template astype<double>().sum(inAxis);
 
                 for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
                 {
@@ -97,10 +97,10 @@ namespace nc
             }
             case Axis::COL:
             {
-                NdArray<double> returnArray(1, shape.rows);
+                NdArray<double, Alloc> returnArray(1, shape.rows);
                 returnArray.zeros();
 
-                const NdArray<double> inten = inArray.template astype<double>().sum(inAxis);
+                const NdArray<double, Alloc> inten = inArray.template astype<double>().sum(inAxis);
 
                 for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                 {
@@ -118,7 +118,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double>(0);
+                return NdArray<double, Alloc>(0);
             }
         }
     }

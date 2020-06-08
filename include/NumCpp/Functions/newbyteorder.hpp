@@ -50,7 +50,7 @@ namespace nc
     template<typename dtype>
     dtype newbyteorder(dtype inValue, Endian inEndianess) noexcept
     {
-        NdArray<dtype> valueArray = { inValue };
+        NdArray<dtype, Alloc> valueArray = { inValue };
         return valueArray.newbyteorder(inEndianess).item();
     }
 
@@ -69,7 +69,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) noexcept
+    NdArray<dtype, Alloc> newbyteorder(const NdArray<dtype, Alloc>& inArray, Endian inEndianess) noexcept
     {
         return inArray.newbyteorder(inEndianess);
     }

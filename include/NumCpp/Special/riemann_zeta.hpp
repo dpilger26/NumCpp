@@ -67,9 +67,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto riemann_zeta(const NdArray<dtype>& inArray) noexcept
+        auto riemann_zeta(const NdArray<dtype, Alloc>& inArray) noexcept
         {
-            NdArray<decltype(riemann_zeta(dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(riemann_zeta(dtype{0})), Alloc> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

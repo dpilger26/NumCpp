@@ -52,13 +52,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)
+    NdArray<dtype, Alloc> append(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inAppendValues, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                NdArray<dtype> returnArray(1, inArray.size() + inAppendValues.size());
+                NdArray<dtype, Alloc> returnArray(1, inArray.size() + inAppendValues.size());
                 stl_algorithms::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
                 stl_algorithms::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
 
@@ -73,7 +73,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("all the input array dimensions except for the concatenation axis must match exactly");
                 }
 
-                NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
+                NdArray<dtype, Alloc> returnArray(inShape.rows + appendShape.rows, inShape.cols);
                 stl_algorithms::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
                 stl_algorithms::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
 
@@ -88,7 +88,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("all the input array dimensions except for the concatenation axis must match exactly");
                 }
 
-                NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);
+                NdArray<dtype, Alloc> returnArray(inShape.rows, inShape.cols + appendShape.cols);
                 for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                 {
                     stl_algorithms::copy(inArray.cbegin(row), inArray.cend(row), returnArray.begin(row));
@@ -101,7 +101,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

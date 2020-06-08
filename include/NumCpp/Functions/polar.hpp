@@ -65,14 +65,14 @@ namespace nc
     ///				NdArray<std::complex>
     ///
     template<typename dtype>
-    auto polar(const NdArray<dtype>& magnitude, const NdArray<dtype>& phaseAngle)
+    auto polar(const NdArray<dtype, Alloc>& magnitude, const NdArray<dtype, Alloc>& phaseAngle)
     {
         if (magnitude.shape() != phaseAngle.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Input magnitude and phaseAngle arrays must be the same shape");
         }
 
-        NdArray<decltype(nc::polar(dtype{0}, dtype{0}))> returnArray(magnitude.shape());
+        NdArray<decltype(nc::polar(dtype{0}, dtype{0})), Alloc> returnArray(magnitude.shape());
         stl_algorithms::transform(magnitude.cbegin(), magnitude.cend(), phaseAngle.begin(), returnArray.begin(),
             [](dtype mag, dtype angle) noexcept -> auto
             {

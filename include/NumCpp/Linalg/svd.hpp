@@ -51,17 +51,17 @@ namespace nc
         /// @param				outVt: NdArray output V transpose
         ///
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        void svd(const NdArray<dtype, Alloc>& inArray, NdArray<double, Alloc>& outU, NdArray<double, Alloc>& outS, NdArray<double, Alloc>& outVt)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());
 
-            NdArray<double> vt = svdSolver.v().transpose();
+            NdArray<double, Alloc> vt = svdSolver.v().transpose();
             outVt = std::move(vt);
 
-            NdArray<double> s = diagflat(svdSolver.s(), 0);
+            NdArray<double, Alloc> s = diagflat(svdSolver.s(), 0);
             outS = std::move(s);
         }
     }

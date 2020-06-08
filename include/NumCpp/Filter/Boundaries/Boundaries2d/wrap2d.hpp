@@ -35,6 +35,8 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -50,8 +52,8 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype>
-            NdArray<dtype> wrap2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+            template<typename dtype, class Alloc = std::allocator<dtype>>
+            NdArray<dtype, Alloc> wrap2d(const NdArray<dtype, Alloc>& inImage, uint32 inBoundarySize)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -60,7 +62,7 @@ namespace nc
                 outShape.rows += inBoundarySize * 2;
                 outShape.cols += inBoundarySize * 2;
 
-                NdArray<dtype> outArray(outShape);
+                NdArray<dtype, Alloc> outArray(outShape);
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
 
@@ -85,15 +87,15 @@ namespace nc
                     inImage(Slice(0, inShape.rows), Slice(0, inBoundarySize)));
 
                 // now fill in the corners
-                NdArray<dtype> lowerLeft = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
+                NdArray<dtype, Alloc> lowerLeft = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(0, inBoundarySize));
-                NdArray<dtype> lowerRight = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
+                NdArray<dtype, Alloc> lowerRight = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols));
 
                 const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
-                NdArray<dtype> upperLeft = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
+                NdArray<dtype, Alloc> upperLeft = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(0, inBoundarySize));
-                NdArray<dtype> upperRight = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
+                NdArray<dtype, Alloc> upperRight = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols));
 
                 outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), upperLeft);

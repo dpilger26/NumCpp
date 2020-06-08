@@ -34,6 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <cmath>
+#include <memory>
 
 namespace nc
 {
@@ -46,12 +47,14 @@ namespace nc
         /// @param				inExceedances
         /// @param				inBorderWidth
         /// @return
-        ///				NdArray<bool>
+        ///				NdArray<bool, Alloc>
         ///
-        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
+        template<class Alloc= std::allocator<bool>>
+        NdArray<bool, Alloc> windowExceedances(const NdArray<bool, Alloc>& inExceedances, 
+            uint8 inBorderWidth) noexcept
         {
             // not the most efficient way to do things, but the easist...
-            NdArray<bool> xcds(inExceedances);
+            NdArray<bool, Alloc> xcds(inExceedances);
             const Shape inShape = xcds.shape();
             for (uint8 border = 0; border < inBorderWidth; ++border)
             {

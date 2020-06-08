@@ -39,6 +39,7 @@
 #include "NumCpp/Functions/rot90.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -59,19 +60,20 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
-            const NdArray<dtype>& inWeights, Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        NdArray<dtype, Alloc> convolve(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize,
+            const NdArray<dtype, Alloc>& inWeights, Boundary inBoundaryType = Boundary::REFLECT, 
+            dtype inConstantValue = 0)
         {
             if (inWeights.size() != utils::sqr(inSize))
             {
                 THROW_INVALID_ARGUMENT_ERROR("input weights do no match input kernal size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype, Alloc> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype, Alloc> output(inImageArray.shape());
 
-            NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();
+            NdArray<dtype, Alloc> weightsFlat = rot90(inWeights, 2).flatten();
             const Shape inShape = inImageArray.shape();
             const uint32 boundarySize = inSize / 2; // integer division
             const uint32 endPointRow = boundarySize + inShape.rows;
@@ -81,7 +83,7 @@ namespace nc
             {
                 for (uint32 col = boundarySize; col < endPointCol; ++col)
                 {
-                    NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                    NdArray<dtype, Alloc> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
                     output(row - boundarySize, col - boundarySize) = dot(window, weightsFlat).item();

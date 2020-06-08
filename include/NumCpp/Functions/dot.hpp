@@ -45,7 +45,7 @@ namespace nc
     /// @return         NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype, Alloc> dot(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1.dot(inArray2);
     }
@@ -64,7 +64,7 @@ namespace nc
     /// @return         NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> dot(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
+    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<dtype, Alloc>& inArray1, const NdArray<std::complex<dtype>, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -75,13 +75,13 @@ namespace nc
         {
             const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
                 inArray2.cbegin(), std::complex<dtype>{0});
-            NdArray<std::complex<dtype>> returnArray = { dotProduct };
+            NdArray<std::complex<dtype>, Alloc> returnArray = { dotProduct };
             return returnArray;
         }
         else if (shape1.cols == shape2.rows)
         {
             // 2D array, use matrix multiplication
-            NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
+            NdArray<std::complex<dtype>, Alloc> returnArray(shape1.rows, shape2.cols);
             auto array2T = inArray2.transpose();
 
             for (uint32 i = 0; i < shape1.rows; ++i)
@@ -103,7 +103,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR(errStr);
         }
 
-        return NdArray<std::complex<dtype>>(); // get rid of compiler warning
+        return NdArray<std::complex<dtype>, Alloc>(); // get rid of compiler warning
     }
 
     //============================================================================
@@ -120,7 +120,7 @@ namespace nc
     /// @return         NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> dot(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<std::complex<dtype>, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -131,13 +131,13 @@ namespace nc
         {
             const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
                 inArray2.cbegin(), std::complex<dtype>{0});
-            NdArray<std::complex<dtype>> returnArray = { dotProduct };
+            NdArray<std::complex<dtype>, Alloc> returnArray = { dotProduct };
             return returnArray;
         }
         else if (shape1.cols == shape2.rows)
         {
             // 2D array, use matrix multiplication
-            NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
+            NdArray<std::complex<dtype>, Alloc> returnArray(shape1.rows, shape2.cols);
             auto array2T = inArray2.transpose();
 
             for (uint32 i = 0; i < shape1.rows; ++i)
@@ -159,6 +159,6 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR(errStr);
         }
 
-        return NdArray<std::complex<dtype>>(); // get rid of compiler warning
+        return NdArray<std::complex<dtype>, Alloc>(); // get rid of compiler warning
     }
 }

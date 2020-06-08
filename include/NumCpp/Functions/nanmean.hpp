@@ -53,7 +53,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double, Alloc> nanmean(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -73,14 +73,14 @@ namespace nc
                         return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                     }));
 
-                NdArray<double> returnArray = { sum /= numberNonNan };
+                NdArray<double, Alloc> returnArray = { sum /= numberNonNan };
 
                 return returnArray;
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
-                NdArray<double> returnArray(1, inShape.rows);
+                NdArray<double, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
@@ -102,9 +102,9 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
                 const Shape transShape = transposedArray.shape();
-                NdArray<double> returnArray(1, transShape.rows);
+                NdArray<double, Alloc> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
@@ -128,7 +128,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double>(0);
+                return NdArray<double, Alloc>(0);
             }
         }
     }

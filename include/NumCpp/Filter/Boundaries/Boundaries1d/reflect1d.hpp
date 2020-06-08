@@ -34,6 +34,8 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -49,14 +51,14 @@ namespace nc
             ///
             /// @return         NdArray
             ///
-            template<typename dtype>
-            NdArray<dtype> reflect1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+            template<typename dtype, class Alloc = std::allocator<dtype>>
+            NdArray<dtype, Alloc> reflect1d(const NdArray<dtype, Alloc>& inImage, uint32 inBoundarySize)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
                 const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
-                NdArray<dtype> outArray(1, outSize);
+                NdArray<dtype, Alloc> outArray(1, outSize);
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
                 // left

@@ -64,7 +64,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> percentile(const NdArray<dtype>& inArray, double inPercentile,
+    NdArray<dtype, Alloc> percentile(const NdArray<dtype, Alloc>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -91,19 +91,19 @@ namespace nc
             {
                 if (utils::essentiallyEqual(inPercentile, 0.0))
                 {
-                    NdArray<dtype> returnArray = { *inArray.cbegin() };
+                    NdArray<dtype, Alloc> returnArray = { *inArray.cbegin() };
                     return returnArray;
                 }
                 else if (utils::essentiallyEqual(inPercentile, 100.0))
                 {
-                    NdArray<dtype> returnArray = { *inArray.cend() };
+                    NdArray<dtype, Alloc> returnArray = { *inArray.cend() };
                     return returnArray;
                 }
 
                 const int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
                 const uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
 
-                NdArray<double> arrayCopy = inArray.template astype<double>();
+                NdArray<double, Alloc> arrayCopy = inArray.template astype<double>();
                 stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
@@ -113,17 +113,17 @@ namespace nc
                         (static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
 
                     const double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
-                    NdArray<dtype> returnArray = { returnValue };
+                    NdArray<dtype, Alloc> returnArray = { returnValue };
                     return returnArray;
                 }
                 else if (inInterpMethod.compare("lower") == 0)
                 {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower] };
+                    NdArray<dtype, Alloc> returnArray = { arrayCopy[indexLower] };
                     return returnArray;
                 }
                 else if (inInterpMethod.compare("higher") == 0)
                 {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
+                    NdArray<dtype, Alloc> returnArray = { arrayCopy[indexLower + 1] };
                     return returnArray;
                 }
                 else if (inInterpMethod.compare("nearest") == 0)
@@ -138,19 +138,19 @@ namespace nc
                     {
                         case 0:
                         {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower] };
+                            NdArray<dtype, Alloc> returnArray = { arrayCopy[indexLower] };
                             return returnArray;
                         }
                         case 1:
                         {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
+                            NdArray<dtype, Alloc> returnArray = { arrayCopy[indexLower + 1] };
                             return returnArray;
                         }
                     }
                 }
                 else if (inInterpMethod.compare("midpoint") == 0)
                 {
-                    NdArray<dtype> returnArray = { static_cast<dtype>((arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0) };
+                    NdArray<dtype, Alloc> returnArray = { static_cast<dtype>((arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0) };
                     return returnArray;
                 }
                 else
@@ -160,16 +160,16 @@ namespace nc
 
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    returnArray[row] = percentile(NdArray<dtype, Alloc>(inArray.cbegin(row), inArray.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -177,13 +177,13 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> arrayTrans = inArray.transpose();
+                NdArray<dtype, Alloc> arrayTrans = inArray.transpose();
                 const Shape inShape = arrayTrans.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    returnArray[row] = percentile(NdArray<dtype, Alloc>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -193,7 +193,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

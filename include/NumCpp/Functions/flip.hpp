@@ -46,19 +46,19 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype, Alloc> flip(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                NdArray<dtype> returnArray(inArray);
+                NdArray<dtype, Alloc> returnArray(inArray);
                 stl_algorithms::reverse(returnArray.begin(), returnArray.end());
                 return returnArray;
             }
             case Axis::COL:
             {
-                NdArray<dtype> returnArray(inArray);
+                NdArray<dtype, Alloc> returnArray(inArray);
                 for (uint32 row = 0; row < inArray.shape().rows; ++row)
                 {
                     stl_algorithms::reverse(returnArray.begin(row), returnArray.end(row));
@@ -67,7 +67,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> returnArray = inArray.transpose();
+                NdArray<dtype, Alloc> returnArray = inArray.transpose();
                 for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                 {
                     stl_algorithms::reverse(returnArray.begin(row), returnArray.end(row));
@@ -76,7 +76,7 @@ namespace nc
             }
             default:
             {
-                return NdArray<dtype>(0);
+                return NdArray<dtype, Alloc>(0);
             }
         }
     }

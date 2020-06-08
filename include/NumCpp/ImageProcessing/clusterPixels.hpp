@@ -35,6 +35,7 @@
 #include "NumCpp/ImageProcessing/ClusterMaker.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
 #include <vector>
 
 namespace nc
@@ -51,13 +52,14 @@ namespace nc
         /// @return
         ///				std::vector<Cluster>
         ///
-        template<typename dtype>
-        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        std::vector<Cluster<dtype, Alloc>, Alloc> clusterPixels(const NdArray<dtype, Alloc>& inImageArray,
+            const NdArray<bool, Alloc>& inExceedances, uint8 inBorderWidth = 0)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
-            return std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end());
+            ClusterMaker<dtype, Alloc> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
+            return std::vector<Cluster<dtype>, Alloc>(clusterMaker.begin(), clusterMaker.end());
         }
     }
 }

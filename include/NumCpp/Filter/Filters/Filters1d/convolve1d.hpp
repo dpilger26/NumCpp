@@ -36,6 +36,8 @@
 #include "NumCpp/Functions/fliplr.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -53,21 +55,22 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype, class Alloc = std::allocator<dtype>>
+        NdArray<dtype, Alloc> convolve1d(const NdArray<dtype, Alloc>& inImageArray,
+            const NdArray<dtype, Alloc>& inWeights, Boundary inBoundaryType = Boundary::REFLECT,
+            dtype inConstantValue = 0)
         {
             const uint32 boundarySize = inWeights.size() / 2; // integer division
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
-            NdArray<dtype> output(1, inImageArray.size());
+            NdArray<dtype, Alloc> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
+            NdArray<dtype, Alloc> output(1, inImageArray.size());
 
-            NdArray<dtype> weightsFlat = fliplr(inWeights.flatten());
+            NdArray<dtype, Alloc> weightsFlat = fliplr(inWeights.flatten());
 
             const uint32 endPointRow = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPointRow; ++i)
             {
-                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
+                NdArray<dtype, Alloc> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
 
                 output[i - boundarySize] = dot(window, weightsFlat).item();
             }

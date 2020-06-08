@@ -36,6 +36,7 @@
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <iostream>
+#include <memory>
 #include <string>
 
 namespace nc
@@ -45,7 +46,7 @@ namespace nc
         //================================================================================
         // Class Description:
         ///						holds the information for a centroid
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         class Centroid
         {
         private:
@@ -156,7 +157,10 @@ namespace nc
             ///
             bool operator==(const Centroid<dtype>& rhs) const noexcept
             {
-                return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
+                return row_ == rhs.row_ && 
+                    col_ == rhs.col_ && 
+                    intensity_ == rhs.intensity_
+                    && eod_ == rhs.eod_;
             }
 
             //=============================================================================
@@ -226,7 +230,7 @@ namespace nc
             void centerOfMass(const Cluster<dtype>& inCluster) noexcept
             {
                 const Shape clusterShape(inCluster.height(), inCluster.width());
-                NdArray<dtype> clusterArray(clusterShape);
+                NdArray<dtype, Alloc> clusterArray(clusterShape);
                 clusterArray.zeros();
 
                 const uint32 rowMin = inCluster.rowMin();

@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double, Alloc> rms(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -65,12 +65,12 @@ namespace nc
             case Axis::NONE:
             {
                 std::for_each(inArray.cbegin(), inArray.cend(), function);
-                NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
+                NdArray<double, Alloc> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
                 return returnArray;
             }
             case Axis::COL:
             {
-                NdArray<double> returnArray(1, inArray.numRows());
+                NdArray<double, Alloc> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     squareSum = 0.0;
@@ -82,8 +82,8 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
-                NdArray<double> returnArray(1, transposedArray.numRows());
+                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
+                NdArray<double, Alloc> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     squareSum = 0.0;
@@ -95,7 +95,7 @@ namespace nc
             }
             default:
             {
-                return NdArray<double>(); // get rid of compiler warning
+                return NdArray<double, Alloc>(); // get rid of compiler warning
             }
         }
     }
@@ -111,7 +111,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>, Alloc> rms(const NdArray<std::complex<dtype>, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -126,12 +126,12 @@ namespace nc
             case Axis::NONE:
             {
                 std::for_each(inArray.cbegin(), inArray.cend(), function);
-                NdArray<std::complex<double>> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
+                NdArray<std::complex<double>, Alloc> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
                 return returnArray;
             }
             case Axis::COL:
             {
-                NdArray<std::complex<double>> returnArray(1, inArray.numRows());
+                NdArray<std::complex<double>, Alloc> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     squareSum = std::complex<double>(0.0, 0.0);
@@ -143,8 +143,8 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
-                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
+                NdArray<std::complex<dtype>, Alloc> transposedArray = inArray.transpose();
+                NdArray<std::complex<double>, Alloc> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     squareSum = std::complex<double>(0.0, 0.0);

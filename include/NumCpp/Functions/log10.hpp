@@ -70,9 +70,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto log10(const NdArray<dtype>& inArray) noexcept
+    auto log10(const NdArray<dtype, Alloc>& inArray) noexcept
     {
-        NdArray<decltype(log10(dtype{0}))> returnArray(inArray.shape());
+        NdArray<decltype(log10(dtype{0})), Alloc> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> auto
             { 

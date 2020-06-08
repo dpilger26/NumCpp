@@ -45,7 +45,7 @@ namespace nc
         ///				inArray
         ///
         template<typename dtype>
-        void shuffle(NdArray<dtype>& inArray) noexcept
+        void shuffle(NdArray<dtype, Alloc>& inArray) noexcept
         {
             std::shuffle(inArray.begin(), inArray.end(), generator_);
         }

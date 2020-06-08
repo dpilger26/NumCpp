@@ -49,12 +49,12 @@ namespace nc
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diagflat(const NdArray<dtype>& inArray, int32 k = 0) noexcept
+    NdArray<dtype, Alloc> diagflat(const NdArray<dtype, Alloc>& inArray, int32 k = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
         const uint32 absK = static_cast<uint32>(std::abs(k));
-        NdArray<dtype> returnArray(inArray.size() + absK);
+        NdArray<dtype, Alloc> returnArray(inArray.size() + absK);
 
         const uint32 rowOffset = k < 0 ? absK : 0;
         const uint32 colOffset = k > 0 ? absK : 0;

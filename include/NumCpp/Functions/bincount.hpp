@@ -57,7 +57,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 1)
+    NdArray<dtype, Alloc> bincount(const NdArray<dtype, Alloc>& inArray, uint16 inMinLength = 1)
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -65,7 +65,7 @@ namespace nc
         if (maxValue < 0)
         {
             // no positive values so just return an empty array
-            return NdArray<dtype>(0);
+            return NdArray<dtype, Alloc>(0);
         }
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
@@ -74,9 +74,9 @@ namespace nc
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
-        NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
+        NdArray<dtype, Alloc> clippedArray = inArray.clip(0, maxValue);
 
-        NdArray<dtype> outArray(1, outArraySize);
+        NdArray<dtype, Alloc> outArray(1, outArraySize);
         outArray.zeros();
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray](dtype value) noexcept -> void
@@ -109,7 +109,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 1)
+    NdArray<dtype, Alloc> bincount(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inWeights, uint16 inMinLength = 1)
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -122,7 +122,7 @@ namespace nc
         if (maxValue < 0)
         {
             // no positive values so just return an empty array
-            return NdArray<dtype>(0);
+            return NdArray<dtype, Alloc>(0);
         }
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
@@ -131,9 +131,9 @@ namespace nc
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
-        NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
+        NdArray<dtype, Alloc> clippedArray = inArray.clip(0, maxValue);
 
-        NdArray<dtype> outArray(1, outArraySize);
+        NdArray<dtype, Alloc> outArray(1, outArraySize);
         outArray.zeros();
         uint32 counter = 0;
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),

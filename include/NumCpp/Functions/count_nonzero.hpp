@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<uint32, Alloc> count_nonzero(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -56,7 +56,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                NdArray<uint32> count = { inArray.size() - 
+                NdArray<uint32, Alloc> count = { inArray.size() - 
                     static_cast<uint32>(stl_algorithms::count(inArray.cbegin(), inArray.cend(), dtype{ 0 })) };
                 return count;
             }
@@ -64,7 +64,7 @@ namespace nc
             {
                 Shape inShape = inArray.shape();
 
-                NdArray<uint32> returnArray(1, inShape.rows);
+                NdArray<uint32, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     returnArray(0, row) = inShape.cols -
@@ -75,9 +75,9 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> inArrayTranspose = inArray.transpose();
+                NdArray<dtype, Alloc> inArrayTranspose = inArray.transpose();
                 Shape inShapeTransposed = inArrayTranspose.shape();
-                NdArray<uint32> returnArray(1, inShapeTransposed.rows);
+                NdArray<uint32, Alloc> returnArray(1, inShapeTransposed.rows);
                 for (uint32 row = 0; row < inShapeTransposed.rows; ++row)
                 {
                     returnArray(0, row) = inShapeTransposed.cols -
@@ -90,7 +90,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<uint32>(0);
+                return NdArray<uint32, Alloc>(0);
             }
         }
     }

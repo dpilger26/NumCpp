@@ -69,7 +69,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> standardNormal(const Shape& inShape)
+        NdArray<dtype, Alloc> standardNormal(const Shape& inShape)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

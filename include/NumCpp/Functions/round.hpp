@@ -46,7 +46,7 @@ namespace nc
     template<typename dtype>
     dtype round(dtype inValue, uint8 inDecimals = 0) noexcept
     {
-        NdArray<dtype> input = { inValue };
+        NdArray<dtype, Alloc> input = { inValue };
         return input.round(inDecimals).item();
     }
 
@@ -61,7 +61,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0) noexcept
+    NdArray<dtype, Alloc> round(const NdArray<dtype, Alloc>& inArray, uint8 inDecimals = 0) noexcept
     {
         return inArray.round(inDecimals);
     }

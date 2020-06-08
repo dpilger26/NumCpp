@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, dtype inValue)
+    NdArray<dtype, Alloc>& put(NdArray<dtype, Alloc>& inArray, const NdArray<uint32, Alloc>& inIndices, dtype inValue)
     {
         inArray.put(inIndices, inValue);
         return inArray;
@@ -67,7 +67,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
+    NdArray<dtype, Alloc>& put(NdArray<dtype, Alloc>& inArray, const NdArray<uint32, Alloc>& inIndices, const NdArray<dtype, Alloc>& inValues)
     {
         inArray.put(inIndices, inValues);
         return inArray;

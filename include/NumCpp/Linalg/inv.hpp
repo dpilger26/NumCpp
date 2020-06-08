@@ -52,7 +52,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> inv(const NdArray<dtype>& inArray)
+        NdArray<double, Alloc> inv(const NdArray<dtype, Alloc>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -68,7 +68,7 @@ namespace nc
             newShape.rows *= 2;
             newShape.cols *= 2;
 
-            NdArray<double> tempArray(newShape);
+            NdArray<double, Alloc> tempArray(newShape);
             for (uint32 row = 0; row < order; ++row)
             {
                 for (uint32 col = 0; col < order; ++col)
@@ -113,7 +113,7 @@ namespace nc
                 }
             }
 
-            NdArray<double> returnArray(inShape);
+            NdArray<double, Alloc> returnArray(inShape);
             for (uint32 row = 0; row < order; row++)
             {
                 uint32 colCounter = 0;

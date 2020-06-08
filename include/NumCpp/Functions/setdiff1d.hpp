@@ -53,7 +53,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<dtype, Alloc> setdiff1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -69,6 +69,6 @@ namespace nc
         const auto last = stl_algorithms::set_difference(set1.begin(), set1.end(), 
             set2.begin(), set2.end(), res.begin(), comp);
 
-        return NdArray<dtype>(res.begin(), last);
+        return NdArray<dtype, Alloc>(res.begin(), last);
     }
 }

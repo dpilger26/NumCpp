@@ -72,11 +72,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rand(const Shape& inShape) noexcept
+        NdArray<dtype, Alloc> rand(const Shape& inShape) noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<dtype, Alloc> returnArray(inShape);
 
             boost::random::uniform_01<dtype> dist;
 
