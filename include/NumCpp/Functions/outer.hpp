@@ -47,7 +47,7 @@ namespace nc
     ///
     /// @return         NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> outer(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

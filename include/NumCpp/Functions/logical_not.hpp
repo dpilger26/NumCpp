@@ -46,7 +46,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<bool, Alloc> logical_not(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

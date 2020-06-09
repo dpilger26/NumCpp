@@ -64,7 +64,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         auto log_gamma(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(log_gamma(dtype{0})), Alloc> returnArray(inArray.shape());

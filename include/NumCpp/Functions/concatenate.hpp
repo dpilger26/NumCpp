@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> concatenate(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)

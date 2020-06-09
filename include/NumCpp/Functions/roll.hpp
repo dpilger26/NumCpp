@@ -50,7 +50,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> roll(const NdArray<dtype, Alloc>& inArray, int32 inShift, Axis inAxis = Axis::NONE) noexcept
     {
         switch (inAxis)

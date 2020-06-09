@@ -53,7 +53,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> unique(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -65,7 +65,7 @@ namespace nc
 
         const auto sorted = sort(inArray);
 
-        std::vector<dtype> res(sorted.size());
+        std::vector<dtype, Alloc> res(sorted.size());
         const auto last = stl_algorithms::unique_copy(sorted.begin(), sorted.end(), res.begin(), comp);
 
         return NdArray<dtype, Alloc>(res.begin(), last);

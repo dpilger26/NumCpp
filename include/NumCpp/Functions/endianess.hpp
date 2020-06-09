@@ -41,7 +41,7 @@ namespace nc
     /// @return
     ///				Endian
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     Endian endianess(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.endianess();

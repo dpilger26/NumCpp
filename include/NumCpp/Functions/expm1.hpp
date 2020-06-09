@@ -66,7 +66,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     auto expm1(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(expm1(dtype{0})), Alloc> returnArray(inArray.shape());

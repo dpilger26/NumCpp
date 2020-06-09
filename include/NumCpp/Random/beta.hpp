@@ -37,6 +37,7 @@
 
 #include "boost/random/beta_distribution.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -86,7 +87,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

@@ -31,6 +31,8 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
+
 namespace nc
 {
     //============================================================================
@@ -43,7 +45,7 @@ namespace nc
     /// @return
     ///				value
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     dtype round(dtype inValue, uint8 inDecimals = 0) noexcept
     {
         NdArray<dtype, Alloc> input = { inValue };
@@ -60,7 +62,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> round(const NdArray<dtype, Alloc>& inArray, uint8 inDecimals = 0) noexcept
     {
         return inArray.round(inDecimals);

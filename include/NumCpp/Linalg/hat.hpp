@@ -33,6 +33,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -49,7 +50,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> hat(dtype inX, dtype inY, dtype inZ) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
@@ -77,7 +78,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<dtype, Alloc> hat(const NdArray<dtype, Alloc>& inVec)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
@@ -99,6 +100,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
+        template<class Alloc = std::allocator<double>>
         inline NdArray<double, Alloc> hat(const Vec3& inVec) noexcept
         {
             return hat(inVec.x, inVec.y, inVec.z);

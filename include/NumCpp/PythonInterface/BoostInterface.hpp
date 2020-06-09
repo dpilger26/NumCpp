@@ -39,6 +39,7 @@
 #include "boost/python/numpy.hpp"
 
 #include <map>
+#include <memory>
 #include <string>
 
 namespace nc
@@ -52,7 +53,7 @@ namespace nc
         ///
         /// @return     NdArray<T, Alloc>
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         inline NdArray<dtype, Alloc> boost2Nc(const boost::python::numpy::ndarray& inArray)
         {
             BoostNdarrayHelper<dtype> helper(inArray);
@@ -100,7 +101,7 @@ namespace nc
         ///
         /// @return     ndarray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype, Alloc>& inArray) noexcept
         {
             const Shape inShape = inArray.shape();
@@ -127,7 +128,8 @@ namespace nc
         template<typename T>
         inline std::vector<T> list2vector(const boost::python::list& inList) noexcept
         {
-            return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
+            return std::vector<T>(boost::python::stl_input_iterator<T>(inList),
+                boost::python::stl_input_iterator<T>());
         }
 
         //============================================================================

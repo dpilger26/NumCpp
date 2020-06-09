@@ -34,6 +34,7 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -51,7 +52,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<double, Alloc> inv(const NdArray<dtype, Alloc>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

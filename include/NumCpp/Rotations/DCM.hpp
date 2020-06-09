@@ -36,6 +36,8 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace rotations
@@ -56,6 +58,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
+            template<class Alloc = std::allocator<double>>
             static NdArray<double, Alloc> eulerAngles(double roll, double pitch, double yaw) noexcept
             {
                 return Quaternion(roll, pitch, yaw).toDCM();
@@ -70,6 +73,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
+            template<class Alloc>
             static NdArray<double, Alloc> eulerAngles(const NdArray<double, Alloc>& angles)
             {
                 return Quaternion(angles).toDCM();
@@ -85,6 +89,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
+            template<class Alloc>
             static NdArray<double, Alloc> eulerAxisAngle(const NdArray<double, Alloc>& inAxis, double inAngle)
             {
                 return Quaternion(inAxis, inAngle).toDCM();
@@ -100,6 +105,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
+            template<class Alloc = std::allocator<double>>
             static NdArray<double, Alloc> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
             {
                 return Quaternion(inAxis, inAngle).toDCM();
@@ -115,6 +121,7 @@ namespace nc
             /// @return
             ///				bool
             ///
+            template<class Alloc>
             static bool isValid(const NdArray<double, Alloc>& inArray)
             {
                 const Shape inShape = inArray.shape();
@@ -134,6 +141,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler roll angle in radians
             ///
+            template<class Alloc>
             static double roll(const NdArray<double, Alloc>& dcm)
             {
                 return Quaternion(dcm).roll();
@@ -146,6 +154,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler pitch angle in radians
             ///
+            template<class Alloc>
             static double pitch(const NdArray<double, Alloc>& dcm)
             {
                 return Quaternion(dcm).pitch();
@@ -158,6 +167,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler yaw angle in radians
             ///
+            template<class Alloc>
             static double yaw(const NdArray<double, Alloc>& dcm)
             {
                 return Quaternion(dcm).yaw();
@@ -173,6 +183,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             static NdArray<double, Alloc> xRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
@@ -188,6 +199,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             static NdArray<double, Alloc> yRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
@@ -203,6 +215,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             static NdArray<double, Alloc> zRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);

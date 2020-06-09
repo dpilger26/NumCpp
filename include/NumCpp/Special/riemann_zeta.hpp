@@ -66,7 +66,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         auto riemann_zeta(const NdArray<dtype, Alloc>& inArray) noexcept
         {
             NdArray<decltype(riemann_zeta(dtype{0})), Alloc> returnArray(inArray.shape());

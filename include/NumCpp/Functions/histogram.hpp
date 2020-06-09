@@ -53,8 +53,9 @@ namespace nc
     /// @return
     ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
-    template<typename dtype>
-    std::pair<NdArray<uint32, Alloc>, NdArray<double, Alloc> > histogram(const NdArray<dtype, Alloc>& inArray, uint32 inNumBins = 10)
+    template<typename dtype, class Alloc>
+    std::pair<NdArray<uint32, Alloc>, NdArray<double, Alloc>>
+        histogram(const NdArray<dtype, Alloc>& inArray, uint32 inNumBins = 10)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

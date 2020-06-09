@@ -66,7 +66,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         auto airy_bi(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(airy_bi(dtype{ 0 })), Alloc> returnArray(inArray.shape());

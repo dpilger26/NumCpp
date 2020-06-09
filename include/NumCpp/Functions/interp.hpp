@@ -69,8 +69,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> interp(const NdArray<dtype, Alloc>& inX, const NdArray<dtype, Alloc>& inXp, const NdArray<dtype, Alloc>& inFp)
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> interp(const NdArray<dtype, Alloc>& inX, 
+        const NdArray<dtype, Alloc>& inXp, const NdArray<dtype, Alloc>& inFp)
     {
         // do some error checking first
         if (inXp.size() != inFp.size())

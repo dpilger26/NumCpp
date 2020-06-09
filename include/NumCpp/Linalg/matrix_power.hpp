@@ -36,6 +36,7 @@
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -59,7 +60,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<double, Alloc> matrix_power(const NdArray<dtype, Alloc>& inArray, int16 inPower)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

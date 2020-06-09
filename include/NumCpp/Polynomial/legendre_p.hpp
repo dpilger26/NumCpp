@@ -35,6 +35,8 @@
 
 #include "boost/math/special_functions/legendre.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace polynomial
@@ -93,7 +95,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<double, Alloc> legendre_p(int32 n, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
             NdArray<double, Alloc> returnArray(inArrayX.shape());
@@ -118,7 +120,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<double, Alloc> legendre_p(int32 n, int32 m, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
             NdArray<double, Alloc> returnArray(inArrayX.shape());

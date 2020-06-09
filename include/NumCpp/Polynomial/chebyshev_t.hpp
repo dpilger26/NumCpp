@@ -64,7 +64,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<double, Alloc> chebyshev_t(uint32 n, const NdArray<dtype, Alloc>& inArrayX)
         {
             NdArray<double, Alloc> returnArray(inArrayX.shape());

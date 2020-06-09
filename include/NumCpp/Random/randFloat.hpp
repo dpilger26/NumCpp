@@ -39,6 +39,7 @@
 
 #include "boost/random/uniform_real_distribution.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -90,7 +91,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
         {
             STATIC_ASSERT_FLOAT(dtype);

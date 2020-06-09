@@ -65,7 +65,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         auto erfc(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(erfc(dtype{0})), Alloc> returnArray(inArray.shape());

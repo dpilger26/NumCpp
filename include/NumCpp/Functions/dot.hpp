@@ -44,7 +44,7 @@ namespace nc
     /// @param			inArray2
     /// @return         NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> dot(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1.dot(inArray2);
@@ -63,8 +63,9 @@ namespace nc
     /// @param			inArray2
     /// @return         NdArray
     ///
-    template<typename dtype>
-    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<dtype, Alloc>& inArray1, const NdArray<std::complex<dtype>, Alloc>& inArray2)
+    template<typename dtype, class Alloc>
+    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<dtype, Alloc>& inArray1,
+        const NdArray<std::complex<dtype>, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -119,8 +120,9 @@ namespace nc
     /// @param			inArray2
     /// @return         NdArray
     ///
-    template<typename dtype>
-    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<std::complex<dtype>, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    template<typename dtype, class Alloc>
+    NdArray<std::complex<dtype>, Alloc> dot(const NdArray<std::complex<dtype>, Alloc>& inArray1, 
+        const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

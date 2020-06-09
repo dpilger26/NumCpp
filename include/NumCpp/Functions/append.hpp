@@ -51,8 +51,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> append(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inAppendValues, Axis inAxis = Axis::NONE)
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> append(const NdArray<dtype, Alloc>& inArray, 
+        const NdArray<dtype, Alloc>& inAppendValues, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {

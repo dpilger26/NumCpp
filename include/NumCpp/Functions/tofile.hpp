@@ -46,7 +46,7 @@ namespace nc
     /// @return
     ///				None
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     void tofile(const NdArray<dtype, Alloc>& inArray, const std::string& inFilename, const std::string& inSep = "")
     {
         return inArray.tofile(inFilename, inSep);

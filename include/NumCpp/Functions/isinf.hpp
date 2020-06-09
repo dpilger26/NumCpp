@@ -68,7 +68,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<bool, Alloc> isinf(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<bool, Alloc> returnArray(inArray.shape());

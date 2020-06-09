@@ -44,7 +44,7 @@ namespace nc
     /// @param      inAxis (Optional, default NONE which is a 2d center of mass)
     /// @return     NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<double, Alloc> centerOfMass(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

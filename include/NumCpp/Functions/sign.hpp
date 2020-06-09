@@ -84,7 +84,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<int8, Alloc> sign(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<int8, Alloc> returnArray(inArray.shape());

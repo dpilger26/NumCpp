@@ -40,6 +40,11 @@ using namespace nc::boostPythonInterface;
 
 //================================================================================
 
+template<typename dtype>
+using Allocator = std::allocator<dtype>;
+
+//================================================================================
+
 namespace ShapeInterface
 {
     bool testListContructor() noexcept
@@ -82,7 +87,7 @@ namespace NdArrayInterface
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtype> test = { dtype{1},
+        NdArray<dtype, Allocator<dtype>> test = { dtype{1},
             dtype{2},
             dtype{3},
             dtype{4},
@@ -115,7 +120,7 @@ namespace NdArrayInterface
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtype> test = { {dtype{1}, dtype{2}}, 
+        NdArray<dtype, Allocator<dtype>> test = { {dtype{1}, dtype{2}}, 
             {dtype{4}, dtype{666}},
             {dtype{314159}, dtype{9}},
             {dtype{0}, dtype{8}} };
@@ -409,15 +414,15 @@ namespace NdArrayInterface
 
     bool testStructuredArray()
     {
-        NdArray<TestStruct> test1;
-        NdArray<TestStruct> test2(5);
-        NdArray<TestStruct> test3(5, 5);
-        NdArray<TestStruct> test4(test3.shape());
-        NdArray<TestStruct> test5_1(test2);
-        NdArray<TestStruct> test5_2(std::move(test4));
-        NdArray<TestStruct> test6 = { TestStruct{666, 357, 3.14519, true},
+        NdArray<TestStruct, Allocator<TestStruct>> test1;
+        NdArray<TestStruct, Allocator<TestStruct>> test2(5);
+        NdArray<TestStruct, Allocator<TestStruct>> test3(5, 5);
+        NdArray<TestStruct, Allocator<TestStruct>> test4(test3.shape());
+        NdArray<TestStruct, Allocator<TestStruct>> test5_1(test2);
+        NdArray<TestStruct, Allocator<TestStruct>> test5_2(std::move(test4));
+        NdArray<TestStruct, Allocator<TestStruct>> test6 = { TestStruct{666, 357, 3.14519, true},
             TestStruct{666, 357, 3.14519, true} };
-        NdArray<TestStruct> test7 = { {TestStruct{666, 357, 3.14519, true}, TestStruct{667, 377, 3.7519, false}},
+        NdArray<TestStruct, Allocator<TestStruct>> test7 = { {TestStruct{666, 357, 3.14519, true}, TestStruct{667, 377, 3.7519, false}},
             {TestStruct{665, 357, 3.15519, false}, TestStruct{69, 359, 3.19519, true}} };
 
         auto testStruct = TestStruct{ 666, 357, 3.14519, true };
@@ -472,7 +477,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
+    np::ndarray getNumpyArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inArray);
     }
@@ -480,7 +485,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    void setArray(NdArray<dtype>& self, const np::ndarray& inBoostArray)
+    void setArray(NdArray<dtype, Allocator<dtype>>& self, const np::ndarray& inBoostArray)
     {
         BoostNdarrayHelper<dtype> newNdArrayHelper(inBoostArray);
         const uint8 numDims = newNdArrayHelper.numDimensions();
@@ -496,7 +501,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray all(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray all(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.all(inAxis));
     }
@@ -504,7 +509,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray any(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray any(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.any(inAxis));
     }
@@ -512,7 +517,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmax(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray argmax(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.argmax(inAxis));
     }
@@ -520,7 +525,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmin(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray argmin(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.argmin(inAxis));
     }
@@ -528,7 +533,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsort(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray argsort(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.argsort(inAxis));
     }
@@ -536,7 +541,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype back(const NdArray<dtype>& self)
+    dtype back(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return self.back();
     }
@@ -544,7 +549,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype backReference(NdArray<dtype>& self)
+    dtype backReference(NdArray<dtype, Allocator<dtype>>& self)
     {
         return self.back();
     }
@@ -552,7 +557,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype backRow(const NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    dtype backRow(const NdArray<dtype, Allocator<dtype>>& self, typename NdArray<dtype, Allocator<dtype>>::size_type row)
     {
         return self.back(row);
     }
@@ -560,7 +565,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype backRowReference(NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    dtype backRowReference(NdArray<dtype, Allocator<dtype>>& self, typename NdArray<dtype, Allocator<dtype>>::size_type row)
     {
         return self.back(row);
     }
@@ -568,7 +573,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray clip(const NdArray<dtype>& self, dtype inMin, dtype inMax)
+    np::ndarray clip(const NdArray<dtype, Allocator<dtype>>& self, dtype inMin, dtype inMax)
     {
         return nc2Boost(self.clip(inMin, inMax));
     }
@@ -576,7 +581,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray copy(const NdArray<dtype>& self)
+    np::ndarray copy(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return nc2Boost(self.copy());
     }
@@ -584,7 +589,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray contains(const NdArray<dtype>& self, dtype inValue, Axis inAxis = Axis::NONE)
+    np::ndarray contains(const NdArray<dtype, Allocator<dtype>>& self, dtype inValue, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.contains(inValue, inAxis));
     }
@@ -592,7 +597,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cumprod(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray cumprod(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.cumprod(inAxis));
     }
@@ -600,7 +605,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cumsum(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray cumsum(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.cumsum(inAxis));
     }
@@ -608,7 +613,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(const NdArray<dtype>& self, int32 inOffset = 0, Axis inAxis = Axis::ROW)
+    np::ndarray diagonal(const NdArray<dtype, Allocator<dtype>>& self, int32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return nc2Boost(self.diagonal(inOffset, inAxis));
     }
@@ -616,7 +621,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray dot(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
+    np::ndarray dot(const NdArray<dtype, Allocator<dtype>>& self, const NdArray<dtype, Allocator<dtype>>& inOtherArray)
     {
         return nc2Boost(self.dot(inOtherArray));
     }
@@ -624,7 +629,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fill(NdArray<dtype>& self, dtype inFillValue)
+    np::ndarray fill(NdArray<dtype, Allocator<dtype>>& self, dtype inFillValue)
     {
         self.fill(inFillValue);
         return nc2Boost(self);
@@ -633,7 +638,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray flatnonzero(const NdArray<dtype>& self)
+    np::ndarray flatnonzero(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return nc2Boost(self.flatnonzero());
     }
@@ -641,7 +646,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray flatten(const NdArray<dtype>& self)
+    np::ndarray flatten(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return nc2Boost(self.flatten());
     }
@@ -649,7 +654,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype front(const NdArray<dtype>& self)
+    dtype front(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return self.front();
     }
@@ -657,7 +662,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype frontReference(NdArray<dtype>& self)
+    dtype frontReference(NdArray<dtype, Allocator<dtype>>& self)
     {
         return self.front();
     }
@@ -665,7 +670,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype frontRow(const NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    dtype frontRow(const NdArray<dtype, Allocator<dtype>>& self, typename NdArray<dtype, Allocator<dtype>>::size_type row)
     {
         return self.front(row);
     }
@@ -673,7 +678,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype frontRowReference(NdArray<dtype>& self, typename NdArray<dtype>::size_type row)
+    dtype frontRowReference(NdArray<dtype, Allocator<dtype>>& self, typename NdArray<dtype, Allocator<dtype>>::size_type row)
     {
         return self.front(row);
     }
@@ -681,7 +686,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype getValueFlat(NdArray<dtype>& self, int32 inIndex)
+    dtype getValueFlat(NdArray<dtype, Allocator<dtype>>& self, int32 inIndex)
     {
         return self[inIndex];
     }
@@ -689,7 +694,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype getValueFlatConst(const NdArray<dtype>& self, int32 inIndex)
+    dtype getValueFlatConst(const NdArray<dtype, Allocator<dtype>>& self, int32 inIndex)
     {
         return self[inIndex];
     }
@@ -697,7 +702,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype getValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
+    dtype getValueRowCol(NdArray<dtype, Allocator<dtype>>& self, int32 inRow, int32 inCol)
     {
         return self(inRow, inCol);
     }
@@ -705,7 +710,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    dtype getValueRowColConst(const NdArray<dtype>& self, int32 inRow, int32 inCol)
+    dtype getValueRowColConst(const NdArray<dtype, Allocator<dtype>>& self, int32 inRow, int32 inCol)
     {
         return self(inRow, inCol);
     }
@@ -713,7 +718,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getMask(const NdArray<dtype>& self, const NdArray<bool>& mask)
+    np::ndarray getMask(const NdArray<dtype, Allocator<dtype>>& self, const NdArray<bool, Allocator<bool>>& mask)
     {
         return nc2Boost(self[mask]);
     }
@@ -721,7 +726,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getIndices(const NdArray<dtype>& self, const NdArray<typename NdArray<dtype>::size_type>& indices)
+    np::ndarray getIndices(const NdArray<dtype, Allocator<dtype>>& self, 
+        const NdArray<typename NdArray<dtype, Allocator<dtype>>::size_type, Allocator<dtype>>& indices)
     {
         return nc2Boost(self[indices]);
     }
@@ -730,7 +736,7 @@ namespace NdArrayInterface
 
 
     template<typename dtype>
-    np::ndarray getSlice1D(const NdArray<dtype>& self, const Slice& inSlice)
+    np::ndarray getSlice1D(const NdArray<dtype, Allocator<dtype>>& self, const Slice& inSlice)
     {
         return nc2Boost(self[inSlice]);
     }
@@ -738,7 +744,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getSlice2D(const NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
+    np::ndarray getSlice2D(const NdArray<dtype, Allocator<dtype>>& self, const Slice& inRowSlice, const Slice& inColSlice)
     {
         return nc2Boost(self(inRowSlice, inColSlice));
     }
@@ -746,7 +752,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getSlice2DCol(const NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
+    np::ndarray getSlice2DCol(const NdArray<dtype, Allocator<dtype>>& self, const Slice& inRowSlice, int32 inColIndex)
     {
         return nc2Boost(self(inRowSlice, inColIndex));
     }
@@ -754,7 +760,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getSlice2DRow(const NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
+    np::ndarray getSlice2DRow(const NdArray<dtype, Allocator<dtype>>& self, int32 inRowIndex, const Slice& inColSlice)
     {
         return nc2Boost(self(inRowIndex, inColSlice));
     }
@@ -763,7 +769,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getByIndices(const NdArray<dtype>& self, const NdArray<uint32>& inIndices)
+    np::ndarray getByIndices(const NdArray<dtype, Allocator<dtype>>& self, const NdArray<uint32, Allocator<uint32>>& inIndices)
     {
         return nc2Boost(self.getByIndices(inIndices));
     }
@@ -771,7 +777,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray getByMask(const NdArray<dtype>& self, const NdArray<bool>& inMask)
+    np::ndarray getByMask(const NdArray<dtype, Allocator<dtype>>& self, const NdArray<bool, Allocator<bool>>& inMask)
     {
         return nc2Boost(self.getByMask(inMask));
     }
@@ -779,7 +785,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray issorted(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray issorted(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.issorted(inAxis));
     }
@@ -787,7 +793,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray max(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray max(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.max(inAxis));
     }
@@ -795,7 +801,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray min(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray min(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.min(inAxis));
     }
@@ -803,7 +809,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray median(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray median(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.median(inAxis));
     }
@@ -811,7 +817,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorder(const NdArray<dtype>& self, Endian inEndiness = Endian::NATIVE)
+    np::ndarray newbyteorder(const NdArray<dtype, Allocator<dtype>>& self, Endian inEndiness = Endian::NATIVE)
     {
         return nc2Boost(self.newbyteorder(inEndiness));
     }
@@ -819,7 +825,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray none(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray none(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.none(inAxis));
     }
@@ -827,7 +833,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    bp::tuple nonzero(const NdArray<dtype>& self)
+    bp::tuple nonzero(const NdArray<dtype, Allocator<dtype>>& self)
     {
         auto rowCol = self.nonzero();
         return bp::make_tuple(nc2Boost(rowCol.first), nc2Boost(rowCol.second));
@@ -836,7 +842,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ones(NdArray<dtype>& self)
+    np::ndarray ones(NdArray<dtype, Allocator<dtype>>& self)
     {
         self.ones();
         return nc2Boost<dtype>(self);
@@ -845,7 +851,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis inAxis = Axis::NONE)
+    np::ndarray partition(NdArray<dtype, Allocator<dtype>>& self, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         self.partition(inKth, inAxis);
         return nc2Boost<dtype>(self);
@@ -854,7 +860,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray prod(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray prod(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.prod(inAxis));
     }
@@ -862,7 +868,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ptp(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray ptp(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.ptp(inAxis));
     }
@@ -870,7 +876,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putFlat(NdArray<dtype>& self, int32 inIndex, dtype inValue)
+    np::ndarray putFlat(NdArray<dtype, Allocator<dtype>>& self, int32 inIndex, dtype inValue)
     {
         self.put(inIndex, inValue);
         return nc2Boost(self);
@@ -879,7 +885,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol, dtype inValue)
+    np::ndarray putRowCol(NdArray<dtype, Allocator<dtype>>& self, int32 inRow, int32 inCol, dtype inValue)
     {
         self.put(inRow, inCol, inValue);
         return nc2Boost(self);
@@ -888,7 +894,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
+    np::ndarray putSlice1DValue(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSlice, dtype inValue)
     {
         self.put(inSlice, inValue);
         return nc2Boost(self);
@@ -897,9 +903,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice1DValues(NdArray<dtype>& self, const Slice& inSlice, const np::ndarray& inArrayValues)
+    np::ndarray putSlice1DValues(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSlice, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
+        NdArray<dtype, Allocator<dtype>> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSlice, inValues);
         return nc2Boost(self);
     }
@@ -907,7 +913,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+    np::ndarray putSlice2DValue(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inSliceRow, inSliceCol, inValue);
         return nc2Boost(self);
@@ -916,7 +922,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValueRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
+    np::ndarray putSlice2DValueRow(NdArray<dtype, Allocator<dtype>>& self, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inRowIndex, inSliceCol, inValue);
         return nc2Boost(self);
@@ -925,7 +931,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValueCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
+    np::ndarray putSlice2DValueCol(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
     {
         self.put(inSliceRow, inColIndex, inValue);
         return nc2Boost(self);
@@ -934,9 +940,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, const np::ndarray& inArrayValues)
+    np::ndarray putSlice2DValues(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSliceRow, const Slice& inSliceCol, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
+        NdArray<dtype, Allocator<dtype>> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSliceRow, inSliceCol, inValues);
         return nc2Boost(self);
     }
@@ -944,9 +950,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValuesRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, const np::ndarray& inArrayValues)
+    np::ndarray putSlice2DValuesRow(NdArray<dtype, Allocator<dtype>>& self, int32 inRowIndex, const Slice& inSliceCol, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
+        NdArray<dtype, Allocator<dtype>> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inRowIndex, inSliceCol, inValues);
         return nc2Boost(self);
     }
@@ -954,9 +960,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putSlice2DValuesCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, const np::ndarray& inArrayValues)
+    np::ndarray putSlice2DValuesCol(NdArray<dtype, Allocator<dtype>>& self, const Slice& inSliceRow, int32 inColIndex, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
+        NdArray<dtype, Allocator<dtype>> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSliceRow, inColIndex, inValues);
         return nc2Boost(self);
     }
@@ -964,7 +970,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putMaskSingle(NdArray<dtype>& self, const np::ndarray& inMask, dtype inValue)
+    np::ndarray putMaskSingle(NdArray<dtype, Allocator<dtype>>& self, const np::ndarray& inMask, dtype inValue)
     {
         auto mask = boost2Nc<bool>(inMask);
         self.putMask(mask, inValue);
@@ -974,7 +980,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putMaskMultiple(NdArray<dtype>& self, const np::ndarray& inMask, const np::ndarray& inArrayValues)
+    np::ndarray putMaskMultiple(NdArray<dtype, Allocator<dtype>>& self, const np::ndarray& inMask, const np::ndarray& inArrayValues)
     {
         auto mask = boost2Nc<bool>(inMask);
         auto inValues = boost2Nc<dtype>(inArrayValues);
@@ -983,7 +989,7 @@ namespace NdArrayInterface
     }
 
     template<typename dtype>
-    np::ndarray ravel(NdArray<dtype>& self)
+    np::ndarray ravel(NdArray<dtype, Allocator<dtype>>& self)
     {
         self.ravel();
         return nc2Boost(self);
@@ -992,7 +998,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray repeat(const NdArray<dtype>& self, const Shape& inRepeatShape)
+    np::ndarray repeat(const NdArray<dtype, Allocator<dtype>>& self, const Shape& inRepeatShape)
     {
         return nc2Boost(self.repeat(inRepeatShape));
     }
@@ -1000,7 +1006,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reshapeInt(NdArray<dtype>& self, uint32 size)
+    np::ndarray reshapeInt(NdArray<dtype, Allocator<dtype>>& self, uint32 size)
     {
         self.reshape(size);
         return nc2Boost(self);
@@ -1009,7 +1015,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reshapeValues(NdArray<dtype>& self, int32 inNumRows, int32 inNumCols)
+    np::ndarray reshapeValues(NdArray<dtype, Allocator<dtype>>& self, int32 inNumRows, int32 inNumCols)
     {
         self.reshape(inNumRows, inNumCols);
         return nc2Boost(self);
@@ -1018,7 +1024,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reshapeShape(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray reshapeShape(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.reshape(inShape);
         return nc2Boost(self);
@@ -1027,7 +1033,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray reshapeList(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.reshape({ inShape.rows, inShape.cols });
         return nc2Boost(self);
@@ -1036,7 +1042,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray replace(NdArray<dtype>& self, dtype oldValue, dtype newValue)
+    np::ndarray replace(NdArray<dtype, Allocator<dtype>>& self, dtype oldValue, dtype newValue)
     {
         self.replace(oldValue, newValue);
         return nc2Boost(self);
@@ -1045,7 +1051,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray resizeFast(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.resizeFast(inShape);
         return nc2Boost(self);
@@ -1054,7 +1060,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray resizeFastList(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray resizeFastList(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.resizeFast({ inShape.rows, inShape.cols });
         return nc2Boost(self);
@@ -1063,7 +1069,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray resizeSlow(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray resizeSlow(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.resizeSlow(inShape);
         return nc2Boost(self);
@@ -1072,7 +1078,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray resizeSlowList(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray resizeSlowList(NdArray<dtype, Allocator<dtype>>& self, const Shape& inShape)
     {
         self.resizeSlow({ inShape.rows, inShape.cols });
         return nc2Boost(self);
@@ -1081,7 +1087,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray round(const NdArray<dtype>& self, uint8 inNumDecimals)
+    np::ndarray round(const NdArray<dtype, Allocator<dtype>>& self, uint8 inNumDecimals)
     {
         return nc2Boost(self.round(inNumDecimals));
     }
@@ -1089,7 +1095,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray sort(NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         self.sort(inAxis);
         return nc2Boost(self);
@@ -1098,7 +1104,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sum(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray sum(const NdArray<dtype, Allocator<dtype>>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.sum(inAxis));
     }
@@ -1106,7 +1112,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray swapaxes(const NdArray<dtype>& self)
+    np::ndarray swapaxes(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return nc2Boost(self.swapaxes());
     }
@@ -1114,7 +1120,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray transpose(const NdArray<dtype>& self)
+    np::ndarray transpose(const NdArray<dtype, Allocator<dtype>>& self)
     {
         return nc2Boost(self.transpose());
     }
@@ -1122,7 +1128,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorPlusEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusEqualArray(NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs += rhs);
     }
@@ -1130,7 +1136,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorPlusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusEqualComplexArrayArithArray(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs += rhs);
     }
@@ -1138,7 +1144,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorPlusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorPlusEqualScaler(NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs += rhs);
     }
@@ -1146,7 +1152,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorPlusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorPlusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs += rhs);
     }
@@ -1154,7 +1160,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorPlusArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1162,7 +1168,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorPlusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorPlusArithArrayComplexArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1170,7 +1176,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorPlusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusComplexArrayArithArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1178,7 +1184,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorPlusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorPlusArrayScaler(const NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1186,7 +1192,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    np::ndarray operatorPlusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusScalerArray(dtype lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1194,7 +1200,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    np::ndarray operatorPlusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    np::ndarray operatorPlusArithArrayComplexScaler(const NdArray<dtype, Allocator<dtype>>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1202,7 +1208,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    np::ndarray operatorPlusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorPlusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1210,7 +1216,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    np::ndarray operatorPlusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorPlusComplexArrayArithScaler(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1218,7 +1224,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    np::ndarray operatorPlusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorPlusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs + rhs);
     }
@@ -1226,7 +1232,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNegative(const NdArray<dtype>& inArray)
+    np::ndarray operatorNegative(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(-inArray);
     }
@@ -1234,7 +1240,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorMinusEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusEqualArray(NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs -= rhs);
     }
@@ -1242,7 +1248,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorMinusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusEqualComplexArrayArithArray(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs -= rhs);
     }
@@ -1250,7 +1256,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorMinusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorMinusEqualScaler(NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs -= rhs);
     }
@@ -1258,7 +1264,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorMinusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorMinusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs -= rhs);
     }
@@ -1266,7 +1272,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorMinusArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1274,7 +1280,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorMinusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorMinusArithArrayComplexArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1282,7 +1288,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorMinusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusComplexArrayArithArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1290,7 +1296,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorMinusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorMinusArrayScaler(const NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1298,7 +1304,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    np::ndarray operatorMinusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusScalerArray(dtype lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1306,7 +1312,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    np::ndarray operatorMinusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    np::ndarray operatorMinusArithArrayComplexScaler(const NdArray<dtype, Allocator<dtype>>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1314,7 +1320,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    np::ndarray operatorMinusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMinusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1322,7 +1328,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    np::ndarray operatorMinusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorMinusComplexArrayArithScaler(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1330,7 +1336,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    np::ndarray operatorMinusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorMinusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs - rhs);
     }
@@ -1338,7 +1344,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorMultiplyEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyEqualArray(NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs *= rhs);
     }
@@ -1346,7 +1352,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorMultiplyEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyEqualComplexArrayArithArray(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs *= rhs);
     }
@@ -1354,7 +1360,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorMultiplyEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorMultiplyEqualScaler(NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs *= rhs);
     }
@@ -1362,7 +1368,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorMultiplyEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorMultiplyEqualComplexArrayArithScaler(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs *= rhs);
     }
@@ -1370,7 +1376,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorMultiplyArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1378,7 +1384,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorMultiplyArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorMultiplyArithArrayComplexArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1386,7 +1392,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorMultiplyComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyComplexArrayArithArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1394,7 +1400,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorMultiplyArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorMultiplyArrayScaler(const NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1402,7 +1408,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    np::ndarray operatorMultiplyScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyScalerArray(dtype lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1410,7 +1416,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    np::ndarray operatorMultiplyArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    np::ndarray operatorMultiplyArithArrayComplexScaler(const NdArray<dtype, Allocator<dtype>>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1418,7 +1424,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    np::ndarray operatorMultiplyComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorMultiplyComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1426,7 +1432,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    np::ndarray operatorMultiplyComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorMultiplyComplexArrayArithScaler(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1434,7 +1440,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    np::ndarray operatorMultiplyArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorMultiplyArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs * rhs);
     }
@@ -1442,7 +1448,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorDivideEqualArray(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideEqualArray(NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs /= rhs);
     }
@@ -1450,7 +1456,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorDivideEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideEqualComplexArrayArithArray(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs /= rhs);
     }
@@ -1458,7 +1464,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorDivideEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorDivideEqualScaler(NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs /= rhs);
     }
@@ -1466,7 +1472,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorDivideEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorDivideEqualComplexArrayArithScaler(NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs /= rhs);
     }
@@ -1474,7 +1480,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (1)
-    np::ndarray operatorDivideArray(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1482,7 +1488,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    np::ndarray operatorDivideArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorDivideArithArrayComplexArray(const NdArray<dtype, Allocator<dtype>>& lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1490,7 +1496,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    np::ndarray operatorDivideComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideComplexArrayArithArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1498,7 +1504,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    np::ndarray operatorDivideArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    np::ndarray operatorDivideArrayScaler(const NdArray<dtype, Allocator<dtype>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1506,7 +1512,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    np::ndarray operatorDivideScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideScalerArray(dtype lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1514,7 +1520,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    np::ndarray operatorDivideArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    np::ndarray operatorDivideArithArrayComplexScaler(const NdArray<dtype, Allocator<dtype>>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1522,7 +1528,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    np::ndarray operatorDivideComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    np::ndarray operatorDivideComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype, Allocator<dtype>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1530,7 +1536,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    np::ndarray operatorDivideComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    np::ndarray operatorDivideComplexArrayArithScaler(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& lhs, dtype rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1538,7 +1544,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    np::ndarray operatorDivideArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    np::ndarray operatorDivideArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& rhs)
     {
         return nc2Boost(lhs / rhs);
     }
@@ -1546,7 +1552,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray operatorModulusScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray % inScaler);
     }
@@ -1554,7 +1560,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    np::ndarray operatorModulusScalerReversed(dtype inScaler, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inScaler % inArray);
     }
@@ -1562,7 +1568,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorModulusArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 % inArray2);
     }
@@ -1570,7 +1576,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray operatorBitwiseOrScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray | inScaler);
     }
@@ -1578,7 +1584,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    np::ndarray operatorBitwiseOrScalerReversed(dtype inScaler, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inScaler | inArray);
     }
@@ -1586,7 +1592,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorBitwiseOrArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 | inArray2);
     }
@@ -1594,7 +1600,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray operatorBitwiseAndScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray & inScaler);
     }
@@ -1602,7 +1608,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    np::ndarray operatorBitwiseAndScalerReversed(dtype inScaler, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inScaler & inArray);
     }
@@ -1610,7 +1616,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorBitwiseAndArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 & inArray2);
     }
@@ -1618,7 +1624,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray operatorBitwiseXorScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray ^ inScaler);
     }
@@ -1626,7 +1632,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    np::ndarray operatorBitwiseXorScalerReversed(dtype inScaler, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inScaler ^ inArray);
     }
@@ -1634,7 +1640,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorBitwiseXorArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 ^ inArray2);
     }
@@ -1642,7 +1648,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseNot(const NdArray<dtype>& inArray)
+    np::ndarray operatorBitwiseNot(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(~inArray);
     }
@@ -1650,7 +1656,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorLogicalAndArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 && inArray2);
     }
@@ -1658,7 +1664,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndScalar(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorLogicalAndScalar(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray && inValue);
     }
@@ -1666,7 +1672,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalAndScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorLogicalAndScalarReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue && inArray);
     }
@@ -1674,7 +1680,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorLogicalOrArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 || inArray2);
     }
@@ -1682,7 +1688,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrScalar(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorLogicalOrScalar(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray || inValue);
     }
@@ -1690,7 +1696,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLogicalOrScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorLogicalOrScalarReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue || inArray);
     }
@@ -1698,7 +1704,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNot(const NdArray<dtype>& inArray)
+    np::ndarray operatorNot(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(!inArray);
     }
@@ -1706,7 +1712,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorEqualityScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray == inValue);
     }
@@ -1714,7 +1720,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorEqualityScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue == inArray);
     }
@@ -1722,7 +1728,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorEqualityArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 == inArray2);
     }
@@ -1730,7 +1736,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorNotEqualityScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray != inValue);
     }
@@ -1738,7 +1744,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorNotEqualityScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue != inArray);
     }
@@ -1746,7 +1752,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorNotEqualityArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 != inArray2);
     }
@@ -1754,7 +1760,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorLessScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray < inValue);
     }
@@ -1762,7 +1768,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorLessScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue < inArray);
     }
@@ -1770,7 +1776,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorLessArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 < inArray2);
     }
@@ -1778,7 +1784,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorGreaterScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray > inValue);
     }
@@ -1786,7 +1792,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorGreaterScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue > inArray);
     }
@@ -1794,7 +1800,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorGreaterArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 > inArray2);
     }
@@ -1802,7 +1808,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorLessEqualScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray <= inValue);
     }
@@ -1810,7 +1816,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorLessEqualScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue <= inArray);
     }
@@ -1818,7 +1824,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorLessEqualArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 <= inArray2);
     }
@@ -1826,7 +1832,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
+    np::ndarray operatorGreaterEqualScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inValue)
     {
         return nc2Boost(inArray >= inValue);
     }
@@ -1834,7 +1840,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    np::ndarray operatorGreaterEqualScalerReversed(dtype inValue, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inValue >= inArray);
     }
@@ -1842,7 +1848,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray operatorGreaterEqualArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 >= inArray2);
     }
@@ -1850,7 +1856,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitshiftLeft(const NdArray<dtype>& inArray, uint8 inNumBits)
+    np::ndarray operatorBitshiftLeft(const NdArray<dtype, Allocator<dtype>>& inArray, uint8 inNumBits)
     {
         return nc2Boost(inArray << inNumBits);
     }
@@ -1858,7 +1864,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitshiftRight(const NdArray<dtype>& inArray, uint8 inNumBits)
+    np::ndarray operatorBitshiftRight(const NdArray<dtype, Allocator<dtype>>& inArray, uint8 inNumBits)
     {
         return nc2Boost(inArray >> inNumBits);
     }
@@ -1866,7 +1872,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPrePlusPlus(NdArray<dtype>& inArray)
+    np::ndarray operatorPrePlusPlus(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(++inArray);
     }
@@ -1874,7 +1880,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPostPlusPlus(NdArray<dtype>& inArray)
+    np::ndarray operatorPostPlusPlus(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inArray++);
     }
@@ -1882,7 +1888,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPreMinusMinus(NdArray<dtype>& inArray)
+    np::ndarray operatorPreMinusMinus(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(--inArray);
     }
@@ -1890,7 +1896,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPostMinusMinus(NdArray<dtype>& inArray)
+    np::ndarray operatorPostMinusMinus(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(inArray--);
     }
@@ -1909,7 +1915,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray absArray(const NdArray<dtype>& inArray)
+    np::ndarray absArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(abs(inArray));
     }
@@ -1925,7 +1931,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray allArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray allArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(all(inArray, inAxis));
     }
@@ -1933,7 +1939,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray anyArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(any(inArray, inAxis));
     }
@@ -1941,7 +1947,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray argmaxArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(argmax(inArray, inAxis));
     }
@@ -1949,7 +1955,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray argminArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(argmin(inArray, inAxis));
     }
@@ -1957,7 +1963,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray argsortArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(argsort(inArray, inAxis));
     }
@@ -1965,7 +1971,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argwhere(const NdArray<dtype>& inArray)
+    np::ndarray argwhere(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::argwhere(inArray));
     }
@@ -1973,7 +1979,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray amaxArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(amax(inArray, inAxis));
     }
@@ -1981,7 +1987,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray aminArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(amin(inArray, inAxis));
     }
@@ -1997,7 +2003,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray angleArray(const NdArray<std::complex<dtype>>& inArray)
+    np::ndarray angleArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray)
     {
         return nc2Boost(angle(inArray));
     }
@@ -2021,7 +2027,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arccosArray(const NdArray<dtype>& inArray)
+    np::ndarray arccosArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arccos(inArray));
     }
@@ -2037,7 +2043,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arccoshArray(const NdArray<dtype>& inArray)
+    np::ndarray arccoshArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arccosh(inArray));
     }
@@ -2053,7 +2059,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arcsinArray(const NdArray<dtype>& inArray)
+    np::ndarray arcsinArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arcsin(inArray));
     }
@@ -2069,7 +2075,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
+    np::ndarray arcsinhArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arcsinh(inArray));
     }
@@ -2085,7 +2091,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arctanArray(const NdArray<dtype>& inArray)
+    np::ndarray arctanArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arctan(inArray));
     }
@@ -2101,7 +2107,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
+    np::ndarray arctan2Array(const NdArray<dtype, Allocator<dtype>>& inY, const NdArray<dtype, Allocator<dtype>>& inX)
     {
         return nc2Boost(arctan2(inY, inX));
     }
@@ -2117,7 +2123,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray arctanhArray(const NdArray<dtype>& inArray)
+    np::ndarray arctanhArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(arctanh(inArray));
     }
@@ -2133,7 +2139,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray aroundArray(NdArray<dtype>& inArray, uint8 inNumDecimals)
+    np::ndarray aroundArray(NdArray<dtype, Allocator<dtype>>& inArray, uint8 inNumDecimals)
     {
         return nc2Boost(around(inArray, inNumDecimals));
     }
@@ -2409,7 +2415,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray average(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::average(inArray, inAxis));
     }
@@ -2417,7 +2423,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    np::ndarray averageWeighted(const NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<dtype, Allocator<dtype>>& inWeights, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(average(inArray, inWeights, inAxis));
     }
@@ -2425,8 +2431,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray averageWeightedComplex(const NdArray<std::complex<dtype>>& inArray, 
-        const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    np::ndarray averageWeightedComplex(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray, 
+        const NdArray<dtype, Allocator<dtype>>& inWeights, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(average(inArray, inWeights, inAxis));
     }
@@ -2434,7 +2440,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
+    np::ndarray bincount(const NdArray<dtype, Allocator<dtype>>& inArray, uint16 inMinLength = 0)
     {
         return nc2Boost(nc::bincount(inArray, inMinLength));
     }
@@ -2442,7 +2448,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+    np::ndarray bincountWeighted(const NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<dtype, Allocator<dtype>>& inWeights, uint16 inMinLength = 0)
     {
         return nc2Boost(bincount(inArray, inWeights, inMinLength));
     }
@@ -2450,7 +2456,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray bitwise_and(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::bitwise_and(inArray1, inArray2));
     }
@@ -2458,7 +2464,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bitwise_not(const NdArray<dtype>& inArray)
+    np::ndarray bitwise_not(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::bitwise_not(inArray));
     }
@@ -2466,7 +2472,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray bitwise_or(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::bitwise_or(inArray1, inArray2));
     }
@@ -2474,7 +2480,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray bitwise_xor(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::bitwise_xor(inArray1, inArray2));
     }
@@ -2482,7 +2488,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray andOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray andOperatorArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 && inArray2);
     }
@@ -2490,7 +2496,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray andOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray andOperatorScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray && inScaler);
     }
@@ -2498,7 +2504,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray orOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray orOperatorArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(inArray1 || inArray2);
     }
@@ -2506,7 +2512,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray orOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    np::ndarray orOperatorScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inScaler)
     {
         return nc2Boost(inArray || inScaler);
     }
@@ -2514,7 +2520,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray byteswap(const NdArray<dtype>& inArray)
+    np::ndarray byteswap(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::byteswap(inArray));
     }
@@ -2530,7 +2536,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cbrtArray(const NdArray<dtype>& inArray)
+    np::ndarray cbrtArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(cbrt(inArray));
     }
@@ -2546,7 +2552,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ceilArray(const NdArray<dtype>& inArray)
+    np::ndarray ceilArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(ceil(inArray));
     }
@@ -2554,7 +2560,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE) noexcept
+    np::ndarray centerOfMass(const NdArray<dtype, Allocator<dtype>>& inArray, const Axis inAxis = Axis::NONE) noexcept
     {
         return nc2Boost(nc::centerOfMass(inArray, inAxis));
     }
@@ -2570,7 +2576,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
+    np::ndarray clipArray(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inMinValue, dtype inMaxValue)
     {
         return nc2Boost(clip(inArray, inMinValue, inMaxValue));
     }
@@ -2578,8 +2584,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    np::ndarray column_stack(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4)
     {
         return nc2Boost(nc::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -2603,7 +2609,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray complexArraySingle(const NdArray<dtype>& inReal)
+    np::ndarray complexArraySingle(const NdArray<dtype, Allocator<dtype>>& inReal)
     {
         return nc2Boost(nc::complex(inReal));
     }
@@ -2611,7 +2617,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray complexArray(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)
+    np::ndarray complexArray(const NdArray<dtype, Allocator<dtype>>& inReal, const NdArray<dtype, Allocator<dtype>>& inImag)
     {
         return nc2Boost(nc::complex(inReal, inImag));
     }
@@ -2627,7 +2633,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray conjArray(const NdArray<std::complex<dtype>>& inArray)
+    np::ndarray conjArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray)
     {
         return nc2Boost(nc::conj(inArray));
     }
@@ -2635,8 +2641,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis inAxis)
+    np::ndarray concatenate(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4, Axis inAxis)
     {
         return nc2Boost(nc::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -2644,7 +2650,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray copy(const NdArray<dtype>& inArray)
+    np::ndarray copy(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::copy(inArray));
     }
@@ -2652,7 +2658,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray copySign(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::copySign(inArray1, inArray2));
     }
@@ -2660,7 +2666,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
+    np::ndarray copyto(NdArray<dtype, Allocator<dtype>>& inArrayDest, const NdArray<dtype, Allocator<dtype>>& inArraySrc)
     {
         return nc2Boost(nc::copyto(inArrayDest, inArraySrc));
     }
@@ -2676,7 +2682,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cosArray(const NdArray<dtype>& inArray)
+    np::ndarray cosArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(cos(inArray));
     }
@@ -2692,7 +2698,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray coshArray(const NdArray<dtype>& inArray)
+    np::ndarray coshArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(cosh(inArray));
     }
@@ -2700,7 +2706,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
+    np::ndarray count_nonzero(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::ROW)
     {
         return nc2Boost(nc::count_nonzero(inArray, inAxis));
     }
@@ -2708,7 +2714,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cubeArray(const NdArray<dtype>& inArray)
+    np::ndarray cubeArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(cube(inArray));
     }
@@ -2716,7 +2722,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray cumprodArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(cumprod(inArray, inAxis));
     }
@@ -2724,7 +2730,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray cumsumArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(cumsum(inArray, inAxis));
     }
@@ -2740,7 +2746,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deg2radArray(const NdArray<dtype>& inArray)
+    np::ndarray deg2radArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(deg2rad(inArray));
     }
@@ -2756,7 +2762,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray degreesArray(const NdArray<dtype>& inArray)
+    np::ndarray degreesArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(degrees(inArray));
     }
@@ -2764,7 +2770,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesScaler(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
+    np::ndarray deleteIndicesScaler(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inIndex, Axis inAxis)
     {
         return nc2Boost(deleteIndices(inArray, inIndex, inAxis));
     }
@@ -2772,7 +2778,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis inAxis)
+    np::ndarray deleteIndicesSlice(const NdArray<dtype, Allocator<dtype>>& inArray, const Slice& inIndices, Axis inAxis)
     {
         return nc2Boost(deleteIndices(inArray, inIndices, inAxis));
     }
@@ -2780,7 +2786,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diag(const NdArray<dtype>& inArray, int32 k)
+    np::ndarray diag(const NdArray<dtype, Allocator<dtype>>& inArray, int32 k)
     {
         return nc2Boost(nc::diag(inArray, k));
     }
@@ -2788,7 +2794,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagflat(const NdArray<dtype>& inArray, int32 k)
+    np::ndarray diagflat(const NdArray<dtype, Allocator<dtype>>& inArray, int32 k)
     {
         return nc2Boost(nc::diagflat(inArray, k));
     }
@@ -2796,7 +2802,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis inAxis = Axis::ROW)
+    np::ndarray diagonal(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return nc2Boost(nc::diagonal(inArray, inOffset, inAxis));
     }
@@ -2804,7 +2810,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
+    np::ndarray diff(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::ROW)
     {
         return nc2Boost(nc::diff(inArray, inAxis));
     }
@@ -2820,7 +2826,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype1, typename dtype2>
-    np::ndarray dot(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
+    np::ndarray dot(const NdArray<dtype1, Allocator<dtype1>>& inArray1, const NdArray<dtype2, Allocator<dtype2>>& inArray2)
     {
         return nc2Boost(nc::dot(inArray1, inArray2));
     }
@@ -2844,7 +2850,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray equal(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::equal(inArray1, inArray2));
     }
@@ -2860,7 +2866,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray expArray(const NdArray<dtype>& inArray)
+    np::ndarray expArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(exp(inArray));
     }
@@ -2876,7 +2882,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray exp2Array(const NdArray<dtype>& inArray)
+    np::ndarray exp2Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(exp2(inArray));
     }
@@ -2892,7 +2898,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray expm1Array(const NdArray<dtype>& inArray)
+    np::ndarray expm1Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(expm1(inArray));
     }
@@ -2923,14 +2929,14 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    np::ndarray find(const NdArray<bool>& inArray) noexcept
+    np::ndarray find(const NdArray<bool, Allocator<bool>>& inArray) noexcept
     {
         return nc2Boost(nc::find(inArray));
     }
 
     //================================================================================
 
-    np::ndarray findN(const NdArray<bool>& inArray, uint32 n) noexcept
+    np::ndarray findN(const NdArray<bool, Allocator<bool>>& inArray, uint32 n) noexcept
     {
         return nc2Boost(nc::find(inArray, n));
     }
@@ -2946,7 +2952,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fixArray(const NdArray<dtype>& inArray)
+    np::ndarray fixArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(fix(inArray));
     }
@@ -2962,7 +2968,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray floorArray(const NdArray<dtype>& inArray)
+    np::ndarray floorArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(floor(inArray));
     }
@@ -2978,7 +2984,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray floor_divideArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(floor_divide(inArray1, inArray2));
     }
@@ -2994,7 +3000,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray fmaxArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(fmax(inArray1, inArray2));
     }
@@ -3010,7 +3016,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray fminArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(fmin(inArray1, inArray2));
     }
@@ -3024,7 +3030,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray fmodArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(fmod(inArray1, inArray2));
     }
@@ -3032,7 +3038,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray frombuffer(const NdArray<dtype>& inArray)
+    np::ndarray frombuffer(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         auto buffer = reinterpret_cast<const char*>(inArray.data());
         return nc2Boost(nc::frombuffer<dtype>(buffer, static_cast<uint32>(inArray.nbytes())));
@@ -3041,7 +3047,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray fromiter(const NdArray<dtype>& inArray)
+    np::ndarray fromiter(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         std::vector<dtype> vec(inArray.begin(), inArray.end());
         return nc2Boost(nc::fromiter<dtype>(vec.begin(), vec.end()));
@@ -3082,7 +3088,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype gcdArray(const NdArray<dtype>& inArray)
+    dtype gcdArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return gcd(inArray);
     }
@@ -3090,7 +3096,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray gradient(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::gradient(inArray, inAxis));
     }
@@ -3098,17 +3104,17 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bp::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+    bp::tuple histogram(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inNumBins = 10)
     {
-        std::pair<NdArray<uint32>, NdArray<double> > output = nc::histogram(inArray, inNumBins);
+        std::pair<NdArray<uint32, Allocator<uint32>>, NdArray<double, Allocator<double>> > output = nc::histogram(inArray, inNumBins);
         return bp::make_tuple(output.first, output.second);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    np::ndarray hstack(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4)
     {
         return nc2Boost(nc::hstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -3132,7 +3138,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray hypotArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(hypot(inArray1, inArray2));
     }
@@ -3148,7 +3154,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray imagArray(const NdArray<std::complex<dtype>>& inArray)
+    np::ndarray imagArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray)
     {
         return nc2Boost(imag(inArray));
     }
@@ -3156,7 +3162,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
+    np::ndarray interp(const NdArray<dtype, Allocator<dtype>>& inX, const NdArray<dtype, Allocator<dtype>>& inXp, const NdArray<dtype, Allocator<dtype>>& inFp)
     {
         return nc2Boost(nc::interp(inX, inXp, inFp));
     }
@@ -3172,7 +3178,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray isinfArray(const NdArray<dtype>& inArray)
+    np::ndarray isinfArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::isinf(inArray));
     }
@@ -3188,7 +3194,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray isnanArray(const NdArray<dtype>& inArray)
+    np::ndarray isnanArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::isnan(inArray));
     }
@@ -3204,7 +3210,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
+    np::ndarray ldexpArray(const NdArray<dtype, Allocator<dtype>>& inArray1,
+        const NdArray<uint8, Allocator<uint8>>& inArray2)
     {
         return nc2Boost(ldexp(inArray1, inArray2));
     }
@@ -3240,7 +3247,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray negative(const NdArray<dtype> inArray)
+    np::ndarray negative(const NdArray<dtype, Allocator<dtype>> inArray)
     {
         return nc2Boost(nc::negative(inArray));
     }
@@ -3248,7 +3255,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray noneArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray noneArray(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(none(inArray, inAxis));
     }
@@ -3264,7 +3271,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype lcmArray(const NdArray<dtype>& inArray)
+    dtype lcmArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return lcm(inArray);
     }
@@ -3280,7 +3287,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray logArray(const NdArray<dtype>& inArray)
+    np::ndarray logArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(log(inArray));
     }
@@ -3296,7 +3303,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray log10Array(const NdArray<dtype>& inArray)
+    np::ndarray log10Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(log10(inArray));
     }
@@ -3312,7 +3319,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray log1pArray(const NdArray<dtype>& inArray)
+    np::ndarray log1pArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(log1p(inArray));
     }
@@ -3328,7 +3335,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray log2Array(const NdArray<dtype>& inArray)
+    np::ndarray log2Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(log2(inArray));
     }
@@ -3336,7 +3343,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype1, typename dtype2>
-    np::ndarray matmul(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
+    np::ndarray matmul(const NdArray<dtype1, Allocator<dtype1>>& inArray1, const NdArray<dtype2, Allocator<dtype2>>& inArray2)
     {
         return nc2Boost(nc::matmul(inArray1, inArray2));
     }
@@ -3344,7 +3351,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray max(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::max(inArray, inAxis));
     }
@@ -3352,7 +3359,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray maximum(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::maximum(inArray1, inArray2));
     }
@@ -3360,7 +3367,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
+    std::pair<NdArray<dtype, Allocator<dtype>>, NdArray<dtype, Allocator<dtype>> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
     {
         return nc::meshgrid<dtype>(inISlice, inJSlice);
     }
@@ -3368,7 +3375,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    np::ndarray min(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::min(inArray, inAxis));
     }
@@ -3376,7 +3383,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray minimum(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::minimum(inArray1, inArray2));
     }
@@ -3400,7 +3407,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian inEndianess)
+    np::ndarray newbyteorderArray(const NdArray<dtype, Allocator<dtype>>& inArray, Endian inEndianess)
     {
         return nc2Boost(newbyteorder(inArray, inEndianess));
     }
@@ -3432,7 +3439,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray outer(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(nc::outer(inArray1, inArray2));
     }
@@ -3440,7 +3447,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sqrArray(const NdArray<dtype>& inArray)
+    np::ndarray sqrArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sqr(inArray));
     }
@@ -3456,7 +3463,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray polarArray(const NdArray<dtype>& mag, const NdArray<dtype>& angle)
+    np::ndarray polarArray(const NdArray<dtype, Allocator<dtype>>& mag, const NdArray<dtype, Allocator<dtype>>& angle)
     {
         return nc2Boost(polar(mag, angle));
     }
@@ -3464,7 +3471,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
+    np::ndarray powerArrayScaler(const NdArray<dtype, Allocator<dtype>>& inArray, uint8 inExponent)
     {
         return nc2Boost(nc::power(inArray, inExponent));
     }
@@ -3472,7 +3479,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
+    np::ndarray powerArrayArray(const NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<uint8, Allocator<uint8>>& inExponents)
     {
         return nc2Boost(nc::power(inArray, inExponents));
     }
@@ -3480,7 +3487,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, dtype inExponent)
+    np::ndarray powerfArrayScaler(const NdArray<dtype, Allocator<dtype>>& inArray, dtype inExponent)
     {
         return nc2Boost(nc::powerf(inArray, inExponent));
     }
@@ -3488,7 +3495,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<dtype>& inExponents)
+    np::ndarray powerfArrayArray(const NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<dtype, Allocator<dtype>>& inExponents)
     {
         return nc2Boost(nc::powerf(inArray, inExponents));
     }
@@ -3504,7 +3511,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray projArray(const NdArray<std::complex<dtype>>& inArray)
+    np::ndarray projArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray)
     {
         return nc2Boost(proj(inArray));
     }
@@ -3512,7 +3519,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+    np::ndarray putmask(NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<bool, Allocator<bool>>& inMask, const NdArray<dtype, Allocator<dtype>>& inValues)
     {
         return nc2Boost(nc::putmask(inArray, inMask, inValues));
     }
@@ -3520,7 +3527,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putmaskScaler(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
+    np::ndarray putmaskScaler(NdArray<dtype, Allocator<dtype>>& inArray, const NdArray<bool, Allocator<bool>>& inMask, dtype inValue)
     {
         return nc2Boost(putmask(inArray, inMask, inValue));
     }
@@ -3536,7 +3543,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray rad2degArray(const NdArray<dtype>& inArray)
+    np::ndarray rad2degArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(rad2deg(inArray));
     }
@@ -3552,7 +3559,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray radiansArray(const NdArray<dtype>& inArray)
+    np::ndarray radiansArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(radians(inArray));
     }
@@ -3560,7 +3567,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& ravel(NdArray<dtype>& inArray)
+    NdArray<dtype, Allocator<dtype>>& ravel(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc::ravel(inArray);
     }
@@ -3568,7 +3575,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reciprocal(NdArray<dtype>& inArray)
+    np::ndarray reciprocal(NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(nc::reciprocal(inArray));
     }
@@ -3584,7 +3591,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray realArray(const NdArray<std::complex<dtype>>& inArray)
+    np::ndarray realArray(const NdArray<std::complex<dtype>, Allocator<std::complex<dtype>>>& inArray)
     {
         return nc2Boost(real(inArray));
     }
@@ -3600,7 +3607,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    np::ndarray remainderArray(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2)
     {
         return nc2Boost(remainder(inArray1, inArray2));
     }
@@ -3608,7 +3615,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray replace(NdArray<dtype>& inArray, dtype oldValue, dtype newValue)
+    np::ndarray replace(NdArray<dtype, Allocator<dtype>>& inArray, dtype oldValue, dtype newValue)
     {
         return nc2Boost(nc::replace(inArray, oldValue, newValue));
     }
@@ -3617,7 +3624,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& reshapeInt(NdArray<dtype>& inArray, uint32 inSize)
+    NdArray<dtype, Allocator<dtype>>& reshapeInt(NdArray<dtype, Allocator<dtype>>& inArray, uint32 inSize)
     {
         return nc::reshape(inArray, inSize);
     }
@@ -3625,7 +3632,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& reshapeValues(NdArray<dtype>& inArray, int32 inNumRows, int32 inNumCols)
+    NdArray<dtype, Allocator<dtype>>& reshapeValues(NdArray<dtype, Allocator<dtype>>& inArray, int32 inNumRows, int32 inNumCols)
     {
         return nc::reshape(inArray, inNumRows, inNumCols);
     }
@@ -3633,7 +3640,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& reshapeShape(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& reshapeShape(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return nc::reshape(inArray, inNewShape);
     }
@@ -3641,7 +3648,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& reshapeList(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return reshape(inArray, inNewShape.rows, inNewShape.cols);
     }
@@ -3649,7 +3656,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& resizeFast(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return nc::resizeFast(inArray, inNewShape);
     }
@@ -3657,7 +3664,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& resizeFastList(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return resizeFast(inArray, inNewShape.rows, inNewShape.cols);
     }
@@ -3665,7 +3672,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& resizeSlow(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return nc::resizeSlow(inArray, inNewShape);
     }
@@ -3673,7 +3680,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype, Allocator<dtype>>& resizeSlowList(NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inNewShape)
     {
         return resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
     }
@@ -3689,7 +3696,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray rintArray(const NdArray<dtype>& inArray)
+    np::ndarray rintArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(rint(inArray));
     }
@@ -3705,7 +3712,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
+    np::ndarray roundArray(const NdArray<dtype, Allocator<dtype>>& inArray, uint8 inDecimals)
     {
         return nc2Boost(round(inArray, inDecimals));
     }
@@ -3713,8 +3720,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    np::ndarray row_stack(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4)
     {
         return nc2Boost(nc::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -3730,7 +3737,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray signArray(const NdArray<dtype>& inArray)
+    np::ndarray signArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sign(inArray));
     }
@@ -3746,7 +3753,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray signbitArray(const NdArray<dtype>& inArray)
+    np::ndarray signbitArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(signbit(inArray));
     }
@@ -3762,7 +3769,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sinArray(const NdArray<dtype>& inArray)
+    np::ndarray sinArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sin(inArray));
     }
@@ -3778,7 +3785,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sincArray(const NdArray<dtype>& inArray)
+    np::ndarray sincArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sinc(inArray));
     }
@@ -3794,7 +3801,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sinhArray(const NdArray<dtype>& inArray)
+    np::ndarray sinhArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sinh(inArray));
     }
@@ -3810,7 +3817,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sqrtArray(const NdArray<dtype>& inArray)
+    np::ndarray sqrtArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(sqrt(inArray));
     }
@@ -3826,7 +3833,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray squareArray(const NdArray<dtype>& inArray)
+    np::ndarray squareArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(square(inArray));
     }
@@ -3850,7 +3857,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray tanArray(const NdArray<dtype>& inArray)
+    np::ndarray tanArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(tan(inArray));
     }
@@ -3866,7 +3873,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray tanhArray(const NdArray<dtype>& inArray)
+    np::ndarray tanhArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(tanh(inArray));
     }
@@ -3874,7 +3881,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+    np::ndarray tileRectangle(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return nc2Boost(tile(inArray, inNumRows, inNumCols));
     }
@@ -3882,7 +3889,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
+    np::ndarray tileShape(const NdArray<dtype, Allocator<dtype>>& inArray, const Shape& inRepShape)
     {
         return nc2Boost(tile(inArray, inRepShape));
     }
@@ -3890,7 +3897,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+    np::ndarray tileList(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return nc2Boost(tile(inArray, { inNumRows, inNumCols }));
     }
@@ -3898,7 +3905,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis inAxis = Axis::NONE)
+    np::ndarray trapzDx(const NdArray<dtype, Allocator<dtype>>& inY, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(trapz(inY, dx, inAxis));
     }
@@ -3906,7 +3913,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis inAxis = Axis::NONE)
+    np::ndarray trapz(const NdArray<dtype, Allocator<dtype>>& inY, const NdArray<dtype, Allocator<dtype>>& inX, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::trapz(inY, inX, inAxis));
     }
@@ -3930,7 +3937,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray triuArray(const NdArray<dtype>& inArray, int32 inOffset)
+    np::ndarray triuArray(const NdArray<dtype, Allocator<dtype>>& inArray, int32 inOffset)
     {
         return nc2Boost(triu(inArray, inOffset));
     }
@@ -3954,7 +3961,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trilArray(const NdArray<dtype>& inArray, int32 inOffset)
+    np::ndarray trilArray(const NdArray<dtype, Allocator<dtype>>& inArray, int32 inOffset)
     {
         return nc2Boost(tril(inArray, inOffset));
     }
@@ -3970,7 +3977,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray unwrapArray(const NdArray<dtype>& inArray)
+    np::ndarray unwrapArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(unwrap(inArray));
     }
@@ -3986,7 +3993,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray truncArray(const NdArray<dtype>& inArray)
+    np::ndarray truncArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(trunc(inArray));
     }
@@ -3994,8 +4001,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, nc::Axis inAxis)
+    np::ndarray stack(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4, nc::Axis inAxis)
     {
         return nc2Boost(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -4003,8 +4010,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    np::ndarray vstack(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2,
+        const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4)
     {
         return nc2Boost(nc::vstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -4012,7 +4019,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    np::ndarray where(const NdArray<bool, Allocator<bool>>& inMask, const NdArray<dtype, Allocator<dtype>>& inA, const NdArray<dtype, Allocator<dtype>>& inB)
     {
         return nc2Boost(nc::where(inMask, inA, inB));
     }
@@ -4053,13 +4060,13 @@ namespace FunctionsInterface
 namespace RandomInterface
 {
     template<typename dtype>
-    dtype choiceSingle(const NdArray<dtype>& inArray)
+    dtype choiceSingle(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return random::choice(inArray);
     }
 
     template<typename dtype>
-    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    np::ndarray choiceMultiple(const NdArray<dtype, Allocator<dtype>>& inArray, uint32 inNum)
     {
         return nc2Boost(random::choice(inArray, inNum));
     }
@@ -4073,7 +4080,7 @@ namespace RandomInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray permutationArray(const NdArray<dtype>& inArray)
+    np::ndarray permutationArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(random::permutation(inArray));
     }
@@ -4082,19 +4089,19 @@ namespace RandomInterface
 namespace LinalgInterface
 {
     template<typename dtype>
-    np::ndarray hatArray(const NdArray<dtype>& inArray)
+    np::ndarray hatArray(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(linalg::hat(inArray));
     }
 
     template<typename dtype>
-    np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    np::ndarray multi_dot(const NdArray<dtype, Allocator<dtype>>& inArray1, const NdArray<dtype, Allocator<dtype>>& inArray2, const NdArray<dtype, Allocator<dtype>>& inArray3, const NdArray<dtype, Allocator<dtype>>& inArray4)
     {
         return nc2Boost(linalg::multi_dot({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     template<typename dtype>
-    bp::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
+    bp::tuple pivotLU_decomposition(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         auto lup = linalg::pivotLU_decomposition(inArray);
         auto& l = std::get<0>(lup);
@@ -4106,12 +4113,12 @@ namespace LinalgInterface
 
 namespace RotationsInterface
 {
-    np::ndarray angleAxisRotationNdArray(const NdArray<double>& inAxis, double inAngle)
+    np::ndarray angleAxisRotationNdArray(const NdArray<double, Allocator<double>>& inAxis, double inAngle)
     {
         return nc2Boost(rotations::Quaternion(inAxis, inAngle).toNdArray());
     }
 
-    np::ndarray angleAxisRotationVec3(const NdArray<double>& inAxis, double inAngle)
+    np::ndarray angleAxisRotationVec3(const NdArray<double, Allocator<double>>& inAxis, double inAngle)
     {
         return nc2Boost(rotations::Quaternion(Vec3(inAxis), inAngle).toNdArray());
     }
@@ -4126,12 +4133,12 @@ namespace RotationsInterface
         return nc2Boost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
     }
 
-    np::ndarray rotateNdArray(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    np::ndarray rotateNdArray(const rotations::Quaternion& inQuat, const NdArray<double, Allocator<double>>& inVec)
     {
         return nc2Boost(inQuat.rotate(inVec));
     }
 
-    np::ndarray rotateVec3(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    np::ndarray rotateVec3(const rotations::Quaternion& inQuat, const NdArray<double, Allocator<double>>& inVec)
     {
         return nc2Boost(inQuat.rotate(Vec3(inVec)).toNdArray());
     }
@@ -4162,9 +4169,9 @@ namespace RotationsInterface
         return nc2Boost(returnQuat.toNdArray());
     }
 
-    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<double>& inArray)
+    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<double, Allocator<double>>& inArray)
     {
-        NdArray<double> returnArray = inQuat * inArray;
+        NdArray<double, Allocator<double>> returnArray = inQuat * inArray;
         return nc2Boost(returnArray);
     }
 
@@ -4179,17 +4186,17 @@ namespace RotationsInterface
         return nc2Boost(rotations::DCM::eulerAngles(roll, pitch, yaw));
     }
 
-    np::ndarray eulerAnglesArray(const NdArray<double> angles)
+    np::ndarray eulerAnglesArray(const NdArray<double, Allocator<double>> angles)
     {
         return nc2Boost(rotations::DCM::eulerAngles(angles));
     }
 
-    np::ndarray angleAxisRotationDcmNdArray(const NdArray<double>& inAxis, double inAngle)
+    np::ndarray angleAxisRotationDcmNdArray(const NdArray<double, Allocator<double>>& inAxis, double inAngle)
     {
         return nc2Boost(rotations::DCM::eulerAxisAngle(inAxis, inAngle));
     }
 
-    np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
+    np::ndarray angleAxisRotationDcmVec3(const NdArray<double, Allocator<double>>& inAxis, double inAngle)
     {
         return nc2Boost(rotations::DCM::eulerAxisAngle(Vec3(inAxis), inAngle));
     }
@@ -4249,7 +4256,7 @@ namespace CoordinateInterface
         return self.degreeSeperation(inOtherCoordinate);
     }
 
-    double degreeSeperationVector(const coordinates::Coordinate& self, const NdArray<double>& inVec)
+    double degreeSeperationVector(const coordinates::Coordinate& self, const NdArray<double, Allocator<double>>& inVec)
     {
         return self.degreeSeperation(inVec);
     }
@@ -4259,7 +4266,7 @@ namespace CoordinateInterface
         return self.radianSeperation(inOtherCoordinate);
     }
 
-    double radianSeperationVector(const coordinates::Coordinate& self, const NdArray<double>& inVec)
+    double radianSeperationVector(const coordinates::Coordinate& self, const NdArray<double, Allocator<double>>& inVec)
     {
         return self.radianSeperation(inVec);
     }
@@ -4268,13 +4275,13 @@ namespace CoordinateInterface
 namespace DataCubeInterface
 {
     template<typename dtype>
-    NdArray<dtype>& at(DataCube<dtype>& self, uint32 inIndex)
+    NdArray<dtype, Allocator<dtype>>& at(DataCube<dtype>& self, uint32 inIndex)
     {
         return self.at(inIndex);
     }
 
     template<typename dtype>
-    NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
+    NdArray<dtype, Allocator<dtype>>& getItem(DataCube<dtype>& self, uint32 inIndex)
     {
         return self[inIndex];
     }
@@ -4293,7 +4300,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray chebyshev_t_Array(uint32 n, const NdArray<dtype>& inArray)
+    np::ndarray chebyshev_t_Array(uint32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::chebyshev_t(n, inArray));
     }
@@ -4309,7 +4316,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray chebyshev_u_Array(uint32 n, const NdArray<dtype>& inArray)
+    np::ndarray chebyshev_u_Array(uint32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::chebyshev_u(n, inArray));
     }
@@ -4325,7 +4332,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray hermite_Array(uint32 n, const NdArray<dtype>& inArray)
+    np::ndarray hermite_Array(uint32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::hermite(n, inArray));
     }
@@ -4349,7 +4356,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray laguerre_Array1(uint32 n, const NdArray<dtype>& inArray)
+    np::ndarray laguerre_Array1(uint32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::laguerre(n, inArray));
     }
@@ -4357,7 +4364,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray laguerre_Array2(uint32 n, uint32 m, const NdArray<dtype>& inArray)
+    np::ndarray laguerre_Array2(uint32 n, uint32 m, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::laguerre(n, m, inArray));
     }
@@ -4381,7 +4388,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray legendre_p_Array1(int32 n, const NdArray<dtype>& inArray)
+    np::ndarray legendre_p_Array1(int32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::legendre_p(n, inArray));
     }
@@ -4389,7 +4396,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray legendre_p_Array2(int32 n, int32 m, const NdArray<dtype>& inArray)
+    np::ndarray legendre_p_Array2(int32 n, int32 m, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::legendre_p(n, m, inArray));
     }
@@ -4405,7 +4412,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray legendre_q_Array(int32 n, const NdArray<dtype>& inArray)
+    np::ndarray legendre_q_Array(int32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(polynomial::legendre_q(n, inArray));
     }
@@ -4670,7 +4677,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray airy_ai_Array(const NdArray<dtype>& inArray)
+    np::ndarray airy_ai_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::airy_ai(inArray));
     }
@@ -4686,7 +4693,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray airy_ai_prime_Array(const NdArray<dtype>& inArray)
+    np::ndarray airy_ai_prime_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::airy_ai_prime(inArray));
     }
@@ -4702,7 +4709,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray airy_bi_Array(const NdArray<dtype>& inArray)
+    np::ndarray airy_bi_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::airy_bi(inArray));
     }
@@ -4718,7 +4725,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray airy_bi_prime_Array(const NdArray<dtype>& inArray)
+    np::ndarray airy_bi_prime_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::airy_bi_prime(inArray));
     }
@@ -4732,7 +4739,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    np::ndarray bernoulli_Array(const NdArray<uint32>& inArray)
+    np::ndarray bernoulli_Array(const NdArray<uint32, Allocator<uint32>>& inArray)
     {
         return nc2Boost(special::bernoilli(inArray));
     }
@@ -4748,7 +4755,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_in_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_in_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_in(inV, inArray));
     }
@@ -4764,7 +4771,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_in_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_in_prime_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_in_prime(inV, inArray));
     }
@@ -4780,7 +4787,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_jn_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_jn_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_jn(inV, inArray));
     }
@@ -4796,7 +4803,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_jn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_jn_prime_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_jn_prime(inV, inArray));
     }
@@ -4812,7 +4819,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_kn_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_kn_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_kn(inV, inArray));
     }
@@ -4828,7 +4835,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_kn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_kn_prime_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_kn_prime(inV, inArray));
     }
@@ -4844,7 +4851,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_yn_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_yn_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_yn(inV, inArray));
     }
@@ -4860,7 +4867,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray bessel_yn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    np::ndarray bessel_yn_prime_Array(dtype inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::bessel_yn_prime(inV, inArray));
     }
@@ -4876,7 +4883,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray beta_Array(const NdArray<dtype>& a, const NdArray<dtype>& b)
+    np::ndarray beta_Array(const NdArray<dtype, Allocator<dtype>>& a, const NdArray<dtype, Allocator<dtype>>& b)
     {
         return nc2Boost(special::beta(a, b));
     }
@@ -4892,7 +4899,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cyclic_hankel_1_Array(dtype v, const NdArray<dtype>& x)
+    np::ndarray cyclic_hankel_1_Array(dtype v, const NdArray<dtype, Allocator<dtype>>& x)
     {
         return nc2Boost(special::cyclic_hankel_1(v, x));
     }
@@ -4908,7 +4915,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray cyclic_hankel_2_Array(dtype v, const NdArray<dtype>& x)
+    np::ndarray cyclic_hankel_2_Array(dtype v, const NdArray<dtype, Allocator<dtype>>& x)
     {
         return nc2Boost(special::cyclic_hankel_2(v, x));
     }
@@ -4924,7 +4931,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray spherical_hankel_1_Array(dtype v, const NdArray<dtype>& x)
+    np::ndarray spherical_hankel_1_Array(dtype v, const NdArray<dtype, Allocator<dtype>>& x)
     {
         return nc2Boost(special::spherical_hankel_1(v, x));
     }
@@ -4940,7 +4947,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray spherical_hankel_2_Array(dtype v, const NdArray<dtype>& x)
+    np::ndarray spherical_hankel_2_Array(dtype v, const NdArray<dtype, Allocator<dtype>>& x)
     {
         return nc2Boost(special::spherical_hankel_2(v, x));
     }
@@ -4956,7 +4963,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray digamma_Array(const NdArray<dtype>& inArray)
+    np::ndarray digamma_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::digamma(inArray));
     }
@@ -4972,7 +4979,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erf_Array(const NdArray<dtype>& inArray)
+    np::ndarray erf_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::erf(inArray));
     }
@@ -4988,7 +4995,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erf_inv_Array(const NdArray<dtype>& inArray)
+    np::ndarray erf_inv_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::erf_inv(inArray));
     }
@@ -5004,7 +5011,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erfc_Array(const NdArray<dtype>& inArray)
+    np::ndarray erfc_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::erfc(inArray));
     }
@@ -5020,7 +5027,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erfc_inv_Array(const NdArray<dtype>& inArray)
+    np::ndarray erfc_inv_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::erfc_inv(inArray));
     }
@@ -5034,7 +5041,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    np::ndarray factorial_Array(const NdArray<uint32>& inArray)
+    np::ndarray factorial_Array(const NdArray<uint32, Allocator<uint32>>& inArray)
     {
         return nc2Boost(special::factorial(inArray));
     }
@@ -5050,7 +5057,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray gamma_Array(const NdArray<dtype>& inArray)
+    np::ndarray gamma_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::gamma(inArray));
     }
@@ -5066,7 +5073,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray gamma1pm1_Array(const NdArray<dtype>& inArray)
+    np::ndarray gamma1pm1_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::gamma1pm1(inArray));
     }
@@ -5082,7 +5089,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray log_gamma_Array(const NdArray<dtype>& inArray)
+    np::ndarray log_gamma_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::log_gamma(inArray));
     }
@@ -5098,7 +5105,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray polygamma_Array(uint32 n, const NdArray<dtype>& inArray)
+    np::ndarray polygamma_Array(uint32 n, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::polygamma(n, inArray));
     }
@@ -5112,7 +5119,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    np::ndarray prime_Array(const NdArray<uint32>& inArray)
+    np::ndarray prime_Array(const NdArray<uint32, Allocator<uint32>>& inArray)
     {
         return nc2Boost(special::prime(inArray));
     }
@@ -5128,7 +5135,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray riemann_zeta_Array(const NdArray<dtype>& inArray)
+    np::ndarray riemann_zeta_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::riemann_zeta(inArray));
     }
@@ -5136,7 +5143,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray softmax(const NdArray<dtype>& inArray, Axis inAxis)
+    np::ndarray softmax(const NdArray<dtype, Allocator<dtype>>& inArray, Axis inAxis)
     {
         return nc2Boost(special::softmax(inArray, inAxis));
     }
@@ -5152,7 +5159,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray spherical_bessel_jn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    np::ndarray spherical_bessel_jn_Array(uint32 inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::spherical_bessel_jn(inV, inArray));
     }
@@ -5168,7 +5175,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray spherical_bessel_yn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    np::ndarray spherical_bessel_yn_Array(uint32 inV, const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::spherical_bessel_yn(inV, inArray));
     }
@@ -5184,7 +5191,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trigamma_Array(const NdArray<dtype>& inArray)
+    np::ndarray trigamma_Array(const NdArray<dtype, Allocator<dtype>>& inArray)
     {
         return nc2Boost(special::trigamma(inArray));
     }
@@ -5205,12 +5212,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<std::vector<std::complex<double>>>("doubleComplexVector")
         .def(bp::vector_indexing_suite<std::vector<std::complex<double>>>());
 
-    typedef std::pair<NdArray<double>, NdArray<double>> doublePair;
+    typedef std::pair<NdArray<double, Allocator<double>>, NdArray<double, Allocator<double>>> doublePair;
     bp::class_<doublePair>("doublePair", bp::init<>())
         .def_readonly("first", &doublePair::first)
         .def_readonly("second", &doublePair::second);
 
-    typedef std::pair<NdArray<uint32>, NdArray<uint32>> uint32Pair;
+    typedef std::pair<NdArray<uint32, Allocator<uint32>>, NdArray<uint32, Allocator<uint32>>> uint32Pair;
     bp::class_<uint32Pair>("uint32Pair", bp::init<>())
         .def_readonly("first", &uint32Pair::first)
         .def_readonly("second", &uint32Pair::second);
@@ -5314,14 +5321,14 @@ BOOST_PYTHON_MODULE(NumCpp)
         .value("LITTLE", Endian::LITTLE);
 
     // NdArray.hpp
-    using NdArrayDouble = NdArray<double>;
+    using NdArrayDouble = NdArray<double, Allocator<double>>;
     using NdArrayDoubleIterator = NdArrayDouble::iterator;
     using NdArrayDoubleConstIterator = NdArrayDouble::const_iterator;
     using NdArrayDoubleReverseIterator = NdArrayDouble::reverse_iterator;
     using NdArrayDoubleConstReverseIterator = NdArrayDouble::const_reverse_iterator;
 
     using ComplexDouble = std::complex<double>;
-    using NdArrayComplexDouble = NdArray<ComplexDouble>;
+    using NdArrayComplexDouble = NdArray<ComplexDouble, Allocator<ComplexDouble>>;
     using NdArrayComplexDoubleIterator = NdArrayComplexDouble::iterator;
     using NdArrayComplexDoubleConstIterator = NdArrayComplexDouble::const_iterator;
     using NdArrayComplexDoubleReverseIterator = NdArrayComplexDouble::reverse_iterator;
@@ -5894,7 +5901,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>);
     bp::def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
-    typedef NdArray<uint32> NdArrayUInt32;
+    typedef NdArray<uint32, Allocator<uint32>> NdArrayUInt32;
     bp::class_<NdArrayUInt32>
         ("NdArrayUInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -5909,7 +5916,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("byteswap", &NdArrayUInt32::byteswap, bp::return_internal_reference<>())
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
-    typedef NdArray<uint64> NdArrayUInt64;
+    typedef NdArray<uint64, Allocator<uint64>> NdArrayUInt64;
     bp::class_<NdArrayUInt64>
         ("NdArrayUInt64", bp::init<>())
         .def(bp::init<uint32>())
@@ -5922,7 +5929,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt64::endianess)
         .def("setArray", &NdArrayInterface::setArray<uint64>);
 
-    typedef NdArray<uint16> NdArrayUInt16;
+    typedef NdArray<uint16, Allocator<uint16>> NdArrayUInt16;
     bp::class_<NdArrayUInt16>
         ("NdArrayUInt16", bp::init<>())
         .def(bp::init<uint32>())
@@ -5935,7 +5942,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt16::endianess)
         .def("setArray", NdArrayInterface::setArray<uint16>);
 
-    typedef NdArray<uint8> NdArrayUInt8;
+    typedef NdArray<uint8, Allocator<uint8>> NdArrayUInt8;
     bp::class_<NdArrayUInt8>
         ("NdArrayUInt8", bp::init<>())
         .def(bp::init<uint32>())
@@ -5948,7 +5955,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt8::endianess)
         .def("setArray", NdArrayInterface::setArray<uint8>);
 
-    typedef NdArray<int64> NdArrayInt64;
+    typedef NdArray<int64, Allocator<int64>> NdArrayInt64;
     bp::class_<NdArrayInt64>
         ("NdArrayInt64", bp::init<>())
         .def(bp::init<uint32>())
@@ -5962,7 +5969,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int64>)
         .def("setArray", &NdArrayInterface::setArray<int64>);
 
-    typedef NdArray<int32> NdArrayInt32;
+    typedef NdArray<int32, Allocator<int32>> NdArrayInt32;
     bp::class_<NdArrayInt32>
         ("NdArrayInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -5976,7 +5983,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int32>)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
-    typedef NdArray<int16> NdArrayInt16;
+    typedef NdArray<int16, Allocator<int16>> NdArrayInt16;
     bp::class_<NdArrayInt16>
         ("NdArrayInt16", bp::init<>())
         .def(bp::init<uint32>())
@@ -5990,7 +5997,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int16>)
         .def("setArray", &NdArrayInterface::setArray<int16>);
 
-    typedef NdArray<int8> NdArrayInt8;
+    typedef NdArray<int8, Allocator<int8>> NdArrayInt8;
     bp::class_<NdArrayInt8>
         ("NdArrayInt8", bp::init<>())
         .def(bp::init<uint32>())
@@ -6004,7 +6011,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int8>)
         .def("setArray", &NdArrayInterface::setArray<int8>);
 
-    typedef NdArray<float> NdArrayFloat;
+    typedef NdArray<float, Allocator<float>> NdArrayFloat;
     bp::class_<NdArrayFloat>
         ("NdArrayFloat", bp::init<>())
         .def(bp::init<uint32>())
@@ -6017,7 +6024,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayFloat::endianess)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
-    typedef NdArray<bool> NdArrayBool;
+    typedef NdArray<bool, Allocator<bool>> NdArrayBool;
     bp::class_<NdArrayBool>
         ("NdArrayBool", bp::init<>())
         .def(bp::init<uint32>())
@@ -6030,7 +6037,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
-    typedef NdArray<std::complex<long double>> NdArrayComplexLongDouble;
+    typedef NdArray<std::complex<long double>, Allocator<std::complex<long double>>> NdArrayComplexLongDouble;
     bp::class_<NdArrayComplexLongDouble>
         ("NdArrayComplexLongDouble", bp::init<>())
         .def(bp::init<uint32>())
@@ -6042,7 +6049,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<long double>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
 
-    typedef NdArray<std::complex<float>> NdArrayComplexFloat;
+    typedef NdArray<std::complex<float>, Allocator<std::complex<float>>> NdArrayComplexFloat;
     bp::class_<NdArrayComplexFloat>
         ("NdArrayComplexFloat", bp::init<>())
         .def(bp::init<uint32>())
@@ -6054,7 +6061,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
 
-    typedef NdArray<std::complex<int32>> NdArrayComplexInt32;
+    typedef NdArray<std::complex<int32>, Allocator<std::complex<int32>>> NdArrayComplexInt32;
     bp::class_<NdArrayComplexInt32>
         ("NdArrayComplexInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -6066,7 +6073,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<int32>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<int32>>);
 
-    typedef NdArray<std::complex<uint32>> NdArrayComplexUint32;
+    typedef NdArray<std::complex<uint32>, Allocator<std::complex<uint32>>> NdArrayComplexUint32;
     bp::class_<NdArrayComplexUint32>
         ("NdArrayComplexUint32", bp::init<>())
         .def(bp::init<uint32>())
@@ -6219,22 +6226,22 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("absArray", &FunctionsInterface::absArray<double>);
     bp::def("absScaler", &FunctionsInterface::absScaler<ComplexDouble>);
     bp::def("absArray", &FunctionsInterface::absArray<ComplexDouble>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, double>);
-    bp::def("add", &FunctionsInterface::add<double, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, ComplexDouble>);
-    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArray<ComplexDouble>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, NdArray<ComplexDouble>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<double>, ComplexDouble>);
-    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArray<double>>);
-    bp::def("add", &FunctionsInterface::add<NdArray<ComplexDouble>, double>);
-    bp::def("add", &FunctionsInterface::add<double, NdArray<ComplexDouble>>);
-    bp::def("alen", &alen<double>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double, Allocator<double>>, NdArray<double, Allocator<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double, Allocator<double>>, double>);
+    bp::def("add", &FunctionsInterface::add<double, NdArray<double, Allocator<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArrayComplexDouble, NdArrayComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<NdArrayComplexDouble, ComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArrayComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double, Allocator<double>>, NdArrayComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<NdArrayComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArray<double, Allocator<double>>, ComplexDouble>);
+    bp::def("add", &FunctionsInterface::add<ComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("add", &FunctionsInterface::add<NdArrayComplexDouble, double>);
+    bp::def("add", &FunctionsInterface::add<double, NdArrayComplexDouble>);
+    bp::def("alen", &alen<double, Allocator<double>>);
     bp::def("all", &FunctionsInterface::allArray<double>);
     bp::def("all", &FunctionsInterface::allArray<ComplexDouble>);
-    bp::def("allclose", &allclose<double>);
+    bp::def("allclose", &allclose<double, Allocator<double>>);
     bp::def("amax", &FunctionsInterface::amaxArray<double>);
     bp::def("amax", &FunctionsInterface::amaxArray<ComplexDouble>);
     bp::def("amin", &FunctionsInterface::aminArray<double>);
@@ -6243,8 +6250,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("angleArray", &FunctionsInterface::angleArray<double>);
     bp::def("any", &FunctionsInterface::anyArray<double>);
     bp::def("any", &FunctionsInterface::anyArray<ComplexDouble>);
-    bp::def("append", &append<double>);
-    bp::def("applyPoly1d", &applyPoly1d<double>);
+    bp::def("append", &append<double, Allocator<double>>);
+    bp::def("applyPoly1d", &applyPoly1d<double, Allocator<double>>);
     bp::def("arange", &FunctionsInterface::arangeArray<double>);
     bp::def("arccosScaler", &FunctionsInterface::arccosScaler<double>);
     bp::def("arccosArray", &FunctionsInterface::arccosArray<double>);
@@ -6282,10 +6289,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("argwhere", &FunctionsInterface::argwhere<ComplexDouble>);
     bp::def("aroundScaler", &FunctionsInterface::aroundScaler<double>);
     bp::def("aroundArray", &FunctionsInterface::aroundArray<double>);
-    bp::def("array_equal", &array_equal<double>);
-    bp::def("array_equal", &array_equal<ComplexDouble>);
-    bp::def("array_equiv", &array_equiv<double>);
-    bp::def("array_equiv", &array_equiv<ComplexDouble>);
+    bp::def("array_equal", &array_equal<double, Allocator<double>>);
+    bp::def("array_equal", &array_equal<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("array_equiv", &array_equiv<double, Allocator<double>>);
+    bp::def("array_equiv", &array_equiv<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<double>);
     bp::def("asarrayInitializerList", &FunctionsInterface::asarrayInitializerList<ComplexDouble>);
     bp::def("asarrayInitializerList2D", &FunctionsInterface::asarrayInitializerList2D<double>);
@@ -6330,10 +6337,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("asarrayPointerShellTakeOwnership", &FunctionsInterface::asarrayPointerShellTakeOwnership<ComplexDouble>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<double>);
     bp::def("asarrayPointerShell2DTakeOwnership", &FunctionsInterface::asarrayPointerShell2DTakeOwnership<ComplexDouble>);
-    bp::def("astypeDoubleToUint32", &astype<uint32, double>);
-    bp::def("astypeDoubleToComplex", &astype<ComplexDouble, double>);
-    bp::def("astypeComplexToComplex", &astype<std::complex<float>, ComplexDouble>);
-    bp::def("astypeComplexToDouble", &astype<double, ComplexDouble>);
+    bp::def("astypeDoubleToUint32", &astype<uint32, double, Allocator<double>>);
+    bp::def("astypeDoubleToComplex", &astype<ComplexDouble, double, Allocator<double>>);
+    bp::def("astypeComplexToComplex", &astype<std::complex<float>, ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("astypeComplexToDouble", &astype<double, ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("average", &FunctionsInterface::average<double>);
     bp::def("average", &FunctionsInterface::average<ComplexDouble>);
     bp::def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
@@ -6376,8 +6383,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("conjScaler", &FunctionsInterface::conjScaler<double>);
     bp::def("conjArray", &FunctionsInterface::conjArray<double>);
     bp::def("concatenate", &FunctionsInterface::concatenate<double>);
-    bp::def("contains", &contains<double>);
-    bp::def("contains", &contains<ComplexDouble>);
+    bp::def("contains", &contains<double, Allocator<double>>);
+    bp::def("contains", &contains<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("copy", &FunctionsInterface::copy<double>);
     bp::def("copysign", &FunctionsInterface::copySign<double>);
     bp::def("copyto", &FunctionsInterface::copyto<double>);
@@ -6391,8 +6398,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("coshArray", &FunctionsInterface::coshArray<ComplexDouble>);
     bp::def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     bp::def("count_nonzero", &FunctionsInterface::count_nonzero<ComplexDouble>);
-    bp::def("cross", &cross<double>);
-    bp::def("cross", &cross<ComplexDouble>);
+    bp::def("cross", &cross<double, Allocator<double>>);
+    bp::def("cross", &cross<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("cube", &FunctionsInterface::cubeArray<double>);
     bp::def("cube", &FunctionsInterface::cubeArray<ComplexDouble>);
     bp::def("cumprod", &FunctionsInterface::cumprodArray<double>);
@@ -6414,29 +6421,29 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("diagonal", &FunctionsInterface::diagonal<ComplexDouble>);
     bp::def("diff", &FunctionsInterface::diff<double>);
     bp::def("diff", &FunctionsInterface::diff<ComplexDouble>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, double>);
-    bp::def("divide", &FunctionsInterface::divide<double, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, ComplexDouble>);
-    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<ComplexDouble>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<ComplexDouble>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<double>, ComplexDouble>);
-    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<double>>);
-    bp::def("divide", &FunctionsInterface::divide<NdArray<ComplexDouble>, double>);
-    bp::def("divide", &FunctionsInterface::divide<double, NdArray<ComplexDouble>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double, Allocator<double>>, NdArray<double, Allocator<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double, Allocator<double>>, double>);
+    bp::def("divide", &FunctionsInterface::divide<double, NdArray<double, Allocator<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArrayComplexDouble, NdArrayComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<NdArrayComplexDouble, ComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArrayComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double, Allocator<double>>, NdArrayComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<NdArrayComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArray<double, Allocator<double>>, ComplexDouble>);
+    bp::def("divide", &FunctionsInterface::divide<ComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("divide", &FunctionsInterface::divide<NdArrayComplexDouble, double>);
+    bp::def("divide", &FunctionsInterface::divide<double, NdArrayComplexDouble>);
     bp::def("dot", &FunctionsInterface::dot<double, double>);
     bp::def("dot", &FunctionsInterface::dot<ComplexDouble, ComplexDouble>);
     bp::def("dot", &FunctionsInterface::dot<double, ComplexDouble>);
     bp::def("dot", &FunctionsInterface::dot<ComplexDouble, double>);
-    bp::def("dump", &dump<double>);
-    bp::def("dump", &dump<ComplexDouble>);
+    bp::def("dump", &dump<double, Allocator<double>>);
+    bp::def("dump", &dump<ComplexDouble, Allocator<ComplexDouble>>);
 
     bp::def("emptyRowCol", &FunctionsInterface::emptyRowCol<double>);
     bp::def("emptyShape", &FunctionsInterface::emptyShape<double>);
-    bp::def("empty_like", &empty_like<double>);
-    bp::def("endianess", &endianess<double>);
+    bp::def("empty_like", &empty_like<double, Allocator<double>>);
+    bp::def("endianess", &endianess<double, Allocator<double>>);
     bp::def("equal", &FunctionsInterface::equal<double>);
     bp::def("equal", &FunctionsInterface::equal<ComplexDouble>);
     bp::def("expScaler", &FunctionsInterface::expScaler<double>);
@@ -6456,17 +6463,17 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("eyeShape", &FunctionsInterface::eyeShape<double>);
     bp::def("eyeShapeComplex", &FunctionsInterface::eyeShape<ComplexDouble>);
 
-    bp::def("fillDiagonal", &fillDiagonal<double>);
+    bp::def("fillDiagonal", &fillDiagonal<double, Allocator<double>>);
     bp::def("find", &FunctionsInterface::find);
     bp::def("findN", &FunctionsInterface::findN);
     bp::def("fixScaler", &FunctionsInterface::fixScaler<double>);
     bp::def("fixArray", &FunctionsInterface::fixArray<double>);
-    bp::def("flatten", &flatten<double>);
-    bp::def("flatnonzero", &flatnonzero<double>);
-    bp::def("flatnonzero", &flatnonzero<ComplexDouble>);
-    bp::def("flip", &flip<double>);
-    bp::def("fliplr", &fliplr<double>);
-    bp::def("flipud", &flipud<double>);
+    bp::def("flatten", &flatten<double, Allocator<double>>);
+    bp::def("flatnonzero", &flatnonzero<double, Allocator<double>>);
+    bp::def("flatnonzero", &flatnonzero<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("flip", &flip<double, Allocator<double>>);
+    bp::def("fliplr", &fliplr<double, Allocator<double>>);
+    bp::def("flipud", &flipud<double, Allocator<double>>);
     bp::def("floorScaler", &FunctionsInterface::floorScaler<double>);
     bp::def("floorArray", &FunctionsInterface::floorArray<double>);
     bp::def("floor_divideScaler", &FunctionsInterface::floor_divideScaler<double>);
@@ -6492,15 +6499,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("fullRowColComplex", &FunctionsInterface::fullRowCol<ComplexDouble>);
     bp::def("fullShape", &FunctionsInterface::fullShape<double>);
     bp::def("fullShapeComplex", &FunctionsInterface::fullShape<ComplexDouble>);
-    bp::def("full_like", &full_like<double>);
-    bp::def("full_likeComplex", &full_like<ComplexDouble>);
+    bp::def("full_like", &full_like<double, Allocator<double>>);
+    bp::def("full_likeComplex", &full_like<ComplexDouble, Allocator<ComplexDouble>>);
 
     bp::def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
     bp::def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
-    bp::def("greater", &greater<double>);
-    bp::def("greater", &greater<ComplexDouble>);
-    bp::def("greater_equal", &greater_equal<double>);
-    bp::def("greater_equal", &greater_equal<ComplexDouble>);
+    bp::def("greater", &greater<double, Allocator<double>>);
+    bp::def("greater", &greater<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("greater_equal", &greater_equal<double, Allocator<double>>);
+    bp::def("greater_equal", &greater_equal<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("gradient", &FunctionsInterface::gradient<double>);
     bp::def("gradient", &FunctionsInterface::gradient<ComplexDouble>);
 
@@ -6510,14 +6517,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("hypotScalerTriple", &FunctionsInterface::hypotScalerTriple<double>);
     bp::def("hypotArray", &FunctionsInterface::hypotArray<double>);
 
-    bp::def("identity", &identity<double>);
-    bp::def("identityComplex", &identity<ComplexDouble>);
+    bp::def("identity", &identity<double, Allocator<double>>);
+    bp::def("identityComplex", &identity<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("imagScaler", &FunctionsInterface::imagScaler<double>);
     bp::def("imagArray", &FunctionsInterface::imagArray<double>);
     bp::def("interp", &FunctionsInterface::interp<double>);
-    bp::def("intersect1d", &intersect1d<uint32>);
-    bp::def("invert", &invert<uint32>);
-    bp::def("isclose", &isclose<double>);
+    bp::def("intersect1d", &intersect1d<uint32, Allocator<uint32>>);
+    bp::def("invert", &invert<uint32, Allocator<uint32>>);
+    bp::def("isclose", &isclose<double, Allocator<double>>);
     bp::def("isinfScaler", &FunctionsInterface::isinfScaler<double>);
     bp::def("isinfArray", &FunctionsInterface::isinfArray<double>);
     bp::def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
@@ -6527,13 +6534,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("lcmArray", &FunctionsInterface::lcmArray<uint32>);
     bp::def("ldexpScaler", &FunctionsInterface::ldexpScaler<double>);
     bp::def("ldexpArray", &FunctionsInterface::ldexpArray<double>);
-    bp::def("left_shift", &left_shift<uint32>);
-    bp::def("less", &less<double>);
-    bp::def("less", &less<ComplexDouble>);
-    bp::def("less_equal", &less_equal<double>);
-    bp::def("less_equal", &less_equal<ComplexDouble>);
-    bp::def("linspace", &linspace<double>);
-    bp::def("load", &load<double>);
+    bp::def("left_shift", &left_shift<uint32, Allocator<uint32>>);
+    bp::def("less", &less<double, Allocator<double>>);
+    bp::def("less", &less<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("less_equal", &less_equal<double, Allocator<double>>);
+    bp::def("less_equal", &less_equal<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("linspace", &linspace<double, Allocator<double>>);
+    bp::def("load", &load<double, Allocator<double>>);
     bp::def("logScaler", &FunctionsInterface::logScaler<double>);
     bp::def("logArray", &FunctionsInterface::logArray<double>);
     bp::def("logScaler", &FunctionsInterface::logScaler<ComplexDouble>);
@@ -6546,10 +6553,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("log1pArray", &FunctionsInterface::log1pArray<double>);
     bp::def("log2Scaler", &FunctionsInterface::log2Scaler<double>);
     bp::def("log2Array", &FunctionsInterface::log2Array<double>);
-    bp::def("logical_and", &logical_and<double>);
-    bp::def("logical_not", &logical_not<double>);
-    bp::def("logical_or", &logical_or<double>);
-    bp::def("logical_xor", &logical_xor<double>);
+    bp::def("logical_and", &logical_and<double, Allocator<double>>);
+    bp::def("logical_not", &logical_not<double, Allocator<double>>);
+    bp::def("logical_or", &logical_or<double, Allocator<double>>);
+    bp::def("logical_xor", &logical_xor<double, Allocator<double>>);
 
     bp::def("matmul", &FunctionsInterface::matmul<double, double>);
     bp::def("matmul", &FunctionsInterface::matmul<ComplexDouble, ComplexDouble>);
@@ -6559,64 +6566,64 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("max", &FunctionsInterface::max<ComplexDouble>);
     bp::def("maximum", &FunctionsInterface::maximum<double>);
     bp::def("maximum", &FunctionsInterface::maximum<ComplexDouble>);
-    NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>; 
+    NdArray<double, Allocator<double>> (*meanDouble)(const NdArray<double, Allocator<double>>&, Axis) = &mean<double>; 
     bp::def("mean", meanDouble);
-    NdArray<ComplexDouble> (*meanComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mean<double>; 
+    NdArrayComplexDouble (*meanComplexDouble)(const NdArrayComplexDouble&, Axis) = &mean<double>; 
     bp::def("mean", meanComplexDouble);
-    bp::def("median", &median<double>);
+    bp::def("median", &median<double, Allocator<double>>);
     bp::def("meshgrid", &FunctionsInterface::meshgrid<double>);
     bp::def("min", &FunctionsInterface::min<double>);
     bp::def("min", &FunctionsInterface::min<ComplexDouble>);
     bp::def("minimum", &FunctionsInterface::minimum<double>);
     bp::def("minimum", &FunctionsInterface::minimum<ComplexDouble>);
-    bp::def("mod", &mod<uint32>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, double>);
-    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, ComplexDouble>);
-    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArray<ComplexDouble>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<ComplexDouble>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double>, ComplexDouble>);
-    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArray<double>>);
-    bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, double>);
-    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<ComplexDouble>>);
+    bp::def("mod", &mod<uint32, Allocator<uint32>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double, Allocator<double>>, NdArray<double, Allocator<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double, Allocator<double>>, double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<double, Allocator<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArrayComplexDouble, NdArrayComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArrayComplexDouble, ComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArrayComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double, Allocator<double>>, NdArrayComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArrayComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArray<double, Allocator<double>>, ComplexDouble>);
+    bp::def("multiply", &FunctionsInterface::multiply<ComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("multiply", &FunctionsInterface::multiply<NdArrayComplexDouble, double>);
+    bp::def("multiply", &FunctionsInterface::multiply<double, NdArrayComplexDouble>);
 
-    bp::def("nanargmax", &nanargmax<double>);
-    bp::def("nanargmin", &nanargmin<double>);
-    bp::def("nancumprod", &nancumprod<double>);
-    bp::def("nancumsum", &nancumsum<double>);
-    bp::def("nanmax", &nanmax<double>);
-    bp::def("nanmean", &nanmean<double>);
-    bp::def("nanmedian", &nanmedian<double>);
-    bp::def("nanmin", &nanmin<double>);
-    bp::def("nanpercentile", &nanpercentile<double>);
-    bp::def("nanprod", &nanprod<double>);
+    bp::def("nanargmax", &nanargmax<double, Allocator<double>>);
+    bp::def("nanargmin", &nanargmin<double, Allocator<double>>);
+    bp::def("nancumprod", &nancumprod<double, Allocator<double>>);
+    bp::def("nancumsum", &nancumsum<double, Allocator<double>>);
+    bp::def("nanmax", &nanmax<double, Allocator<double>>);
+    bp::def("nanmean", &nanmean<double, Allocator<double>>);
+    bp::def("nanmedian", &nanmedian<double, Allocator<double>>);
+    bp::def("nanmin", &nanmin<double, Allocator<double>>);
+    bp::def("nanpercentile", &nanpercentile<double, Allocator<double>>);
+    bp::def("nanprod", &nanprod<double, Allocator<double>>);
     bp::def("nansSquare", &FunctionsInterface::nansSquare);
     bp::def("nansRowCol", &FunctionsInterface::nansRowCol);
     bp::def("nansShape", &FunctionsInterface::nansShape);
     bp::def("nansList", &FunctionsInterface::nansList);
-    bp::def("nans_like", &nans_like<double>);
-    bp::def("nanstdev", &nanstdev<double>);
-    bp::def("nansum", &nansum<double>);
-    bp::def("nanvar", &nanvar<double>);
-    bp::def("nbytes", &nbytes<double>);
-    bp::def("nbytes", &nbytes<ComplexDouble>);
-    bp::def("negative", &negative<double>);
-    bp::def("negative", &negative<ComplexDouble>);
+    bp::def("nans_like", &nans_like<double, Allocator<double>>);
+    bp::def("nanstdev", &nanstdev<double, Allocator<double>>);
+    bp::def("nansum", &nansum<double, Allocator<double>>);
+    bp::def("nanvar", &nanvar<double, Allocator<double>>);
+    bp::def("nbytes", &nbytes<double, Allocator<double>>);
+    bp::def("nbytes", &nbytes<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("negative", &negative<double, Allocator<double>>);
+    bp::def("negative", &negative<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
     bp::def("none", &FunctionsInterface::noneArray<double>);
     bp::def("none", &FunctionsInterface::noneArray<ComplexDouble>);
-    bp::def("nonzero", &nonzero<double>);
-    bp::def("nonzero", &nonzero<ComplexDouble>);
-    NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>; 
+    bp::def("nonzero", &nonzero<double, Allocator<double>>);
+    bp::def("nonzero", &nonzero<ComplexDouble, Allocator<ComplexDouble>>);
+    NdArray<double, Allocator<double>> (*normDouble)(const NdArray<double, Allocator<double>>&, Axis) = &norm<double>; 
     bp::def("norm", normDouble);
-    NdArray<ComplexDouble> (*normComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &norm<double>; 
+    NdArrayComplexDouble (*normComplexDouble)(const NdArrayComplexDouble&, Axis) = &norm<double>; 
     bp::def("norm", normComplexDouble);
-    bp::def("not_equal", &not_equal<double>);
-    bp::def("not_equal", &not_equal<ComplexDouble>);
+    bp::def("not_equal", &not_equal<double, Allocator<double>>);
+    bp::def("not_equal", &not_equal<ComplexDouble, Allocator<ComplexDouble>>);
 
     bp::def("onesSquare", &FunctionsInterface::onesSquare<double>);
     bp::def("onesSquareComplex", &FunctionsInterface::onesSquare<ComplexDouble>);
@@ -6624,16 +6631,16 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("onesRowColComplex", &FunctionsInterface::onesRowCol<ComplexDouble>);
     bp::def("onesShape", &FunctionsInterface::onesShape<double>);
     bp::def("onesShapeComplex", &FunctionsInterface::onesShape<ComplexDouble>);
-    bp::def("ones_like", &ones_like<double, double>);
-    bp::def("ones_likeComplex", &ones_like<ComplexDouble, double>);
+    bp::def("ones_like", &ones_like<double, double, Allocator<double>>);
+    bp::def("ones_likeComplex", &ones_like<ComplexDouble, double, Allocator<double>>);
     bp::def("outer", &FunctionsInterface::outer<double>);
     bp::def("outer", &FunctionsInterface::outer<ComplexDouble>);
 
-    bp::def("pad", &pad<double>);
-    bp::def("pad", &pad<ComplexDouble>);
-    bp::def("partition", &partition<double>);
-    bp::def("partition", &partition<ComplexDouble>);
-    bp::def("percentile", &percentile<double>);
+    bp::def("pad", &pad<double, Allocator<double>>);
+    bp::def("pad", &pad<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("partition", &partition<double, Allocator<double>>);
+    bp::def("partition", &partition<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("percentile", &percentile<double, Allocator<double>>);
     bp::def("polarScaler", &FunctionsInterface::polarScaler<double>);
     bp::def("polarArray", &FunctionsInterface::polarArray<double>);
     bp::def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
@@ -6644,15 +6651,15 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
     bp::def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<ComplexDouble>);
     bp::def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<ComplexDouble>);
-    bp::def("prod", &prod<double>);
-    bp::def("prod", &prod<ComplexDouble>);
+    bp::def("prod", &prod<double, Allocator<double>>);
+    bp::def("prod", &prod<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("projScaler", &FunctionsInterface::projScaler<double>);
     bp::def("projArray", &FunctionsInterface::projArray<double>);
-    bp::def("ptp", &ptp<double>);
-    bp::def("ptp", &ptp<ComplexDouble>);
-    NdArray<double>& (*putDoubleValue)(NdArray<double>&, const NdArray<uint32>&, double) = &put<double>;
+    bp::def("ptp", &ptp<double, Allocator<double>>);
+    bp::def("ptp", &ptp<ComplexDouble, Allocator<ComplexDouble>>);
+    NdArray<double, Allocator<double>>& (*putDoubleValue)(NdArray<double, Allocator<double>>&, const NdArray<uint32, Allocator<uint32>>&, double) = &put<double, Allocator<double>, Allocator<uint32>>;
     bp::def("put", putDoubleValue, bp::return_internal_reference<>());
-    NdArray<double>& (*putDoubleArray)(NdArray<double>&, const NdArray<uint32>&, const NdArray<double>&) = &put<double>;
+    NdArray<double, Allocator<double>>& (*putDoubleArray)(NdArray<double, Allocator<double>>&, const NdArray<uint32, Allocator<uint32>>&, const NdArray<double, Allocator<double>>&) = &put<double, Allocator<double>, Allocator<uint32>>;
     bp::def("put", putDoubleArray, bp::return_internal_reference<>());
     bp::def("putmask", &FunctionsInterface::putmask<double>);
     bp::def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
@@ -6678,21 +6685,21 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("resizeFastList", &FunctionsInterface::resizeFastList<double>, bp::return_internal_reference<>());
     bp::def("resizeSlow", &FunctionsInterface::resizeSlow<double>, bp::return_internal_reference<>());
     bp::def("resizeSlowList", &FunctionsInterface::resizeSlowList<double>, bp::return_internal_reference<>());
-    bp::def("right_shift", &right_shift<uint32>);
+    bp::def("right_shift", &right_shift<uint32, Allocator<uint32>>);
     bp::def("rintScaler", &FunctionsInterface::rintScaler<double>);
     bp::def("rintArray", &FunctionsInterface::rintArray<double>);
-    NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>; 
+    NdArray<double, Allocator<double>> (*rmsDouble)(const NdArray<double, Allocator<double>>&, Axis) = &rms<double>; 
     bp::def("rms", rmsDouble);
-    NdArray<ComplexDouble> (*rmsComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &rms<double>; 
+    NdArrayComplexDouble (*rmsComplexDouble)(const NdArrayComplexDouble&, Axis) = &rms<double>; 
     bp::def("rms", rmsComplexDouble);
-    bp::def("roll", &roll<double>);
-    bp::def("rot90", &rot90<double>);
+    bp::def("roll", &roll<double, Allocator<double>>);
+    bp::def("rot90", &rot90<double, Allocator<double>>);
     bp::def("roundScaler", &FunctionsInterface::roundScaler<double>);
     bp::def("roundArray", &FunctionsInterface::roundArray<double>);
     bp::def("row_stack", &FunctionsInterface::row_stack<double>);
 
-    bp::def("setdiff1d", &setdiff1d<uint32>);
-    bp::def("setdiff1d", &setdiff1d<std::complex<uint32>>);
+    bp::def("setdiff1d", &setdiff1d<uint32, Allocator<uint32>>);
+    bp::def("setdiff1d", &setdiff1d<std::complex<uint32>, Allocator<std::complex<uint32>>>);
     bp::def("signScaler", &FunctionsInterface::signScaler<double>);
     bp::def("signScaler", &FunctionsInterface::signScaler<ComplexDouble>);
     bp::def("signArray", &FunctionsInterface::signArray<double>);
@@ -6709,9 +6716,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<double>);
     bp::def("sinhArray", &FunctionsInterface::sinhArray<ComplexDouble>);
-    bp::def("size", &size<double>);
-    bp::def("sort", &sort<double>);
-    bp::def("sort", &sort<ComplexDouble>);
+    bp::def("size", &size<double, Allocator<double>>);
+    bp::def("sort", &sort<double, Allocator<double>>);
+    bp::def("sort", &sort<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
     bp::def("sqrtScaler", &FunctionsInterface::sqrtScaler<ComplexDouble>);
     bp::def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
@@ -6721,26 +6728,26 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("squareArray", &FunctionsInterface::squareArray<double>);
     bp::def("squareArray", &FunctionsInterface::squareArray<ComplexDouble>);
     bp::def("stack", &FunctionsInterface::stack<double>);
-    NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>; 
+    NdArray<double, Allocator<double>> (*stdevDouble)(const NdArray<double, Allocator<double>>&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevDouble);
-    NdArray<ComplexDouble> (*stdevComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &stdev<double>; 
+    NdArrayComplexDouble (*stdevComplexDouble)(const NdArrayComplexDouble&, Axis) = &stdev<double>; 
     bp::def("stdev", stdevComplexDouble);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, double>);
-    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, NdArray<ComplexDouble>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, ComplexDouble>);
-    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArray<ComplexDouble>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<ComplexDouble>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double>, ComplexDouble>);
-    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArray<double>>);
-    bp::def("subtract", &FunctionsInterface::subtract<NdArray<ComplexDouble>, double>);
-    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<ComplexDouble>>);
-    bp::def("sum", &sum<double>);
-    bp::def("sum", &sum<ComplexDouble>);
-    bp::def("swapaxes", &swapaxes<double>);
-    bp::def("swap", &nc::swap<double>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double, Allocator<double>>, NdArray<double, Allocator<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double, Allocator<double>>, double>);
+    bp::def("subtract", &FunctionsInterface::subtract<double, NdArray<double, Allocator<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArrayComplexDouble, NdArrayComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArrayComplexDouble, ComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArrayComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double, Allocator<double>>, NdArrayComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArrayComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArray<double, Allocator<double>>, ComplexDouble>);
+    bp::def("subtract", &FunctionsInterface::subtract<ComplexDouble, NdArray<double, Allocator<double>>>);
+    bp::def("subtract", &FunctionsInterface::subtract<NdArrayComplexDouble, double>);
+    bp::def("subtract", &FunctionsInterface::subtract<double, NdArrayComplexDouble>);
+    bp::def("sum", &sum<double, Allocator<double>>);
+    bp::def("sum", &sum<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("swapaxes", &swapaxes<double, Allocator<double>>);
+    bp::def("swap", &nc::swap<double, Allocator<double>>);
 
     bp::def("tanScaler", &FunctionsInterface::tanScaler<double>);
     bp::def("tanScaler", &FunctionsInterface::tanScaler<ComplexDouble>);
@@ -6753,11 +6760,11 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
     bp::def("tileShape", &FunctionsInterface::tileShape<double>);
     bp::def("tileList", &FunctionsInterface::tileList<double>);
-    bp::def("tofile", &tofile<double>);
-    bp::def("toStlVector", &toStlVector<double>);
-    bp::def("trace", &trace<double>);
-    bp::def("trace", &trace<ComplexDouble>);
-    bp::def("transpose", &transpose<double>);
+    bp::def("tofile", &tofile<double, Allocator<double>>);
+    bp::def("toStlVector", &toStlVector<double, Allocator<double>>);
+    bp::def("trace", &trace<double, Allocator<double>>);
+    bp::def("trace", &trace<ComplexDouble, Allocator<ComplexDouble>>);
+    bp::def("transpose", &transpose<double, Allocator<double>>);
     bp::def("trapzDx", &FunctionsInterface::trapzDx<double>);
     bp::def("trapz", &FunctionsInterface::trapz<double>);
     bp::def("trilSquare", &FunctionsInterface::trilSquare<double>);
@@ -6772,21 +6779,21 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("triuRectComplex", &FunctionsInterface::triuRect<ComplexDouble>);
     bp::def("triuArray", &FunctionsInterface::triuArray<double>);
     bp::def("triuArray", &FunctionsInterface::triuArray<ComplexDouble>);
-    bp::def("trim_zeros", &trim_zeros<double>);
-    bp::def("trim_zeros", &trim_zeros<ComplexDouble>);
+    bp::def("trim_zeros", &trim_zeros<double, Allocator<double>>);
+    bp::def("trim_zeros", &trim_zeros<ComplexDouble, Allocator<ComplexDouble>>);
     bp::def("truncScaler", &FunctionsInterface::truncScaler<double>);
     bp::def("truncArray", &FunctionsInterface::truncArray<double>);
 
-    bp::def("union1d", &union1d<uint32>);
-    bp::def("union1d", &union1d<std::complex<uint32>>);
-    bp::def("unique", &unique<uint32>);
-    bp::def("unique", &unique<std::complex<uint32>>);
+    bp::def("union1d", &union1d<uint32, Allocator<uint32>>);
+    bp::def("union1d", &union1d<std::complex<uint32>, Allocator<std::complex<uint32>>>);
+    bp::def("unique", &unique<uint32, Allocator<uint32>>);
+    bp::def("unique", &unique<std::complex<uint32>, Allocator<std::complex<uint32>>>);
     bp::def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
     bp::def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
-    NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
+    NdArray<double, Allocator<double>> (*varDouble)(const NdArray<double, Allocator<double>>&, Axis) = &var<double>;
     bp::def("var", varDouble);
-    NdArray<ComplexDouble> (*varComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &var<double>; 
+    NdArrayComplexDouble (*varComplexDouble)(const NdArrayComplexDouble&, Axis) = &var<double>; 
     bp::def("var", varComplexDouble);
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
@@ -6801,8 +6808,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("zerosShapeComplex", &FunctionsInterface::zerosShape<ComplexDouble>);
     bp::def("zerosList", &FunctionsInterface::zerosList<double>);
     bp::def("zerosListComplex", &FunctionsInterface::zerosList<ComplexDouble>);
-    bp::def("zeros_like", &zeros_like<double, double>);
-    bp::def("zeros_likeComplex", &zeros_like<ComplexDouble, double>);
+    bp::def("zeros_like", &zeros_like<double, double, Allocator<double>>);
+    bp::def("zeros_likeComplex", &zeros_like<ComplexDouble, double, Allocator<double>>);
 
     // Utils.hpp
     bp::def("num2str", &utils::num2str<double>);
@@ -6884,28 +6891,28 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("powerf", powerf_uint64);
 
     // Random.hpp
-    NdArray<double> (*bernoulliArray)(const Shape&, double) = &random::bernoulli<double>;
+    NdArray<double, Allocator<double>> (*bernoulliArray)(const Shape&, double) = &random::bernoulli<double>;
     double (*bernoilliScalar)(double) = &random::bernoulli<double>;
     bp::def("bernoulli", bernoulliArray);
     bp::def("bernoulli", bernoilliScalar);
 
-    NdArray<double> (*betaArray)(const Shape&, double, double) = &random::beta<double>;
+    NdArray<double, Allocator<double>> (*betaArray)(const Shape&, double, double) = &random::beta<double>;
     double (*betaScalar)(double, double) = &random::beta<double>;
     bp::def("beta", betaArray);
     bp::def("beta", betaScalar);
 
-    NdArray<int32> (*binomialArray)(const Shape&, int32, double) = &random::binomial<int32>;
+    NdArray<int32, Allocator<int32>> (*binomialArray)(const Shape&, int32, double) = &random::binomial<int32, Allocator<int32>>;
     int32 (*binomialScalar)(int32, double) = &random::binomial<int32>;
     bp::def("binomial", binomialArray);
     bp::def("binomial", binomialScalar);
 
-    NdArray<double> (*cauchyArray)(const Shape&, double, double) = &random::cauchy<double>;
+    NdArray<double, Allocator<double>> (*cauchyArray)(const Shape&, double, double) = &random::cauchy<double>;
     double (*cauchyScalar)(double, double) = &random::cauchy<double>;
     bp::def("cauchy", cauchyArray);
     bp::def("cauchy", cauchyScalar);
 
 
-    NdArray<double> (*chiSquareArray)(const Shape&, double) = &random::chiSquare<double>;
+    NdArray<double, Allocator<double>> (*chiSquareArray)(const Shape&, double) = &random::chiSquare<double>;
     double (*chiSquareScalar)(double) = &random::chiSquare<double>;
     bp::def("chiSquare", chiSquareArray);
     bp::def("chiSquare", chiSquareScalar);
@@ -6914,57 +6921,57 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("choiceSingle", &RandomInterface::choiceSingle<double>);
     bp::def("choiceMultiple", &RandomInterface::choiceMultiple<double>);
 
-    NdArray<int32> (*discreteArray)(const Shape&, const NdArray<double>&) = &random::discrete<int32>;
-    int32 (*discreteScalar)(const NdArray<double>&) = &random::discrete<int32>;
+    NdArray<int32, Allocator<int32>> (*discreteArray)(const Shape&, const NdArray<double, Allocator<double>>&) = &random::discrete<int32, Allocator<double>>;
+    int32 (*discreteScalar)(const NdArray<double, Allocator<double>>&) = &random::discrete<int32>;
     bp::def("discrete", discreteArray);
     bp::def("discrete", discreteScalar);
 
-    NdArray<double> (*exponentialArray)(const Shape&, double) = &random::exponential<double>;
+    NdArray<double, Allocator<double>> (*exponentialArray)(const Shape&, double) = &random::exponential<double>;
     double (*exponentialScalar)(double) = &random::exponential<double>;
     bp::def("exponential", exponentialArray);
     bp::def("exponential", exponentialScalar);
 
-    NdArray<double> (*extremeValueArray)(const Shape&, double, double) = &random::extremeValue<double>;
+    NdArray<double, Allocator<double>> (*extremeValueArray)(const Shape&, double, double) = &random::extremeValue<double>;
     double (*extremeValueScalar)(double, double) = &random::extremeValue<double>;
     bp::def("extremeValue", extremeValueArray);
     bp::def("extremeValue", extremeValueScalar);
 
-    NdArray<double> (*fArray)(const Shape&, double, double) = &random::f<double>;
+    NdArray<double, Allocator<double>> (*fArray)(const Shape&, double, double) = &random::f<double>;
     double (*fScalar)(double, double) = &random::f<double>;
     bp::def("f", fArray);
     bp::def("f", fScalar);
 
-    NdArray<double> (*gammaArray)(const Shape&, double, double) = &random::gamma<double>;
+    NdArray<double, Allocator<double>> (*gammaArray)(const Shape&, double, double) = &random::gamma<double>;
     double (*gammaScalar)(double, double) = &random::gamma<double>;
     bp::def("gamma", gammaArray);
     bp::def("gamma", gammaScalar);
 
-    NdArray<int32> (*geometricArray)(const Shape&, double) = &random::geometric<int32>;
+    NdArray<int32, Allocator<int32>> (*geometricArray)(const Shape&, double) = &random::geometric<int32, Allocator<int32>>;
     int32 (*geometricScalar)(double) = &random::geometric<int32>;
     bp::def("geometric", geometricArray);
     bp::def("geometric", geometricScalar);
 
-    NdArray<double> (*laplaceArray)(const Shape&, double, double) = &random::laplace<double>;
+    NdArray<double, Allocator<double>> (*laplaceArray)(const Shape&, double, double) = &random::laplace<double>;
     double (*laplaceScalar)(double, double) = &random::laplace<double>;
     bp::def("laplace", laplaceArray);
     bp::def("laplace", laplaceScalar);
 
-    NdArray<double> (*lognormalArray)(const Shape&, double, double) = &random::lognormal<double>;
+    NdArray<double, Allocator<double>> (*lognormalArray)(const Shape&, double, double) = &random::lognormal<double>;
     double (*lognormalScalar)(double, double) = &random::lognormal<double>;
     bp::def("lognormal", lognormalArray);
     bp::def("lognormal", lognormalScalar);
 
-    NdArray<int32> (*negativeBinomialArray)(const Shape&, int32, double) = &random::negativeBinomial<int32>;
+    NdArray<int32, Allocator<int32>> (*negativeBinomialArray)(const Shape&, int32, double) = &random::negativeBinomial<int32, Allocator<int32>>;
     int32 (*negativeBinomialScalar)(int32, double) = &random::negativeBinomial<int32>;
     bp::def("negativeBinomial", negativeBinomialArray);
     bp::def("negativeBinomial", negativeBinomialScalar);
 
-    NdArray<double> (*nonCentralChiSquaredArray)(const Shape&, double, double) = &random::nonCentralChiSquared<double>;
+    NdArray<double, Allocator<double>> (*nonCentralChiSquaredArray)(const Shape&, double, double) = &random::nonCentralChiSquared<double>;
     double (*nonCentralChiSquaredScalar)(double, double) = &random::nonCentralChiSquared<double>;
     bp::def("nonCentralChiSquared", nonCentralChiSquaredArray);
     bp::def("nonCentralChiSquared", nonCentralChiSquaredScalar);
 
-    NdArray<double> (*normalArray)(const Shape&, double, double) = &random::normal<double>;
+    NdArray<double, Allocator<double>> (*normalArray)(const Shape&, double, double) = &random::normal<double>;
     double (*normalScalar)(double, double) = &random::normal<double>;
     bp::def("normal", normalArray);
     bp::def("normal", normalScalar);
@@ -6972,27 +6979,27 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("permutationScaler", &RandomInterface::permutationScaler<double>);
     bp::def("permutationArray", &RandomInterface::permutationArray<double>);
 
-    NdArray<int32> (*poissonArray)(const Shape&, double) = &random::poisson<int32>;
+    NdArray<int32, Allocator<int32>> (*poissonArray)(const Shape&, double) = &random::poisson<int32, Allocator<int32>>;
     int32 (*poissonScalar)(double) = &random::poisson<int32>;
     bp::def("poisson", poissonArray);
     bp::def("poisson", poissonScalar);
 
-    NdArray<double> (*randArray)(const Shape&) = &random::rand<double>;
+    NdArray<double, Allocator<double>> (*randArray)(const Shape&) = &random::rand<double>;
     double (*randScalar)() = &random::rand<double>;
     bp::def("rand", randArray);
     bp::def("rand", randScalar);
 
-    NdArray<double> (*randFloatArray)(const Shape&, double, double) = &random::randFloat<double>;
+    NdArray<double, Allocator<double>> (*randFloatArray)(const Shape&, double, double) = &random::randFloat<double>;
     double (*randFloatScalar)(double, double) = &random::randFloat<double>;
     bp::def("randFloat", randFloatArray);
     bp::def("randFloat", randFloatScalar);
 
-    NdArray<int32> (*randIntArray)(const Shape&, int32, int32) = &random::randInt<int32>;
+    NdArray<int32, Allocator<int32>> (*randIntArray)(const Shape&, int32, int32) = &random::randInt<int32, Allocator<int32>>;
     int32 (*randIntScalar)(int32, int32) = &random::randInt<int32>;
     bp::def("randInt", randIntArray);
     bp::def("randInt", randIntScalar);
 
-    NdArray<double> (*randNArray)(const Shape&) = &random::randN<double>;
+    NdArray<double, Allocator<double>> (*randNArray)(const Shape&) = &random::randN<double>;
     double (*randNScalar)() = &random::randN<double>;
     bp::def("randN", randNArray);
     bp::def("randN", randNScalar);
@@ -7000,45 +7007,45 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("seed", &random::seed);
     bp::def("shuffle", &random::shuffle<double>);
 
-    NdArray<double> (*standardNormalArray)(const Shape&) = &random::standardNormal<double>;
+    NdArray<double, Allocator<double>> (*standardNormalArray)(const Shape&) = &random::standardNormal<double>;
     double (*standardNormalScalar)() = &random::standardNormal<double>;
     bp::def("standardNormal", standardNormalArray);
     bp::def("standardNormal", standardNormalScalar);
 
-    NdArray<double> (*studentTArray)(const Shape&, double) = &random::studentT<double>;
+    NdArray<double, Allocator<double>> (*studentTArray)(const Shape&, double) = &random::studentT<double>;
     double (*studentTScalar)(double) = &random::studentT<double>;
     bp::def("studentT", studentTArray);
     bp::def("studentT", studentTScalar);
 
-    NdArray<double> (*triangleArray)(const Shape&, double, double, double) = &random::triangle<double>;
+    NdArray<double, Allocator<double>> (*triangleArray)(const Shape&, double, double, double) = &random::triangle<double>;
     double (*triangleScalar)(double, double, double) = &random::triangle<double>;
     bp::def("triangle", triangleArray);
     bp::def("triangle", triangleScalar);
 
-    NdArray<double> (*uniformArray)(const Shape&, double, double) = &random::uniform<double>;
+    NdArray<double, Allocator<double>> (*uniformArray)(const Shape&, double, double) = &random::uniform<double>;
     double (*uniformScalar)(double, double) = &random::uniform<double>;
     bp::def("uniform", uniformArray);
     bp::def("uniform", uniformScalar);
 
     bp::def("uniformOnSphere", &random::uniformOnSphere<double>);
 
-    NdArray<double> (*weibullArray)(const Shape&, double, double) = &random::weibull<double>;
+    NdArray<double, Allocator<double>> (*weibullArray)(const Shape&, double, double) = &random::weibull<double>;
     double (*weibullScalar)(double, double) = &random::weibull<double>;
     bp::def("weibull", weibullArray);
     bp::def("weibull", weibullScalar);
 
     // Linalg.hpp
-    bp::def("cholesky", &linalg::cholesky<double>);
-    bp::def("det", &linalg::det<double>);
+    bp::def("cholesky", &linalg::cholesky<double, Allocator<double>>);
+    bp::def("det", &linalg::det<double, Allocator<double>>);
     bp::def("hat", &LinalgInterface::hatArray<double>);
-    bp::def("inv", &linalg::inv<double>);
-    bp::def("lstsq", &linalg::lstsq<double>);
-    bp::def("lu_decomposition", &linalg::lu_decomposition<double>);
-    bp::def("matrix_power", &linalg::matrix_power<double>);
+    bp::def("inv", &linalg::inv<double, Allocator<double>>);
+    bp::def("lstsq", &linalg::lstsq<double, Allocator<double>>);
+    bp::def("lu_decomposition", &linalg::lu_decomposition<double, Allocator<double>>);
+    bp::def("matrix_power", &linalg::matrix_power<double, Allocator<double>>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<ComplexDouble>);
     bp::def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
-    bp::def("svd", &linalg::svd<double>);
+    bp::def("svd", &linalg::svd<double, Allocator<double>>);
 
     // Rotations.hpp
     bp::class_<rotations::Quaternion>
@@ -7046,8 +7053,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def(bp::init<double, double, double>())
         .def(bp::init<double, double, double, double>())
         .def(bp::init<Vec3, double>())
-        .def(bp::init<NdArray<double>, double>())
-        .def(bp::init<NdArray<double> >())
+        .def(bp::init<NdArray<double, Allocator<double>>, double>())
+        .def(bp::init<NdArray<double, Allocator<double>> >())
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3).staticmethod("angleAxisRotationVec3")
         .def("angularVelocity", &RotationsInterface::angularVelocity)
@@ -7066,7 +7073,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("s", &rotations::Quaternion::s)
         .def("slerp", &RotationsInterface::slerp)
         .def("toDCM", &RotationsInterface::toDCM)
-        .def("toNdArray", &rotations::Quaternion::toNdArray)
+        .def("toNdArray", &rotations::Quaternion::toNdArray<Allocator<double>>)
         .def("xRotation", &rotations::Quaternion::xRotation).staticmethod("xRotation")
         .def("yaw", &rotations::Quaternion::yaw)
         .def("yRotation", &rotations::Quaternion::yRotation).staticmethod("yRotation")
@@ -7088,13 +7095,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("eulerAnglesArray", &RotationsInterface::eulerAnglesArray).staticmethod("eulerAnglesArray")
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3).staticmethod("angleAxisRotationVec3")
-        .def("isValid", &rotations::DCM::isValid).staticmethod("isValid")
-        .def("roll", &rotations::DCM::roll).staticmethod("roll")
-        .def("pitch", &rotations::DCM::pitch).staticmethod("pitch")
-        .def("yaw", &rotations::DCM::yaw).staticmethod("yaw")
-        .def("xRotation", &rotations::DCM::xRotation).staticmethod("xRotation")
-        .def("yRotation", &rotations::DCM::yRotation).staticmethod("yRotation")
-        .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");
+        .def("isValid", &rotations::DCM::isValid<Allocator<double>>).staticmethod("isValid")
+        .def("roll", &rotations::DCM::roll<Allocator<double>>).staticmethod("roll")
+        .def("pitch", &rotations::DCM::pitch<Allocator<double>>).staticmethod("pitch")
+        .def("yaw", &rotations::DCM::yaw<Allocator<double>>).staticmethod("yaw")
+        .def("xRotation", &rotations::DCM::xRotation<Allocator<double>>).staticmethod("xRotation")
+        .def("yRotation", &rotations::DCM::yRotation<Allocator<double>>).staticmethod("yRotation")
+        .def("zRotation", &rotations::DCM::zRotation<Allocator<double>>).staticmethod("zRotation");
 
     bp::def("rodriguesRotation", &RotationsInterface::rodriguesRotation<double>);
     bp::def("wahbasProblem", &RotationsInterface::wahbasProblem<double>);
@@ -7108,25 +7115,25 @@ BOOST_PYTHON_MODULE(NumCpp)
         .value("MIRROR", filter::Boundary::MIRROR)
         .value("WRAP", filter::Boundary::WRAP);
 
-    bp::def("complementaryMedianFilter", &filter::complementaryMedianFilter<double>);
-    bp::def("complementaryMedianFilter1d", &filter::complementaryMedianFilter1d<double>);
-    bp::def("convolve", &filter::convolve<double>);
-    bp::def("convolve1d", &filter::convolve1d<double>);
-    bp::def("gaussianFilter", &filter::gaussianFilter<double>);
-    bp::def("gaussianFilter1d", &filter::gaussianFilter1d<double>);
-    bp::def("laplaceFilter", &filter::laplace<double>);
-    bp::def("maximumFilter", &filter::maximumFilter<double>);
-    bp::def("maximumFilter1d", &filter::maximumFilter1d<double>);
-    bp::def("medianFilter", &filter::medianFilter<double>);
-    bp::def("medianFilter1d", &filter::medianFilter1d<double>);
-    bp::def("minimumFilter", &filter::minimumFilter<double>);
-    bp::def("minumumFilter1d", &filter::minumumFilter1d<double>);
-    bp::def("percentileFilter", &filter::percentileFilter<double>);
-    bp::def("percentileFilter1d", &filter::percentileFilter1d<double>);
-    bp::def("rankFilter", &filter::rankFilter<double>);
-    bp::def("rankFilter1d", &filter::rankFilter1d<double>);
-    bp::def("uniformFilter", &filter::uniformFilter<double>);
-    bp::def("uniformFilter1d", &filter::uniformFilter1d<double>);
+    bp::def("complementaryMedianFilter", &filter::complementaryMedianFilter<double, Allocator<double>>);
+    bp::def("complementaryMedianFilter1d", &filter::complementaryMedianFilter1d<double, Allocator<double>>);
+    bp::def("convolve", &filter::convolve<double, Allocator<double>>);
+    bp::def("convolve1d", &filter::convolve1d<double, Allocator<double>>);
+    bp::def("gaussianFilter", &filter::gaussianFilter<double, Allocator<double>>);
+    bp::def("gaussianFilter1d", &filter::gaussianFilter1d<double, Allocator<double>>);
+    bp::def("laplaceFilter", &filter::laplace<double, Allocator<double>>);
+    bp::def("maximumFilter", &filter::maximumFilter<double, Allocator<double>>);
+    bp::def("maximumFilter1d", &filter::maximumFilter1d<double, Allocator<double>>);
+    bp::def("medianFilter", &filter::medianFilter<double, Allocator<double>>);
+    bp::def("medianFilter1d", &filter::medianFilter1d<double, Allocator<double>>);
+    bp::def("minimumFilter", &filter::minimumFilter<double, Allocator<double>>);
+    bp::def("minumumFilter1d", &filter::minumumFilter1d<double, Allocator<double>>);
+    bp::def("percentileFilter", &filter::percentileFilter<double, Allocator<double>>);
+    bp::def("percentileFilter1d", &filter::percentileFilter1d<double, Allocator<double>>);
+    bp::def("rankFilter", &filter::rankFilter<double, Allocator<double>>);
+    bp::def("rankFilter1d", &filter::rankFilter1d<double, Allocator<double>>);
+    bp::def("uniformFilter", &filter::uniformFilter<double, Allocator<double>>);
+    bp::def("uniformFilter1d", &filter::uniformFilter1d<double, Allocator<double>>);
 
     // Image Processing
     typedef imageProcessing::Pixel<double> PixelDouble;
@@ -7186,12 +7193,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<std::vector<CentroidDouble> >("centroid_vector")
         .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
 
-    bp::def("applyThreshold", &imageProcessing::applyThreshold<double>);
-    bp::def("centroidClusters", &imageProcessing::centroidClusters<double>);
-    bp::def("clusterPixels", &imageProcessing::clusterPixels<double>);
-    bp::def("generateThreshold", &imageProcessing::generateThreshold<double>);
-    bp::def("generateCentroids", &imageProcessing::generateCentroids<double>);
-    bp::def("windowExceedances", &imageProcessing::windowExceedances);
+    bp::def("applyThreshold", &imageProcessing::applyThreshold<double, Allocator<double>>);
+    bp::def("centroidClusters", &imageProcessing::centroidClusters<double, Allocator<double>>);
+    bp::def("clusterPixels", &imageProcessing::clusterPixels<double, Allocator<double>>);
+    bp::def("generateThreshold", &imageProcessing::generateThreshold<double, Allocator<double>>);
+    bp::def("generateCentroids", &imageProcessing::generateCentroids<double, Allocator<double>>);
+    bp::def("windowExceedances", &imageProcessing::windowExceedances<Allocator<double>>);
 
     // Coordinates.hpp
     bp::class_<coordinates::RA>
@@ -7244,7 +7251,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("x", &coordinates::Coordinate::x)
         .def("y", &coordinates::Coordinate::y)
         .def("z", &coordinates::Coordinate::z)
-        .def("xyz", &coordinates::Coordinate::xyz)
+        .def("xyz", &coordinates::Coordinate::xyz<Allocator<double>>)
         .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate)
         .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector)
         .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate)
@@ -7281,7 +7288,7 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     bp::class_<Poly1d>
         ("Poly1d", bp::init<>())
-        .def(bp::init<NdArray<double>, bool>())
+        .def(bp::init<NdArray<double, Allocator<double>>, bool>())
         .def("area", &Poly1d::area)
         .def("coefficients", &Poly1d::coefficients)
         .def("deriv", &Poly1d::deriv)
@@ -7339,7 +7346,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<Vec2>
         ("Vec2", bp::init<>())
         .def(bp::init<double, double>())
-        .def(bp::init<NdArray<double> >())
+        .def(bp::init<NdArray<double, Allocator<double>> >())
         .def_readwrite("x", &Vec2::x)
         .def_readwrite("y", &Vec2::y)
         .def("angle", &Vec2::angle)
@@ -7380,7 +7387,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<Vec3>
         ("Vec3", bp::init<>())
         .def(bp::init<double, double, double>())
-        .def(bp::init<NdArray<double> >())
+        .def(bp::init<NdArray<double, Allocator<double>> >())
         .def_readwrite("x", &Vec3::x)
         .def_readwrite("y", &Vec3::y)
         .def_readwrite("z", &Vec3::z)

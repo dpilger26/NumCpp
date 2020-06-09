@@ -32,6 +32,8 @@
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace linalg
@@ -56,8 +58,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<double, Alloc> lstsq(const NdArray<dtype, Alloc>& inA, const NdArray<dtype, Alloc>& inB, double inTolerance = 1e-12)
+        template<typename dtype, class Alloc>
+        NdArray<double, Alloc> lstsq(const NdArray<dtype, Alloc>& inA,
+            const NdArray<dtype, Alloc>& inB, double inTolerance = 1e-12)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

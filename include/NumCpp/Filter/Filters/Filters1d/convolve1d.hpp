@@ -36,8 +36,6 @@
 #include "NumCpp/Functions/fliplr.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -55,7 +53,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype, class Alloc>
         NdArray<dtype, Alloc> convolve1d(const NdArray<dtype, Alloc>& inImageArray,
             const NdArray<dtype, Alloc>& inWeights, Boundary inBoundaryType = Boundary::REFLECT,
             dtype inConstantValue = 0)

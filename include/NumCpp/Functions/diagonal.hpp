@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> diagonal(const NdArray<dtype, Alloc>& inArray, int32 inOffset = 0, Axis inAxis = Axis::ROW) noexcept
     {
         return inArray.diagonal(inOffset, inAxis);

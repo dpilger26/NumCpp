@@ -41,7 +41,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<double, Alloc> nans_like(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<double, Alloc> returnArray(inArray.shape());

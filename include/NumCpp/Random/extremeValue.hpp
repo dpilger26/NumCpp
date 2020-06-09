@@ -39,6 +39,8 @@
 
 #include <string>
 
+#include <memory>
+
 namespace nc
 {
     namespace random
@@ -82,7 +84,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

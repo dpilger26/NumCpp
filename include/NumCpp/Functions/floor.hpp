@@ -62,7 +62,7 @@ namespace nc
     /// @param  inArray
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> floor(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inArray.shape());

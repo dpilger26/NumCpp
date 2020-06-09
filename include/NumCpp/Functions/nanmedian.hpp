@@ -53,7 +53,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> nanmedian(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
@@ -62,7 +62,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                std::vector<dtype> values;
+                std::vector<dtype, Alloc> values;
                 for (auto value : inArray)
                 {
                     if (!std::isnan(value))
@@ -83,7 +83,7 @@ namespace nc
                 NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    std::vector<dtype> values;
+                    std::vector<dtype, Alloc> values;
                     for (uint32 col = 0; col < inShape.cols; ++col)
                     {
                         if (!std::isnan(inArray(row, col)))
@@ -106,7 +106,7 @@ namespace nc
                 NdArray<dtype, Alloc> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    std::vector<dtype> values;
+                    std::vector<dtype, Alloc> values;
                     for (uint32 col = 0; col < inShape.cols; ++col)
                     {
                         if (!std::isnan(transposedArray(row, col)))

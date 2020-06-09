@@ -34,8 +34,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -53,7 +51,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype, class Alloc>
         NdArray<dtype, Alloc> minumumFilter1d(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {

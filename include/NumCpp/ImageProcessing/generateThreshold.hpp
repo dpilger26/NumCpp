@@ -55,7 +55,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype, class Alloc>
         dtype generateThreshold(const NdArray<dtype, Alloc>& inImageArray, double inRate)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

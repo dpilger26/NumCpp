@@ -40,7 +40,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> bitwise_not(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return ~inArray;

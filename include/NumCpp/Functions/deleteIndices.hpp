@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, const NdArray<uint32, Alloc>& inArrayIdxs, Axis inAxis = Axis::NONE)
     {
         // make sure that the indices are unique first
@@ -59,7 +59,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                std::vector<dtype> values;
+                std::vector<dtype, Alloc> values;
                 for (uint32 i = 0; i < inArray.size(); ++i)
                 {
                     if (indices.contains(i).item())
@@ -148,7 +148,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
     {
         Slice sliceCopy(inIndicesSlice);
@@ -172,7 +172,7 @@ namespace nc
             }
         }
 
-        std::vector<uint32> indices;
+        std::vector<uint32, Alloc> indices;
         for (uint32 i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
         {
             indices.push_back(i);
@@ -191,7 +191,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> deleteIndices(const NdArray<dtype, Alloc>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
     {
         NdArray<uint32, Alloc> inIndices = { inIndex };

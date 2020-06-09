@@ -41,6 +41,7 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
+#include <memory>
 #include <tuple>
 
 namespace nc
@@ -55,8 +56,9 @@ namespace nc
         ///
         /// @return             std::tuple<NdArray, NdArray, NdArray> of the decomposed L, U, and P matrices
         ///
-        template<typename dtype>
-        std::tuple<NdArray<double, Alloc>, NdArray<double, Alloc>, NdArray<double, Alloc> > pivotLU_decomposition(const NdArray<dtype, Alloc>& inMatrix)
+        template<typename dtype, class Alloc>
+        std::tuple<NdArray<double, Alloc>, NdArray<double, Alloc>, NdArray<double, Alloc>>
+            pivotLU_decomposition(const NdArray<dtype, Alloc>& inMatrix)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

@@ -37,6 +37,7 @@
 
 #include "boost/random/discrete_distribution.hpp"
 
+#include <memory>
 
 namespace nc
 {
@@ -53,7 +54,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         dtype discrete(const NdArray<double, Alloc>& inWeights)
         {
             STATIC_ASSERT_INTEGER(dtype);
@@ -75,7 +76,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc>
         NdArray<dtype, Alloc> discrete(const Shape& inShape, const NdArray<double, Alloc>& inWeights)
         {
             STATIC_ASSERT_INTEGER(dtype);

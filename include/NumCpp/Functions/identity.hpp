@@ -46,7 +46,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> identity(uint32 inSquareSize) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inSquareSize);

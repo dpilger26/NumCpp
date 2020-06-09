@@ -59,7 +59,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> nanpercentile(const NdArray<dtype, Alloc>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
@@ -110,7 +110,7 @@ namespace nc
                     return NdArray<dtype, Alloc>(0);
                 }
 
-                std::vector<double> arrayCopy;
+                std::vector<double, Alloc> arrayCopy;
                 uint32 numNonNan = 0;
                 for (auto value : inArray)
                 {

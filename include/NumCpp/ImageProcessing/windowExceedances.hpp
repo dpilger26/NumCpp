@@ -34,7 +34,6 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <cmath>
-#include <memory>
 
 namespace nc
 {
@@ -49,7 +48,7 @@ namespace nc
         /// @return
         ///				NdArray<bool, Alloc>
         ///
-        template<class Alloc= std::allocator<bool>>
+        template<class Alloc>
         NdArray<bool, Alloc> windowExceedances(const NdArray<bool, Alloc>& inExceedances, 
             uint8 inBorderWidth) noexcept
         {

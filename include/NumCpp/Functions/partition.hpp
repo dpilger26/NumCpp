@@ -50,7 +50,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> partition(const NdArray<dtype, Alloc>& inArray, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype, Alloc> returnArray(inArray);

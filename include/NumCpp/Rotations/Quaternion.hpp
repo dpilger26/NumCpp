@@ -100,6 +100,7 @@ namespace nc
             ///                  if size = 4 the i, j, k, s components
             ///                  if shape = [3, 3] then direction cosine matrix
             ///
+            template<class Alloc>
             Quaternion(const NdArray<double, Alloc>& inArray) :
                 components_{ 0.0, 0.0, 0.0, 0.0 }
             {
@@ -153,6 +154,7 @@ namespace nc
             /// @param			inAxis: Euler axis x,y,z vector components
             /// @param			inAngle: Euler angle in radians
             ///
+            template<class Alloc>
             Quaternion(const NdArray<double, Alloc>& inAxis, double inAngle) :
                 Quaternion(Vec3(inAxis), inAngle)
             {}
@@ -168,7 +170,9 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
-            static NdArray<double, Alloc> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) noexcept
+            template<class Alloc = std::allocator<double>>
+            static NdArray<double, Alloc> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, 
+                double inTime) noexcept
             {
                 NdArray<double, Alloc> q0 = inQuat1.toNdArray();
                 NdArray<double, Alloc> q1 = inQuat2.toNdArray();
@@ -203,6 +207,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             NdArray<double, Alloc> angularVelocity(const Quaternion& inQuat2, double inTime) const noexcept
             {
                 return angularVelocity(*this, inQuat2, inTime);
@@ -375,6 +380,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc> (cartesian vector with x,y,z components)
             ///
+            template<class Alloc>
             NdArray<double, Alloc> rotate(const NdArray<double, Alloc>& inVector) const
             {
                 if (inVector.size() != 3)
@@ -421,6 +427,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
+            template<class Alloc = std::allocator<double>>
             static Quaternion slerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
                 if (inPercent < 0 || inPercent > 1)
@@ -503,6 +510,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             NdArray<double, Alloc> toDCM() const noexcept
             {
                 NdArray<double, Alloc> dcm(3);
@@ -537,6 +545,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc = std::allocator<double>>
             NdArray<double, Alloc> toNdArray() const noexcept
             {
                 auto componentsCopy = components_;
@@ -750,6 +759,7 @@ namespace nc
             /// @return
             ///				NdArray<double, Alloc>
             ///
+            template<class Alloc>
             NdArray<double, Alloc> operator*(const NdArray<double, Alloc>& inVec) const
             {
                 if (inVec.size() != 3)
@@ -944,6 +954,7 @@ namespace nc
             ///
             /// @ param dcm: the direction cosine matrix
             ///
+            template<class Alloc>
             void dcmToQuat(const NdArray<double, Alloc>& dcm)
             {
                 const Shape inShape = dcm.shape();

@@ -62,7 +62,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     auto proj(const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         NdArray<decltype(nc::proj(std::complex<dtype>{0}))> returnArray(inArray.shape());

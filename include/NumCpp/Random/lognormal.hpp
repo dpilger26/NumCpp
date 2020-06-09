@@ -37,6 +37,7 @@
 
 #include "boost/random/lognormal_distribution.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -81,7 +82,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

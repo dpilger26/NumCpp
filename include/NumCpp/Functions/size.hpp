@@ -42,7 +42,7 @@ namespace nc
     /// @return
     ///				uint32 size
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     uint32 size(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.size();

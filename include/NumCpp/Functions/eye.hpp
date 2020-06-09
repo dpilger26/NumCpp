@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> eye(uint32 inN, uint32 inM, int32 inK = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -100,7 +100,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> eye(uint32 inN, int32 inK = 0) noexcept
     {
         return eye<dtype>(inN, inN, inK);
@@ -119,7 +119,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> eye(const Shape& inShape, int32 inK = 0) noexcept
     {
         return eye<dtype>(inShape.rows, inShape.cols, inK);

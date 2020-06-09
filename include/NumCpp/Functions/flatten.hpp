@@ -42,7 +42,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> flatten(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.flatten();

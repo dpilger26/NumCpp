@@ -34,6 +34,8 @@
 #include "NumCpp/Functions/full.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
+
 namespace nc
 {
     //============================================================================
@@ -47,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> zeros(uint32 inSquareSize) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -66,7 +68,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> zeros(uint32 inNumRows, uint32 inNumCols) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -85,7 +87,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> zeros(const Shape& inShape) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

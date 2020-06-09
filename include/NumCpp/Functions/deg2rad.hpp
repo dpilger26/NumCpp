@@ -65,7 +65,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     auto deg2rad(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(deg2rad(dtype{0})) , Alloc> returnArray(inArray.shape());

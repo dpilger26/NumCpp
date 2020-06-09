@@ -214,7 +214,8 @@ namespace nc
             /// @return
             ///              None
             ///
-            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
+            void findNeighbors(const Pixel<dtype>& inPixel,
+                std::set<Pixel<dtype>, decltype(Pixel<dtype>::operator<), Alloc>& outNeighbors)
             {
                 // using a set will auto take care of adding duplicate pixels on the edges
 
@@ -244,7 +245,7 @@ namespace nc
             ///
             void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype>, Alloc>& outNeighbors)
             {
-                std::set<Pixel<dtype>, Alloc> neighbors;
+                std::set<Pixel<dtype>, Pixel<dtype>::operator<, Alloc> neighbors;
                 findNeighbors(inPixel, neighbors);
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
@@ -269,7 +270,7 @@ namespace nc
             ///
             void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32, Alloc>& outNeighbors)
             {
-                std::set<Pixel<dtype>, Alloc> neighbors;
+                std::set<Pixel<dtype>, Pixel<dtype>::operator<, Alloc> neighbors;
                 findNeighbors(inPixel, neighbors);
                 std::vector<Pixel<dtype>, Alloc> neighborXcds;
 

@@ -39,7 +39,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -59,7 +58,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc = std::allocator<dtype>>
+            template<typename dtype, class Alloc>
             NdArray<dtype, Alloc> addBoundary1d(const NdArray<dtype, Alloc>& inImage,
                 Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {

@@ -52,7 +52,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> setdiff1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -65,7 +65,7 @@ namespace nc
         const auto set1 = unique(inArray1);
         const auto set2 = unique(inArray2);
 
-        std::vector<dtype> res(set1.size());
+        std::vector<dtype, Alloc> res(set1.size());
         const auto last = stl_algorithms::set_difference(set1.begin(), set1.end(), 
             set2.begin(), set2.end(), res.begin(), comp);
 

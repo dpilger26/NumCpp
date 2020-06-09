@@ -122,7 +122,7 @@ namespace nc
             ///
             /// @param				inCartesianVector
             ///
-            template<class Alloc = std::allocator<double>>
+            template<class Alloc>
             Coordinate(const NdArray<double, Alloc> inCartesianVector)
             {
                 if (inCartesianVector.size() != 3)
@@ -219,7 +219,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            template<class Alloc = std::allocator<double>>
+            template<class Alloc>
             double degreeSeperation(const NdArray<double, Alloc>& inVector) const
             {
                 return rad2deg(radianSeperation(inVector));
@@ -246,7 +246,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            template<class Alloc = std::allocator<double>>
+            template<class Alloc>
             double radianSeperation(const NdArray<double, Alloc>& inVector) const
             {
                 if (inVector.size() != 3)

@@ -37,6 +37,7 @@
 #include <initializer_list>
 #include <iterator>
 #include <list>
+#include <memory>
 #include <set>
 #include <vector>
 
@@ -54,7 +55,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, 
+    template<typename dtype, class Alloc = std::allocator<dtype>,
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
     NdArray<dtype, Alloc> asarray(std::initializer_list<dtype> inList) noexcept
     {
@@ -73,7 +74,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> asarray(std::initializer_list<std::initializer_list<dtype> > inList)
     {
         return NdArray<dtype, Alloc>(inList);
@@ -91,7 +92,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, size_t ArraySize, 
+    template<typename dtype, size_t ArraySize, class Alloc = std::allocator<dtype>, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
     NdArray<dtype, Alloc> asarray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept
     {
@@ -110,7 +111,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, size_t Dim0Size, size_t Dim1Size>
+    template<typename dtype, size_t Dim0Size, size_t Dim1Size, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> asarray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& inArray, bool copy = true) noexcept
     {
         return NdArray<dtype, Alloc>(inArray, copy);
@@ -128,9 +129,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, 
+    template<typename dtype, class Alloc, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype, Alloc> asarray(std::vector<dtype>& inVector, bool copy = true) noexcept
+    NdArray<dtype, Alloc> asarray(std::vector<dtype, Alloc>& inVector, bool copy = true) noexcept
     {
         return NdArray<dtype, Alloc>(inVector, copy);
     }
@@ -145,8 +146,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> asarray(const std::vector<std::vector<dtype>>& inVector) noexcept
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> asarray(const std::vector<std::vector<dtype, Alloc>, Alloc>& inVector) noexcept
     {
         return NdArray<dtype, Alloc>(inVector);
     }
@@ -163,8 +164,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, size_t Dim1Size>
-    NdArray<dtype, Alloc> asarray(std::vector<std::array<dtype, Dim1Size>>& inVector, bool copy = true) noexcept
+    template<typename dtype, size_t Dim1Size, class Alloc>
+    NdArray<dtype, Alloc> asarray(std::vector<std::array<dtype, Dim1Size>, Alloc>& inVector, bool copy = true) noexcept
     {
         return NdArray<dtype, Alloc>(inVector, copy);
     }
@@ -179,9 +180,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, 
+    template<typename dtype, class Alloc, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype, Alloc> asarray(const std::deque<dtype>& inDeque) noexcept
+    NdArray<dtype, Alloc> asarray(const std::deque<dtype, Alloc>& inDeque) noexcept
     {
         return NdArray<dtype, Alloc>(inDeque);
     }
@@ -196,8 +197,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> asarray(const std::deque<std::deque<dtype>>& inDeque) noexcept
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> asarray(const std::deque<std::deque<dtype, Alloc>>& inDeque) noexcept
     {
         return NdArray<dtype, Alloc>(inDeque);
     }
@@ -213,8 +214,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeComp>
-    NdArray<dtype, Alloc> asarray(const std::set<dtype, dtypeComp>& inSet) noexcept
+    template<typename dtype, typename dtypeComp, class Alloc>
+    NdArray<dtype, Alloc> asarray(const std::set<dtype, dtypeComp, Alloc>& inSet) noexcept
     {
         return NdArray<dtype, Alloc>(inSet);
     }
@@ -230,8 +231,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> asarray(const std::list<dtype>& inList) noexcept
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> asarray(const std::list<dtype, Alloc>& inList) noexcept
     {
         return NdArray<dtype, Alloc>(inList);
     }
@@ -264,7 +265,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> asarray(const dtype* iterBegin, const dtype* iterEnd) noexcept
     {
         return NdArray<dtype, Alloc>(iterBegin, iterEnd);
@@ -281,7 +282,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> asarray(const dtype* ptr, uint32 size) noexcept
     {
         return NdArray<dtype, Alloc>(ptr, size);
@@ -299,7 +300,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> asarray(const dtype* ptr, uint32 numRows, uint32 numCols) noexcept
     {
         return NdArray<dtype, Alloc>(ptr, numRows, numCols);
@@ -318,7 +319,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename Bool,
+    template<typename dtype, typename Bool, class Alloc = std::allocator<dtype>,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
     NdArray<dtype, Alloc> asarray(dtype* ptr, uint32 size, Bool takeOwnership) noexcept
     {
@@ -339,7 +340,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename Bool,
+    template<typename dtype, typename Bool, class Alloc = std::allocator<dtype>,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
     NdArray<dtype, Alloc> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept
     {

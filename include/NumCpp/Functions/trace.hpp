@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     dtype trace(const NdArray<dtype, Alloc>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW) noexcept
     {
         return inArray.trace(inOffset, inAxis);

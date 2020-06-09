@@ -49,8 +49,9 @@ namespace nc
     /// @param      inB
     /// @return     NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype, Alloc> where(const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inA, const NdArray<dtype, Alloc>& inB)
+    template<typename dtype, class Alloc>
+    NdArray<dtype, Alloc> where(const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inA,
+        const NdArray<dtype, Alloc>& inB)
     {
         const auto shapeMask = inMask.shape();
         const auto shapeA = inA.shape();

@@ -33,6 +33,8 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Functions/full.hpp"
 
+#include <memory>
+
 namespace nc
 {
     //============================================================================
@@ -45,7 +47,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double, Alloc> nans(uint32 inSquareSize) noexcept
+    template<class Alloc = std::allocator<double>>
+    NdArray<double, Alloc> nans(uint32 inSquareSize) noexcept
     {
         return full(inSquareSize, constants::nan);
     }
@@ -60,7 +63,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double, Alloc> nans(uint32 inNumRows, uint32 inNumCols) noexcept
+    template<class Alloc = std::allocator<double>>
+    NdArray<double, Alloc> nans(uint32 inNumRows, uint32 inNumCols) noexcept
     {
         return full(inNumRows, inNumCols, constants::nan);
     }
@@ -75,7 +79,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double, Alloc> nans(const Shape& inShape) noexcept
+    template<class Alloc = std::allocator<double>>
+    NdArray<double, Alloc> nans(const Shape& inShape) noexcept
     {
         return full(inShape, constants::nan);
     }

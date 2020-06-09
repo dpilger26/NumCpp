@@ -40,6 +40,7 @@
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
+#include <memory>
 #include <utility>
 
 namespace nc
@@ -54,8 +55,9 @@ namespace nc
         ///
         /// @return             std::pair<NdArray, NdArray> of the decomposed L and U matrices
         ///
-        template<typename dtype>
-        std::pair<NdArray<double, Alloc>, NdArray<double, Alloc> > lu_decomposition(const NdArray<dtype, Alloc>& inMatrix)
+        template<typename dtype, class Alloc>
+        std::pair<NdArray<double, Alloc>, NdArray<double, Alloc>>
+            lu_decomposition(const NdArray<dtype, Alloc>& inMatrix)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

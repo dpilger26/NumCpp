@@ -43,7 +43,7 @@ namespace nc
     /// @return
     ///				bool
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<bool, Alloc> contains(const NdArray<dtype, Alloc>& inArray, dtype inValue, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.contains(inValue, inAxis);

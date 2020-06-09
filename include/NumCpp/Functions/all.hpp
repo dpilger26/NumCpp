@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				bool
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<bool, Alloc> all(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.all(inAxis);

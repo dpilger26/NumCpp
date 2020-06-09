@@ -48,7 +48,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> column_stack(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList)
     {
         // first loop through to calculate the final size of the array

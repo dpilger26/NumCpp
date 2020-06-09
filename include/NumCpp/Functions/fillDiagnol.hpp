@@ -43,7 +43,7 @@ namespace nc
     /// @param      inArray
     /// @param      inValue
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     void fillDiagonal(NdArray<dtype, Alloc>& inArray, dtype inValue) noexcept
     {
         const auto inShape = inArray.shape();

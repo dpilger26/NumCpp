@@ -33,6 +33,7 @@
 #include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
 
+#include <memory>
 #include <utility>
 
 namespace nc
@@ -50,8 +51,9 @@ namespace nc
         /// @param				outS: NdArray output S
         /// @param				outVt: NdArray output V transpose
         ///
-        template<typename dtype>
-        void svd(const NdArray<dtype, Alloc>& inArray, NdArray<double, Alloc>& outU, NdArray<double, Alloc>& outS, NdArray<double, Alloc>& outVt)
+        template<typename dtype, class Alloc>
+        void svd(const NdArray<dtype, Alloc>& inArray, NdArray<double, Alloc>& outU,
+            NdArray<double, Alloc>& outS, NdArray<double, Alloc>& outVt)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

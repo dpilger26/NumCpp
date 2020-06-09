@@ -35,8 +35,6 @@
 #include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -55,7 +53,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype, class Alloc>
         NdArray<dtype, Alloc> rankFilter1d(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize, uint8 inRank,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {

@@ -35,8 +35,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -53,8 +51,9 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc = std::allocator<dtype>>
-            NdArray<dtype, Alloc> constant2d(const NdArray<dtype, Alloc>& inImage, uint32 inBoundarySize, dtype inConstantValue)
+            template<typename dtype, class Alloc>
+            NdArray<dtype, Alloc> constant2d(const NdArray<dtype, Alloc>& inImage, 
+                uint32 inBoundarySize, dtype inConstantValue)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 

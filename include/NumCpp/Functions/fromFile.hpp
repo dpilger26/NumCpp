@@ -54,7 +54,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -99,7 +99,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("only [' ', '\\t', '\\n'] seperators are supported");
             }
 
-            std::vector<dtype> values;
+            std::vector<dtype, Alloc> values;
 
             std::ifstream file(inFilename.c_str());
             if (file.is_open())

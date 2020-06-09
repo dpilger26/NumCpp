@@ -48,7 +48,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> rot90(const NdArray<dtype, Alloc>& inArray, uint8 inK = 1) noexcept
     {
         inK %= 4;

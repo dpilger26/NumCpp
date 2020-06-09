@@ -59,7 +59,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

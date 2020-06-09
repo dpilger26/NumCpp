@@ -70,6 +70,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
+        template<class Alloc>
         inline NdArray<double, Alloc> bernoilli(const NdArray<uint32, Alloc>& inArray)
         {
             NdArray<double, Alloc> returnArray(inArray.shape());

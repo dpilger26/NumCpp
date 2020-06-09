@@ -67,7 +67,7 @@ namespace nc
         /// @return
         ///				NdArray<std::complex>
         ///
-        template<typename dtype1, typename dtype2>
+        template<typename dtype1, typename dtype2, class Alloc>
         auto cyclic_hankel_1(dtype1 inV, const NdArray<dtype2, Alloc>& inX)
         {
             NdArray<decltype(cyclic_hankel_1(dtype1{ 0 }, dtype2{ 0 })), Alloc> returnArray(inX.shape());

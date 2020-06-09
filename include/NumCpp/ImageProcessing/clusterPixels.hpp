@@ -35,7 +35,6 @@
 #include "NumCpp/ImageProcessing/ClusterMaker.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
 #include <vector>
 
 namespace nc
@@ -52,7 +51,7 @@ namespace nc
         /// @return
         ///				std::vector<Cluster>
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype, class Alloc>
         std::vector<Cluster<dtype, Alloc>, Alloc> clusterPixels(const NdArray<dtype, Alloc>& inImageArray,
             const NdArray<bool, Alloc>& inExceedances, uint8 inBorderWidth = 0)
         {

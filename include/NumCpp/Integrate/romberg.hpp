@@ -37,6 +37,7 @@
 #include "NumCpp/Utils/power.hpp"
 
 #include <functional>
+#include <memory>
 #include <vector>
 
 namespace nc
@@ -54,7 +55,8 @@ namespace nc
         ///
         /// @return             double
         ///
-        inline double romberg(const double low, const double high, const uint8 n,
+        template<class Alloc = std::allocator<double>>
+        double romberg(const double low, const double high, const uint8 n,
             const std::function<double(double)>& f)
         {
             NdArray<double, Alloc> rombergIntegral(n);

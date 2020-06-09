@@ -67,7 +67,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     auto arctanh(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(arctanh(dtype{0})), Alloc> returnArray(inArray.shape());

@@ -31,6 +31,7 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <iterator>
+#include <memory>
 #include <vector>
 
 namespace nc
@@ -46,7 +47,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename Iter>
+    template<typename dtype, typename Iter, class Alloc = std::allocator<dtype>>
     NdArray<dtype, Alloc> fromiter(Iter inBegin, Iter inEnd) noexcept
     {
         return NdArray<dtype, Alloc>(inBegin, inEnd);

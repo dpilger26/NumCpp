@@ -70,7 +70,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, class Alloc>
     NdArray<dtype, Alloc> unwrap(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inArray.shape());

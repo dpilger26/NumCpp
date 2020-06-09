@@ -70,7 +70,8 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        inline NdArray<double, Alloc> factorial(const NdArray<uint32, Alloc>& inArray)
+        template<class Alloc>
+        NdArray<double, Alloc> factorial(const NdArray<uint32, Alloc>& inArray)
         {
             NdArray<double, Alloc> returnArray(inArray.shape());
 
