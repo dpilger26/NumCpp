@@ -1907,7 +1907,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto equalTo = [](dtype lhs, dtype rhs)  -> bool
+        const auto equalTo = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return utils::essentiallyEqual(lhs, rhs);
         };
@@ -1934,7 +1934,7 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto equalTo = [inValue](dtype value)  -> bool
+        const auto equalTo = [inValue](dtype value) noexcept -> bool
         {
             return utils::essentiallyEqual(inValue, value);
         };
@@ -1977,7 +1977,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto notEqualTo = [](dtype lhs, dtype rhs)  -> bool
+        const auto notEqualTo = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return !utils::essentiallyEqual(lhs, rhs);
         };
@@ -2004,7 +2004,7 @@ namespace nc
     {
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto notEqualTo = [inValue](dtype value)  -> bool
+        const auto notEqualTo = [inValue](dtype value) noexcept -> bool
         {
             return !utils::essentiallyEqual(inValue, value);
         };

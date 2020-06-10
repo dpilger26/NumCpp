@@ -49,7 +49,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto cos(dtype inValue) 
+    auto cos(dtype inValue) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
     {
         NdArray<decltype(cos(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> auto
+            [](dtype inValue) noexcept -> auto
             {
                 return cos(inValue);
             });

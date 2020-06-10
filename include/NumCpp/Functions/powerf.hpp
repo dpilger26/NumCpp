@@ -51,7 +51,7 @@ namespace nc
     ///				value raised to the power
     ///
     template<typename dtype1, typename dtype2>
-    auto powerf(dtype1 inValue, dtype2 inExponent) 
+    auto powerf(dtype1 inValue, dtype2 inExponent) noexcept 
     {
         return utils::powerf(inValue, inExponent);
     }
@@ -72,7 +72,7 @@ namespace nc
     {
         NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [inExponent](dtype1 inValue)  -> auto
+            [inExponent](dtype1 inValue) noexcept -> auto
             {
                 return nc::powerf(inValue, inExponent); 
             });
@@ -101,7 +101,7 @@ namespace nc
 
         NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype1 inValue, dtype2 inExponent)  -> auto
+            [](dtype1 inValue, dtype2 inExponent) noexcept -> auto
             {
                 return nc::powerf(inValue, inExponent);
             });

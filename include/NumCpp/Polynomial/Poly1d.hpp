@@ -425,7 +425,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            dtype operator()(dtype inValue) const 
+            dtype operator()(dtype inValue) const noexcept 
             {
                 dtype polyValue = 0;
                 uint8 power = 0;

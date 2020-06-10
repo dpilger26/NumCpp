@@ -50,7 +50,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto log(dtype inValue) 
+    auto log(dtype inValue) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -74,7 +74,7 @@ namespace nc
     {
         NdArray<decltype(log(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> auto
+            [](dtype inValue) noexcept -> auto
             { 
                 return log(inValue);
             });

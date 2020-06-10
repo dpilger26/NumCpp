@@ -611,7 +611,7 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const 
             {
-                const auto comparitor = [](double value1, double value2)  -> bool
+                const auto comparitor = [](double value1, double value2) noexcept -> bool
                 {
                     return utils::essentiallyEqual(value1, value2);
                 };

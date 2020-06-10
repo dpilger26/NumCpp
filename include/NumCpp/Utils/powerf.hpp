@@ -49,7 +49,7 @@ namespace nc
         /// @return     inValue raised to inPower
         ///
         template<typename dtype1, typename dtype2>
-        auto powerf(dtype1 inValue, const dtype2 inPower) 
+        auto powerf(dtype1 inValue, const dtype2 inPower) noexcept 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype1);
 

@@ -347,7 +347,7 @@ namespace nc
         /// @param  rhs
         /// @return bool
         ///
-        bool operator==(const Vec3& rhs) const 
+        bool operator==(const Vec3& rhs) const noexcept 
         {
             return utils::essentiallyEqual(x, rhs.x) &&
                 utils::essentiallyEqual(y, rhs.y) &&
@@ -361,7 +361,7 @@ namespace nc
         /// @param  rhs
         /// @return bool
         ///
-        bool operator!=(const Vec3& rhs) const 
+        bool operator!=(const Vec3& rhs) const noexcept 
         {
             return !(*this == rhs);
         }
