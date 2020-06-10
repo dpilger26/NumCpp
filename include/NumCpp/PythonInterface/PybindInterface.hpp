@@ -59,7 +59,7 @@ namespace nc
         ///
         /// @return     NdArray<dtype, Alloc>
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         inline NdArray<dtype, Alloc> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
         {
             dtype* dataPtr = numpyArray.mutable_data();
@@ -95,9 +95,8 @@ namespace nc
         ///
         /// @return    pybind11::array_t
         ///
-        template<typename dtype, class Alloc>
-        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype, Alloc>& inArray, 
-            ReturnPolicy returnPolicy = ReturnPolicy::COPY)
+        template<typename dtype>
+        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype, Alloc>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
         {
             Shape inShape = inArray.shape();
             std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };

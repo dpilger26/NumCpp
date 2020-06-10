@@ -51,9 +51,8 @@ namespace nc
     /// @return
     ///				std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> >, i and j matrices
     ///
-    template<typename dtype, class Alloc>
-    std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> >
-        meshgrid(const NdArray<dtype, Alloc>& inICoords, const NdArray<dtype, Alloc>& inJCoords) noexcept
+    template<typename dtype>
+    std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> > meshgrid(const NdArray<dtype, Alloc>& inICoords, const NdArray<dtype, Alloc>& inJCoords) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -84,20 +83,20 @@ namespace nc
     }
 
     //============================================================================
-    // Method Description:
-    ///						Return coordinate matrices from coordinate vectors.
-    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
-    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
-    ///
-    /// @param				inSlice1
-    /// @param  			inSlice2
-    ///
-    /// @return
-    ///				std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> >, i and j matrices
-    ///
-    template<typename dtype, class Alloc>
+// Method Description:
+///						Return coordinate matrices from coordinate vectors.
+///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
+///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+///
+/// @param				inSlice1
+/// @param  			inSlice2
+///
+/// @return
+///				std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> >, i and j matrices
+///
+    template<typename dtype>
     std::pair<NdArray<dtype, Alloc>, NdArray<dtype, Alloc> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
     {
         return meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2));

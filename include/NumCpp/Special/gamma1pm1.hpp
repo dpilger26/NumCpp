@@ -64,7 +64,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         auto gamma1pm1(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(gamma1pm1(dtype{0})), Alloc> returnArray(inArray.shape());

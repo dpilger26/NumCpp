@@ -72,7 +72,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto log1p(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(log1p(dtype{0})), Alloc> returnArray(inArray.shape());

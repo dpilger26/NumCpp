@@ -33,7 +33,6 @@
 #include "NumCpp/Random/generator.hpp"
 
 #include <algorithm>
-#include <memory>
 
 namespace nc
 {
@@ -50,7 +49,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> permutation(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
@@ -71,7 +70,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> permutation(const NdArray<dtype, Alloc>& inArray) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

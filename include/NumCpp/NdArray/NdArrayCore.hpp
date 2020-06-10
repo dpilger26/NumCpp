@@ -80,13 +80,13 @@ namespace nc
     //================================================================================
     // Class Description:
     ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype, class Alloc /*= std::allocator<dtype>*/>
+    template<typename dtype, class Allocator = std::allocator<dtype>>
     class NdArray final : NdArrayBase
     {
     private:
         STATIC_ASSERT_VALID_DTYPE(dtype);
 
-        using _Alty         = typename std::allocator_traits<Alloc>::template rebind_alloc<dtype>;
+        using _Alty         = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
         using _Alty_traits  = std::allocator_traits<_Alty>;
 
     public:
@@ -275,7 +275,7 @@ namespace nc
         ///                   act as a non-owning shell. Default true.
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(std::vector<dtype, Alloc>& inVector, bool copy = true) :
+        NdArray(std::vector<dtype>& inVector, bool copy = true) :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size())
         {
@@ -300,7 +300,7 @@ namespace nc
         ///
         /// @param      in2dVector
         ///
-        explicit NdArray(const std::vector<std::vector<dtype, Alloc>, Alloc>& in2dVector) :
+        explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) :
             shape_(static_cast<uint32>(in2dVector.size()), 0)
         {
             for (const auto& row : in2dVector)
@@ -335,7 +335,7 @@ namespace nc
         ///                   act as a non-owning shell. Default true.
         ///
         template<size_t Dim1Size>
-        NdArray(std::vector<std::array<dtype, Dim1Size>, Alloc>& in2dArray, bool copy = true) :
+        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) :
             shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
             size_(shape_.size())
         {
@@ -412,7 +412,7 @@ namespace nc
         /// @param
         ///				inList
         ///
-        explicit NdArray(const std::list<dtype, Alloc>& inList) :
+        explicit NdArray(const std::list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
@@ -1677,7 +1677,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    std::vector<uint32, Alloc> idx(size_);
+                    std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
 
                     const auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
@@ -1693,7 +1693,7 @@ namespace nc
                     NdArray<uint32, Alloc> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        std::vector<uint32, Alloc> idx(shape_.cols);
+                        std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
@@ -1716,7 +1716,7 @@ namespace nc
                     NdArray<uint32, Alloc> returnArray(shape_.cols, shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        std::vector<uint32, Alloc> idx(arrayTransposed.shape_.cols);
+                        std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
@@ -2229,7 +2229,7 @@ namespace nc
             {
                 case Axis::ROW:
                 {
-                    std::vector<dtype, Alloc> diagnolValues;
+                    std::vector<dtype> diagnolValues;
                     int32 col = inOffset;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
@@ -2251,7 +2251,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    std::vector<dtype, Alloc> diagnolValues;
+                    std::vector<dtype> diagnolValues;
                     uint32 col = 0;
                     for (int32 row = inOffset; row < static_cast<int32>(shape_.rows); ++row)
                     {
@@ -2402,7 +2402,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             uint32 idx = 0;
             for (auto value : *this)
             {
@@ -3062,8 +3062,7 @@ namespace nc
         ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
         ///             column indices
         ///
-        std::pair<NdArray<uint32, Alloc>, NdArray<uint32, Alloc>>
-            nonzero() const noexcept;
+        std::pair<NdArray<uint32, Alloc>, NdArray<uint32>, Alloc> nonzero() const noexcept;
 
         //============================================================================
         // Method Description:
@@ -3429,7 +3428,7 @@ namespace nc
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
             {
                 indices.push_back(i);
@@ -3456,7 +3455,7 @@ namespace nc
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
@@ -3483,7 +3482,7 @@ namespace nc
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 put(row, inColIndex, inValue);
@@ -3507,7 +3506,7 @@ namespace nc
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
             {
                 put(inRowIndex, col, inValue);
@@ -3534,7 +3533,7 @@ namespace nc
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
@@ -3562,7 +3561,7 @@ namespace nc
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 const uint32 index = row * shape_.cols + inColIndex;
@@ -3587,7 +3586,7 @@ namespace nc
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<uint32, Alloc> indices;
+            std::vector<uint32> indices;
             for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
             {
                 const uint32 index = inRowIndex * shape_.cols + col;
@@ -3664,7 +3663,7 @@ namespace nc
             {
                 for (uint32 col = 0; col < inNumCols; ++col)
                 {
-                    std::vector<uint32, Alloc> indices(shape_.size());
+                    std::vector<uint32> indices(shape_.size());
 
                     const uint32 rowStart = row * shape_.rows;
                     const uint32 colStart = col * shape_.cols;
@@ -3861,7 +3860,7 @@ namespace nc
         ///
         NdArray<dtype, Alloc>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
         {
-            std::vector<dtype, Alloc> oldData(size_);
+            std::vector<dtype> oldData(size_);
             stl_algorithms::copy(begin(), end(), oldData.begin());
 
             const Shape inShape(inNumRows, inNumCols);
@@ -4178,9 +4177,9 @@ namespace nc
         /// @return
         ///				std::vector
         ///
-        std::vector<dtype, Alloc> toStlVector() const noexcept
+        std::vector<dtype> toStlVector() const noexcept
         {
-            return std::vector<dtype, Alloc>(cbegin(), cend());
+            return std::vector<dtype>(cbegin(), cend());
         }
 
         //============================================================================
@@ -4334,14 +4333,13 @@ namespace nc
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
-    template<typename dtype, class Alloc>
-    std::pair<NdArray<uint32, Alloc>, NdArray<uint32, Alloc>> 
-        NdArray<dtype, Alloc>::nonzero() const noexcept
+    template<typename dtype, class _Alloc>
+    std::pair<NdArray<uint32, Alloc>, NdArray<uint32>, Alloc> NdArray<dtype, _Alloc>::nonzero() const noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        std::vector<uint32, Alloc> rowIndices;
-        std::vector<uint32, Alloc> colIndices;
+        std::vector<uint32> rowIndices;
+        std::vector<uint32> colIndices;
 
         for (uint32 row = 0; row < shape_.rows; ++row)
         {
@@ -4355,7 +4353,6 @@ namespace nc
             }
         }
 
-        return std::make_pair(NdArray<uint32, Alloc>(rowIndices), 
-            NdArray<uint32, Alloc>(colIndices));
+        return std::make_pair(NdArray<uint32, Alloc>(rowIndices), NdArray<uint32, Alloc>(colIndices));
     }
 }

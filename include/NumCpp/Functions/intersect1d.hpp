@@ -32,7 +32,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
-#include <functional>
 #include <set>
 #include <vector>
 
@@ -52,14 +51,14 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> intersect1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        std::vector<dtype, Alloc> res(inArray1.size() + inArray2.size());
-        const std::set<dtype, std::less<dtype>, Alloc> in1(inArray1.cbegin(), inArray1.cend());
-        const std::set<dtype, std::less<dtype>, Alloc> in2(inArray2.cbegin(), inArray2.cend());
+        std::vector<dtype> res(inArray1.size() + inArray2.size());
+        const std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+        const std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
         const auto iter = stl_algorithms::set_intersection(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());

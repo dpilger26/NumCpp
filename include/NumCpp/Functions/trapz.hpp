@@ -51,9 +51,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArray,
-        double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
+    template<typename dtype>
+    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -129,9 +128,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArrayY, const NdArray<dtype,
-        Alloc>& inArrayX, Axis inAxis = Axis::NONE)
+    template<typename dtype>
+    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArrayY, const NdArray<dtype, Alloc>& inArrayX, Axis inAxis = Axis::NONE)
     {
         const Shape inShapeY = inArrayY.shape();
         const Shape inShapeX = inArrayX.shape();

@@ -42,7 +42,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> byteswap(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inArray);

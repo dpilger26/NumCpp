@@ -70,7 +70,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto sinc(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(sinc(dtype{0})), Alloc> returnArray(inArray.shape());

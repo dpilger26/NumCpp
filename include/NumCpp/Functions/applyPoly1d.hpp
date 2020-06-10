@@ -43,7 +43,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     void applyPoly1d(NdArray<dtype, Alloc>& inArray, const polynomial::Poly1d<dtype>& inPoly) noexcept
     {
         applyFunction<dtype>(inArray, inPoly);

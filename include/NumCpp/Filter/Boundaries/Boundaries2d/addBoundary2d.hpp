@@ -39,6 +39,7 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp"
 
+#include <memory>
 #include <string>
 
 namespace nc
@@ -58,7 +59,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc>
+            template<typename dtype, class Alloc = std::allocator<dtype>>
             NdArray<dtype, Alloc> addBoundary2d(const NdArray<dtype, Alloc>& inImage, 
                 Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {

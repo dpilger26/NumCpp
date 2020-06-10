@@ -32,6 +32,8 @@
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -47,7 +49,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc>
+            template<typename dtype, class Alloc = std::allocator<dtype>>
             NdArray<dtype, Alloc> nearest1d(const NdArray<dtype, Alloc>& inImage, uint32 inBoundarySize)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);

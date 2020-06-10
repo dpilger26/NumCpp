@@ -32,7 +32,6 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-#include <memory>
 #include <string>
 #include <vector>
 
@@ -58,7 +57,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -73,7 +72,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("start value must be larger than the stop value for negative step.");
         }
 
-        std::vector<dtype, Alloc> values;
+        std::vector<dtype> values;
 
         dtype theValue = inStart;
         auto counter = dtype{ 1 };
@@ -117,7 +116,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> arange(dtype inStop)
     {
         if (inStop <= 0)
@@ -147,7 +146,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> arange(const Slice& inSlice)
     {
         return arange<dtype>(inSlice.start, inSlice.stop, inSlice.step);

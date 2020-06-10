@@ -68,7 +68,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto arctan2(const NdArray<dtype, Alloc>& inY, const NdArray<dtype, Alloc>& inX)
     {
         if (inX.shape() != inY.shape())

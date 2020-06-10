@@ -33,8 +33,6 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Random/randInt.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace random
@@ -47,7 +45,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         dtype choice(const NdArray<dtype, Alloc>& inArray)
         {
             uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
@@ -64,7 +62,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> choice(const NdArray<dtype, Alloc>& inArray, uint32 inNum)
         {
             NdArray<dtype, Alloc> outArray(1, inNum);

@@ -78,7 +78,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto complex(const NdArray<dtype, Alloc>& inReal) noexcept
     {
         NdArray<decltype(nc::complex(dtype{0})), Alloc> returnArray(inReal.shape());
@@ -100,7 +100,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto complex(const NdArray<dtype, Alloc>& inReal, const NdArray<dtype, Alloc>& inImag)
     {
         if (inReal.shape() != inImag.shape())

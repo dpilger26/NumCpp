@@ -52,7 +52,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<double, Alloc> reciprocal(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -83,7 +83,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<double>, Alloc> reciprocal(const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

@@ -53,7 +53,7 @@ namespace nc
         /// @return
         ///				matrix determinant
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         dtype det(const NdArray<dtype, Alloc>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

@@ -38,7 +38,6 @@
 
 #include "boost/random/uniform_int_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -90,7 +89,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
         {
             STATIC_ASSERT_INTEGER(dtype);

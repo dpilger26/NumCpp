@@ -61,7 +61,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto radians(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return deg2rad(inArray);

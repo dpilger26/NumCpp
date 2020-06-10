@@ -41,8 +41,8 @@ namespace nc
     /// @return
     ///				std::vector
     ///
-    template<typename dtype, class Alloc>
-    std::vector<dtype, Alloc> toStlVector(const NdArray<dtype, Alloc>& inArray) noexcept
+    template<typename dtype>
+    std::vector<dtype> toStlVector(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.toStlVector();
     }

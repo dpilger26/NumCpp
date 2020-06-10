@@ -56,7 +56,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> bincount(const NdArray<dtype, Alloc>& inArray, uint16 inMinLength = 1)
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -108,7 +108,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> bincount(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inWeights, uint16 inMinLength = 1)
     {
         STATIC_ASSERT_INTEGER(dtype);

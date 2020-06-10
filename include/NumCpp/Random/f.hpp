@@ -38,7 +38,6 @@
 #include "boost/random/fisher_f_distribution.hpp"
 
 #include <string>
-#include <memory>
 
 namespace nc
 {
@@ -87,7 +86,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> f(const Shape& inShape, dtype inDofN, dtype inDofD)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

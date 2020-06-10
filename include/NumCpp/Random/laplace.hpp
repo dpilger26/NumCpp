@@ -36,8 +36,6 @@
 
 #include "boost/random/laplace_distribution.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace random
@@ -75,7 +73,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

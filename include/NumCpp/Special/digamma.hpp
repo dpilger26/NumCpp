@@ -66,7 +66,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         auto digamma(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(digamma(dtype{0})), Alloc> returnArray(inArray.shape());

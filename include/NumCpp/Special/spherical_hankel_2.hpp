@@ -67,7 +67,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype1, typename dtype2, class Alloc>
+        template<typename dtype1, typename dtype2>
         auto spherical_hankel_2(dtype1 inV, const NdArray<dtype2, Alloc>& inArray) noexcept
         {
             NdArray<decltype(spherical_hankel_2(dtype1{0}, dtype2{0})), Alloc> returnArray(inArray.shape());

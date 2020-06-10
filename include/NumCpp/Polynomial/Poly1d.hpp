@@ -41,7 +41,6 @@
 #include "NumCpp/Utils/power.hpp"
 
 #include <iostream>
-#include <memory>
 #include <string>
 #include <type_traits>
 #include <utility>
@@ -55,7 +54,7 @@ namespace nc
         ///						A one-dimensional polynomial class.
         ///                     A convenience class, used to encapsulate "natural"
         ///                     operations on polynomials
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         class Poly1d
         {
         private:
@@ -90,7 +89,7 @@ namespace nc
                     for (auto value : inValues)
                     {
                         NdArray<dtype, Alloc> coeffs = { -(value), static_cast<dtype>(1) };
-                        *this *= Poly1d<dtype, Alloc>(coeffs, !isRoots);
+                        *this *= Poly1d<dtype>(coeffs, !isRoots);
                     }
                 }
                 else
@@ -128,7 +127,7 @@ namespace nc
             /// @return Poly1d
             ///
             template<typename dtypeOut>
-            Poly1d<dtypeOut, Alloc> astype() const noexcept
+            Poly1d<dtypeOut> astype() const noexcept
             {
                 auto newCoefficients = NdArray<dtypeOut, Alloc>(1, static_cast<uint32>(coefficients_.size()));
 
@@ -139,7 +138,7 @@ namespace nc
 
                 stl_algorithms::transform(coefficients_.begin(), coefficients_.end(), newCoefficients.begin(), function);
 
-                return Poly1d<dtypeOut, Alloc>(newCoefficients);
+                return Poly1d<dtypeOut>(newCoefficients);
             }
 
             //============================================================================
@@ -160,7 +159,7 @@ namespace nc
             ///						Takes the derivative of the polynomial
             ///
             /// @return Poly1d
-            Poly1d<dtype, Alloc> deriv() const noexcept
+            Poly1d<dtype> deriv() const noexcept
             {
                 const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
                 if (numCoefficients == 0)
@@ -169,7 +168,7 @@ namespace nc
                 }
                 else if (numCoefficients == 1)
                 {
-                    return Poly1d<dtype, Alloc>({ 0 });
+                    return Poly1d<dtype>({ 0 });
                 }
 
                 NdArray<dtype, Alloc> derivativeCofficients(1, numCoefficients - 1);
@@ -180,7 +179,7 @@ namespace nc
                     derivativeCofficients[counter++] = coefficients_[i] * i;
                 }
 
-                return Poly1d<dtype, Alloc>(derivativeCofficients);
+                return Poly1d<dtype>(derivativeCofficients);
             }
 
             //============================================================================
@@ -191,8 +190,7 @@ namespace nc
             /// @param yValues: the y measurements [n, 1] array
             /// @param polyOrder: the order of the poly nomial to fit
             /// @return Poly1d
-            static Poly1d<double, Alloc> fit(const NdArray<dtype, Alloc>& xValues, 
-                const NdArray<dtype, Alloc>& yValues, uint8 polyOrder)
+            static Poly1d<double> fit(const NdArray<dtype, Alloc>& xValues, const NdArray<dtype, Alloc>& yValues, uint8 polyOrder)
             {
                 const auto numMeasurements = xValues.size();
 
@@ -235,7 +233,7 @@ namespace nc
                 }
               
                 auto x = aInv.dot(yValues.template astype<double>());
-                return Poly1d<double, Alloc>(x);
+                return Poly1d<double>(x);
             }
 
             //============================================================================
@@ -247,9 +245,8 @@ namespace nc
             /// @param weights: the measurement weights [1, n] or [n, 1] array
             /// @param polyOrder: the order of the poly nomial to fit
             /// @return Poly1d
-            static Poly1d<double, Alloc> fit(const NdArray<dtype, Alloc>& xValues, 
-                const NdArray<dtype, Alloc>& yValues, const NdArray<dtype, Alloc>& weights, 
-                uint8 polyOrder)
+            static Poly1d<double> fit(const NdArray<dtype, Alloc>& xValues, const NdArray<dtype, Alloc>& yValues,
+                const NdArray<dtype, Alloc>& weights, uint8 polyOrder)
             {
                 const auto numMeasurements = xValues.size();
 
@@ -316,7 +313,7 @@ namespace nc
                 }
 
                 auto x = aInv.dot(yWeighted);
-                return Poly1d<double, Alloc>(x);
+                return Poly1d<double>(x);
             }
 
             //============================================================================
@@ -324,7 +321,7 @@ namespace nc
             ///						Calculates the integral of the polynomial
             ///
             /// @return Poly1d
-            Poly1d<double, Alloc> integ() const noexcept
+            Poly1d<double> integ() const noexcept
             {
                 const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
                 if (numCoefficients == 0)
@@ -340,7 +337,7 @@ namespace nc
                     integralCofficients[i + 1] = static_cast<double>(coefficients_[i]) / static_cast<double>(i + 1);
                 }
 
-                return Poly1d<double, Alloc>(integralCofficients);
+                return Poly1d<double>(integralCofficients);
             }
 
             //============================================================================
@@ -449,9 +446,9 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc> operator+(const Poly1d<dtype, Alloc>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
-                return Poly1d<dtype, Alloc>(*this) += inOtherPoly;
+                return Poly1d<dtype>(*this) += inOtherPoly;
             }
 
             //============================================================================
@@ -463,7 +460,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc>& operator+=(const Poly1d<dtype, Alloc>& inOtherPoly) noexcept
+            Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly) noexcept
             {
                 if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
                 {
@@ -496,9 +493,9 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc> operator-(const Poly1d<dtype, Alloc>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
-                return Poly1d<dtype, Alloc>(*this) -= inOtherPoly;
+                return Poly1d<dtype>(*this) -= inOtherPoly;
             }
 
             //============================================================================
@@ -510,7 +507,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc>& operator-=(const Poly1d<dtype, Alloc>& inOtherPoly) noexcept
+            Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly) noexcept
             {
                 if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
                 {
@@ -543,9 +540,9 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc> operator*(const Poly1d<dtype, Alloc>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
-                return Poly1d<dtype, Alloc>(*this) *= inOtherPoly;
+                return Poly1d<dtype>(*this) *= inOtherPoly;
             }
 
             //============================================================================
@@ -557,16 +554,16 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc>& operator*=(const Poly1d<dtype, Alloc>& inOtherPoly) noexcept
+            Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly) noexcept
             {
                 const uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
-                std::vector<dtype, Alloc> coeffsA(finalCoefficientsSize, 0);
-                std::vector<dtype, Alloc> coeffsB(finalCoefficientsSize, 0);
+                std::vector<dtype> coeffsA(finalCoefficientsSize, 0);
+                std::vector<dtype> coeffsB(finalCoefficientsSize, 0);
                 stl_algorithms::copy(coefficients_.begin(), coefficients_.end(), coeffsA.begin());
                 stl_algorithms::copy(inOtherPoly.coefficients_.cbegin(), inOtherPoly.coefficients_.cend(), coeffsB.begin());
 
                 // now multiply out the coefficients
-                std::vector<dtype, Alloc> finalCoefficients(finalCoefficientsSize, 0);
+                std::vector<dtype> finalCoefficients(finalCoefficientsSize, 0);
                 for (uint32 i = 0; i < finalCoefficientsSize; ++i)
                 {
                     for (uint32 k = 0; k <= i; ++k)
@@ -588,7 +585,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc> operator^(uint32 inPower) const noexcept
+            Poly1d<dtype> operator^(uint32 inPower) const noexcept
             {
                 return Poly1d(*this) ^= inPower;
             }
@@ -602,7 +599,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype, Alloc>& operator^=(uint32 inPower) noexcept
+            Poly1d<dtype>& operator^=(uint32 inPower) noexcept
             {
                 if (inPower == 0)
                 {
@@ -633,14 +630,14 @@ namespace nc
             /// @return
             ///				std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype, Alloc>& inPoly) noexcept
+            friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly) noexcept
             {
                 inOStream << inPoly.str() << std::endl;
                 return inOStream;
             }
 
         private:
-            std::vector<dtype, Alloc>   coefficients_{};
+            std::vector<dtype>      coefficients_{};
         };
     }
 }

@@ -33,7 +33,6 @@
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <iostream>
@@ -158,10 +157,10 @@ namespace nc
             ///
             bool operator==(const Centroid<dtype>& rhs) const noexcept
             {
-                return utils::essentiallyEqual(row_, rhs.row_) &&
-                    utils::essentiallyEqual(col_, rhs.col_) &&
-                    utils::essentiallyEqual(intensity_, rhs.intensity_) &&
-                    utils::essentiallyEqual(eod_, rhs.eod_);
+                return row_ == rhs.row_ && 
+                    col_ == rhs.col_ && 
+                    intensity_ == rhs.intensity_
+                    && eod_ == rhs.eod_;
             }
 
             //=============================================================================

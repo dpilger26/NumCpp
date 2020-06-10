@@ -67,7 +67,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto arccosh(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(arccosh(dtype{0})), Alloc> returnArray(inArray.shape());

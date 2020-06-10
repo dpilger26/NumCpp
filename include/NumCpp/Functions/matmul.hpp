@@ -47,7 +47,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> matmul(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return dot(inArray1, inArray2);
@@ -65,9 +65,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> matmul(const NdArray<dtype, Alloc>& inArray1,
-        const NdArray<std::complex<dtype>, Alloc>& inArray2)
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> matmul(const NdArray<dtype, Alloc>& inArray1, const NdArray<std::complex<dtype>, Alloc>& inArray2)
     {
         return dot(inArray1, inArray2);
     }
@@ -84,9 +83,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> matmul(const NdArray<std::complex<dtype>, Alloc>& inArray1, 
-        const NdArray<dtype, Alloc>& inArray2)
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> matmul(const NdArray<std::complex<dtype>, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return dot(inArray1, inArray2);
     }

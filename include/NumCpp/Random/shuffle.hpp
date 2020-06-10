@@ -32,7 +32,6 @@
 #include "NumCpp/Random/generator.hpp"
 
 #include <algorithm>
-#include <memory>
 
 namespace nc
 {
@@ -45,7 +44,7 @@ namespace nc
         /// @param
         ///				inArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         void shuffle(NdArray<dtype, Alloc>& inArray) noexcept
         {
             std::shuffle(inArray.begin(), inArray.end(), generator_);

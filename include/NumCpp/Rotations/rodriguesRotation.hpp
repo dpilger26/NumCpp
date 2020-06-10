@@ -33,7 +33,6 @@
 #include "NumCpp/Vector/Vec3.hpp"
 
 #include <cmath>
-#include <memory>
 
 namespace nc
 {
@@ -80,9 +79,8 @@ namespace nc
         ///
         /// @return NdArray<double, Alloc>
         ///
-        template<typename dtype, class Alloc>
-        NdArray<double, Alloc> rodriguesRotation(const NdArray<dtype, Alloc>& k, 
-            double theta, const NdArray<dtype, Alloc>& v)
+        template<typename dtype>
+        NdArray<double, Alloc> rodriguesRotation(const NdArray<dtype, Alloc>& k, double theta, const NdArray<dtype, Alloc>& v)
         {
             return rodriguesRotation(Vec3(k), theta, Vec3(v)).toNdArray();
         }

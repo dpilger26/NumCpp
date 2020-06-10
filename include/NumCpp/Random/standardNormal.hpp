@@ -33,8 +33,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Random/normal.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace random
@@ -70,7 +68,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> standardNormal(const Shape& inShape)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

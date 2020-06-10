@@ -53,7 +53,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<double, Alloc> gradient(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::ROW)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -149,7 +149,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<double>, Alloc> gradient(const NdArray<std::complex<dtype>, Alloc>& inArray, Axis inAxis = Axis::ROW)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

@@ -34,7 +34,6 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <initializer_list>
-#include <memory>
 #include <string>
 
 namespace nc
@@ -54,12 +53,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
-        NdArray<dtype, Alloc> multi_dot(const std::initializer_list<NdArray<dtype, Alloc>>& inList)
+        template<typename dtype>
+        NdArray<dtype, Alloc> multi_dot(const std::initializer_list<NdArray<dtype, Alloc> >& inList)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            auto iter = inList.begin();
+            typename std::initializer_list<NdArray<dtype, Alloc> >::iterator iter = inList.begin();
 
             if (inList.size() == 0)
             {

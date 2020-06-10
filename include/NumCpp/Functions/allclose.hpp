@@ -52,7 +52,7 @@ namespace nc
     /// @return
     ///				bool
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     bool allclose(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2, double inTolerance = 1e-5)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

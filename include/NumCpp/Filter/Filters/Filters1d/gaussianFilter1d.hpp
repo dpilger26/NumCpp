@@ -36,6 +36,7 @@
 #include "NumCpp/Utils/gaussian1d.hpp"
 
 #include <cmath>
+#include <memory>
 #include <string>
 
 namespace nc
@@ -55,7 +56,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> gaussianFilter1d(const NdArray<dtype, Alloc>& inImageArray, double inSigma,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {

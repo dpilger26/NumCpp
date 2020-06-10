@@ -52,7 +52,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<double, Alloc> nanmean(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);

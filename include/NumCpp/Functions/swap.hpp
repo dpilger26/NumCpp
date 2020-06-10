@@ -39,7 +39,7 @@ namespace nc
     /// @param				inArray1
     /// @param				inArray2
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     void swap(NdArray<dtype, Alloc>& inArray1, NdArray<dtype, Alloc>& inArray2) noexcept
     {
         NdArray<dtype, Alloc> tmp(std::move(inArray1));

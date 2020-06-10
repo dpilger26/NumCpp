@@ -37,7 +37,6 @@
 
 #include "boost/random/poisson_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -80,7 +79,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> poisson(const Shape& inShape, double inMean = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

@@ -35,6 +35,8 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
 #include "NumCpp/Functions/mean.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace filter
@@ -52,7 +54,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         NdArray<dtype, Alloc> uniformFilter(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {

@@ -41,7 +41,7 @@ namespace nc
     /// @return
     ///				Shape
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     Shape shape(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.shape();

@@ -47,7 +47,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> pad(const NdArray<dtype, Alloc>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

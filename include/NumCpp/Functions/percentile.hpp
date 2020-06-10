@@ -63,7 +63,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> percentile(const NdArray<dtype, Alloc>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {

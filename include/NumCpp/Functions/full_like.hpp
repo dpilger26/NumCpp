@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> full_like(const NdArray<dtype, Alloc>& inArray, dtype inFillValue) noexcept
     {
         return full(inArray.shape(), inFillValue);

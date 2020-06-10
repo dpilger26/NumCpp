@@ -33,8 +33,6 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-#include <memory>
-
 namespace nc
 {
     //============================================================================
@@ -50,7 +48,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> tril(uint32 inN, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -98,7 +96,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -133,7 +131,7 @@ namespace nc
     }
 
     // forward declare
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> triu(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept;
 
     //============================================================================
@@ -153,7 +151,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> tril(const NdArray<dtype, Alloc>& inArray, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -178,7 +176,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -228,7 +226,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> triu(uint32 inN, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -253,7 +251,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> triu(const NdArray<dtype, Alloc>& inArray, int32 inOffset = 0) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

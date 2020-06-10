@@ -71,8 +71,7 @@ namespace nc
         /// @return
         ///				NdArray<uint32, Alloc>
         ///
-        template<class Alloc>
-        NdArray<uint32, Alloc> prime(const NdArray<uint32, Alloc>& inArray)
+        inline NdArray<uint32, Alloc> prime(const NdArray<uint32, Alloc>& inArray)
         {
             NdArray<uint32, Alloc> returnArray(inArray.shape());
 

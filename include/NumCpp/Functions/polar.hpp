@@ -64,7 +64,7 @@ namespace nc
     /// @return
     ///				NdArray<std::complex>
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto polar(const NdArray<dtype, Alloc>& magnitude, const NdArray<dtype, Alloc>& phaseAngle)
     {
         if (magnitude.shape() != phaseAngle.shape())

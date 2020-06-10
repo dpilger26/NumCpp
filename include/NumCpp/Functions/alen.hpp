@@ -42,7 +42,7 @@ namespace nc
     /// @return
     ///				length uint16
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     uint32 alen(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.shape().rows;

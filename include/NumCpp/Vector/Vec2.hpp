@@ -94,7 +94,6 @@ namespace nc
         ///
         /// @param  ndArray
         ///
-        template<class Alloc>
         Vec2(const NdArray<double, Alloc>& ndArray)
         {
             if (ndArray.size() != 2)
@@ -279,7 +278,6 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        template<class Alloc = std::allocator<double>>
         NdArray<double, Alloc> toNdArray() const noexcept
         {
             NdArray<double, Alloc> returnArray = { x, y };

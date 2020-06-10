@@ -20,7 +20,7 @@
 /// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
 /// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
 /// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE class AllocUSE OR OTHER
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -50,7 +50,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator+=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -74,7 +74,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator+=(NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -104,7 +104,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator+=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -128,7 +128,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator+=(NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -151,7 +151,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator+(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -177,7 +177,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(const NdArray<dtype, Alloc>& lhs, const NdArray<std::complex<dtype>, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -208,7 +208,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(const NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         return rhs + lhs;
@@ -222,7 +222,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator+(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -247,7 +247,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator+(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs + lhs;
@@ -261,7 +261,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(const NdArray<dtype, Alloc>& lhs, const std::complex<dtype>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -286,7 +286,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(const std::complex<dtype>& lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs + lhs;
@@ -300,7 +300,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(const NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -325,7 +325,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator+(dtype lhs, const NdArray<std::complex<dtype>, Alloc>& rhs) noexcept
     {
         return rhs + lhs;
@@ -339,7 +339,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator-=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -363,7 +363,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator-=(NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -393,7 +393,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator-=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -417,7 +417,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator-=(NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -440,7 +440,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator-(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -466,7 +466,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(const NdArray<dtype, Alloc>& lhs, const NdArray<std::complex<dtype>, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -497,7 +497,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(const NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -528,7 +528,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator-(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -553,7 +553,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator-(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -578,7 +578,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(const NdArray<dtype, Alloc>& lhs, const std::complex<dtype>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -603,7 +603,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(const std::complex<dtype>& lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -628,7 +628,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(const NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -653,7 +653,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator-(dtype lhs, const NdArray<std::complex<dtype>, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -676,7 +676,7 @@ namespace nc
     ///
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator-(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         const auto function = [](dtype value) noexcept -> dtype
@@ -697,7 +697,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator*=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -721,7 +721,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator*=(NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -751,7 +751,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator*=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -775,7 +775,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator*=(NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -798,7 +798,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator*(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -824,7 +824,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(const NdArray<dtype, Alloc>& lhs, const NdArray<std::complex<dtype>, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -855,7 +855,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(const NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         return rhs * lhs;
@@ -869,7 +869,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator*(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -894,7 +894,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator*(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs * lhs;
@@ -908,7 +908,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(const NdArray<dtype, Alloc>& lhs, const std::complex<dtype>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -933,7 +933,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(const std::complex<dtype>& lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs * lhs;
@@ -947,7 +947,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(const NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -972,7 +972,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator*(dtype lhs, const NdArray<std::complex<dtype>, Alloc>& rhs) noexcept
     {
         return rhs * lhs;
@@ -986,7 +986,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator/=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -1010,7 +1010,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator/=(NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1040,7 +1040,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator/=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -1064,7 +1064,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc>& operator/=(NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1087,7 +1087,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator/(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -1113,7 +1113,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(const NdArray<dtype, Alloc>& lhs, const NdArray<std::complex<dtype>, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1144,7 +1144,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(const NdArray<std::complex<dtype>, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1175,7 +1175,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator/(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -1200,7 +1200,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator/(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -1225,7 +1225,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(const NdArray<dtype, Alloc>& lhs, const std::complex<dtype>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1250,7 +1250,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(const std::complex<dtype>& lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1275,7 +1275,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(const NdArray<std::complex<dtype>, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1300,7 +1300,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> operator/(dtype lhs, const NdArray<std::complex<dtype>, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1325,7 +1325,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator%=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1350,7 +1350,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator%=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1373,7 +1373,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator%(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1389,7 +1389,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator%(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1405,7 +1405,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator%(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         NdArray<dtype, Alloc> returnArray(rhs.shape());
@@ -1426,7 +1426,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator|=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1451,7 +1451,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator|=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1474,7 +1474,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator|(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1490,7 +1490,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator|(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1506,7 +1506,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator|(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs | lhs;
@@ -1520,7 +1520,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator&=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1545,7 +1545,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator&=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1568,7 +1568,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator&(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1584,7 +1584,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator&(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1600,7 +1600,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator&(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs & lhs;
@@ -1614,7 +1614,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator^=(NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1639,7 +1639,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator^=(NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1662,7 +1662,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator^(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1678,7 +1678,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator^(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         auto returnArray = NdArray<dtype, Alloc>(lhs);
@@ -1694,7 +1694,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator^(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs ^ lhs;
@@ -1707,7 +1707,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator~(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -1733,7 +1733,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator&&(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1763,7 +1763,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator&&(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1789,7 +1789,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator&&(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs && lhs;
@@ -1803,7 +1803,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator||(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1833,7 +1833,7 @@ namespace nc
     ///	@param  	rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator||(const NdArray<dtype, Alloc>& lhs, dtype rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1859,7 +1859,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator||(dtype lhs, const NdArray<dtype, Alloc>& rhs) noexcept
     {
         return rhs || lhs;
@@ -1872,7 +1872,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator!(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -1899,7 +1899,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator==(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         if (lhs.shape() != rhs.shape())
@@ -1929,7 +1929,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator==(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         NdArray<bool, Alloc> returnArray(lhs.shape());
@@ -1954,7 +1954,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator==(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray == inValue;
@@ -1969,7 +1969,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator!=(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         if (lhs.shape() != rhs.shape())
@@ -1999,7 +1999,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator!=(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         NdArray<bool, Alloc> returnArray(lhs.shape());
@@ -2024,7 +2024,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator!=(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray != inValue;
@@ -2039,7 +2039,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2071,7 +2071,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2098,7 +2098,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2125,7 +2125,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2160,7 +2160,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2187,7 +2187,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2214,7 +2214,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<=(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2246,7 +2246,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<=(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2273,7 +2273,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator<=(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2300,7 +2300,7 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>=(const NdArray<dtype, Alloc>& lhs, const NdArray<dtype, Alloc>& rhs)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2332,7 +2332,7 @@ namespace nc
     ///	@param  	inValue
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>=(const NdArray<dtype, Alloc>& lhs, dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2359,7 +2359,7 @@ namespace nc
     /// @param      inArray
     /// @return     NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<bool, Alloc> operator>=(dtype inValue, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -2386,7 +2386,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator<<=(NdArray<dtype, Alloc>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -2410,7 +2410,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator<<(const NdArray<dtype, Alloc>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -2429,8 +2429,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<dtype, Alloc>& operator>>=(NdArray<dtype, Alloc>& lhs, uint8 inNumBits) noexcept
+    template<typename dtype>
+    NdArray<dtype, Alloc>& operator>, Alloc>=(NdArray<dtype, Alloc>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -2453,7 +2453,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator>>(const NdArray<dtype, Alloc>& lhs, uint8 inNumBits) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
@@ -2470,7 +2470,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator++(NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -2493,7 +2493,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator++(NdArray<dtype, Alloc>& lhs, int) noexcept
     {
         auto copy = NdArray<dtype, Alloc>(lhs);
@@ -2508,7 +2508,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& operator--(NdArray<dtype, Alloc>& rhs) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -2531,7 +2531,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> operator--(NdArray<dtype, Alloc>& lhs, int) noexcept
     {
         auto copy = NdArray<dtype, Alloc>(lhs);
@@ -2548,7 +2548,7 @@ namespace nc
     /// @return
     ///				std::ostream
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

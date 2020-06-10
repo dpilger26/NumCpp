@@ -41,7 +41,7 @@ namespace nc
     /// @return
     ///				number of bytes
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     uint64 nbytes(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return inArray.nbytes();

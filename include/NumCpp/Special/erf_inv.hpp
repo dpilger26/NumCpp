@@ -66,7 +66,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         auto erf_inv(const NdArray<dtype, Alloc>& inArray)
         {
             NdArray<decltype(erf_inv(dtype{0})), Alloc> returnArray(inArray.shape());

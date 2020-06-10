@@ -35,7 +35,6 @@
 
 #include <cmath>
 #include <limits>
-#include <memory>
 #include <string>
 
 namespace nc
@@ -46,7 +45,6 @@ namespace nc
         // Class Description:
         ///              performs the singular value decomposition of a general matrix,
         ///              taken and adapted from Numerical Recipes Third Edition svd.h
-        template<class Alloc = std::allocator<double>>
         class SVD
         {
         public:
@@ -647,13 +645,13 @@ namespace nc
 
         private:
             // ===============================Attributes====================================
-            const uint32		    m_;
-            const uint32		    n_;
-            NdArray<double, Alloc>  u_;
-            NdArray<double, Alloc>  v_;
-            NdArray<double, Alloc>  s_;
-            double				    eps_;
-            double				    tsh_;
+            const uint32		m_;
+            const uint32		n_;
+            NdArray<double, Alloc>     u_;
+            NdArray<double, Alloc>     v_;
+            NdArray<double, Alloc>     s_;
+            double				eps_;
+            double				tsh_;
         };
     }
 }

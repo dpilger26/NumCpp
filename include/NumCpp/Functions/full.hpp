@@ -32,8 +32,6 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     //============================================================================
@@ -47,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> full(uint32 inSquareSize, dtype inFillValue) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inSquareSize, inSquareSize);
@@ -67,7 +65,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inNumRows, inNumCols);
@@ -86,7 +84,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> full(const Shape& inShape, dtype inFillValue) noexcept
     {
         return full(inShape.rows, inShape.cols, inFillValue);

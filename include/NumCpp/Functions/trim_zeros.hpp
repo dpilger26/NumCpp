@@ -50,7 +50,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> trim_zeros(const NdArray<dtype, Alloc>& inArray, const std::string inTrim = "fb")
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

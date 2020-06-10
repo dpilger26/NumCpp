@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<uint32, Alloc> argsort(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.argsort(inAxis);

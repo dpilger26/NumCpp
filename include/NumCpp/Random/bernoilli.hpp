@@ -37,7 +37,6 @@
 
 #include "boost/random/bernoulli_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -76,7 +75,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> bernoulli(const Shape& inShape, dtype inP)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

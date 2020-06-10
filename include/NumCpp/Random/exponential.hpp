@@ -36,8 +36,6 @@
 
 #include "boost/random/exponential_distribution.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace random
@@ -73,7 +71,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

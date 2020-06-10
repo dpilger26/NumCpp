@@ -68,7 +68,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> newbyteorder(const NdArray<dtype, Alloc>& inArray, Endian inEndianess) noexcept
     {
         return inArray.newbyteorder(inEndianess);

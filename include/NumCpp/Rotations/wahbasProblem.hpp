@@ -43,8 +43,6 @@
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/Linalg/svd.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace rotations
@@ -63,9 +61,8 @@ namespace nc
         ///
         /// @return NdArray rotation matrix
         ///
-        template<typename dtype, class Alloc>
-        NdArray<double, Alloc> wahbasProblem(const NdArray<dtype, Alloc>& wk,
-            const NdArray<dtype, Alloc>& vk, const NdArray<dtype, Alloc>& ak)
+        template<typename dtype>
+        NdArray<double, Alloc> wahbasProblem(const NdArray<dtype, Alloc>& wk, const NdArray<dtype, Alloc>& vk, const NdArray<dtype, Alloc>& ak)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -91,7 +88,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("ak matrix must have the same number of elements as wk and vk rows");
             }
 
-            auto b = zeros<dtype, Alloc>(3, 3);
+            auto b = zeros<dtype>(3, 3);
             const auto cSlice = wk.cSlice();
             for (uint32 row = 0; row < wkShape.rows; ++row)
             {
@@ -127,7 +124,7 @@ namespace nc
         ///
         /// @return NdArray rotation matrix
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         NdArray<double, Alloc> wahbasProblem(const NdArray<dtype, Alloc>& wk, const NdArray<dtype, Alloc>& vk)
         {
             const auto ak = ones<dtype>({1, wk.shape().rows});

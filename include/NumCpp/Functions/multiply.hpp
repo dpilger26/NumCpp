@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> multiply(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1 * inArray2;
@@ -62,7 +62,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> multiply(const NdArray<dtype, Alloc>& inArray, dtype value) noexcept
     {
         return inArray * value;
@@ -79,7 +79,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> multiply(dtype value, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return value * inArray;
@@ -96,9 +96,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<dtype, Alloc>& inArray1,
-        const NdArray<std::complex<dtype>, Alloc>& inArray2)
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<dtype, Alloc>& inArray1, const NdArray<std::complex<dtype>, Alloc>& inArray2)
     {
         return inArray1 * inArray2;
     }
@@ -114,9 +113,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<std::complex<dtype>,
-        Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<std::complex<dtype>, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         return inArray1 * inArray2;
     }
@@ -132,9 +130,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<dtype, Alloc>& inArray,
-        const std::complex<dtype>& value) noexcept
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<dtype, Alloc>& inArray, const std::complex<dtype>& value) noexcept
     {
         return inArray * value;
     }
@@ -150,9 +147,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> multiply(const std::complex<dtype>& value,
-        const NdArray<dtype, Alloc>& inArray) noexcept
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> multiply(const std::complex<dtype>& value, const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return value * inArray;
     }
@@ -168,9 +164,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<std::complex<dtype>, 
-        Alloc>& inArray, dtype value) noexcept
+    template<typename dtype>
+    NdArray<std::complex<dtype>, Alloc> multiply(const NdArray<std::complex<dtype>, Alloc>& inArray, dtype value) noexcept
     {
         return inArray * value;
     }
@@ -186,7 +181,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<dtype>, Alloc> multiply(dtype value, const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         return value * inArray;

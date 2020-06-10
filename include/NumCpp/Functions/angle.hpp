@@ -66,7 +66,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto angle(const NdArray<std::complex<dtype>, Alloc>& inArray) noexcept
     {
         NdArray<decltype(angle(std::complex<dtype>{0}))> returnArray(inArray.shape());

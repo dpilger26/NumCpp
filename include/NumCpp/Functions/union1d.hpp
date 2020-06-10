@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> union1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
@@ -62,7 +62,7 @@ namespace nc
         const auto set1 = unique(inArray1);
         const auto set2 = unique(inArray2);
 
-        std::vector<dtype, Alloc> res(set1.size() + set2.size());
+        std::vector<dtype> res(set1.size() + set2.size());
         const auto last = stl_algorithms::set_union(set1.begin(), set1.end(), 
             set2.begin(), set2.end(), res.begin(), comp);
 

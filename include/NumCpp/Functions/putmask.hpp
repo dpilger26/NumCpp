@@ -48,7 +48,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& putmask(NdArray<dtype, Alloc>& inArray, const NdArray<bool, Alloc>& inMask, dtype inValue)
     {
         inArray.putMask(inMask, inValue);
@@ -71,9 +71,8 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
-    NdArray<dtype, Alloc>& putmask(NdArray<dtype, Alloc>& inArray, const NdArray<bool, Alloc>& inMask, 
-        const NdArray<dtype, Alloc>& inValues)
+    template<typename dtype>
+    NdArray<dtype, Alloc>& putmask(NdArray<dtype, Alloc>& inArray, const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inValues)
     {
         inArray.putMask(inMask, inValues);
         return inArray;

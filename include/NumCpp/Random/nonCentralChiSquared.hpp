@@ -37,7 +37,6 @@
 
 #include "boost/random/non_central_chi_squared_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -87,7 +86,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

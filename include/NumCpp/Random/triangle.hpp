@@ -38,7 +38,6 @@
 
 #include "boost/random/triangle_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -102,7 +101,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
             STATIC_ASSERT_FLOAT(dtype);

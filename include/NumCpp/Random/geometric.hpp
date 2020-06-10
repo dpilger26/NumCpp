@@ -37,7 +37,6 @@
 
 #include "boost/random/geometric_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -80,7 +79,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> geometric(const Shape& inShape, double inP = 0.5)
         {
             STATIC_ASSERT_INTEGER(dtype);

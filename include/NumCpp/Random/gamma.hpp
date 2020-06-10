@@ -37,7 +37,6 @@
 
 #include "boost/random/gamma_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -87,7 +86,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

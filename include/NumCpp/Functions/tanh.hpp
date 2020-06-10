@@ -67,7 +67,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto tanh(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         NdArray<decltype(tanh(dtype{0})), Alloc> returnArray(inArray.shape());

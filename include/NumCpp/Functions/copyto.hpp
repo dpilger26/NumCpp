@@ -43,7 +43,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& copyto(NdArray<dtype, Alloc>& inDestArray, const NdArray<dtype, Alloc>& inSrcArray) noexcept
     {
         inDestArray = inSrcArray;

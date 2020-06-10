@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> invert(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         return ~inArray;

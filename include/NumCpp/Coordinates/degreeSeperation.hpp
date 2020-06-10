@@ -31,6 +31,8 @@
 #include "NumCpp/Coordinates/Coordinate.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <memory>
+
 namespace nc
 {
     namespace coordinates
@@ -57,9 +59,8 @@ namespace nc
         ///
         /// @return             degrees
         ///
-        template<class Alloc>
-        inline double degreeSeperation(const NdArray<double, Alloc>& inVector1, 
-            const NdArray<double, Alloc>& inVector2)
+        template<class Alloc= std::allocator<double>>
+        inline double degreeSeperation(const NdArray<double, Alloc>& inVector1, const NdArray<double, Alloc>& inVector2)
         {
             const Coordinate inCoord1(inVector1);
             return inCoord1.degreeSeperation(inVector2);

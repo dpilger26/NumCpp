@@ -38,7 +38,6 @@
 
 #include <cmath>
 #include <functional>
-#include <memory>
 #include <vector>
 
 namespace nc
@@ -49,7 +48,6 @@ namespace nc
         // Class Description:
         ///	Legendre Polynomial class
         ///
-        template<class Alloc = std::allocator<double>>
         class LegendrePolynomial
         {
         public:
@@ -73,7 +71,7 @@ namespace nc
             ///
             /// @return	weights vector
             ///
-            const std::vector<double, Alloc>& getWeight() const noexcept
+            const std::vector<double>& getWeight() const noexcept
             {
                 return weight_;
             }
@@ -84,7 +82,7 @@ namespace nc
             ///
             /// @return	roots vector
             ///
-            const std::vector<double, Alloc>& getRoot() const noexcept
+            const std::vector<double>& getRoot() const noexcept
             {
                 return root_;
             }
@@ -166,9 +164,9 @@ namespace nc
             //===================================Attributes==============================
             const double EPSILON{ 1e-15 };
 
-            const uint32                numIterations_;
-            std::vector<double, Alloc>  weight_;
-            std::vector<double, Alloc>  root_;
+            const uint32        numIterations_;
+            std::vector<double> weight_;
+            std::vector<double> root_;
         };
 
         //============================================================================
@@ -182,13 +180,12 @@ namespace nc
         ///
         /// @return             double
         ///
-        template<class Alloc = std::allocator<double>>
-        double gauss_legendre(const double low, const double high, const uint32 n,
+        inline double gauss_legendre(const double low, const double high, const uint32 n,
             const std::function<double(double)>& f)
         {
             const LegendrePolynomial legendrePolynomial(n);
-            const std::vector<double, Alloc>& weight = legendrePolynomial.getWeight();
-            const std::vector<double, Alloc>& root = legendrePolynomial.getRoot();
+            const std::vector<double>& weight = legendrePolynomial.getWeight();
+            const std::vector<double>& root = legendrePolynomial.getRoot();
 
             const double width = 0.5 * (high - low);
             const double mean = 0.5 * (low + high);

@@ -32,8 +32,6 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 
-#include <memory>
-
 namespace nc
 {
     //============================================================================
@@ -47,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     NdArray<dtype, Alloc> frombuffer(const char* inBufferPtr, uint32 inNumBytes)
     {
         if (inNumBytes % sizeof(dtype) != 0)

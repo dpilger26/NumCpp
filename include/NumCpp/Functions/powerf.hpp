@@ -67,7 +67,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype1, typename dtype2, class Alloc>
+    template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1, Alloc>& inArray, dtype2 inExponent) noexcept
     {
         NdArray<decltype(powerf(dtype1{0}, dtype2{0})), Alloc> returnArray(inArray.shape());
@@ -91,7 +91,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype1, typename dtype2, class Alloc>
+    template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1, Alloc>& inArray, const NdArray<dtype2, Alloc>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())

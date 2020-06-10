@@ -50,7 +50,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& resizeSlow(NdArray<dtype, Alloc>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
     {
         inArray.resizeSlow(inNumRows, inNumCols);
@@ -72,7 +72,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& resizeSlow(NdArray<dtype, Alloc>& inArray, const Shape& inNewShape) noexcept
     {
         inArray.resizeSlow(inNewShape);

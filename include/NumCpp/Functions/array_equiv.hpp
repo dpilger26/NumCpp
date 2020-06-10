@@ -52,7 +52,7 @@ namespace nc
     /// @return
     ///				bool
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     bool array_equiv(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

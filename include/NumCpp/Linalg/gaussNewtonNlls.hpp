@@ -71,8 +71,7 @@ namespace nc
         ///
         /// @return     std::pair of NdArray of solved parameter values, and rms of the residuals value
         ///
-        template<typename dtype, class Alloc,
-            typename ...Params,
+        template<typename dtype, typename ...Params,
             nc::enable_if_t<is_arithmetic_v<dtype>, int> = 0,
             nc::enable_if_t<all_arithmetic_v<Params...>, int> = 0,
             nc::enable_if_t<all_same_v<dtype, Params...>, int> = 0
@@ -81,8 +80,8 @@ namespace nc
             const uint32 numIterations, 
             const NdArray<dtype, Alloc>& coordinates,
             const NdArray<dtype, Alloc>& measurements,
-            const std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&)>& function,
-            const std::array<std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&)>, sizeof...(Params)>& derivatives,
+            const std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&), Alloc>& function,
+            const std::array<std::function<dtype(const NdArray<dtype, Alloc>&, const NdArray<dtype, Alloc>&), Alloc>, sizeof...(Params)>& derivatives,
             Params... initialGuess)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);

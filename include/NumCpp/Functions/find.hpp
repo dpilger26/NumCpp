@@ -45,8 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<class Alloc>
-    NdArray<uint32, Alloc> find(const NdArray<bool, Alloc>& mask, uint32 n = std::numeric_limits<uint32>::max()) noexcept
+    inline NdArray<uint32, Alloc> find(const NdArray<bool, Alloc>& mask, uint32 n = std::numeric_limits<uint32>::max()) noexcept
     {
         NdArray<uint32, Alloc> indices = mask.flatnonzero();
 

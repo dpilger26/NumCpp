@@ -67,7 +67,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> power(const NdArray<dtype, Alloc>& inArray, uint8 inExponent) noexcept
     {
         NdArray<dtype, Alloc> returnArray(inArray.shape());
@@ -91,7 +91,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> power(const NdArray<dtype, Alloc>& inArray, const NdArray<uint8, Alloc>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())

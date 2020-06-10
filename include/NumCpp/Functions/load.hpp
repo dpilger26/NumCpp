@@ -47,7 +47,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> load(const std::string& inFilename)
     {
         return fromfile<dtype>(inFilename, "");

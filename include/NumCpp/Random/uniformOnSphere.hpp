@@ -39,7 +39,6 @@
 
 #include "boost/random/uniform_on_sphere.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -56,7 +55,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
         {
             STATIC_ASSERT_FLOAT(dtype);
@@ -71,7 +70,7 @@ namespace nc
             NdArray<dtype, Alloc> returnArray(inNumPoints, inDims);
             for (uint32 row = 0; row < inNumPoints; ++row)
             {
-                std::vector<dtype, Alloc> point = dist(generator_);
+                std::vector<dtype> point = dist(generator_);
                 stl_algorithms::copy(returnArray.begin(row), returnArray.end(row), point.begin());
             }
 

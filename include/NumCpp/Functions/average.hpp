@@ -54,7 +54,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     auto average(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return mean(inArray, inAxis);
@@ -72,7 +72,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<double, Alloc> average(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inWeights, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -162,7 +162,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<double>, Alloc> average(const NdArray<std::complex<dtype>, Alloc>& inArray, 
         const NdArray<dtype, Alloc>& inWeights, Axis inAxis = Axis::NONE)
     {

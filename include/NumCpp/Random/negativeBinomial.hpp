@@ -37,7 +37,6 @@
 
 #include "boost/random/negative_binomial_distribution.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -87,7 +86,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             STATIC_ASSERT_INTEGER(dtype);

@@ -67,7 +67,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype1, typename dtype2, class Alloc>
+        template<typename dtype1, typename dtype2>
         auto bessel_kn_prime(dtype1 inV, const NdArray<dtype2, Alloc>& inArrayX)
         {
             NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 })), Alloc> returnArray(inArrayX.shape());

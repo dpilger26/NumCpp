@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<double, Alloc> rms(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -110,7 +110,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<std::complex<double>, Alloc> rms(const NdArray<std::complex<dtype>, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);

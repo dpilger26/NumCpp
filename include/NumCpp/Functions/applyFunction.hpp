@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     void applyFunction(NdArray<dtype, Alloc>& inArray, const std::function<dtype(dtype)>& inFunc)
     {
         stl_algorithms::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);

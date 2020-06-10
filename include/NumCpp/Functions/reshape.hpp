@@ -49,7 +49,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& reshape(NdArray<dtype, Alloc>& inArray, uint32 inSize)
     {
         inArray.reshape(inSize);
@@ -72,7 +72,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& reshape(NdArray<dtype, Alloc>& inArray, int32 inNumRows, int32 inNumCols)
     {
         inArray.reshape(inNumRows, inNumCols);
@@ -94,7 +94,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc>& reshape(NdArray<dtype, Alloc>& inArray, const Shape& inNewShape)
     {
         inArray.reshape(inNewShape);

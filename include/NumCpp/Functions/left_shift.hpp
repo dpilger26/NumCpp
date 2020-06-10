@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     NdArray<dtype, Alloc> left_shift(const NdArray<dtype, Alloc>& inArray, uint8 inNumBits) noexcept
     {
         return inArray << inNumBits;

@@ -59,7 +59,7 @@ namespace nc
         /// @return
         ///				std::vector<Centroid>
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype, class Alloc = std::allocator<dtype>>
         std::vector<Centroid<dtype, Alloc>, Alloc> generateCentroids(const NdArray<dtype, Alloc>& inImageArray,
             double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {

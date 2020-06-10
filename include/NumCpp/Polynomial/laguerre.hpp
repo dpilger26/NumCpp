@@ -82,7 +82,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         NdArray<double, Alloc> laguerre(uint32 n, const NdArray<dtype, Alloc>& inArrayX)
         {
             NdArray<double, Alloc> returnArray(inArrayX.shape());
@@ -107,7 +107,7 @@ namespace nc
         /// @return
         ///				NdArray<double, Alloc>
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         NdArray<double, Alloc> laguerre(uint32 n, uint32 m, const NdArray<dtype, Alloc>& inArrayX)
         {
             NdArray<double, Alloc> returnArray(inArrayX.shape());

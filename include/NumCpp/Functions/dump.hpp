@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, class Alloc>
+    template<typename dtype>
     void dump(const NdArray<dtype, Alloc>& inArray, const std::string& inFilename)
     {
         inArray.dump(inFilename);

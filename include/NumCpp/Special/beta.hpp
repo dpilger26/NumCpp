@@ -67,7 +67,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype1, typename dtype2, class Alloc>
+        template<typename dtype1, typename dtype2>
         auto beta(const NdArray<dtype1, Alloc>& inArrayA, const NdArray<dtype2, Alloc>& inArrayB)
         {
             NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 })), Alloc> returnArray(inArrayB.shape());

@@ -37,8 +37,6 @@
 
 #include "boost/random/uniform_01.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace random
@@ -73,7 +71,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         NdArray<dtype, Alloc> rand(const Shape& inShape) noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);

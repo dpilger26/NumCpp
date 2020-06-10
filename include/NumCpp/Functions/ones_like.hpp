@@ -44,7 +44,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtypeOut, typename dtype, class Alloc>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut, Alloc> ones_like(const NdArray<dtype, Alloc>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);

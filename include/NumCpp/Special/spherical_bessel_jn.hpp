@@ -64,7 +64,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc>
+        template<typename dtype>
         auto spherical_bessel_jn(uint32 inV, const NdArray<dtype, Alloc>& inArrayX) noexcept
         {
             NdArray<decltype(spherical_bessel_jn(inV, dtype{0})), Alloc> returnArray(inArrayX.shape());
