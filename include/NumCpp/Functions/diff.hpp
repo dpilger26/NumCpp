@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -68,7 +68,7 @@ namespace nc
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
                 stl_algorithms::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                    [](dtype inValue1, dtype inValue2)  -> dtype
                     {
                         return inValue2 - inValue1; 
                     });
@@ -86,7 +86,7 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         {
                             return inValue2 - inValue1;
                         });
@@ -107,7 +107,7 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     stl_algorithms::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return inValue2 - inValue1; 
                         });

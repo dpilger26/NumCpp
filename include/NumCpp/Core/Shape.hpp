@@ -48,14 +48,14 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Shape() noexcept = default;
+        constexpr Shape()  = default;
 
         //============================================================================
         ///						Constructor
         ///
         /// @param      inSquareSize
         ///
-        constexpr explicit Shape(uint32 inSquareSize) noexcept :
+        constexpr explicit Shape(uint32 inSquareSize)  :
             rows(inSquareSize),
             cols(inSquareSize)
         {}
@@ -66,7 +66,7 @@ namespace nc
         /// @param      inRows
         /// @param      inCols
         ///
-        constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
+        constexpr Shape(uint32 inRows, uint32 inCols)  :
             rows(inRows),
             cols(inCols)
         {}
@@ -78,7 +78,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator==(const Shape& inOtherShape) const noexcept
+        constexpr bool operator==(const Shape& inOtherShape) const 
         {
             return rows == inOtherShape.rows && cols == inOtherShape.cols;
         }
@@ -90,7 +90,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator!=(const Shape& inOtherShape) const noexcept
+        constexpr bool operator!=(const Shape& inOtherShape) const 
         {
             return !(*this == inOtherShape);
         }
@@ -100,7 +100,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        constexpr uint32 size() const noexcept
+        constexpr uint32 size() const 
         {
             return rows * cols;
         }
@@ -111,7 +111,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool isnull() const noexcept
+        constexpr bool isnull() const 
         {
             return rows == 0 && cols == 0;
         }
@@ -121,7 +121,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool issquare() const noexcept
+        constexpr bool issquare() const 
         {
             return rows == cols;
         }
@@ -131,7 +131,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const noexcept
+        std::string str() const 
         {
             std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;
@@ -140,7 +140,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print() const noexcept
+        void print() const 
         {
             std::cout << *this;
         }
@@ -153,7 +153,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) noexcept
+        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) 
         {
             inOStream << inShape.str();
             return inOStream;

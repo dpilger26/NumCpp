@@ -108,7 +108,7 @@ namespace nc
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_); 
                 });

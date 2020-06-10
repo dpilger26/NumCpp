@@ -62,7 +62,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion() noexcept = default;
+            Quaternion()  = default;
 
             //============================================================================
             // Method Description:
@@ -72,7 +72,7 @@ namespace nc
             /// @param				pitch: euler pitch angle in radians
             /// @param				yaw: euler yaw angle in radians
             ///
-            Quaternion(double roll, double pitch, double yaw) noexcept
+            Quaternion(double roll, double pitch, double yaw) 
             {
                 eulerToQuat(roll, pitch, yaw);
             }
@@ -86,7 +86,7 @@ namespace nc
             /// @param				inK
             /// @param				inS
             ///
-            Quaternion(double inI, double inJ, double inK, double inS) noexcept :
+            Quaternion(double inI, double inJ, double inK, double inS)  :
                 components_{ inI, inJ, inK, inS }
             {
                 normalize();
@@ -132,7 +132,7 @@ namespace nc
             /// @param			inAxis: Euler axis
             /// @param			inAngle: Euler angle in radians
             ///
-            Quaternion(const Vec3& inAxis, double inAngle) noexcept
+            Quaternion(const Vec3& inAxis, double inAngle) 
             {
                 // normalize the input vector
                 Vec3 normAxis = inAxis.normalize();
@@ -168,7 +168,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) noexcept
+            static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) 
             {
                 NdArray<double> q0 = inQuat1.toNdArray();
                 NdArray<double> q1 = inQuat2.toNdArray();
@@ -203,7 +203,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const noexcept
+            NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const 
             {
                 return angularVelocity(*this, inQuat2, inTime);
             }
@@ -215,7 +215,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion conjugate() const noexcept
+            Quaternion conjugate() const 
             {
                 return Quaternion(-i(), -j(), -k(), s());
             }
@@ -227,7 +227,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double i() const noexcept
+            double i() const 
             {
                 return components_[0];
             }
@@ -239,7 +239,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            static Quaternion identity() noexcept
+            static Quaternion identity() 
             {
                 return Quaternion();
             }
@@ -251,7 +251,7 @@ namespace nc
             /// @return
             ///				Quaterion
             ///
-            Quaternion inverse() const noexcept
+            Quaternion inverse() const 
             {
                 /// for unit quaternions the inverse is equal to the conjugate
                 return conjugate();
@@ -264,7 +264,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double j() const noexcept
+            double j() const 
             {
                 return components_[1];
             }
@@ -276,7 +276,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double k() const noexcept
+            double k() const 
             {
                 return components_[2];
             }
@@ -312,7 +312,7 @@ namespace nc
 
                 stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
-                    [inPercent, oneMinus](double component1, double component2) noexcept -> double
+                    [inPercent, oneMinus](double component1, double component2)  -> double
                     {
                         return oneMinus * component1 + inPercent * component2;
                     });
@@ -340,7 +340,7 @@ namespace nc
             ///
             /// @return     euler pitch angle in radians
             ///
-            double pitch() const noexcept
+            double pitch() const 
             {
                 return std::asin(2 * (s() * j() - k() * i()));
             }
@@ -349,7 +349,7 @@ namespace nc
             // Method Description:
             ///						prints the Quaternion to the console
             ///
-            void print() const noexcept
+            void print() const 
             {
                 std::cout << *this;
             }
@@ -360,7 +360,7 @@ namespace nc
             ///
             /// @return     euler roll angle in radians
             ///
-            double roll() const noexcept
+            double roll() const 
             {
                 return std::atan2(2 * (s() * i() + j() * k()),
                     1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
@@ -394,7 +394,7 @@ namespace nc
             /// @return
             ///				Vec3
             ///
-            Vec3 rotate(const Vec3& inVec3) const noexcept
+            Vec3 rotate(const Vec3& inVec3) const 
             {
                 return *this * inVec3;
             }
@@ -406,7 +406,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double s() const noexcept
+            double s() const 
             {
                 return components_[3];
             }
@@ -488,7 +488,7 @@ namespace nc
             /// @return
             ///				std::string
             ///
-            std::string str() const noexcept
+            std::string str() const 
             {
                 std::string output = "[" + utils::num2str(i()) + ", " + utils::num2str(j()) +
                     ", " + utils::num2str(k()) + ", " + utils::num2str(s()) + "]\n";
@@ -503,7 +503,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> toDCM() const noexcept
+            NdArray<double> toDCM() const 
             {
                 NdArray<double> dcm(3);
 
@@ -537,7 +537,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> toNdArray() const noexcept
+            NdArray<double> toNdArray() const 
             {
                 auto componentsCopy = components_;
                 return NdArray<double>(componentsCopy);
@@ -564,7 +564,7 @@ namespace nc
             ///
             /// @return     euler yaw angle in radians
             ///
-            double yaw() const noexcept
+            double yaw() const 
             {
                 return std::atan2(2 * (s() * k() + i() * j()),
                     1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
@@ -609,9 +609,9 @@ namespace nc
             /// @return
             ///				bool
             ///
-            bool operator==(const Quaternion& inRhs) const noexcept
+            bool operator==(const Quaternion& inRhs) const 
             {
-                const auto comparitor = [](double value1, double value2) noexcept -> bool
+                const auto comparitor = [](double value1, double value2)  -> bool
                 {
                     return utils::essentiallyEqual(value1, value2);
                 };
@@ -629,7 +629,7 @@ namespace nc
             /// @return
             ///				bool
             ///
-            bool operator!=(const Quaternion& inRhs) const noexcept
+            bool operator!=(const Quaternion& inRhs) const 
             {
                 return !(*this == inRhs);
             }
@@ -643,7 +643,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator+(const Quaternion& inRhs) const noexcept
+            Quaternion operator+(const Quaternion& inRhs) const 
             {
                 return Quaternion(*this) += inRhs;
             }
@@ -657,7 +657,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator+=(const Quaternion& inRhs) noexcept
+            Quaternion& operator+=(const Quaternion& inRhs) 
             {
                 stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::plus<double>());
@@ -674,7 +674,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator-() const noexcept
+            Quaternion operator-() const 
             {
                 return Quaternion(*this) *= -1.0;
             }
@@ -688,7 +688,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator-(const Quaternion& inRhs) const noexcept
+            Quaternion operator-(const Quaternion& inRhs) const 
             {
                 return Quaternion(*this) -= inRhs;
             }
@@ -702,7 +702,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator-=(const Quaternion& inRhs) noexcept
+            Quaternion& operator-=(const Quaternion& inRhs) 
             {
                 stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::minus<double>());
@@ -721,7 +721,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(const Quaternion& inRhs) const noexcept
+            Quaternion operator*(const Quaternion& inRhs) const 
             {
                 return Quaternion(*this) *= inRhs;
             }
@@ -736,7 +736,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(double inScalar) const noexcept
+            Quaternion operator*(double inScalar) const 
             {
                 return Quaternion(*this) *= inScalar;
             }
@@ -774,7 +774,7 @@ namespace nc
             /// @return
             ///				Vec3
             ///
-            Vec3 operator*(const Vec3& inVec3) const noexcept
+            Vec3 operator*(const Vec3& inVec3) const 
             {
                 return *this * inVec3.toNdArray();
             }
@@ -788,7 +788,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator*=(const Quaternion& inRhs) noexcept
+            Quaternion& operator*=(const Quaternion& inRhs) 
             {
                 double q0 = inRhs.s() * i();
                 q0 += inRhs.i() * s();
@@ -830,7 +830,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator*=(double inScalar) noexcept
+            Quaternion& operator*=(double inScalar) 
             {
                 stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&inScalar](double& component)
@@ -852,7 +852,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator/(const Quaternion& inRhs) const noexcept
+            Quaternion operator/(const Quaternion& inRhs) const 
             {
                 return Quaternion(*this) /= inRhs;
             }
@@ -866,7 +866,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator/=(const Quaternion& inRhs) noexcept
+            Quaternion& operator/=(const Quaternion& inRhs) 
             {
                 return *this *= inRhs.conjugate();
             }
@@ -880,7 +880,7 @@ namespace nc
             /// @return
             ///				std::ostream&
             ///
-            friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat) noexcept
+            friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat) 
             {
                 inOStream << inQuat.str();
                 return inOStream;
@@ -894,7 +894,7 @@ namespace nc
             // Method Description:
             ///						renormalizes the quaternion
             ///
-            void normalize() noexcept
+            void normalize() 
             {
                 double sumOfSquares = 0.0;
                 stl_algorithms::for_each(components_.begin(), components_.end(),
@@ -919,7 +919,7 @@ namespace nc
             /// @ param pitch: the euler pitch angle in radians
             /// @ param yaw: the euler yaw angle in radians
             ///
-            void eulerToQuat(double roll, double pitch, double yaw) noexcept
+            void eulerToQuat(double roll, double pitch, double yaw) 
             {
                 const double halfPhi = roll / 2.0;
                 const double halfTheta = pitch / 2.0;

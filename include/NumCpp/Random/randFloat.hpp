@@ -109,7 +109,7 @@ namespace nc
             const boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_); 
                 });

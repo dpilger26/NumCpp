@@ -47,7 +47,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr dtype square(dtype inValue) noexcept
+    constexpr dtype square(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -66,11 +66,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> square(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> square(const NdArray<dtype>& inArray) 
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> dtype
+            [](dtype inValue)  -> dtype
             { 
                 return square(inValue);
             });

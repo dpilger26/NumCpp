@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    double remainder(dtype inValue1, dtype inValue2) noexcept
+    double remainder(dtype inValue1, dtype inValue2) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -81,7 +81,7 @@ namespace nc
 
         NdArray<double> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> double
+            [](dtype inValue1, dtype inValue2)  -> double
             { 
                 return remainder(inValue1, inValue2);
             });

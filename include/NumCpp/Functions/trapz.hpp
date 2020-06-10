@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

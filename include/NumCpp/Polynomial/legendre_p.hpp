@@ -94,7 +94,7 @@ namespace nc
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double> legendre_p(int32 n, const NdArray<dtype>& inArrayX) 
         {
             NdArray<double> returnArray(inArrayX.shape());
 
@@ -119,7 +119,7 @@ namespace nc
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, int32 m, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double> legendre_p(int32 n, int32 m, const NdArray<dtype>& inArrayX) 
         {
             NdArray<double> returnArray(inArrayX.shape());
 

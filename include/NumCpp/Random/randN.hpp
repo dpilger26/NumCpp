@@ -49,7 +49,7 @@ namespace nc
         /// @return dtype
         ///
         template<typename dtype>
-        dtype randN() noexcept
+        dtype randN() 
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -70,7 +70,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randN(const Shape& inShape) noexcept
+        NdArray<dtype> randN(const Shape& inShape) 
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -79,7 +79,7 @@ namespace nc
             boost::random::normal_distribution<dtype> dist;
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_);
                 });

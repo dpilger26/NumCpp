@@ -91,7 +91,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype>& back() noexcept
+        NdArray<dtype>& back() 
         {
             return cube_.back();
         }
@@ -148,7 +148,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        bool isempty() noexcept
+        bool isempty() 
         {
             return cube_.empty();
         }
@@ -178,7 +178,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype>& front() noexcept
+        NdArray<dtype>& front() 
         {
             return cube_.front();
         }
@@ -188,7 +188,7 @@ namespace nc
         ///
         /// @return     Shape
         ///
-        const Shape& shape() const noexcept
+        const Shape& shape() const 
         {
             return elementShape_;
         }
@@ -198,7 +198,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        uint32 size() const noexcept
+        uint32 size() const 
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -206,7 +206,7 @@ namespace nc
         //============================================================================
         ///						Removes the last element in the container
         ///
-        void pop_back() noexcept
+        void pop_back() 
         {
             cube_.pop_back();
         }
@@ -214,7 +214,7 @@ namespace nc
         //============================================================================
         ///						Removes the first element in the container
         ///
-        void pop_front() noexcept
+        void pop_front() 
         {
             cube_.pop_front();
         }
@@ -274,7 +274,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<dtype>& operator[](uint32 inIndex) noexcept
+        NdArray<dtype>& operator[](uint32 inIndex) 
         {
             return cube_[inIndex];
         }

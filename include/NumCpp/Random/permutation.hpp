@@ -50,7 +50,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(dtype inValue) noexcept
+        NdArray<dtype> permutation(dtype inValue) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -71,7 +71,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(const NdArray<dtype>& inArray) noexcept
+        NdArray<dtype> permutation(const NdArray<dtype>& inArray) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

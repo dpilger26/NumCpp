@@ -112,7 +112,7 @@ namespace nc
     /// @return     std::complex<Out>
     ///
     template<typename Out, typename In>
-    std::complex<Out> complex_cast(const std::complex<In>& value) noexcept
+    std::complex<Out> complex_cast(const std::complex<In>& value) 
     {
         STATIC_ASSERT_ARITHMETIC(Out);
 

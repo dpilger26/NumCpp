@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> transpose(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> transpose(const NdArray<dtype>& inArray) 
     {
         return inArray.transpose();
     }

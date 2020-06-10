@@ -46,7 +46,7 @@ namespace nc
     /// @return     linear interpolated point
     ///
     template<typename dtype>
-    constexpr double interp(dtype inValue1, dtype inValue2, double inPercent) noexcept
+    constexpr double interp(dtype inValue1, dtype inValue2, double inPercent) 
     {
         return utils::interp(inValue1, inValue2, inPercent);
     }

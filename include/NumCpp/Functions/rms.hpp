@@ -50,12 +50,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double squareSum = 0.0;
-        const auto function = [&squareSum](dtype value) noexcept -> void
+        const auto function = [&squareSum](dtype value)  -> void
         {
             squareSum += utils::sqr(static_cast<double>(value));
         };
@@ -111,12 +111,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> squareSum = 0.0;
-        const auto function = [&squareSum](std::complex<dtype> value) noexcept -> void
+        const auto function = [&squareSum](std::complex<dtype> value)  -> void
         {
             squareSum += utils::sqr(complex_cast<double>(value));
         };

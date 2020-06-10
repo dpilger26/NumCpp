@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, typename Iter>
-    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) noexcept
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) 
     {
         return NdArray<dtype>(inBegin, inEnd);
     }

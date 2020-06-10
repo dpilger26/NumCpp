@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flipud(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> flipud(const NdArray<dtype>& inArray) 
     {
         return flip(inArray, Axis::ROW);
     }

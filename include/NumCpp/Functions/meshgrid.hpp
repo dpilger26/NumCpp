@@ -52,7 +52,7 @@ namespace nc
     ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
     ///
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords) noexcept
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

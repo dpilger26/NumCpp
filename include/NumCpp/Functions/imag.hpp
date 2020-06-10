@@ -47,7 +47,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto imag(const std::complex<dtype>& inValue) noexcept
+    auto imag(const std::complex<dtype>& inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -66,11 +66,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto imag(const NdArray<std::complex<dtype>>& inArray) noexcept
+    auto imag(const NdArray<std::complex<dtype>>& inArray) 
     {
         NdArray<decltype(nc::imag(std::complex<dtype>{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](auto& inValue) noexcept -> auto
+            [](auto& inValue)  -> auto
             {
                 return nc::imag(inValue);
             });

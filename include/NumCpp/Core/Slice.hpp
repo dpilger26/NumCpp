@@ -52,14 +52,14 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Slice() noexcept = default;
+        constexpr Slice()  = default;
 
         //============================================================================
         ///						Constructor
         ///
         /// @param      inStop (index not included)
         ///
-        constexpr explicit Slice(int32 inStop) noexcept :
+        constexpr explicit Slice(int32 inStop)  :
             stop(inStop)
         {}
 
@@ -69,7 +69,7 @@ namespace nc
         /// @param          inStart
         /// @param			inStop (index not included)
         ///
-        constexpr Slice(int32 inStart, int32 inStop) noexcept :
+        constexpr Slice(int32 inStart, int32 inStop)  :
             start(inStart),
             stop(inStop)
         {}
@@ -81,7 +81,7 @@ namespace nc
         /// @param      inStop (not included)
         /// @param      inStep
         ///
-        constexpr Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
+        constexpr Slice(int32 inStart, int32 inStop, int32 inStep)  :
             start(inStart),
             stop(inStop),
             step(inStep)
@@ -92,7 +92,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const noexcept
+        std::string str() const 
         {
             std::string out = "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
             return out;
@@ -101,7 +101,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print() const noexcept
+        void print() const 
         {
             std::cout << *this;
         }
@@ -182,7 +182,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) noexcept
+        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) 
         {
             inOStream << inSlice.str();
             return inOStream;

@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> identity(uint32 inSquareSize) noexcept
+    NdArray<dtype> identity(uint32 inSquareSize) 
     {
         NdArray<dtype> returnArray(inSquareSize);
         returnArray.zeros();

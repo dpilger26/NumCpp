@@ -49,7 +49,7 @@ namespace nc
     /// @return             NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0) noexcept
+    NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0) 
     {
         if (inArray.isflat())
         {

@@ -50,7 +50,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            RA() noexcept = default;
+            RA()  = default;
 
             //============================================================================
             ///						Constructor
@@ -79,7 +79,7 @@ namespace nc
             /// @param          inMinutes
             /// @param          inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, double inSeconds)  noexcept :
+            RA(uint8 inHours, uint8 inMinutes, double inSeconds)   :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
@@ -93,7 +93,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radians() const noexcept
+            double radians() const 
             {
                 return radians_;
             }
@@ -103,7 +103,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degrees() const noexcept
+            double degrees() const 
             {
                 return degrees_;
             }
@@ -113,7 +113,7 @@ namespace nc
             ///
             /// @return     hours
             ///
-            uint8 hours() const noexcept
+            uint8 hours() const 
             {
                 return hours_;
             }
@@ -123,7 +123,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const noexcept
+            uint8 minutes() const 
             {
                 return minutes_;
             }
@@ -133,7 +133,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            double seconds() const noexcept
+            double seconds() const 
             {
                 return seconds_;
             }
@@ -165,7 +165,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const RA& inRhs) const noexcept
+            bool operator==(const RA& inRhs) const 
             {
                 return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
@@ -177,7 +177,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const RA& inRhs) const noexcept
+            bool operator!=(const RA& inRhs) const 
             {
                 return !(*this == inRhs);
             }

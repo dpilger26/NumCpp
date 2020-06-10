@@ -46,7 +46,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto complex(dtype inReal) noexcept
+    auto complex(dtype inReal) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,7 +63,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto complex(dtype inReal, dtype inImag) noexcept
+    auto complex(dtype inReal, dtype inImag) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -79,11 +79,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto complex(const NdArray<dtype>& inReal) noexcept
+    auto complex(const NdArray<dtype>& inReal) 
     {
         NdArray<decltype(nc::complex(dtype{0}))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(), inReal.cend(), returnArray.begin(),
-            [](dtype real) noexcept-> auto
+            [](dtype real) -> auto
             {
                 return nc::complex(real); 
             });
@@ -110,7 +110,7 @@ namespace nc
 
         NdArray<decltype(nc::complex(dtype{0}, dtype{0}))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(), inReal.cend(), inImag.cbegin(), returnArray.begin(),
-            [](dtype real, dtype imag) noexcept-> auto
+            [](dtype real, dtype imag) -> auto
             {
                 return nc::complex(real, imag); 
             });

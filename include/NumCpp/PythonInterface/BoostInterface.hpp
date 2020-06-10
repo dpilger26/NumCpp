@@ -101,7 +101,7 @@ namespace nc
         /// @return     ndarray
         ///
         template<typename dtype>
-        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) noexcept
+        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) 
         {
             const Shape inShape = inArray.shape();
             boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
@@ -125,7 +125,7 @@ namespace nc
         /// @return     std::vector<T>
         ///
         template<typename T>
-        inline std::vector<T> list2vector(const boost::python::list& inList) noexcept
+        inline std::vector<T> list2vector(const boost::python::list& inList) 
         {
             return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
         }
@@ -138,7 +138,7 @@ namespace nc
         /// @return     boost::python::list
         ///
         template <typename T>
-        inline boost::python::list vector2list(std::vector<T>& inVector) noexcept
+        inline boost::python::list vector2list(std::vector<T>& inVector) 
         {
             boost::python::list outList;
             for (auto& value : inVector)
@@ -157,7 +157,7 @@ namespace nc
         /// @return     boost::python::dict
         ///
         template <class Key, class Value>
-        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) noexcept
+        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) 
         {
             boost::python::dict dictionary;
             for (auto& keyValue : inMap)

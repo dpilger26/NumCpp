@@ -51,7 +51,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        Timer() noexcept :
+        Timer()  :
             start_(ChronoClock::now())
         {
             setUnits();
@@ -63,7 +63,7 @@ namespace nc
         ///
         /// @param      inName
         ///
-        Timer(const std::string& inName) noexcept :
+        Timer(const std::string& inName)  :
             name_(inName + " "),
             start_(ChronoClock::now())
         {
@@ -76,7 +76,7 @@ namespace nc
         ///
         /// @param      inName
         ///
-        void setName(const std::string& inName) noexcept
+        void setName(const std::string& inName) 
         {
             name_ = inName + " ";
         }
@@ -96,7 +96,7 @@ namespace nc
         // Method Description:
         ///						Starts the timer
         ///
-        void tic() noexcept
+        void tic() 
         {
             start_ = ChronoClock::now();
         }
@@ -109,7 +109,7 @@ namespace nc
         ///             the console
         /// @return     ellapsed time in specified time units
         ///
-        uint64 toc(bool printElapsedTime = true) noexcept
+        uint64 toc(bool printElapsedTime = true) 
         {
             const auto duration = static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
 
@@ -127,7 +127,7 @@ namespace nc
         std::string		unit_{ "" };
         TimePoint		start_{};
 
-        void setUnits() noexcept
+        void setUnits() 
         {
             if (std::is_same<TimeUnit, std::chrono::hours>::value)
             {

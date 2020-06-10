@@ -51,14 +51,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double meanValue = 0.0;
         double sum = 0.0;
 
-        const auto function = [&sum, &meanValue](dtype value) noexcept-> void
+        const auto function = [&sum, &meanValue](dtype value) -> void
         {
             sum += utils::sqr(static_cast<double>(value) - meanValue);
         };
@@ -123,14 +123,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> stdev(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>> stdev(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> meanValue(0.0, 0.0);
         std::complex<double> sum(0.0, 0.0);
 
-        const auto function = [&sum, &meanValue](std::complex<dtype> value) noexcept-> void
+        const auto function = [&sum, &meanValue](std::complex<dtype> value) -> void
         {
             sum += utils::sqr(complex_cast<double>(value) - meanValue);
         };

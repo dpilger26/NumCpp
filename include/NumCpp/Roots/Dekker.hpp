@@ -58,7 +58,7 @@ namespace nc
             /// @param f: the function 
             ///
             Dekker(const double epsilon,
-                const std::function<double(double)>& f) noexcept :
+                const std::function<double(double)>& f)  :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -73,7 +73,7 @@ namespace nc
             ///
             Dekker(const double epsilon, 
                 const uint32 maxNumIterations, 
-                const std::function<double(double)>& f) noexcept :
+                const std::function<double(double)>& f)  :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -82,7 +82,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Dekker() noexcept = default;
+            ~Dekker()  = default;
 
             //============================================================================
             // Method Description:
@@ -143,7 +143,7 @@ namespace nc
             /// @param fa: the function evalulated at the lower bound
             /// @param fb: the function evalulated at the upper bound
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept
+            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) 
             {
                 //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (std::fabs(fa) < std::fabs(fb)) 
@@ -163,7 +163,7 @@ namespace nc
             /// @param lastFb: the function evalulated at the last upper bound
             /// @ return secant value
             ///
-            double calculateSecant(double b, double fb, double lastB, double lastFb) noexcept
+            double calculateSecant(double b, double fb, double lastB, double lastFb) 
             {
                 //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
                 return b - fb * (b - lastB) / (fb - lastFb);
@@ -177,7 +177,7 @@ namespace nc
             /// @param b: the upper bound
             /// @return bisection point
             ///
-            double calculateBisection(double a, double b) noexcept
+            double calculateBisection(double a, double b) 
             {
                 return 0.5 * (a + b);
             }
@@ -191,7 +191,7 @@ namespace nc
             /// @param m:
             /// @ return bool
             ///
-            bool useSecantMethod(double b, double s, double m) noexcept
+            bool useSecantMethod(double b, double s, double m) 
             {
                 //Value s calculated by secant method has to be between m and b
                 return (b > m && s > m && s < b) ||

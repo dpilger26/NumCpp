@@ -48,7 +48,7 @@ namespace nc
     ///				std::complex
     ///
     template<typename dtype>
-    auto polar(dtype magnitude, dtype phaseAngle) noexcept
+    auto polar(dtype magnitude, dtype phaseAngle) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -74,7 +74,7 @@ namespace nc
 
         NdArray<decltype(nc::polar(dtype{0}, dtype{0}))> returnArray(magnitude.shape());
         stl_algorithms::transform(magnitude.cbegin(), magnitude.cend(), phaseAngle.begin(), returnArray.begin(),
-            [](dtype mag, dtype angle) noexcept -> auto
+            [](dtype mag, dtype angle)  -> auto
             {
                 return nc::polar(mag, angle);
             });

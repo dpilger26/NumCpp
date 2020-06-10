@@ -47,7 +47,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double cbrt(dtype inValue) noexcept
+    double cbrt(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -65,11 +65,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> cbrt(const NdArray<dtype>& inArray) noexcept
+    NdArray<double> cbrt(const NdArray<dtype>& inArray) 
     {
         NdArray<double> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
+            [](dtype inValue)  -> double
             {
                 return cbrt(inValue); 
             });

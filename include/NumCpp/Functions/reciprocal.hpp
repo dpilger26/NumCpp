@@ -53,7 +53,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
+    NdArray<double> reciprocal(const NdArray<dtype>& inArray) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -61,7 +61,7 @@ namespace nc
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
-            [&returnArray, &counter](dtype value) noexcept -> void
+            [&returnArray, &counter](dtype value)  -> void
             { 
                 returnArray[counter++] = 1.0 / static_cast<double>(value);
             });
@@ -84,7 +84,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) noexcept
+    NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -92,7 +92,7 @@ namespace nc
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
-            [&returnArray, &counter](std::complex<dtype> value) noexcept -> void
+            [&returnArray, &counter](std::complex<dtype> value)  -> void
             { 
                 returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value);
             });

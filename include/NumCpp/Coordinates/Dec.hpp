@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            Dec() noexcept = default;
+            Dec()  = default;
 
             //============================================================================
             ///						Constructor
@@ -87,7 +87,7 @@ namespace nc
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds)  noexcept :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds)   :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
@@ -104,7 +104,7 @@ namespace nc
             ///
             /// @return     Sign
             ///
-            Sign sign() const noexcept
+            Sign sign() const 
             {
                 return sign_;
             }
@@ -114,7 +114,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degrees() const noexcept
+            double degrees() const 
             {
                 return degrees_;
             }
@@ -124,7 +124,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            double radians() const noexcept
+            double radians() const 
             {
                 return radians_;
             }
@@ -134,7 +134,7 @@ namespace nc
             ///
             /// @return     whole degrees
             ///
-            uint8 degreesWhole() const noexcept
+            uint8 degreesWhole() const 
             {
                 return degreesWhole_;
             }
@@ -144,7 +144,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const noexcept
+            uint8 minutes() const 
             {
                 return minutes_;
             }
@@ -154,7 +154,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            double seconds() const noexcept
+            double seconds() const 
             {
                 return seconds_;
             }
@@ -187,7 +187,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Dec& inRhs) const noexcept
+            bool operator==(const Dec& inRhs) const 
             {
                 return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
@@ -199,7 +199,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Dec& inRhs) const noexcept
+            bool operator!=(const Dec& inRhs) const 
             {
                 return !(*this == inRhs);
             }

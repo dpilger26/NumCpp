@@ -45,7 +45,7 @@ namespace nc
     ///				max value
     ///
     template<typename dtype>
-    NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         return inArray.max(inAxis);
     }

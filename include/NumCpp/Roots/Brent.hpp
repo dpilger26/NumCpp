@@ -59,7 +59,7 @@ namespace nc
             /// @param f: the function 
             ///
             Brent(const double epsilon,
-                const std::function<double(double)>& f) noexcept :
+                const std::function<double(double)>& f)  :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -74,7 +74,7 @@ namespace nc
             ///
             Brent(const double epsilon,
                 const uint32 maxNumIterations, 
-                const std::function<double(double)>& f) noexcept :
+                const std::function<double(double)>& f)  :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Brent() noexcept = default;
+            ~Brent()  = default;
 
             //============================================================================
             // Method Description:
@@ -165,7 +165,7 @@ namespace nc
             /// @param b: the upper bound
             /// @return x
             ///
-            double calculateBisection(const double a, const double b) const noexcept
+            double calculateBisection(const double a, const double b) const 
             {
                 return 0.5 * (a + b);
             }
@@ -180,7 +180,7 @@ namespace nc
             /// @param fb: the function evaluated at b
             /// @return the secant point
             ///
-            double calculateSecant(const double a, const double b, const double fa, const double fb) const noexcept
+            double calculateSecant(const double a, const double b, const double fa, const double fb) const 
             {
                 //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
                 return b - fb * (b - a) / (fb - fa);
@@ -199,7 +199,7 @@ namespace nc
             /// @return the inverse quadratic interpolation
             ///
             double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB,
-                const double fa, const double fb, const double lastFb) const noexcept
+                const double fa, const double fb, const double lastFb) const 
             {
                 return a * fb * lastFb / ((fa - fb) * (fa - lastFb)) +
                     b * fa * lastFb / ((fb - fa) * (fb - lastFb)) +
@@ -215,7 +215,7 @@ namespace nc
             /// @param lastFb: the previous function evaluated at the upper bound
             /// @return bool
             ///
-            bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) const noexcept
+            bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) const 
             {
                 return fa != lastFb && fb != lastFb;
             }
@@ -229,7 +229,7 @@ namespace nc
             /// @param fa: the function evaluated at a
             /// @param fb: the function evaluated at b
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept
+            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) 
             {
                 //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (std::fabs(fa) < std::fabs(fb))
@@ -251,7 +251,7 @@ namespace nc
             /// @return bool
             ///
             bool useBisection(const bool bisection, const double b, const double lastB,
-                const double penultimateB, const double s) const noexcept
+                const double penultimateB, const double s) const 
             {
                 const double DELTA = epsilon_ + std::numeric_limits<double>::min();
 

@@ -45,7 +45,7 @@ namespace nc
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

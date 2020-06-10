@@ -43,7 +43,7 @@ namespace nc
         ///
         /// @return             degrees
         ///
-        inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) noexcept
+        inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) 
         {
             return inCoordinate1.degreeSeperation(inCoordinate2);
         }

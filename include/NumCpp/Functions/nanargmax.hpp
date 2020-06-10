@@ -51,13 +51,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_FLOAT(dtype);
 
         NdArray<dtype> arrayCopy(inArray);
         stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
-            [](dtype& value) noexcept -> void
+            [](dtype& value)  -> void
             {
                 if (std::isnan(value)) { value = DtypeInfo<dtype>::min(); }; 
             });

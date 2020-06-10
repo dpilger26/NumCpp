@@ -42,7 +42,7 @@ namespace nc
     ///				std::vector
     ///
     template<typename dtype>
-    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) noexcept
+    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) 
     {
         return inArray.toStlVector();
     }

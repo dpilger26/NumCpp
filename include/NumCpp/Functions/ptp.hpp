@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         return inArray.ptp(inAxis);
     }

@@ -50,7 +50,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto arctan2(dtype inY, dtype inX) noexcept
+    auto arctan2(dtype inY, dtype inX) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -78,7 +78,7 @@ namespace nc
 
         NdArray<decltype(arctan2(dtype{0}, dtype{0}))> returnArray(inY.shape());
         stl_algorithms::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
-            [](dtype y, dtype x) noexcept -> auto
+            [](dtype y, dtype x)  -> auto
             {
                 return arctan2(y, x); 
             });

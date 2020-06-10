@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    int8 sign(dtype inValue) noexcept
+    int8 sign(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -85,11 +85,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<int8> sign(const NdArray<dtype>& inArray) noexcept
+    NdArray<int8> sign(const NdArray<dtype>& inArray) 
     {
         NdArray<int8> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> int8
+            [](dtype inValue)  -> int8
             { 
                 return sign(inValue); 
             });

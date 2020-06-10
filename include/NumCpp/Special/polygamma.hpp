@@ -67,7 +67,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto polygamma(uint32 n, const NdArray<dtype>& inArray) noexcept
+        auto polygamma(uint32 n, const NdArray<dtype>& inArray) 
         {
             NdArray<decltype(polygamma(n, dtype{0}))> returnArray(inArray.shape());
 

@@ -44,7 +44,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> empty_like(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> empty_like(const NdArray<dtype>& inArray) 
     {
         return NdArray<dtype>(inArray.shape());
     }

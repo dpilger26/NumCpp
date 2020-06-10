@@ -59,7 +59,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec3() noexcept = default;
+        constexpr Vec3()  = default;
 
         //============================================================================
         // Method Description:
@@ -69,7 +69,7 @@ namespace nc
         /// @param  inY: the y component
         /// @param  inZ: the y component
         ///
-        constexpr Vec3(double inX, double inY, double inZ) noexcept :
+        constexpr Vec3(double inX, double inY, double inZ)  :
             x(inX),
             y(inY),
             z(inZ)
@@ -118,7 +118,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the angle in radians
         ///
-        double angle(const Vec3& otherVec) const noexcept
+        double angle(const Vec3& otherVec) const 
         {
             double dotProduct = dot(otherVec);
             dotProduct /= norm();
@@ -136,7 +136,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 back() noexcept
+        static constexpr Vec3 back() 
         {
             return Vec3(0.0, 0.0, -1.0);
         }
@@ -149,7 +149,7 @@ namespace nc
         /// @param      maxLength
         /// @return     Vec3
         ///
-        Vec3 clampMagnitude(double maxLength) const noexcept
+        Vec3 clampMagnitude(double maxLength) const 
         {
             const double magnitude = norm();
             if (magnitude <= maxLength)
@@ -171,7 +171,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the dot product
         ///
-        Vec3 cross(const Vec3& otherVec) const noexcept
+        Vec3 cross(const Vec3& otherVec) const 
         {
             const double crossX = y * otherVec.z - z * otherVec.y;
             const double crossY = -(x * otherVec.z - z * otherVec.x);
@@ -187,7 +187,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the distance (equivalent to (a - b).norm()
         ///
-        double distance(const Vec3& otherVec) const noexcept
+        double distance(const Vec3& otherVec) const 
         {
             return (Vec3(*this) -= otherVec).norm();
         }
@@ -199,7 +199,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the dot product
         ///
-        double dot(const Vec3& otherVec) const noexcept
+        double dot(const Vec3& otherVec) const 
         {
             return x * otherVec.x + y * otherVec.y + z * otherVec.z;
         }
@@ -210,7 +210,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 down() noexcept
+        static constexpr Vec3 down() 
         {
             return Vec3(0.0, -1.0, 0.0);
         }
@@ -221,7 +221,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 forward() noexcept
+        static constexpr Vec3 forward() 
         {
             return Vec3(0.0, 0.0, 1.0);
         }
@@ -232,7 +232,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 left() noexcept
+        static constexpr Vec3 left() 
         {
             return Vec3(-1.0, 0.0, 0.0);
         }
@@ -245,7 +245,7 @@ namespace nc
         /// @param t the amount to interpolate by (clamped from [0, 1]);
         /// @return Vec3
         ///
-        Vec3 lerp(const Vec3& otherVec, double t) const noexcept
+        Vec3 lerp(const Vec3& otherVec, double t) const 
         {
             t = std::max(std::min(t, 1.0), 0.0);
 
@@ -264,7 +264,7 @@ namespace nc
         ///
         /// @return     magnitude of the vector
         ///
-        double norm() const noexcept
+        double norm() const 
         {
             return hypot(x, y, z);
         }
@@ -275,7 +275,7 @@ namespace nc
         ///
         /// @return     Vec3
         ///
-        Vec3 normalize() const noexcept
+        Vec3 normalize() const 
         {
             return Vec3(*this) /= norm();
         }
@@ -287,7 +287,7 @@ namespace nc
         /// @param      otherVec
         /// @return     Vec3
         ///
-        Vec3 project(const Vec3& otherVec) const noexcept
+        Vec3 project(const Vec3& otherVec) const 
         {
             const double projectedMagnitude = norm() * std::cos(angle(otherVec));
             return otherVec.normalize() *= projectedMagnitude;
@@ -299,7 +299,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 right() noexcept
+        static constexpr Vec3 right() 
         {
             return Vec3(1.0, 0.0, 0.0);
         }
@@ -310,7 +310,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string toString() const noexcept
+        std::string toString() const 
         {
             std::stringstream stream;
             stream << "Vec3[" << x << ", " << y << ", " << z << "]";
@@ -323,7 +323,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<double> toNdArray() const noexcept
+        NdArray<double> toNdArray() const 
         {
             NdArray<double> returnArray = { x, y, z };
             return returnArray.transpose();
@@ -335,7 +335,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 up() noexcept
+        static constexpr Vec3 up() 
         {
             return Vec3(0.0, 1.0, 0.0);
         }
@@ -347,7 +347,7 @@ namespace nc
         /// @param  rhs
         /// @return bool
         ///
-        bool operator==(const Vec3& rhs) const noexcept
+        bool operator==(const Vec3& rhs) const 
         {
             return utils::essentiallyEqual(x, rhs.x) &&
                 utils::essentiallyEqual(y, rhs.y) &&
@@ -361,7 +361,7 @@ namespace nc
         /// @param  rhs
         /// @return bool
         ///
-        bool operator!=(const Vec3& rhs) const noexcept
+        bool operator!=(const Vec3& rhs) const 
         {
             return !(*this == rhs);
         }
@@ -373,7 +373,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator+=(double scaler) noexcept
+        Vec3& operator+=(double scaler) 
         {
             x += scaler;
             y += scaler;
@@ -388,7 +388,7 @@ namespace nc
         /// @param  rhs
         /// @return Vec3
         ///
-        Vec3& operator+=(const Vec3& rhs) noexcept
+        Vec3& operator+=(const Vec3& rhs) 
         {
             x += rhs.x;
             y += rhs.y;
@@ -403,7 +403,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator-=(double scaler) noexcept
+        Vec3& operator-=(double scaler) 
         {
             x -= scaler;
             y -= scaler;
@@ -418,7 +418,7 @@ namespace nc
         /// @param  rhs
         /// @return Vec3
         ///
-        Vec3& operator-=(const Vec3& rhs) noexcept
+        Vec3& operator-=(const Vec3& rhs) 
         {
             x -= rhs.x;
             y -= rhs.y;
@@ -433,7 +433,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator*=(double scaler) noexcept
+        Vec3& operator*=(double scaler) 
         {
             x *= scaler;
             y *= scaler;
@@ -448,7 +448,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator/=(double scaler) noexcept
+        Vec3& operator/=(double scaler) 
         {
             x /= scaler;
             y /= scaler;
@@ -465,7 +465,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(const Vec3& lhs, double rhs) noexcept
+    inline Vec3 operator+(const Vec3& lhs, double rhs) 
     {
         return Vec3(lhs) += rhs;
     }
@@ -478,7 +478,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(double lhs, const Vec3& rhs) noexcept
+    inline Vec3 operator+(double lhs, const Vec3& rhs) 
     {
         return Vec3(rhs) += lhs;
     }
@@ -491,7 +491,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(const Vec3& lhs, const Vec3& rhs) noexcept
+    inline Vec3 operator+(const Vec3& lhs, const Vec3& rhs) 
     {
         return Vec3(lhs) += rhs;
     }
@@ -502,7 +502,7 @@ namespace nc
     ///
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& vec) noexcept
+    inline Vec3 operator-(const Vec3& vec) 
     {
         return Vec3(-vec.x, -vec.y, -vec.z);
     }
@@ -515,7 +515,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& lhs, double rhs) noexcept
+    inline Vec3 operator-(const Vec3& lhs, double rhs) 
     {
         return Vec3(lhs) -= rhs;
     }
@@ -528,7 +528,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(double lhs, const Vec3& rhs) noexcept
+    inline Vec3 operator-(double lhs, const Vec3& rhs) 
     {
         return -Vec3(rhs) += lhs;
     }
@@ -541,7 +541,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& lhs, const Vec3& rhs) noexcept
+    inline Vec3 operator-(const Vec3& lhs, const Vec3& rhs) 
     {
         return Vec3(lhs) -= rhs;
     }
@@ -554,7 +554,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator*(const Vec3& lhs, double rhs) noexcept
+    inline Vec3 operator*(const Vec3& lhs, double rhs) 
     {
         return Vec3(lhs) *= rhs;
     }
@@ -567,7 +567,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator*(double lhs, const Vec3& rhs) noexcept
+    inline Vec3 operator*(double lhs, const Vec3& rhs) 
     {
         return Vec3(rhs) *= lhs;
     }
@@ -581,7 +581,7 @@ namespace nc
     /// @return     dot product
     ///				
     ///
-    inline double operator*(const Vec3& lhs, const Vec3& rhs) noexcept
+    inline double operator*(const Vec3& lhs, const Vec3& rhs) 
     {
         return lhs.dot(rhs);
     }
@@ -594,7 +594,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator/(const Vec3& lhs, double rhs) noexcept
+    inline Vec3 operator/(const Vec3& lhs, double rhs) 
     {
         return Vec3(lhs) /= rhs;
     }
@@ -607,7 +607,7 @@ namespace nc
     /// @param      vec
     /// @return     std::ostream
     ///
-    inline std::ostream& operator<<(std::ostream& stream, const Vec3& vec) noexcept
+    inline std::ostream& operator<<(std::ostream& stream, const Vec3& vec) 
     {
         stream << vec.toString() << std::endl;
         return stream;

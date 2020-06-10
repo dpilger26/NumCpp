@@ -51,7 +51,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype exponential(dtype inScaleValue = 1) noexcept
+        dtype exponential(dtype inScaleValue = 1) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
+        NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -81,7 +81,7 @@ namespace nc
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_); 
                 });

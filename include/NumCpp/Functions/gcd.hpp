@@ -48,7 +48,7 @@ namespace nc
     ///				dtype
     ///
     template<typename dtype>
-    dtype gcd(dtype inValue1, dtype inValue2) noexcept
+    dtype gcd(dtype inValue1, dtype inValue2) 
     {
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd(inValue1, inValue2);

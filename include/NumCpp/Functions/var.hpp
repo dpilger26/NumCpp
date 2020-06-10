@@ -50,12 +50,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         NdArray<double> stdValues = stdev(inArray, inAxis);
-        const auto function = [](double& value) noexcept -> void
+        const auto function = [](double& value)  -> void
         {
             value *= value;
         };
@@ -77,12 +77,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> var(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>> var(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         NdArray<std::complex<double>> stdValues = stdev(inArray, inAxis);
-        const auto function = [](std::complex<double>& value) noexcept -> void
+        const auto function = [](std::complex<double>& value)  -> void
         {
             value *= value;
         };

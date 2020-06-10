@@ -45,7 +45,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr auto degrees(dtype inValue) noexcept
+    constexpr auto degrees(dtype inValue) 
     {
         return rad2deg(inValue);
     }
@@ -62,7 +62,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto degrees(const NdArray<dtype>& inArray) noexcept
+    auto degrees(const NdArray<dtype>& inArray) 
     {
         return rad2deg(inArray);
     }

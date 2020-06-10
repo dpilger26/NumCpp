@@ -46,7 +46,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) noexcept
+    bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) 
     {
         if (inArray1.shape() != inArray2.shape())
         {

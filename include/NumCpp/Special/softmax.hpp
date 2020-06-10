@@ -50,7 +50,7 @@ namespace nc
         /// @return     NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

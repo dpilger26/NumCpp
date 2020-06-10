@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         return inArray.cumprod(inAxis);
     }

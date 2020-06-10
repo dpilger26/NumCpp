@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) noexcept
+    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -97,7 +97,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
+    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -132,7 +132,7 @@ namespace nc
 
     // forward declare
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept;
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0) ;
 
     //============================================================================
     // Method Description:
@@ -152,7 +152,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -177,7 +177,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -227,7 +227,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) noexcept
+    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -252,7 +252,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

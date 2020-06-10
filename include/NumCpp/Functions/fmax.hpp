@@ -54,7 +54,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype fmax(dtype inValue1, dtype inValue2) noexcept
+    dtype fmax(dtype inValue1, dtype inValue2) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -90,7 +90,7 @@ namespace nc
         NdArray<dtype> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> dtype
+            [](dtype inValue1, dtype inValue2)  -> dtype
             { 
                 return fmax(inValue1, inValue2);
             });

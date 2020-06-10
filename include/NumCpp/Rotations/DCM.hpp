@@ -56,7 +56,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) noexcept
+            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) 
             {
                 return Quaternion(roll, pitch, yaw).toDCM();
             }
@@ -100,7 +100,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
+            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) 
             {
                 return Quaternion(inAxis, inAngle).toDCM();
             }
@@ -173,7 +173,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> xRotation(double inAngle) noexcept
+            static NdArray<double> xRotation(double inAngle) 
             {
                 return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
             }
@@ -188,7 +188,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> yRotation(double inAngle) noexcept
+            static NdArray<double> yRotation(double inAngle) 
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
             }
@@ -203,7 +203,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> zRotation(double inAngle) noexcept
+            static NdArray<double> zRotation(double inAngle) 
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }

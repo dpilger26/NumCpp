@@ -94,7 +94,7 @@ namespace nc
             boost::random::chi_squared_distribution<dtype> dist(inDof);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_);
                 });

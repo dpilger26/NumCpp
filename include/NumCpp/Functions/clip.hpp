@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) noexcept
+    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) noexcept
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 
     {
         return inArray.clip(inMinValue, inMaxValue);
     }

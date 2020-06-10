@@ -48,7 +48,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto sqrt(dtype inValue) noexcept
+    auto sqrt(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -67,11 +67,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto sqrt(const NdArray<dtype>& inArray) noexcept
+    auto sqrt(const NdArray<dtype>& inArray) 
     {
         NdArray<decltype(sqrt(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> auto
+            [](dtype inValue)  -> auto
             { 
                 return sqrt(inValue);
             });

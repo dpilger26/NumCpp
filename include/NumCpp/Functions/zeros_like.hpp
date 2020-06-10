@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

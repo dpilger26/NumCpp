@@ -44,7 +44,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE) noexcept
+    NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE) 
     {
         return inArray.contains(inValue, inAxis);
     }

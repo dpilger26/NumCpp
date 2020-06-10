@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         NdArray<dtype> returnArray(inArray);
         returnArray.sort(inAxis);

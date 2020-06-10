@@ -52,7 +52,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype laplace(dtype inLoc = 0, dtype inScale = 1) noexcept
+        dtype laplace(dtype inLoc = 0, dtype inScale = 1) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -74,7 +74,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
+        NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -83,7 +83,7 @@ namespace nc
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_); 
                 });

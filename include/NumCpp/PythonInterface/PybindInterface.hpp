@@ -96,7 +96,7 @@ namespace nc
         /// @return    pybind11::array_t
         ///
         template<typename dtype>
-        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
+        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) 
         {
             Shape inShape = inArray.shape();
             std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };

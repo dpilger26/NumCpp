@@ -46,7 +46,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    dtype ceil(dtype inValue) noexcept
+    dtype ceil(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,11 +63,11 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> ceil(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> ceil(const NdArray<dtype>& inArray) 
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> dtype
+            [](dtype inValue)  -> dtype
             { 
                 return ceil(inValue); 
             });

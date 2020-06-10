@@ -56,7 +56,7 @@ namespace nc
     ///
     template<typename dtype, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype> asarray(std::initializer_list<dtype> inList) noexcept
+    NdArray<dtype> asarray(std::initializer_list<dtype> inList) 
     {
         return NdArray<dtype>(inList);
     }
@@ -93,7 +93,7 @@ namespace nc
     ///
     template<typename dtype, size_t ArraySize, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype> asarray(std::array<dtype, ArraySize>& inArray, bool copy = true) noexcept
+    NdArray<dtype> asarray(std::array<dtype, ArraySize>& inArray, bool copy = true) 
     {
         return NdArray<dtype>(inArray, copy);
     }
@@ -111,7 +111,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, size_t Dim0Size, size_t Dim1Size>
-    NdArray<dtype> asarray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& inArray, bool copy = true) noexcept
+    NdArray<dtype> asarray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& inArray, bool copy = true) 
     {
         return NdArray<dtype>(inArray, copy);
     }
@@ -130,7 +130,7 @@ namespace nc
     ///
     template<typename dtype, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype> asarray(std::vector<dtype>& inVector, bool copy = true) noexcept
+    NdArray<dtype> asarray(std::vector<dtype>& inVector, bool copy = true) 
     {
         return NdArray<dtype>(inVector, copy);
     }
@@ -146,7 +146,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const std::vector<std::vector<dtype>>& inVector) noexcept
+    NdArray<dtype> asarray(const std::vector<std::vector<dtype>>& inVector) 
     {
         return NdArray<dtype>(inVector);
     }
@@ -164,7 +164,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, size_t Dim1Size>
-    NdArray<dtype> asarray(std::vector<std::array<dtype, Dim1Size>>& inVector, bool copy = true) noexcept
+    NdArray<dtype> asarray(std::vector<std::array<dtype, Dim1Size>>& inVector, bool copy = true) 
     {
         return NdArray<dtype>(inVector, copy);
     }
@@ -181,7 +181,7 @@ namespace nc
     ///
     template<typename dtype, 
         std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-    NdArray<dtype> asarray(const std::deque<dtype>& inDeque) noexcept
+    NdArray<dtype> asarray(const std::deque<dtype>& inDeque) 
     {
         return NdArray<dtype>(inDeque);
     }
@@ -197,7 +197,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const std::deque<std::deque<dtype>>& inDeque) noexcept
+    NdArray<dtype> asarray(const std::deque<std::deque<dtype>>& inDeque) 
     {
         return NdArray<dtype>(inDeque);
     }
@@ -214,7 +214,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, typename dtypeComp>
-    NdArray<dtype> asarray(const std::set<dtype, dtypeComp>& inSet) noexcept
+    NdArray<dtype> asarray(const std::set<dtype, dtypeComp>& inSet) 
     {
         return NdArray<dtype>(inSet);
     }
@@ -231,7 +231,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const std::list<dtype>& inList) noexcept
+    NdArray<dtype> asarray(const std::list<dtype>& inList) 
     {
         return NdArray<dtype>(inList);
     }
@@ -248,7 +248,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename Iterator>
-    auto asarray(Iterator iterBegin, Iterator iterEnd) noexcept
+    auto asarray(Iterator iterBegin, Iterator iterEnd) 
     {
         return NdArray<typename std::iterator_traits<Iterator>::value_type>(iterBegin, iterEnd);
     }
@@ -265,7 +265,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const dtype* iterBegin, const dtype* iterEnd) noexcept
+    NdArray<dtype> asarray(const dtype* iterBegin, const dtype* iterEnd) 
     {
         return NdArray<dtype>(iterBegin, iterEnd);
     }
@@ -282,7 +282,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const dtype* ptr, uint32 size) noexcept
+    NdArray<dtype> asarray(const dtype* ptr, uint32 size) 
     {
         return NdArray<dtype>(ptr, size);
     }
@@ -300,7 +300,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const dtype* ptr, uint32 numRows, uint32 numCols) noexcept
+    NdArray<dtype> asarray(const dtype* ptr, uint32 numRows, uint32 numCols) 
     {
         return NdArray<dtype>(ptr, numRows, numCols);
     }
@@ -320,7 +320,7 @@ namespace nc
     ///
     template<typename dtype, typename Bool,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-    NdArray<dtype> asarray(dtype* ptr, uint32 size, Bool takeOwnership) noexcept
+    NdArray<dtype> asarray(dtype* ptr, uint32 size, Bool takeOwnership) 
     {
         return NdArray<dtype>(ptr, size, takeOwnership);
     }
@@ -341,7 +341,7 @@ namespace nc
     ///
     template<typename dtype, typename Bool,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept
+    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) 
     {
         return NdArray<dtype>(ptr, numRows, numCols, takeOwnership);
     }

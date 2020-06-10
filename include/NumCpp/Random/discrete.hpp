@@ -85,7 +85,7 @@ namespace nc
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_);
                 });

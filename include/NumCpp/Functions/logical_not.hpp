@@ -47,13 +47,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> logical_not(const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> logical_not(const NdArray<dtype>& inArray) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool
+            [](dtype inValue)  -> bool
             { 
                 return inValue == dtype{ 0 };
             });

@@ -63,7 +63,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> subtract(const NdArray<dtype>& inArray, dtype value) noexcept
+    NdArray<dtype> subtract(const NdArray<dtype>& inArray, dtype value) 
     {
         return inArray - value;
     }
@@ -80,7 +80,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> subtract(dtype value, const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> subtract(dtype value, const NdArray<dtype>& inArray) 
     {
         return value - inArray;
     }
@@ -131,7 +131,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray, const std::complex<dtype>& value) noexcept
+    NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray, const std::complex<dtype>& value) 
     {
         return inArray - value;
     }
@@ -148,7 +148,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const std::complex<dtype>& value, const NdArray<dtype>& inArray) noexcept
+    NdArray<std::complex<dtype>> subtract(const std::complex<dtype>& value, const NdArray<dtype>& inArray) 
     {
         return value - inArray;
     }
@@ -165,7 +165,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray, dtype value) noexcept
+    NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray, dtype value) 
     {
         return inArray - value;
     }
@@ -182,7 +182,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(dtype value, const NdArray<std::complex<dtype>>& inArray) noexcept
+    NdArray<std::complex<dtype>> subtract(dtype value, const NdArray<std::complex<dtype>>& inArray) 
     {
         return value - inArray;
     }

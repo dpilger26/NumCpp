@@ -50,12 +50,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double sumOfSquares = 0.0;
-        const auto function = [&sumOfSquares](dtype value) noexcept -> void
+        const auto function = [&sumOfSquares](dtype value)  -> void
         {
             sumOfSquares += utils::sqr(static_cast<double>(value));
         };
@@ -112,12 +112,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> sumOfSquares(0.0, 0.0);
-        const auto function = [&sumOfSquares](const std::complex<dtype>& value) noexcept -> void
+        const auto function = [&sumOfSquares](const std::complex<dtype>& value)  -> void
         {
             sumOfSquares += utils::sqr(complex_cast<double>(value));
         };

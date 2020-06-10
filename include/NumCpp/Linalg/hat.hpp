@@ -50,7 +50,7 @@ namespace nc
         ///				3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -99,7 +99,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        inline NdArray<double> hat(const Vec3& inVec) noexcept
+        inline NdArray<double> hat(const Vec3& inVec) 
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }

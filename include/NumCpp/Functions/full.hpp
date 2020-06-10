@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue) noexcept
+    NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue) 
     {
         NdArray<dtype> returnArray(inSquareSize, inSquareSize);
         returnArray.fill(inFillValue);
@@ -66,7 +66,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) noexcept
+    NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) 
     {
         NdArray<dtype> returnArray(inNumRows, inNumCols);
         returnArray.fill(inFillValue);
@@ -85,7 +85,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> full(const Shape& inShape, dtype inFillValue) noexcept
+    NdArray<dtype> full(const Shape& inShape, dtype inFillValue) 
     {
         return full(inShape.rows, inShape.cols, inFillValue);
     }

@@ -47,7 +47,7 @@ namespace nc
     ///				std::string
     ///
     template<typename dtype>
-    std::string binaryRepr(dtype inValue) noexcept
+    std::string binaryRepr(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 

@@ -49,7 +49,7 @@ namespace nc
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diagflat(const NdArray<dtype>& inArray, int32 k = 0) noexcept
+    NdArray<dtype> diagflat(const NdArray<dtype>& inArray, int32 k = 0) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

@@ -64,7 +64,7 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() noexcept = default;
+            Cluster()  = default;
 
             //=============================================================================
             // Description:
@@ -73,7 +73,7 @@ namespace nc
             /// @param
             ///              inClusterId
             ///
-            Cluster(uint32 inClusterId) noexcept :
+            Cluster(uint32 inClusterId)  :
                 clusterId_(inClusterId)
             {}
 
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Cluster<dtype>& rhs) const noexcept
+            bool operator==(const Cluster<dtype>& rhs) const 
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -107,7 +107,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Cluster<dtype>& rhs) const noexcept
+            bool operator!=(const Cluster<dtype>& rhs) const 
             {
                 return !(*this == rhs);
             }
@@ -153,7 +153,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const noexcept
+            const_iterator begin() const 
             {
                 return pixels_.cbegin();
             }
@@ -165,7 +165,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const noexcept
+            const_iterator end() const 
             {
                 return pixels_.cend();
             }
@@ -177,7 +177,7 @@ namespace nc
             /// @return
             ///              number of pixels in the cluster
             ///
-            uint32 size() const noexcept
+            uint32 size() const 
             {
                 return static_cast<uint32>(pixels_.size());
             }
@@ -189,7 +189,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 clusterId() const noexcept
+            uint32 clusterId() const 
             {
                 return clusterId_;
             }
@@ -201,7 +201,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 rowMin() const noexcept
+            uint32 rowMin() const 
             {
                 return rowMin_;
             }
@@ -213,7 +213,7 @@ namespace nc
             /// @return
             ///              maximum row number of the cluster
             ///
-            uint32 rowMax() const noexcept
+            uint32 rowMax() const 
             {
                 return rowMax_;
             }
@@ -225,7 +225,7 @@ namespace nc
             /// @return
             ///              minimum column number of the cluster
             ///
-            uint32 colMin() const noexcept
+            uint32 colMin() const 
             {
                 return colMin_;
             }
@@ -237,7 +237,7 @@ namespace nc
             /// @return
             ///              maximum column number of the cluster
             ///
-            uint32 colMax() const noexcept
+            uint32 colMax() const 
             {
                 return colMax_;
             }
@@ -249,7 +249,7 @@ namespace nc
             /// @return
             ///              number of rows
             ///
-            uint32 height() const noexcept
+            uint32 height() const 
             {
                 return rowMax_ - rowMin_ + 1;
             }
@@ -261,7 +261,7 @@ namespace nc
             /// @return
             ///              number of columns
             ///
-            uint32 width() const noexcept
+            uint32 width() const 
             {
                 return colMax_ - colMin_ + 1;
             }
@@ -273,7 +273,7 @@ namespace nc
             /// @return
             ///              summed cluster intensity
             ///
-            dtype intensity() const noexcept
+            dtype intensity() const 
             {
                 return intensity_;
             }
@@ -285,7 +285,7 @@ namespace nc
             /// @return
             ///              peak pixel intensity
             ///
-            dtype peakPixelIntensity() const noexcept
+            dtype peakPixelIntensity() const 
             {
                 return peakPixelIntensity_;
             }
@@ -297,7 +297,7 @@ namespace nc
             /// @return
             ///              eod
             ///
-            double eod() const noexcept
+            double eod() const 
             {
                 return eod_;
             }

@@ -49,7 +49,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    bool isnan(dtype inValue) noexcept
+    bool isnan(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -76,11 +76,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isnan(const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> isnan(const NdArray<dtype>& inArray) 
     {
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool
+            [](dtype inValue)  -> bool
             { 
                 return isnan(inValue); 
             });

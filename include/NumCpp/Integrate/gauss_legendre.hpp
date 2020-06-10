@@ -71,7 +71,7 @@ namespace nc
             ///
             /// @return	weights vector
             ///
-            const std::vector<double>& getWeight() const noexcept
+            const std::vector<double>& getWeight() const 
             {
                 return weight_;
             }
@@ -82,7 +82,7 @@ namespace nc
             ///
             /// @return	roots vector
             ///
-            const std::vector<double>& getRoot() const noexcept
+            const std::vector<double>& getRoot() const 
             {
                 return root_;
             }
@@ -104,7 +104,7 @@ namespace nc
                 /// @param val: the value
                 /// @param deriv: the derivative
                 ///
-                Result(const double val, const double deriv) noexcept :
+                Result(const double val, const double deriv)  :
                     value(val),
                     derivative(deriv)
                 {}
@@ -114,7 +114,7 @@ namespace nc
             // Method Description:
             ///	Calculates the weights and roots vectors
             ///
-            void calculateWeightAndRoot() noexcept
+            void calculateWeightAndRoot() 
             {
                 const double numIterationsDouble = static_cast<double>(numIterations_);
                 for (uint32 step = 0; step <= numIterations_; ++step)
@@ -142,7 +142,7 @@ namespace nc
             /// @param x
             /// @return Result
             ///
-            Result calculatePolynomialValueAndDerivative(const double x) noexcept
+            Result calculatePolynomialValueAndDerivative(const double x) 
             {
                 Result result(x, 0.0);
 

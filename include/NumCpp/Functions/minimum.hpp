@@ -60,14 +60,14 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+        const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
         {
             return lhs < rhs;
         };
 
         NdArray<dtype> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [comparitor](dtype inValue1, dtype inValue2) noexcept -> dtype
+            [comparitor](dtype inValue1, dtype inValue2)  -> dtype
             { 
                 return std::min(inValue1, inValue2, comparitor);
             });

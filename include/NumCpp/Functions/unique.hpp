@@ -54,11 +54,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> unique(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> unique(const NdArray<dtype>& inArray) 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
+        const auto comp = [](const dtype lhs, const dtype rhs)  -> bool
         {
             return utils::essentiallyEqual(lhs, rhs);
         };

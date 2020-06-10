@@ -55,7 +55,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    auto average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
         return mean(inArray, inAxis);
     }

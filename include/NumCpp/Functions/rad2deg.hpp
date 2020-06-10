@@ -48,7 +48,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr auto rad2deg(dtype inValue) noexcept
+    constexpr auto rad2deg(dtype inValue) 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -68,11 +68,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto rad2deg(const NdArray<dtype>& inArray) noexcept
+    auto rad2deg(const NdArray<dtype>& inArray) 
     {
         NdArray<decltype(rad2deg(dtype{0})) > returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> auto
+            [](dtype inValue)  -> auto
             { 
                 return rad2deg(inValue);
             });

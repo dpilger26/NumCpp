@@ -43,7 +43,7 @@ namespace nc
         ///
         /// @return             radians
         ///
-        inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) noexcept
+        inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) 
         {
             return inCoordinate1.radianSeperation(inCoordinate2);
         }

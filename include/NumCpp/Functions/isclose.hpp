@@ -68,7 +68,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
+            [inRtol, inAtol](dtype inValueA, dtype inValueB)  -> bool
             { 
                 return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); 
             });

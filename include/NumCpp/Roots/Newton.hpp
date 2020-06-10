@@ -59,7 +59,7 @@ namespace nc
             ///
             Newton(const double epsilon,
                 const std::function<double(double)>& f,
-                const std::function<double(double)>& fPrime) noexcept :
+                const std::function<double(double)>& fPrime)  :
                 Iteration(epsilon),
                 f_(f),
                 fPrime_(fPrime)
@@ -77,7 +77,7 @@ namespace nc
             Newton(const double epsilon,
                 const uint32 maxNumIterations,
                 const std::function<double(double)>& f,
-                const std::function<double(double)>& fPrime) noexcept :
+                const std::function<double(double)>& fPrime)  :
                 Iteration(epsilon, maxNumIterations),
                 f_(f),
                 fPrime_(fPrime)
@@ -87,7 +87,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Newton() noexcept = default;
+            ~Newton()  = default;
 
             //============================================================================
             // Method Description:
@@ -130,7 +130,7 @@ namespace nc
             /// @param fxPrime: the derivate of the function evaluated at the current x value
             /// @return x
             ///
-            double calculateX(double x, double fx, double fxPrime) noexcept
+            double calculateX(double x, double fx, double fxPrime) 
             {
                 return x - fx / fxPrime;
             }

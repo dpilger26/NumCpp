@@ -61,7 +61,7 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> dtype
+            [](dtype inValue1, dtype inValue2)  -> dtype
             { 
                 return inValue2 < dtype{ 0 } ? std::abs(inValue1) * -1 : std::abs(inValue1);
             });

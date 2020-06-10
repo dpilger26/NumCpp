@@ -51,7 +51,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype rand() noexcept
+        dtype rand() 
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rand(const Shape& inShape) noexcept
+        NdArray<dtype> rand(const Shape& inShape) 
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -81,7 +81,7 @@ namespace nc
             boost::random::uniform_01<dtype> dist;
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_);
                 });

@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) noexcept
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) 
     {
         inK %= 4;
         switch (inK)

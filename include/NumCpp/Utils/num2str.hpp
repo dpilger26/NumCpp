@@ -44,7 +44,7 @@ namespace nc
         /// @return     std::string
         ///
         template<typename dtype>
-        std::string num2str(dtype inNumber) noexcept
+        std::string num2str(dtype inNumber) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

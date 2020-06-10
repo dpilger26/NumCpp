@@ -43,7 +43,7 @@ namespace nc
     ///				uint32 size
     ///
     template<typename dtype>
-    uint32 size(const NdArray<dtype>& inArray) noexcept
+    uint32 size(const NdArray<dtype>& inArray) 
     {
         return inArray.size();
     }

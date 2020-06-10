@@ -155,7 +155,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const noexcept
+            const_iterator begin() const 
             {
                 return clusters_.cbegin();
             }
@@ -167,7 +167,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const noexcept
+            const_iterator end() const 
             {
                 return clusters_.cend();
             }
@@ -192,7 +192,7 @@ namespace nc
             /// @return
             ///              returns a pixel object clipped to the image boundaries
             ///
-            Pixel<dtype> makePixel(int32 inRow, int32 inCol) noexcept
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol) 
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that
                 // i haven't gone over the edge

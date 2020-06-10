@@ -49,7 +49,7 @@ namespace nc
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

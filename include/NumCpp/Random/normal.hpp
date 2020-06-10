@@ -96,7 +96,7 @@ namespace nc
             boost::random::normal_distribution<dtype> dist(inMean, inSigma);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_);
                 });

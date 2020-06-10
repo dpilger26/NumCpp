@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            Coordinate() noexcept = default;
+            Coordinate()  = default;
 
             //============================================================================
             ///						Constructor
@@ -81,7 +81,7 @@ namespace nc
             /// @param              inDecSeconds
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, double inRaSeconds, Sign inSign,
-                uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)  noexcept :
+                uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)   :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
@@ -94,7 +94,7 @@ namespace nc
             /// @param				inRA
             /// @param              inDec
             ///
-            Coordinate(const RA& inRA, const Dec& inDec) noexcept :
+            Coordinate(const RA& inRA, const Dec& inDec)  :
                 ra_(inRA),
                 dec_(inDec)
             {
@@ -140,7 +140,7 @@ namespace nc
             ///
             /// @return             Dec
             ///
-            const Dec& dec() const noexcept
+            const Dec& dec() const 
             {
                 return dec_;
             }
@@ -150,7 +150,7 @@ namespace nc
             ///
             /// @return     RA
             ///
-            const RA& ra() const noexcept
+            const RA& ra() const 
             {
                 return ra_;
             }
@@ -160,7 +160,7 @@ namespace nc
             ///
             /// @return     x
             ///
-            double x() const noexcept
+            double x() const 
             {
                 return x_;
             }
@@ -170,7 +170,7 @@ namespace nc
             ///
             /// @return     y
             ///
-            double y() const noexcept
+            double y() const 
             {
                 return y_;
             }
@@ -180,7 +180,7 @@ namespace nc
             ///
             /// @return     z
             ///
-            double z() const noexcept
+            double z() const 
             {
                 return z_;
             }
@@ -190,7 +190,7 @@ namespace nc
             ///
             /// @return     NdArray
             ///
-            NdArray<double> xyz() const noexcept
+            NdArray<double> xyz() const 
             {
                 NdArray<double> out = { x_, y_, z_ };
                 return out;
@@ -203,7 +203,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degreeSeperation(const Coordinate& inOtherCoordinate) const noexcept
+            double degreeSeperation(const Coordinate& inOtherCoordinate) const 
             {
                 return rad2deg(radianSeperation(inOtherCoordinate));
             }
@@ -228,7 +228,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radianSeperation(const Coordinate& inOtherCoordinate) const noexcept
+            double radianSeperation(const Coordinate& inOtherCoordinate) const 
             {
                 return std::acos(dot(xyz(), inOtherCoordinate.xyz()).item());
             }
@@ -280,7 +280,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Coordinate& inRhs) const noexcept
+            bool operator==(const Coordinate& inRhs) const 
             {
                 return ra_ == inRhs.ra_ && dec_ == inRhs.dec_;
             }
@@ -292,7 +292,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Coordinate& inRhs) const noexcept
+            bool operator!=(const Coordinate& inRhs) const 
             {
                 return !(*this == inRhs);
             }
@@ -339,7 +339,7 @@ namespace nc
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
-            void polarToCartesian() noexcept
+            void polarToCartesian() 
             {
                 const double raRadians = deg2rad(ra_.degrees());
                 const double decRadians = deg2rad(dec_.degrees());

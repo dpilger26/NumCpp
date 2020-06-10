@@ -56,7 +56,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() noexcept = default;
+            Centroid()  = default;
 
             //=============================================================================
             // Description:
@@ -64,7 +64,7 @@ namespace nc
             ///
             /// @param               inCluster
             ///
-            Centroid(const Cluster<dtype>& inCluster) noexcept :
+            Centroid(const Cluster<dtype>& inCluster)  :
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
@@ -78,7 +78,7 @@ namespace nc
             /// @return
             ///              centroid row
             ///
-            double row() const noexcept
+            double row() const 
             {
                 return row_;
             }
@@ -90,7 +90,7 @@ namespace nc
             /// @return
             ///              centroid col
             ///
-            double col() const noexcept
+            double col() const 
             {
                 return col_;
             }
@@ -102,7 +102,7 @@ namespace nc
             /// @return
             ///              centroid intensity
             ///
-            dtype intensity() const noexcept
+            dtype intensity() const 
             {
                 return intensity_;
             }
@@ -114,7 +114,7 @@ namespace nc
             /// @return
             ///              star id
             ///
-            double eod() const noexcept
+            double eod() const 
             {
                 return eod_;
             }
@@ -154,7 +154,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Centroid<dtype>& rhs) const noexcept
+            bool operator==(const Centroid<dtype>& rhs) const 
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -169,7 +169,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Centroid<dtype>& rhs) const noexcept
+            bool operator!=(const Centroid<dtype>& rhs) const 
             {
                 return !(*this == rhs);
             }
@@ -187,7 +187,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Centroid<dtype>& rhs) const noexcept
+            bool operator<(const Centroid<dtype>& rhs) const 
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }
@@ -223,7 +223,7 @@ namespace nc
             /// @param
             ///              inCluster
             ///
-            void centerOfMass(const Cluster<dtype>& inCluster) noexcept
+            void centerOfMass(const Cluster<dtype>& inCluster) 
             {
                 const Shape clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);

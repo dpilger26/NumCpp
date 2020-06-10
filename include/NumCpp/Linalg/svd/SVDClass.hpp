@@ -75,7 +75,7 @@ namespace nc
             /// @return
             ///              u matrix
             ///
-            const NdArray<double>& u() noexcept
+            const NdArray<double>& u() 
             {
                 return u_;
             }
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              v matrix
             ///
-            const NdArray<double>& v() noexcept
+            const NdArray<double>& v() 
             {
                 return v_;
             }
@@ -99,7 +99,7 @@ namespace nc
             /// @return
             ///              s matrix
             ///
-            const NdArray<double>& s() noexcept
+            const NdArray<double>& s() 
             {
                 return s_;
             }
@@ -168,7 +168,7 @@ namespace nc
             /// @return
             ///              value
             ///
-            double SIGN(double inA, double inB) noexcept
+            double SIGN(double inA, double inB) 
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
@@ -518,7 +518,7 @@ namespace nc
             // Description:
             ///              reorders the input matrix
             ///
-            void reorder() noexcept
+            void reorder() 
             {
                 uint32  i = 0;
                 uint32  j = 0;
@@ -635,7 +635,7 @@ namespace nc
             /// @return
             ///              resultant value
             ///
-            double pythag(double inA, double inB) noexcept
+            double pythag(double inA, double inB) 
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);

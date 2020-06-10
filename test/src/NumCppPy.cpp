@@ -42,7 +42,7 @@ using namespace nc::boostPythonInterface;
 
 namespace ShapeInterface
 {
-    bool testListContructor() noexcept
+    bool testListContructor() 
     {
         const Shape test = { 357, 666 };
         if (test.rows == 357 && test.cols == 666)
@@ -1901,7 +1901,7 @@ namespace NdArrayInterface
 namespace FunctionsInterface
 {
     template<typename dtype>
-    auto absScaler(dtype inValue) noexcept -> decltype(abs(inValue)) // trailing return type to help gcc
+    auto absScaler(dtype inValue)  -> decltype(abs(inValue)) // trailing return type to help gcc
     {
         return abs(inValue);
     }
@@ -2013,7 +2013,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccosScaler(dtype inValue) noexcept -> decltype(arccos(inValue)) // trailing return type to help gcc
+    auto arccosScaler(dtype inValue)  -> decltype(arccos(inValue)) // trailing return type to help gcc
     {
         return arccos(inValue);
     }
@@ -2029,7 +2029,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccoshScaler(dtype inValue) noexcept -> decltype(arccosh(inValue)) // trailing return type to help gcc
+    auto arccoshScaler(dtype inValue)  -> decltype(arccosh(inValue)) // trailing return type to help gcc
     {
         return arccosh(inValue);
     }
@@ -2045,7 +2045,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinScaler(dtype inValue) noexcept -> decltype(arcsin(inValue)) // trailing return type to help gcc
+    auto arcsinScaler(dtype inValue)  -> decltype(arcsin(inValue)) // trailing return type to help gcc
     {
         return arcsin(inValue);
     }
@@ -2061,7 +2061,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinhScaler(dtype inValue) noexcept -> decltype(arcsinh(inValue)) // trailing return type to help gcc
+    auto arcsinhScaler(dtype inValue)  -> decltype(arcsinh(inValue)) // trailing return type to help gcc
     {
         return arcsinh(inValue);
     }
@@ -2077,7 +2077,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanScaler(dtype inValue) noexcept -> decltype(arctan(inValue)) // trailing return type to help gcc
+    auto arctanScaler(dtype inValue)  -> decltype(arctan(inValue)) // trailing return type to help gcc
     {
         return arctan(inValue);
     }
@@ -2093,7 +2093,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctan2Scaler(dtype inY, dtype inX) noexcept
+    dtype arctan2Scaler(dtype inY, dtype inX) 
     {
         return arctan2(inY, inX);
     }
@@ -2109,7 +2109,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanhScaler(dtype inValue) noexcept -> decltype(arctanh(inValue)) // trailing return type to help gcc
+    auto arctanhScaler(dtype inValue)  -> decltype(arctanh(inValue)) // trailing return type to help gcc
     {
         return arctanh(inValue);
     }
@@ -2522,7 +2522,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cbrtScaler(dtype inValue) noexcept
+    dtype cbrtScaler(dtype inValue) 
     {
         return cbrt(inValue);
     }
@@ -2538,7 +2538,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ceilScaler(dtype inValue) noexcept
+    dtype ceilScaler(dtype inValue) 
     {
         return ceil(inValue);
     }
@@ -2554,7 +2554,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE) noexcept
+    np::ndarray centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE) 
     {
         return nc2Boost(nc::centerOfMass(inArray, inAxis));
     }
@@ -2668,7 +2668,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto cosScaler(dtype inValue) noexcept -> decltype(cos(inValue)) // trailing return type to help gcc
+    auto cosScaler(dtype inValue)  -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
     }
@@ -2684,7 +2684,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto coshScaler(dtype inValue) noexcept -> decltype(cosh(inValue)) // trailing return type to help gcc
+    auto coshScaler(dtype inValue)  -> decltype(cosh(inValue)) // trailing return type to help gcc
     {
         return cosh(inValue);
     }
@@ -2732,7 +2732,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype deg2radScaler(dtype inValue) noexcept
+    dtype deg2radScaler(dtype inValue) 
     {
         return deg2rad(inValue);
     }
@@ -2748,7 +2748,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype degreesScaler(dtype inValue) noexcept
+    dtype degreesScaler(dtype inValue) 
     {
         return degrees(inValue);
     }
@@ -2852,7 +2852,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto expScaler(dtype inValue) noexcept -> decltype(exp(inValue)) // trailing return type to help gcc
+    auto expScaler(dtype inValue)  -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
     }
@@ -2868,7 +2868,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype exp2Scaler(dtype inValue) noexcept
+    dtype exp2Scaler(dtype inValue) 
     {
         return exp2(inValue);
     }
@@ -2884,7 +2884,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expm1Scaler(dtype inValue) noexcept
+    dtype expm1Scaler(dtype inValue) 
     {
         return expm1(inValue);
     }
@@ -2923,14 +2923,14 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    np::ndarray find(const NdArray<bool>& inArray) noexcept
+    np::ndarray find(const NdArray<bool>& inArray) 
     {
         return nc2Boost(nc::find(inArray));
     }
 
     //================================================================================
 
-    np::ndarray findN(const NdArray<bool>& inArray, uint32 n) noexcept
+    np::ndarray findN(const NdArray<bool>& inArray, uint32 n) 
     {
         return nc2Boost(nc::find(inArray, n));
     }
@@ -2938,7 +2938,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fixScaler(dtype inValue) noexcept
+    dtype fixScaler(dtype inValue) 
     {
         return fix(inValue);
     }
@@ -2954,7 +2954,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floorScaler(dtype inValue) noexcept
+    dtype floorScaler(dtype inValue) 
     {
         return floor(inValue);
     }
@@ -2970,7 +2970,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floor_divideScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype floor_divideScaler(dtype inValue1, dtype inValue2) 
     {
         return floor_divide(inValue1, inValue2);
     }
@@ -2986,7 +2986,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fmaxScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype fmaxScaler(dtype inValue1, dtype inValue2) 
     {
         return fmax(inValue1, inValue2);
     }
@@ -3002,7 +3002,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fminScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype fminScaler(dtype inValue1, dtype inValue2) 
     {
         return fmin(inValue1, inValue2);
     }
@@ -3016,7 +3016,7 @@ namespace FunctionsInterface
     }
 
     template<typename dtype>
-    dtype fmodScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype fmodScaler(dtype inValue1, dtype inValue2) 
     {
         return fmod(inValue1, inValue2);
     }
@@ -3074,7 +3074,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype gcdScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype gcdScaler(dtype inValue1, dtype inValue2) 
     {
         return gcd(inValue1, inValue2);
     }
@@ -3116,7 +3116,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype hypotScaler(dtype inValue1, dtype inValue2) 
     {
         return hypot(inValue1, inValue2);
     }
@@ -3124,7 +3124,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
+    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3) 
     {
         return hypot(inValue1, inValue2, inValue3);
     }
@@ -3164,7 +3164,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isinfScaler(dtype inValue) noexcept
+    bool isinfScaler(dtype inValue) 
     {
         return nc::isinf(inValue);
     }
@@ -3180,7 +3180,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isnanScaler(dtype inValue) noexcept
+    bool isnanScaler(dtype inValue) 
     {
         return nc::isnan(inValue);
     }
@@ -3196,7 +3196,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ldexpScaler(dtype inValue1, uint8 inValue2) noexcept
+    dtype ldexpScaler(dtype inValue1, uint8 inValue2) 
     {
         return ldexp(inValue1, inValue2);
     }
@@ -3256,7 +3256,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype lcmScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype lcmScaler(dtype inValue1, dtype inValue2) 
     {
         return lcm(inValue1, inValue2);
     }
@@ -3272,7 +3272,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto logScaler(dtype inValue) noexcept -> decltype(log(inValue)) // trailing return type to help gcc
+    auto logScaler(dtype inValue)  -> decltype(log(inValue)) // trailing return type to help gcc
     {
         return log(inValue);
     }
@@ -3288,7 +3288,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto log10Scaler(dtype inValue) noexcept -> decltype(log10(inValue)) // trailing return type to help gcc
+    auto log10Scaler(dtype inValue)  -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
     }
@@ -3304,7 +3304,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log1pScaler(dtype inValue) noexcept
+    dtype log1pScaler(dtype inValue) 
     {
         return log1p(inValue);
     }
@@ -3320,7 +3320,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log2Scaler(dtype inValue) noexcept
+    dtype log2Scaler(dtype inValue) 
     {
         return log2(inValue);
     }
@@ -3528,7 +3528,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rad2degScaler(dtype inValue) noexcept
+    dtype rad2degScaler(dtype inValue) 
     {
         return rad2deg(inValue);
     }
@@ -3544,7 +3544,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype radiansScaler(dtype inValue) noexcept
+    dtype radiansScaler(dtype inValue) 
     {
         return radians(inValue);
     }
@@ -3592,7 +3592,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype remainderScaler(dtype inValue1, dtype inValue2) noexcept
+    dtype remainderScaler(dtype inValue1, dtype inValue2) 
     {
         return remainder(inValue1, inValue2);
     }
@@ -3681,7 +3681,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rintScaler(dtype inValue) noexcept
+    dtype rintScaler(dtype inValue) 
     {
         return rint(inValue);
     }
@@ -3722,7 +3722,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    int8 signScaler(dtype inValue) noexcept
+    int8 signScaler(dtype inValue) 
     {
         return sign(inValue);
     }
@@ -3738,7 +3738,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool signbitScaler(dtype inValue) noexcept
+    bool signbitScaler(dtype inValue) 
     {
         return signbit(inValue);
     }
@@ -3754,7 +3754,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinScaler(dtype inValue) noexcept -> decltype(sin(inValue)) // trailing return type to help gcc
+    auto sinScaler(dtype inValue)  -> decltype(sin(inValue)) // trailing return type to help gcc
     {
         return sin(inValue);
     }
@@ -3770,7 +3770,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sincScaler(dtype inValue) noexcept
+    dtype sincScaler(dtype inValue) 
     {
         return sinc(inValue);
     }
@@ -3786,7 +3786,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinhScaler(dtype inValue) noexcept -> decltype(sinh(inValue)) // trailing return type to help gcc
+    auto sinhScaler(dtype inValue)  -> decltype(sinh(inValue)) // trailing return type to help gcc
     {
         return sinh(inValue);
     }
@@ -3802,7 +3802,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sqrtScaler(dtype inValue) noexcept -> decltype(sqrt(inValue)) // trailing return type to help gcc
+    auto sqrtScaler(dtype inValue)  -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
     }
@@ -3818,7 +3818,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype squareScaler(dtype inValue) noexcept
+    dtype squareScaler(dtype inValue) 
     {
         return square(inValue);
     }
@@ -3842,7 +3842,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanScaler(dtype inValue) noexcept -> decltype(tan(inValue)) // trailing return type to help gcc
+    auto tanScaler(dtype inValue)  -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
     }
@@ -3858,7 +3858,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanhScaler(dtype inValue) noexcept -> decltype(tanh(inValue)) // trailing return type to help gcc
+    auto tanhScaler(dtype inValue)  -> decltype(tanh(inValue)) // trailing return type to help gcc
     {
         return tanh(inValue);
     }
@@ -3962,7 +3962,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype unwrapScaler(dtype inValue) noexcept
+    dtype unwrapScaler(dtype inValue) 
     {
         return unwrap(inValue);
     }
@@ -3978,7 +3978,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double truncScaler(dtype inValue) noexcept
+    double truncScaler(dtype inValue) 
     {
         return trunc(inValue);
     }
@@ -4285,7 +4285,7 @@ namespace DataCubeInterface
 namespace PolynomialInterface
 {
     template<typename dtype>
-    dtype chebyshev_t_Scaler(uint32 n, dtype inValue) noexcept
+    dtype chebyshev_t_Scaler(uint32 n, dtype inValue) 
     {
         return polynomial::chebyshev_t(n, inValue);
     }
@@ -4301,7 +4301,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype chebyshev_u_Scaler(uint32 n, dtype inValue) noexcept
+    dtype chebyshev_u_Scaler(uint32 n, dtype inValue) 
     {
         return polynomial::chebyshev_u(n, inValue);
     }
@@ -4317,7 +4317,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hermite_Scaler(uint32 n, dtype inValue) noexcept
+    dtype hermite_Scaler(uint32 n, dtype inValue) 
     {
         return polynomial::hermite(n, inValue);
     }
@@ -4333,7 +4333,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype laguerre_Scaler1(uint32 n, dtype inValue) noexcept
+    dtype laguerre_Scaler1(uint32 n, dtype inValue) 
     {
         return polynomial::laguerre(n, inValue);
     }
@@ -4341,7 +4341,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue) noexcept
+    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue) 
     {
         return polynomial::laguerre(n, m, inValue);
     }
@@ -4365,7 +4365,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype legendre_p_Scaler1(int32 n, dtype inValue) noexcept
+    dtype legendre_p_Scaler1(int32 n, dtype inValue) 
     {
         return polynomial::legendre_p(n, inValue);
     }
@@ -4373,7 +4373,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue) noexcept
+    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue) 
     {
         return polynomial::legendre_p(n, m, inValue);
     }
@@ -4397,7 +4397,7 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype legendre_q_Scaler(int32 n, dtype inValue) noexcept
+    dtype legendre_q_Scaler(int32 n, dtype inValue) 
     {
         return polynomial::legendre_q(n, inValue);
     }
@@ -4662,7 +4662,7 @@ namespace Vec3Interface
 namespace SpecialInterface
 {
     template<typename dtype>
-    dtype airy_ai_Scaler(dtype inValue) noexcept
+    dtype airy_ai_Scaler(dtype inValue) 
     {
         return special::airy_ai(inValue);
     }
@@ -4678,7 +4678,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype airy_ai_prime_Scaler(dtype inValue) noexcept
+    dtype airy_ai_prime_Scaler(dtype inValue) 
     {
         return special::airy_ai_prime(inValue);
     }
@@ -4694,7 +4694,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype airy_bi_Scaler(dtype inValue) noexcept
+    dtype airy_bi_Scaler(dtype inValue) 
     {
         return special::airy_bi(inValue);
     }
@@ -4710,7 +4710,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype airy_bi_prime_Scaler(dtype inValue) noexcept
+    dtype airy_bi_prime_Scaler(dtype inValue) 
     {
         return special::airy_bi_prime(inValue);
     }
@@ -4725,7 +4725,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    double bernoulli_Scaler(uint32 n) noexcept
+    double bernoulli_Scaler(uint32 n) 
     {
         return special::bernoilli(n);
     }
@@ -4740,7 +4740,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_in_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_in_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_in(inV, inValue);
     }
@@ -4756,7 +4756,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_in_prime(inV, inValue);
     }
@@ -4772,7 +4772,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_jn_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_jn_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_jn(inV, inValue);
     }
@@ -4788,7 +4788,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_jn_prime(inV, inValue);
     }
@@ -4804,7 +4804,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_kn_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_kn_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_kn(inV, inValue);
     }
@@ -4820,7 +4820,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_kn_prime(inV, inValue);
     }
@@ -4836,7 +4836,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_yn_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_yn_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_yn(inV, inValue);
     }
@@ -4852,7 +4852,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue) 
     {
         return special::bessel_yn_prime(inV, inValue);
     }
@@ -4868,7 +4868,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype beta_Scaler(dtype a, dtype b) noexcept
+    dtype beta_Scaler(dtype a, dtype b) 
     {
         return special::beta(a, b);
     }
@@ -4884,7 +4884,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x) noexcept
+    std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x) 
     {
         return special::cyclic_hankel_1(v, x);
     }
@@ -4900,7 +4900,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_2_Scaler(dtype v, dtype x) noexcept
+    std::complex<dtype> cyclic_hankel_2_Scaler(dtype v, dtype x) 
     {
         return special::cyclic_hankel_2(v, x);
     }
@@ -4916,7 +4916,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_1_Scaler(dtype v, dtype x) noexcept
+    std::complex<dtype> spherical_hankel_1_Scaler(dtype v, dtype x) 
     {
         return special::spherical_hankel_1(v, x);
     }
@@ -4932,7 +4932,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_2_Scaler(dtype v, dtype x) noexcept
+    std::complex<dtype> spherical_hankel_2_Scaler(dtype v, dtype x) 
     {
         return special::spherical_hankel_2(v, x);
     }
@@ -4948,7 +4948,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype digamma_Scaler(dtype inValue) noexcept
+    dtype digamma_Scaler(dtype inValue) 
     {
         return special::digamma(inValue);
     }
@@ -4964,7 +4964,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erf_Scaler(dtype inValue) noexcept
+    dtype erf_Scaler(dtype inValue) 
     {
         return special::erf(inValue);
     }
@@ -4980,7 +4980,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erf_inv_Scaler(dtype inValue) noexcept
+    dtype erf_inv_Scaler(dtype inValue) 
     {
         return special::erf_inv(inValue);
     }
@@ -4996,7 +4996,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erfc_Scaler(dtype inValue) noexcept
+    dtype erfc_Scaler(dtype inValue) 
     {
         return special::erfc(inValue);
     }
@@ -5012,7 +5012,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erfc_inv_Scaler(dtype inValue) noexcept
+    dtype erfc_inv_Scaler(dtype inValue) 
     {
         return special::erfc_inv(inValue);
     }
@@ -5027,7 +5027,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    double factorial_Scaler(uint32 inValue) noexcept
+    double factorial_Scaler(uint32 inValue) 
     {
         return special::factorial(inValue);
     }
@@ -5042,7 +5042,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype gamma_Scaler(dtype inValue) noexcept
+    dtype gamma_Scaler(dtype inValue) 
     {
         return special::gamma(inValue);
     }
@@ -5058,7 +5058,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype gamma1pm1_Scaler(dtype inValue) noexcept
+    dtype gamma1pm1_Scaler(dtype inValue) 
     {
         return special::gamma1pm1(inValue);
     }
@@ -5074,7 +5074,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log_gamma_Scaler(dtype inValue) noexcept
+    dtype log_gamma_Scaler(dtype inValue) 
     {
         return special::log_gamma(inValue);
     }
@@ -5090,7 +5090,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype polygamma_Scaler(uint32 n, dtype inValue) noexcept
+    dtype polygamma_Scaler(uint32 n, dtype inValue) 
     {
         return special::polygamma(n, inValue);
     }
@@ -5105,7 +5105,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    double prime_Scaler(uint32 inValue) noexcept
+    double prime_Scaler(uint32 inValue) 
     {
         return special::prime(inValue);
     }
@@ -5120,7 +5120,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype riemann_zeta_Scaler(dtype inValue) noexcept
+    dtype riemann_zeta_Scaler(dtype inValue) 
     {
         return special::riemann_zeta(inValue);
     }
@@ -5144,7 +5144,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) noexcept
+    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) 
     {
         return special::spherical_bessel_jn(inV, inValue);
     }
@@ -5160,7 +5160,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue) noexcept
+    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue) 
     {
         return special::spherical_bessel_yn(inV, inValue);
     }
@@ -5176,7 +5176,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype trigamma_Scaler(dtype inValue) noexcept
+    dtype trigamma_Scaler(dtype inValue) 
     {
         return special::trigamma(inValue);
     }
@@ -5327,23 +5327,23 @@ BOOST_PYTHON_MODULE(NumCpp)
     using NdArrayComplexDoubleReverseIterator = NdArrayComplexDouble::reverse_iterator;
     using NdArrayComplexDoubleConstReverseIterator = NdArrayComplexDouble::const_reverse_iterator;
 
-    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleIterator::operator++;
-    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleIterator::operator++;
-    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleIterator::operator--;
-    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPost)(int) noexcept = &NdArrayDoubleIterator::operator--;
-    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusEqual)(NdArrayDoubleIterator::difference_type) noexcept = &NdArrayDoubleIterator::operator+=;
-    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator+;
-    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusEqual)(NdArrayDoubleIterator::difference_type) noexcept = &NdArrayDoubleIterator::operator-=;
-    NdArrayDoubleIterator(NdArrayDoubleIterator::*iteratorOperatorMinus)(NdArrayDoubleIterator::difference_type) const noexcept = &NdArrayDoubleIterator::operator-;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPre)()  = &NdArrayDoubleIterator::operator++;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlusPlusPost)(int)  = &NdArrayDoubleIterator::operator++;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPre)()  = &NdArrayDoubleIterator::operator--;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorMinusMinusPost)(int)  = &NdArrayDoubleIterator::operator--;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorPlusEqual)(NdArrayDoubleIterator::difference_type)  = &NdArrayDoubleIterator::operator+=;
+    NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlus)(NdArrayDoubleIterator::difference_type) const  = &NdArrayDoubleIterator::operator+;
+    NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusEqual)(NdArrayDoubleIterator::difference_type)  = &NdArrayDoubleIterator::operator-=;
+    NdArrayDoubleIterator(NdArrayDoubleIterator::*iteratorOperatorMinus)(NdArrayDoubleIterator::difference_type) const  = &NdArrayDoubleIterator::operator-;
 
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPre)() noexcept = &NdArrayComplexDoubleIterator::operator++;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPost)(int) noexcept = &NdArrayComplexDoubleIterator::operator++;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPre)() noexcept = &NdArrayComplexDoubleIterator::operator--;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPost)(int) noexcept = &NdArrayComplexDoubleIterator::operator--;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusEqual)(NdArrayComplexDoubleIterator::difference_type) noexcept = &NdArrayComplexDoubleIterator::operator+=;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlus)(NdArrayComplexDoubleIterator::difference_type) const noexcept = &NdArrayComplexDoubleIterator::operator+;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusEqual)(NdArrayComplexDoubleIterator::difference_type) noexcept = &NdArrayComplexDoubleIterator::operator-=;
-    NdArrayComplexDoubleIterator(NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinus)(NdArrayComplexDoubleIterator::difference_type) const noexcept = &NdArrayComplexDoubleIterator::operator-;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPre)()  = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPre)()  = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPost)(int)  = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator+=;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator+;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator-=;
+    NdArrayComplexDoubleIterator(NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator-;
 
     bp::class_<NdArrayDoubleIterator>
         ("NdArrayDoubleIterator", bp::init<>())
@@ -5371,23 +5371,23 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", iteratorOperatorComplexComplexMinus)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleIterator>);
 
-    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPre)() noexcept = &NdArrayDoubleConstIterator::operator++;
-    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPost)(int) noexcept = &NdArrayDoubleConstIterator::operator++;
-    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPre)() noexcept = &NdArrayDoubleConstIterator::operator--;
-    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPost)(int) noexcept = &NdArrayDoubleConstIterator::operator--;
-    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusEqual)(NdArrayDoubleConstIterator::difference_type) noexcept = &NdArrayDoubleConstIterator::operator+=;
-    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator+;
-    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusEqual)(NdArrayDoubleConstIterator::difference_type) noexcept = &NdArrayDoubleConstIterator::operator-=;
-    NdArrayDoubleConstIterator(NdArrayDoubleConstIterator::*constIteratorOperatorMinus)(NdArrayDoubleConstIterator::difference_type) const noexcept = &NdArrayDoubleConstIterator::operator-;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPre)()  = &NdArrayDoubleConstIterator::operator++;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPost)(int)  = &NdArrayDoubleConstIterator::operator++;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPre)()  = &NdArrayDoubleConstIterator::operator--;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorMinusMinusPost)(int)  = &NdArrayDoubleConstIterator::operator--;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusEqual)(NdArrayDoubleConstIterator::difference_type)  = &NdArrayDoubleConstIterator::operator+=;
+    NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlus)(NdArrayDoubleConstIterator::difference_type) const  = &NdArrayDoubleConstIterator::operator+;
+    NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusEqual)(NdArrayDoubleConstIterator::difference_type)  = &NdArrayDoubleConstIterator::operator-=;
+    NdArrayDoubleConstIterator(NdArrayDoubleConstIterator::*constIteratorOperatorMinus)(NdArrayDoubleConstIterator::difference_type) const  = &NdArrayDoubleConstIterator::operator-;
 
-    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPre)() noexcept = &NdArrayComplexDoubleConstIterator::operator++;
-    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPost)(int) noexcept = &NdArrayComplexDoubleConstIterator::operator++;
-    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPre)() noexcept = &NdArrayComplexDoubleConstIterator::operator--;
-    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPost)(int) noexcept = &NdArrayComplexDoubleConstIterator::operator--;
-    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusEqual)(NdArrayComplexDoubleConstIterator::difference_type) noexcept = &NdArrayComplexDoubleConstIterator::operator+=;
-    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstIterator::difference_type) const noexcept = &NdArrayComplexDoubleConstIterator::operator+;
-    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstIterator::difference_type) noexcept = &NdArrayComplexDoubleConstIterator::operator-=;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstIterator::difference_type) const noexcept = &NdArrayComplexDoubleConstIterator::operator-;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPre)()  = &NdArrayComplexDoubleConstIterator::operator++;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleConstIterator::operator++;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPre)()  = &NdArrayComplexDoubleConstIterator::operator--;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusMinusPost)(int)  = &NdArrayComplexDoubleConstIterator::operator--;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusEqual)(NdArrayComplexDoubleConstIterator::difference_type)  = &NdArrayComplexDoubleConstIterator::operator+=;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstIterator::difference_type) const  = &NdArrayComplexDoubleConstIterator::operator+;
+    NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstIterator::difference_type)  = &NdArrayComplexDoubleConstIterator::operator-=;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstIterator::difference_type) const  = &NdArrayComplexDoubleConstIterator::operator-;
 
     bp::class_<NdArrayDoubleConstIterator>
         ("NdArrayDoubleConstIterator", bp::init<>())
@@ -5522,44 +5522,44 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSliceInt)(const Slice&, int32) const = &NdArrayComplexDouble::at;
     NdArrayComplexDouble(NdArrayComplexDouble::*atComplexIntSlice)(int32, const Slice&) const = &NdArrayComplexDouble::at;
 
-    NdArrayDoubleIterator(NdArrayDouble::*begin)() noexcept = &NdArrayDouble::begin;
+    NdArrayDoubleIterator(NdArrayDouble::*begin)()  = &NdArrayDouble::begin;
     NdArrayDoubleIterator(NdArrayDouble::*beginRow)(NdArrayDouble::size_type) = &NdArrayDouble::begin;
-    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const noexcept = &NdArrayDouble::begin;
+    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const  = &NdArrayDouble::begin;
     NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::begin;
 
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginComplex)() noexcept = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginComplex)()  = &NdArrayComplexDouble::begin;
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::begin;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const noexcept = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const  = &NdArrayComplexDouble::begin;
     NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::begin;
 
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)() noexcept = &NdArrayDouble::rbegin;
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)()  = &NdArrayDouble::rbegin;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const noexcept = &NdArrayDouble::rbegin;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const  = &NdArrayDouble::rbegin;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rbegin;
 
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginComplex)() noexcept = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginComplex)()  = &NdArrayComplexDouble::rbegin;
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rbegin;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const noexcept = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const  = &NdArrayComplexDouble::rbegin;
     NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rbegin;
 
-    NdArrayDoubleIterator(NdArrayDouble::*end)() noexcept = &NdArrayDouble::end;
+    NdArrayDoubleIterator(NdArrayDouble::*end)()  = &NdArrayDouble::end;
     NdArrayDoubleIterator(NdArrayDouble::*endRow)(NdArrayDouble::size_type) = &NdArrayDouble::end;
-    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const noexcept = &NdArrayDouble::end;
+    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const  = &NdArrayDouble::end;
     NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::end;
 
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endComplex)() noexcept = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endComplex)()  = &NdArrayComplexDouble::end;
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::end;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const noexcept = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const  = &NdArrayComplexDouble::end;
     NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::end;
 
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rend)() noexcept = &NdArrayDouble::rend;
+    NdArrayDoubleReverseIterator(NdArrayDouble::*rend)()  = &NdArrayDouble::rend;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const noexcept = &NdArrayDouble::rend;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const  = &NdArrayDouble::rend;
     NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rend;
 
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendComplex)() noexcept = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendComplex)()  = &NdArrayComplexDouble::rend;
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rend;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const noexcept = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const  = &NdArrayComplexDouble::rend;
     NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rend;
 
     bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>);

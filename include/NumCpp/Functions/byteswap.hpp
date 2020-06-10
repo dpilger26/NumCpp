@@ -43,7 +43,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> byteswap(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> byteswap(const NdArray<dtype>& inArray) 
     {
         NdArray<dtype> returnArray(inArray);
         returnArray.byteswap();

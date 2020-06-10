@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> invert(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> invert(const NdArray<dtype>& inArray) 
     {
         return ~inArray;
     }

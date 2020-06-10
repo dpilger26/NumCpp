@@ -68,7 +68,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool exists() const noexcept
+            bool exists() const 
             {
                 return exists_;
             }
@@ -79,7 +79,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string& ext() const noexcept
+            const std::string& ext() const 
             {
                 return extension_;
             }
@@ -90,7 +90,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string fullName() const noexcept
+            const std::string fullName() const 
             {
                 return filename_ + "." + extension_;
             }
@@ -101,7 +101,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool hasExt() const noexcept
+            bool hasExt() const 
             {
                 return extension_ != "";
             }
@@ -112,7 +112,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string& name() const noexcept
+            const std::string& name() const 
             {
                 return filename_;
             }
@@ -124,7 +124,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string withExt(const std::string& ext) noexcept
+            const std::string withExt(const std::string& ext) 
             {
                 extension_ = ext;
                 return fullName();

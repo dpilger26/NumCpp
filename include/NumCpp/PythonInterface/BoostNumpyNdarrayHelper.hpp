@@ -115,7 +115,7 @@ namespace nc
             ///
             /// @return     reference to the held ndarray
             ///
-            const boost::python::numpy::ndarray& getArray() noexcept
+            const boost::python::numpy::ndarray& getArray() 
             {
                 return theArray_;
             }
@@ -135,7 +135,7 @@ namespace nc
             ///
             /// @return     num dimensions
             ///
-            uint8 numDimensions() noexcept
+            uint8 numDimensions() 
             {
                 return numDimensions_;
             }
@@ -145,7 +145,7 @@ namespace nc
             ///
             /// @return     vector
             ///
-            const std::vector<Py_intptr_t>& shape() noexcept
+            const std::vector<Py_intptr_t>& shape() 
             {
                 return shape_;
             }
@@ -171,7 +171,7 @@ namespace nc
             ///
             /// @return     vector
             ///
-            const std::vector<uint32>& strides() noexcept
+            const std::vector<uint32>& strides() 
             {
                 return strides_;
             }
@@ -181,7 +181,7 @@ namespace nc
             ///
             /// @return     Order
             ///
-            Order order() noexcept
+            Order order() 
             {
                 return order_;
             }
