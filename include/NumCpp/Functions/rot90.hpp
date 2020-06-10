@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> rot90(const NdArray<dtype, Alloc>& inArray, uint8 inK = 1) noexcept
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) noexcept
     {
         inK %= 4;
         switch (inK)
@@ -74,7 +74,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype, Alloc>(0);
+                return NdArray<dtype>(0);
             }
         }
     }

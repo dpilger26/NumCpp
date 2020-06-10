@@ -53,7 +53,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double, Alloc> nanstdev(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -74,14 +74,14 @@ namespace nc
                     sum += utils::sqr(static_cast<double>(value) - meanValue);
                     ++counter;
                 }
-                NdArray<double, Alloc> returnArray = { std::sqrt(sum / counter) };
+                NdArray<double> returnArray = { std::sqrt(sum / counter) };
                 return returnArray;
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
-                NdArray<double, Alloc> meanValue = nanmean(inArray, inAxis);
-                NdArray<double, Alloc> returnArray(1, inShape.rows);
+                NdArray<double> meanValue = nanmean(inArray, inAxis);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = 0;
@@ -103,10 +103,10 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<double, Alloc> meanValue = nanmean(inArray, inAxis);
-                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
+                NdArray<double> meanValue = nanmean(inArray, inAxis);
+                NdArray<dtype> transposedArray = inArray.transpose();
                 const Shape inShape = transposedArray.shape();
-                NdArray<double, Alloc> returnArray(1, inShape.rows);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = 0;
@@ -130,7 +130,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double, Alloc>(0);
+                return NdArray<double>(0);
             }
         }
     }

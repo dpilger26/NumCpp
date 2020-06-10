@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> minimum(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -65,7 +65,7 @@ namespace nc
             return lhs < rhs;
         };
 
-        NdArray<dtype, Alloc> returnArray(inArray1.shape());
+        NdArray<dtype> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [comparitor](dtype inValue1, dtype inValue2) noexcept -> dtype
             { 

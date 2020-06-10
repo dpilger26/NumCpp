@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc>& putmask(NdArray<dtype, Alloc>& inArray, const NdArray<bool, Alloc>& inMask, dtype inValue)
+    NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
         inArray.putMask(inMask, inValue);
         return inArray;
@@ -72,7 +72,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc>& putmask(NdArray<dtype, Alloc>& inArray, const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inValues)
+    NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
     {
         inArray.putMask(inMask, inValues);
         return inArray;

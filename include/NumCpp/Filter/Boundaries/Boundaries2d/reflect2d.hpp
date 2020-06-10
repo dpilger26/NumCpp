@@ -35,8 +35,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/flipud.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -53,8 +51,8 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc = std::allocator<dtype>>
-            NdArray<dtype, Alloc> reflect2d(const NdArray<dtype, Alloc>& inImage, uint32 inBoundarySize)
+            template<typename dtype>
+            NdArray<dtype> reflect2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,7 +61,7 @@ namespace nc
                 outShape.rows += inBoundarySize * 2;
                 outShape.cols += inBoundarySize * 2;
 
-                NdArray<dtype, Alloc> outArray(outShape);
+                NdArray<dtype> outArray(outShape);
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
 
@@ -94,15 +92,15 @@ namespace nc
                 }
 
                 // now fill in the corners
-                NdArray<dtype, Alloc> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
+                NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(0, inBoundarySize)));
-                NdArray<dtype, Alloc> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
+                NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
                 const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
-                NdArray<dtype, Alloc> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
+                NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(0, inBoundarySize)));
-                NdArray<dtype, Alloc> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
+                NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
                 outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);

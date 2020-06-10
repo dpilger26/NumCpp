@@ -34,20 +34,19 @@
 
 #include <deque>
 #include <limits>
-#include <memory>
 #include <string>
 
 namespace nc
 {
     //================================================================================
     ///						Convenience container for holding a uniform array of NdArrays
-    template<typename dtype, class Alloc = std::allocator<dtype>>
+    template<typename dtype>
     class DataCube
     {
     public:
         //================================Typedefs==================================
-        using iterator = typename std::deque<NdArray<dtype, Alloc>, Alloc>::iterator;
-        using const_iterator = typename std::deque<NdArray<dtype, Alloc>, Alloc>::const_iterator;
+        using iterator = typename std::deque<NdArray<dtype> >::iterator;
+        using const_iterator = typename std::deque<NdArray<dtype> >::const_iterator;
 
         //============================================================================
         ///						Default Constructor
@@ -70,7 +69,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<dtype, Alloc>& at(uint32 inIndex)
+        NdArray<dtype>& at(uint32 inIndex)
         {
             return cube_.at(inIndex);
         }
@@ -82,7 +81,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        const NdArray<dtype, Alloc>& at(uint32 inIndex) const
+        const NdArray<dtype>& at(uint32 inIndex) const
         {
             return cube_.at(inIndex);
         }
@@ -92,7 +91,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype, Alloc>& back() noexcept
+        NdArray<dtype>& back() noexcept
         {
             return cube_.back();
         }
@@ -179,7 +178,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype, Alloc>& front() noexcept
+        NdArray<dtype>& front() noexcept
         {
             return cube_.front();
         }
@@ -225,7 +224,7 @@ namespace nc
         ///
         /// @param      inArray
         ///
-        void push_back(const NdArray<dtype, Alloc>& inArray)
+        void push_back(const NdArray<dtype>& inArray)
         {
             const Shape inputShape = inArray.shape();
 
@@ -249,7 +248,7 @@ namespace nc
         ///
         /// @param      inArray
         ///
-        void push_front(const NdArray<dtype, Alloc>& inArray)
+        void push_front(const NdArray<dtype>& inArray)
         {
             const Shape inputShape = inArray.shape();
 
@@ -275,7 +274,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<dtype, Alloc>& operator[](uint32 inIndex) noexcept
+        NdArray<dtype>& operator[](uint32 inIndex) noexcept
         {
             return cube_[inIndex];
         }
@@ -287,14 +286,14 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        const NdArray<dtype, Alloc>& operator[](uint32 inIndex) const
+        const NdArray<dtype>& operator[](uint32 inIndex) const
         {
             return cube_[inIndex];
         }
 
     private:
         //================================Attributes==================================
-        std::deque<NdArray<dtype, Alloc> >  cube_{};
-        Shape                               elementShape_{ 0, 0 };
+        std::deque<NdArray<dtype> >     cube_{};
+        Shape                           elementShape_{ 0, 0 };
     };
 }

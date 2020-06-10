@@ -50,7 +50,7 @@ namespace nc
     /// @return     NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> where(const NdArray<bool, Alloc>& inMask, const NdArray<dtype, Alloc>& inA, const NdArray<dtype, Alloc>& inB)
+    NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
         const auto shapeMask = inMask.shape();
         const auto shapeA = inA.shape();
@@ -64,7 +64,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input inMask must be the same shape as the input arrays.");
         }
 
-        auto outArray = NdArray<dtype, Alloc>(shapeMask);
+        auto outArray = NdArray<dtype>(shapeMask);
 
         uint32 idx = 0;
         for (auto maskValue : inMask)

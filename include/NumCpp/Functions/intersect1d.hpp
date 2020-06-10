@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> intersect1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,6 +63,6 @@ namespace nc
         const auto iter = stl_algorithms::set_intersection(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());
         res.resize(iter - res.begin());
-        return NdArray<dtype, Alloc>(res);
+        return NdArray<dtype>(res);
     }
 }

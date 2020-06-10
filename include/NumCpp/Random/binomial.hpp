@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
+        NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::binomial_distribution<dtype, double> dist(inN, inP);
 

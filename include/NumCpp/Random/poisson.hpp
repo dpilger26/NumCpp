@@ -80,7 +80,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> poisson(const Shape& inShape, double inMean = 1)
+        NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -89,7 +89,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::poisson_distribution<dtype, double> dist(inMean);
 

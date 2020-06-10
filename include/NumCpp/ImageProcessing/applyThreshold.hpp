@@ -31,8 +31,6 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace imageProcessing
@@ -46,8 +44,8 @@ namespace nc
         /// @return
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        NdArray<bool, Alloc> applyThreshold(const NdArray<dtype, Alloc>& inImageArray, dtype inThreshold) noexcept
+        template<typename dtype>
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

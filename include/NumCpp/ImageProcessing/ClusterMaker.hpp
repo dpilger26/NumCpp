@@ -37,7 +37,6 @@
 
 #include <algorithm>
 #include <cmath>
-#include <memory>
 #include <set>
 #include <string>
 #include <utility>
@@ -50,7 +49,7 @@ namespace nc
         //=============================================================================
         // Class Description:
         ///              Clusters exceedance data into contiguous groups
-        template<typename dtype, class Alloc = std::allocator<dtype>>
+        template<typename dtype>
         class ClusterMaker
         {
         private:
@@ -58,7 +57,7 @@ namespace nc
 
         public:
             //================================Typedefs=====================================
-            using const_iterator = typename std::vector<Cluster<dtype>, Alloc>::const_iterator;
+            using const_iterator = typename std::vector<Cluster<dtype> >::const_iterator;
 
             //=============================================================================
             // Description:
@@ -71,8 +70,7 @@ namespace nc
             /// @return
             ///              None
             ///
-            ClusterMaker(const NdArray<bool, Alloc>* const inXcdArrayPtr, 
-                const NdArray<dtype, Alloc>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
+            ClusterMaker(const NdArray<bool>* const inXcdArrayPtr, const NdArray<dtype>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {
@@ -126,7 +124,7 @@ namespace nc
             /// @return
             ///              Cluster
             ///
-            const Cluster<dtype, Alloc>& operator[](uint32 inIndex) const
+            const Cluster<dtype>& operator[](uint32 inIndex) const
             {
                 return clusters_[inIndex];
             }
@@ -141,7 +139,7 @@ namespace nc
             /// @return
             ///              Cluster
             ///
-            const Cluster<dtype, Alloc>& at(uint32 inIndex) const
+            const Cluster<dtype>& at(uint32 inIndex) const
             {
                 if (inIndex >= clusters_.size())
                 {
@@ -176,13 +174,13 @@ namespace nc
 
         private:
             //==================================Attributes=================================
-            const NdArray<bool, Alloc>* const   xcds_;
-            const NdArray<dtype, Alloc>* const  intensities_;
-            std::vector<Pixel<dtype>, Alloc>    xcdsVec_{};
+            const NdArray<bool>* const      xcds_;
+            const NdArray<dtype>* const     intensities_;
+            std::vector<Pixel<dtype> >      xcdsVec_{};
 
-            Shape                               shape_{};
+            Shape                           shape_{};
 
-            std::vector<Cluster<dtype>, Alloc>  clusters_{};
+            std::vector<Cluster<dtype> >    clusters_{};
 
             //=============================================================================
             // Description:
@@ -242,9 +240,9 @@ namespace nc
             /// @return
             ///              vector of non exceedance neighboring pixels
             ///
-            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype>, Alloc>& outNeighbors)
+            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
             {
-                std::set<Pixel<dtype>, Alloc> neighbors;
+                std::set<Pixel<dtype> > neighbors;
                 findNeighbors(inPixel, neighbors);
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
@@ -267,11 +265,11 @@ namespace nc
             /// @return
             ///              vector of neighboring pixel indices
             ///
-            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32, Alloc>& outNeighbors)
+            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
             {
-                std::set<Pixel<dtype>, Alloc> neighbors;
+                std::set<Pixel<dtype> > neighbors;
                 findNeighbors(inPixel, neighbors);
-                std::vector<Pixel<dtype>, Alloc> neighborXcds;
+                std::vector<Pixel<dtype> > neighborXcds;
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
                 for (auto& pixel : neighbors)
@@ -303,12 +301,12 @@ namespace nc
                     // not already visited
                     if (currentPixel.clusterId == -1)
                     {
-                        Cluster<dtype, Alloc> newCluster(clusterId);    // a new cluster
+                        Cluster<dtype> newCluster(clusterId);    // a new cluster
                         currentPixel.clusterId = clusterId;
                         newCluster.addPixel(currentPixel);  // assign pixel to cluster
 
                         // get the neighbors
-                        std::vector<uint32, Alloc> neighborIds;
+                        std::vector<uint32> neighborIds;
                         findNeighborXcds(currentPixel, neighborIds);
                         if (neighborIds.empty())
                         {
@@ -323,7 +321,7 @@ namespace nc
                             Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
 
                             // go to neighbors
-                            std::vector<uint32, Alloc> newNeighborIds;
+                            std::vector<uint32> newNeighborIds;
                             findNeighborXcds(currentNeighborPixel, newNeighborIds);
 
                             // loop through the new neighbors and add them to neighbors
@@ -362,7 +360,7 @@ namespace nc
                     // loop through the pixels of the cluster
                     for (auto& thePixel : theCluster)
                     {
-                        std::vector<Pixel<dtype>, Alloc> neighborsNotXcds;
+                        std::vector<Pixel<dtype> > neighborsNotXcds;
                         findNeighborNotXcds(thePixel, neighborsNotXcds);
 
                         // loop through the neighbors and if they haven't already been added to the cluster, add them

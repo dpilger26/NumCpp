@@ -67,9 +67,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto expm1(const NdArray<dtype, Alloc>& inArray) noexcept
+    auto expm1(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<decltype(expm1(dtype{0})), Alloc> returnArray(inArray.shape());
+        NdArray<decltype(expm1(dtype{0}))> returnArray(inArray.shape());
 
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> auto

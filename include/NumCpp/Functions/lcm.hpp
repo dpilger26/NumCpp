@@ -63,10 +63,10 @@ namespace nc
     ///
     /// @param      inArray
     /// @return
-    ///				NdArray<double, Alloc>
+    ///				NdArray<double>
     ///
     template<typename dtype>
-    dtype lcm(const NdArray<dtype, Alloc>& inArray)
+    dtype lcm(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_INTEGER(dtype);
 

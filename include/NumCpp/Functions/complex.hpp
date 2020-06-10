@@ -79,9 +79,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto complex(const NdArray<dtype, Alloc>& inReal) noexcept
+    auto complex(const NdArray<dtype>& inReal) noexcept
     {
-        NdArray<decltype(nc::complex(dtype{0})), Alloc> returnArray(inReal.shape());
+        NdArray<decltype(nc::complex(dtype{0}))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(), inReal.cend(), returnArray.begin(),
             [](dtype real) noexcept-> auto
             {
@@ -101,14 +101,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto complex(const NdArray<dtype, Alloc>& inReal, const NdArray<dtype, Alloc>& inImag)
+    auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)
     {
         if (inReal.shape() != inImag.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Input real array must be the same shape as input imag array");
         }
 
-        NdArray<decltype(nc::complex(dtype{0}, dtype{0})), Alloc> returnArray(inReal.shape());
+        NdArray<decltype(nc::complex(dtype{0}, dtype{0}))> returnArray(inReal.shape());
         stl_algorithms::transform(inReal.cbegin(), inReal.cend(), inImag.cbegin(), returnArray.begin(),
             [](dtype real, dtype imag) noexcept-> auto
             {

@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc>& ravel(NdArray<dtype, Alloc>& inArray)
+    NdArray<dtype>& ravel(NdArray<dtype>& inArray)
     {
         inArray.ravel();
         return inArray;

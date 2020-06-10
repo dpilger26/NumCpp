@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> hstack(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList)
+    NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         return column_stack(inArrayList);
     }

@@ -34,8 +34,6 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -49,8 +47,8 @@ namespace nc
             /// @param				inArray
             /// @param              inBorderWidth
             ///
-            template<typename dtype, class Alloc = std::allocator<dtype>>
-            void fillCorners(NdArray<dtype, Alloc>& inArray, uint32 inBorderWidth)
+            template<typename dtype>
+            void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -84,7 +82,7 @@ namespace nc
             /// @param				inFillValue
             ///
             template<typename dtype>
-            void fillCorners(NdArray<dtype, Alloc>& inArray, uint32 inBorderWidth, dtype inFillValue)
+            void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 

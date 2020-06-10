@@ -56,7 +56,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double, Alloc> eulerAngles(double roll, double pitch, double yaw) noexcept
+            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) noexcept
             {
                 return Quaternion(roll, pitch, yaw).toDCM();
             }
@@ -70,7 +70,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double, Alloc> eulerAngles(const NdArray<double, Alloc>& angles)
+            static NdArray<double> eulerAngles(const NdArray<double>& angles)
             {
                 return Quaternion(angles).toDCM();
             }
@@ -85,7 +85,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double, Alloc> eulerAxisAngle(const NdArray<double, Alloc>& inAxis, double inAngle)
+            static NdArray<double> eulerAxisAngle(const NdArray<double>& inAxis, double inAngle)
             {
                 return Quaternion(inAxis, inAngle).toDCM();
             }
@@ -100,7 +100,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double, Alloc> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
+            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
             {
                 return Quaternion(inAxis, inAngle).toDCM();
             }
@@ -115,7 +115,7 @@ namespace nc
             /// @return
             ///				bool
             ///
-            static bool isValid(const NdArray<double, Alloc>& inArray)
+            static bool isValid(const NdArray<double>& inArray)
             {
                 const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
@@ -134,7 +134,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler roll angle in radians
             ///
-            static double roll(const NdArray<double, Alloc>& dcm)
+            static double roll(const NdArray<double>& dcm)
             {
                 return Quaternion(dcm).roll();
             }
@@ -146,7 +146,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler pitch angle in radians
             ///
-            static double pitch(const NdArray<double, Alloc>& dcm)
+            static double pitch(const NdArray<double>& dcm)
             {
                 return Quaternion(dcm).pitch();
             }
@@ -158,7 +158,7 @@ namespace nc
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler yaw angle in radians
             ///
-            static double yaw(const NdArray<double, Alloc>& dcm)
+            static double yaw(const NdArray<double>& dcm)
             {
                 return Quaternion(dcm).yaw();
             }
@@ -171,9 +171,9 @@ namespace nc
             /// @param
             ///				inAngle (in radians)
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            static NdArray<double, Alloc> xRotation(double inAngle) noexcept
+            static NdArray<double> xRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
             }
@@ -186,9 +186,9 @@ namespace nc
             /// @param
             ///				inAngle (in radians)
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            static NdArray<double, Alloc> yRotation(double inAngle) noexcept
+            static NdArray<double> yRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
             }
@@ -201,9 +201,9 @@ namespace nc
             /// @param
             ///				inAngle (in radians)
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            static NdArray<double, Alloc> zRotation(double inAngle) noexcept
+            static NdArray<double> zRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }

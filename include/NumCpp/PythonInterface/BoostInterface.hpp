@@ -46,14 +46,14 @@ namespace nc
     namespace boostPythonInterface
     {
         //============================================================================
-        ///						Converts from a boost ndarray to a NumCpp NdArray<T, Alloc>
+        ///						Converts from a boost ndarray to a NumCpp NdArray<T>
         ///
         /// @param      inArray
         ///
-        /// @return     NdArray<T, Alloc>
+        /// @return     NdArray<T>
         ///
         template<typename dtype>
-        inline NdArray<dtype, Alloc> boost2Nc(const boost::python::numpy::ndarray& inArray)
+        inline NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
         {
             BoostNdarrayHelper<dtype> helper(inArray);
             if (helper.numDimensions() > 2)
@@ -67,7 +67,7 @@ namespace nc
                 arrayShape.rows = 1;
                 arrayShape.cols = static_cast<uint32>(helper.shape().front());
 
-                NdArray<dtype, Alloc> returnArray(arrayShape);
+                NdArray<dtype> returnArray(arrayShape);
                 for (uint32 i = 0; i < arrayShape.size(); ++i)
                 {
                     returnArray[i] = helper(i);
@@ -80,7 +80,7 @@ namespace nc
                 arrayShape.rows = static_cast<uint32>(helper.shape().front());
                 arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 
-                NdArray<dtype, Alloc> returnArray(arrayShape);
+                NdArray<dtype> returnArray(arrayShape);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     for (uint32 col = 0; col < arrayShape.cols; ++col)
@@ -94,14 +94,14 @@ namespace nc
         }
 
         //============================================================================
-        ///						Converts from a NumCpp NdArray<T, Alloc> to a boost ndarray
+        ///						Converts from a NumCpp NdArray<T> to a boost ndarray
         ///
         /// @param      inArray
         ///
         /// @return     ndarray
         ///
         template<typename dtype>
-        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype, Alloc>& inArray) noexcept
+        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) noexcept
         {
             const Shape inShape = inArray.shape();
             boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);

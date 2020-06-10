@@ -34,8 +34,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -53,19 +51,19 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        NdArray<dtype, Alloc> medianFilter1d(const NdArray<dtype, Alloc>& inImageArray, uint32 inSize,
+        template<typename dtype>
+        NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype, Alloc> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
-            NdArray<dtype, Alloc> output(1, inImageArray.size());
+            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
             const uint32 boundarySize = inSize / 2; // integer division
             const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
-                NdArray<dtype, Alloc> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
                 output[i - boundarySize] = window.median().item();
             }

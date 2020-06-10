@@ -39,7 +39,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp"
 
-#include <memory>
 #include <string>
 
 namespace nc
@@ -59,9 +58,8 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            template<typename dtype, class Alloc = std::allocator<dtype>>
-            NdArray<dtype, Alloc> addBoundary2d(const NdArray<dtype, Alloc>& inImage, 
-                Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
+            template<typename dtype>
+            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +99,7 @@ namespace nc
                     }
                 }
 
-                return NdArray<dtype, Alloc>(); // get rid of compiler warning
+                return NdArray<dtype>(); // get rid of compiler warning
             }
         }
     }

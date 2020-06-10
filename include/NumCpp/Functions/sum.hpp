@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> sum(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.sum(inAxis);
     }

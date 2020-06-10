@@ -76,7 +76,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> bernoulli(const Shape& inShape, dtype inP)
+        NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -85,7 +85,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::bernoulli_distribution<dtype> dist(inP);
 

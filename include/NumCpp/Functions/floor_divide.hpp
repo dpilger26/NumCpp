@@ -67,7 +67,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> floor_divide(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return floor(inArray1 / inArray2);
     }

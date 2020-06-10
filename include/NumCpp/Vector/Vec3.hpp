@@ -99,7 +99,7 @@ namespace nc
         ///
         /// @param  ndArray
         ///
-        Vec3(const NdArray<double, Alloc>& ndArray)
+        Vec3(const NdArray<double>& ndArray)
         {
             if (ndArray.size() != 3)
             {
@@ -323,9 +323,9 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<double, Alloc> toNdArray() const noexcept
+        NdArray<double> toNdArray() const noexcept
         {
-            NdArray<double, Alloc> returnArray = { x, y, z };
+            NdArray<double> returnArray = { x, y, z };
             return returnArray.transpose();
         }
 

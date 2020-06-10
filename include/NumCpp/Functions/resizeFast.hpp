@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc>& resizeFast(NdArray<dtype, Alloc>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
     {
         inArray.resizeFast(inNumRows, inNumCols);
         return inArray;
@@ -69,7 +69,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc>& resizeFast(NdArray<dtype, Alloc>& inArray, const Shape& inNewShape) noexcept
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape) noexcept
     {
         inArray.resizeFast(inNewShape);
         return inArray;

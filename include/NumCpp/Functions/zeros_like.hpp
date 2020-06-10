@@ -45,11 +45,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut, Alloc> zeros_like(const NdArray<dtype, Alloc>& inArray) noexcept
+    NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtypeOut, Alloc> returnArray(inArray.shape());
+        NdArray<dtypeOut> returnArray(inArray.shape());
         returnArray.zeros();
         return returnArray;
     }

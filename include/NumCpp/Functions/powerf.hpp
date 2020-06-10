@@ -68,9 +68,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype1, typename dtype2>
-    auto powerf(const NdArray<dtype1, Alloc>& inArray, dtype2 inExponent) noexcept
+    auto powerf(const NdArray<dtype1>& inArray, dtype2 inExponent) noexcept
     {
-        NdArray<decltype(powerf(dtype1{0}, dtype2{0})), Alloc> returnArray(inArray.shape());
+        NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype1 inValue) noexcept -> auto
             {
@@ -92,14 +92,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype1, typename dtype2>
-    auto powerf(const NdArray<dtype1, Alloc>& inArray, const NdArray<dtype2, Alloc>& inExponents)
+    auto powerf(const NdArray<dtype1>& inArray, const NdArray<dtype2>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<decltype(powerf(dtype1{0}, dtype2{0})), Alloc> returnArray(inArray.shape());
+        NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype1 inValue, dtype2 inExponent) noexcept -> auto
             {

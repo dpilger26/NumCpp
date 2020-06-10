@@ -33,7 +33,6 @@
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 
-#include <memory>
 #include <utility>
 #include <vector>
 
@@ -49,8 +48,8 @@ namespace nc
         /// @return
         ///				std::vector<Centroid>
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        std::vector<Centroid<dtype>, Alloc> centroidClusters(const std::vector<Cluster<dtype>, Alloc>& inClusters) noexcept
+        template<typename dtype>
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

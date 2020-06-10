@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> concatenate(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
@@ -62,7 +62,7 @@ namespace nc
                     finalSize += ndarray.size();
                 }
 
-                NdArray<dtype, Alloc> returnArray(1, finalSize);
+                NdArray<dtype> returnArray(1, finalSize);
                 uint32 offset = 0;
                 for (auto& ndarray : inArrayList)
                 {
@@ -84,7 +84,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype, Alloc>(0);
+                return NdArray<dtype>(0);
             }
         }
     }

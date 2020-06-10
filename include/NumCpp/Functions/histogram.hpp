@@ -54,7 +54,7 @@ namespace nc
     ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
     template<typename dtype>
-    std::pair<NdArray<uint32, Alloc>, NdArray<double, Alloc> > histogram(const NdArray<dtype, Alloc>& inArray, uint32 inNumBins = 10)
+    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,10 +63,10 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("number of bins must be positive.");
         }
 
-        NdArray<uint32, Alloc> histo = zeros<uint32>(1, inNumBins);
+        NdArray<uint32> histo = zeros<uint32>(1, inNumBins);
 
         constexpr bool useEndPoint = true;
-        NdArray<double, Alloc> binEdges = linspace(static_cast<double>(inArray.min().item()),
+        NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
             static_cast<double>(inArray.max().item()), inNumBins + 1, useEndPoint);
 
         for (uint32 i = 0; i < inArray.size(); ++i)

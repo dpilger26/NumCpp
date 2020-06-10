@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> row_stack(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList)
+    NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
         Shape finalShape;
@@ -70,7 +70,7 @@ namespace nc
         }
 
         // now that we know the final size, contruct the output array
-        NdArray<dtype, Alloc> returnArray(finalShape);
+        NdArray<dtype> returnArray(finalShape);
         uint32 rowStart = 0;
         for (auto& ndarray : inArrayList)
         {

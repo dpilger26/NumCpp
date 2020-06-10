@@ -36,7 +36,6 @@
 #include "NumCpp/Utils/gaussian1d.hpp"
 
 #include <cmath>
-#include <memory>
 #include <string>
 
 namespace nc
@@ -56,8 +55,8 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        NdArray<dtype, Alloc> gaussianFilter1d(const NdArray<dtype, Alloc>& inImageArray, double inSigma,
+        template<typename dtype>
+        NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
@@ -76,7 +75,7 @@ namespace nc
             const double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
 
             // calculate the gaussian kernel
-            NdArray<double, Alloc> kernel(1, kernelSize);
+            NdArray<double> kernel(1, kernelSize);
             for (double i = 0; i < kernelSize; ++i)
             {
                 kernel[static_cast<uint32>(i)] = utils::gaussian1d(i - kernalHalfSize, 0.0, inSigma);
@@ -86,7 +85,7 @@ namespace nc
             kernel /= kernel.sum().item();
 
             // perform the convolution
-            NdArray<dtype, Alloc> output = convolve1d(inImageArray.template astype<double>(),
+            NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
                 kernel,
                 inBoundaryType,
                 inConstantValue).template astype<dtype>();

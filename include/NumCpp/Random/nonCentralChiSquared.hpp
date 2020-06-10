@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
+        NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input lambda must be greater than zero.");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
 

@@ -62,7 +62,7 @@ namespace nc
         /// @return NdArray rotation matrix
         ///
         template<typename dtype>
-        NdArray<double, Alloc> wahbasProblem(const NdArray<dtype, Alloc>& wk, const NdArray<dtype, Alloc>& vk, const NdArray<dtype, Alloc>& ak)
+        NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk, const NdArray<dtype>& ak)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -97,9 +97,9 @@ namespace nc
                 b += ak[row] * dot(wkVec.transpose(), vkVec);
             }
 
-            NdArray<double, Alloc> u;
-            NdArray<double, Alloc> s;
-            NdArray<double, Alloc> vt;
+            NdArray<double> u;
+            NdArray<double> s;
+            NdArray<double> vt;
 
             linalg::svd(b, u, s, vt);
 
@@ -125,7 +125,7 @@ namespace nc
         /// @return NdArray rotation matrix
         ///
         template<typename dtype>
-        NdArray<double, Alloc> wahbasProblem(const NdArray<dtype, Alloc>& wk, const NdArray<dtype, Alloc>& vk)
+        NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk)
         {
             const auto ak = ones<dtype>({1, wk.shape().rows});
             return wahbasProblem(wk, vk, ak);

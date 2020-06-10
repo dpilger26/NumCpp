@@ -56,7 +56,7 @@ namespace nc
         /// @return             std::tuple<NdArray, NdArray, NdArray> of the decomposed L, U, and P matrices
         ///
         template<typename dtype>
-        std::tuple<NdArray<double, Alloc>, NdArray<double, Alloc>, NdArray<double, Alloc> > pivotLU_decomposition(const NdArray<dtype, Alloc>& inMatrix)
+        std::tuple<NdArray<double>, NdArray<double>, NdArray<double> > pivotLU_decomposition(const NdArray<dtype>& inMatrix)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -67,9 +67,9 @@ namespace nc
                 THROW_RUNTIME_ERROR("Input matrix should be square.");
             }
 
-            NdArray<double, Alloc> lMatrix = zeros_like<double>(inMatrix);
-            NdArray<double, Alloc> uMatrix = inMatrix.template astype<double>();
-            NdArray<double, Alloc> pMatrix = eye<double>(shape.rows);
+            NdArray<double> lMatrix = zeros_like<double>(inMatrix);
+            NdArray<double> uMatrix = inMatrix.template astype<double>();
+            NdArray<double> pMatrix = eye<double>(shape.rows);
 
             for(uint32 k = 0; k < shape.rows; ++k)
             {

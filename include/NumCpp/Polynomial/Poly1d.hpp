@@ -76,7 +76,7 @@ namespace nc
             ///                        polynomial roots if second input is true)
             /// @param      isRoots
             ///
-            Poly1d(const NdArray<dtype, Alloc>& inValues, bool isRoots = false)
+            Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
             {
                 if (inValues.size() > DtypeInfo<uint8>::max())
                 {
@@ -88,7 +88,7 @@ namespace nc
                     coefficients_.push_back(1);
                     for (auto value : inValues)
                     {
-                        NdArray<dtype, Alloc> coeffs = { -(value), static_cast<dtype>(1) };
+                        NdArray<dtype> coeffs = { -(value), static_cast<dtype>(1) };
                         *this *= Poly1d<dtype>(coeffs, !isRoots);
                     }
                 }
@@ -129,7 +129,7 @@ namespace nc
             template<typename dtypeOut>
             Poly1d<dtypeOut> astype() const noexcept
             {
-                auto newCoefficients = NdArray<dtypeOut, Alloc>(1, static_cast<uint32>(coefficients_.size()));
+                auto newCoefficients = NdArray<dtypeOut>(1, static_cast<uint32>(coefficients_.size()));
 
                 const auto function = [](dtype value) noexcept -> dtypeOut
                 {
@@ -148,10 +148,10 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            NdArray<dtype, Alloc> coefficients() const noexcept
+            NdArray<dtype> coefficients() const noexcept
             {
                 auto coefficientsCopy = coefficients_;
-                return NdArray<dtype, Alloc>(coefficientsCopy);
+                return NdArray<dtype>(coefficientsCopy);
             }
 
             //============================================================================
@@ -171,7 +171,7 @@ namespace nc
                     return Poly1d<dtype>({ 0 });
                 }
 
-                NdArray<dtype, Alloc> derivativeCofficients(1, numCoefficients - 1);
+                NdArray<dtype> derivativeCofficients(1, numCoefficients - 1);
 
                 uint32 counter = 0;
                 for (uint32 i = 1; i < numCoefficients; ++i)
@@ -190,7 +190,7 @@ namespace nc
             /// @param yValues: the y measurements [n, 1] array
             /// @param polyOrder: the order of the poly nomial to fit
             /// @return Poly1d
-            static Poly1d<double> fit(const NdArray<dtype, Alloc>& xValues, const NdArray<dtype, Alloc>& yValues, uint8 polyOrder)
+            static Poly1d<double> fit(const NdArray<dtype>& xValues, const NdArray<dtype>& yValues, uint8 polyOrder)
             {
                 const auto numMeasurements = xValues.size();
 
@@ -209,7 +209,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("Input y must be a flattened [n, 1] array.");
                 }
 
-                NdArray<double, Alloc> a(numMeasurements, polyOrder + 1);
+                NdArray<double> a(numMeasurements, polyOrder + 1);
                 for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
                 {
                     const auto xDouble = static_cast<double>(xValues[measIdx]);
@@ -219,7 +219,7 @@ namespace nc
                     }
                 }
 
-                NdArray<double, Alloc> aInv;
+                NdArray<double> aInv;
                 if (a.issquare())
                 {
                     aInv = linalg::inv(a);
@@ -245,8 +245,8 @@ namespace nc
             /// @param weights: the measurement weights [1, n] or [n, 1] array
             /// @param polyOrder: the order of the poly nomial to fit
             /// @return Poly1d
-            static Poly1d<double> fit(const NdArray<dtype, Alloc>& xValues, const NdArray<dtype, Alloc>& yValues,
-                const NdArray<dtype, Alloc>& weights, uint8 polyOrder)
+            static Poly1d<double> fit(const NdArray<dtype>& xValues, const NdArray<dtype>& yValues,
+                const NdArray<dtype>& weights, uint8 polyOrder)
             {
                 const auto numMeasurements = xValues.size();
 
@@ -275,7 +275,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("Input weights must be a flattened [1, n] or [n, 1] array.");
                 }
 
-                NdArray<double, Alloc> a(numMeasurements, polyOrder + 1);
+                NdArray<double> a(numMeasurements, polyOrder + 1);
                 for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
                 {
                     const auto xDouble = static_cast<double>(xValues[measIdx]);
@@ -285,8 +285,8 @@ namespace nc
                     }
                 }
 
-                NdArray<double, Alloc> aWeighted(a.shape());
-                NdArray<double, Alloc> yWeighted(yValues.shape());
+                NdArray<double> aWeighted(a.shape());
+                NdArray<double> yWeighted(yValues.shape());
 
                 for (uint32 measIdx = 0; measIdx < numMeasurements; ++measIdx)
                 {
@@ -299,7 +299,7 @@ namespace nc
                     }
                 }
 
-                NdArray<double, Alloc> aInv;
+                NdArray<double> aInv;
                 if (aWeighted.issquare())
                 {
                     aInv = linalg::inv(aWeighted);
@@ -329,7 +329,7 @@ namespace nc
                     return {};
                 }
 
-                NdArray<double, Alloc> integralCofficients(1, numCoefficients + 1);
+                NdArray<double> integralCofficients(1, numCoefficients + 1);
                 integralCofficients[0] = 0.0;
 
                 for (uint32 i = 0; i < numCoefficients; ++i)

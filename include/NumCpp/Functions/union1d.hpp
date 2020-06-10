@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> union1d(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -66,6 +66,6 @@ namespace nc
         const auto last = stl_algorithms::set_union(set1.begin(), set1.end(), 
             set2.begin(), set2.end(), res.begin(), comp);
 
-        return NdArray<dtype, Alloc>(res.begin(), last);
+        return NdArray<dtype>(res.begin(), last);
     }
 }

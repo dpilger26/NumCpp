@@ -68,11 +68,11 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double, Alloc>
+        ///				NdArray<double>
         ///
-        inline NdArray<double, Alloc> bernoilli(const NdArray<uint32, Alloc>& inArray)
+        inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
         {
-            NdArray<double, Alloc> returnArray(inArray.shape());
+            NdArray<double> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> double

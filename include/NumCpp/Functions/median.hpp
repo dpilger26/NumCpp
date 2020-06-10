@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> median(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.median(inAxis);
     }

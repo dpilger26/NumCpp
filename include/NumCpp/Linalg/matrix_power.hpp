@@ -60,7 +60,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double, Alloc> matrix_power(const NdArray<dtype, Alloc>& inArray, int16 inPower)
+        NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -84,8 +84,8 @@ namespace nc
             }
             else if (inPower > 1)
             {
-                NdArray<double, Alloc> inArrayDouble = inArray.template astype<double>();
-                NdArray<double, Alloc> returnArray = dot(inArrayDouble, inArrayDouble);
+                NdArray<double> inArrayDouble = inArray.template astype<double>();
+                NdArray<double> returnArray = dot(inArrayDouble, inArrayDouble);
                 for (int16 i = 2; i < inPower; ++i)
                 {
                     returnArray = dot(returnArray, inArrayDouble);
@@ -94,8 +94,8 @@ namespace nc
             }
             else
             {
-                NdArray<double, Alloc> inverse = inv(inArray);
-                NdArray<double, Alloc> returnArray = dot(inverse, inverse);
+                NdArray<double> inverse = inv(inArray);
+                NdArray<double> returnArray = dot(inverse, inverse);
                 inPower *= -1;
                 for (int16 i = 2; i < inPower; ++i)
                 {

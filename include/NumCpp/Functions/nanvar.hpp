@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double, Alloc> nanvar(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 

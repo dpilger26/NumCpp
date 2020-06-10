@@ -33,8 +33,6 @@
 #include "NumCpp/Filter/Filters/Filters2d/medianFilter.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -50,11 +48,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        NdArray<dtype, Alloc> complementaryMedianFilter(const NdArray<dtype, Alloc>& inImageArray,
-            uint32 inSize, Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype>
+        NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype, Alloc> inImageArrayCopy(inImageArray);
+            NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
 
             return inImageArrayCopy;

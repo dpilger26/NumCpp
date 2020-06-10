@@ -68,9 +68,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype1, typename dtype2>
-        auto beta(const NdArray<dtype1, Alloc>& inArrayA, const NdArray<dtype2, Alloc>& inArrayB)
+        auto beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB)
         {
-            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 })), Alloc> returnArray(inArrayB.shape());
+            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayB.shape());
 
             stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(), inArrayB.cbegin(), returnArray.begin(),
                 [](dtype1 a, dtype2 b) -> auto

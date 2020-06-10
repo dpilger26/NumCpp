@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> fliplr(const NdArray<dtype, Alloc>& inArray) noexcept
+    NdArray<dtype> fliplr(const NdArray<dtype>& inArray) noexcept
     {
         return flip(inArray, Axis::COL);
     }

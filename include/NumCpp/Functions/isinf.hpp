@@ -69,9 +69,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool, Alloc> isinf(const NdArray<dtype, Alloc>& inArray) noexcept
+    NdArray<bool> isinf(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<bool, Alloc> returnArray(inArray.shape());
+        NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> bool
             {

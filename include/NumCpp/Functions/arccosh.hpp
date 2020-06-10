@@ -68,9 +68,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto arccosh(const NdArray<dtype, Alloc>& inArray) noexcept
+    auto arccosh(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<decltype(arccosh(dtype{0})), Alloc> returnArray(inArray.shape());
+        NdArray<decltype(arccosh(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> auto
             { 

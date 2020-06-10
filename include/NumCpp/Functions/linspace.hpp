@@ -60,17 +60,17 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         if (inNum == 0)
         {
-            return NdArray<dtype, Alloc>(0);
+            return NdArray<dtype>(0);
         }
         else if (inNum == 1)
         {
-            NdArray<dtype, Alloc> returnArray = { inStart };
+            NdArray<dtype> returnArray = { inStart };
             return returnArray;
         }
 
@@ -83,12 +83,12 @@ namespace nc
         {
             if (inNum == 2)
             {
-                NdArray<dtype, Alloc> returnArray = { inStart, inStop };
+                NdArray<dtype> returnArray = { inStart, inStop };
                 return returnArray;
             }
             else
             {
-                NdArray<dtype, Alloc> returnArray(1, inNum);
+                NdArray<dtype> returnArray(1, inNum);
                 returnArray.front() = inStart;
                 returnArray.back() = inStop;
 
@@ -107,12 +107,12 @@ namespace nc
             if (inNum == 2)
             {
                 dtype step = (inStop - inStart) / (inNum);
-                NdArray<dtype, Alloc> returnArray = { inStart, inStart + step };
+                NdArray<dtype> returnArray = { inStart, inStart + step };
                 return returnArray;
             }
             else
             {
-                NdArray<dtype, Alloc> returnArray(1, inNum);
+                NdArray<dtype> returnArray(1, inNum);
                 returnArray.front() = inStart;
 
                 dtype step = (inStop - inStart) / static_cast<dtype>(inNum);

@@ -52,7 +52,7 @@ namespace nc
         /// @return             NdArray of the decomposed L matrix
         ///
         template<typename dtype>
-        NdArray<double, Alloc> cholesky(const NdArray<dtype, Alloc>& inMatrix)
+        NdArray<double> cholesky(const NdArray<dtype>& inMatrix)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

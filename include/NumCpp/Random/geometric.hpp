@@ -80,7 +80,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> geometric(const Shape& inShape, double inP = 0.5)
+        NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -89,7 +89,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::geometric_distribution<dtype, double> dist(inP);
 

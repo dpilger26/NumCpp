@@ -65,9 +65,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto log_gamma(const NdArray<dtype, Alloc>& inArray)
+        auto log_gamma(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(log_gamma(dtype{0})), Alloc> returnArray(inArray.shape());
+            NdArray<decltype(log_gamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

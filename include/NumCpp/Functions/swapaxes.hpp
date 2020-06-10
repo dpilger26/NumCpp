@@ -44,7 +44,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> swapaxes(const NdArray<dtype, Alloc>& inArray) noexcept
+    NdArray<dtype> swapaxes(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.swapaxes();
     }

@@ -72,7 +72,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> clip(const NdArray<dtype, Alloc>& inArray, dtype inMinValue, dtype inMaxValue) noexcept
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) noexcept
     {
         return inArray.clip(inMinValue, inMaxValue);
     }

@@ -54,7 +54,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype discrete(const NdArray<double, Alloc>& inWeights)
+        dtype discrete(const NdArray<double>& inWeights)
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -76,11 +76,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> discrete(const Shape& inShape, const NdArray<double, Alloc>& inWeights)
+        NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 

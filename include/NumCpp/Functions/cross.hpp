@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> cross(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2, Axis inAxis = Axis::NONE)
+    NdArray<dtype> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -70,14 +70,14 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
-                NdArray<dtype, Alloc> in1 = inArray1.flatten();
-                NdArray<dtype, Alloc> in2 = inArray2.flatten();
+                NdArray<dtype> in1 = inArray1.flatten();
+                NdArray<dtype> in2 = inArray2.flatten();
 
                 switch (arraySize)
                 {
                     case 2:
                     {
-                        NdArray<dtype, Alloc> returnArray = { in1[0] * in2[1] - in1[1] * in2[0] };
+                        NdArray<dtype> returnArray = { in1[0] * in2[1] - in1[1] * in2[0] };
                         return returnArray;
                     }
                     case 3:
@@ -86,14 +86,14 @@ namespace nc
                         dtype j = -(in1[0] * in2[2] - in1[2] * in2[0]);
                         dtype k = in1[0] * in2[1] - in1[1] * in2[0];
 
-                        NdArray<dtype, Alloc> returnArray = { i, j, k };
+                        NdArray<dtype> returnArray = { i, j, k };
                         return returnArray;
                     }
                     default:
                     {
                         // this isn't actually possible, just putting this here to get rid
                         // of the compiler warning.
-                        return NdArray<dtype, Alloc>(0);
+                        return NdArray<dtype>(0);
                     }
                 }
             }
@@ -116,13 +116,13 @@ namespace nc
                     returnArrayShape.rows = 3;
                 }
 
-                NdArray<dtype, Alloc> returnArray(returnArrayShape);
+                NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
                     const int32 theCol = static_cast<int32>(col);
-                    NdArray<dtype, Alloc> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
-                    NdArray<dtype, Alloc> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
-                    NdArray<dtype, Alloc> vecCross = cross(vec1, vec2, Axis::NONE);
+                    NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
+                    NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
+                    NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
                 }
@@ -148,13 +148,13 @@ namespace nc
                     returnArrayShape.cols = 3;
                 }
 
-                NdArray<dtype, Alloc> returnArray(returnArrayShape);
+                NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     const int32 theRow = static_cast<int32>(row);
-                    NdArray<dtype, Alloc> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
-                    NdArray<dtype, Alloc> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
-                    NdArray<dtype, Alloc> vecCross = cross(vec1, vec2, Axis::NONE);
+                    NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
+                    NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
+                    NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
                 }
@@ -165,7 +165,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<dtype, Alloc>(0);
+                return NdArray<dtype>(0);
             }
         }
     }

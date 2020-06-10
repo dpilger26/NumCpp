@@ -90,7 +90,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
+        NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -103,7 +103,7 @@ namespace nc
                 std::swap(inLow, inHigh);
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 

@@ -54,7 +54,7 @@ namespace nc
         ///				matrix determinant
         ///
         template<typename dtype>
-        dtype det(const NdArray<dtype, Alloc>& inArray)
+        dtype det(const NdArray<dtype>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -86,7 +86,7 @@ namespace nc
             else
             {
                 dtype determinant = 0;
-                NdArray<dtype, Alloc> submat(inShape.rows - 1);
+                NdArray<dtype> submat(inShape.rows - 1);
 
                 for (uint32 c = 0; c < inShape.rows; ++c)
                 {

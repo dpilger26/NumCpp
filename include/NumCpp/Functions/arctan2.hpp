@@ -69,14 +69,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto arctan2(const NdArray<dtype, Alloc>& inY, const NdArray<dtype, Alloc>& inX)
+    auto arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
     {
         if (inX.shape() != inY.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<decltype(arctan2(dtype{0}, dtype{0})), Alloc> returnArray(inY.shape());
+        NdArray<decltype(arctan2(dtype{0}, dtype{0}))> returnArray(inY.shape());
         stl_algorithms::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
             [](dtype y, dtype x) noexcept -> auto
             {

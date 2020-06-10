@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> ones(uint32 inSquareSize) noexcept
+    NdArray<dtype> ones(uint32 inSquareSize) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -66,7 +66,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> ones(uint32 inNumRows, uint32 inNumCols) noexcept
+    NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -85,7 +85,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> ones(const Shape& inShape) noexcept
+    NdArray<dtype> ones(const Shape& inShape) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

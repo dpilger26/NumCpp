@@ -100,7 +100,7 @@ namespace nc
             ///                  if size = 4 the i, j, k, s components
             ///                  if shape = [3, 3] then direction cosine matrix
             ///
-            Quaternion(const NdArray<double, Alloc>& inArray) :
+            Quaternion(const NdArray<double>& inArray) :
                 components_{ 0.0, 0.0, 0.0, 0.0 }
             {
                 if (inArray.size() == 3)
@@ -153,7 +153,7 @@ namespace nc
             /// @param			inAxis: Euler axis x,y,z vector components
             /// @param			inAngle: Euler angle in radians
             ///
-            Quaternion(const NdArray<double, Alloc>& inAxis, double inAngle) :
+            Quaternion(const NdArray<double>& inAxis, double inAngle) :
                 Quaternion(Vec3(inAxis), inAngle)
             {}
 
@@ -166,30 +166,30 @@ namespace nc
             /// @param				inQuat2
             /// @param				inTime (seperation time)
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            static NdArray<double, Alloc> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) noexcept
+            static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) noexcept
             {
-                NdArray<double, Alloc> q0 = inQuat1.toNdArray();
-                NdArray<double, Alloc> q1 = inQuat2.toNdArray();
+                NdArray<double> q0 = inQuat1.toNdArray();
+                NdArray<double> q1 = inQuat2.toNdArray();
 
-                NdArray<double, Alloc> qDot = q1 - q0;
+                NdArray<double> qDot = q1 - q0;
                 qDot /= inTime;
 
-                NdArray<double, Alloc> eyeTimesScalar(3);
+                NdArray<double> eyeTimesScalar(3);
                 eyeTimesScalar.zeros();
                 eyeTimesScalar(0, 0) = inQuat2.s();
                 eyeTimesScalar(1, 1) = inQuat2.s();
                 eyeTimesScalar(2, 2) = inQuat2.s();
 
-                NdArray<double, Alloc> epsilonHat = linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
-                NdArray<double, Alloc> q(4, 3);
+                NdArray<double> epsilonHat = linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
+                NdArray<double> q(4, 3);
                 q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
                 q(3, 0) = -inQuat2.i();
                 q(3, 1) = -inQuat2.j();
                 q(3, 2) = -inQuat2.k();
 
-                NdArray<double, Alloc> omega = q.transpose().dot(qDot.transpose());
+                NdArray<double> omega = q.transpose().dot(qDot.transpose());
                 return omega *= 2.0;
             }
 
@@ -201,9 +201,9 @@ namespace nc
             /// @param				inQuat2
             /// @param				inTime (seperation time)
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            NdArray<double, Alloc> angularVelocity(const Quaternion& inQuat2, double inTime) const noexcept
+            NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const noexcept
             {
                 return angularVelocity(*this, inQuat2, inTime);
             }
@@ -373,9 +373,9 @@ namespace nc
             /// @param
             ///				inVector (cartesian vector with x,y,z components)
             /// @return
-            ///				NdArray<double, Alloc> (cartesian vector with x,y,z components)
+            ///				NdArray<double> (cartesian vector with x,y,z components)
             ///
-            NdArray<double, Alloc> rotate(const NdArray<double, Alloc>& inVector) const
+            NdArray<double> rotate(const NdArray<double>& inVector) const
             {
                 if (inVector.size() != 3)
                 {
@@ -463,7 +463,7 @@ namespace nc
                 const double s0 = std::cos(theta) - dotProduct * std::sin(theta) / std::sin(theta0);  // == sin(theta_0 - theta) / sin(theta_0)
                 const double s1 = std::sin(theta) / std::sin(theta0);
 
-                NdArray<double, Alloc> interpQuat = (inQuat1.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
+                NdArray<double> interpQuat = (inQuat1.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
                 return Quaternion(interpQuat);
             }
 
@@ -501,11 +501,11 @@ namespace nc
             ///						returns the direction cosine matrix
             ///
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            NdArray<double, Alloc> toDCM() const noexcept
+            NdArray<double> toDCM() const noexcept
             {
-                NdArray<double, Alloc> dcm(3);
+                NdArray<double> dcm(3);
 
                 const double q0 = i();
                 const double q1 = j();
@@ -535,12 +535,12 @@ namespace nc
             ///						returns the quaternion as an NdArray
             ///
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            NdArray<double, Alloc> toNdArray() const noexcept
+            NdArray<double> toNdArray() const noexcept
             {
                 auto componentsCopy = components_;
-                return NdArray<double, Alloc>(componentsCopy);
+                return NdArray<double>(componentsCopy);
             }
 
             //============================================================================
@@ -748,9 +748,9 @@ namespace nc
             /// @param
             ///				inVec
             /// @return
-            ///				NdArray<double, Alloc>
+            ///				NdArray<double>
             ///
-            NdArray<double, Alloc> operator*(const NdArray<double, Alloc>& inVec) const
+            NdArray<double> operator*(const NdArray<double>& inVec) const
             {
                 if (inVec.size() != 3)
                 {
@@ -760,7 +760,7 @@ namespace nc
                 const auto p = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
                 const auto pPrime = *this * p * this->inverse();
 
-                NdArray<double, Alloc> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
+                NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
                 rotatedVec *= norm(inVec).item();
                 return rotatedVec;
             }
@@ -944,7 +944,7 @@ namespace nc
             ///
             /// @ param dcm: the direction cosine matrix
             ///
-            void dcmToQuat(const NdArray<double, Alloc>& dcm)
+            void dcmToQuat(const NdArray<double>& dcm)
             {
                 const Shape inShape = dcm.shape();
                 if (!(inShape.rows == 3 && inShape.cols == 3))
@@ -952,7 +952,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
                 }
 
-                NdArray<double, Alloc> checks(1, 4);
+                NdArray<double> checks(1, 4);
                 checks[0] = 1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
                 checks[1] = 1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
                 checks[2] = 1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2);

@@ -31,8 +31,6 @@
 #include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <memory>
-
 namespace nc
 {
     namespace filter
@@ -49,11 +47,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, class Alloc = std::allocator<dtype>>
-        NdArray<dtype, Alloc> laplace(const NdArray<dtype, Alloc>& inImageArray,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype>
+        NdArray<dtype> laplace(const NdArray<dtype>& inImageArray, Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype, Alloc> kernel = { {0, 1, 0}, {1, -4, 1}, {0, 1, 0} };
+            NdArray<dtype> kernel = { {0, 1, 0}, {1, -4, 1}, {0, 1, 0} };
             return convolve(inImageArray, 3, kernel, inBoundaryType, inConstantValue);
         }
     }

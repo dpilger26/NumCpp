@@ -44,7 +44,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool, Alloc> equal(const NdArray<dtype, Alloc>& inArray1, const NdArray<dtype, Alloc>& inArray2)
+    NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return inArray1 == inArray2;
     }

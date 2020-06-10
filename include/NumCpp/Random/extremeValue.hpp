@@ -83,7 +83,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
+        NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -97,7 +97,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
 

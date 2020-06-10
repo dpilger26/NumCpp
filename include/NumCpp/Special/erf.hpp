@@ -67,9 +67,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto erf(const NdArray<dtype, Alloc>& inArray)
+        auto erf(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(erf(dtype{0})), Alloc> returnArray(inArray.shape());
+            NdArray<decltype(erf(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

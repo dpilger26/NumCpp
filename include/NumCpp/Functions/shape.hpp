@@ -42,7 +42,7 @@ namespace nc
     ///				Shape
     ///
     template<typename dtype>
-    Shape shape(const NdArray<dtype, Alloc>& inArray) noexcept
+    Shape shape(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.shape();
     }

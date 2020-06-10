@@ -72,14 +72,14 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> ldexp(const NdArray<dtype, Alloc>& inArray1, const NdArray<uint8, Alloc>& inArray2)
+    NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<dtype, Alloc> returnArray(inArray1.shape());
+        NdArray<dtype> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, uint8 inValue2) noexcept -> dtype
             {

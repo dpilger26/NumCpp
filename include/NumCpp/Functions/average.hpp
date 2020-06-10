@@ -55,7 +55,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    auto average(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    auto average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return mean(inArray, inAxis);
     }
@@ -73,7 +73,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double, Alloc> average(const NdArray<dtype, Alloc>& inArray, const NdArray<dtype, Alloc>& inWeights, Axis inAxis = Axis::NONE)
+    NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -86,12 +86,12 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
-                NdArray<double, Alloc> weightedArray(inArray.shape());
+                NdArray<double> weightedArray(inArray.shape());
                 stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
                     weightedArray.begin(), std::multiplies<double>());
 
                 double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
-                NdArray<double, Alloc> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
+                NdArray<double> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
             }
@@ -104,10 +104,10 @@ namespace nc
                 }
 
                 double weightSum = inWeights.template astype<double>().sum().item();
-                NdArray<double, Alloc> returnArray(1, arrayShape.rows);
+                NdArray<double> returnArray(1, arrayShape.rows);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
-                    NdArray<double, Alloc> weightedArray(1, arrayShape.cols);
+                    NdArray<double> weightedArray(1, arrayShape.cols);
                     stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
@@ -124,14 +124,14 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
-                NdArray<dtype, Alloc> transposedArray = inArray.transpose();
+                NdArray<dtype> transposedArray = inArray.transpose();
 
                 const Shape transShape = transposedArray.shape();
                 double weightSum = inWeights.template astype<double>().sum().item();
-                NdArray<double, Alloc> returnArray(1, transShape.rows);
+                NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
-                    NdArray<double, Alloc> weightedArray(1, transShape.cols);
+                    NdArray<double> weightedArray(1, transShape.cols);
                     stl_algorithms::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
@@ -145,7 +145,7 @@ namespace nc
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double, Alloc>(0);
+                return NdArray<double>(0);
             }
         }
     }
@@ -163,8 +163,8 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>, Alloc> average(const NdArray<std::complex<dtype>, Alloc>& inArray, 
-        const NdArray<dtype, Alloc>& inWeights, Axis inAxis = Axis::NONE)
+    NdArray<std::complex<double>> average(const NdArray<std::complex<dtype>>& inArray, 
+        const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -182,12 +182,12 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
-                NdArray<std::complex<double>, Alloc> weightedArray(inArray.shape());
+                NdArray<std::complex<double>> weightedArray(inArray.shape());
                 stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
                     weightedArray.begin(), multiplies);
 
                 std::complex<double> sum = std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.0));
-                NdArray<std::complex<double>, Alloc> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
+                NdArray<std::complex<double>> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
             }
@@ -200,10 +200,10 @@ namespace nc
                 }
 
                 double weightSum = inWeights.template astype<double>().sum().item();
-                NdArray<std::complex<double>, Alloc> returnArray(1, arrayShape.rows);
+                NdArray<std::complex<double>> returnArray(1, arrayShape.rows);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
-                    NdArray<std::complex<double>, Alloc> weightedArray(1, arrayShape.cols);
+                    NdArray<std::complex<double>> weightedArray(1, arrayShape.cols);
                     stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), multiplies);
 
@@ -221,14 +221,14 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
-                NdArray<std::complex<dtype>, Alloc> transposedArray = inArray.transpose();
+                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
 
                 const Shape transShape = transposedArray.shape();
                 double weightSum = inWeights.template astype<double>().sum().item();
-                NdArray<std::complex<double>, Alloc> returnArray(1, transShape.rows);
+                NdArray<std::complex<double>> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
-                    NdArray<std::complex<double>, Alloc> weightedArray(1, transShape.cols);
+                    NdArray<std::complex<double>> weightedArray(1, transShape.cols);
                     stl_algorithms::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), multiplies);
 

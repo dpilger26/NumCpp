@@ -70,7 +70,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> interp(const NdArray<dtype, Alloc>& inX, const NdArray<dtype, Alloc>& inXp, const NdArray<dtype, Alloc>& inFp)
+    NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
         // do some error checking first
         if (inXp.size() != inFp.size())
@@ -84,9 +84,9 @@ namespace nc
         }
 
         // sort the input inXp and inFp data
-        NdArray<uint32, Alloc> sortedXpIdxs = argsort(inXp);
-        NdArray<dtype, Alloc> sortedXp(1, inFp.size());
-        NdArray<dtype, Alloc> sortedFp(1, inFp.size());
+        NdArray<uint32> sortedXpIdxs = argsort(inXp);
+        NdArray<dtype> sortedXp(1, inFp.size());
+        NdArray<dtype> sortedFp(1, inFp.size());
         uint32 counter = 0;
         for (auto sortedXpIdx : sortedXpIdxs)
         {
@@ -95,9 +95,9 @@ namespace nc
         }
 
         // sort the input inX array
-        NdArray<dtype, Alloc> sortedX = sort(inX);
+        NdArray<dtype> sortedX = sort(inX);
 
-        NdArray<dtype, Alloc> returnArray(1, inX.size());
+        NdArray<dtype> returnArray(1, inX.size());
 
         uint32 currXpIdx = 0;
         uint32 currXidx = 0;

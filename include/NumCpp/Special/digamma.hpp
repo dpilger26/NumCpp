@@ -67,9 +67,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto digamma(const NdArray<dtype, Alloc>& inArray)
+        auto digamma(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(digamma(dtype{0})), Alloc> returnArray(inArray.shape());
+            NdArray<decltype(digamma(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue) -> auto

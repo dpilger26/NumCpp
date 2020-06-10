@@ -51,11 +51,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> nanprod(const NdArray<dtype, Alloc>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
-        NdArray<dtype, Alloc> arrayCopy(inArray);
+        NdArray<dtype> arrayCopy(inArray);
         stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void
             { 

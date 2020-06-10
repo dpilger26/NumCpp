@@ -78,7 +78,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+        NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -87,7 +87,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             boost::random::cauchy_distribution<dtype> dist(inMean, inSigma);
 

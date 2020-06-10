@@ -57,28 +57,28 @@ namespace nc
         ///
         /// @param      numpyArray
         ///
-        /// @return     NdArray<dtype, Alloc>
+        /// @return     NdArray<dtype>
         ///
         template<typename dtype>
-        inline NdArray<dtype, Alloc> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
+        inline NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
         {
             dtype* dataPtr = numpyArray.mutable_data();
             switch (numpyArray.ndim())
             {
                 case 0:
                 {
-                    return NdArray<dtype, Alloc>(dataPtr, 0, 0, false);
+                    return NdArray<dtype>(dataPtr, 0, 0, false);
                 }
                 case 1:
                 {
                     uint32 size = static_cast<uint32>(numpyArray.size());
-                    return NdArray<dtype, Alloc>(dataPtr, 1, size, false);
+                    return NdArray<dtype>(dataPtr, 1, size, false);
                 }
                 case 2:
                 {
                     uint32 numRows = static_cast<uint32>(numpyArray.shape(0));
                     uint32 numCols = static_cast<uint32>(numpyArray.shape(1));
-                    return NdArray<dtype, Alloc>(dataPtr, numRows, numCols, false);
+                    return NdArray<dtype>(dataPtr, numRows, numCols, false);
                 }
                 default:
                 {
@@ -96,7 +96,7 @@ namespace nc
         /// @return    pybind11::array_t
         ///
         template<typename dtype>
-        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype, Alloc>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
+        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
         {
             Shape inShape = inArray.shape();
             std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };

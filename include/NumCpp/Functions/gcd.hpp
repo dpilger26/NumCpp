@@ -63,10 +63,10 @@ namespace nc
     ///
     /// @param      inArray
     /// @return
-    ///				NdArray<double, Alloc>
+    ///				NdArray<double>
     ///
     template<typename dtype>
-    dtype gcd(const NdArray<dtype, Alloc>& inArray)
+    dtype gcd(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;

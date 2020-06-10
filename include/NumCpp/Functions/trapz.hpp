@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -61,7 +61,7 @@ namespace nc
         {
             case Axis::COL:
             {
-                NdArray<double, Alloc> returnArray(inShape.rows, 1);
+                NdArray<double> returnArray(inShape.rows, 1);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = 0;
@@ -78,9 +78,9 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype, Alloc> arrayTranspose = inArray.transpose();
+                NdArray<dtype> arrayTranspose = inArray.transpose();
                 const Shape transShape = arrayTranspose.shape();
-                NdArray<double, Alloc> returnArray(transShape.rows, 1);
+                NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = 0;
@@ -103,14 +103,14 @@ namespace nc
                     sum += static_cast<double>(inArray[i + 1] - inArray[i]) / 2.0 + static_cast<double>(inArray[i]);
                 }
 
-                NdArray<double, Alloc> returnArray = { sum * dx };
+                NdArray<double> returnArray = { sum * dx };
                 return returnArray;
             }
             default:
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double, Alloc>(0);
+                return NdArray<double>(0);
             }
         }
     }
@@ -129,7 +129,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double, Alloc> trapz(const NdArray<dtype, Alloc>& inArrayY, const NdArray<dtype, Alloc>& inArrayX, Axis inAxis = Axis::NONE)
+    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)
     {
         const Shape inShapeY = inArrayY.shape();
         const Shape inShapeX = inArrayX.shape();
@@ -143,7 +143,7 @@ namespace nc
         {
             case Axis::COL:
             {
-                NdArray<double, Alloc> returnArray(inShapeY.rows, 1);
+                NdArray<double> returnArray(inShapeY.rows, 1);
                 for (uint32 row = 0; row < inShapeY.rows; ++row)
                 {
                     double sum = 0;
@@ -161,10 +161,10 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype, Alloc> arrayYTranspose = inArrayY.transpose();
-                NdArray<dtype, Alloc> arrayXTranspose = inArrayX.transpose();
+                NdArray<dtype> arrayYTranspose = inArrayY.transpose();
+                NdArray<dtype> arrayXTranspose = inArrayX.transpose();
                 const Shape transShape = arrayYTranspose.shape();
-                NdArray<double, Alloc> returnArray(transShape.rows, 1);
+                NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = 0;
@@ -189,14 +189,14 @@ namespace nc
                     sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]));
                 }
 
-                NdArray<double, Alloc> returnArray = { sum };
+                NdArray<double> returnArray = { sum };
                 return returnArray;
             }
             default:
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return NdArray<double, Alloc>(0);
+                return NdArray<double>(0);
             }
         }
     }

@@ -55,7 +55,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> fromfile(const std::string& inFilename, const std::string& inSep = "")
+    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -87,7 +87,7 @@ namespace nc
 
             file.close();
 
-            NdArray<dtype, Alloc> returnArray(reinterpret_cast<dtype*>(fileBuffer.get()), fileSize / sizeof(dtype));
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.get()), fileSize / sizeof(dtype));
 
             return returnArray;
         }
@@ -137,7 +137,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
             }
 
-            return NdArray<dtype, Alloc>(values);
+            return NdArray<dtype>(values);
         }
     }
 }

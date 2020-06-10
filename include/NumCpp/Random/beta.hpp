@@ -87,7 +87,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
+        NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -101,7 +101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input beta must be greater than zero.");
             }
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 

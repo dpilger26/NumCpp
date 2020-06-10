@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    std::pair<NdArray<uint32, Alloc>, NdArray<uint32, Alloc> > nonzero(const NdArray<dtype, Alloc>& inArray) noexcept
+    std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.nonzero();
     }

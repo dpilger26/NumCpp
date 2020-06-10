@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype, Alloc> stack(const std::initializer_list<NdArray<dtype, Alloc> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
@@ -69,6 +69,6 @@ namespace nc
             }
         }
 
-        return NdArray<dtype, Alloc>();  // getting rid of compiler warning
+        return NdArray<dtype>();  // getting rid of compiler warning
     }
 }

@@ -72,11 +72,11 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
+        NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            NdArray<dtype, Alloc> returnArray(inShape);
+            NdArray<dtype> returnArray(inShape);
 
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);
 

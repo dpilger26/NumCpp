@@ -56,7 +56,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype, Alloc> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
+        NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -67,7 +67,7 @@ namespace nc
 
             boost::random::uniform_on_sphere<dtype> dist(inDims);
 
-            NdArray<dtype, Alloc> returnArray(inNumPoints, inDims);
+            NdArray<dtype> returnArray(inNumPoints, inDims);
             for (uint32 row = 0; row < inNumPoints; ++row)
             {
                 std::vector<dtype> point = dist(generator_);

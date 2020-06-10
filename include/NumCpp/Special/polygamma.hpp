@@ -67,9 +67,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        auto polygamma(uint32 n, const NdArray<dtype, Alloc>& inArray) noexcept
+        auto polygamma(uint32 n, const NdArray<dtype>& inArray) noexcept
         {
-            NdArray<decltype(polygamma(n, dtype{0})), Alloc> returnArray(inArray.shape());
+            NdArray<decltype(polygamma(n, dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [n](dtype inValue) -> auto

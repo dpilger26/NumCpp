@@ -62,12 +62,12 @@ namespace nc
         /// @param      n: the order of the chebyshev polynomial
         /// @param      inArrayX: the input value
         /// @return
-        ///				NdArray<double, Alloc>
+        ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double, Alloc> chebyshev_u(uint32 n, const NdArray<dtype, Alloc>& inArrayX)
+        NdArray<double> chebyshev_u(uint32 n, const NdArray<dtype>& inArrayX)
         {
-            NdArray<double, Alloc> returnArray(inArrayX.shape());
+            NdArray<double> returnArray(inArrayX.shape());
 
             const auto function = [n](dtype x) -> double
             {
