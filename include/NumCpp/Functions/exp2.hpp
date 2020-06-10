@@ -48,7 +48,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    auto exp2(dtype inValue) 
+    auto exp2(dtype inValue) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
         NdArray<decltype(exp2(dtype{0}))> returnArray(inArray.shape());
 
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> auto
+            [](dtype inValue) noexcept -> auto
             {
                 return exp2(inValue); 
             });

@@ -104,7 +104,7 @@ namespace nc
             ///
             /// @return     Sign
             ///
-            Sign sign() const 
+            Sign sign() const noexcept 
             {
                 return sign_;
             }
@@ -114,7 +114,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degrees() const 
+            double degrees() const noexcept 
             {
                 return degrees_;
             }
@@ -124,7 +124,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            double radians() const 
+            double radians() const noexcept 
             {
                 return radians_;
             }
@@ -134,7 +134,7 @@ namespace nc
             ///
             /// @return     whole degrees
             ///
-            uint8 degreesWhole() const 
+            uint8 degreesWhole() const noexcept 
             {
                 return degreesWhole_;
             }
@@ -144,7 +144,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const 
+            uint8 minutes() const noexcept 
             {
                 return minutes_;
             }
@@ -154,7 +154,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            double seconds() const 
+            double seconds() const noexcept 
             {
                 return seconds_;
             }

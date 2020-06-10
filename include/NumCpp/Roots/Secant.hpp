@@ -137,7 +137,7 @@ namespace nc
             /// @param lastFx: the function evaluated at the previous x value
             /// @return x
             ///
-            double calculateX(double x, double lastX, double fx, double lastFx) 
+            double calculateX(double x, double lastX, double fx, double lastFx) noexcept 
             {
                 const double functionDifference = fx - lastFx;
                 return x - fx * (x - lastX) / functionDifference;

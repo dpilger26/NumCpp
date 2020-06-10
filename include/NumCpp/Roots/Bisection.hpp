@@ -141,7 +141,7 @@ namespace nc
             /// @param fx: the function evaluated at x
             /// @return x
             ///
-            double calculateX(double x, double &a, double &b, double fx) 
+            double calculateX(double x, double &a, double &b, double fx) noexcept 
             {
                 if (fx < 0)
                 {

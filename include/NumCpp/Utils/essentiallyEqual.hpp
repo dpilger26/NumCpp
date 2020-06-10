@@ -50,7 +50,7 @@ namespace nc
         ///
         template<typename dtype, 
             enable_if_t<std::is_integral<dtype>::value, int> = 0>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2) 
+        bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept 
         {
             return inValue1 == inValue2;
         }
@@ -66,7 +66,7 @@ namespace nc
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) 
+        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept 
         {
             return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
                 std::abs(inValue2) : std::abs(inValue1)) * std::abs(inEpsilon));

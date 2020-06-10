@@ -78,7 +78,7 @@ namespace nc
             /// @return
             ///              centroid row
             ///
-            double row() const 
+            double row() const noexcept 
             {
                 return row_;
             }
@@ -90,7 +90,7 @@ namespace nc
             /// @return
             ///              centroid col
             ///
-            double col() const 
+            double col() const noexcept 
             {
                 return col_;
             }
@@ -102,7 +102,7 @@ namespace nc
             /// @return
             ///              centroid intensity
             ///
-            dtype intensity() const 
+            dtype intensity() const noexcept 
             {
                 return intensity_;
             }
@@ -114,7 +114,7 @@ namespace nc
             /// @return
             ///              star id
             ///
-            double eod() const 
+            double eod() const noexcept 
             {
                 return eod_;
             }
@@ -154,7 +154,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Centroid<dtype>& rhs) const 
+            bool operator==(const Centroid<dtype>& rhs) const noexcept 
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -169,7 +169,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Centroid<dtype>& rhs) const 
+            bool operator!=(const Centroid<dtype>& rhs) const noexcept 
             {
                 return !(*this == rhs);
             }
@@ -187,7 +187,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Centroid<dtype>& rhs) const 
+            bool operator<(const Centroid<dtype>& rhs) const noexcept 
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }

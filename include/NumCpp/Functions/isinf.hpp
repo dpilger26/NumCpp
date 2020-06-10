@@ -49,7 +49,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    bool isinf(dtype inValue) 
+    bool isinf(dtype inValue) noexcept 
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -73,7 +73,7 @@ namespace nc
     {
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> bool
+            [](dtype inValue) noexcept -> bool
             {
                 return isinf(inValue);
             });

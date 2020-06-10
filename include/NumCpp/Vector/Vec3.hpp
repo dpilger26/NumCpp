@@ -199,7 +199,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the dot product
         ///
-        double dot(const Vec3& otherVec) const 
+        double dot(const Vec3& otherVec) const noexcept 
         {
             return x * otherVec.x + y * otherVec.y + z * otherVec.z;
         }
@@ -373,7 +373,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator+=(double scaler) 
+        Vec3& operator+=(double scaler) noexcept 
         {
             x += scaler;
             y += scaler;
@@ -388,7 +388,7 @@ namespace nc
         /// @param  rhs
         /// @return Vec3
         ///
-        Vec3& operator+=(const Vec3& rhs) 
+        Vec3& operator+=(const Vec3& rhs) noexcept 
         {
             x += rhs.x;
             y += rhs.y;
@@ -403,7 +403,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator-=(double scaler) 
+        Vec3& operator-=(double scaler) noexcept 
         {
             x -= scaler;
             y -= scaler;
@@ -418,7 +418,7 @@ namespace nc
         /// @param  rhs
         /// @return Vec3
         ///
-        Vec3& operator-=(const Vec3& rhs) 
+        Vec3& operator-=(const Vec3& rhs) noexcept 
         {
             x -= rhs.x;
             y -= rhs.y;
@@ -433,7 +433,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator*=(double scaler) 
+        Vec3& operator*=(double scaler) noexcept 
         {
             x *= scaler;
             y *= scaler;
@@ -448,7 +448,7 @@ namespace nc
         /// @param  scaler
         /// @return Vec3
         ///
-        Vec3& operator/=(double scaler) 
+        Vec3& operator/=(double scaler) noexcept 
         {
             x /= scaler;
             y /= scaler;
@@ -465,7 +465,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(const Vec3& lhs, double rhs) 
+    inline Vec3 operator+(const Vec3& lhs, double rhs) noexcept 
     {
         return Vec3(lhs) += rhs;
     }
@@ -478,7 +478,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(double lhs, const Vec3& rhs) 
+    inline Vec3 operator+(double lhs, const Vec3& rhs) noexcept 
     {
         return Vec3(rhs) += lhs;
     }
@@ -491,7 +491,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator+(const Vec3& lhs, const Vec3& rhs) 
+    inline Vec3 operator+(const Vec3& lhs, const Vec3& rhs) noexcept 
     {
         return Vec3(lhs) += rhs;
     }
@@ -515,7 +515,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& lhs, double rhs) 
+    inline Vec3 operator-(const Vec3& lhs, double rhs) noexcept 
     {
         return Vec3(lhs) -= rhs;
     }
@@ -541,7 +541,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& lhs, const Vec3& rhs) 
+    inline Vec3 operator-(const Vec3& lhs, const Vec3& rhs) noexcept 
     {
         return Vec3(lhs) -= rhs;
     }
@@ -554,7 +554,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator*(const Vec3& lhs, double rhs) 
+    inline Vec3 operator*(const Vec3& lhs, double rhs) noexcept 
     {
         return Vec3(lhs) *= rhs;
     }
@@ -567,7 +567,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator*(double lhs, const Vec3& rhs) 
+    inline Vec3 operator*(double lhs, const Vec3& rhs) noexcept 
     {
         return Vec3(rhs) *= lhs;
     }
@@ -581,7 +581,7 @@ namespace nc
     /// @return     dot product
     ///				
     ///
-    inline double operator*(const Vec3& lhs, const Vec3& rhs) 
+    inline double operator*(const Vec3& lhs, const Vec3& rhs) noexcept 
     {
         return lhs.dot(rhs);
     }
@@ -594,7 +594,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator/(const Vec3& lhs, double rhs) 
+    inline Vec3 operator/(const Vec3& lhs, double rhs) noexcept 
     {
         return Vec3(lhs) /= rhs;
     }

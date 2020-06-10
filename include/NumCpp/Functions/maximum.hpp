@@ -62,7 +62,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs < rhs;
         };

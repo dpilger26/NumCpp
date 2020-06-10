@@ -119,7 +119,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Pixel<dtype>& rhs) const 
+            bool operator<(const Pixel<dtype>& rhs) const noexcept 
             {
                 if (row < rhs.row)
                 {

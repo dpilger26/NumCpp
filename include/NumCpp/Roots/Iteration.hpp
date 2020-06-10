@@ -53,7 +53,7 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             ///
-            explicit Iteration(double epsilon) : 
+            explicit Iteration(double epsilon) noexcept : 
                 epsilon_(epsilon)
             {}
 
@@ -64,7 +64,7 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
             ///
-            Iteration(double epsilon, uint32 maxNumIterations) : 
+            Iteration(double epsilon, uint32 maxNumIterations) noexcept : 
                 epsilon_(epsilon),
                 maxNumIterations_(maxNumIterations)
             {}
@@ -81,7 +81,7 @@ namespace nc
             ///
             /// @return: number of iterations
             ///
-            uint32 numIterations() const 
+            uint32 numIterations() const noexcept 
             { 
                 return numIterations_;
             }
@@ -91,7 +91,7 @@ namespace nc
             // Method Description:
             ///	Resets the number of iterations
             ///
-            void resetNumberOfIterations() 
+            void resetNumberOfIterations() noexcept 
             { 
                 numIterations_ = 0;
             }

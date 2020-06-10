@@ -54,12 +54,12 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype fmin(dtype inValue1, dtype inValue2) 
+    dtype fmin(dtype inValue1, dtype inValue2) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
         return std::min(inValue1, inValue2, 
-            [](const dtype value1, const dtype value2) -> bool
+            [](const dtype value1, const dtype value2) noexcept -> bool
             {
                 return value1 < value2;
             });
@@ -90,7 +90,7 @@ namespace nc
         NdArray<dtype> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2)  -> dtype
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype
             {
                 return fmin(inValue1, inValue2); 
             });

@@ -71,7 +71,7 @@ namespace nc
             ///
             /// @return	weights vector
             ///
-            const std::vector<double>& getWeight() const 
+            const std::vector<double>& getWeight() const noexcept 
             {
                 return weight_;
             }
@@ -82,7 +82,7 @@ namespace nc
             ///
             /// @return	roots vector
             ///
-            const std::vector<double>& getRoot() const 
+            const std::vector<double>& getRoot() const noexcept 
             {
                 return root_;
             }
@@ -104,7 +104,7 @@ namespace nc
                 /// @param val: the value
                 /// @param deriv: the derivative
                 ///
-                Result(const double val, const double deriv)  :
+                Result(const double val, const double deriv) noexcept :
                     value(val),
                     derivative(deriv)
                 {}

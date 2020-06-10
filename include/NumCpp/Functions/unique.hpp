@@ -58,7 +58,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto comp = [](const dtype lhs, const dtype rhs)  -> bool
+        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
         {
             return utils::essentiallyEqual(lhs, rhs);
         };

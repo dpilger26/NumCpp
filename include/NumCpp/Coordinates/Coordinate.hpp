@@ -140,7 +140,7 @@ namespace nc
             ///
             /// @return             Dec
             ///
-            const Dec& dec() const 
+            const Dec& dec() const noexcept 
             {
                 return dec_;
             }
@@ -150,7 +150,7 @@ namespace nc
             ///
             /// @return     RA
             ///
-            const RA& ra() const 
+            const RA& ra() const noexcept 
             {
                 return ra_;
             }
@@ -160,7 +160,7 @@ namespace nc
             ///
             /// @return     x
             ///
-            double x() const 
+            double x() const noexcept 
             {
                 return x_;
             }
@@ -170,7 +170,7 @@ namespace nc
             ///
             /// @return     y
             ///
-            double y() const 
+            double y() const noexcept 
             {
                 return y_;
             }
@@ -180,7 +180,7 @@ namespace nc
             ///
             /// @return     z
             ///
-            double z() const 
+            double z() const noexcept 
             {
                 return z_;
             }

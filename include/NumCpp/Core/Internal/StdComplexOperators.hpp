@@ -43,7 +43,7 @@ namespace nc
     /// @return     bool true if lhs < rhs
     ///
     template<typename T>
-    bool operator<(const std::complex<T>& lhs, const std::complex<T>& rhs)
+    bool operator<(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
         if (lhs.real() != rhs.real())
         {
@@ -64,7 +64,7 @@ namespace nc
     /// @return     bool true if lhs <= rhs
     ///
     template<typename T>
-    bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs)
+    bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
         if (lhs.real() != rhs.real())
         {
@@ -85,7 +85,7 @@ namespace nc
     /// @return     bool true if lhs > rhs
     ///
     template<typename T>
-    bool operator>(const std::complex<T>& lhs, const std::complex<T>& rhs)
+    bool operator>(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
         return !(lhs <= rhs);
     }
@@ -99,7 +99,7 @@ namespace nc
     /// @return     bool true if lhs >= rhs
     ///
     template<typename T>
-    bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs)
+    bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
         return !(lhs < rhs);
     }
@@ -112,7 +112,7 @@ namespace nc
     /// @return     std::complex<Out>
     ///
     template<typename Out, typename In>
-    std::complex<Out> complex_cast(const std::complex<In>& value) 
+    std::complex<Out> complex_cast(const std::complex<In>& value)  noexcept
     {
         STATIC_ASSERT_ARITHMETIC(Out);
 

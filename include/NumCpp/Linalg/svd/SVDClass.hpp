@@ -75,7 +75,7 @@ namespace nc
             /// @return
             ///              u matrix
             ///
-            const NdArray<double>& u() 
+            const NdArray<double>& u() noexcept 
             {
                 return u_;
             }
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              v matrix
             ///
-            const NdArray<double>& v() 
+            const NdArray<double>& v() noexcept 
             {
                 return v_;
             }
@@ -99,7 +99,7 @@ namespace nc
             /// @return
             ///              s matrix
             ///
-            const NdArray<double>& s() 
+            const NdArray<double>& s() noexcept 
             {
                 return s_;
             }
@@ -168,7 +168,7 @@ namespace nc
             /// @return
             ///              value
             ///
-            double SIGN(double inA, double inB) 
+            double SIGN(double inA, double inB) noexcept 
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }

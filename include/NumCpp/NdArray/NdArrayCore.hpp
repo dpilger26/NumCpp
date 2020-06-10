@@ -543,7 +543,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(NdArray<dtype>&& inOtherArray)  :
+        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -619,7 +619,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) 
+        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept 
         {
             if (&rhs != this)
             {
@@ -647,7 +647,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        reference operator[](int32 inIndex) 
+        reference operator[](int32 inIndex) noexcept 
         {
             if (inIndex < 0)
             {
@@ -666,7 +666,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const_reference operator[](int32 inIndex) const 
+        const_reference operator[](int32 inIndex) const noexcept 
         {
             if (inIndex < 0)
             {
@@ -685,7 +685,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        reference operator()(int32 inRowIndex, int32 inColIndex) 
+        reference operator()(int32 inRowIndex, int32 inColIndex) noexcept 
         {
             if (inRowIndex < 0)
             {
@@ -709,7 +709,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const_reference operator()(int32 inRowIndex, int32 inColIndex) const 
+        const_reference operator()(int32 inRowIndex, int32 inColIndex) const noexcept 
         {
             if (inRowIndex < 0)
             {
@@ -1092,7 +1092,7 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator begin() 
+        iterator begin() noexcept 
         {
             return iterator(array_);
         }
@@ -1122,7 +1122,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator begin() const 
+        const_iterator begin() const noexcept 
         {
             return cbegin();
         }
@@ -1202,7 +1202,7 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator end() 
+        iterator end() noexcept 
         {
             return begin() += size_;
         }
@@ -1232,7 +1232,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator end() const 
+        const_iterator end() const noexcept 
         {
             return cend();
         }
@@ -1313,7 +1313,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cbegin() const 
+        const_iterator cbegin() const noexcept 
         {
             return const_iterator(array_);
         }
@@ -1375,7 +1375,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cend() const 
+        const_iterator cend() const noexcept 
         {
             return cbegin() += size_;
         }
@@ -1556,7 +1556,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -1615,7 +1615,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -1680,7 +1680,7 @@ namespace nc
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
 
-                    const auto function = [this](uint32 i1, uint32 i2)  -> bool
+                    const auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
                     {
                         return operator[](i1) < operator[](i2);
                     };
@@ -1696,7 +1696,7 @@ namespace nc
                         std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
-                        const auto function = [this, row](uint32 i1, uint32 i2)  -> bool
+                        const auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
                         {
                             return operator()(row, i1) < operator()(row, i2);
                         };
@@ -1719,7 +1719,7 @@ namespace nc
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
-                        const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2)  -> bool
+                        const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
                         {
                             return arrayTransposed(row, i1) < arrayTransposed(row, i2);
                         };
@@ -1827,7 +1827,7 @@ namespace nc
             }
             else
             {
-                const auto function = [](const_reference value)  -> dtypeOut
+                const auto function = [](const_reference value) noexcept -> dtypeOut
                 {
                     return complex_cast<typename dtypeOut::value_type>(value);
                 };
@@ -1873,7 +1873,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type back() const 
+        value_type back() const noexcept 
         {
             return *(cend() - 1);
         }
@@ -1885,7 +1885,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        reference back() 
+        reference back() noexcept 
         {
             return *(end() - 1);
         }
@@ -1970,7 +1970,7 @@ namespace nc
 
             NdArray<dtype> outArray(shape_);
             boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax, 
-                [](dtype lhs, dtype rhs) -> bool
+                [](dtype lhs, dtype rhs) noexcept -> bool
                 {
                     return lhs < rhs;
                 });
@@ -2184,7 +2184,7 @@ namespace nc
         ///						Returns the raw pointer to the underlying data
         /// @return pointer
         ///
-        pointer data() 
+        pointer data() noexcept 
         {
             return array_;
         }
@@ -2194,7 +2194,7 @@ namespace nc
         ///						Returns the raw pointer to the underlying data
         /// @return const_pointer
         ///
-        const_pointer data() const 
+        const_pointer data() const noexcept 
         {
             return array_;
         }
@@ -2206,7 +2206,7 @@ namespace nc
         ///                     to the underlying data.
         /// @return pointer
         ///
-        pointer dataRelease()
+        pointer dataRelease() noexcept
         {
             ownsPtr_ = false;
             return data();
@@ -2366,7 +2366,7 @@ namespace nc
         /// @return
         ///				Endian
         ///
-        Endian endianess() const 
+        Endian endianess() const noexcept 
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -2439,7 +2439,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type front() const 
+        value_type front() const noexcept 
         {
             return *cbegin();
         }
@@ -2451,7 +2451,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        reference front() 
+        reference front() noexcept 
         {
             return *begin();
         }
@@ -2518,7 +2518,7 @@ namespace nc
         /// @return
         ///				boolean
         ///
-        bool isempty() const 
+        bool isempty() const noexcept 
         {
             return size_ == 0;
         }
@@ -2531,7 +2531,7 @@ namespace nc
         /// @return
         ///				boolean
         ///
-        bool isflat() const 
+        bool isflat() const noexcept 
         {
             return shape_.rows == 1 || shape_.cols == 1;
         }
@@ -2547,7 +2547,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -2632,7 +2632,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -2688,7 +2688,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -2746,7 +2746,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -2856,7 +2856,7 @@ namespace nc
         /// @return
         ///				number of bytes
         ///
-        uint64 nbytes() const 
+        uint64 nbytes() const noexcept 
         {
             return static_cast<uint64>(sizeof(dtype) * size_);
         }
@@ -2936,7 +2936,7 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
-                                [](dtype value)  -> dtype
+                                [](dtype value) noexcept -> dtype
                                 {
                                     return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value));
                                 });
@@ -2968,7 +2968,7 @@ namespace nc
                         {
                             NdArray<dtype> outArray(shape_);
 
-                            const auto function = [](dtype value)  -> dtype
+                            const auto function = [](dtype value) noexcept -> dtype
                             {
                                 return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value));
                             };
@@ -3072,7 +3072,7 @@ namespace nc
         /// @return
         ///				uint32
         ///
-        uint32 numCols() const 
+        uint32 numCols() const noexcept 
         {
             return shape_.cols;
         }
@@ -3085,7 +3085,7 @@ namespace nc
         /// @return
         ///				uint32
         ///
-        uint32 numRows() const 
+        uint32 numRows() const noexcept 
         {
             return shape_.rows;
         }
@@ -3134,7 +3134,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -3272,7 +3272,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -3921,7 +3921,7 @@ namespace nc
 
             NdArray<dtype> returnArray(shape_);
             const double multFactor = utils::power(10.0, inNumDecimals);
-            const auto function = [multFactor](dtype value)  -> dtype
+            const auto function = [multFactor](dtype value) noexcept -> dtype
             {
                 return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
             };
@@ -3953,7 +3953,7 @@ namespace nc
         /// @return
         ///				Shape
         ///
-        Shape shape() const 
+        Shape shape() const noexcept 
         {
             return shape_;
         }
@@ -3967,7 +3967,7 @@ namespace nc
         /// @return
         ///				size
         ///
-        size_type size() const 
+        size_type size() const noexcept 
         {
             return size_;
         }
@@ -3987,7 +3987,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs)  -> bool
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
             {
                 return lhs < rhs;
             };
@@ -4194,7 +4194,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const 
+        value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

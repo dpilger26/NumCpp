@@ -61,7 +61,7 @@ namespace nc
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
-            [&returnArray, &counter](dtype value)  -> void
+            [&returnArray, &counter](dtype value) noexcept -> void
             { 
                 returnArray[counter++] = 1.0 / static_cast<double>(value);
             });

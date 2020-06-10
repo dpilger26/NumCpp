@@ -347,7 +347,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            uint32 order() const 
+            uint32 order() const noexcept 
             {
                 return static_cast<uint32>(coefficients_.size() - 1);
             }

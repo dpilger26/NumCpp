@@ -153,7 +153,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const 
+            const_iterator begin() const noexcept 
             {
                 return pixels_.cbegin();
             }
@@ -165,7 +165,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const 
+            const_iterator end() const noexcept 
             {
                 return pixels_.cend();
             }
@@ -177,7 +177,7 @@ namespace nc
             /// @return
             ///              number of pixels in the cluster
             ///
-            uint32 size() const 
+            uint32 size() const noexcept 
             {
                 return static_cast<uint32>(pixels_.size());
             }
@@ -189,7 +189,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 clusterId() const 
+            uint32 clusterId() const noexcept 
             {
                 return clusterId_;
             }
@@ -201,7 +201,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 rowMin() const 
+            uint32 rowMin() const noexcept 
             {
                 return rowMin_;
             }
@@ -213,7 +213,7 @@ namespace nc
             /// @return
             ///              maximum row number of the cluster
             ///
-            uint32 rowMax() const 
+            uint32 rowMax() const noexcept 
             {
                 return rowMax_;
             }
@@ -225,7 +225,7 @@ namespace nc
             /// @return
             ///              minimum column number of the cluster
             ///
-            uint32 colMin() const 
+            uint32 colMin() const noexcept 
             {
                 return colMin_;
             }
@@ -237,7 +237,7 @@ namespace nc
             /// @return
             ///              maximum column number of the cluster
             ///
-            uint32 colMax() const 
+            uint32 colMax() const noexcept 
             {
                 return colMax_;
             }
@@ -249,7 +249,7 @@ namespace nc
             /// @return
             ///              number of rows
             ///
-            uint32 height() const 
+            uint32 height() const noexcept 
             {
                 return rowMax_ - rowMin_ + 1;
             }
@@ -261,7 +261,7 @@ namespace nc
             /// @return
             ///              number of columns
             ///
-            uint32 width() const 
+            uint32 width() const noexcept 
             {
                 return colMax_ - colMin_ + 1;
             }
@@ -273,7 +273,7 @@ namespace nc
             /// @return
             ///              summed cluster intensity
             ///
-            dtype intensity() const 
+            dtype intensity() const noexcept 
             {
                 return intensity_;
             }
@@ -285,7 +285,7 @@ namespace nc
             /// @return
             ///              peak pixel intensity
             ///
-            dtype peakPixelIntensity() const 
+            dtype peakPixelIntensity() const noexcept 
             {
                 return peakPixelIntensity_;
             }
@@ -297,7 +297,7 @@ namespace nc
             /// @return
             ///              eod
             ///
-            double eod() const 
+            double eod() const noexcept 
             {
                 return eod_;
             }

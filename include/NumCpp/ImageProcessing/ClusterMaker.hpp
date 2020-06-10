@@ -155,7 +155,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const 
+            const_iterator begin() const noexcept 
             {
                 return clusters_.cbegin();
             }
@@ -167,7 +167,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const 
+            const_iterator end() const noexcept 
             {
                 return clusters_.cend();
             }

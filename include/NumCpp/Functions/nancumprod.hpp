@@ -56,7 +56,7 @@ namespace nc
 
         NdArray<dtype> arrayCopy(inArray);
         stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
-            [](dtype& value)  -> void
+            [](dtype& value) noexcept -> void
             { 
                 if (std::isnan(value)) { value = dtype{ 1 }; };
             });

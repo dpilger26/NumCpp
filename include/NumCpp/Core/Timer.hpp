@@ -51,7 +51,7 @@ namespace nc
         // Method Description:
         ///						Constructor
         ///
-        Timer()  :
+        Timer() :
             start_(ChronoClock::now())
         {
             setUnits();
@@ -96,7 +96,7 @@ namespace nc
         // Method Description:
         ///						Starts the timer
         ///
-        void tic() 
+        void tic() noexcept 
         {
             start_ = ChronoClock::now();
         }

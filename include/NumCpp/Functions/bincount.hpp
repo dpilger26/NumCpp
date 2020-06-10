@@ -79,7 +79,7 @@ namespace nc
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),
-            [&outArray](dtype value)  -> void
+            [&outArray](dtype value) noexcept -> void
             { 
                 ++outArray[value];
             });
@@ -137,7 +137,7 @@ namespace nc
         outArray.zeros();
         uint32 counter = 0;
         std::for_each(clippedArray.cbegin(), clippedArray.cend(),
-            [&outArray, &inWeights, &counter](dtype value)  -> void
+            [&outArray, &inWeights, &counter](dtype value) noexcept -> void
             {
                 outArray[value] += inWeights[counter++];
             });

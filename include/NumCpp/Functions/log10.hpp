@@ -74,7 +74,7 @@ namespace nc
     {
         NdArray<decltype(log10(dtype{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> auto
+            [](dtype inValue) -> auto
             { 
                 return log10(inValue); 
             });

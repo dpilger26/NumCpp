@@ -62,7 +62,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion()  = default;
+            Quaternion() = default;
 
             //============================================================================
             // Method Description:
@@ -72,7 +72,7 @@ namespace nc
             /// @param				pitch: euler pitch angle in radians
             /// @param				yaw: euler yaw angle in radians
             ///
-            Quaternion(double roll, double pitch, double yaw) 
+            Quaternion(double roll, double pitch, double yaw) noexcept 
             {
                 eulerToQuat(roll, pitch, yaw);
             }
@@ -227,7 +227,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double i() const 
+            double i() const noexcept 
             {
                 return components_[0];
             }
@@ -264,7 +264,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double j() const 
+            double j() const noexcept 
             {
                 return components_[1];
             }
@@ -276,7 +276,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double k() const 
+            double k() const noexcept 
             {
                 return components_[2];
             }
@@ -340,7 +340,7 @@ namespace nc
             ///
             /// @return     euler pitch angle in radians
             ///
-            double pitch() const 
+            double pitch() const noexcept 
             {
                 return std::asin(2 * (s() * j() - k() * i()));
             }
@@ -406,7 +406,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double s() const 
+            double s() const noexcept 
             {
                 return components_[3];
             }
@@ -919,7 +919,7 @@ namespace nc
             /// @ param pitch: the euler pitch angle in radians
             /// @ param yaw: the euler yaw angle in radians
             ///
-            void eulerToQuat(double roll, double pitch, double yaw) 
+            void eulerToQuat(double roll, double pitch, double yaw) noexcept 
             {
                 const double halfPhi = roll / 2.0;
                 const double halfTheta = pitch / 2.0;

@@ -2051,7 +2051,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs)  -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs < rhs;
         };
@@ -2078,7 +2078,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value < inValue;
         };
@@ -2105,7 +2105,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue < value;
         };
@@ -2137,7 +2137,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs)  -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs > rhs;
         };
@@ -2167,7 +2167,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value > inValue;
         };
@@ -2194,7 +2194,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue > value;
         };
@@ -2226,7 +2226,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs)  -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs <= rhs;
         };
@@ -2253,7 +2253,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value <= inValue;
         };
@@ -2280,7 +2280,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue <= value;
         };
@@ -2312,7 +2312,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs)  -> bool
+        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool
         {
             return lhs >= rhs;
         };
@@ -2339,7 +2339,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return value >= inValue;
         };
@@ -2366,7 +2366,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        const auto function = [inValue](dtype value)  -> bool
+        const auto function = [inValue](dtype value) noexcept -> bool
         {
             return inValue >= value;
         };

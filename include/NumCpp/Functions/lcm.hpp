@@ -48,7 +48,7 @@ namespace nc
     ///				dtype
     ///
     template<typename dtype>
-    dtype lcm(dtype inValue1, dtype inValue2) 
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept 
     {
         STATIC_ASSERT_INTEGER(dtype);
 

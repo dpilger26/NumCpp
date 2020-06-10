@@ -48,7 +48,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype floor_divide(dtype inValue1, dtype inValue2) 
+    dtype floor_divide(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
