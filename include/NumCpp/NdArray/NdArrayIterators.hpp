@@ -288,7 +288,7 @@ namespace nc
         }
 
     private:
-        pointer ptr_;
+        pointer ptr_{};
     };
 
     //============================================================================
@@ -521,6 +521,7 @@ namespace nc
         ///
         NdArrayConstColumnIterator(pointer ptr, SizeType numRows, SizeType numCols) noexcept :
             ptr_(ptr),
+            currPtr_(ptr),
             numRows_(static_cast<difference_type>(numRows)),
             numCols_(static_cast<difference_type>(numCols))
         {}
@@ -533,7 +534,7 @@ namespace nc
         ///
         reference operator*() const noexcept
         {
-            return *ptr_;
+            return *currPtr_;
         }
 
         //============================================================================
@@ -544,7 +545,7 @@ namespace nc
         ///
         pointer operator->() const noexcept
         {
-            return ptr_;
+            return currPtr_;
         }
 
         //============================================================================
@@ -555,8 +556,7 @@ namespace nc
         ///
         self_type& operator++() noexcept
         {
-            ptr_ += numRows_;
-            return *this;
+            return *this += 1;
         }
 
         //============================================================================
@@ -580,8 +580,7 @@ namespace nc
         ///
         self_type& operator--() noexcept
         {
-            ptr_ -= numRows_;
-            return *this;
+            return *this -= 1;
         }
 
         //============================================================================
@@ -606,7 +605,36 @@ namespace nc
         ///
         self_type& operator+=(const difference_type offset) noexcept
         {
-            ptr_ += offset * numRows_;
+            auto currLocation = pointerToRowCol(currPtr_);
+            if (currLocation.row >= numRows_)
+            {
+                const auto idx = rowOrderPtrToColOrderIdx(currPtr_);
+                std::cout << std::dec << "idx = " << idx << '\n';
+                currLocation = offsetToLocationDiff(idx);
+            }
+            std::cout << std::dec << "currLocation = [" << currLocation.row << ", " << currLocation.col << "]\n";
+            const auto diffLocation = offsetToLocationDiff(offset);
+            std::cout << std::dec << "diffLocation = [" << diffLocation.row << ", " << diffLocation.col << "]\n";
+
+            auto newLocation = currLocation + diffLocation;
+            std::cout << std::dec << "newLocation pre wrap = [" << newLocation.row << ", " << newLocation.col << "]\n";
+
+            if (newLocation.row < 0)
+            {
+                newLocation.row += numRows_;
+                newLocation.col -= 1;
+            }
+            else if (newLocation.row >= numRows_)
+            {
+                newLocation.row -= numRows_;
+                newLocation.col += 1;
+            }
+
+            std::cout << std::dec << "newLocation post wrap = [" << newLocation.row << ", " << newLocation.col << "]\n";
+
+            currPtr_ = rowColToPointer(newLocation);
+            std::cout << std::hex << "ptr = " << ptr_ << '\n';
+            std::cout << std::hex << "currPtr = " << currPtr_ << "\n\n";
             return *this;
         }
 
@@ -657,13 +685,7 @@ namespace nc
         ///
         difference_type operator-(const self_type& rhs) const noexcept
         {
-            const auto row1 = ptr_ / numCols_;
-            const auto col1 = ptr_ % numCols_;
-            const auto seq1 = col1 * numRows_ + row1;
-            const auto row2 = rhs.ptr_ / numCols_;
-            const auto col2 = rhs.ptr_ % numCols_;
-            const auto seq2 = col2 * numRows_ + row2;
-            return seq2 - seq1;
+            return rowOrderPtrToColOrderIdx(rhs.currPtr_) - rowOrderPtrToColOrderIdx(currPtr_);
         }
 
         //============================================================================
@@ -687,7 +709,7 @@ namespace nc
         ///
         bool operator==(const self_type& rhs) const noexcept
         {
-            return ptr_ == rhs.ptr_;
+            return currPtr_ == currPtr_;
         }
 
         //============================================================================
@@ -711,7 +733,7 @@ namespace nc
         ///
         bool operator<(const self_type& rhs) const noexcept
         {
-            return ptr_ - rhs.ptr_ < 0;
+            return *this - rhs < 0;
         }
 
         //============================================================================
@@ -723,7 +745,7 @@ namespace nc
         ///
         bool operator>(const self_type& rhs) const noexcept
         {
-            return ptr_ - rhs.ptr_ > 0;
+            return *this - rhs > 0;
         }
 
         //============================================================================
@@ -751,9 +773,96 @@ namespace nc
         }
 
     private:
-        pointer         ptr_;
+        pointer         ptr_{};
+        pointer         currPtr_{};
         difference_type numRows_{ 0 };
         difference_type numCols_{ 0 };
+
+        struct Location
+        {
+            difference_type row;
+            difference_type col;
+
+            Location& operator+=(const Location& rhs) noexcept
+            {
+                row += rhs.row;
+                col += rhs.col;
+                return *this;
+            }
+
+            Location operator+(const Location& rhs) const noexcept
+            {
+                return Location(*this) += rhs;
+            }
+
+            Location& operator-=(const Location& rhs) noexcept
+            {
+                row -= rhs.row;
+                col -= rhs.col;
+                return *this;
+            }
+
+            Location operator-(const Location& rhs) const noexcept
+            {
+                return Location(*this) -= rhs;
+            }
+        };
+
+        //============================================================================
+        // Method Description:
+        ///	Converts a pointer to a row and column location in the 2d array
+        ///
+        /// @param ptr
+        /// @return Location
+        ///
+        Location pointerToRowCol(pointer ptr) const noexcept
+        {
+            const auto idx = ptr - ptr_;
+            const auto row = idx / numCols_;
+            const auto col = idx % numCols_;
+            return { row, col };
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Converts an offset to a row and column location difference column based
+        ///
+        /// @param offset
+        /// @return Location
+        ///
+        Location offsetToLocationDiff(difference_type offset) const noexcept
+        {
+            const auto row = offset % numRows_;
+            const auto col = offset / numRows_;
+            return { row, col };
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Converts a pointer to a row and column location in the 2d array
+        ///
+        /// @param row
+        /// @param col
+        /// @return pointer
+        ///
+        pointer rowColToPointer(Location location) const noexcept
+        {
+            const auto idx = location.row + location.col * numRows_;
+            return ptr_ + idx;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Converts a pointer to a column order idx
+        ///
+        /// @param ptr
+        /// @return difference_type
+        ///
+        difference_type rowOrderPtrToColOrderIdx(pointer ptr) const noexcept
+        {
+            const auto location = pointerToRowCol(ptr);
+            return location.col * numRows_ + location.row;
+        }
     };
 
     //============================================================================

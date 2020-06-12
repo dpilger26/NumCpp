@@ -796,6 +796,82 @@ def test_interator_methods():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
+    beg = cArray.colbegin()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    beg = cArray.colbegin()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.colbegin(col)
+    assert beg.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.colbegin(col)
+    assert beg.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.colbeginConst()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    beg = cArray.colbeginConst()
+    assert beg.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.colbeginConst(col)
+    assert beg.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.colbeginConst(col)
+    assert beg.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
     beg = cArray.rbegin()
     assert beg.operatorDereference() == data.flatten()[-1]
 
@@ -866,6 +942,82 @@ def test_interator_methods():
     row = np.random.randint(0, shape.rows, [1, ]).item()
     beg = cArray.rbeginConst(row)
     assert beg.operatorDereference() == data[row, -1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rcolbegin()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    beg = cArray.rcolbegin()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.rcolbegin(col)
+    assert beg.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.rcolbegin(col)
+    assert beg.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    beg = cArray.rcolbeginConst()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    beg = cArray.rcolbeginConst()
+    assert beg.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.rcolbeginConst(col)
+    assert beg.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    beg = cArray.rcolbeginConst(col)
+    assert beg.operatorDereference() == data[-1, col]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -956,8 +1108,9 @@ def test_interator_methods():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    beg = cArray.rbegin()
-    assert beg.operatorDereference() == data.flatten()[-1]
+    end = cArray.colend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -966,8 +1119,93 @@ def test_interator_methods():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    beg = cArray.rbegin()
-    assert beg.operatorDereference() == data.flatten()[-1]
+    end = cArray.colend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.colend(col)
+    end -= 1
+    assert end.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.colend(col)
+    end -= 1
+    assert end.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.colendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    end = cArray.colendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[-1]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.colendConst(col)
+    end -= 1
+    assert end.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.colendConst(col)
+    end -= 1
+    assert end.operatorDereference() == data[-1, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.rend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    end = cArray.rend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -975,8 +1213,9 @@ def test_interator_methods():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     row = np.random.randint(0, shape.rows, [1, ]).item()
-    beg = cArray.rbegin(row)
-    assert beg.operatorDereference() == data[row, -1]
+    end = cArray.rend(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, 0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -986,16 +1225,18 @@ def test_interator_methods():
     data = real + 1j * imag
     cArray.setArray(data)
     row = np.random.randint(0, shape.rows, [1, ]).item()
-    beg = cArray.rbegin(row)
-    assert beg.operatorDereference() == data[row, -1]
+    end = cArray.rend(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, 0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    beg = cArray.rbeginConst()
-    assert beg.operatorDereference() == data.flatten()[-1]
+    end = cArray.rendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1004,8 +1245,9 @@ def test_interator_methods():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    beg = cArray.rbeginConst()
-    assert beg.operatorDereference() == data.flatten()[-1]
+    end = cArray.rendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1013,8 +1255,9 @@ def test_interator_methods():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     row = np.random.randint(0, shape.rows, [1, ]).item()
-    beg = cArray.rbeginConst(row)
-    assert beg.operatorDereference() == data[row, -1]
+    end = cArray.rendConst(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, 0]
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1024,12 +1267,97 @@ def test_interator_methods():
     data = real + 1j * imag
     cArray.setArray(data)
     row = np.random.randint(0, shape.rows, [1, ]).item()
-    beg = cArray.rbeginConst(row)
-    assert beg.operatorDereference() == data[row, -1]
+    end = cArray.rendConst(row)
+    end -= 1
+    assert end.operatorDereference() == data[row, 0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.rcolend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    end = cArray.rcolend()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.rcolend(col)
+    end -= 1
+    assert end.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.rcolend(col)
+    end -= 1
+    assert end.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    end = cArray.rcolendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    end = cArray.rcolendConst()
+    end -= 1
+    assert end.operatorDereference() == data.flatten()[0]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.rcolendConst(col)
+    end -= 1
+    assert end.operatorDereference() == data[0, col]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    col = np.random.randint(0, shape.cols, [1, ]).item()
+    end = cArray.rcolendConst(col)
+    end -= 1
+    assert end.operatorDereference() == data[0, col]
 
 
 ####################################################################################
-def test_all():
+def test_the_rest():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
