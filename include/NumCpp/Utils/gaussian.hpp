@@ -46,7 +46,7 @@ namespace nc
         ///
         /// @return             dtype
         ///
-        inline double gaussian(double inX, double inY, double inSigma) 
+        inline double gaussian(double inX, double inY, double inSigma) noexcept
         {
             double exponent = sqr(inX) + sqr(inY);
             exponent /= 2;

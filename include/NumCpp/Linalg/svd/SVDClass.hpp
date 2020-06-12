@@ -635,7 +635,7 @@ namespace nc
             /// @return
             ///              resultant value
             ///
-            double pythag(double inA, double inB) 
+            double pythag(double inA, double inB) noexcept
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);

@@ -64,7 +64,7 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster()  = default;
+            Cluster() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -73,7 +73,7 @@ namespace nc
             /// @param
             ///              inClusterId
             ///
-            Cluster(uint32 inClusterId)  :
+            Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
             {}
 
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Cluster<dtype>& rhs) const 
+            bool operator==(const Cluster<dtype>& rhs) const noexcept
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -107,7 +107,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Cluster<dtype>& rhs) const 
+            bool operator!=(const Cluster<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -122,7 +122,7 @@ namespace nc
             /// @return
             ///              Pixel
             ///
-            const Pixel<dtype>& operator[](uint32 inIndex) const
+            const Pixel<dtype>& operator[](uint32 inIndex) const noexcept
             {
                 return pixels_[inIndex];
             }
@@ -153,7 +153,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const noexcept 
+            const_iterator begin() const noexcept  
             {
                 return pixels_.cbegin();
             }

@@ -45,7 +45,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr auto degrees(dtype inValue) 
+    constexpr auto degrees(dtype inValue) noexcept
     {
         return rad2deg(inValue);
     }

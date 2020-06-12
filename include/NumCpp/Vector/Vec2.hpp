@@ -57,7 +57,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec2()  = default;
+        constexpr Vec2() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -66,7 +66,7 @@ namespace nc
         /// @param  inX: the x component
         /// @param  inY: the y component
         ///
-        constexpr Vec2(double inX, double inY)  :
+        constexpr Vec2(double inX, double inY) noexcept :
             x(inX),
             y(inY)
         {}
@@ -177,7 +177,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static constexpr Vec2 down() 
+        static constexpr Vec2 down() noexcept
         {
             return Vec2(0.0, -1.0);
         }
@@ -188,7 +188,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static constexpr Vec2 left() 
+        static constexpr Vec2 left() noexcept
         {
             return Vec2(-1.0, 0.0);
         }
@@ -201,7 +201,7 @@ namespace nc
         /// @param t the amount to interpolate by (clamped from [0, 1]);
         /// @return Vec2
         ///
-        Vec2 lerp(const Vec2& otherVec, double t) const 
+        Vec2 lerp(const Vec2& otherVec, double t) const noexcept
         {
             t = std::max(std::min(t, 1.0), 0.0);
 
@@ -254,7 +254,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static constexpr Vec2 right() 
+        static constexpr Vec2 right() noexcept
         {
             return Vec2(1.0, 0.0);
         }
@@ -290,7 +290,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static constexpr Vec2 up() 
+        static constexpr Vec2 up() noexcept
         {
             return Vec2(0.0, 1.0);
         }

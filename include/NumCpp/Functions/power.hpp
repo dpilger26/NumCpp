@@ -51,7 +51,7 @@ namespace nc
     ///				value raised to the power
     ///
     template<typename dtype>
-    constexpr dtype power(dtype inValue, uint8 inExponent) 
+    constexpr dtype power(dtype inValue, uint8 inExponent) noexcept
     {
         return utils::power(inValue, inExponent);
     }
@@ -72,7 +72,7 @@ namespace nc
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [inExponent](dtype inValue)  -> dtype
+            [inExponent](dtype inValue) noexcept -> dtype
             {
                 return nc::power(inValue, inExponent);
             });

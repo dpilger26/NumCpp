@@ -49,7 +49,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        inline Vec3 rodriguesRotation(const Vec3& k, double theta, const Vec3& v) 
+        inline Vec3 rodriguesRotation(const Vec3& k, double theta, const Vec3& v) noexcept
         {
             const auto kUnit = k.normalize();
 

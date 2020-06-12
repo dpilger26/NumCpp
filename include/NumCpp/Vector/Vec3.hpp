@@ -59,7 +59,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec3()  = default;
+        constexpr Vec3() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -69,7 +69,7 @@ namespace nc
         /// @param  inY: the y component
         /// @param  inZ: the y component
         ///
-        constexpr Vec3(double inX, double inY, double inZ)  :
+        constexpr Vec3(double inX, double inY, double inZ) noexcept :
             x(inX),
             y(inY),
             z(inZ)
@@ -118,7 +118,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the angle in radians
         ///
-        double angle(const Vec3& otherVec) const 
+        double angle(const Vec3& otherVec) const noexcept
         {
             double dotProduct = dot(otherVec);
             dotProduct /= norm();
@@ -136,7 +136,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 back() 
+        static constexpr Vec3 back() noexcept
         {
             return Vec3(0.0, 0.0, -1.0);
         }
@@ -149,7 +149,7 @@ namespace nc
         /// @param      maxLength
         /// @return     Vec3
         ///
-        Vec3 clampMagnitude(double maxLength) const 
+        Vec3 clampMagnitude(double maxLength) const noexcept
         {
             const double magnitude = norm();
             if (magnitude <= maxLength)
@@ -171,7 +171,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the dot product
         ///
-        Vec3 cross(const Vec3& otherVec) const 
+        Vec3 cross(const Vec3& otherVec) const noexcept
         {
             const double crossX = y * otherVec.z - z * otherVec.y;
             const double crossY = -(x * otherVec.z - z * otherVec.x);
@@ -187,7 +187,7 @@ namespace nc
         /// @param      otherVec
         /// @return     the distance (equivalent to (a - b).norm()
         ///
-        double distance(const Vec3& otherVec) const 
+        double distance(const Vec3& otherVec) const noexcept
         {
             return (Vec3(*this) -= otherVec).norm();
         }
@@ -210,7 +210,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 down() 
+        static constexpr Vec3 down() noexcept
         {
             return Vec3(0.0, -1.0, 0.0);
         }
@@ -221,7 +221,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 forward() 
+        static constexpr Vec3 forward() noexcept
         {
             return Vec3(0.0, 0.0, 1.0);
         }
@@ -232,7 +232,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 left() 
+        static constexpr Vec3 left() noexcept
         {
             return Vec3(-1.0, 0.0, 0.0);
         }
@@ -245,7 +245,7 @@ namespace nc
         /// @param t the amount to interpolate by (clamped from [0, 1]);
         /// @return Vec3
         ///
-        Vec3 lerp(const Vec3& otherVec, double t) const 
+        Vec3 lerp(const Vec3& otherVec, double t) const noexcept
         {
             t = std::max(std::min(t, 1.0), 0.0);
 
@@ -264,7 +264,7 @@ namespace nc
         ///
         /// @return     magnitude of the vector
         ///
-        double norm() const 
+        double norm() const noexcept
         {
             return hypot(x, y, z);
         }
@@ -275,7 +275,7 @@ namespace nc
         ///
         /// @return     Vec3
         ///
-        Vec3 normalize() const 
+        Vec3 normalize() const noexcept
         {
             return Vec3(*this) /= norm();
         }
@@ -287,7 +287,7 @@ namespace nc
         /// @param      otherVec
         /// @return     Vec3
         ///
-        Vec3 project(const Vec3& otherVec) const 
+        Vec3 project(const Vec3& otherVec) const noexcept
         {
             const double projectedMagnitude = norm() * std::cos(angle(otherVec));
             return otherVec.normalize() *= projectedMagnitude;
@@ -299,7 +299,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 right() 
+        static constexpr Vec3 right() noexcept
         {
             return Vec3(1.0, 0.0, 0.0);
         }
@@ -335,7 +335,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static constexpr Vec3 up() 
+        static constexpr Vec3 up() noexcept
         {
             return Vec3(0.0, 1.0, 0.0);
         }
@@ -502,7 +502,7 @@ namespace nc
     ///
     /// @return     Vec3
     ///
-    inline Vec3 operator-(const Vec3& vec) 
+    inline Vec3 operator-(const Vec3& vec) noexcept
     {
         return Vec3(-vec.x, -vec.y, -vec.z);
     }

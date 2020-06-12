@@ -58,7 +58,7 @@ namespace nc
             /// @param f: the function 
             ///
             Bisection(const double epsilon, 
-                const std::function<double(double)>& f)  :
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -73,7 +73,7 @@ namespace nc
             ///
             Bisection(const double epsilon, 
                 const uint32 maxNumIterations,
-                const std::function<double(double)>& f)  :
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -82,7 +82,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Bisection()  = default;
+            ~Bisection() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -122,7 +122,7 @@ namespace nc
             /// @param a: the lower bound
             /// @param b: the upper bound
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b) const 
+            void checkAndFixAlgorithmCriteria(double &a, double &b) const noexcept
             {
                 //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (f_(a) < f_(b))

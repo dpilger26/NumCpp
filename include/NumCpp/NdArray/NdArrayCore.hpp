@@ -74,7 +74,7 @@ namespace nc
     class NdArrayBase 
     {
     public:
-        virtual ~NdArrayBase()  = default;
+        virtual ~NdArrayBase() noexcept = default;
     };
 
     //================================================================================
@@ -113,7 +113,7 @@ namespace nc
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray()  = default;
+        NdArray() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -492,7 +492,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(pointer inPtr, uint32 size, bool takeOwnership)  :
+        explicit NdArray(pointer inPtr, uint32 size, bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -510,7 +510,7 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, bool takeOwnership)  :
+        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
@@ -560,7 +560,7 @@ namespace nc
         // Method Description:
         ///						Destructor
         ///
-        ~NdArray()
+        ~NdArray() 
         {
             deleteArray();
         }
@@ -600,7 +600,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(value_type inValue) 
+        NdArray<dtype>& operator=(value_type inValue) noexcept
         {
             if (array_ != nullptr)
             {
@@ -892,7 +892,7 @@ namespace nc
         /// @return
         ///				Slice
         ///
-        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const 
+        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.cols, inStepSize);
         }
@@ -907,7 +907,7 @@ namespace nc
         /// @return
         ///				Slice
         ///
-        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const 
+        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.rows, inStepSize);
         }
@@ -1147,7 +1147,7 @@ namespace nc
         /// @return
         ///				reverse_iterator
         ///
-        reverse_iterator rbegin() 
+        reverse_iterator rbegin() noexcept
         {
             return reverse_iterator(end());
         }
@@ -1177,7 +1177,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_reverse_iterator rbegin() const 
+        const_reverse_iterator rbegin() const noexcept
         {
             return crbegin();
         }
@@ -1257,7 +1257,7 @@ namespace nc
         /// @return
         ///				reverse_iterator
         ///
-        reverse_iterator rend() 
+        reverse_iterator rend() noexcept
         {
             return rbegin() += size_;
         }
@@ -1287,7 +1287,7 @@ namespace nc
         /// @return
         ///				const_reverse_iterator
         ///
-        const_reverse_iterator rend() const 
+        const_reverse_iterator rend() const noexcept
         {
             return crend();
         }
@@ -1344,7 +1344,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_reverse_iterator crbegin() const 
+        const_reverse_iterator crbegin() const noexcept
         {
             return const_reverse_iterator(cend());
         }
@@ -1406,7 +1406,7 @@ namespace nc
         /// @return
         ///				const_reverse_iterator
         ///
-        const_reverse_iterator crend() const 
+        const_reverse_iterator crend() const noexcept
         {
             return crbegin() += size_;
         }
@@ -2384,7 +2384,7 @@ namespace nc
         /// @return
         ///				None
         ///
-        NdArray<dtype>& fill(value_type inFillValue) 
+        NdArray<dtype>& fill(value_type inFillValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inFillValue);
             return *this;
@@ -2593,7 +2593,7 @@ namespace nc
         ///
         /// @return boolean
         ///
-        bool issquare() const 
+        bool issquare() const noexcept
         {
             return shape_.issquare();
         }
@@ -2839,7 +2839,7 @@ namespace nc
         ///						Fills the array with nans.
         ///
         ///
-        NdArray<dtype>& nans() 
+        NdArray<dtype>& nans() noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -3062,7 +3062,7 @@ namespace nc
         ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
         ///             column indices
         ///
-        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const ;
+        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const;
 
         //============================================================================
         // Method Description:
@@ -3095,7 +3095,7 @@ namespace nc
         ///						Fills the array with ones
         ///
         ///
-        NdArray<dtype>& ones() 
+        NdArray<dtype>& ones() noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3109,7 +3109,7 @@ namespace nc
         ///
         /// @return bool
         ///
-        bool ownsInternalData() 
+        bool ownsInternalData() noexcept
         {
             return ownsPtr_;
         }
@@ -3638,7 +3638,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& ravel()
+        NdArray<dtype>& ravel() noexcept
         {
             reshape(size_);
             return *this;
@@ -4266,7 +4266,7 @@ namespace nc
         ///						Fills the array with zeros
         ///
         ///
-        NdArray<dtype>& zeros()  
+        NdArray<dtype>& zeros() noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
             

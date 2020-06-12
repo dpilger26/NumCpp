@@ -45,7 +45,7 @@ namespace nc
     ///				cubed value
     ///
     template<typename dtype>
-    constexpr dtype cube(dtype inValue) 
+    constexpr dtype cube(dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -66,7 +66,7 @@ namespace nc
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> dtype
+            [](dtype inValue) noexcept -> dtype
             { 
                 return cube(inValue);
             });

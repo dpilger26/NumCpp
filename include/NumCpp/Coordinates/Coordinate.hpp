@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            Coordinate()  = default;
+            Coordinate() noexcept = default;
 
             //============================================================================
             ///						Constructor
@@ -94,7 +94,7 @@ namespace nc
             /// @param				inRA
             /// @param              inDec
             ///
-            Coordinate(const RA& inRA, const Dec& inDec)  :
+            Coordinate(const RA& inRA, const Dec& inDec) noexcept :
                 ra_(inRA),
                 dec_(inDec)
             {
@@ -108,7 +108,7 @@ namespace nc
             /// @param              inY
             /// @param              inZ
             ///
-            Coordinate(double inX, double inY, double inZ) :
+            Coordinate(double inX, double inY, double inZ) noexcept :
                 x_(inX),
                 y_(inY),
                 z_(inZ)
@@ -280,7 +280,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Coordinate& inRhs) const 
+            bool operator==(const Coordinate& inRhs) const noexcept
             {
                 return ra_ == inRhs.ra_ && dec_ == inRhs.dec_;
             }
@@ -292,7 +292,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Coordinate& inRhs) const 
+            bool operator!=(const Coordinate& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -322,7 +322,7 @@ namespace nc
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
-            void cartesianToPolar()
+            void cartesianToPolar() noexcept
             {
                 double degreesRa = rad2deg(std::atan2(y_, x_));
                 if (degreesRa < 0)
@@ -339,7 +339,7 @@ namespace nc
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
-            void polarToCartesian() 
+            void polarToCartesian() noexcept
             {
                 const double raRadians = deg2rad(ra_.degrees());
                 const double decRadians = deg2rad(dec_.degrees());

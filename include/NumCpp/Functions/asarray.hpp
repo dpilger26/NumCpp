@@ -320,7 +320,7 @@ namespace nc
     ///
     template<typename dtype, typename Bool,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-    NdArray<dtype> asarray(dtype* ptr, uint32 size, Bool takeOwnership) 
+    NdArray<dtype> asarray(dtype* ptr, uint32 size, Bool takeOwnership) noexcept
     {
         return NdArray<dtype>(ptr, size, takeOwnership);
     }
@@ -341,7 +341,7 @@ namespace nc
     ///
     template<typename dtype, typename Bool,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) 
+    NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept
     {
         return NdArray<dtype>(ptr, numRows, numCols, takeOwnership);
     }

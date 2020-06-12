@@ -47,7 +47,7 @@ namespace nc
         ///
         /// @return     number of bits
         ///
-        static constexpr int bits() 
+        static constexpr int bits() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -60,7 +60,7 @@ namespace nc
         ///
         /// @return     dtype
         ///
-        static constexpr dtype epsilon() 
+        static constexpr dtype epsilon() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -72,7 +72,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isInteger() 
+        static constexpr bool isInteger() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -84,7 +84,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isSigned() 
+        static constexpr bool isSigned() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -96,7 +96,7 @@ namespace nc
         ///
         /// @return     min value
         ///
-        static constexpr dtype min() 
+        static constexpr dtype min() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -108,7 +108,7 @@ namespace nc
         ///
         /// @return     max value
         ///
-        static constexpr dtype max() 
+        static constexpr dtype max() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -128,7 +128,7 @@ namespace nc
         ///
         /// @return     number of bits
         ///
-        static constexpr int bits() 
+        static constexpr int bits() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -141,7 +141,7 @@ namespace nc
         ///
         /// @return     dtype
         ///
-        static constexpr std::complex<dtype> epsilon() 
+        static constexpr std::complex<dtype> epsilon() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -153,7 +153,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isInteger() 
+        static constexpr bool isInteger() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -165,7 +165,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isSigned() 
+        static constexpr bool isSigned() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -177,7 +177,7 @@ namespace nc
         ///
         /// @return     min value
         ///
-        static constexpr std::complex<dtype> min() 
+        static constexpr std::complex<dtype> min() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -189,7 +189,7 @@ namespace nc
         ///
         /// @return     max value
         ///
-        static constexpr std::complex<dtype> max() 
+        static constexpr std::complex<dtype> max() noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 

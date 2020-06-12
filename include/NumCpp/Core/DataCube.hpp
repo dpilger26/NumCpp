@@ -51,7 +51,7 @@ namespace nc
         //============================================================================
         ///						Default Constructor
         ///
-        DataCube() = default;
+        DataCube() noexcept = default;
 
         //============================================================================
         ///						Constructor, preallocates to the input size
@@ -101,7 +101,7 @@ namespace nc
         ///
         /// @return     iterator
         ///
-        iterator begin()
+        iterator begin() noexcept
         {
             return cube_.begin();
         }
@@ -111,7 +111,7 @@ namespace nc
         ///
         /// @return     const_iterator
         ///
-        const_iterator cbegin() const
+        const_iterator cbegin() const noexcept
         {
             return cube_.cbegin();
         }
@@ -158,7 +158,7 @@ namespace nc
         ///
         /// @return     iterator
         ///
-        iterator end()
+        iterator end() noexcept
         {
             return cube_.end();
         }
@@ -168,7 +168,7 @@ namespace nc
         ///
         /// @return     const_iterator
         ///
-        const_iterator cend() const
+        const_iterator cend() const noexcept
         {
             return cube_.cend();
         }
@@ -286,7 +286,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        const NdArray<dtype>& operator[](uint32 inIndex) const
+        const NdArray<dtype>& operator[](uint32 inIndex) const noexcept
         {
             return cube_[inIndex];
         }

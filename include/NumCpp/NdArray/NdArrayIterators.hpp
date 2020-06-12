@@ -56,7 +56,7 @@ namespace nc
         // Method Description:
         ///	Default Constructor
         ///
-        NdArrayConstIterator()  = default;
+        NdArrayConstIterator() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -85,7 +85,7 @@ namespace nc
         ///
         /// @return pointer
         ///
-        pointer operator->() const 
+        pointer operator->() const noexcept
         {
             return ptr_;
         }
@@ -282,7 +282,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator>=(const self_type& rhs) const 
+        bool operator>=(const self_type& rhs) const noexcept
         {
             return !(*this < rhs);
         }
@@ -304,7 +304,7 @@ namespace nc
         typename DifferenceType>
     NdArrayConstIterator<dtype, PointerType, DifferenceType> operator+(
         typename NdArrayConstIterator<dtype, PointerType, DifferenceType>::difference_type offset,
-        NdArrayConstIterator<dtype, PointerType, DifferenceType> next) 
+        NdArrayConstIterator<dtype, PointerType, DifferenceType> next) noexcept
     {
         return next += offset;
     }
@@ -347,7 +347,7 @@ namespace nc
         ///
         /// @return pointer
         ///
-        const pointer operator->() const 
+        const pointer operator->() const noexcept
         {
             return const_cast<const pointer>(MyBase::operator->());
         }
@@ -482,7 +482,7 @@ namespace nc
         typename DifferenceType>
     NdArrayIterator<dtype, PointerType, DifferenceType> operator+(
         typename NdArrayIterator<dtype, PointerType, DifferenceType>::difference_type offset,
-        NdArrayIterator<dtype, PointerType, DifferenceType> next) 
+        NdArrayIterator<dtype, PointerType, DifferenceType> next) noexcept
     {
         return next += offset;
     }
@@ -511,7 +511,7 @@ namespace nc
         // Method Description:
         ///	Default Constructor
         ///
-        NdArrayConstColumnIterator()  = default;
+        NdArrayConstColumnIterator() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -519,9 +519,10 @@ namespace nc
         ///
         /// @param ptr: the iterator pointer
         ///
-        NdArrayConstColumnIterator(pointer ptr, SizeType numRows)  :
+        NdArrayConstColumnIterator(pointer ptr, SizeType numRows, SizeType numCols) noexcept :
             ptr_(ptr),
-            numRows_(numRows)
+            numRows_(numRows),
+            numCols_(numCols)
         {}
 
         //============================================================================
@@ -530,7 +531,7 @@ namespace nc
         ///
         /// @return reference
         ///
-        reference operator*() const 
+        reference operator*() const noexcept
         {
             return *ptr_;
         }
@@ -541,7 +542,7 @@ namespace nc
         ///
         /// @return pointer
         ///
-        pointer operator->() const 
+        pointer operator->() const noexcept
         {
             return ptr_;
         }
@@ -552,7 +553,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator++() 
+        self_type& operator++() noexcept
         {
             ptr_ += numRows_;
             return *this;
@@ -564,7 +565,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator
         ///
-        self_type operator++(int) 
+        self_type operator++(int) noexcept
         {
             self_type tmp = *this;
             ++*this;
@@ -577,7 +578,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator--() 
+        self_type& operator--() noexcept
         {
             ptr_ -= numRows_;
             return *this;
@@ -589,7 +590,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator
         ///
-        self_type operator--(int) 
+        self_type operator--(int) noexcept
         {
             self_type tmp = *this;
             --*this;
@@ -603,7 +604,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator+=(const difference_type offset) 
+        self_type& operator+=(const difference_type offset) noexcept
         {
             ptr_ += offset * numRows_;
             return *this;
@@ -616,7 +617,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator
         ///
-        self_type operator+(const difference_type offset) const 
+        self_type operator+(const difference_type offset) const noexcept
         {
             self_type tmp = *this;
             return tmp += offset;
@@ -629,7 +630,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator-=(const difference_type offset) 
+        self_type& operator-=(const difference_type offset) noexcept
         {
             return *this += -offset;
         }
@@ -641,7 +642,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator
         ///
-        self_type operator-(const difference_type offset) const 
+        self_type operator-(const difference_type offset) const noexcept
         {
             self_type tmp = *this;
             return tmp -= offset;
@@ -654,12 +655,15 @@ namespace nc
         /// @param rhs
         /// @return difference_type
         ///
-        difference_type operator-(const self_type& rhs) const 
+        difference_type operator-(const self_type& rhs) const noexcept
         {
-            const auto idx = ptr_ - rhs.ptr_;
-            const auto row = idx / numRows_;
-            const auto col = idx % numRows_;
-            return row + col * numRows_;
+            const auto row1 = ptr_ / numCols_;
+            const auto col1 = ptr_ % numCols_;
+            const auto seq1 = col1 * numRows_ + row1;
+            const auto row2 = rhs.ptr_ / numCols_;
+            const auto col2 = rhs.ptr_ % numCols_;
+            const auto seq2 = col2 * numRows_ + row2;
+            return seq2 - seq1;
         }
 
         //============================================================================
@@ -669,7 +673,7 @@ namespace nc
         /// @param offset
         /// @return reference
         ///
-        reference operator[](const difference_type offset) const 
+        reference operator[](const difference_type offset) const noexcept
         {
             return *(*this + offset);
         }
@@ -681,7 +685,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator==(const self_type& rhs) const 
+        bool operator==(const self_type& rhs) const noexcept
         {
             return ptr_ == rhs.ptr_;
         }
@@ -693,7 +697,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator!=(const self_type& rhs) const 
+        bool operator!=(const self_type& rhs) const noexcept
         {
             return !(*this == rhs);
         }
@@ -705,7 +709,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator<(const self_type& rhs) const 
+        bool operator<(const self_type& rhs) const noexcept
         {
             return ptr_ - rhs.ptr_ < 0;
         }
@@ -717,7 +721,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator>(const self_type& rhs) const 
+        bool operator>(const self_type& rhs) const noexcept
         {
             return ptr_ - rhs.ptr_ > 0;
         }
@@ -729,7 +733,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator<=(const self_type& rhs) const 
+        bool operator<=(const self_type& rhs) const noexcept
         {
             return !(rhs < *this);
         }
@@ -741,7 +745,7 @@ namespace nc
         /// @param rhs
         /// @return bool
         ///
-        bool operator>=(const self_type& rhs) const 
+        bool operator>=(const self_type& rhs) const noexcept
         {
             return !(*this < rhs);
         }
@@ -749,6 +753,7 @@ namespace nc
     private:
         pointer     ptr_;
         SizeType    numRows_{ 0 };
+        SizeType    numCols_{ 0 };
     };
 
     //============================================================================
@@ -799,7 +804,7 @@ namespace nc
         ///
         /// @return reference
         ///
-        reference operator*() const 
+        reference operator*() const noexcept
         {
             return const_cast<reference>(MyBase::operator*());
         }
@@ -810,7 +815,7 @@ namespace nc
         ///
         /// @return pointer
         ///
-        const pointer operator->() const 
+        const pointer operator->() const noexcept
         {
             return const_cast<const pointer>(MyBase::operator->());
         }
@@ -821,7 +826,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator++() 
+        self_type& operator++() noexcept
         {
             MyBase::operator++();
             return *this;
@@ -833,7 +838,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator
         ///
-        self_type operator++(int) 
+        self_type operator++(int) noexcept
         {
             self_type tmp = *this;
             MyBase::operator++();
@@ -846,7 +851,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator--() 
+        self_type& operator--() noexcept
         {
             MyBase::operator--();
             return *this;
@@ -858,7 +863,7 @@ namespace nc
         ///
         /// @return NdArrayConstIterator
         ///
-        self_type operator--(int) 
+        self_type operator--(int) noexcept
         {
             self_type tmp = *this;
             MyBase::operator--();
@@ -872,7 +877,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator+=(const difference_type offset) 
+        self_type& operator+=(const difference_type offset) noexcept
         {
             MyBase::operator+=(offset);
             return *this;
@@ -885,7 +890,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator
         ///
-        self_type operator+(const difference_type offset) const 
+        self_type operator+(const difference_type offset) const noexcept
         {
             self_type tmp = *this;
             return tmp += offset;
@@ -898,7 +903,7 @@ namespace nc
         /// @param offset
         /// @return NdArrayConstIterator&
         ///
-        self_type& operator-=(const difference_type offset) 
+        self_type& operator-=(const difference_type offset) noexcept
         {
             MyBase::operator-=(offset);
             return *this;
@@ -913,7 +918,7 @@ namespace nc
         /// @param rhs
         /// @return difference_type
         ///
-        self_type operator-(const difference_type offset) const 
+        self_type operator-(const difference_type offset) const noexcept
         {
             self_type tmp = *this;
             return tmp -= offset;
@@ -926,7 +931,7 @@ namespace nc
         /// @param offset
         /// @return reference
         ///
-        reference operator[](const difference_type offset) const 
+        reference operator[](const difference_type offset) const noexcept
         {
             return const_cast<reference>(MyBase::operator[](offset));
         }
@@ -946,7 +951,7 @@ namespace nc
         typename DifferenceType>
         NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType> operator+(
         typename NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType>::difference_type offset,
-            NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) 
+            NdArrayColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) noexcept
     {
         return next += offset;
     }

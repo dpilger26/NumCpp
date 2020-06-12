@@ -48,7 +48,7 @@ namespace nc
         /// @return
         ///				NdArray<bool>
         ///
-        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) 
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
         {
             // not the most efficient way to do things, but the easist...
             NdArray<bool> xcds(inExceedances);

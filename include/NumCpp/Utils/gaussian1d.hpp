@@ -46,7 +46,7 @@ namespace nc
         ///
         /// @return             dtype
         ///
-        inline double gaussian1d(double inX, double inMu, double inSigma) 
+        inline double gaussian1d(double inX, double inMu, double inSigma) noexcept
         {
             double exponent = sqr(inX - inMu);
             exponent /= 2;

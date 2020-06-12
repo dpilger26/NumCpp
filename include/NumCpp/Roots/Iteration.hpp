@@ -73,7 +73,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            virtual ~Iteration() {};
+            virtual ~Iteration() noexcept {}
 
             //============================================================================
             // Method Description:

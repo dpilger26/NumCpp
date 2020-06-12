@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            Dec()  = default;
+            Dec() noexcept = default;
 
             //============================================================================
             ///						Constructor
@@ -187,7 +187,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Dec& inRhs) const 
+            bool operator==(const Dec& inRhs) const noexcept
             {
                 return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
@@ -199,7 +199,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Dec& inRhs) const 
+            bool operator!=(const Dec& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }

@@ -42,7 +42,7 @@ namespace nc
         /// @return     squared value
         ///
         template<typename dtype>
-        constexpr dtype sqr(dtype inValue) 
+        constexpr dtype sqr(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

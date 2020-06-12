@@ -52,14 +52,14 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Slice()  = default;
+        constexpr Slice() noexcept = default;
 
         //============================================================================
         ///						Constructor
         ///
         /// @param      inStop (index not included)
         ///
-        constexpr explicit Slice(int32 inStop)  :
+        constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
         {}
 
@@ -69,7 +69,7 @@ namespace nc
         /// @param          inStart
         /// @param			inStop (index not included)
         ///
-        constexpr Slice(int32 inStart, int32 inStop)  :
+        constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
             stop(inStop)
         {}
@@ -81,7 +81,7 @@ namespace nc
         /// @param      inStop (not included)
         /// @param      inStep
         ///
-        constexpr Slice(int32 inStart, int32 inStop, int32 inStep)  :
+        constexpr Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
             start(inStart),
             stop(inStop),
             step(inStep)

@@ -109,7 +109,7 @@ namespace nc
             /// @return
             ///              number of clusters
             ///
-            uint32 size()
+            uint32 size() noexcept
             {
                 return static_cast<uint32>(clusters_.size());
             }
@@ -124,7 +124,7 @@ namespace nc
             /// @return
             ///              Cluster
             ///
-            const Cluster<dtype>& operator[](uint32 inIndex) const
+            const Cluster<dtype>& operator[](uint32 inIndex) const noexcept
             {
                 return clusters_[inIndex];
             }
@@ -192,7 +192,7 @@ namespace nc
             /// @return
             ///              returns a pixel object clipped to the image boundaries
             ///
-            Pixel<dtype> makePixel(int32 inRow, int32 inCol) 
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol) noexcept
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that
                 // i haven't gone over the edge

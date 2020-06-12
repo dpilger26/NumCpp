@@ -50,7 +50,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            RA()  = default;
+            RA() noexcept = default;
 
             //============================================================================
             ///						Constructor
@@ -165,7 +165,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const RA& inRhs) const 
+            bool operator==(const RA& inRhs) const noexcept
             {
                 return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
@@ -177,7 +177,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const RA& inRhs) const 
+            bool operator!=(const RA& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }

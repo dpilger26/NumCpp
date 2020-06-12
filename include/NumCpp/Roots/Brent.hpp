@@ -59,7 +59,7 @@ namespace nc
             /// @param f: the function 
             ///
             Brent(const double epsilon,
-                const std::function<double(double)>& f)  :
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon),
                 f_(f)
             {}
@@ -74,7 +74,7 @@ namespace nc
             ///
             Brent(const double epsilon,
                 const uint32 maxNumIterations, 
-                const std::function<double(double)>& f)  :
+                const std::function<double(double)>& f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(f)
             {}
@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Brent()  = default;
+            ~Brent() noexcept = default;
 
             //============================================================================
             // Method Description:

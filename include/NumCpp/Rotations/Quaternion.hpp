@@ -62,7 +62,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion() = default;
+            Quaternion() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -86,7 +86,7 @@ namespace nc
             /// @param				inK
             /// @param				inS
             ///
-            Quaternion(double inI, double inJ, double inK, double inS)  :
+            Quaternion(double inI, double inJ, double inK, double inS) noexcept :
                 components_{ inI, inJ, inK, inS }
             {
                 normalize();
@@ -132,7 +132,7 @@ namespace nc
             /// @param			inAxis: Euler axis
             /// @param			inAngle: Euler angle in radians
             ///
-            Quaternion(const Vec3& inAxis, double inAngle) 
+            Quaternion(const Vec3& inAxis, double inAngle) noexcept
             {
                 // normalize the input vector
                 Vec3 normAxis = inAxis.normalize();
@@ -215,7 +215,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion conjugate() const 
+            Quaternion conjugate() const noexcept
             {
                 return Quaternion(-i(), -j(), -k(), s());
             }
@@ -239,7 +239,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            static Quaternion identity() 
+            static Quaternion identity() noexcept
             {
                 return Quaternion();
             }
@@ -251,7 +251,7 @@ namespace nc
             /// @return
             ///				Quaterion
             ///
-            Quaternion inverse() const 
+            Quaternion inverse() const noexcept
             {
                 /// for unit quaternions the inverse is equal to the conjugate
                 return conjugate();
@@ -360,7 +360,7 @@ namespace nc
             ///
             /// @return     euler roll angle in radians
             ///
-            double roll() const 
+            double roll() const noexcept
             {
                 return std::atan2(2 * (s() * i() + j() * k()),
                     1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
@@ -406,7 +406,7 @@ namespace nc
             /// @return
             ///				double
             ///
-            double s() const noexcept 
+            double s() const noexcept
             {
                 return components_[3];
             }
@@ -552,7 +552,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            static Quaternion xRotation(double inAngle)
+            static Quaternion xRotation(double inAngle) noexcept
             {
                 const Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
                 return Quaternion(eulerAxis, inAngle);
@@ -564,7 +564,7 @@ namespace nc
             ///
             /// @return     euler yaw angle in radians
             ///
-            double yaw() const 
+            double yaw() const noexcept
             {
                 return std::atan2(2 * (s() * k() + i() * j()),
                     1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
@@ -579,7 +579,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            static Quaternion yRotation(double inAngle)
+            static Quaternion yRotation(double inAngle) noexcept
             {
                 const Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
                 return Quaternion(eulerAxis, inAngle);
@@ -594,7 +594,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            static Quaternion zRotation(double inAngle)
+            static Quaternion zRotation(double inAngle) noexcept
             {
                 const Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
                 return Quaternion(eulerAxis, inAngle);
@@ -609,7 +609,7 @@ namespace nc
             /// @return
             ///				bool
             ///
-            bool operator==(const Quaternion& inRhs) const 
+            bool operator==(const Quaternion& inRhs) const noexcept
             {
                 const auto comparitor = [](double value1, double value2) noexcept -> bool
                 {
@@ -629,23 +629,9 @@ namespace nc
             /// @return
             ///				bool
             ///
-            bool operator!=(const Quaternion& inRhs) const 
+            bool operator!=(const Quaternion& inRhs) const noexcept
             {
                 return !(*this == inRhs);
-            }
-
-            //============================================================================
-            // Method Description:
-            ///						addition operator
-            ///
-            /// @param
-            ///				inRhs
-            /// @return
-            ///				Quaternion
-            ///
-            Quaternion operator+(const Quaternion& inRhs) const 
-            {
-                return Quaternion(*this) += inRhs;
             }
 
             //============================================================================
@@ -657,7 +643,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator+=(const Quaternion& inRhs) 
+            Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
                 stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::plus<double>());
@@ -669,28 +655,16 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						negative operator
-            ///
-            /// @return
-            ///				Quaternion
-            ///
-            Quaternion operator-() const 
-            {
-                return Quaternion(*this) *= -1.0;
-            }
-
-            //============================================================================
-            // Method Description:
-            ///						subtraction operator
+            ///						addition operator
             ///
             /// @param
             ///				inRhs
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator-(const Quaternion& inRhs) const 
+            Quaternion operator+(const Quaternion& inRhs) const noexcept 
             {
-                return Quaternion(*this) -= inRhs;
+                return Quaternion(*this) += inRhs;
             }
 
             //============================================================================
@@ -702,10 +676,100 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator-=(const Quaternion& inRhs) 
+            Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
                 stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::minus<double>());
+
+                normalize();
+
+                return *this;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						subtraction operator
+            ///
+            /// @param
+            ///				inRhs
+            /// @return
+            ///				Quaternion
+            ///
+            Quaternion operator-(const Quaternion& inRhs) const noexcept 
+            {
+                return Quaternion(*this) -= inRhs;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						negative operator
+            ///
+            /// @return
+            ///				Quaternion
+            ///
+            Quaternion operator-() const noexcept
+            {
+                return Quaternion(*this) *= -1.0;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						multiplication assignment operator
+            ///
+            /// @param
+            ///				inRhs
+            /// @return
+            ///				Quaternion
+            ///
+            Quaternion& operator*=(const Quaternion& inRhs) noexcept
+            {
+                double q0 = inRhs.s() * i();
+                q0 += inRhs.i() * s();
+                q0 -= inRhs.j() * k();
+                q0 += inRhs.k() * j();
+
+                double q1 = inRhs.s() * j();
+                q1 += inRhs.i() * k();
+                q1 += inRhs.j() * s();
+                q1 -= inRhs.k() * i();
+
+                double q2 = inRhs.s() * k();
+                q2 -= inRhs.i() * j();
+                q2 += inRhs.j() * i();
+                q2 += inRhs.k() * s();
+
+                double q3 = inRhs.s() * s();
+                q3 -= inRhs.i() * i();
+                q3 -= inRhs.j() * j();
+                q3 -= inRhs.k() * k();
+
+                components_[0] = q0;
+                components_[1] = q1;
+                components_[2] = q2;
+                components_[3] = q3;
+
+                normalize();
+
+                return *this;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						multiplication operator, only useful for multiplying
+            ///						by negative 1, all others will be renormalized back out
+            ///
+            /// @param
+            ///				inScalar
+            /// @return
+            ///				Quaternion
+            ///
+            Quaternion& operator*=(double inScalar) noexcept
+            {
+                stl_algorithms::for_each(components_.begin(), components_.end(),
+                    [&inScalar](double& component)
+                    {
+                        component *= inScalar;
+                    });
 
                 normalize();
 
@@ -721,7 +785,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(const Quaternion& inRhs) const 
+            Quaternion operator*(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) *= inRhs;
             }
@@ -736,7 +800,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(double inScalar) const 
+            Quaternion operator*(double inScalar) const noexcept  
             {
                 return Quaternion(*this) *= inScalar;
             }
@@ -781,66 +845,16 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication assignment operator
+            ///						division assignment operator
             ///
             /// @param
             ///				inRhs
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator*=(const Quaternion& inRhs) 
+            Quaternion& operator/=(const Quaternion& inRhs) noexcept
             {
-                double q0 = inRhs.s() * i();
-                q0 += inRhs.i() * s();
-                q0 -= inRhs.j() * k();
-                q0 += inRhs.k() * j();
-
-                double q1 = inRhs.s() * j();
-                q1 += inRhs.i() * k();
-                q1 += inRhs.j() * s();
-                q1 -= inRhs.k() * i();
-
-                double q2 = inRhs.s() * k();
-                q2 -= inRhs.i() * j();
-                q2 += inRhs.j() * i();
-                q2 += inRhs.k() * s();
-
-                double q3 = inRhs.s() * s();
-                q3 -= inRhs.i() * i();
-                q3 -= inRhs.j() * j();
-                q3 -= inRhs.k() * k();
-
-                components_[0] = q0;
-                components_[1] = q1;
-                components_[2] = q2;
-                components_[3] = q3;
-
-                normalize();
-
-                return *this;
-            }
-
-            //============================================================================
-            // Method Description:
-            ///						multiplication operator, only useful for multiplying
-            ///						by negative 1, all others will be renormalized back out
-            ///
-            /// @param
-            ///				inScalar
-            /// @return
-            ///				Quaternion
-            ///
-            Quaternion& operator*=(double inScalar) 
-            {
-                stl_algorithms::for_each(components_.begin(), components_.end(),
-                    [&inScalar](double& component)
-                    {
-                        component *= inScalar;
-                    });
-
-                normalize();
-
-                return *this;
+                return *this *= inRhs.conjugate();
             }
 
             //============================================================================
@@ -852,23 +866,9 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator/(const Quaternion& inRhs) const 
+            Quaternion operator/(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) /= inRhs;
-            }
-
-            //============================================================================
-            // Method Description:
-            ///						division assignment operator
-            ///
-            /// @param
-            ///				inRhs
-            /// @return
-            ///				Quaternion
-            ///
-            Quaternion& operator/=(const Quaternion& inRhs) 
-            {
-                return *this *= inRhs.conjugate();
             }
 
             //============================================================================
@@ -894,18 +894,18 @@ namespace nc
             // Method Description:
             ///						renormalizes the quaternion
             ///
-            void normalize() 
+            void normalize() noexcept
             {
                 double sumOfSquares = 0.0;
                 stl_algorithms::for_each(components_.begin(), components_.end(),
-                    [&sumOfSquares](double component) -> void
+                    [&sumOfSquares](double component) noexcept -> void
                     {
                         sumOfSquares += utils::sqr(component);
                     });
 
                 const double norm = std::sqrt(sumOfSquares);
                 stl_algorithms::for_each(components_.begin(), components_.end(),
-                    [&norm](double& component) -> void
+                    [&norm](double& component) noexcept -> void
                     {
                         component /= norm;
                     });

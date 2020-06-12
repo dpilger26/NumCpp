@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> negative(const NdArray<dtype>& inArray) 
+    NdArray<dtype> negative(const NdArray<dtype>& inArray)
     {
         return -inArray;
     }

@@ -55,7 +55,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    double hypot(dtype inValue1, dtype inValue2) 
+    double hypot(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -80,7 +80,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    double hypot(dtype inValue1, dtype inValue2, dtype inValue3) 
+    double hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -115,7 +115,7 @@ namespace nc
         NdArray<dtype> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2)  -> double
+            [](dtype inValue1, dtype inValue2) noexcept -> double
             { 
                 return hypot(inValue1, inValue2); 
             });

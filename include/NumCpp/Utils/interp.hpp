@@ -41,7 +41,7 @@ namespace nc
         ///
         /// @return     linear interpolated point
         ///
-        constexpr double interp(double inValue1, double inValue2, double inPercent) 
+        constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept
         {
             return inValue1 * (1.0 - inPercent) + inValue2 * inPercent;
         }

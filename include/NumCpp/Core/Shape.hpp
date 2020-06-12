@@ -48,14 +48,14 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Shape()  = default;
+        constexpr Shape() noexcept = default;
 
         //============================================================================
         ///						Constructor
         ///
         /// @param      inSquareSize
         ///
-        constexpr explicit Shape(uint32 inSquareSize)  :
+        constexpr explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
             cols(inSquareSize)
         {}
@@ -66,7 +66,7 @@ namespace nc
         /// @param      inRows
         /// @param      inCols
         ///
-        constexpr Shape(uint32 inRows, uint32 inCols)  :
+        constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
             cols(inCols)
         {}
@@ -78,7 +78,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator==(const Shape& inOtherShape) const 
+        constexpr bool operator==(const Shape& inOtherShape) const noexcept
         {
             return rows == inOtherShape.rows && cols == inOtherShape.cols;
         }
@@ -90,7 +90,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator!=(const Shape& inOtherShape) const 
+        constexpr bool operator!=(const Shape& inOtherShape) const noexcept
         {
             return !(*this == inOtherShape);
         }
@@ -100,7 +100,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        constexpr uint32 size() const 
+        constexpr uint32 size() const noexcept
         {
             return rows * cols;
         }
@@ -111,7 +111,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool isnull() const 
+        constexpr bool isnull() const noexcept
         {
             return rows == 0 && cols == 0;
         }
@@ -121,7 +121,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool issquare() const 
+        constexpr bool issquare() const noexcept
         {
             return rows == cols;
         }

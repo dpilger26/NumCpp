@@ -42,7 +42,7 @@ namespace nc
         /// @return     cubed value
         ///
         template<typename dtype>
-        constexpr dtype cube(dtype inValue) 
+        constexpr dtype cube(dtype inValue) noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

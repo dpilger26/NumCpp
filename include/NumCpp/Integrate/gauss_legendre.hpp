@@ -57,7 +57,7 @@ namespace nc
             ///
             /// @param				numIterations: the number of iterations to perform
             ///
-            LegendrePolynomial(const uint32 numIterations) :
+            LegendrePolynomial(const uint32 numIterations) noexcept :
                 numIterations_(numIterations),
                 weight_(numIterations + 1),
                 root_(numIterations + 1)
@@ -114,7 +114,7 @@ namespace nc
             // Method Description:
             ///	Calculates the weights and roots vectors
             ///
-            void calculateWeightAndRoot() 
+            void calculateWeightAndRoot() noexcept
             {
                 const double numIterationsDouble = static_cast<double>(numIterations_);
                 for (uint32 step = 0; step <= numIterations_; ++step)
@@ -142,7 +142,7 @@ namespace nc
             /// @param x
             /// @return Result
             ///
-            Result calculatePolynomialValueAndDerivative(const double x) 
+            Result calculatePolynomialValueAndDerivative(const double x) noexcept
             {
                 Result result(x, 0.0);
 
