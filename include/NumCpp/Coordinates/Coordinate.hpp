@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             ///						Default Constructor
             ///
-            Coordinate() noexcept = default;
+            Coordinate() = default;
 
             //============================================================================
             ///						Constructor

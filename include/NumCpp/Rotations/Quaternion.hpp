@@ -62,7 +62,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion() noexcept = default;
+            Quaternion() = default;
 
             //============================================================================
             // Method Description:

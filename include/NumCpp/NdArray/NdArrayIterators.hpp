@@ -56,7 +56,7 @@ namespace nc
         // Method Description:
         ///	Default Constructor
         ///
-        NdArrayConstIterator() noexcept = default;
+        NdArrayConstIterator() = default;
 
         //============================================================================
         // Method Description:
@@ -511,7 +511,7 @@ namespace nc
         // Method Description:
         ///	Default Constructor
         ///
-        NdArrayConstColumnIterator() noexcept = default;
+        NdArrayConstColumnIterator() = default;
 
         //============================================================================
         // Method Description:

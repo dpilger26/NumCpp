@@ -82,7 +82,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Dekker() noexcept = default;
+            ~Dekker() = default;
 
             //============================================================================
             // Method Description:

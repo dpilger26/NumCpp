@@ -48,7 +48,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Shape() noexcept = default;
+        constexpr Shape() = default;
 
         //============================================================================
         ///						Constructor

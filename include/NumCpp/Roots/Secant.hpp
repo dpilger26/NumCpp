@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Secant() noexcept = default;
+            ~Secant() = default;
 
             //============================================================================
             // Method Description:

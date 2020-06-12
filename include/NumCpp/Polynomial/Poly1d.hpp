@@ -66,7 +66,7 @@ namespace nc
             ///						Default Constructor (not very usefull, but needed for other
             ///                     containers.
             ///
-            Poly1d() noexcept = default;
+            Poly1d() = default;
 
             //============================================================================
             // Method Description:

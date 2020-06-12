@@ -52,7 +52,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Slice() noexcept = default;
+        constexpr Slice() = default;
 
         //============================================================================
         ///						Constructor

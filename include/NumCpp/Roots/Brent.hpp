@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Brent() noexcept = default;
+            ~Brent() = default;
 
             //============================================================================
             // Method Description:

@@ -74,7 +74,7 @@ namespace nc
     class NdArrayBase 
     {
     public:
-        virtual ~NdArrayBase() noexcept = default;
+        virtual ~NdArrayBase() = default;
     };
 
     //================================================================================
@@ -113,7 +113,7 @@ namespace nc
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() noexcept = default;
+        NdArray() = default;
 
         //============================================================================
         // Method Description:

@@ -64,7 +64,7 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() noexcept = default;
+            Cluster() = default;
 
             //=============================================================================
             // Description:

@@ -56,7 +56,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() noexcept = default;
+            Centroid() = default;
 
             //=============================================================================
             // Description:

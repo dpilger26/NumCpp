@@ -51,7 +51,7 @@ namespace nc
         //============================================================================
         ///						Default Constructor
         ///
-        DataCube() noexcept = default;
+        DataCube() = default;
 
         //============================================================================
         ///						Constructor, preallocates to the input size

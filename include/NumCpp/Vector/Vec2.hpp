@@ -57,7 +57,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec2() noexcept = default;
+        constexpr Vec2() = default;
 
         //============================================================================
         // Method Description:
