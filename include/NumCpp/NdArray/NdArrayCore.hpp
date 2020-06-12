@@ -104,8 +104,8 @@ namespace nc
         using reverse_iterator              = std::reverse_iterator<iterator>;
         using const_reverse_iterator        = std::reverse_iterator<const_iterator>;
 
-        using column_iterator               = NdArrayColumnIterator<dtype, pointer, difference_type, size_type>;
-        using const_column_iterator         = NdArrayConstColumnIterator<dtype, pointer, difference_type, size_type>;
+        using column_iterator               = NdArrayColumnIterator<dtype, size_type, pointer, difference_type>;
+        using const_column_iterator         = NdArrayConstColumnIterator<dtype, size_type, pointer, difference_type>;
         using reverse_column_iterator       = std::reverse_iterator<column_iterator>;
         using const_reverse_column_iterator = std::reverse_iterator<const_column_iterator>;
 
@@ -1143,6 +1143,61 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						column_iterator to the beginning of the flattened array
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colbegin() noexcept 
+        {
+            return column_iterator(array_, shape_.rows, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colbegin(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return colbegin() += (inCol * shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the beginning of the flattened array
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colbegin() const noexcept 
+        {
+            return ccolbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colbegin(size_type inCol) const
+        {
+            return ccolbegin(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						reverse_iterator to the beginning of the flattened array
         /// @return
         ///				reverse_iterator
@@ -1194,6 +1249,61 @@ namespace nc
         const_reverse_iterator rbegin(size_type inRow) const
         {
             return crbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the beginning of the flattened array
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolbegin() noexcept
+        {
+            return reverse_column_iterator(colend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolbegin(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return rcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_column_iterator rcolbegin() const noexcept
+        {
+            return crcolbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_column_iterator rcolbegin(size_type inCol) const
+        {
+            return crcolbegin(inCol);
         }
 
         //============================================================================
@@ -1253,6 +1363,61 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend() noexcept 
+        {
+            return colbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return colbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend() const noexcept 
+        {
+            return ccolend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend(size_type inCol) const
+        {
+            return ccolend(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						reverse_iterator to 1 past the end of the flattened array
         /// @return
         ///				reverse_iterator
@@ -1308,6 +1473,61 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						reverse_column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolend() noexcept
+        {
+            return rcolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolend(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return rcolbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator rcolend() const noexcept
+        {
+            return crcolend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator rcolend(size_type inCol) const
+        {
+            return crcolend(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						const iterator to the beginning of the flattened array
         ///
         /// @return
@@ -1339,10 +1559,41 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						const_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin() const noexcept 
+        {
+            return const_column_iterator(array_, shape_.rows, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin() += (inCol * shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						const_reverse_iterator to the beginning of the flattened array
         ///
         /// @return
-        ///				const_iterator
+        ///				const_reverse_iterator
         ///
         const_reverse_iterator crbegin() const noexcept
         {
@@ -1366,6 +1617,37 @@ namespace nc
             }
 
             return crbegin() += (shape_.rows - inRow - 1) * shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin() const noexcept
+        {
+            return const_reverse_column_iterator(ccolend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return crcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
         }
 
         //============================================================================
@@ -1401,6 +1683,37 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						const_column_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend() const noexcept 
+        {
+            return ccolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to 1 past the end of the input col
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						const_reverse_iterator to 1 past the end of the flattened array
         ///
         /// @return
@@ -1428,6 +1741,37 @@ namespace nc
             }
 
             return crbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolend() const noexcept
+        {
+            return crcolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the input col
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolend(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return crcolbegin(inCol) += shape_.rows;
         }
 
         //============================================================================

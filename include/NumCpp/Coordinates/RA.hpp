@@ -79,7 +79,7 @@ namespace nc
             /// @param          inMinutes
             /// @param          inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, double inSeconds)   :
+            RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)

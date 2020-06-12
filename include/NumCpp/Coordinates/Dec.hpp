@@ -87,7 +87,7 @@ namespace nc
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds)   :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds) noexcept :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),

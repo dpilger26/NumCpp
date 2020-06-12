@@ -528,7 +528,7 @@ namespace nc
     /// @param      rhs
     /// @return     Vec3
     ///
-    inline Vec3 operator-(double lhs, const Vec3& rhs) 
+    inline Vec3 operator-(double lhs, const Vec3& rhs) noexcept
     {
         return -Vec3(rhs) += lhs;
     }

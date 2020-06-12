@@ -521,8 +521,8 @@ namespace nc
         ///
         NdArrayConstColumnIterator(pointer ptr, SizeType numRows, SizeType numCols) noexcept :
             ptr_(ptr),
-            numRows_(numRows),
-            numCols_(numCols)
+            numRows_(static_cast<difference_type>(numRows)),
+            numCols_(static_cast<difference_type>(numCols))
         {}
 
         //============================================================================
@@ -751,9 +751,9 @@ namespace nc
         }
 
     private:
-        pointer     ptr_;
-        SizeType    numRows_{ 0 };
-        SizeType    numCols_{ 0 };
+        pointer         ptr_;
+        difference_type numRows_{ 0 };
+        difference_type numCols_{ 0 };
     };
 
     //============================================================================
