@@ -35,28 +35,35 @@ namespace nc
 {
     //============================================================================
     // Class Description:
-    ///	std::enable_if helper, for c++11 compatibility
+    ///	std::enable_if helper, for c++14 compatibility
     ///
     template<bool B, class T = void>
     using enable_if_t = typename std::enable_if<B, T>::type;
 
     //============================================================================
     // Class Description:
-    ///	std::is_arithmetic helper, for c++11 compatibility
+    ///	std::is_same helper, for c++14 compatibility
+    ///
+    template<class A, class B>
+    constexpr bool is_same_v = std::is_same<A, B>::value;
+
+    //============================================================================
+    // Class Description:
+    ///	std::is_arithmetic helper, for c++14 compatibility
     ///
     template<typename T>
     constexpr bool is_arithmetic_v = std::is_arithmetic<T>::value;
 
     //============================================================================
     // Class Description:
-    ///	std::is_integral helper, for c++11 compatibility
+    ///	std::is_integral helper, for c++14 compatibility
     ///
     template<typename T>
     constexpr bool is_integral_v = std::is_integral<T>::value;
 
     //============================================================================
     // Class Description:
-    ///	std::is_floating_point helper, for c++11 compatibility
+    ///	std::is_floating_point helper, for c++14 compatibility
     ///
     template<typename T>
     constexpr bool is_floating_point_v = std::is_floating_point<T>::value;

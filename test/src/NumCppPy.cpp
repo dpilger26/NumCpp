@@ -59,7 +59,7 @@ namespace ShapeInterface
 namespace IteratorInterface
 {
     template<typename Iterator>
-    typename Iterator::value_type dereference(const Iterator& self)
+    typename Iterator::value_type dereference(Iterator& self)
     {
         return *self;
     }
@@ -67,7 +67,39 @@ namespace IteratorInterface
     //================================================================================
 
     template<typename Iterator>
-    typename Iterator::value_type access(const Iterator& self, typename Iterator::difference_type offset)
+    Iterator operatorPlusPlusPre(Iterator& self)
+    {
+        return ++self;
+    }
+
+    //================================================================================
+
+    template<typename Iterator>
+    Iterator operatorMinusMinusPre(Iterator& self)
+    {
+        return --self;
+    }
+
+    //================================================================================
+
+    template<typename Iterator>
+    Iterator operatorPlusEqual(Iterator& self, typename Iterator::difference_type offset)
+    {
+        return self += offset;
+    }
+
+    //================================================================================
+
+    template<typename Iterator>
+    Iterator operatorMinusEqual(Iterator& self, typename Iterator::difference_type offset)
+    {
+        return self -= offset;
+    }
+
+    //================================================================================
+
+    template<typename Iterator>
+    typename Iterator::value_type access(Iterator& self, typename Iterator::difference_type offset)
     {
         return self[offset];
     }
@@ -5343,40 +5375,68 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleIterator (NdArrayDoubleIterator::*iteratorOperatorPlus)(NdArrayDoubleIterator::difference_type) const  = &NdArrayDoubleIterator::operator+;
     NdArrayDoubleIterator& (NdArrayDoubleIterator::*iteratorOperatorMinusEqual)(NdArrayDoubleIterator::difference_type)  = &NdArrayDoubleIterator::operator-=;
     NdArrayDoubleIterator(NdArrayDoubleIterator::*iteratorOperatorMinus)(NdArrayDoubleIterator::difference_type) const  = &NdArrayDoubleIterator::operator-;
+    //NdArrayDoubleIterator::difference_type(NdArrayDoubleIterator::*iteratorOperatorDiff)(const NdArrayDoubleIterator&) const = &NdArrayDoubleIterator::operator-;
+    //bool(NdArrayDoubleIterator::*iteratorOperatorEqual)(const NdArrayDoubleIterator&) const = &NdArrayDoubleIterator::operator==;
+    //bool(NdArrayDoubleConstIterator::*iteratorOperatorNotEqual)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleIterator::operator!=;
+    //bool(NdArrayDoubleConstIterator::*iteratorOperatorLT)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleIterator::operator<;
+    //bool(NdArrayDoubleConstIterator::*iteratorOperatorLTE)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleIterator::operator<=;
+    //bool(NdArrayDoubleConstIterator::*iteratorOperatorGT)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleIterator::operator>;
+    //bool(NdArrayDoubleConstIterator::*iteratorOperatorGTE)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleIterator::operator>=;
 
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPre)()  = &NdArrayComplexDoubleIterator::operator++;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleIterator::operator++;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPre)()  = &NdArrayComplexDoubleIterator::operator--;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusMinusPost)(int)  = &NdArrayComplexDoubleIterator::operator--;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator+=;
-    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexPlus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator+;
-    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator-=;
-    NdArrayComplexDoubleIterator(NdArrayComplexDoubleIterator::*iteratorOperatorComplexComplexMinus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator-;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoublePlusPlusPre)()  = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoublePlusPlusPost)(int)  = &NdArrayComplexDoubleIterator::operator++;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleMinusMinusPre)()  = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleMinusMinusPost)(int)  = &NdArrayComplexDoubleIterator::operator--;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoublePlusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator+=;
+    NdArrayComplexDoubleIterator (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoublePlus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator+;
+    NdArrayComplexDoubleIterator& (NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleMinusEqual)(NdArrayComplexDoubleIterator::difference_type)  = &NdArrayComplexDoubleIterator::operator-=;
+    NdArrayComplexDoubleIterator(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleMinus)(NdArrayComplexDoubleIterator::difference_type) const  = &NdArrayComplexDoubleIterator::operator-;
+    //NdArrayComplexDoubleIterator::difference_type(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleDiff)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator-;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleEqual)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator==;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleNotEqual)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator!=;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleLT)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator<;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleLTE)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator<=;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleGT)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator>;
+    //bool(NdArrayComplexDoubleIterator::*iteratorOperatorComplexDoubleGTE)(const NdArrayComplexDoubleIterator&) const = &NdArrayComplexDoubleIterator::operator>=;
 
     bp::class_<NdArrayDoubleIterator>
         ("NdArrayDoubleIterator", bp::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleIterator>)
-        .def("operatorPlusPlusPre", iteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleIterator>)
         .def("operatorPlusPlusPost", iteratorOperatorPlusPlusPost)
-        .def("operatorMinusMinusPre", iteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayDoubleIterator>)
         .def("operatorMinusMinusPost", iteratorOperatorMinusMinusPost)
-        .def("__iadd__", iteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayDoubleIterator>)
         .def("__add__", iteratorOperatorPlus)
-        .def("__isub__", iteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayDoubleIterator>)
         .def("__sub__", iteratorOperatorMinus)
+        //.def("__sub__", iteratorOperatorDiff)
+        //.def("__eq__", iteratorOperatorEqual)
+        //.def("__ne__", iteratorOperatorNotEqual)
+        //.def("__lt__", iteratorOperatorLT)
+        //.def("__le__", iteratorOperatorLTE)
+        //.def("__gt__", iteratorOperatorGT)
+        //.def("__ge__", iteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleIterator>);
 
     bp::class_<NdArrayComplexDoubleIterator>
         ("NdArrayComplexDoubleIterator", bp::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleIterator>)
-        .def("operatorPlusPlusPre", iteratorOperatorComplexComplexPlusPlusPre, bp::return_internal_reference<>())
-        .def("operatorPlusPlusPost", iteratorOperatorComplexComplexPlusPlusPost)
-        .def("operatorMinusMinusPre", iteratorOperatorComplexComplexMinusMinusPre, bp::return_internal_reference<>())
-        .def("operatorMinusMinusPost", iteratorOperatorComplexComplexMinusMinusPost)
-        .def("__iadd__", iteratorOperatorComplexComplexPlusEqual, bp::return_internal_reference<>())
-        .def("__add__", iteratorOperatorComplexComplexPlus)
-        .def("__isub__", iteratorOperatorComplexComplexMinusEqual, bp::return_internal_reference<>())
-        .def("__sub__", iteratorOperatorComplexComplexMinus)
+        .def("operatorPlusPlusPre", iteratorOperatorComplexDoublePlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", iteratorOperatorComplexDoublePlusPlusPost)
+        .def("operatorMinusMinusPre", iteratorOperatorComplexDoubleMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", iteratorOperatorComplexDoubleMinusMinusPost)
+        .def("__iadd__", iteratorOperatorComplexDoublePlusEqual, bp::return_internal_reference<>())
+        .def("__add__", iteratorOperatorComplexDoublePlus)
+        .def("__isub__", iteratorOperatorComplexDoubleMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", iteratorOperatorComplexDoubleMinus)
+        //.def("__sub__", iteratorOperatorComplexDoubleDiff)
+        //.def("__eq__", iteratorOperatorComplexDoubleEqual)
+        //.def("__ne__", iteratorOperatorComplexDoubleNotEqual)
+        //.def("__lt__", iteratorOperatorComplexDoubleLT)
+        //.def("__le__", iteratorOperatorComplexDoubleLTE)
+        //.def("__gt__", iteratorOperatorComplexDoubleGT)
+        //.def("__ge__", iteratorOperatorComplexDoubleGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleIterator>);
 
     NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorPlusPlusPre)()  = &NdArrayDoubleConstIterator::operator++;
@@ -5387,6 +5447,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstIterator (NdArrayDoubleConstIterator::*constIteratorOperatorPlus)(NdArrayDoubleConstIterator::difference_type) const  = &NdArrayDoubleConstIterator::operator+;
     NdArrayDoubleConstIterator& (NdArrayDoubleConstIterator::*constIteratorOperatorMinusEqual)(NdArrayDoubleConstIterator::difference_type)  = &NdArrayDoubleConstIterator::operator-=;
     NdArrayDoubleConstIterator(NdArrayDoubleConstIterator::*constIteratorOperatorMinus)(NdArrayDoubleConstIterator::difference_type) const  = &NdArrayDoubleConstIterator::operator-;
+    NdArrayDoubleConstIterator::difference_type(NdArrayDoubleConstIterator::*constIteratorOperatorDiff)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator-;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorEqual)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator==;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorNotEqual)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator!=;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorLT)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator<;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorLTE)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator<=;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorGT)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator>;
+    bool(NdArrayDoubleConstIterator::*constIteratorOperatorGTE)(const NdArrayDoubleConstIterator&) const = &NdArrayDoubleConstIterator::operator>=;
 
     NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPre)()  = &NdArrayComplexDoubleConstIterator::operator++;
     NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleConstIterator::operator++;
@@ -5396,18 +5463,32 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleConstIterator (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstIterator::difference_type) const  = &NdArrayComplexDoubleConstIterator::operator+;
     NdArrayComplexDoubleConstIterator& (NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstIterator::difference_type)  = &NdArrayComplexDoubleConstIterator::operator-=;
     NdArrayComplexDoubleConstIterator(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstIterator::difference_type) const  = &NdArrayComplexDoubleConstIterator::operator-;
+    NdArrayComplexDoubleConstIterator::difference_type(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexDiff)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator-;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexEqual)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator==;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator!=;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexLT)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator<;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexLTE)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator<=;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexGT)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator>;
+    bool(NdArrayComplexDoubleConstIterator::*constIteratorOperatorComplexGTE)(const NdArrayComplexDoubleConstIterator&) const = &NdArrayComplexDoubleConstIterator::operator>=;
 
     bp::class_<NdArrayDoubleConstIterator>
         ("NdArrayDoubleConstIterator", bp::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstIterator>)
-        .def("operatorPlusPlusPre", constIteratorOperatorPlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstIterator>)
         .def("operatorPlusPlusPost", constIteratorOperatorPlusPlusPost)
-        .def("operatorMinusMinusPre", constIteratorOperatorMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayDoubleConstIterator>)
         .def("operatorMinusMinusPost", constIteratorOperatorMinusMinusPost)
-        .def("__iadd__", constIteratorOperatorPlusEqual, bp::return_internal_reference<>())
+        .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayDoubleConstIterator>)
         .def("__add__", constIteratorOperatorPlus)
-        .def("__isub__", constIteratorOperatorMinusEqual, bp::return_internal_reference<>())
+        .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayDoubleConstIterator>)
         .def("__sub__", constIteratorOperatorMinus)
+        .def("__sub__", constIteratorOperatorDiff)
+        .def("__eq__", constIteratorOperatorEqual)
+        .def("__ne__", constIteratorOperatorNotEqual)
+        .def("__lt__", constIteratorOperatorLT)
+        .def("__le__", constIteratorOperatorLTE)
+        .def("__gt__", constIteratorOperatorGT)
+        .def("__ge__", constIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstIterator>);
 
 
@@ -5422,6 +5503,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constIteratorOperatorComplexPlus)
         .def("__isub__", constIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constIteratorOperatorComplexMinus)
+        .def("__sub__", constIteratorOperatorComplexDiff)
+        .def("__eq__", constIteratorOperatorComplexEqual)
+        .def("__ne__", constIteratorOperatorComplexNotEqual)
+        .def("__lt__", constIteratorOperatorComplexLT)
+        .def("__le__", constIteratorOperatorComplexLTE)
+        .def("__gt__", constIteratorOperatorComplexGT)
+        .def("__ge__", constIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstIterator>);
 
     NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleReverseIterator::operator++;
@@ -5432,6 +5520,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleReverseIterator (NdArrayDoubleReverseIterator::*reverseIteratorOperatorPlus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator+;
     NdArrayDoubleReverseIterator& (NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinusEqual)(NdArrayDoubleReverseIterator::difference_type) = &NdArrayDoubleReverseIterator::operator-=;
     NdArrayDoubleReverseIterator(NdArrayDoubleReverseIterator::*reverseIteratorOperatorMinus)(NdArrayDoubleReverseIterator::difference_type) const = &NdArrayDoubleReverseIterator::operator-;
+    //NdArrayDoubleReverseIterator::difference_type(NdArrayDoubleReverseIterator::*reverseIteratorOperatorDiff)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator-;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorEqual)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator==;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorNotEqual)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator!=;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorLT)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator<;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorLTE)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator<=;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorGT)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator>;
+    //bool(NdArrayDoubleReverseIterator::*reverseIteratorOperatorGTE)(const NdArrayDoubleReverseIterator&) const = &NdArrayDoubleReverseIterator::operator>=;
 
     NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleReverseIterator::operator++;
     NdArrayComplexDoubleReverseIterator (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleReverseIterator::operator++;
@@ -5441,6 +5536,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleReverseIterator (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexPlus)(NdArrayComplexDoubleReverseIterator::difference_type) const = &NdArrayComplexDoubleReverseIterator::operator+;
     NdArrayComplexDoubleReverseIterator& (NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleReverseIterator::difference_type) = &NdArrayComplexDoubleReverseIterator::operator-=;
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexMinus)(NdArrayComplexDoubleReverseIterator::difference_type) const = &NdArrayComplexDoubleReverseIterator::operator-;
+    //NdArrayComplexDoubleReverseIterator::difference_type(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexDiff)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator-;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexEqual)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator==;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator!=;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexLT)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator<;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexLTE)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator<=;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexGT)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator>;
+    //bool(NdArrayComplexDoubleReverseIterator::*reverseIteratorOperatorComplexGTE)(const NdArrayComplexDoubleReverseIterator&) const = &NdArrayComplexDoubleReverseIterator::operator>=;
 
     bp::class_<NdArrayDoubleReverseIterator>
         ("NdArrayDoubleReverseIterator", bp::init<>())
@@ -5453,6 +5555,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", reverseIteratorOperatorPlus)
         .def("__isub__", reverseIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", reverseIteratorOperatorMinus)
+        //.def("__sub__", reverseIteratorOperatorDiff)
+        //.def("__eq__", reverseIteratorOperatorEqual)
+        //.def("__ne__", reverseIteratorOperatorNotEqual)
+        //.def("__lt__", reverseIteratorOperatorLT)
+        //.def("__le__", reverseIteratorOperatorLTE)
+        //.def("__gt__", reverseIteratorOperatorGT)
+        //.def("__ge__", reverseIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseIterator>);
 
     bp::class_<NdArrayComplexDoubleReverseIterator>
@@ -5466,6 +5575,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", reverseIteratorOperatorComplexPlus)
         .def("__isub__", reverseIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", reverseIteratorOperatorComplexMinus)
+        //.def("__sub__", reverseIteratorOperatorComplexDiff)
+        //.def("__eq__", reverseIteratorOperatorComplexEqual)
+        //.def("__ne__", reverseIteratorOperatorComplexNotEqual)
+        //.def("__lt__", reverseIteratorOperatorComplexLT)
+        //.def("__le__", reverseIteratorOperatorComplexLTE)
+        //.def("__gt__", reverseIteratorOperatorComplexGT)
+        //.def("__ge__", reverseIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseIterator>);
 
     NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlusPlusPre)() = &NdArrayDoubleConstReverseIterator::operator++;
@@ -5476,6 +5592,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstReverseIterator (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorPlus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator+;
     NdArrayDoubleConstReverseIterator& (NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinusEqual)(NdArrayDoubleConstReverseIterator::difference_type) = &NdArrayDoubleConstReverseIterator::operator-=;
     NdArrayDoubleConstReverseIterator(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorMinus)(NdArrayDoubleConstReverseIterator::difference_type) const = &NdArrayDoubleConstReverseIterator::operator-;
+    //NdArrayDoubleConstReverseIterator::difference_type(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorDiff)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator-;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorEqual)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator==;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorNotEqual)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator!=;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorLT)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator<;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorLTE)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator<=;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorGT)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator>;
+    //bool(NdArrayDoubleConstReverseIterator::*constReverseIteratorOperatorGTE)(const NdArrayDoubleConstReverseIterator&) const = &NdArrayDoubleConstReverseIterator::operator>=;
 
     NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleConstReverseIterator::operator++;
     NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleConstReverseIterator::operator++;
@@ -5485,6 +5608,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstReverseIterator::difference_type) const = &NdArrayComplexDoubleConstReverseIterator::operator+;
     NdArrayComplexDoubleConstReverseIterator& (NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstReverseIterator::difference_type) = &NdArrayComplexDoubleConstReverseIterator::operator-=;
     NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstReverseIterator::difference_type) const = &NdArrayComplexDoubleConstReverseIterator::operator-;
+    //NdArrayComplexDoubleConstReverseIterator::difference_type(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexDiff)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator-;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexEqual)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator==;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator!=;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexLT)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator<;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexLTE)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator<=;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexGT)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator>;
+    //bool(NdArrayComplexDoubleConstReverseIterator::*constReverseIteratorOperatorComplexGTE)(const NdArrayComplexDoubleConstReverseIterator&) const = &NdArrayComplexDoubleConstReverseIterator::operator>=;
 
     bp::class_<NdArrayDoubleConstReverseIterator>
         ("NdArrayDoubleConstReverseIterator", bp::init<>())
@@ -5497,6 +5627,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constReverseIteratorOperatorPlus)
         .def("__isub__", constReverseIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constReverseIteratorOperatorMinus)
+        //.def("__sub__", constReverseIteratorOperatorDiff)
+        //.def("__eq__", constReverseIteratorOperatorEqual)
+        //.def("__ne__", constReverseIteratorOperatorNotEqual)
+        //.def("__lt__", constReverseIteratorOperatorLT)
+        //.def("__le__", constReverseIteratorOperatorLTE)
+        //.def("__gt__", constReverseIteratorOperatorGT)
+        //.def("__ge__", constReverseIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
 
     bp::class_<NdArrayComplexDoubleConstReverseIterator>
@@ -5510,6 +5647,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constReverseIteratorOperatorComplexPlus)
         .def("__isub__", constReverseIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constReverseIteratorOperatorComplexMinus)
+        //.def("__sub__", constReverseIteratorOperatorComplexDiff)
+        //.def("__eq__", constReverseIteratorOperatorComplexEqual)
+        //.def("__ne__", constReverseIteratorOperatorComplexNotEqual)
+        //.def("__lt__", constReverseIteratorOperatorComplexLT)
+        //.def("__le__", constReverseIteratorOperatorComplexLTE)
+        //.def("__gt__", constReverseIteratorOperatorComplexGT)
+        //.def("__ge__", constReverseIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseIterator>);
 
     NdArrayDoubleColumnIterator& (NdArrayDoubleColumnIterator::*columnIteratorOperatorPlusPlusPre)()  = &NdArrayDoubleColumnIterator::operator++;
@@ -5520,15 +5664,29 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleColumnIterator (NdArrayDoubleColumnIterator::*columnIteratorOperatorPlus)(NdArrayDoubleColumnIterator::difference_type) const  = &NdArrayDoubleColumnIterator::operator+;
     NdArrayDoubleColumnIterator& (NdArrayDoubleColumnIterator::*columnIteratorOperatorMinusEqual)(NdArrayDoubleColumnIterator::difference_type)  = &NdArrayDoubleColumnIterator::operator-=;
     NdArrayDoubleColumnIterator(NdArrayDoubleColumnIterator::*columnIteratorOperatorMinus)(NdArrayDoubleColumnIterator::difference_type) const  = &NdArrayDoubleColumnIterator::operator-;
+    //NdArrayDoubleColumnIterator::difference_type(NdArrayDoubleColumnIterator::*columnIteratorOperatorDiff)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator-;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorEqual)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator==;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorNotEqual)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator!=;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorLT)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator<;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorLTE)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator<=;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorGT)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator>;
+    //bool(NdArrayDoubleColumnIterator::*columnIteratorOperatorGTE)(const NdArrayDoubleColumnIterator&) const = &NdArrayDoubleColumnIterator::operator>=;
 
-    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexPlusPlusPre)()  = &NdArrayComplexDoubleColumnIterator::operator++;
-    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleColumnIterator::operator++;
-    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexMinusMinusPre)()  = &NdArrayComplexDoubleColumnIterator::operator--;
-    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexMinusMinusPost)(int)  = &NdArrayComplexDoubleColumnIterator::operator--;
-    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexPlusEqual)(NdArrayComplexDoubleColumnIterator::difference_type)  = &NdArrayComplexDoubleColumnIterator::operator+=;
-    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexPlus)(NdArrayComplexDoubleColumnIterator::difference_type) const  = &NdArrayComplexDoubleColumnIterator::operator+;
-    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexMinusEqual)(NdArrayComplexDoubleColumnIterator::difference_type)  = &NdArrayComplexDoubleColumnIterator::operator-=;
-    NdArrayComplexDoubleColumnIterator(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexComplexMinus)(NdArrayComplexDoubleColumnIterator::difference_type) const  = &NdArrayComplexDoubleColumnIterator::operator-;
+    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoublePlusPlusPre)()  = &NdArrayComplexDoubleColumnIterator::operator++;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoublePlusPlusPost)(int)  = &NdArrayComplexDoubleColumnIterator::operator++;
+    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleMinusMinusPre)()  = &NdArrayComplexDoubleColumnIterator::operator--;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleMinusMinusPost)(int)  = &NdArrayComplexDoubleColumnIterator::operator--;
+    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoublePlusEqual)(NdArrayComplexDoubleColumnIterator::difference_type)  = &NdArrayComplexDoubleColumnIterator::operator+=;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoublePlus)(NdArrayComplexDoubleColumnIterator::difference_type) const  = &NdArrayComplexDoubleColumnIterator::operator+;
+    NdArrayComplexDoubleColumnIterator& (NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleMinusEqual)(NdArrayComplexDoubleColumnIterator::difference_type)  = &NdArrayComplexDoubleColumnIterator::operator-=;
+    NdArrayComplexDoubleColumnIterator(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleMinus)(NdArrayComplexDoubleColumnIterator::difference_type) const  = &NdArrayComplexDoubleColumnIterator::operator-;
+    //NdArrayComplexDoubleColumnIterator::difference_type(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleDiff)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator-;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleEqual)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator==;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleNotEqual)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator!=;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleLT)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator<;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleLTE)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator<=;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleGT)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator>;
+    //bool(NdArrayComplexDoubleColumnIterator::*columnIteratorOperatorComplexDoubleGTE)(const NdArrayComplexDoubleColumnIterator&) const = &NdArrayComplexDoubleColumnIterator::operator>=;
 
     bp::class_<NdArrayDoubleColumnIterator>
         ("NdArrayDoubleColumnIterator", bp::init<>())
@@ -5541,19 +5699,33 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", columnIteratorOperatorPlus)
         .def("__isub__", columnIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", columnIteratorOperatorMinus)
+        //.def("__sub__", columnIteratorOperatorDiff)
+        //.def("__eq__", columnIteratorOperatorEqual)
+        //.def("__ne__", columnIteratorOperatorNotEqual)
+        //.def("__lt__", columnIteratorOperatorLT)
+        //.def("__le__", columnIteratorOperatorLTE)
+        //.def("__gt__", columnIteratorOperatorGT)
+        //.def("__ge__", columnIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleColumnIterator>);
 
     bp::class_<NdArrayComplexDoubleColumnIterator>
         ("NdArrayComplexDoubleColumnIterator", bp::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleColumnIterator>)
-        .def("operatorPlusPlusPre", columnIteratorOperatorComplexComplexPlusPlusPre, bp::return_internal_reference<>())
-        .def("operatorPlusPlusPost", columnIteratorOperatorComplexComplexPlusPlusPost)
-        .def("operatorMinusMinusPre", columnIteratorOperatorComplexComplexMinusMinusPre, bp::return_internal_reference<>())
-        .def("operatorMinusMinusPost", columnIteratorOperatorComplexComplexMinusMinusPost)
-        .def("__iadd__", columnIteratorOperatorComplexComplexPlusEqual, bp::return_internal_reference<>())
-        .def("__add__", columnIteratorOperatorComplexComplexPlus)
-        .def("__isub__", columnIteratorOperatorComplexComplexMinusEqual, bp::return_internal_reference<>())
-        .def("__sub__", columnIteratorOperatorComplexComplexMinus)
+        .def("operatorPlusPlusPre", columnIteratorOperatorComplexDoublePlusPlusPre, bp::return_internal_reference<>())
+        .def("operatorPlusPlusPost", columnIteratorOperatorComplexDoublePlusPlusPost)
+        .def("operatorMinusMinusPre", columnIteratorOperatorComplexDoubleMinusMinusPre, bp::return_internal_reference<>())
+        .def("operatorMinusMinusPost", columnIteratorOperatorComplexDoubleMinusMinusPost)
+        .def("__iadd__", columnIteratorOperatorComplexDoublePlusEqual, bp::return_internal_reference<>())
+        .def("__add__", columnIteratorOperatorComplexDoublePlus)
+        .def("__isub__", columnIteratorOperatorComplexDoubleMinusEqual, bp::return_internal_reference<>())
+        .def("__sub__", columnIteratorOperatorComplexDoubleMinus)
+        //.def("__sub__", columnIteratorOperatorComplexDoubleDiff)
+        //.def("__eq__", columnIteratorOperatorComplexDoubleEqual)
+        //.def("__ne__", columnIteratorOperatorComplexDoubleNotEqual)
+        //.def("__lt__", columnIteratorOperatorComplexDoubleLT)
+        //.def("__le__", columnIteratorOperatorComplexDoubleLTE)
+        //.def("__gt__", columnIteratorOperatorComplexDoubleGT)
+        //.def("__ge__", columnIteratorOperatorComplexDoubleGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleColumnIterator>);
 
     NdArrayDoubleConstColumnIterator& (NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorPlusPlusPre)()  = &NdArrayDoubleConstColumnIterator::operator++;
@@ -5564,6 +5736,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstColumnIterator (NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorPlus)(NdArrayDoubleConstColumnIterator::difference_type) const  = &NdArrayDoubleConstColumnIterator::operator+;
     NdArrayDoubleConstColumnIterator& (NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorMinusEqual)(NdArrayDoubleConstColumnIterator::difference_type)  = &NdArrayDoubleConstColumnIterator::operator-=;
     NdArrayDoubleConstColumnIterator(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorMinus)(NdArrayDoubleConstColumnIterator::difference_type) const  = &NdArrayDoubleConstColumnIterator::operator-;
+    NdArrayDoubleConstColumnIterator::difference_type(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorDiff)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator-;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorEqual)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator==;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorNotEqual)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator!=;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorLT)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator<;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorLTE)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator<=;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorGT)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator>;
+    bool(NdArrayDoubleConstColumnIterator::*constColumnIteratorOperatorGTE)(const NdArrayDoubleConstColumnIterator&) const = &NdArrayDoubleConstColumnIterator::operator>=;
 
     NdArrayComplexDoubleConstColumnIterator& (NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexPlusPlusPre)()  = &NdArrayComplexDoubleConstColumnIterator::operator++;
     NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexPlusPlusPost)(int)  = &NdArrayComplexDoubleConstColumnIterator::operator++;
@@ -5573,6 +5752,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstColumnIterator::difference_type) const  = &NdArrayComplexDoubleConstColumnIterator::operator+;
     NdArrayComplexDoubleConstColumnIterator& (NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstColumnIterator::difference_type)  = &NdArrayComplexDoubleConstColumnIterator::operator-=;
     NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstColumnIterator::difference_type) const  = &NdArrayComplexDoubleConstColumnIterator::operator-;
+    NdArrayComplexDoubleConstColumnIterator::difference_type(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexDiff)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator-;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexEqual)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator==;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator!=;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexLT)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator<;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexLTE)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator<=;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexGT)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator>;
+    bool(NdArrayComplexDoubleConstColumnIterator::*constColumnIteratorOperatorComplexGTE)(const NdArrayComplexDoubleConstColumnIterator&) const = &NdArrayComplexDoubleConstColumnIterator::operator>=;
 
     bp::class_<NdArrayDoubleConstColumnIterator>
         ("NdArrayDoubleConstColumnIterator", bp::init<>())
@@ -5585,6 +5771,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constColumnIteratorOperatorPlus)
         .def("__isub__", constColumnIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constColumnIteratorOperatorMinus)
+        .def("__sub__", constColumnIteratorOperatorDiff)
+        .def("__eq__", constColumnIteratorOperatorEqual)
+        .def("__ne__", constColumnIteratorOperatorNotEqual)
+        .def("__lt__", constColumnIteratorOperatorLT)
+        .def("__le__", constColumnIteratorOperatorLTE)
+        .def("__gt__", constColumnIteratorOperatorGT)
+        .def("__ge__", constColumnIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstColumnIterator>);
 
 
@@ -5599,6 +5792,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constColumnIteratorOperatorComplexPlus)
         .def("__isub__", constColumnIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constColumnIteratorOperatorComplexMinus)
+        .def("__sub__", constColumnIteratorOperatorComplexDiff)
+        .def("__eq__", constColumnIteratorOperatorComplexEqual)
+        .def("__ne__", constColumnIteratorOperatorComplexNotEqual)
+        .def("__lt__", constColumnIteratorOperatorComplexLT)
+        .def("__le__", constColumnIteratorOperatorComplexLTE)
+        .def("__gt__", constColumnIteratorOperatorComplexGT)
+        .def("__ge__", constColumnIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstColumnIterator>);
 
     NdArrayDoubleReverseColumnIterator& (NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorPlusPlusPre)() = &NdArrayDoubleReverseColumnIterator::operator++;
@@ -5609,6 +5809,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleReverseColumnIterator (NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorPlus)(NdArrayDoubleReverseColumnIterator::difference_type) const = &NdArrayDoubleReverseColumnIterator::operator+;
     NdArrayDoubleReverseColumnIterator& (NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorMinusEqual)(NdArrayDoubleReverseColumnIterator::difference_type) = &NdArrayDoubleReverseColumnIterator::operator-=;
     NdArrayDoubleReverseColumnIterator(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorMinus)(NdArrayDoubleReverseColumnIterator::difference_type) const = &NdArrayDoubleReverseColumnIterator::operator-;
+    //NdArrayDoubleReverseColumnIterator::difference_type(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorDiff)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator-;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorEqual)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator==;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorNotEqual)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator!=;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorLT)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator<;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorLTE)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator<=;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorGT)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator>;
+    //bool(NdArrayDoubleReverseColumnIterator::*reverseColumnIteratorOperatorGTE)(const NdArrayDoubleReverseColumnIterator&) const = &NdArrayDoubleReverseColumnIterator::operator>=;
 
     NdArrayComplexDoubleReverseColumnIterator& (NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleReverseColumnIterator::operator++;
     NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleReverseColumnIterator::operator++;
@@ -5618,6 +5825,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexPlus)(NdArrayComplexDoubleReverseColumnIterator::difference_type) const = &NdArrayComplexDoubleReverseColumnIterator::operator+;
     NdArrayComplexDoubleReverseColumnIterator& (NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleReverseColumnIterator::difference_type) = &NdArrayComplexDoubleReverseColumnIterator::operator-=;
     NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexMinus)(NdArrayComplexDoubleReverseColumnIterator::difference_type) const = &NdArrayComplexDoubleReverseColumnIterator::operator-;
+    //NdArrayComplexDoubleReverseColumnIterator::difference_type(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexDiff)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator-;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexEqual)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator==;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator!=;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexLT)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator<;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexLTE)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator<=;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexGT)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator>;
+    //bool(NdArrayComplexDoubleReverseColumnIterator::*reverseColumnIteratorOperatorComplexGTE)(const NdArrayComplexDoubleReverseColumnIterator&) const = &NdArrayComplexDoubleReverseColumnIterator::operator>=;
 
     bp::class_<NdArrayDoubleReverseColumnIterator>
         ("NdArrayDoubleReverseColumnIterator", bp::init<>())
@@ -5630,6 +5844,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", reverseColumnIteratorOperatorPlus)
         .def("__isub__", reverseColumnIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", reverseColumnIteratorOperatorMinus)
+        //.def("__sub__", reverseColumnIteratorOperatorComplexDiff)
+        //.def("__eq__", reverseColumnIteratorOperatorComplexEqual)
+        //.def("__ne__", reverseColumnIteratorOperatorComplexNotEqual)
+        //.def("__lt__", reverseColumnIteratorOperatorComplexLT)
+        //.def("__le__", reverseColumnIteratorOperatorComplexLTE)
+        //.def("__gt__", reverseColumnIteratorOperatorComplexGT)
+        //.def("__ge__", reverseColumnIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseColumnIterator>);
 
     bp::class_<NdArrayComplexDoubleReverseColumnIterator>
@@ -5643,6 +5864,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", reverseColumnIteratorOperatorComplexPlus)
         .def("__isub__", reverseColumnIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", reverseColumnIteratorOperatorComplexMinus)
+        //.def("__sub__", reverseColumnIteratorOperatorComplexDiff)
+        //.def("__eq__", reverseColumnIteratorOperatorComplexEqual)
+        //.def("__ne__", reverseColumnIteratorOperatorComplexNotEqual)
+        //.def("__lt__", reverseColumnIteratorOperatorComplexLT)
+        //.def("__le__", reverseColumnIteratorOperatorComplexLTE)
+        //.def("__gt__", reverseColumnIteratorOperatorComplexGT)
+        //.def("__ge__", reverseColumnIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseColumnIterator>);
 
     NdArrayDoubleConstReverseColumnIterator& (NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorPlusPlusPre)() = &NdArrayDoubleConstReverseColumnIterator::operator++;
@@ -5653,6 +5881,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayDoubleConstReverseColumnIterator (NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorPlus)(NdArrayDoubleConstReverseColumnIterator::difference_type) const = &NdArrayDoubleConstReverseColumnIterator::operator+;
     NdArrayDoubleConstReverseColumnIterator& (NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorMinusEqual)(NdArrayDoubleConstReverseColumnIterator::difference_type) = &NdArrayDoubleConstReverseColumnIterator::operator-=;
     NdArrayDoubleConstReverseColumnIterator(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorMinus)(NdArrayDoubleConstReverseColumnIterator::difference_type) const = &NdArrayDoubleConstReverseColumnIterator::operator-;
+    //NdArrayDoubleConstReverseColumnIterator::difference_type(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorDiff)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator-;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorEqual)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator==;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorNotEqual)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator!=;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorLT)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator<;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorLTE)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator<=;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorGT)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator>;
+    //bool(NdArrayDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorGTE)(const NdArrayDoubleConstReverseColumnIterator&) const = &NdArrayDoubleConstReverseColumnIterator::operator>=;
 
     NdArrayComplexDoubleConstReverseColumnIterator& (NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexPlusPlusPre)() = &NdArrayComplexDoubleConstReverseColumnIterator::operator++;
     NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexPlusPlusPost)(int) = &NdArrayComplexDoubleConstReverseColumnIterator::operator++;
@@ -5662,6 +5897,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexPlus)(NdArrayComplexDoubleConstReverseColumnIterator::difference_type) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator+;
     NdArrayComplexDoubleConstReverseColumnIterator& (NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexMinusEqual)(NdArrayComplexDoubleConstReverseColumnIterator::difference_type) = &NdArrayComplexDoubleConstReverseColumnIterator::operator-=;
     NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexMinus)(NdArrayComplexDoubleConstReverseColumnIterator::difference_type) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator-;
+    //NdArrayComplexDoubleConstReverseColumnIterator::difference_type(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexDiff)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator-;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexEqual)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator==;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexNotEqual)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator!=;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexLT)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator<;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexLTE)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator<=;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexGT)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator>;
+    //bool(NdArrayComplexDoubleConstReverseColumnIterator::*constReverseColumnIteratorOperatorComplexGTE)(const NdArrayComplexDoubleConstReverseColumnIterator&) const = &NdArrayComplexDoubleConstReverseColumnIterator::operator>=;
 
     bp::class_<NdArrayDoubleConstReverseColumnIterator>
         ("NdArrayDoubleConstReverseColumnIterator", bp::init<>())
@@ -5674,6 +5916,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constReverseColumnIteratorOperatorPlus)
         .def("__isub__", constReverseColumnIteratorOperatorMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constReverseColumnIteratorOperatorMinus)
+        //.def("__sub__", constReverseColumnIteratorOperatorDiff)
+        //.def("__eq__", constReverseColumnIteratorOperatorEqual)
+        //.def("__ne__", constReverseColumnIteratorOperatorNotEqual)
+        //.def("__lt__", constReverseColumnIteratorOperatorLT)
+        //.def("__le__", constReverseColumnIteratorOperatorLTE)
+        //.def("__gt__", constReverseColumnIteratorOperatorGT)
+        //.def("__ge__", constReverseColumnIteratorOperatorGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseColumnIterator>);
 
     bp::class_<NdArrayComplexDoubleConstReverseColumnIterator>
@@ -5687,6 +5936,13 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__add__", constReverseColumnIteratorOperatorComplexPlus)
         .def("__isub__", constReverseColumnIteratorOperatorComplexMinusEqual, bp::return_internal_reference<>())
         .def("__sub__", constReverseColumnIteratorOperatorComplexMinus)
+        //.def("__sub__", constReverseColumnIteratorOperatorComplexDiff)
+        //.def("__eq__", constReverseColumnIteratorOperatorComplexEqual)
+        //.def("__ne__", constReverseColumnIteratorOperatorComplexNotEqual)
+        //.def("__lt__", constReverseColumnIteratorOperatorComplexLT)
+        //.def("__le__", constReverseColumnIteratorOperatorComplexLTE)
+        //.def("__gt__", constReverseColumnIteratorOperatorComplexGT)
+        //.def("__ge__", constReverseColumnIteratorOperatorComplexGTE)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseColumnIterator>);
 
     NdArrayDouble::reference(NdArrayDouble::*atSingleScaler)(int32) = &NdArrayDouble::at;
@@ -5709,83 +5965,83 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     NdArrayDoubleIterator(NdArrayDouble::*begin)()  = &NdArrayDouble::begin;
     NdArrayDoubleIterator(NdArrayDouble::*beginRow)(NdArrayDouble::size_type) = &NdArrayDouble::begin;
-    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const  = &NdArrayDouble::begin;
-    NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::begin;
+    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const  = &NdArrayDouble::cbegin;
+    NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cbegin;
 
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginComplex)()  = &NdArrayComplexDouble::begin;
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::begin;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const  = &NdArrayComplexDouble::begin;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const  = &NdArrayComplexDouble::cbegin;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::cbegin;
 
     NdArrayDoubleColumnIterator(NdArrayDouble::*colbegin)()  = &NdArrayDouble::colbegin;
     NdArrayDoubleColumnIterator(NdArrayDouble::*colbeginCol)(NdArrayDouble::size_type) = &NdArrayDouble::colbegin;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginConst)() const  = &NdArrayDouble::colbegin;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::colbegin;
+    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginConst)() const  = &NdArrayDouble::ccolbegin;
+    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::ccolbegin;
 
     NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colbeginComplex)()  = &NdArrayComplexDouble::colbegin;
     NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colbeginColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::colbegin;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginConstComplex)() const  = &NdArrayComplexDouble::colbegin;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::colbegin;
+    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginConstComplex)() const  = &NdArrayComplexDouble::ccolbegin;
+    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolbegin;
 
     NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)()  = &NdArrayDouble::rbegin;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const  = &NdArrayDouble::rbegin;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rbegin;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const  = &NdArrayDouble::crbegin;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crbegin;
 
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginComplex)()  = &NdArrayComplexDouble::rbegin;
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rbegin;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const  = &NdArrayComplexDouble::rbegin;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const  = &NdArrayComplexDouble::crbegin;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crbegin;
 
     NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolbegin)()  = &NdArrayDouble::rcolbegin;
     NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolbeginCol)(NdArrayDouble::size_type) = &NdArrayDouble::rcolbegin;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginConst)() const  = &NdArrayDouble::rcolbegin;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rcolbegin;
+    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginConst)() const  = &NdArrayDouble::crcolbegin;
+    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crcolbegin;
 
     NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolbeginComplex)()  = &NdArrayComplexDouble::rcolbegin;
     NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolbeginColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolbegin;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginConstComplex)() const  = &NdArrayComplexDouble::rcolbegin;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rcolbegin;
+    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginConstComplex)() const  = &NdArrayComplexDouble::crcolbegin;
+    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolbegin;
 
     NdArrayDoubleIterator(NdArrayDouble::*end)()  = &NdArrayDouble::end;
     NdArrayDoubleIterator(NdArrayDouble::*endRow)(NdArrayDouble::size_type) = &NdArrayDouble::end;
-    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const  = &NdArrayDouble::end;
-    NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::end;
+    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const  = &NdArrayDouble::cend;
+    NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cend;
 
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endComplex)()  = &NdArrayComplexDouble::end;
     NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::end;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const  = &NdArrayComplexDouble::end;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const  = &NdArrayComplexDouble::cend;
+    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::cend;
 
     NdArrayDoubleColumnIterator(NdArrayDouble::*colend)()  = &NdArrayDouble::colend;
     NdArrayDoubleColumnIterator(NdArrayDouble::*colendCol)(NdArrayDouble::size_type) = &NdArrayDouble::colend;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendConst)() const  = &NdArrayDouble::colend;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::colend;
+    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendConst)() const  = &NdArrayDouble::ccolend;
+    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::ccolend;
 
     NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colendComplex)()  = &NdArrayComplexDouble::colend;
     NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colendColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::colend;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendConstComplex)() const  = &NdArrayComplexDouble::colend;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::colend;
+    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendConstComplex)() const  = &NdArrayComplexDouble::ccolend;
+    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolend;
 
     NdArrayDoubleReverseIterator(NdArrayDouble::*rend)()  = &NdArrayDouble::rend;
     NdArrayDoubleReverseIterator(NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const  = &NdArrayDouble::rend;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rend;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const  = &NdArrayDouble::crend;
+    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crend;
 
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendComplex)()  = &NdArrayComplexDouble::rend;
     NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rend;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const  = &NdArrayComplexDouble::rend;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const  = &NdArrayComplexDouble::crend;
+    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crend;
 
     NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolend)()  = &NdArrayDouble::rcolend;
     NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolendCol)(NdArrayDouble::size_type) = &NdArrayDouble::rcolend;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendConst)() const  = &NdArrayDouble::rcolend;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::rcolend;
+    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendConst)() const  = &NdArrayDouble::crcolend;
+    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crcolend;
 
     NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolendComplex)()  = &NdArrayComplexDouble::rcolend;
     NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolendColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolend;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendConstComplex)() const  = &NdArrayComplexDouble::rcolend;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::rcolend;
+    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendConstComplex)() const  = &NdArrayComplexDouble::crcolend;
+    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolend;
 
     bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>);
     bp::def("test1DListContructor", &NdArrayInterface::test1DListContructor<ComplexDouble>);

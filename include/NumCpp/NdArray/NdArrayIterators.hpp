@@ -467,6 +467,13 @@ namespace nc
         {
             return const_cast<reference>(MyBase::operator[](offset));
         }
+
+        using MyBase::operator==;
+        using MyBase::operator!=;
+        using MyBase::operator<;
+        using MyBase::operator<=;
+        using MyBase::operator>;
+        using MyBase::operator>=;
     };
 
     //============================================================================
@@ -709,7 +716,7 @@ namespace nc
         ///
         bool operator==(const self_type& rhs) const noexcept
         {
-            return currPtr_ == currPtr_;
+            return currPtr_ == rhs.currPtr_;
         }
 
         //============================================================================
@@ -1044,6 +1051,13 @@ namespace nc
         {
             return const_cast<reference>(MyBase::operator[](offset));
         }
+
+        using MyBase::operator==;
+        using MyBase::operator!=;
+        using MyBase::operator<;
+        using MyBase::operator<=;
+        using MyBase::operator>;
+        using MyBase::operator>=;
     };
 
     //============================================================================

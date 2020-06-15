@@ -70,28 +70,20 @@ namespace nc
 {
     //================================================================================
     // Class Description:
-    ///	Base Class for NdArray
-    class NdArrayBase 
-    {
-    public:
-        virtual ~NdArrayBase() = default;
-    };
-
-    //================================================================================
-    // Class Description:
     ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
     template<typename dtype, class Allocator = std::allocator<dtype>>
-    class NdArray final : NdArrayBase
+    class NdArray
     {
     private:
         STATIC_ASSERT_VALID_DTYPE(dtype);
+        static_assert(is_same_v<dtype, typename Allocator::value_type>, "value_type and Allocator::value_type must match");
 
         using AllocType     = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
         using AllocTraits   = std::allocator_traits<AllocType>;
 
     public:
         using value_type                    = dtype;
-        using allocator_type                = AllocType;
+        using allocator_type                = Allocator;
         using pointer                       = typename AllocTraits::pointer;
         using const_pointer                 = typename AllocTraits::const_pointer;
         using reference                     = dtype&;
@@ -100,12 +92,12 @@ namespace nc
         using difference_type               = typename AllocTraits::difference_type;
 
         using iterator                      = NdArrayIterator<dtype, pointer, difference_type>;
-        using const_iterator                = NdArrayConstIterator<dtype, pointer, difference_type>;
+        using const_iterator                = NdArrayConstIterator<dtype, const_pointer, difference_type>;
         using reverse_iterator              = std::reverse_iterator<iterator>;
         using const_reverse_iterator        = std::reverse_iterator<const_iterator>;
 
         using column_iterator               = NdArrayColumnIterator<dtype, size_type, pointer, difference_type>;
-        using const_column_iterator         = NdArrayConstColumnIterator<dtype, size_type, pointer, difference_type>;
+        using const_column_iterator         = NdArrayConstColumnIterator<dtype, size_type, const_pointer, difference_type>;
         using reverse_column_iterator       = std::reverse_iterator<column_iterator>;
         using const_reverse_column_iterator = std::reverse_iterator<const_column_iterator>;
 
@@ -560,7 +552,7 @@ namespace nc
         // Method Description:
         ///						Destructor
         ///
-        ~NdArray() 
+        ~NdArray() noexcept
         {
             deleteArray();
         }
@@ -1143,6 +1135,37 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator cbegin() const noexcept 
+        {
+            return const_iterator(array_);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator cbegin(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return cbegin() += (inRow * shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						column_iterator to the beginning of the flattened array
         /// @return
         ///				column_iterator
@@ -1194,6 +1217,37 @@ namespace nc
         const_column_iterator colbegin(size_type inCol) const
         {
             return ccolbegin(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin() const noexcept 
+        {
+            return const_column_iterator(array_, shape_.rows, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin() += (inCol * shape_.rows);
         }
 
         //============================================================================
@@ -1253,6 +1307,37 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						const_reverse_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crbegin() const noexcept
+        {
+            return const_reverse_iterator(cend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crbegin(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin() += (shape_.rows - inRow - 1) * shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						reverse_column_iterator to the beginning of the flattened array
         /// @return
         ///				reverse_column_iterator
@@ -1304,6 +1389,37 @@ namespace nc
         const_reverse_column_iterator rcolbegin(size_type inCol) const
         {
             return crcolbegin(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin() const noexcept
+        {
+            return const_reverse_column_iterator(ccolend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return crcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
         }
 
         //============================================================================
@@ -1363,57 +1479,33 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				column_iterator
+        ///						const iterator to 1 past the end of the flattened array
         ///
-        column_iterator colend() noexcept 
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator cend() const noexcept 
         {
-            return colbegin() += size_;
+            return cbegin() += size_;
         }
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to the 1 past end of the column
+        ///						const iterator to 1 past the end of the input row
         ///
         /// @param
-        ///				inCol
+        ///				inRow
         /// @return
-        ///				column_iterator
+        ///				const_iterator
         ///
-        column_iterator colend(size_type inCol)
+        const_iterator cend(size_type inRow) const
         {
-            if (inCol >= shape_.cols)
+            if (inRow >= shape_.rows)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return colbegin(inCol) += shape_.rows;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator colend() const noexcept 
-        {
-            return ccolend();
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const column_iterator to the 1 past end of the column
-        ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator colend(size_type inCol) const
-        {
-            return ccolend(inCol);
+            return cbegin(inRow) += shape_.cols;
         }
 
         //============================================================================
@@ -1473,6 +1565,123 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend() const noexcept
+        {
+            return crbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend() noexcept 
+        {
+            return colbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return colbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend() const noexcept 
+        {
+            return ccolend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend(size_type inCol) const
+        {
+            return ccolend(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend() const noexcept 
+        {
+            return ccolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to 1 past the end of the input col
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						reverse_column_iterator to 1 past the end of the flattened array
         /// @return
         ///				reverse_column_iterator
@@ -1524,223 +1733,6 @@ namespace nc
         const_reverse_column_iterator rcolend(size_type inCol) const
         {
             return crcolend(inCol);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to the beginning of the flattened array
-        ///
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cbegin() const noexcept 
-        {
-            return const_iterator(array_);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to the beginning of the input row
-        ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cbegin(size_type inRow) const
-        {
-            if (inRow >= shape_.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
-            }
-
-            return cbegin() += (inRow * shape_.cols);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_column_iterator to the beginning of the flattened array
-        ///
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator ccolbegin() const noexcept 
-        {
-            return const_column_iterator(array_, shape_.rows, shape_.cols);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_column_iterator to the beginning of the input column
-        ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator ccolbegin(size_type inCol) const
-        {
-            if (inCol >= shape_.cols)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
-            }
-
-            return ccolbegin() += (inCol * shape_.rows);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_iterator to the beginning of the flattened array
-        ///
-        /// @return
-        ///				const_reverse_iterator
-        ///
-        const_reverse_iterator crbegin() const noexcept
-        {
-            return const_reverse_iterator(cend());
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_iterator to the beginning of the input row
-        ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_reverse_iterator
-        ///
-        const_reverse_iterator crbegin(size_type inRow) const
-        {
-            if (inRow >= shape_.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
-            }
-
-            return crbegin() += (shape_.rows - inRow - 1) * shape_.cols;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_column_iterator to the beginning of the flattened array
-        ///
-        /// @return
-        ///				const_reverse_column_iterator
-        ///
-        const_reverse_column_iterator crcolbegin() const noexcept
-        {
-            return const_reverse_column_iterator(ccolend());
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_column_iterator to the beginning of the input column
-        ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_reverse_column_iterator
-        ///
-        const_reverse_column_iterator crcolbegin(size_type inCol) const
-        {
-            if (inCol >= shape_.cols)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
-            }
-
-            return crcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to 1 past the end of the flattened array
-        ///
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cend() const noexcept 
-        {
-            return cbegin() += size_;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to 1 past the end of the input row
-        ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cend(size_type inRow) const
-        {
-            if (inRow >= shape_.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
-            }
-
-            return cbegin(inRow) += shape_.cols;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_column_iterator to 1 past the end of the flattened array
-        ///
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator ccolend() const noexcept 
-        {
-            return ccolbegin() += size_;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_column_iterator to 1 past the end of the input col
-        ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
-        ///
-        const_column_iterator ccolend(size_type inCol) const
-        {
-            if (inCol >= shape_.cols)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
-            }
-
-            return ccolbegin(inCol) += shape_.rows;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_iterator to 1 past the end of the flattened array
-        ///
-        /// @return
-        ///				const_reverse_iterator
-        ///
-        const_reverse_iterator crend() const noexcept
-        {
-            return crbegin() += size_;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const_reverse_iterator to 1 past the end of the input row
-        ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_reverse_iterator
-        ///
-        const_reverse_iterator crend(size_type inRow) const
-        {
-            if (inRow >= shape_.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
-            }
-
-            return crbegin(inRow) += shape_.cols;
         }
 
         //============================================================================
@@ -4631,7 +4623,7 @@ namespace nc
         // Method Description:
         ///						Deletes the internal array
         ///
-        void deleteArray() 
+        void deleteArray() noexcept
         {
             if (ownsPtr_ && array_ != nullptr)
             {
