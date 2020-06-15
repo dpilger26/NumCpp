@@ -25,7 +25,7 @@ def test_iterator():
     iterator = cArray.begin()
     for value in data.flatten():
         assert value == iterator.operatorDereference()
-        iterator.operatorPlusPlusPost(1)
+        iterator.operatorPlusPlusPost()
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -52,16 +52,6 @@ def test_iterator():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    iterator = cArray.begin()
-    for value in data.flatten():
-        assert value == iterator[0]
-        iterator.operatorPlusPlusPre()
-
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    cArray.setArray(data)
     iterator = cArray.end()
     iterator.operatorMinusMinusPre()
     for value in np.flip(data.flatten()):
@@ -77,7 +67,7 @@ def test_iterator():
     iterator.operatorMinusMinusPre()
     for value in np.flip(data.flatten()):
         assert value == iterator.operatorDereference()
-        iterator.operatorMinusMinusPost(1)
+        iterator.operatorMinusMinusPost()
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -131,7 +121,7 @@ def test_const_iterator():
     iterator = cArray.beginConst()
     for value in data.flatten():
         assert value == iterator.operatorDereference()
-        iterator.operatorPlusPlusPost(1)
+        iterator.operatorPlusPlusPost()
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -158,16 +148,6 @@ def test_const_iterator():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    iterator = cArray.beginConst()
-    for value in data.flatten():
-        assert value == iterator[0]
-        iterator.operatorPlusPlusPre()
-
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    cArray.setArray(data)
     iterator = cArray.endConst()
     iterator.operatorMinusMinusPre()
     for value in np.flip(data.flatten()):
@@ -183,7 +163,7 @@ def test_const_iterator():
     iterator.operatorMinusMinusPre()
     for value in np.flip(data.flatten()):
         assert value == iterator.operatorDereference()
-        iterator.operatorMinusMinusPost(1)
+        iterator.operatorMinusMinusPost()
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -247,6 +227,6 @@ def test_const_reverse_column_iterator():
     pass
 
 
-if __name__ == '__main__':
-    # test_iterator()
-    test_const_iterator()
+# if __name__ == '__main__':
+#     test_iterator()
+#     test_const_iterator()
