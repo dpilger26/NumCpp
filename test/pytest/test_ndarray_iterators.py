@@ -156,7 +156,6 @@ def test_iterator():
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
     cArray = NumCpp.NdArrayComplexDouble(shape)
     real = np.random.randint(1, 100, [shape.rows, shape.cols])
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
@@ -1263,7 +1262,6 @@ def test_column_iterator():
 
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
     cArray = NumCpp.NdArrayComplexDouble(shape)
     real = np.random.randint(1, 100, [shape.rows, shape.cols])
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
