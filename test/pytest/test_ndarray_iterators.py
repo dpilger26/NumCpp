@@ -1386,19 +1386,818 @@ def test_column_iterator():
 
 ####################################################################################
 def test_const_column_iterator():
-    pass
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colendConst()
+    iterator.operatorMinusMinusPre()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.colbeginConst()
+    iterator2 = cArray.colendConst()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.colbeginConst()
+    iterator2 = cArray.colendConst()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.colbeginConst()
+    iterator2 = cArray.colbeginConst()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.colbeginConst()
+    iterator2 = cArray.colbeginConst()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == data.transpose().flatten()[idx]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.colbeginConst()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == data.transpose().flatten()[idx]
 
 
 ####################################################################################
 def test_reverse_column_iterator():
-    pass
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolend()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbegin()
+    iterator2 = cArray.rcolend()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbegin()
+    iterator2 = cArray.rcolend()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbegin()
+    iterator2 = cArray.rcolbegin()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbegin()
+    iterator2 = cArray.rcolbegin()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == np.flip(data.transpose().flatten())[idx]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbegin()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == np.flip(data.transpose().flatten())[idx]
 
 
 ####################################################################################
 def test_const_reverse_column_iterator():
-    pass
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
 
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPre()
 
-# if __name__ == '__main__':
-#     test_iterator()
-#     test_const_iterator()
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator.operatorPlusPlusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator += 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    for value in np.flip(data.transpose().flatten()):
+        assert value == iterator.operatorDereference()
+        iterator = iterator + 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPre()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator.operatorMinusMinusPost()
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator -= 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolendConst()
+    iterator.operatorMinusMinusPre()
+    for value in data.transpose().flatten():
+        assert value == iterator.operatorDereference()
+        iterator = iterator - 1
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbeginConst()
+    iterator2 = cArray.rcolendConst()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbeginConst()
+    iterator2 = cArray.rcolendConst()
+    assert iterator2 - iterator1 == data.size
+    assert iterator1 - iterator2 == -data.size
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbeginConst()
+    iterator2 = cArray.rcolbeginConst()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator1 = cArray.rcolbeginConst()
+    iterator2 = cArray.rcolbeginConst()
+    assert iterator1 == iterator2
+    assert not iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert iterator1 <= iterator2
+    assert not iterator1 > iterator2
+    assert iterator1 >= iterator2
+    iterator1.operatorPlusPlusPre()
+    assert not iterator1 == iterator2
+    assert iterator1 != iterator2
+    assert not iterator1 < iterator2
+    assert not iterator1 <= iterator2
+    assert iterator1 > iterator2
+    assert iterator1 >= iterator2
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == np.flip(data.transpose().flatten())[idx]
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayComplexDouble(shape)
+    real = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = real + 1j * imag
+    cArray.setArray(data)
+    iterator = cArray.rcolbeginConst()
+    idx = np.random.randint(0, shape.size())
+    assert iterator[idx] == np.flip(data.transpose().flatten())[idx]

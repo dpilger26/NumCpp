@@ -606,21 +606,7 @@ namespace nc
         ///
         self_type& operator+=(const difference_type offset) noexcept
         {
-            const auto colIdx = ptr2ColIdx(currPtr_) + offset;
-            // handle wrap around. Not strictly correct but going out of bounds
-            // is UB anyway...
-            if (colIdx < 0)
-            {
-                currPtr_ = ptr_;
-            }
-            else if (colIdx >= size_)
-            {
-                // WTF DO I DO HERE!!!???
-            }
-            else
-            {
-                currPtr_ = colIdx2Ptr(colIdx);
-            }
+            currPtr_ = colIdx2Ptr(ptr2ColIdx(currPtr_) + offset);
             return *this;
         }
 
@@ -774,7 +760,17 @@ namespace nc
         ///
         difference_type ptr2ColIdx(pointer ptr) const noexcept
         {
+            if (ptr == nullptr)
+            {
+                return size_;
+            }
+
             const auto rowIdx = ptr - ptr_;
+            if (rowIdx >= size_)
+            {
+                return size_;
+            }
+
             const auto row = rowIdx / numCols_;
             const auto col = rowIdx % numCols_;
             return row + col * numRows_;
@@ -787,8 +783,13 @@ namespace nc
         /// @param colIdx
         /// @return pointer
         ///
-        pointer colIdx2Ptr(difference_type colIdx)
+        pointer colIdx2Ptr(difference_type colIdx) const noexcept
         {
+            if (colIdx >= size_)
+            {
+                return nullptr;
+            }
+
             const auto row = colIdx % numRows_;
             const auto col = colIdx / numRows_;
             const auto rowIdx = col + row * numCols_;
@@ -810,7 +811,7 @@ namespace nc
         typename DifferenceType>
     NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType> operator+(
         typename NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType>::difference_type offset,
-        NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) 
+        NdArrayConstColumnIterator<dtype, SizeType, PointerType, DifferenceType> next) noexcept
     {
         return next += offset;
     }
