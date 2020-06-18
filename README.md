@@ -3,7 +3,6 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
 [![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
-[![HitCount](http://hits.dwyl.com/dpilger26/NumCpp.svg)](http://hits.dwyl.com/dpilger26/NumCpp)
 
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
@@ -30,15 +29,40 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## Testing
 
-**C++ Standards:** C++11, C++14, and C++17  
+**C++ Standards:** C++14, and C++17  
 **Compilers:** VS 2017/2019, GCC 7.4.0/8.3/9.1, and Clang 6.0/8.0/9.0  
-**Boost Versions:** 1.68 and 1.70  
+**Boost Versions:** 1.68, 1.70, and 1.73  
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
 ## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html)
+
+## Release Notes
+
+### Version 2.0.0
+
+* Dropped support of C++11, now requires a C++14 or higher compiler
+* Added support for `std::complex<T>`, closing __Issue #58__
+* Added more NdArray constructors for STL containers including `std::vector<std::vector<T>>`, closing __Issue #59__
+* `polyfit` routine inline with Numpy `polyfit`, closing __Issue #61__
+* Added ability to use `NdArray` as container for generic structs
+* Non-linear least squares fitting using Gauss-Newton
+* Root finding routines
+* Numerical integration routines
+* `lu_decomposition` and `pivotLU_decomposition` added to `Linalg` namespace
+* New STL iterators added to NdArray
+  * `iterator`
+  * `const_iterator`
+  * `reverse_iterator`
+  * `const_reverse_iterator`
+  * `column_iterator`
+  * `const_column_iterator`
+  * `reverse_column_iterator`
+  * `const_reverse_column_iterator`
+* Added `rodriguesRotation` and `wahbasProblem` to `Rotations` namespace
+* Various efficiency and/or bug fixes
 
 ## From NumPy To NumCpp – A Quick Start Guide
 
