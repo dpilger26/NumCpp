@@ -222,26 +222,6 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the inner product of the elements of the two ranges
-        ///
-        /// @param first1: the first iterator of the first source
-        /// @param last1: the last iterator of the first source
-        /// @param first2: the first iterator of the second source
-        /// @param init: the init value
-        /// @return the inner product of the two sets of iterators
-        ///
-        template<class InputIt1, class InputIt2, class T>
-        T inner_product(InputIt1 first1, InputIt1 last1, InputIt2 first2, T init) NO_EXCEPT
-        {
-            return std::transform_reduce(
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                std::execution::par_unseq,
-#endif
-                first1, last1, first2, init);
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Returns true if the array is sorted
         ///
         /// @param first: the first iterator of the source

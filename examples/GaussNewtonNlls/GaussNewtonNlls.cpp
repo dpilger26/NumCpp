@@ -48,8 +48,15 @@ void wikipediaExample()
     const double beta1Guess = 0.9;
     const double beta2Guess = 0.2;
 
+#ifdef __cpp_structured_bindings
     auto [betas, rms] = nc::linalg::gaussNewtonNlls(numIterations, sMeasured.transpose(), rateMeasured,
         function, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);
+#else
+    auto results = nc::linalg::gaussNewtonNlls(numIterations, sMeasured.transpose(), rateMeasured,
+        function, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);
+    auto& betas = results.first;
+    auto& rms = results.second;
+#endif
 
     std::cout << "==========Wikipedia Example==========\n";
     std::cout << "beta values = " << betas;
@@ -96,8 +103,15 @@ void exponentialExample()
     const double beta1Guess = 6.0;
     const double beta2Guess = 0.3;
 
+#ifdef __cpp_structured_bindings
     auto [betas, rms] = nc::linalg::gaussNewtonNlls(numIterations, year.transpose(), population,
         exponentialFunction, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);
+#else
+    auto results = nc::linalg::gaussNewtonNlls(numIterations, year.transpose(), population,
+        exponentialFunction, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);
+    auto& betas = results.first;
+    auto& rms = results.second;
+#endif
 
     std::cout << "==========Exponential Population Example==========\n";
     std::cout << "beta values = " << betas;
@@ -167,9 +181,17 @@ void sinusoidalExample()
     const double beta3Guess = 10.5;
     const double beta4Guess = 77.0;
 
+#ifdef __cpp_structured_bindings
     auto [betas, rms] = nc::linalg::gaussNewtonNlls(numIterations, month.transpose(), temperature,
         sinusodialFunction, {delFdelBeta1, delFdelBeta2, delFdelBeta3, delFdelBeta4},
         beta1Guess, beta2Guess, beta3Guess, beta4Guess);
+#else
+    auto results = nc::linalg::gaussNewtonNlls(numIterations, month.transpose(), temperature,
+        sinusodialFunction, {delFdelBeta1, delFdelBeta2, delFdelBeta3, delFdelBeta4},
+        beta1Guess, beta2Guess, beta3Guess, beta4Guess);
+    auto& betas = results.first;
+    auto& rms = results.second;
+#endif
 
     std::cout << "==========Sinusodial Temperature Example==========\n";
     std::cout << "beta values = " << betas;
@@ -202,7 +224,13 @@ void twoDimensionalGaussianExample()
 {
     // create some data points to describe a two-dimensional gaussian function
     auto coords = nc::arange<double>(-3.0, 3.1, 0.1);
+#ifdef __cpp_structured_bindings
     auto [y, x] = nc::meshgrid<double>(coords, coords);
+#else
+    auto grid = nc::meshgrid<double>(coords, coords);
+    auto& y = grid.first;
+    auto& x = grid.second;
+#endif
     auto coordinates = nc::vstack({x.flatten(), y.flatten()}).transpose();
 
     // randomize some truth values for the model parameters
@@ -296,9 +324,17 @@ void twoDimensionalGaussianExample()
     const double sigmaXGuess = sigmaXTruth + nc::random::randN<double>() * 0.2;
     const double sigmaYGuess = sigmaYTruth + nc::random::randN<double>() * 0.2;
 
+#ifdef __cpp_structured_bindings
     auto [betas, rms] = nc::linalg::gaussNewtonNlls(numIterations, coordinates, measurements,
         FunctionType(gaussianFunction), {delFdelA, delFdelDcOffset, delFdelX0, delFdelY0, delFdelSigmaX, delFdelSigmaY},
         aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess);
+#else
+    auto results = nc::linalg::gaussNewtonNlls(numIterations, coordinates, measurements,
+        FunctionType(gaussianFunction), {delFdelA, delFdelDcOffset, delFdelX0, delFdelY0, delFdelSigmaX, delFdelSigmaY},
+        aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess);
+    auto& betas = results.first;
+    auto& rms = results.second;
+#endif
 
     nc::NdArray<double> initialGuess = { aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess };
 

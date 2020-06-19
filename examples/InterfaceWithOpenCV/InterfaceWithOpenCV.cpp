@@ -33,11 +33,11 @@ int main()
     // make sure the two transposed arrays are the same
     if (nc::array_equal(transposedNcArray, ncArray.transpose()))
     {
-        std::cout << "Arrays are equal." << std::endl;
+        std::cout << "Arrays are equal.\n";
     }
     else
     {
-        std::cout << "Arrays are not equal." << std::endl;
+        std::cout << "Arrays are not equal.\n";
     }
 
     return 0;

@@ -50,7 +50,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::complex(inReal);
+        return std::complex<dtype>(inReal);
     }
 
     //============================================================================
@@ -67,7 +67,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::complex(inReal, inImag);
+        return std::complex<dtype>(inReal, inImag);
     }
 
     //============================================================================

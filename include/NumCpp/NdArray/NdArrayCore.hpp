@@ -441,11 +441,11 @@ namespace nc
         ///                     the array.
         ///
         /// @param				inPtr: const_pointer to beginning of buffer
-        /// @param				inSize: number of elements in buffer
+        /// @param				size: number of elements in buffer
         ///
-        explicit NdArray(const_pointer inPtr, size_type inSize) :
-            shape_(1, inSize),
-            size_(inSize)
+        explicit NdArray(const_pointer inPtr, size_type size) :
+            shape_(1, size),
+            size_(size)
         {
             newArray();
             if (inPtr != nullptr && size_ > 0)
@@ -484,7 +484,9 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(pointer inPtr, uint32 size, bool takeOwnership) noexcept :
+        template<typename Bool,
+            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+        explicit NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -502,7 +504,9 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, bool takeOwnership) noexcept :
+        template<typename Bool,
+            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
@@ -2018,7 +2022,7 @@ namespace nc
 
                     const auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
                     {
-                        return operator[](i1) < operator[](i2);
+                        return (*this)[i1] < (*this)[i2];
                     };
 
                     stl_algorithms::stable_sort(idx.begin(), idx.end(), function);

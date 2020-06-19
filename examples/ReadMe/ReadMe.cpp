@@ -78,7 +78,7 @@ int main()
     auto a31 = nc::all(a);
     auto a32 = nc::logical_and(a, b);
     auto a33 = nc::logical_or(a, b);
-    auto a34 = nc::isclose(a, b);
+    auto a34 = nc::isclose(a15, a17);
     auto a35 = nc::allclose(a, b);
 
     // Comparisons
