@@ -1,6 +1,6 @@
 var classnc_1_1integrate_1_1_legendre_polynomial =
 [
-    [ "LegendrePolynomial", "classnc_1_1integrate_1_1_legendre_polynomial.html#a062ffe2d1f94af05d62ff9e0ee500581", null ],
-    [ "getRoot", "classnc_1_1integrate_1_1_legendre_polynomial.html#af2156ad3e8f5cc67b2930d081a3e8613", null ],
-    [ "getWeight", "classnc_1_1integrate_1_1_legendre_polynomial.html#a4293982abe2543fd2f2081cb04c887c7", null ]
+    [ "LegendrePolynomial", "classnc_1_1integrate_1_1_legendre_polynomial.html#a2e1fefae138e66215cd7586a85fc3642", null ],
+    [ "getRoot", "classnc_1_1integrate_1_1_legendre_polynomial.html#ac2d8f6377f8ae7cf27b4d0599eb7880b", null ],
+    [ "getWeight", "classnc_1_1integrate_1_1_legendre_polynomial.html#ac6b804e8a2d582df601cc2b3ff2bf74f", null ]
 ];

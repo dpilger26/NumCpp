@@ -1,5 +1,5 @@
 var arctan_8hpp =
 [
-    [ "arctan", "arctan_8hpp.html#af2982328417da6b69c6cd02b728f4dc8", null ],
-    [ "arctan", "arctan_8hpp.html#adc9f2c0050f028044df74ae3097a8bf8", null ]
+    [ "arctan", "arctan_8hpp.html#ac7080b26d0d4d849197ae10ce6d94a53", null ],
+    [ "arctan", "arctan_8hpp.html#a0f63f816e660b0a4b3da191c8584a21a", null ]
 ];

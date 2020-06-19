@@ -1,5 +1,5 @@
 var degrees_8hpp =
 [
-    [ "degrees", "degrees_8hpp.html#aec21ac85c071b59d9abf50602bef3144", null ],
-    [ "degrees", "degrees_8hpp.html#a111b49498db502443a9a11b5611e18a0", null ]
+    [ "degrees", "degrees_8hpp.html#aab0d24a5ffaf73330854bbcfc47d2fee", null ],
+    [ "degrees", "degrees_8hpp.html#a75c2b6b4713a5695a4738da25cf9d262", null ]
 ];

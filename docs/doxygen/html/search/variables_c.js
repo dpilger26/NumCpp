@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['x',['x',['../classnc_1_1_vec2.html#a36a67b9395b397e1b8e9364a39a5c458',1,'nc::Vec2::x()'],['../classnc_1_1_vec3.html#a7f71dd08d58a1327739de6041e3362bb',1,'nc::Vec3::x()']]]
+  ['seconds_5fper_5fday_2242',['SECONDS_PER_DAY',['../namespacenc_1_1constants.html#a766ec3bf1f6fb57f586f943cea1946c3',1,'nc::constants']]],
+  ['seconds_5fper_5fhour_2243',['SECONDS_PER_HOUR',['../namespacenc_1_1constants.html#ad635a54557e853e1ee098d0ead5f1902',1,'nc::constants']]],
+  ['seconds_5fper_5fminute_2244',['SECONDS_PER_MINUTE',['../namespacenc_1_1constants.html#ad89620cbdf9102f40ec7c0fd52c16a5e',1,'nc::constants']]],
+  ['seconds_5fper_5fweek_2245',['SECONDS_PER_WEEK',['../namespacenc_1_1constants.html#ac36cac5f19ce5f81b2acc562f247f0be',1,'nc::constants']]],
+  ['start_2246',['start',['../classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f',1,'nc::Slice']]],
+  ['step_2247',['step',['../classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4',1,'nc::Slice']]],
+  ['stop_2248',['stop',['../classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5',1,'nc::Slice']]]
 ];

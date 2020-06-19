@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespacenc_1_1constants.html#aef903b1f40001bc712b61f5dec7de716',1,'nc::constants']]]
+  ['generator_5f_2220',['generator_',['../namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95',1,'nc::random']]]
 ];

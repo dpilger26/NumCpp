@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" kind="class" language="C++" prot="public">
+    <compoundname>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</compoundname>
+    <includes refid="_dtype_info_8hpp" local="no">DtypeInfo.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename dtype</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ae35570f524474adaa2315bead3f9be9e" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::bits</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For integer types: number of non-sign bits in the representation. For floating types : number of digits(in radix base) in the mantissa</para>
+<para><simplesect kind="return"><para>number of bits </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="131" column="30" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="131" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1a01e23e6687e74de38a9799934aa94d69" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr std::complex&lt; dtype &gt;</type>
+        <definition>static constexpr std::complex&lt;dtype&gt; nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::epsilon</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>epsilon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Machine epsilon (the difference between 1 and the least value greater than 1 that is representable).</para>
+<para><simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="144" column="39" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="144" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ac055638657a1459bc6a7c9d94d5c96a4" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>static constexpr bool nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isInteger</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>isInteger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True if type is integer.</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="156" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="156" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ac58a829905d11a1a7fca32427eab41d3" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>static constexpr bool nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::isSigned</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>isSigned</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True if type is signed.</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="168" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="168" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1acdf46b23b24e1421c38e6297c56024d1" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr std::complex&lt; dtype &gt;</type>
+        <definition>static constexpr std::complex&lt;dtype&gt; nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::max</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the maximum value of the dtype</para>
+<para><simplesect kind="return"><para>max value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="192" column="39" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="192" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1a420b21e23e9673bea71980f55bf82d03" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr std::complex&lt; dtype &gt;</type>
+        <definition>static constexpr std::complex&lt;dtype&gt; nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::min</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the minimum value of the dtype</para>
+<para><simplesect kind="return"><para>min value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="180" column="39" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="180" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds info about the std::complex. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</label>
+        <link refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="123" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="122" bodyend="198"/>
+    <listofallmembers>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ae35570f524474adaa2315bead3f9be9e" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>bits</name></member>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1a01e23e6687e74de38a9799934aa94d69" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>epsilon</name></member>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ac055638657a1459bc6a7c9d94d5c96a4" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>isInteger</name></member>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1ac58a829905d11a1a7fca32427eab41d3" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>isSigned</name></member>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1acdf46b23b24e1421c38e6297c56024d1" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>max</name></member>
+      <member refid="classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4_1a420b21e23e9673bea71980f55bf82d03" prot="public" virt="non-virtual"><scope>nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;</scope><name>min</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

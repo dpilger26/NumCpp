@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1integrate_1_1_legendre_polynomial" kind="class" language="C++" prot="public">
     <compoundname>nc::integrate::LegendrePolynomial</compoundname>
     <includes refid="gauss__legendre_8hpp" local="no">gauss_legendre.hpp</includes>
@@ -17,10 +17,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="165" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="165" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="165" column="26" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1integrate_1_1_legendre_polynomial_1a3038ec7ebb6bccccad0c7ccf4cf2ceb1" prot="private" static="no" mutable="no">
-        <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>const uint32 nc::integrate::LegendrePolynomial::numIterations_</definition>
         <argsstring></argsstring>
         <name>numIterations_</name>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="167" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="167" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="167" column="33" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1integrate_1_1_legendre_polynomial_1a9ab73a7334a9478cc64845023ac414cf" prot="private" static="no" mutable="no">
         <type>std::vector&lt; double &gt;</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="169" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="169" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="169" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1integrate_1_1_legendre_polynomial_1aaebc01a031bf4258b66a990d7d7f23d0" prot="private" static="no" mutable="no">
         <type>std::vector&lt; double &gt;</type>
@@ -56,69 +56,78 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="168" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="168" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="168" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="168" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1a062ffe2d1f94af05d62ff9e0ee500581" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1a2e1fefae138e66215cd7586a85fc3642" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::integrate::LegendrePolynomial::LegendrePolynomial</definition>
-        <argsstring>(const uint32 numIterations)</argsstring>
+        <argsstring>(const uint32 numIterations) noexcept</argsstring>
         <name>LegendrePolynomial</name>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>numIterations</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>numIterations</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of iterations to perform </para></parameterdescription>
+<para>the number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="60" bodyend="66"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="60" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1af2156ad3e8f5cc67b2930d081a3e8613" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1ac2d8f6377f8ae7cf27b4d0599eb7880b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const std::vector&lt; double &gt; &amp;</type>
         <definition>const std::vector&lt;double&gt;&amp; nc::integrate::LegendrePolynomial::getRoot</definition>
-        <argsstring>() const</argsstring>
+        <argsstring>() const noexcept</argsstring>
         <name>getRoot</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the roots vector</para><para><simplesect kind="return"><para>roots vector </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the roots vector</para>
+<para><simplesect kind="return"><para>roots vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="85" bodyend="88"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="85" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="85" bodyend="88"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1a4293982abe2543fd2f2081cb04c887c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1ac6b804e8a2d582df601cc2b3ff2bf74f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const std::vector&lt; double &gt; &amp;</type>
         <definition>const std::vector&lt;double&gt;&amp; nc::integrate::LegendrePolynomial::getWeight</definition>
-        <argsstring>() const</argsstring>
+        <argsstring>() const noexcept</argsstring>
         <name>getWeight</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the weights vector</para><para><simplesect kind="return"><para>weights vector </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the weights vector</para>
+<para><simplesect kind="return"><para>weights vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="74" bodyend="77"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="74" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="74" bodyend="77"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1aeadc12e6ccb0544ce6fa02bf4e5b0c6a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1a868590473adfa320ed6042b91d3759e0" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>Result</type>
         <definition>Result nc::integrate::LegendrePolynomial::calculatePolynomialValueAndDerivative</definition>
-        <argsstring>(const double x)</argsstring>
+        <argsstring>(const double x) noexcept</argsstring>
         <name>calculatePolynomialValueAndDerivative</name>
         <param>
           <type>const double</type>
@@ -127,52 +136,58 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates the weights and roots vectors</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates the weights and roots vectors</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>Result </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>Result </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="145" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="145" bodyend="162"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="145" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="145" bodyend="162"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1aacc385336d74ecbcfdb09957e5f6c652" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1integrate_1_1_legendre_polynomial_1adba200e27c6b8e4046791e38e7c9f4fb" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::integrate::LegendrePolynomial::calculateWeightAndRoot</definition>
-        <argsstring>()</argsstring>
+        <argsstring>() noexcept</argsstring>
         <name>calculateWeightAndRoot</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates the weights and roots vectors </para>        </detaileddescription>
+<para>Calculates the weights and roots vectors </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="117" bodyend="136"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="117" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="117" bodyend="136"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Legendre Polynomial class </para>    </detaileddescription>
+<para>Legendre Polynomial class </para>
+    </detaileddescription>
     <collaborationgraph>
-      <node id="36">
+      <node id="1">
         <label>nc::integrate::LegendrePolynomial</label>
         <link refid="classnc_1_1integrate_1_1_legendre_polynomial"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="51" bodyend="170"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="52" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="51" bodyend="170"/>
     <listofallmembers>
-      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aeadc12e6ccb0544ce6fa02bf4e5b0c6a" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>calculatePolynomialValueAndDerivative</name></member>
-      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aacc385336d74ecbcfdb09957e5f6c652" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>calculateWeightAndRoot</name></member>
+      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a868590473adfa320ed6042b91d3759e0" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>calculatePolynomialValueAndDerivative</name></member>
+      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1adba200e27c6b8e4046791e38e7c9f4fb" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>calculateWeightAndRoot</name></member>
       <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aa75f39ca4705b1bb11845844ebb72a73" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>EPSILON</name></member>
-      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1af2156ad3e8f5cc67b2930d081a3e8613" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>getRoot</name></member>
-      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a4293982abe2543fd2f2081cb04c887c7" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>getWeight</name></member>
-      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a062ffe2d1f94af05d62ff9e0ee500581" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>LegendrePolynomial</name></member>
+      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1ac2d8f6377f8ae7cf27b4d0599eb7880b" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>getRoot</name></member>
+      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1ac6b804e8a2d582df601cc2b3ff2bf74f" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>getWeight</name></member>
+      <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a2e1fefae138e66215cd7586a85fc3642" prot="public" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>LegendrePolynomial</name></member>
       <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a3038ec7ebb6bccccad0c7ccf4cf2ceb1" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1a9ab73a7334a9478cc64845023ac414cf" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>root_</name></member>
       <member refid="classnc_1_1integrate_1_1_legendre_polynomial_1aaebc01a031bf4258b66a990d7d7f23d0" prot="private" virt="non-virtual"><scope>nc::integrate::LegendrePolynomial</scope><name>weight_</name></member>

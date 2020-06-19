@@ -1,4 +1,4 @@
 var nanvar_8hpp =
 [
-    [ "nanvar", "nanvar_8hpp.html#a0191d26a462df428c6d88d9b832b3e1f", null ]
+    [ "nanvar", "nanvar_8hpp.html#a333035c5f246c01da1de4ae7015f5715", null ]
 ];

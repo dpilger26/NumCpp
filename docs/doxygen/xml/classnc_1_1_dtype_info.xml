@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1_dtype_info" kind="class" language="C++" prot="public">
     <compoundname>nc::DtypeInfo</compoundname>
     <includes refid="_dtype_info_8hpp" local="no">DtypeInfo.hpp</includes>
@@ -9,21 +9,24 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1a96e826f2fe413f84e543e50d7f374dc8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr dtype</type>
-        <definition>static constexpr dtype nc::DtypeInfo&lt; dtype &gt;::bits</definition>
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1a3f6aa0cc80e59dc331bc0e8dfe2f20bb" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int nc::DtypeInfo&lt; dtype &gt;::bits</definition>
         <argsstring>() noexcept</argsstring>
         <name>bits</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>For integer types: number of non-sign bits in the representation. For floating types : number of digits(in radix base) in the mantissa</para><para><simplesect kind="return"><para>number of bits </para></simplesect>
-</para>        </detaileddescription>
+<para>For integer types: number of non-sign bits in the representation. For floating types : number of digits(in radix base) in the mantissa</para>
+<para><simplesect kind="return"><para>number of bits </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="47" bodyend="50"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="50" column="30" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="50" bodyend="55"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1a845cc6986a3912805ab68960bc2b2318" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1a845cc6986a3912805ab68960bc2b2318" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr dtype</type>
         <definition>static constexpr dtype nc::DtypeInfo&lt; dtype &gt;::epsilon</definition>
         <argsstring>() noexcept</argsstring>
@@ -31,13 +34,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Machine epsilon (the difference between 1 and the least value greater than 1 that is representable).</para><para><simplesect kind="return"><para>dtype </para></simplesect>
-</para>        </detaileddescription>
+<para>Machine epsilon (the difference between 1 and the least value greater than 1 that is representable).</para>
+<para><simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="58" bodyend="61"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="63" column="32" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="63" bodyend="68"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1a10b60bd27123b5c724e2a52526fe8cfe" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1a10b60bd27123b5c724e2a52526fe8cfe" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>static constexpr bool nc::DtypeInfo&lt; dtype &gt;::isInteger</definition>
         <argsstring>() noexcept</argsstring>
@@ -45,13 +51,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>True if type is integer.</para><para><simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<para>True if type is integer.</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="68" bodyend="71"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="75" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="75" bodyend="80"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1a039ecfb9a5bd9fe0cb751a59f28055d1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1a039ecfb9a5bd9fe0cb751a59f28055d1" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>static constexpr bool nc::DtypeInfo&lt; dtype &gt;::isSigned</definition>
         <argsstring>() noexcept</argsstring>
@@ -59,13 +68,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>True if type is signed.</para><para><simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<para>True if type is signed.</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="78" bodyend="81"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="87" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="87" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1a2a3dc0ba2812411660219f61189d8aca" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1a2a3dc0ba2812411660219f61189d8aca" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr dtype</type>
         <definition>static constexpr dtype nc::DtypeInfo&lt; dtype &gt;::max</definition>
         <argsstring>() noexcept</argsstring>
@@ -73,13 +85,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the maximum value of the dtype</para><para><simplesect kind="return"><para>max value </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the maximum value of the dtype</para>
+<para><simplesect kind="return"><para>max value </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="98" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="98" bodyend="101"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="111" column="32" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="111" bodyend="116"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_dtype_info_1ab566f68bc6b82c06b5a3df887f87ab74" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_dtype_info_1ab566f68bc6b82c06b5a3df887f87ab74" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr dtype</type>
         <definition>static constexpr dtype nc::DtypeInfo&lt; dtype &gt;::min</definition>
         <argsstring>() noexcept</argsstring>
@@ -87,26 +102,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the minimum value of the dtype</para><para><simplesect kind="return"><para>min value </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the minimum value of the dtype</para>
+<para><simplesect kind="return"><para>min value </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="88" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="88" bodyend="91"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="99" column="32" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="99" bodyend="104"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Holds info about the dtype. </para>    </briefdescription>
+<para>Holds info about the dtype. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="23">
+      <node id="1">
         <label>nc::DtypeInfo&lt; dtype &gt;</label>
         <link refid="classnc_1_1_dtype_info"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="39" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="38" bodyend="102"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" line="42" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/DtypeInfo.hpp" bodystart="41" bodyend="117"/>
     <listofallmembers>
-      <member refid="classnc_1_1_dtype_info_1a96e826f2fe413f84e543e50d7f374dc8" prot="public" virt="non-virtual"><scope>nc::DtypeInfo</scope><name>bits</name></member>
+      <member refid="classnc_1_1_dtype_info_1a3f6aa0cc80e59dc331bc0e8dfe2f20bb" prot="public" virt="non-virtual"><scope>nc::DtypeInfo</scope><name>bits</name></member>
       <member refid="classnc_1_1_dtype_info_1a845cc6986a3912805ab68960bc2b2318" prot="public" virt="non-virtual"><scope>nc::DtypeInfo</scope><name>epsilon</name></member>
       <member refid="classnc_1_1_dtype_info_1a10b60bd27123b5c724e2a52526fe8cfe" prot="public" virt="non-virtual"><scope>nc::DtypeInfo</scope><name>isInteger</name></member>
       <member refid="classnc_1_1_dtype_info_1a039ecfb9a5bd9fe0cb751a59f28055d1" prot="public" virt="non-virtual"><scope>nc::DtypeInfo</scope><name>isSigned</name></member>

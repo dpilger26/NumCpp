@@ -447,8 +447,8 @@ namespace nc
         // Method Description:
         ///	Iterator difference operator
         ///
-        /// @param rhs
-        /// @return difference_type
+        /// @param offset
+        /// @return NdArrayConstIterator
         ///
         self_type operator-(const difference_type offset) const noexcept 
         {
@@ -475,7 +475,7 @@ namespace nc
     ///
     /// @param offset
     /// @param next
-    /// @return bool
+    /// @return NdArrayIterator
     ///
     template <class dtype,
         typename PointerType,
@@ -518,6 +518,8 @@ namespace nc
         ///	Constructor
         ///
         /// @param ptr: the iterator pointer
+        /// @param numRows: the number of rows in the array
+        /// @param numCols: the number of cols in the array
         ///
         NdArrayConstColumnIterator(pointer ptr, SizeType numRows, SizeType numCols) noexcept :
             ptr_(ptr),
@@ -956,8 +958,8 @@ namespace nc
         // Method Description:
         ///	Iterator difference operator
         ///
-        /// @param rhs
-        /// @return difference_type
+        /// @param offset
+        /// @return NdArrayConstIterator
         ///
         self_type operator-(const difference_type offset) const noexcept
         {

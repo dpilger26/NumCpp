@@ -1,6 +1,6 @@
 var classnc_1_1coordinates_1_1_dec =
 [
-    [ "Dec", "classnc_1_1coordinates_1_1_dec.html#ab23e76dd571bb84107a2a6b2a6666c7f", null ],
+    [ "Dec", "classnc_1_1coordinates_1_1_dec.html#af821e7394e5de4c396dd2c60aa7c0eca", null ],
     [ "Dec", "classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7", null ],
     [ "Dec", "classnc_1_1coordinates_1_1_dec.html#af462329adb3a1bdb1f6b724e7a92a442", null ],
     [ "degrees", "classnc_1_1coordinates_1_1_dec.html#ad2e47ff7298e1b88bb1b77940c241c8f", null ],

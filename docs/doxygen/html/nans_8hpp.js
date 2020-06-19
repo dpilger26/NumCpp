@@ -1,6 +1,6 @@
 var nans_8hpp =
 [
-    [ "nans", "nans_8hpp.html#a2dcf31f9750195b5419ea2b62a1ccc86", null ],
-    [ "nans", "nans_8hpp.html#a304ce321a6b33e0d450ba0d855aeb444", null ],
-    [ "nans", "nans_8hpp.html#a01f601fc8a25827103ad5c049bb3aac1", null ]
+    [ "nans", "nans_8hpp.html#a6bec1d7117a467081676bfd8d31fcd87", null ],
+    [ "nans", "nans_8hpp.html#aea74254d1b55e5b9adf1e6610b0da9d6", null ],
+    [ "nans", "nans_8hpp.html#a1c3fe37572a53d83154138b2de5d5e8b", null ]
 ];

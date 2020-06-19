@@ -1,5 +1,5 @@
 var rodrigues_rotation_8hpp =
 [
-    [ "rodriguesRotation", "rodrigues_rotation_8hpp.html#a8b758ff29273093d433b54557054e56e", null ],
-    [ "rodriguesRotation", "rodrigues_rotation_8hpp.html#a923304344b059574fa025c5f31ee88d0", null ]
+    [ "rodriguesRotation", "rodrigues_rotation_8hpp.html#ab0fbd9345e707b6efb023ec9b354fbb5", null ],
+    [ "rodriguesRotation", "rodrigues_rotation_8hpp.html#ae7d7397eec3edcfbd8b6b9784ad2fd1c", null ]
 ];

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1roots_1_1_brent" kind="class" language="C++" prot="public">
     <compoundname>nc::roots::Brent</compoundname>
     <basecompoundref refid="classnc_1_1roots_1_1_iteration" prot="public" virt="non-virtual">nc::roots::Iteration</basecompoundref>
@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="158" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="158" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="158" column="33" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="158" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1aa9f4cea2c2770c669e84158186b075c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1aa9f4cea2c2770c669e84158186b075c2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Brent::Brent</definition>
         <argsstring>(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
@@ -36,27 +36,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="61" bodyend="65"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="61" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="61" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1abf26bf1c5ace791386f2c0f6a91f57bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1abf26bf1c5ace791386f2c0f6a91f57bb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Brent::Brent</definition>
         <argsstring>(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
@@ -66,7 +70,7 @@
           <declname>epsilon</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>maxNumIterations</declname>
         </param>
         <param>
@@ -76,59 +80,68 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>maxNumIterations</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the maximum number of iterations to perform </para></parameterdescription>
+<para>the maximum number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="75" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="75" bodyend="80"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="75" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="75" bodyend="80"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a1234c20d17644a94cac2700d7b6558c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a4d1db0cce10918eba13c444a7eda5cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Brent::~Brent</definition>
-        <argsstring>() noexcept override=default</argsstring>
+        <argsstring>()=default</argsstring>
         <name>~Brent</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Destructor </para>        </detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="86" column="1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="86" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations</definition>
         <argsstring>() const noexcept</argsstring>
         <name>numIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of iterations</para><para><simplesect kind="return"><para>: number of iterations </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the number of iterations</para>
+<para><simplesect kind="return"><para>: number of iterations </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a3853981ca1113723006b6627d96d378b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -146,30 +159,35 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Solves for the root in the range [a, b]</para><para><parameterlist kind="param"><parameteritem>
+<para>Solves for the root in the range [a, b]</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>root between the bound </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>root between the bound </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="96" bodyend="154"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="96" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="96" bodyend="154"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a0713cc1d7f5a8ae53de6e6ca37cb97e9" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a0713cc1d7f5a8ae53de6e6ca37cb97e9" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::roots::Brent::calculateBisection</definition>
         <argsstring>(const double a, const double b) const noexcept</argsstring>
@@ -185,28 +203,33 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates the bisection point</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates the bisection point</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>x </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>x </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="168" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="168" bodyend="171"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="168" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="168" bodyend="171"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a5ab8fd93862694ea0614d92de7b01faa" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a5ab8fd93862694ea0614d92de7b01faa" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::roots::Brent::calculateInverseQuadraticInterpolation</definition>
         <argsstring>(const double a, const double b, const double lastB, const double fa, const double fb, const double lastFb) const noexcept</argsstring>
@@ -238,56 +261,65 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates the inverse quadratic interpolation</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates the inverse quadratic interpolation</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the previous upper bound </para></parameterdescription>
+<para>the previous upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fa</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at a </para></parameterdescription>
+<para>the function evaluated at a </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at b </para></parameterdescription>
+<para>the function evaluated at b </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastFb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the previous function evaluated at the upper bound </para></parameterdescription>
+<para>the previous function evaluated at the upper bound </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the inverse quadratic interpolation </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the inverse quadratic interpolation </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="201" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="201" bodyend="207"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="201" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="201" bodyend="207"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a1ba9fa418a4b85626faee5812b17a714" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a1ba9fa418a4b85626faee5812b17a714" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::roots::Brent::calculateSecant</definition>
         <argsstring>(const double a, const double b, const double fa, const double fb) const noexcept</argsstring>
@@ -311,42 +343,49 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates the secant point</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates the secant point</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fa</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at a </para></parameterdescription>
+<para>the function evaluated at a </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at b </para></parameterdescription>
+<para>the function evaluated at b </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the secant point </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the secant point </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="183" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="183" bodyend="187"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="183" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="183" bodyend="187"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1aa43775b08de6539af0fc072a68480762" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1aa43775b08de6539af0fc072a68480762" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Brent::checkAndFixAlgorithmCriteria</definition>
         <argsstring>(double &amp;a, double &amp;b, double &amp;fa, double &amp;fb) noexcept</argsstring>
@@ -370,44 +409,50 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Checks the algorithm criteria</para><para><parameterlist kind="param"><parameteritem>
+<para>Checks the algorithm criteria</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fa</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at a </para></parameterdescription>
+<para>the function evaluated at a </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at b </para></parameterdescription>
+<para>the function evaluated at b </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="232" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="232" bodyend="240"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="232" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="232" bodyend="240"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1ab13f9c83d1d5cf78345a801afc213dc5" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a1f44dfedaebe087251d8b99869c4b87f" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool nc::roots::Brent::useBisection</definition>
-        <argsstring>(const bool bisection, const double b, const double lastB, const double penultimateB, const double s) const</argsstring>
+        <argsstring>(const bool bisection, const double b, const double lastB, const double penultimateB, const double s) const noexcept</argsstring>
         <name>useBisection</name>
         <param>
           <type>const bool</type>
@@ -432,49 +477,57 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Uses the bisection</para><para><parameterlist kind="param"><parameteritem>
+<para>Uses the bisection</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>bisection</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the bisection point </para></parameterdescription>
+<para>the bisection point </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the previous upper bound </para></parameterdescription>
+<para>the previous upper bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>penultimateB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>s</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="253" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="253" bodyend="262"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="253" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="253" bodyend="262"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a07aa18c32db46e63c2db82357ea127e7" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_brent_1a07aa18c32db46e63c2db82357ea127e7" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool nc::roots::Brent::useInverseQuadraticInterpolation</definition>
         <argsstring>(const double fa, const double fb, const double lastFb) const noexcept</argsstring>
@@ -494,33 +547,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Uses the inverse quadratic interpolation</para><para><parameterlist kind="param"><parameteritem>
+<para>Uses the inverse quadratic interpolation</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>fa</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at a </para></parameterdescription>
+<para>the function evaluated at a </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at b </para></parameterdescription>
+<para>the function evaluated at b </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastFb</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the previous function evaluated at the upper bound </para></parameterdescription>
+<para>the previous function evaluated at the upper bound </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="218" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="218" bodyend="221"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="218" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="218" bodyend="221"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -535,10 +594,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::maxNumIterations_</definition>
         <argsstring></argsstring>
         <name>maxNumIterations_</name>
@@ -549,10 +608,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations_</definition>
         <argsstring></argsstring>
         <name>numIterations_</name>
@@ -563,25 +622,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::incrementNumberOfIterations</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>()</argsstring>
         <name>incrementNumberOfIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Incraments the number of iterations</para><para><simplesect kind="return"><para>the number of iterations prior to incramenting </para></simplesect>
-</para>        </detaileddescription>
+<para>Incraments the number of iterations</para>
+<para><simplesect kind="return"><para>the number of iterations prior to incramenting </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::resetNumberOfIterations</definition>
         <argsstring>() noexcept</argsstring>
@@ -589,41 +651,43 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Resets the number of iterations </para>        </detaileddescription>
+<para>Resets the number of iterations </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="classnc_1_1roots_1_1_brent" kindref="compound">Brent</ref> root finding method </para>    </detaileddescription>
+<para><ref refid="classnc_1_1roots_1_1_brent" kindref="compound">Brent</ref> root finding method </para>
+    </detaileddescription>
     <inheritancegraph>
-      <node id="50">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="49">
+      <node id="1">
         <label>nc::roots::Brent</label>
         <link refid="classnc_1_1roots_1_1_brent"/>
-        <childnode refid="50" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="52">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="51">
+      <node id="1">
         <label>nc::roots::Brent</label>
         <link refid="classnc_1_1roots_1_1_brent"/>
-        <childnode refid="52" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="51" bodyend="263"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" line="52" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Brent.hpp" bodystart="51" bodyend="263"/>
     <listofallmembers>
       <member refid="classnc_1_1roots_1_1_brent_1aa9f4cea2c2770c669e84158186b075c2" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>Brent</name></member>
       <member refid="classnc_1_1roots_1_1_brent_1abf26bf1c5ace791386f2c0f6a91f57bb" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>Brent</name></member>
@@ -633,7 +697,7 @@
       <member refid="classnc_1_1roots_1_1_brent_1aa43775b08de6539af0fc072a68480762" prot="private" virt="non-virtual"><scope>nc::roots::Brent</scope><name>checkAndFixAlgorithmCriteria</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>epsilon_</name></member>
       <member refid="classnc_1_1roots_1_1_brent_1a457fa62c9783bb13b313c35a8918bd61" prot="private" virt="non-virtual"><scope>nc::roots::Brent</scope><name>f_</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>incrementNumberOfIterations</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>incrementNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a7948f08cfaa01f5685ec35149bf6bba0" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>maxNumIterations_</name></member>
@@ -641,10 +705,10 @@
       <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" virt="non-virtual"><scope>nc::roots::Brent</scope><name>resetNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_brent_1a3853981ca1113723006b6627d96d378b" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>solve</name></member>
-      <member refid="classnc_1_1roots_1_1_brent_1ab13f9c83d1d5cf78345a801afc213dc5" prot="private" virt="non-virtual"><scope>nc::roots::Brent</scope><name>useBisection</name></member>
+      <member refid="classnc_1_1roots_1_1_brent_1a1f44dfedaebe087251d8b99869c4b87f" prot="private" virt="non-virtual"><scope>nc::roots::Brent</scope><name>useBisection</name></member>
       <member refid="classnc_1_1roots_1_1_brent_1a07aa18c32db46e63c2db82357ea127e7" prot="private" virt="non-virtual"><scope>nc::roots::Brent</scope><name>useInverseQuadraticInterpolation</name></member>
-      <member refid="classnc_1_1roots_1_1_brent_1a1234c20d17644a94cac2700d7b6558c0" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>~Brent</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a96da5e3dedbc74efa97e91cf387cdaca" prot="public" virt="virtual"><scope>nc::roots::Brent</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_brent_1a4d1db0cce10918eba13c444a7eda5cee" prot="public" virt="non-virtual"><scope>nc::roots::Brent</scope><name>~Brent</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Brent</scope><name>~Iteration</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

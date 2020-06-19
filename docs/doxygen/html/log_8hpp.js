@@ -1,5 +1,5 @@
 var log_8hpp =
 [
-    [ "log", "log_8hpp.html#afe601bfe09694a30d40e5778de8fb5e7", null ],
-    [ "log", "log_8hpp.html#a538cbbee5da28212921c002de6ed492c", null ]
+    [ "log", "log_8hpp.html#aba925957229bf54bfe854be197cd3d52", null ],
+    [ "log", "log_8hpp.html#a3f08d373ae167ac90d3bb6b6c4da0fb9", null ]
 ];

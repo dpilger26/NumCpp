@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1roots_1_1_newton" kind="class" language="C++" prot="public">
     <compoundname>nc::roots::Newton</compoundname>
     <basecompoundref refid="classnc_1_1roots_1_1_iteration" prot="public" virt="non-virtual">nc::roots::Iteration</basecompoundref>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="121" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="121" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="121" column="33" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_newton_1afe69f864934b2b30be5558d98e3fbd06" prot="private" static="no" mutable="no">
         <type>const std::function&lt; double(double)&gt;</type>
@@ -29,11 +29,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="122" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="122" column="33" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="122" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a4625ab60dc1714f48a3759a4f5300a2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a4625ab60dc1714f48a3759a4f5300a2b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Newton::Newton</definition>
         <argsstring>(const double epsilon, const std::function&lt; double(double)&gt; &amp;f, const std::function&lt; double(double)&gt; &amp;fPrime) noexcept</argsstring>
@@ -53,34 +53,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fPrime</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the derivative of the function </para></parameterdescription>
+<para>the derivative of the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="60" bodyend="66"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="60" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a96883d83bf3cae4e58be021dd7a49997" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a96883d83bf3cae4e58be021dd7a49997" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Newton::Newton</definition>
         <argsstring>(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f, const std::function&lt; double(double)&gt; &amp;fPrime) noexcept</argsstring>
@@ -90,7 +95,7 @@
           <declname>epsilon</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>maxNumIterations</declname>
         </param>
         <param>
@@ -104,66 +109,76 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>maxNumIterations</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the maximum number of iterations to perform </para></parameterdescription>
+<para>the maximum number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fPrime</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the derivative of the function </para></parameterdescription>
+<para>the derivative of the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="77" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="77" bodyend="84"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="77" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="77" bodyend="84"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a25702b087e2e9917af0c31fe1dbdf442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1aeceb5130209309abf04880d0c7ed1a59" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Newton::~Newton</definition>
-        <argsstring>() noexcept override=default</argsstring>
+        <argsstring>() noexcept=default</argsstring>
         <name>~Newton</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Destructor </para>        </detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="90" column="1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="90" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations</definition>
         <argsstring>() const noexcept</argsstring>
         <name>numIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of iterations</para><para><simplesect kind="return"><para>: number of iterations </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the number of iterations</para>
+<para><simplesect kind="return"><para>: number of iterations </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1aaed2535d1abdb0c6790aea60762ed789" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -177,26 +192,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Solves for the root in the range [a, b]</para><para><parameterlist kind="param"><parameteritem>
+<para>Solves for the root in the range [a, b]</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the starting point </para></parameterdescription>
+<para>the starting point </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>root nearest the starting point </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>root nearest the starting point </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="99" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="99" bodyend="117"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="99" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="99" bodyend="117"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a79a9f8410a2efd6c36cb128ef02b9661" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_newton_1a91f661622d768edf0376d02272b365b9" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::roots::Newton::calculateX</definition>
-        <argsstring>(double x, double fx, double fxPrime)</argsstring>
+        <argsstring>(double x, double fx, double fxPrime) noexcept</argsstring>
         <name>calculateX</name>
         <param>
           <type>double</type>
@@ -213,33 +232,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates x</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates x</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the current x value </para></parameterdescription>
+<para>the current x value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fx</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at the current x value </para></parameterdescription>
+<para>the function evaluated at the current x value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fxPrime</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the derivate of the function evaluated at the current x value </para></parameterdescription>
+<para>the derivate of the function evaluated at the current x value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>x </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>x </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="133" bodyend="136"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="133" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="133" bodyend="136"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -254,10 +279,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::maxNumIterations_</definition>
         <argsstring></argsstring>
         <name>maxNumIterations_</name>
@@ -268,10 +293,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations_</definition>
         <argsstring></argsstring>
         <name>numIterations_</name>
@@ -282,25 +307,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::incrementNumberOfIterations</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>()</argsstring>
         <name>incrementNumberOfIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Incraments the number of iterations</para><para><simplesect kind="return"><para>the number of iterations prior to incramenting </para></simplesect>
-</para>        </detaileddescription>
+<para>Incraments the number of iterations</para>
+<para><simplesect kind="return"><para>the number of iterations prior to incramenting </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::resetNumberOfIterations</definition>
         <argsstring>() noexcept</argsstring>
@@ -308,47 +336,49 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Resets the number of iterations </para>        </detaileddescription>
+<para>Resets the number of iterations </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="classnc_1_1roots_1_1_newton" kindref="compound">Newton</ref> root finding method </para>    </detaileddescription>
+<para><ref refid="classnc_1_1roots_1_1_newton" kindref="compound">Newton</ref> root finding method </para>
+    </detaileddescription>
     <inheritancegraph>
-      <node id="65">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="64">
+      <node id="1">
         <label>nc::roots::Newton</label>
         <link refid="classnc_1_1roots_1_1_newton"/>
-        <childnode refid="65" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="67">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="66">
+      <node id="1">
         <label>nc::roots::Newton</label>
         <link refid="classnc_1_1roots_1_1_newton"/>
-        <childnode refid="67" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="49" bodyend="137"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" line="50" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Newton.hpp" bodystart="49" bodyend="137"/>
     <listofallmembers>
-      <member refid="classnc_1_1roots_1_1_newton_1a79a9f8410a2efd6c36cb128ef02b9661" prot="private" virt="non-virtual"><scope>nc::roots::Newton</scope><name>calculateX</name></member>
+      <member refid="classnc_1_1roots_1_1_newton_1a91f661622d768edf0376d02272b365b9" prot="private" virt="non-virtual"><scope>nc::roots::Newton</scope><name>calculateX</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>epsilon_</name></member>
       <member refid="classnc_1_1roots_1_1_newton_1aecd17b1c477d6f43ef813a8ce3d5bb9f" prot="private" virt="non-virtual"><scope>nc::roots::Newton</scope><name>f_</name></member>
       <member refid="classnc_1_1roots_1_1_newton_1afe69f864934b2b30be5558d98e3fbd06" prot="private" virt="non-virtual"><scope>nc::roots::Newton</scope><name>fPrime_</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>incrementNumberOfIterations</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>incrementNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" prot="public" virt="non-virtual"><scope>nc::roots::Newton</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a7948f08cfaa01f5685ec35149bf6bba0" prot="public" virt="non-virtual"><scope>nc::roots::Newton</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>maxNumIterations_</name></member>
@@ -358,8 +388,8 @@
       <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" virt="non-virtual"><scope>nc::roots::Newton</scope><name>resetNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_newton_1aaed2535d1abdb0c6790aea60762ed789" prot="public" virt="non-virtual"><scope>nc::roots::Newton</scope><name>solve</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a96da5e3dedbc74efa97e91cf387cdaca" prot="public" virt="virtual"><scope>nc::roots::Newton</scope><name>~Iteration</name></member>
-      <member refid="classnc_1_1roots_1_1_newton_1a25702b087e2e9917af0c31fe1dbdf442" prot="public" virt="non-virtual"><scope>nc::roots::Newton</scope><name>~Newton</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Newton</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_newton_1aeceb5130209309abf04880d0c7ed1a59" prot="public" virt="non-virtual"><scope>nc::roots::Newton</scope><name>~Newton</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

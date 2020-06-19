@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['throw_5finvalid_5fargument_5ferror',['THROW_INVALID_ARGUMENT_ERROR',['../_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd',1,'Error.hpp']]],
-  ['throw_5fruntime_5ferror',['THROW_RUNTIME_ERROR',['../_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a',1,'Error.hpp']]]
+  ['static_5fassert_5farithmetic_2308',['STATIC_ASSERT_ARITHMETIC',['../_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92',1,'StaticAsserts.hpp']]],
+  ['static_5fassert_5farithmetic_5for_5fcomplex_2309',['STATIC_ASSERT_ARITHMETIC_OR_COMPLEX',['../_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96',1,'StaticAsserts.hpp']]],
+  ['static_5fassert_5fcomplex_2310',['STATIC_ASSERT_COMPLEX',['../_static_asserts_8hpp.html#a1cd1b98c2b918cbd369afc12c11a0597',1,'StaticAsserts.hpp']]],
+  ['static_5fassert_5ffloat_2311',['STATIC_ASSERT_FLOAT',['../_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973',1,'StaticAsserts.hpp']]],
+  ['static_5fassert_5finteger_2312',['STATIC_ASSERT_INTEGER',['../_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10',1,'StaticAsserts.hpp']]],
+  ['static_5fassert_5fvalid_5fdtype_2313',['STATIC_ASSERT_VALID_DTYPE',['../_static_asserts_8hpp.html#a00cfe1ea01e56fe28ffe3d6ce5cae468',1,'StaticAsserts.hpp']]]
 ];

@@ -2,8 +2,8 @@ var classnc_1_1roots_1_1_dekker =
 [
     [ "Dekker", "classnc_1_1roots_1_1_dekker.html#a572739220f57db5c531ba4ad13afd43b", null ],
     [ "Dekker", "classnc_1_1roots_1_1_dekker.html#afb2c5602f3d8c77a663bc81cb44efb8c", null ],
-    [ "~Dekker", "classnc_1_1roots_1_1_dekker.html#a684d033f2cfc9ddf5cf056503b8882ab", null ],
-    [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_dekker.html#ae0ee7814d1fac03c4c91947f839ea401", null ],
+    [ "~Dekker", "classnc_1_1roots_1_1_dekker.html#a560eb9cd8c7e6531888b1c85c62e37b9", null ],
+    [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_dekker.html#ad0262a1a694e734ebc154c77f010bcff", null ],
     [ "numIterations", "classnc_1_1roots_1_1_dekker.html#ab3192d0f9de4b8b27b23013c65489e5a", null ],
     [ "resetNumberOfIterations", "classnc_1_1roots_1_1_dekker.html#a85e79a4794bc3a6ac6bc3564956737a2", null ],
     [ "solve", "classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111", null ],

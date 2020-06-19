@@ -1,4 +1,4 @@
 var nanstdev_8hpp =
 [
-    [ "nanstdev", "nanstdev_8hpp.html#a6726e8614e089ff57ce7edc3afe1b468", null ]
+    [ "nanstdev", "nanstdev_8hpp.html#a3ae8768b4362f564849bc2ba0115450a", null ]
 ];

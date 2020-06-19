@@ -1,4 +1,4 @@
 var amin_8hpp =
 [
-    [ "amin", "amin_8hpp.html#a75fdc7bd7ef781e0a50bd4591424e55b", null ]
+    [ "amin", "amin_8hpp.html#a4ea471f5a3dc23f638a8499151351435", null ]
 ];

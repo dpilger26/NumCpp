@@ -1,5 +1,5 @@
 var degree_seperation_8hpp =
 [
-    [ "degreeSeperation", "degree_seperation_8hpp.html#a235970449246ff4c3acf6924b65b2068", null ],
-    [ "degreeSeperation", "degree_seperation_8hpp.html#a86698ce3b556e7e38d0b8c8034719244", null ]
+    [ "degreeSeperation", "degree_seperation_8hpp.html#a06135e21507cfe2aa1cb4154fe1702bf", null ],
+    [ "degreeSeperation", "degree_seperation_8hpp.html#abc47b2d64d107bcb19ff696ecff89edf", null ]
 ];

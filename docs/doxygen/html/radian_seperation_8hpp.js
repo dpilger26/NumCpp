@@ -1,5 +1,5 @@
 var radian_seperation_8hpp =
 [
-    [ "radianSeperation", "radian_seperation_8hpp.html#ac26247590cae76bd0e551a3300680f55", null ],
-    [ "radianSeperation", "radian_seperation_8hpp.html#a0fd3df39e04b072bf988390bce990f7c", null ]
+    [ "radianSeperation", "radian_seperation_8hpp.html#aa009e573b47b51d34d3aae0b152566c8", null ],
+    [ "radianSeperation", "radian_seperation_8hpp.html#a712fd847123cfde7948c36ca59c6a435", null ]
 ];

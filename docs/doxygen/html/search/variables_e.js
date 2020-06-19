@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z',['z',['../classnc_1_1_vec3.html#a0896ee691f46ce0bd669b869fe6acb41',1,'nc::Vec3']]]
+  ['x_2251',['x',['../classnc_1_1_vec2.html#a36a67b9395b397e1b8e9364a39a5c458',1,'nc::Vec2::x()'],['../classnc_1_1_vec3.html#a7f71dd08d58a1327739de6041e3362bb',1,'nc::Vec3::x()']]]
 ];

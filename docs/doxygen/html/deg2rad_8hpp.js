@@ -1,5 +1,5 @@
 var deg2rad_8hpp =
 [
-    [ "deg2rad", "deg2rad_8hpp.html#ab6b65609e3966a58727579080712e5d9", null ],
-    [ "deg2rad", "deg2rad_8hpp.html#a5bb32d6017b8d3d654a8dc3b793731ea", null ]
+    [ "deg2rad", "deg2rad_8hpp.html#a828388cb973b4e28e0b7060694e2604a", null ],
+    [ "deg2rad", "deg2rad_8hpp.html#a2cdc1c791ab98eb708ba5662ffb82b39", null ]
 ];

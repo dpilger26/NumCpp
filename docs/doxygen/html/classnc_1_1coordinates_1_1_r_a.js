@@ -1,6 +1,6 @@
 var classnc_1_1coordinates_1_1_r_a =
 [
-    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#aecba08a8023c2db83cad9a4081acc2f8", null ],
+    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#a632d150cc8009f1ab61053161046f553", null ],
     [ "RA", "classnc_1_1coordinates_1_1_r_a.html#ab14fd57fb6ab65c4d8ca668d549a507f", null ],
     [ "RA", "classnc_1_1coordinates_1_1_r_a.html#a7566e8350b9075ae0f0406fce26b7900", null ],
     [ "degrees", "classnc_1_1coordinates_1_1_r_a.html#aaf73bcb5e2afd0e075c452148f67a3bd", null ],

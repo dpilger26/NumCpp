@@ -1,8 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" kind="class" language="C++" prot="public">
     <compoundname>nc::boostPythonInterface::BoostNdarrayHelper</compoundname>
     <includes refid="_boost_numpy_ndarray_helper_8hpp" local="no">BoostNumpyNdarrayHelper.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename dtype</type>
+      </param>
+    </templateparamlist>
       <sectiondef kind="public-type">
       <memberdef kind="enum" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" prot="public" static="no" strong="yes">
         <type></type>
@@ -22,18 +27,19 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
-<para>C or Fortran ordering from python. </para>        </briefdescription>
+<para>C or Fortran ordering from python. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="57" bodyend="57"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="58" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="58" bodyend="58"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a9e96a9915028eba571a4754c5c2d1404" prot="private" static="no" mutable="no">
-        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
-        <definition>uint8 nc::boostPythonInterface::BoostNdarrayHelper::numDimensions_</definition>
+      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a7dbc6cd4dc56dad891390bf17d1699bc" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::numDimensions_</definition>
         <argsstring></argsstring>
         <name>numDimensions_</name>
         <briefdescription>
@@ -42,11 +48,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="62" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="278" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="278" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a36763ef3afb32c170faf35d04cf44984" prot="private" static="no" mutable="no">
+      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1af03492a3dd5f6516566be12ddcbfa767" prot="private" static="no" mutable="no">
         <type><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kindref="member">Order</ref></type>
-        <definition>Order nc::boostPythonInterface::BoostNdarrayHelper::order_</definition>
+        <definition>Order nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::order_</definition>
         <argsstring></argsstring>
         <name>order_</name>
         <briefdescription>
@@ -55,11 +61,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="65" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="65" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="281" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="281" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a00c560b381942f6204e5be5119f350dc" prot="private" static="no" mutable="no">
+      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a69b812cba7f532630fd63eed1ecb39f2" prot="private" static="no" mutable="no">
         <type>std::vector&lt; Py_intptr_t &gt;</type>
-        <definition>std::vector&lt;Py_intptr_t&gt; nc::boostPythonInterface::BoostNdarrayHelper::shape_</definition>
+        <definition>std::vector&lt;Py_intptr_t&gt; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::shape_</definition>
         <argsstring></argsstring>
         <name>shape_</name>
         <briefdescription>
@@ -68,11 +74,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="63" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="279" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="279" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a367a65935404f6eeafb5e4df8bacb6a4" prot="private" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
-        <definition>std::vector&lt;uint32&gt; nc::boostPythonInterface::BoostNdarrayHelper::strides_</definition>
+      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a07d766b2710c23fd54c033686d2aa2ea" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref> &gt;</type>
+        <definition>std::vector&lt;uint32&gt; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::strides_</definition>
         <argsstring></argsstring>
         <name>strides_</name>
         <briefdescription>
@@ -81,11 +87,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="64" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="64" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="280" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="280" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5911df7838604bed3d8002b3cddda353" prot="private" static="no" mutable="no">
+      <memberdef kind="variable" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a03530fecf2b9f2154c3ade62c7dbea8b" prot="private" static="no" mutable="no">
         <type>boost::python::numpy::ndarray</type>
-        <definition>boost::python::numpy::ndarray nc::boostPythonInterface::BoostNdarrayHelper::theArray_</definition>
+        <definition>boost::python::numpy::ndarray nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::theArray_</definition>
         <argsstring></argsstring>
         <name>theArray_</name>
         <briefdescription>
@@ -94,173 +100,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="61" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aeba500f0e3cc235e7b490a431bb9516f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::checkIndices1D</definition>
-        <argsstring>(uint32 index)</argsstring>
-        <name>checkIndices1D</name>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Checks 1D input indices</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>index</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="98" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="98" bodyend="102"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a35b2287c13aba270d6d6c2e9e300966f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::checkIndices2D</definition>
-        <argsstring>(uint32 index1, uint32 index2)</argsstring>
-        <name>checkIndices2D</name>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index1</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index2</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Checks 2D input indices</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>index1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>index2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="110" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="110" bodyend="114"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5e5b524f482928de6f290452a8bf917d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::checkIndices3D</definition>
-        <argsstring>(uint32 index1, uint32 index2, uint32 index3)</argsstring>
-        <name>checkIndices3D</name>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index1</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index2</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index3</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Checks 3D input indices</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>index1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>index2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>index3</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="123" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="123" bodyend="127"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa401cee13afca12c789a37d869729f30" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::checkIndicesGeneric</definition>
-        <argsstring>(boost::python::tuple indices)</argsstring>
-        <name>checkIndicesGeneric</name>
-        <param>
-          <type>boost::python::tuple</type>
-          <declname>indices</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Generic check of input indices</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>indices</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="72" bodyend="91"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="277" column="42" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="277" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a30364907e676e70f584cb7ccaa5ac547" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
-        <definition>nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper</definition>
-        <argsstring>(const boost::python::numpy::ndarray &amp;inArray)</argsstring>
-        <name>BoostNdarrayHelper</name>
-        <param>
-          <type>const boost::python::numpy::ndarray &amp;</type>
-          <declname>inArray</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inArray</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ndarray </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="135" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="135" bodyend="154"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a961bbdf1557d85a48f1ae40d23ac37fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper</definition>
+        <definition>nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::BoostNdarrayHelper</definition>
         <argsstring>(boost::python::tuple inShape)</argsstring>
         <name>BoostNdarrayHelper</name>
         <param>
@@ -270,242 +116,238 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inShape</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="161" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="161" bodyend="180"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="91" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="91" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad4ff3ef56ab470aca4ea2acc90824810" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::BoostNdarrayHelper</definition>
+        <argsstring>(const boost::python::numpy::ndarray &amp;inArray)</argsstring>
+        <name>BoostNdarrayHelper</name>
+        <param>
+          <type>const boost::python::numpy::ndarray &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ndarray </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="65" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="65" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a0a6c3bfdab008b433ba0dae0689ee1fa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const boost::python::numpy::ndarray &amp;</type>
-        <definition>const boost::python::numpy::ndarray&amp; nc::boostPythonInterface::BoostNdarrayHelper::getArray</definition>
+        <definition>const boost::python::numpy::ndarray&amp; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::getArray</definition>
         <argsstring>() noexcept</argsstring>
         <name>getArray</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the internaly held ndarray</para><para><simplesect kind="return"><para>reference to the held ndarray </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the internaly held ndarray</para>
+<para><simplesect kind="return"><para>reference to the held ndarray </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="188" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="188" bodyend="191"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="118" column="49" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="118" bodyend="121"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a60dc597b784976e6241bf61686250d72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6939e6397314b48817c1ab6352a60f85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>boost::python::numpy::matrix</type>
-        <definition>boost::python::numpy::matrix nc::boostPythonInterface::BoostNdarrayHelper::getArrayAsMatrix</definition>
+        <definition>boost::python::numpy::matrix nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::getArrayAsMatrix</definition>
         <argsstring>()</argsstring>
         <name>getArrayAsMatrix</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the internaly held ndarray as a numpy matrix</para><para><simplesect kind="return"><para>matrix </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the internaly held ndarray as a numpy matrix</para>
+<para><simplesect kind="return"><para>matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="198" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="198" bodyend="201"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="128" column="42" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="128" bodyend="131"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa16c4299e90c836df0f2397dc1c78b1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
-        <definition>uint8 nc::boostPythonInterface::BoostNdarrayHelper::numDimensions</definition>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a73b77718d65b0531030c795bcc6fe7e4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::numDimensions</definition>
         <argsstring>() noexcept</argsstring>
         <name>numDimensions</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of dimensions of the array</para><para><simplesect kind="return"><para>num dimensions </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the number of dimensions of the array</para>
+<para><simplesect kind="return"><para>num dimensions </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="208" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="208" bodyend="211"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="138" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="138" bodyend="141"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac7d7771239aa10a8599a37b30a434eb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>double &amp;</type>
-        <definition>double&amp; nc::boostPythonInterface::BoostNdarrayHelper::operator()</definition>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a8fcb5d4d25c201c4ce3f6ce2046bfe13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>dtype &amp;</type>
+        <definition>dtype&amp; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::operator()</definition>
         <argsstring>(uint32 index)</argsstring>
         <name>operator()</name>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>index</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>1D access operator</para><para><parameterlist kind="param"><parameteritem>
+<para>1D access operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>index</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="283" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="283" bodyend="288"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="213" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="213" bodyend="218"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a666bb0d7ffa14bad410f0b1419c7ef9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>double &amp;</type>
-        <definition>double&amp; nc::boostPythonInterface::BoostNdarrayHelper::operator()</definition>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a7f34c08ee8ca4784eeb962f2b46d7854" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>dtype &amp;</type>
+        <definition>dtype&amp; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::operator()</definition>
         <argsstring>(uint32 index1, uint32 index2)</argsstring>
         <name>operator()</name>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>index1</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>index2</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>2D access operator</para><para><parameterlist kind="param"><parameteritem>
+<para>2D access operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>index1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>index2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="298" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="298" bodyend="302"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="228" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="228" bodyend="233"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa595a1a42ed68d5b5701e31c087cff50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>double &amp;</type>
-        <definition>double&amp; nc::boostPythonInterface::BoostNdarrayHelper::operator()</definition>
-        <argsstring>(uint32 index1, uint32 index2, uint32 index3)</argsstring>
-        <name>operator()</name>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index1</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index2</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>index3</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>3D access operator</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>index1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>index2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>index3</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="313" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="313" bodyend="318"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa235602ad1f2455a86ab7a9944f70d2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ab7b0fe82186d55265ec4c247d79ea9a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kindref="member">Order</ref></type>
-        <definition>Order nc::boostPythonInterface::BoostNdarrayHelper::order</definition>
-        <argsstring>() noexcept</argsstring>
+        <definition>Order nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::order</definition>
+        <argsstring>()</argsstring>
         <name>order</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the memory order of the array (C or Fortran)</para><para><simplesect kind="return"><para>Order </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the memory order of the array (C or Fortran)</para>
+<para><simplesect kind="return"><para>Order </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="254" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="254" bodyend="257"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="184" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="184" bodyend="187"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aec8b200d42f2235d8fa6789ce760cca4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1acf45376090a7da0f19d2a147b2179876" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::printArray1D</definition>
+        <definition>void nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::printArray1D</definition>
         <argsstring>()</argsstring>
         <name>printArray1D</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Prints a 1D array </para>        </detaileddescription>
+<para>Prints a 1D array </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="323" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="323" bodyend="336"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="238" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="238" bodyend="251"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1acb5f51b3307274d6092886b034816fcf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a3be5909afba38304055c66a1450be791" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::printArray2D</definition>
+        <definition>void nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::printArray2D</definition>
         <argsstring>()</argsstring>
         <name>printArray2D</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Prints a 2D array </para>        </detaileddescription>
+<para>Prints a 2D array </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="341" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="341" bodyend="358"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="256" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="256" bodyend="273"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aea83665f429e95b43612c0d08e61b556" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::boostPythonInterface::BoostNdarrayHelper::printArray3D</definition>
-        <argsstring>()</argsstring>
-        <name>printArray3D</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Prints a 3D array </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="363" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="363" bodyend="384"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a3bc1683f38f594bae02c4eb4795a9aab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const std::vector&lt; Py_intptr_t &gt; &amp;</type>
-        <definition>const std::vector&lt;Py_intptr_t&gt;&amp; nc::boostPythonInterface::BoostNdarrayHelper::shape</definition>
+        <definition>const std::vector&lt;Py_intptr_t&gt;&amp; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::shape</definition>
         <argsstring>() noexcept</argsstring>
         <name>shape</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the shape of the array</para><para><simplesect kind="return"><para>vector </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the shape of the array</para>
+<para><simplesect kind="return"><para>vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="218" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="218" bodyend="221"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="148" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="148" bodyend="151"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ab0e47d83edf0a6b6247b30e930e5e8e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a0c69ec13dae8782be1cf4da41c277c01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
-        <definition>bool nc::boostPythonInterface::BoostNdarrayHelper::shapeEqual</definition>
+        <definition>bool nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::shapeEqual</definition>
         <argsstring>(BoostNdarrayHelper &amp;otherNdarrayHelper)</argsstring>
         <name>shapeEqual</name>
         <param>
@@ -515,87 +357,193 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns if the shapes of the two array helpers are equal</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns if the shapes of the two array helpers are equal</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>otherNdarrayHelper</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>boolean </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="266" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="266" bodyend="274"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="196" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="196" bodyend="204"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac00c6e4cf0c97c1720ae6439228202cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-        <definition>uint32 nc::boostPythonInterface::BoostNdarrayHelper::size</definition>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac4fe82faa11df5734d746600cfba7149" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
+        <definition>uint32 nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::size</definition>
         <argsstring>()</argsstring>
         <name>size</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the size of the array</para><para><simplesect kind="return"><para>size </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the size of the array</para>
+<para><simplesect kind="return"><para>size </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="228" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="228" bodyend="236"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="158" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="158" bodyend="166"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a41b50017bc8bd0b71c662b598a0c86a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>const std::vector&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt; &amp;</type>
-        <definition>const std::vector&lt;uint32&gt;&amp; nc::boostPythonInterface::BoostNdarrayHelper::strides</definition>
-        <argsstring>() noexcept</argsstring>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aaf8c517c524c3e9ff5a999d266ca84f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;uint32&gt;&amp; nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::strides</definition>
+        <argsstring>()</argsstring>
         <name>strides</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the strides of the array</para><para><simplesect kind="return"><para>vector </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the strides of the array</para>
+<para><simplesect kind="return"><para>vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="244" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="244" bodyend="247"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="174" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="174" bodyend="177"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a117845d0a2ae757d7f091cb44b338e67" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::checkIndices1D</definition>
+        <argsstring>(uint32 index)</argsstring>
+        <name>checkIndices1D</name>
+        <param>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks 1D input indices</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="314" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="314" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad6ec7fbb098831ffeee587ac44032e0e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::checkIndices2D</definition>
+        <argsstring>(uint32 index1, uint32 index2)</argsstring>
+        <name>checkIndices2D</name>
+        <param>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
+          <declname>index1</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
+          <declname>index2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks 2D input indices</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="326" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="326" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad0b9415a59eef3b4774b28aef4584379" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;::checkIndicesGeneric</definition>
+        <argsstring>(boost::python::tuple indices)</argsstring>
+        <name>checkIndicesGeneric</name>
+        <param>
+          <type>boost::python::tuple</type>
+          <declname>indices</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generic check of input indices</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>indices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="288" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="288" bodyend="307"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Helper class for ndarray. </para>    </briefdescription>
+<para>Helper class for ndarray. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="13">
-        <label>nc::boostPythonInterface::BoostNdarrayHelper</label>
+      <node id="1">
+        <label>nc::boostPythonInterface::BoostNdarrayHelper&lt; dtype &gt;</label>
         <link refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="52" bodyend="385"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" line="54" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp" bodystart="53" bodyend="331"/>
     <listofallmembers>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a30364907e676e70f584cb7ccaa5ac547" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>BoostNdarrayHelper</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a961bbdf1557d85a48f1ae40d23ac37fa" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>BoostNdarrayHelper</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aeba500f0e3cc235e7b490a431bb9516f" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndices1D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a35b2287c13aba270d6d6c2e9e300966f" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndices2D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5e5b524f482928de6f290452a8bf917d" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndices3D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa401cee13afca12c789a37d869729f30" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndicesGeneric</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad4ff3ef56ab470aca4ea2acc90824810" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>getArray</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a60dc597b784976e6241bf61686250d72" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>getArrayAsMatrix</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa16c4299e90c836df0f2397dc1c78b1a" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>numDimensions</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a9e96a9915028eba571a4754c5c2d1404" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>numDimensions_</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac7d7771239aa10a8599a37b30a434eb1" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>operator()</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a666bb0d7ffa14bad410f0b1419c7ef9d" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>operator()</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa595a1a42ed68d5b5701e31c087cff50" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>operator()</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa235602ad1f2455a86ab7a9944f70d2c" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>order</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>BoostNdarrayHelper</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>BoostNdarrayHelper</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a117845d0a2ae757d7f091cb44b338e67" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndices1D</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad6ec7fbb098831ffeee587ac44032e0e" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndices2D</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad0b9415a59eef3b4774b28aef4584379" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>checkIndicesGeneric</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a0a6c3bfdab008b433ba0dae0689ee1fa" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>getArray</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6939e6397314b48817c1ab6352a60f85" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>getArrayAsMatrix</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a73b77718d65b0531030c795bcc6fe7e4" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>numDimensions</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a7dbc6cd4dc56dad891390bf17d1699bc" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>numDimensions_</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a8fcb5d4d25c201c4ce3f6ce2046bfe13" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>operator()</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a7f34c08ee8ca4784eeb962f2b46d7854" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>operator()</name></member>
       <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>Order</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a36763ef3afb32c170faf35d04cf44984" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>order_</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aec8b200d42f2235d8fa6789ce760cca4" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>printArray1D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1acb5f51b3307274d6092886b034816fcf" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>printArray2D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aea83665f429e95b43612c0d08e61b556" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>printArray3D</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shape</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a00c560b381942f6204e5be5119f350dc" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shape_</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ab0e47d83edf0a6b6247b30e930e5e8e4" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shapeEqual</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac00c6e4cf0c97c1720ae6439228202cb" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>size</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a41b50017bc8bd0b71c662b598a0c86a7" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>strides</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a367a65935404f6eeafb5e4df8bacb6a4" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>strides_</name></member>
-      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5911df7838604bed3d8002b3cddda353" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>theArray_</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ab7b0fe82186d55265ec4c247d79ea9a8" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>order</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1af03492a3dd5f6516566be12ddcbfa767" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>order_</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1acf45376090a7da0f19d2a147b2179876" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>printArray1D</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a3be5909afba38304055c66a1450be791" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>printArray2D</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a3bc1683f38f594bae02c4eb4795a9aab" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shape</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a69b812cba7f532630fd63eed1ecb39f2" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shape_</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a0c69ec13dae8782be1cf4da41c277c01" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>shapeEqual</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac4fe82faa11df5734d746600cfba7149" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>size</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aaf8c517c524c3e9ff5a999d266ca84f4" prot="public" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>strides</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a07d766b2710c23fd54c033686d2aa2ea" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>strides_</name></member>
+      <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a03530fecf2b9f2154c3ade62c7dbea8b" prot="private" virt="non-virtual"><scope>nc::boostPythonInterface::BoostNdarrayHelper</scope><name>theArray_</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

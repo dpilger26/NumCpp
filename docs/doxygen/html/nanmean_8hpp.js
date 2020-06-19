@@ -1,4 +1,4 @@
 var nanmean_8hpp =
 [
-    [ "nanmean", "nanmean_8hpp.html#a3b8fb73c14358435fdc4bec01b9b0ff8", null ]
+    [ "nanmean", "nanmean_8hpp.html#acac66186b7fff8d8cdc1dd3f37b98297", null ]
 ];

@@ -5,6 +5,7 @@ var _constants_8hpp =
     [ "e", "_constants_8hpp.html#aebabe96d6c2be3df3d71922b399e24c7", null ],
     [ "HOURS_PER_DAY", "_constants_8hpp.html#aef903b1f40001bc712b61f5dec7de716", null ],
     [ "inf", "_constants_8hpp.html#a4649bfc00f6360ccda3b3f9316e2dc0e", null ],
+    [ "j", "_constants_8hpp.html#a0e933571f05ee6af915fc327260517e9", null ],
     [ "MILLISECONDS_PER_DAY", "_constants_8hpp.html#a2838aa56f95be8020a326aa6b9ba5c68", null ],
     [ "MILLISECONDS_PER_SECOND", "_constants_8hpp.html#a4373df6d6df75334290f4240f174aeb0", null ],
     [ "MINUTES_PER_DAY", "_constants_8hpp.html#aa018ab3bca299694899f51683d5b3c0f", null ],
@@ -14,6 +15,5 @@ var _constants_8hpp =
     [ "SECONDS_PER_DAY", "_constants_8hpp.html#a766ec3bf1f6fb57f586f943cea1946c3", null ],
     [ "SECONDS_PER_HOUR", "_constants_8hpp.html#ad635a54557e853e1ee098d0ead5f1902", null ],
     [ "SECONDS_PER_MINUTE", "_constants_8hpp.html#ad89620cbdf9102f40ec7c0fd52c16a5e", null ],
-    [ "SECONDS_PER_WEEK", "_constants_8hpp.html#ac36cac5f19ce5f81b2acc562f247f0be", null ],
-    [ "VERSION", "_constants_8hpp.html#a3d553d6bfa16d7ae8cd1dbae150891ea", null ]
+    [ "SECONDS_PER_WEEK", "_constants_8hpp.html#ac36cac5f19ce5f81b2acc562f247f0be", null ]
 ];

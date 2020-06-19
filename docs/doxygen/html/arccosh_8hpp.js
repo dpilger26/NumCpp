@@ -1,5 +1,5 @@
 var arccosh_8hpp =
 [
-    [ "arccosh", "arccosh_8hpp.html#a42e138a8181fed9ef9257708f046daff", null ],
-    [ "arccosh", "arccosh_8hpp.html#a9db8440d6a057152f1dd395a67015894", null ]
+    [ "arccosh", "arccosh_8hpp.html#a9063e7275b83f3201f74a0014a9b54d5", null ],
+    [ "arccosh", "arccosh_8hpp.html#a725eab730b946eca5d197933b9f955fa", null ]
 ];

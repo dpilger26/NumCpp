@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1_slice" kind="class" language="C++" prot="public">
     <compoundname>nc::Slice</compoundname>
     <includes refid="_slice_8hpp" local="no">Slice.hpp</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classnc_1_1_slice_1a36ddb261d9057db4a9794b4fc46e9d3f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+        <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
         <definition>int32 nc::Slice::start</definition>
         <argsstring></argsstring>
         <name>start</name>
@@ -16,10 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="48" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="48" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_slice_1a112855a11aa1737b7859e3d63feb09c4" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+        <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
         <definition>int32 nc::Slice::step</definition>
         <argsstring></argsstring>
         <name>step</name>
@@ -30,10 +30,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="50" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="50" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_slice_1ac2d72f4ca003ed645bc82efcafee87f5" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+        <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
         <definition>int32 nc::Slice::stop</definition>
         <argsstring></argsstring>
         <name>stop</name>
@@ -44,130 +44,143 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="49" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="49" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="49" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1_slice_1a3b447fc23031ada04143548003f40a86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_slice_1aeb2a7e0854fa82d97a48a5ef402d6e7c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr nc::Slice::Slice</definition>
-        <argsstring>() noexcept=default</argsstring>
+        <argsstring>()=default</argsstring>
         <name>Slice</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor </para>        </detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="55" column="1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="55" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_slice_1aa54f0fae63ece8ff87455e2192d8f336" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
-        <type>constexpr</type>
-        <definition>constexpr nc::Slice::Slice</definition>
-        <argsstring>(int32 inStop) noexcept</argsstring>
-        <name>Slice</name>
-        <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
-          <declname>inStop</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inStop</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>(index not included) </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="62" bodyend="64"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1_slice_1aba1f6c8193f0a61a3f5711edd58aeba1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_slice_1aba1f6c8193f0a61a3f5711edd58aeba1" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr nc::Slice::Slice</definition>
         <argsstring>(int32 inStart, int32 inStop) noexcept</argsstring>
         <name>Slice</name>
         <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
           <declname>inStart</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
           <declname>inStop</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inStart</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inStop</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(index not included) </para></parameterdescription>
+<para>(index not included) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="72" bodyend="75"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="72" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="72" bodyend="75"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_slice_1a91177c7ea9b87318232b8d916a487d38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_slice_1a91177c7ea9b87318232b8d916a487d38" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr nc::Slice::Slice</definition>
         <argsstring>(int32 inStart, int32 inStop, int32 inStep) noexcept</argsstring>
         <name>Slice</name>
         <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
           <declname>inStart</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
           <declname>inStop</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
           <declname>inStep</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inStart</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inStop</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(not included) </para></parameterdescription>
+<para>(not included) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inStep</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="84" bodyend="88"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="84" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_slice_1aa54f0fae63ece8ff87455e2192d8f336" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::Slice::Slice</definition>
+        <argsstring>(int32 inStop) noexcept</argsstring>
+        <name>Slice</name>
+        <param>
+          <type><ref refid="namespacenc_1a9386099a0fdc2bc9fb0dbfde5606584d" kindref="member">int32</ref></type>
+          <declname>inStop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inStop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(index not included) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="62" column="28" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="62" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_slice_1a4d518d51dad679d9a9c6938b065e38f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -175,83 +188,93 @@
         <argsstring>(uint32 inArraySize)</argsstring>
         <name>makePositiveAndValidate</name>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>inArraySize</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Make the slice all positive and does some error checking</para><para><parameterlist kind="param"><parameteritem>
+<para>Make the slice all positive and does some error checking</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArraySize</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="114" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="114" bodyend="156"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="114" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="114" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_slice_1aab35be40c38521a4bd9b3c99b3d33731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::Slice::numElements</definition>
         <argsstring>(uint32 inArraySize)</argsstring>
         <name>numElements</name>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>inArraySize</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of elements that the slice contains. be aware that this method will also make the slice all positive!</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the number of elements that the slice contains. be aware that this method will also make the slice all positive!</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArraySize</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="165" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="165" bodyend="175"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="165" column="16" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="165" bodyend="175"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_slice_1a3adafb3522c5df20f22ef72304711479" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_slice_1a24c1eb77b94d3120bb02868cc965c058" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::Slice::print</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>print</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Prints the shape to the console </para>        </detaileddescription>
+<para>Prints the shape to the console </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="104" bodyend="107"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="104" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="104" bodyend="107"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_slice_1a81dea6ea9f0d86337bf60e1bc291044a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_slice_1af8bc3bb19b48fd09c769fd1fa9860ed5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string nc::Slice::str</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>str</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Prints the shape to the console</para><para><simplesect kind="return"><para>std::string </para></simplesect>
-</para>        </detaileddescription>
+<para>Prints the shape to the console</para>
+<para><simplesect kind="return"><para>std::string </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="95" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="95" bodyend="99"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="95" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="95" bodyend="99"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
-      <memberdef kind="friend" id="classnc_1_1_slice_1a0fa5ef3a8d86e75fdaf36965640719a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="friend" id="classnc_1_1_slice_1ad6889d2df295fef3796aebb769b8cac0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::ostream &amp;</type>
         <definition>std::ostream&amp; operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;inOStream, const Slice &amp;inSlice) noexcept</argsstring>
+        <argsstring>(std::ostream &amp;inOStream, const Slice &amp;inSlice)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
           <type>std::ostream &amp;</type>
@@ -264,52 +287,58 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>IO operator for the <ref refid="classnc_1_1_slice" kindref="compound">Slice</ref> class</para><para><parameterlist kind="param"><parameteritem>
+<para>IO operator for the <ref refid="classnc_1_1_slice" kindref="compound">Slice</ref> class</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inOStream</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inSlice</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::ostream </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::ostream </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="185" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="185" bodyend="189"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="185" column="16" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="185" bodyend="189"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>A Class for slicing into NdArrays. </para>    </briefdescription>
+<para>A Class for slicing into NdArrays. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="79">
+      <node id="1">
         <label>nc::Slice</label>
         <link refid="classnc_1_1_slice"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="44" bodyend="190"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" line="45" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Slice.hpp" bodystart="44" bodyend="190"/>
     <listofallmembers>
       <member refid="classnc_1_1_slice_1a4d518d51dad679d9a9c6938b065e38f8" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>makePositiveAndValidate</name></member>
       <member refid="classnc_1_1_slice_1aab35be40c38521a4bd9b3c99b3d33731" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>numElements</name></member>
-      <member refid="classnc_1_1_slice_1a0fa5ef3a8d86e75fdaf36965640719a0" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classnc_1_1_slice_1a3adafb3522c5df20f22ef72304711479" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>print</name></member>
-      <member refid="classnc_1_1_slice_1a3b447fc23031ada04143548003f40a86" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>Slice</name></member>
+      <member refid="classnc_1_1_slice_1ad6889d2df295fef3796aebb769b8cac0" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1_slice_1a24c1eb77b94d3120bb02868cc965c058" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>print</name></member>
+      <member refid="classnc_1_1_slice_1aeb2a7e0854fa82d97a48a5ef402d6e7c" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>Slice</name></member>
       <member refid="classnc_1_1_slice_1aa54f0fae63ece8ff87455e2192d8f336" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>Slice</name></member>
       <member refid="classnc_1_1_slice_1aba1f6c8193f0a61a3f5711edd58aeba1" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>Slice</name></member>
       <member refid="classnc_1_1_slice_1a91177c7ea9b87318232b8d916a487d38" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>Slice</name></member>
       <member refid="classnc_1_1_slice_1a36ddb261d9057db4a9794b4fc46e9d3f" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>start</name></member>
       <member refid="classnc_1_1_slice_1a112855a11aa1737b7859e3d63feb09c4" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>step</name></member>
       <member refid="classnc_1_1_slice_1ac2d72f4ca003ed645bc82efcafee87f5" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>stop</name></member>
-      <member refid="classnc_1_1_slice_1a81dea6ea9f0d86337bf60e1bc291044a" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>str</name></member>
+      <member refid="classnc_1_1_slice_1af8bc3bb19b48fd09c769fd1fa9860ed5" prot="public" virt="non-virtual"><scope>nc::Slice</scope><name>str</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

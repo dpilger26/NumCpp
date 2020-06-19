@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1roots_1_1_secant" kind="class" language="C++" prot="public">
     <compoundname>nc::roots::Secant</compoundname>
     <basecompoundref refid="classnc_1_1roots_1_1_iteration" prot="public" virt="non-virtual">nc::roots::Iteration</basecompoundref>
@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="128" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="128" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="128" column="33" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Secant::Secant</definition>
         <argsstring>(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
@@ -36,27 +36,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="61" bodyend="65"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="61" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="61" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Secant::Secant</definition>
         <argsstring>(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
@@ -66,7 +70,7 @@
           <declname>epsilon</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>maxNumIterations</declname>
         </param>
         <param>
@@ -76,59 +80,68 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>epsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the epsilon value </para></parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>maxNumIterations</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the maximum number of iterations to perform </para></parameterdescription>
+<para>the maximum number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function </para></parameterdescription>
+<para>the function </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="75" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="75" bodyend="80"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="75" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="75" bodyend="80"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ac4443169163345fb836d572861b19a89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1ad0a5d01d81803c733e43c7b07497d192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Secant::~Secant</definition>
-        <argsstring>() noexcept override=default</argsstring>
+        <argsstring>()=default</argsstring>
         <name>~Secant</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Destructor </para>        </detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="86" column="1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="86" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations</definition>
         <argsstring>() const noexcept</argsstring>
         <name>numIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of iterations</para><para><simplesect kind="return"><para>: number of iterations </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the number of iterations</para>
+<para><simplesect kind="return"><para>: number of iterations </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="84" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1a3fefb4412402aa20eeabb85145463d70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -146,33 +159,38 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Solves for the root in the range [a, b]</para><para><parameterlist kind="param"><parameteritem>
+<para>Solves for the root in the range [a, b]</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound </para></parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound </para></parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>root between the bound </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>root between the bound </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="96" bodyend="124"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="96" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="96" bodyend="124"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1a2412343ca3b41deb9e181579791d28da" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_secant_1a5b141dbdb501e911b5105b0dc8feb132" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::roots::Secant::calculateX</definition>
-        <argsstring>(double x, double lastX, double fx, double lastFx)</argsstring>
+        <argsstring>(double x, double lastX, double fx, double lastFx) noexcept</argsstring>
         <name>calculateX</name>
         <param>
           <type>double</type>
@@ -193,40 +211,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculates x</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculates x</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the current x value </para></parameterdescription>
+<para>the current x value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the previous x value </para></parameterdescription>
+<para>the previous x value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>fx</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at the current x value </para></parameterdescription>
+<para>the function evaluated at the current x value </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lastFx</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function evaluated at the previous x value </para></parameterdescription>
+<para>the function evaluated at the previous x value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>x </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>x </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="140" bodyend="144"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="140" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="140" bodyend="144"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -241,10 +266,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="115" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::maxNumIterations_</definition>
         <argsstring></argsstring>
         <name>maxNumIterations_</name>
@@ -255,10 +280,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="116" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::roots::Iteration::numIterations_</definition>
         <argsstring></argsstring>
         <name>numIterations_</name>
@@ -269,25 +294,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="117" column="29" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="117" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::incrementNumberOfIterations</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>()</argsstring>
         <name>incrementNumberOfIterations</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Incraments the number of iterations</para><para><simplesect kind="return"><para>the number of iterations prior to incramenting </para></simplesect>
-</para>        </detaileddescription>
+<para>Incraments the number of iterations</para>
+<para><simplesect kind="return"><para>the number of iterations prior to incramenting </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="105" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="105" bodyend="112"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::roots::Iteration::resetNumberOfIterations</definition>
         <argsstring>() noexcept</argsstring>
@@ -295,46 +323,48 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Resets the number of iterations </para>        </detaileddescription>
+<para>Resets the number of iterations </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="94" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="94" bodyend="97"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="classnc_1_1roots_1_1_secant" kindref="compound">Secant</ref> root finding method </para>    </detaileddescription>
+<para><ref refid="classnc_1_1roots_1_1_secant" kindref="compound">Secant</ref> root finding method </para>
+    </detaileddescription>
     <inheritancegraph>
-      <node id="69">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="68">
+      <node id="1">
         <label>nc::roots::Secant</label>
         <link refid="classnc_1_1roots_1_1_secant"/>
-        <childnode refid="69" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="71">
+      <node id="2">
         <label>nc::roots::Iteration</label>
         <link refid="classnc_1_1roots_1_1_iteration"/>
       </node>
-      <node id="70">
+      <node id="1">
         <label>nc::roots::Secant</label>
         <link refid="classnc_1_1roots_1_1_secant"/>
-        <childnode refid="71" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="51" bodyend="145"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" line="52" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Secant.hpp" bodystart="51" bodyend="145"/>
     <listofallmembers>
-      <member refid="classnc_1_1roots_1_1_secant_1a2412343ca3b41deb9e181579791d28da" prot="private" virt="non-virtual"><scope>nc::roots::Secant</scope><name>calculateX</name></member>
+      <member refid="classnc_1_1roots_1_1_secant_1a5b141dbdb501e911b5105b0dc8feb132" prot="private" virt="non-virtual"><scope>nc::roots::Secant</scope><name>calculateX</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" prot="protected" virt="non-virtual"><scope>nc::roots::Secant</scope><name>epsilon_</name></member>
       <member refid="classnc_1_1roots_1_1_secant_1af1e51d270e8c08f43c22c658474a5f4d" prot="private" virt="non-virtual"><scope>nc::roots::Secant</scope><name>f_</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1ae0ee7814d1fac03c4c91947f839ea401" prot="protected" virt="non-virtual"><scope>nc::roots::Secant</scope><name>incrementNumberOfIterations</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" virt="non-virtual"><scope>nc::roots::Secant</scope><name>incrementNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a2d7285a81c033d56ce8283b6dbfca136" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a7948f08cfaa01f5685ec35149bf6bba0" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>Iteration</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a9b1c4ea8cf91c5308020c105293b4a02" prot="protected" virt="non-virtual"><scope>nc::roots::Secant</scope><name>maxNumIterations_</name></member>
@@ -344,8 +374,8 @@
       <member refid="classnc_1_1roots_1_1_secant_1ab4f5b3bf32f950969ccc02ad2b73ee3a" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>Secant</name></member>
       <member refid="classnc_1_1roots_1_1_secant_1ade0bc7e1d85f9dad939b41789078e915" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>Secant</name></member>
       <member refid="classnc_1_1roots_1_1_secant_1a3fefb4412402aa20eeabb85145463d70" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>solve</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a96da5e3dedbc74efa97e91cf387cdaca" prot="public" virt="virtual"><scope>nc::roots::Secant</scope><name>~Iteration</name></member>
-      <member refid="classnc_1_1roots_1_1_secant_1ac4443169163345fb836d572861b19a89" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>~Secant</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Secant</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_secant_1ad0a5d01d81803c733e43c7b07497d192" prot="public" virt="non-virtual"><scope>nc::roots::Secant</scope><name>~Secant</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
