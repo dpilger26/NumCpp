@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Linalg/svd/SVDClass.hpp"
-#include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/diagflat.hpp"
+#include "NumCpp/Linalg/svd/SVDClass.hpp"
 
 #include <utility>
 
@@ -50,8 +51,10 @@ namespace nc
         /// @param				outVt: NdArray output V transpose
         ///
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());
 

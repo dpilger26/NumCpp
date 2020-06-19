@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,9 @@
 
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/Pixel.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -52,15 +53,18 @@ namespace nc
         template<typename dtype>
         class Cluster
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //================================Typedefs===============================
-            typedef typename std::vector<Pixel<dtype> >::const_iterator    const_iterator;
+            using const_iterator = typename std::vector<Pixel<dtype> >::const_iterator;
 
             //=============================================================================
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() noexcept = default;
+            Cluster() = default;
 
             //=============================================================================
             // Description:
@@ -83,7 +87,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Cluster<dtype>& rhs) const
+            bool operator==(const Cluster<dtype>& rhs) const noexcept
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -103,7 +107,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Cluster<dtype>& rhs) const
+            bool operator!=(const Cluster<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -118,7 +122,7 @@ namespace nc
             /// @return
             ///              Pixel
             ///
-            const Pixel<dtype>& operator[](uint32 inIndex) const
+            const Pixel<dtype>& operator[](uint32 inIndex) const noexcept
             {
                 return pixels_[inIndex];
             }
@@ -149,7 +153,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const noexcept
+            const_iterator begin() const noexcept  
             {
                 return pixels_.cbegin();
             }
@@ -161,7 +165,7 @@ namespace nc
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const noexcept
+            const_iterator end() const noexcept 
             {
                 return pixels_.cend();
             }
@@ -173,7 +177,7 @@ namespace nc
             /// @return
             ///              number of pixels in the cluster
             ///
-            uint32 size() const noexcept
+            uint32 size() const noexcept 
             {
                 return static_cast<uint32>(pixels_.size());
             }
@@ -185,7 +189,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 clusterId() const noexcept
+            uint32 clusterId() const noexcept 
             {
                 return clusterId_;
             }
@@ -197,7 +201,7 @@ namespace nc
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 rowMin() const noexcept
+            uint32 rowMin() const noexcept 
             {
                 return rowMin_;
             }
@@ -209,7 +213,7 @@ namespace nc
             /// @return
             ///              maximum row number of the cluster
             ///
-            uint32 rowMax() const noexcept
+            uint32 rowMax() const noexcept 
             {
                 return rowMax_;
             }
@@ -221,7 +225,7 @@ namespace nc
             /// @return
             ///              minimum column number of the cluster
             ///
-            uint32 colMin() const noexcept
+            uint32 colMin() const noexcept 
             {
                 return colMin_;
             }
@@ -233,7 +237,7 @@ namespace nc
             /// @return
             ///              maximum column number of the cluster
             ///
-            uint32 colMax() const noexcept
+            uint32 colMax() const noexcept 
             {
                 return colMax_;
             }
@@ -245,7 +249,7 @@ namespace nc
             /// @return
             ///              number of rows
             ///
-            uint32 height() const noexcept
+            uint32 height() const noexcept 
             {
                 return rowMax_ - rowMin_ + 1;
             }
@@ -257,7 +261,7 @@ namespace nc
             /// @return
             ///              number of columns
             ///
-            uint32 width() const noexcept
+            uint32 width() const noexcept 
             {
                 return colMax_ - colMin_ + 1;
             }
@@ -269,7 +273,7 @@ namespace nc
             /// @return
             ///              summed cluster intensity
             ///
-            dtype intensity() const noexcept
+            dtype intensity() const noexcept 
             {
                 return intensity_;
             }
@@ -281,7 +285,7 @@ namespace nc
             /// @return
             ///              peak pixel intensity
             ///
-            dtype peakPixelIntensity() const noexcept
+            dtype peakPixelIntensity() const noexcept 
             {
                 return peakPixelIntensity_;
             }
@@ -293,7 +297,7 @@ namespace nc
             /// @return
             ///              eod
             ///
-            double eod() const noexcept
+            double eod() const noexcept 
             {
                 return eod_;
             }

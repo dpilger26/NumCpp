@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,13 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/sort.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
-#include <set>
+#include <complex>
+#include <vector>
 
 namespace nc
 {
@@ -49,9 +54,20 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> unique(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> unique(const NdArray<dtype>& inArray) 
     {
-        std::set<dtype> theSet(inArray.cbegin(), inArray.cend());
-        return NdArray<dtype>(theSet);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
+        {
+            return utils::essentiallyEqual(lhs, rhs);
+        };
+
+        const auto sorted = sort(inArray);
+
+        std::vector<dtype> res(sorted.size());
+        const auto last = stl_algorithms::unique_copy(sorted.begin(), sorted.end(), res.begin(), comp);
+
+        return NdArray<dtype>(res.begin(), last);
     }
 }

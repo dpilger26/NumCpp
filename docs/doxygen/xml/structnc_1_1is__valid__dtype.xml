@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structnc_1_1is__valid__dtype" kind="struct" language="C++" prot="public">
+    <compoundname>nc::is_valid_dtype</compoundname>
+    <includes refid="_type_traits_8hpp" local="no">TypeTraits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename dtype</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structnc_1_1is__valid__dtype_1af383f42b2b624cc161c1748b98cc541e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::is_valid_dtype&lt; dtype &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= std::is_default_constructible&lt;dtype&gt;::value &amp;&amp;
+            std::is_nothrow_copy_constructible&lt;dtype&gt;::value &amp;&amp;
+            std::is_nothrow_move_constructible&lt;dtype&gt;::value &amp;&amp;
+            std::is_nothrow_copy_assignable&lt;dtype&gt;::value &amp;&amp;
+            std::is_nothrow_move_assignable&lt;dtype&gt;::value &amp;&amp;
+            std::is_nothrow_destructible&lt;dtype&gt;::value &amp;&amp;
+            !std::is_void&lt;dtype&gt;::value &amp;&amp;
+            !std::is_pointer&lt;dtype&gt;::value &amp;&amp;
+            !std::is_array&lt;dtype&gt;::value &amp;&amp;
+            !std::is_union&lt;dtype&gt;::value &amp;&amp;
+            !std::is_function&lt;dtype&gt;::value &amp;&amp;
+            !std::is_abstract&lt;dtype&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/TypeTraits.hpp" line="146" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/TypeTraits.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Template class for determining if dtype is a valid dtype for <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>nc::is_valid_dtype&lt; dtype &gt;</label>
+        <link refid="structnc_1_1is__valid__dtype"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/TypeTraits.hpp" line="145" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/TypeTraits.hpp" bodystart="144" bodyend="158"/>
+    <listofallmembers>
+      <member refid="structnc_1_1is__valid__dtype_1af383f42b2b624cc161c1748b98cc541e" prot="public" virt="non-virtual"><scope>nc::is_valid_dtype</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

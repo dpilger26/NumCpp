@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,7 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
@@ -49,8 +50,10 @@ namespace nc
         ///				3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray(3);
             returnArray(0, 0) = 0.0;
             returnArray(0, 1) = -inZ;
@@ -77,6 +80,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inVec.size() != 3)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input vector must be a length 3 cartesian vector.");
@@ -94,7 +99,7 @@ namespace nc
         /// @return
         ///				3x3 NdArray
         ///
-        inline NdArray<double> hat(const Vec3& inVec)
+        inline NdArray<double> hat(const Vec3& inVec) 
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }

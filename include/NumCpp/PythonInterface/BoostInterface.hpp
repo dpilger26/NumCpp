@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,7 +30,7 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
@@ -55,7 +55,7 @@ namespace nc
         template<typename dtype>
         inline NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
         {
-            BoostNdarrayHelper helper(inArray);
+            BoostNdarrayHelper<dtype> helper(inArray);
             if (helper.numDimensions() > 2)
             {
                 THROW_RUNTIME_ERROR("Can only convert 1 and 2 dimensional arrays.");
@@ -70,7 +70,7 @@ namespace nc
                 NdArray<dtype> returnArray(arrayShape);
                 for (uint32 i = 0; i < arrayShape.size(); ++i)
                 {
-                    returnArray[i] = static_cast<dtype>(helper(i));
+                    returnArray[i] = helper(i);
                 }
 
                 return returnArray;
@@ -81,12 +81,11 @@ namespace nc
                 arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 
                 NdArray<dtype> returnArray(arrayShape);
-                uint32 i = 0;
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     for (uint32 col = 0; col < arrayShape.cols; ++col)
                     {
-                        returnArray[i++] = static_cast<dtype>(helper(row, col));
+                        returnArray(row, col) = helper(row, col);
                     }
                 }
 
@@ -102,17 +101,17 @@ namespace nc
         /// @return     ndarray
         ///
         template<typename dtype>
-        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) noexcept
+        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) 
         {
             const Shape inShape = inArray.shape();
             boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
-            BoostNdarrayHelper newNdArrayHelper(shape);
+            BoostNdarrayHelper<dtype> newNdArrayHelper(shape);
 
             for (uint32 row = 0; row < inShape.rows; ++row)
             {
                 for (uint32 col = 0; col < inShape.cols; ++col)
                 {
-                    newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
+                    newNdArrayHelper(row, col) = inArray(row, col);
                 }
             }
             return newNdArrayHelper.getArray();
@@ -126,7 +125,7 @@ namespace nc
         /// @return     std::vector<T>
         ///
         template<typename T>
-        inline std::vector<T> list2vector(const boost::python::list& inList) noexcept
+        inline std::vector<T> list2vector(const boost::python::list& inList) 
         {
             return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
         }
@@ -139,7 +138,7 @@ namespace nc
         /// @return     boost::python::list
         ///
         template <typename T>
-        inline boost::python::list vector2list(std::vector<T>& inVector) noexcept
+        inline boost::python::list vector2list(std::vector<T>& inVector) 
         {
             boost::python::list outList;
             for (auto& value : inVector)
@@ -158,7 +157,7 @@ namespace nc
         /// @return     boost::python::dict
         ///
         template <class Key, class Value>
-        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) noexcept
+        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) 
         {
             boost::python::dict dictionary;
             for (auto& keyValue : inMap)

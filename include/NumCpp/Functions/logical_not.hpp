@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -46,13 +47,15 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> logical_not(const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> logical_not(const NdArray<dtype>& inArray) 
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool
+            [](dtype inValue)  -> bool
             { 
-                return inValue == 0;
+                return inValue == dtype{ 0 };
             });
 
         return returnArray;

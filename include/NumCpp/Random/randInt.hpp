@@ -29,10 +29,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/uniform_int_distribution.hpp"
@@ -107,7 +108,7 @@ namespace nc
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 { 
                     value = dist(generator_); 
                 });

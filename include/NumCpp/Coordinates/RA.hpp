@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -48,9 +48,9 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
-            RA() noexcept = default;
+            RA() = default;
 
             //============================================================================
             ///						Constructor
@@ -79,7 +79,7 @@ namespace nc
             /// @param          inMinutes
             /// @param          inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, double inSeconds)  noexcept :
+            RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
@@ -93,7 +93,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radians() const noexcept
+            double radians() const noexcept 
             {
                 return radians_;
             }
@@ -103,7 +103,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degrees() const noexcept
+            double degrees() const noexcept 
             {
                 return degrees_;
             }
@@ -113,7 +113,7 @@ namespace nc
             ///
             /// @return     hours
             ///
-            uint8 hours() const noexcept
+            uint8 hours() const noexcept 
             {
                 return hours_;
             }
@@ -123,7 +123,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const noexcept
+            uint8 minutes() const noexcept 
             {
                 return minutes_;
             }
@@ -133,7 +133,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            double seconds() const noexcept
+            double seconds() const noexcept 
             {
                 return seconds_;
             }

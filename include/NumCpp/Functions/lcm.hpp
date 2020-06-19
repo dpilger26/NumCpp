@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,7 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/integer/common_factor_rt.hpp"
@@ -47,9 +48,10 @@ namespace nc
     ///				dtype
     ///
     template<typename dtype>
-    dtype lcm(dtype inValue1, dtype inValue2) noexcept
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept 
     {
         STATIC_ASSERT_INTEGER(dtype);
+
         return boost::integer::lcm(inValue1, inValue2);
     }
 
@@ -64,9 +66,10 @@ namespace nc
     ///				NdArray<double>
     ///
     template<typename dtype>
-    dtype lcm(const NdArray<dtype>& inArray) noexcept
+    dtype lcm(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_INTEGER(dtype);
+
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 }

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Utils/power.hpp"
 
 #include <string>
@@ -68,13 +68,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> power(const NdArray<dtype>& inArray, uint8 inExponent) noexcept
+    NdArray<dtype> power(const NdArray<dtype>& inArray, uint8 inExponent) 
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> dtype
             {
-                return power(inValue, inExponent);
+                return nc::power(inValue, inExponent);
             });
 
         return returnArray;
@@ -101,9 +101,9 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, uint8 inExponent) noexcept -> dtype
+            [](dtype inValue, uint8 inExponent)  -> dtype
             {
-                return power(inValue, inExponent);
+                return nc::power(inValue, inExponent);
             });
 
         return returnArray;

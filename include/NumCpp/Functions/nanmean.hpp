@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/max.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -52,20 +53,22 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         switch (inAxis)
         {
             case Axis::NONE:
             {
                 double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                    [](dtype inValue1, dtype inValue2)  -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                     }));
 
                 const double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                    [](dtype inValue1, dtype inValue2)  -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                     }));
@@ -81,13 +84,13 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         {
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                         }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));
@@ -105,13 +108,13 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; 
                         }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));

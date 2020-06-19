@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/nanstdev.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -48,8 +49,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         return square(nanstdev(inArray, inAxis));
     }
 }

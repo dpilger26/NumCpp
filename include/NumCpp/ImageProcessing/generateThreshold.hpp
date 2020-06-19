@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,9 +29,10 @@
 
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
@@ -56,6 +57,8 @@ namespace nc
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inRate < 0.0 || inRate > 1.0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input rate must be of the range [0, 1]");
@@ -94,7 +97,7 @@ namespace nc
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
             const double dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
-            survivalFunction[-1] = 0;
+            survivalFunction[-1] = 0.0;
             for (int32 i = histSize - 1; i > -1; --i)
             {
                 double histValue = histogram[i] / dNumPixels;
@@ -106,7 +109,7 @@ namespace nc
             uint32 indexHigh = histSize - 1;
             uint32 index = indexHigh / 2; // integer division
 
-            const bool keepGoing = true;
+            constexpr bool keepGoing = true;
             while (keepGoing)
             {
                 const double value = survivalFunction[index];

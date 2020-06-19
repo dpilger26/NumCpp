@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,10 +29,12 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -52,9 +54,15 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype fmax(dtype inValue1, dtype inValue2) noexcept
+    dtype fmax(dtype inValue1, dtype inValue2) noexcept 
     {
-        return std::max(inValue1, inValue2);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return std::max(inValue1, inValue2, 
+            [](const dtype value1, const dtype value2) noexcept -> bool
+            {
+                return value1 < value2;
+            });
     }
 
     //============================================================================
@@ -79,10 +87,10 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<double> returnArray(inArray1.shape());
+        NdArray<dtype> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> double
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype
             { 
                 return fmax(inValue1, inValue2);
             });

@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.17)
 
-project(Example)
+project(ReadMe)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -13,18 +13,43 @@ endif()
 add_executable(${PROJECT_NAME} ReadMe.cpp)
 
 set_target_properties(${PROJECT_NAME}
-    PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/
-    COMPILE_FLAGS -DBOOST_NO_CXX11_SCOPED_ENUMS
+  PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
-find_package( Boost REQUIRED COMPONENTS 
-    system
-    filesystem
+find_package(Boost 1.68.0 COMPONENTS system filesystem REQUIRED)
+
+target_include_directories(${PROJECT_NAME} PRIVATE 
+  ${NUMCPP_INCLUDES}
+  ${Boost_INCLUDE_DIRS} 
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
-target_link_libraries(${PROJECT_NAME} PUBLIC Boost::system Boost::filesystem)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::system>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::filesystem>
+)
+
+target_link_directories(${PROJECT_NAME} PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:${Boost_LIBRARY_DIRS}>
+)
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
+  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
+  $<$<CXX_COMPILER_ID:MSVC>:/MP>
+  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+)

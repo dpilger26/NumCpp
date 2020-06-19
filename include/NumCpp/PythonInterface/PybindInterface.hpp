@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,7 +30,7 @@
 
 #ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -96,7 +96,7 @@ namespace nc
         /// @return    pybind11::array_t
         ///
         template<typename dtype>
-        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
+        inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) 
         {
             Shape inShape = inArray.shape();
             std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };

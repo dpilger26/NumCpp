@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,10 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Functions/full.hpp"
-#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(uint32 inSquareSize) noexcept
+    inline NdArray<double> nans(uint32 inSquareSize) 
     {
         return full(inSquareSize, constants::nan);
     }
@@ -60,7 +60,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) noexcept
+    inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) 
     {
         return full(inNumRows, inNumCols, constants::nan);
     }
@@ -75,7 +75,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    inline NdArray<double> nans(const Shape& inShape) noexcept
+    inline NdArray<double> nans(const Shape& inShape) 
     {
         return full(inShape, constants::nan);
     }

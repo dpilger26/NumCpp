@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/bernoulli_distribution.hpp"
@@ -53,6 +54,8 @@ namespace nc
         template<typename dtype>
         dtype bernoulli(dtype inP)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
@@ -75,6 +78,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inP < 0 || inP > 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
@@ -85,7 +90,7 @@ namespace nc
             const boost::random::bernoulli_distribution<dtype> dist(inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_); 
                 });

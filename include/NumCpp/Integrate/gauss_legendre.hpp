@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -57,7 +57,7 @@ namespace nc
             ///
             /// @param				numIterations: the number of iterations to perform
             ///
-            LegendrePolynomial(const uint32 numIterations) :
+            LegendrePolynomial(const uint32 numIterations) noexcept :
                 numIterations_(numIterations),
                 weight_(numIterations + 1),
                 root_(numIterations + 1)
@@ -71,7 +71,7 @@ namespace nc
             ///
             /// @return	weights vector
             ///
-            const std::vector<double>& getWeight() const
+            const std::vector<double>& getWeight() const noexcept 
             {
                 return weight_;
             }
@@ -82,7 +82,7 @@ namespace nc
             ///
             /// @return	roots vector
             ///
-            const std::vector<double>& getRoot() const
+            const std::vector<double>& getRoot() const noexcept 
             {
                 return root_;
             }
@@ -104,7 +104,7 @@ namespace nc
                 /// @param val: the value
                 /// @param deriv: the derivative
                 ///
-                Result(const double val, const double deriv) :
+                Result(const double val, const double deriv) noexcept :
                     value(val),
                     derivative(deriv)
                 {}
@@ -114,9 +114,9 @@ namespace nc
             // Method Description:
             ///	Calculates the weights and roots vectors
             ///
-            void calculateWeightAndRoot()
+            void calculateWeightAndRoot() noexcept
             {
-                double numIterationsDouble = static_cast<double>(numIterations_);
+                const double numIterationsDouble = static_cast<double>(numIterations_);
                 for (uint32 step = 0; step <= numIterations_; ++step)
                 {
                     double root = std::cos(constants::pi * (static_cast<double>(step) - 0.25) / (numIterationsDouble + 0.5));
@@ -142,7 +142,7 @@ namespace nc
             /// @param x
             /// @return Result
             ///
-            Result calculatePolynomialValueAndDerivative(const double x)
+            Result calculatePolynomialValueAndDerivative(const double x) noexcept
             {
                 Result result(x, 0.0);
 

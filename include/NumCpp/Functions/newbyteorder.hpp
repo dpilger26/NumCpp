@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -48,7 +48,7 @@ namespace nc
     ///				inValue
     ///
     template<typename dtype>
-    dtype newbyteorder(dtype inValue, Endian inEndianess) noexcept
+    dtype newbyteorder(dtype inValue, Endian inEndianess) 
     {
         NdArray<dtype> valueArray = { inValue };
         return valueArray.newbyteorder(inEndianess).item();
@@ -69,7 +69,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) noexcept
+    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) 
     {
         return inArray.newbyteorder(inEndianess);
     }

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <iterator>
 #include <vector>
 
 namespace nc
@@ -46,13 +47,8 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype, typename Iter>
-    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) noexcept
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) 
     {
-        std::vector<dtype> values;
-        for (Iter iter = inBegin; iter != inEnd; ++iter)
-        {
-            values.push_back(*iter);
-        }
-        return NdArray<dtype>(values);
+        return NdArray<dtype>(inBegin, inEnd);
     }
 }

@@ -1,5 +1,5 @@
 var erf__inv_8hpp =
 [
-    [ "erf_inv", "erf__inv_8hpp.html#a76b1e372bb5b035e705f52ba4afd279f", null ],
-    [ "erf_inv", "erf__inv_8hpp.html#a9031ce5ffebbb7972eb7cdafd44ca851", null ]
+    [ "erf_inv", "erf__inv_8hpp.html#abab69146b99ff384c6de4a24da69a780", null ],
+    [ "erf_inv", "erf__inv_8hpp.html#a0f66785ec1e2643dd4c932ff7cae61a4", null ]
 ];

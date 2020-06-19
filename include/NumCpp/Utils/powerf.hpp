@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,7 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
+
+#include "boost/type_traits/is_complex.hpp"
+
 #include <cmath>
+#include <complex>
 
 namespace nc
 {
@@ -42,8 +48,11 @@ namespace nc
         ///
         /// @return     inValue raised to inPower
         ///
-        inline double powerf(double inValue, double inPower) noexcept
+        template<typename dtype1, typename dtype2>
+        auto powerf(dtype1 inValue, const dtype2 inPower) noexcept 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype1);
+
             return std::pow(inValue, inPower);
         }
     }

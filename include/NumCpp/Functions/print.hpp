@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <iostream>
 
@@ -44,8 +45,10 @@ namespace nc
     ///				None
     ///
     template<typename dtype>
-    void print(const NdArray<dtype>& inArray) noexcept
+    void print(const NdArray<dtype>& inArray) 
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         std::cout << inArray;
     }
 }

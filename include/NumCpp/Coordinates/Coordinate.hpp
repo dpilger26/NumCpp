@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,7 +30,7 @@
 
 #include "NumCpp/Coordinates/Dec.hpp"
 #include "NumCpp/Coordinates/RA.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Functions/dot.hpp"
@@ -52,9 +52,9 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
-            Coordinate() noexcept = default;
+            Coordinate() = default;
 
             //============================================================================
             ///						Constructor
@@ -81,7 +81,7 @@ namespace nc
             /// @param              inDecSeconds
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, double inRaSeconds, Sign inSign,
-                uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)  noexcept :
+                uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)   :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
@@ -108,7 +108,7 @@ namespace nc
             /// @param              inY
             /// @param              inZ
             ///
-            Coordinate(double inX, double inY, double inZ) :
+            Coordinate(double inX, double inY, double inZ) noexcept :
                 x_(inX),
                 y_(inY),
                 z_(inZ)
@@ -140,7 +140,7 @@ namespace nc
             ///
             /// @return             Dec
             ///
-            const Dec& dec() const noexcept
+            const Dec& dec() const noexcept 
             {
                 return dec_;
             }
@@ -150,7 +150,7 @@ namespace nc
             ///
             /// @return     RA
             ///
-            const RA& ra() const noexcept
+            const RA& ra() const noexcept 
             {
                 return ra_;
             }
@@ -160,7 +160,7 @@ namespace nc
             ///
             /// @return     x
             ///
-            double x() const noexcept
+            double x() const noexcept 
             {
                 return x_;
             }
@@ -170,7 +170,7 @@ namespace nc
             ///
             /// @return     y
             ///
-            double y() const noexcept
+            double y() const noexcept 
             {
                 return y_;
             }
@@ -180,7 +180,7 @@ namespace nc
             ///
             /// @return     z
             ///
-            double z() const noexcept
+            double z() const noexcept 
             {
                 return z_;
             }
@@ -190,7 +190,7 @@ namespace nc
             ///
             /// @return     NdArray
             ///
-            NdArray<double> xyz() const
+            NdArray<double> xyz() const 
             {
                 NdArray<double> out = { x_, y_, z_ };
                 return out;
@@ -203,7 +203,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degreeSeperation(const Coordinate& inOtherCoordinate) const
+            double degreeSeperation(const Coordinate& inOtherCoordinate) const 
             {
                 return rad2deg(radianSeperation(inOtherCoordinate));
             }
@@ -228,7 +228,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            double radianSeperation(const Coordinate& inOtherCoordinate) const
+            double radianSeperation(const Coordinate& inOtherCoordinate) const 
             {
                 return std::acos(dot(xyz(), inOtherCoordinate.xyz()).item());
             }
@@ -322,7 +322,7 @@ namespace nc
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
-            void cartesianToPolar()
+            void cartesianToPolar() noexcept
             {
                 double degreesRa = rad2deg(std::atan2(y_, x_));
                 if (degreesRa < 0)
@@ -332,7 +332,7 @@ namespace nc
                 ra_ = RA(degreesRa);
 
                 const double r = std::sqrt(utils::sqr(x_) + utils::sqr(y_) + utils::sqr(z_));
-                double degreesDec = rad2deg(std::asin(z_ / r));
+                const double degreesDec = rad2deg(std::asin(z_ / r));
                 dec_ = Dec(degreesDec);
             }
 

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/polygamma.hpp"
 
@@ -45,12 +46,14 @@ namespace nc
         /// @param n: the nth derivative
         /// @param inValue
         /// @return
-        ///				double
+        ///				calculated-result-type
         ///
         template<typename dtype>
-        double polygamma(uint32 n, dtype inValue) noexcept
+        auto polygamma(uint32 n, dtype inValue)
         {
-            return boost::math::polygamma(n, static_cast<double>(inValue));
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            return boost::math::polygamma(n, inValue);
         }
 
         //============================================================================
@@ -61,15 +64,15 @@ namespace nc
         /// @param n: the nth derivative
         /// @param inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> polygamma(uint32 n, const NdArray<dtype>& inArray) noexcept
+        auto polygamma(uint32 n, const NdArray<dtype>& inArray) 
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(polygamma(n, dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [n](dtype inValue) noexcept -> double
+                [n](dtype inValue) -> auto
                 { 
                     return polygamma(n, inValue);
                 });

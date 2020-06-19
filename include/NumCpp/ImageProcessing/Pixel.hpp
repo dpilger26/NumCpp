@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
@@ -45,8 +46,11 @@ namespace nc
         template<typename dtype>
         class Pixel
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
-            //==================================Attributes================================///
+            //==================================Attributes================================
             mutable int32	clusterId{ -1 };
             uint32	        row{ 0 };
             uint32	        col{ 0 };
@@ -56,7 +60,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            constexpr Pixel() noexcept = default;
+            constexpr Pixel() = default;
 
             //=============================================================================
             // Description:
@@ -70,7 +74,7 @@ namespace nc
                 row(inRow),
                 col(inCol),
                 intensity(inIntensity)
-            {};
+            {}
 
             //=============================================================================
             // Description:
@@ -115,7 +119,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Pixel<dtype>& rhs) const noexcept
+            bool operator<(const Pixel<dtype>& rhs) const noexcept 
             {
                 if (row < rhs.row)
                 {

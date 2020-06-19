@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Filesystem.hpp"
+#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include <deque>
@@ -45,8 +45,8 @@ namespace nc
     {
     public:
         //================================Typedefs==================================
-        typedef typename std::deque<NdArray<dtype> >::iterator       iterator;
-        typedef typename std::deque<NdArray<dtype> >::const_iterator const_iterator;
+        using iterator = typename std::deque<NdArray<dtype> >::iterator;
+        using const_iterator = typename std::deque<NdArray<dtype> >::const_iterator;
 
         //============================================================================
         ///						Default Constructor
@@ -91,7 +91,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype>& back()
+        NdArray<dtype>& back() noexcept 
         {
             return cube_.back();
         }
@@ -101,7 +101,7 @@ namespace nc
         ///
         /// @return     iterator
         ///
-        iterator begin()
+        iterator begin() noexcept
         {
             return cube_.begin();
         }
@@ -111,7 +111,7 @@ namespace nc
         ///
         /// @return     const_iterator
         ///
-        const_iterator cbegin() const
+        const_iterator cbegin() const noexcept
         {
             return cube_.cbegin();
         }
@@ -137,7 +137,7 @@ namespace nc
 
             for (auto& ndarray : cube_)
             {
-                ofile.write(reinterpret_cast<const char*>(ndarray.cbegin()), ndarray.size() * sizeof(dtype));
+                ofile.write(reinterpret_cast<const char*>(ndarray.data()), ndarray.size() * sizeof(dtype));
             }
 
             ofile.close();
@@ -148,7 +148,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        bool isempty() noexcept
+        bool isempty() noexcept 
         {
             return cube_.empty();
         }
@@ -158,7 +158,7 @@ namespace nc
         ///
         /// @return     iterator
         ///
-        iterator end()
+        iterator end() noexcept
         {
             return cube_.end();
         }
@@ -168,7 +168,7 @@ namespace nc
         ///
         /// @return     const_iterator
         ///
-        const_iterator cend() const
+        const_iterator cend() const noexcept
         {
             return cube_.cend();
         }
@@ -178,7 +178,7 @@ namespace nc
         ///
         /// @return     NdArray&
         ///
-        NdArray<dtype>& front()
+        NdArray<dtype>& front() noexcept 
         {
             return cube_.front();
         }
@@ -188,7 +188,7 @@ namespace nc
         ///
         /// @return     Shape
         ///
-        const Shape& shape() const noexcept
+        const Shape& shape() const noexcept 
         {
             return elementShape_;
         }
@@ -198,7 +198,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        uint32 size() const noexcept
+        uint32 size() const noexcept 
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -206,7 +206,7 @@ namespace nc
         //============================================================================
         ///						Removes the last element in the container
         ///
-        void pop_back()
+        void pop_back() noexcept 
         {
             cube_.pop_back();
         }
@@ -214,7 +214,7 @@ namespace nc
         //============================================================================
         ///						Removes the first element in the container
         ///
-        void pop_front()
+        void pop_front() noexcept 
         {
             cube_.pop_front();
         }
@@ -274,7 +274,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        NdArray<dtype>& operator[](uint32 inIndex)
+        NdArray<dtype>& operator[](uint32 inIndex) noexcept 
         {
             return cube_[inIndex];
         }
@@ -286,7 +286,7 @@ namespace nc
         ///
         /// @return     NdArray
         ///
-        const NdArray<dtype>& operator[](uint32 inIndex) const
+        const NdArray<dtype>& operator[](uint32 inIndex) const noexcept
         {
             return cube_[inIndex];
         }

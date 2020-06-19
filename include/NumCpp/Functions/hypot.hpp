@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <cmath>
@@ -56,7 +57,10 @@ namespace nc
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::hypot(static_cast<double>(inValue1), static_cast<double>(inValue2));
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
+            utils::sqr(static_cast<double>(inValue2)));
     }
 
     //============================================================================
@@ -78,6 +82,8 @@ namespace nc
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
             utils::sqr(static_cast<double>(inValue2)) + 
             utils::sqr(static_cast<double>(inValue3)));

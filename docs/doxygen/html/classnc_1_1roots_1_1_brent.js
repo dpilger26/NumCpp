@@ -2,8 +2,8 @@ var classnc_1_1roots_1_1_brent =
 [
     [ "Brent", "classnc_1_1roots_1_1_brent.html#aa9f4cea2c2770c669e84158186b075c2", null ],
     [ "Brent", "classnc_1_1roots_1_1_brent.html#abf26bf1c5ace791386f2c0f6a91f57bb", null ],
-    [ "~Brent", "classnc_1_1roots_1_1_brent.html#a1234c20d17644a94cac2700d7b6558c0", null ],
-    [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_brent.html#ae0ee7814d1fac03c4c91947f839ea401", null ],
+    [ "~Brent", "classnc_1_1roots_1_1_brent.html#a4d1db0cce10918eba13c444a7eda5cee", null ],
+    [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_brent.html#ad0262a1a694e734ebc154c77f010bcff", null ],
     [ "numIterations", "classnc_1_1roots_1_1_brent.html#ab3192d0f9de4b8b27b23013c65489e5a", null ],
     [ "resetNumberOfIterations", "classnc_1_1roots_1_1_brent.html#a85e79a4794bc3a6ac6bc3564956737a2", null ],
     [ "solve", "classnc_1_1roots_1_1_brent.html#a3853981ca1113723006b6627d96d378b", null ],

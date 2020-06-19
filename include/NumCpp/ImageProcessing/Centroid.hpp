@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -47,12 +48,15 @@ namespace nc
         template<typename dtype>
         class Centroid
         {
+        private:
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
         public:
             //=============================================================================
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() noexcept = default;
+            Centroid() = default;
 
             //=============================================================================
             // Description:
@@ -60,7 +64,7 @@ namespace nc
             ///
             /// @param               inCluster
             ///
-            Centroid(const Cluster<dtype>& inCluster) noexcept :
+            Centroid(const Cluster<dtype>& inCluster) :
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
@@ -74,7 +78,7 @@ namespace nc
             /// @return
             ///              centroid row
             ///
-            double row() const noexcept
+            double row() const noexcept 
             {
                 return row_;
             }
@@ -86,7 +90,7 @@ namespace nc
             /// @return
             ///              centroid col
             ///
-            double col() const noexcept
+            double col() const noexcept 
             {
                 return col_;
             }
@@ -98,7 +102,7 @@ namespace nc
             /// @return
             ///              centroid intensity
             ///
-            dtype intensity() const noexcept
+            dtype intensity() const noexcept 
             {
                 return intensity_;
             }
@@ -110,7 +114,7 @@ namespace nc
             /// @return
             ///              star id
             ///
-            double eod() const noexcept
+            double eod() const noexcept 
             {
                 return eod_;
             }
@@ -150,7 +154,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Centroid<dtype>& rhs) const noexcept
+            bool operator==(const Centroid<dtype>& rhs) const noexcept 
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -165,7 +169,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Centroid<dtype>& rhs) const noexcept
+            bool operator!=(const Centroid<dtype>& rhs) const noexcept 
             {
                 return !(*this == rhs);
             }
@@ -183,7 +187,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Centroid<dtype>& rhs) const noexcept
+            bool operator<(const Centroid<dtype>& rhs) const noexcept 
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }
@@ -219,7 +223,7 @@ namespace nc
             /// @param
             ///              inCluster
             ///
-            void centerOfMass(const Cluster<dtype>& inCluster)
+            void centerOfMass(const Cluster<dtype>& inCluster) 
             {
                 const Shape clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);

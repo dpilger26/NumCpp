@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -49,6 +50,8 @@ namespace nc
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 const Shape inShape = inArray.shape();
                 const int32 numRows = static_cast<int32>(inShape.rows);
                 const int32 numCols = static_cast<int32>(inShape.cols);
@@ -81,6 +84,8 @@ namespace nc
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 const Shape inShape = inArray.shape();
                 const int32 numRows = static_cast<int32>(inShape.rows);
                 const int32 numCols = static_cast<int32>(inShape.cols);

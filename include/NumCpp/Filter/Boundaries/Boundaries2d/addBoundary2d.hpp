@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/constant2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/nearest2d.hpp"
@@ -60,6 +61,8 @@ namespace nc
             template<typename dtype>
             NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
                 if (inKernalSize % 2 == 0)
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input kernal size must be an odd value.");

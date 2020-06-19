@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/gamma_distribution.hpp"
@@ -56,6 +57,8 @@ namespace nc
         template<typename dtype>
         dtype gamma(dtype inGammaShape, dtype inScaleValue = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inGammaShape <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input gamma shape should be greater than zero.");
@@ -86,6 +89,8 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             if (inGammaShape <= 0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input gamma shape should be greater than zero.");
@@ -101,7 +106,7 @@ namespace nc
             boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_); 
                 });

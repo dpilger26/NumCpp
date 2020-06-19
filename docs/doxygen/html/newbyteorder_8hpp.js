@@ -1,5 +1,5 @@
 var newbyteorder_8hpp =
 [
-    [ "newbyteorder", "newbyteorder_8hpp.html#aa9e935b20cfc837317372b5466338963", null ],
-    [ "newbyteorder", "newbyteorder_8hpp.html#ac2f8fda6236a8f2c6a8eb259dad5399b", null ]
+    [ "newbyteorder", "newbyteorder_8hpp.html#adfc5c49151c50d90fce45c676b0fcaa4", null ],
+    [ "newbyteorder", "newbyteorder_8hpp.html#a4d2ae51817f2acee83e2df0e04a8bac5", null ]
 ];

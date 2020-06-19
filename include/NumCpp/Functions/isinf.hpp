@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
 
@@ -48,8 +49,10 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    bool isinf(dtype inValue) noexcept
+    bool isinf(dtype inValue) noexcept 
     {
+        STATIC_ASSERT_FLOAT(dtype);
+
         return std::isinf(inValue);
     }
 
@@ -66,7 +69,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isinf(const NdArray<dtype>& inArray) noexcept
+    NdArray<bool> isinf(const NdArray<dtype>& inArray) 
     {
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),

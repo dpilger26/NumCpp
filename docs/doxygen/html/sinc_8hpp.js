@@ -1,5 +1,5 @@
 var sinc_8hpp =
 [
-    [ "sinc", "sinc_8hpp.html#a72cc296d28dc1e45c0c2b5b323d5b668", null ],
-    [ "sinc", "sinc_8hpp.html#aa655c1fc55bdcf228c2fe3bc97480433", null ]
+    [ "sinc", "sinc_8hpp.html#a0c8e5bf6fca377445afd941d70bcac10", null ],
+    [ "sinc", "sinc_8hpp.html#aafe29b8d2e32e8e2af4d92074851b777", null ]
 ];

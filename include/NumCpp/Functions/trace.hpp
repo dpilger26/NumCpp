@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -46,7 +46,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    dtype trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW) noexcept
+    dtype trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW) noexcept 
     {
         return inArray.trace(inOffset, inAxis);
     }

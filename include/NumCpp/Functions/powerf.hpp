@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 
 #include <string>
@@ -50,8 +50,8 @@ namespace nc
     /// @return
     ///				value raised to the power
     ///
-    template<typename dtype>
-    double powerf(dtype inValue, double inExponent) noexcept
+    template<typename dtype1, typename dtype2>
+    auto powerf(dtype1 inValue, dtype2 inExponent) noexcept 
     {
         return utils::powerf(inValue, inExponent);
     }
@@ -67,14 +67,14 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<double> powerf(const NdArray<dtype>& inArray, double inExponent) noexcept
+    template<typename dtype1, typename dtype2>
+    auto powerf(const NdArray<dtype1>& inArray, dtype2 inExponent) 
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [inExponent](dtype inValue) noexcept -> double
+            [inExponent](dtype1 inValue) noexcept -> auto
             {
-                return powerf(inValue, inExponent); 
+                return nc::powerf(inValue, inExponent); 
             });
 
         return returnArray;
@@ -91,19 +91,19 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<double> powerf(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
+    template<typename dtype1, typename dtype2>
+    auto powerf(const NdArray<dtype1>& inArray, const NdArray<dtype2>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<decltype(powerf(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, double inExponent) noexcept -> double
+            [](dtype1 inValue, dtype2 inExponent) noexcept -> auto
             {
-                return powerf(inValue, inExponent);
+                return nc::powerf(inValue, inExponent);
             });
 
         return returnArray;

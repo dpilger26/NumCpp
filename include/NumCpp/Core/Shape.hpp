@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -48,7 +48,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        constexpr Shape() noexcept = default;
+        constexpr Shape() = default;
 
         //============================================================================
         ///						Constructor
@@ -131,7 +131,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const noexcept
+        std::string str() const 
         {
             std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;
@@ -140,7 +140,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print() const noexcept
+        void print() const 
         {
             std::cout << *this;
         }
@@ -153,7 +153,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) noexcept
+        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) 
         {
             inOStream << inShape.str();
             return inOStream;

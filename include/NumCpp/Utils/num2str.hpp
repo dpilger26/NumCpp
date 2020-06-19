@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,6 +28,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+
 #include <string>
 
 namespace nc
@@ -42,8 +44,10 @@ namespace nc
         /// @return     std::string
         ///
         template<typename dtype>
-        std::string num2str(dtype inNumber) noexcept
+        std::string num2str(dtype inNumber) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return std::to_string(inNumber);
         }
     }

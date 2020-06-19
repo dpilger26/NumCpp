@@ -1,5 +1,5 @@
 var clip_8hpp =
 [
-    [ "clip", "clip_8hpp.html#a6f71d75583176a599a64647109170a08", null ],
-    [ "clip", "clip_8hpp.html#aa239fec975131d862028ce7566a09767", null ]
+    [ "clip", "clip_8hpp.html#af82b46f44ea7fad5bbd8ef9acf2499c3", null ],
+    [ "clip", "clip_8hpp.html#a5200696e06dadf4eca2f0d7332ed4af1", null ]
 ];

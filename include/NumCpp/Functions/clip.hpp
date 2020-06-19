@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include "boost/algorithm/clamp.hpp"
 
@@ -47,9 +48,15 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) noexcept
+    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
     {
-        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue, 
+            [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            });
     }
 
     //============================================================================
@@ -65,7 +72,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) noexcept
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 
     {
         return inArray.clip(inMinValue, inMaxValue);
     }

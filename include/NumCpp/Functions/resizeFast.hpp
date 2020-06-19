@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
     {
         inArray.resizeFast(inNumRows, inNumCols);
         return inArray;
@@ -69,7 +69,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape) noexcept
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape) 
     {
         inArray.resizeFast(inNewShape);
         return inArray;

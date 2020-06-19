@@ -1,8 +1,9 @@
 
-x64/
 .vs/
 .vscode/
+.VSCodeCounter/
 .idea/
+.pytest_cache/
 __pycache__/
 .settings/
 .project/
@@ -11,27 +12,9 @@ __pycache__/
 *.filters
 *.user
 *.directory
+*build/
+*buildVS/
+*bin/
 
-install/build/
-
-unitTests/testScripts/termcolor.py
-unitTests/src/cmake-build-debug/
-unitTests/src/cmake-build-release/
-unitTests/src/build/
-unitTests/lib/
-
-examples/ReadMe/build/
-examples/InterfaceWithEigen/build/
-examples/InterfaceWithOpenCV/build/
-examples/GaussNewtonNlls/build/
-examples/ReadMe/bin/
-examples/InterfaceWithEigen/bin/
-examples/InterfaceWithOpenCV/bin/
-examples/GaussNewtonNlls/bin/
-examples/ReadMe/out/
-examples/InterfaceWithEigen/out/
-examples/InterfaceWithOpenCV/out/
-examples/GaussNewtonNlls/out/
-
+test/lib/
 install/out/
-unitTests/src/out/

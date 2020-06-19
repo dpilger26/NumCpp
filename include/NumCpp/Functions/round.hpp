@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -44,7 +44,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype round(dtype inValue, uint8 inDecimals = 0) noexcept
+    dtype round(dtype inValue, uint8 inDecimals = 0) 
     {
         NdArray<dtype> input = { inValue };
         return input.round(inDecimals).item();
@@ -61,8 +61,8 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0) noexcept
+    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0) 
     {
-        return inArray.copy().round(inDecimals);
+        return inArray.round(inDecimals);
     }
 }

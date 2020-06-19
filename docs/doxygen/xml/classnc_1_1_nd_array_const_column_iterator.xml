@@ -1,0 +1,847 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnc_1_1_nd_array_const_column_iterator" kind="class" language="C++" prot="public">
+    <compoundname>nc::NdArrayConstColumnIterator</compoundname>
+    <derivedcompoundref refid="classnc_1_1_nd_array_column_iterator" prot="public" virt="non-virtual">nc::NdArrayColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;</derivedcompoundref>
+    <includes refid="_nd_array_iterators_8hpp" local="no">NdArrayIterators.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename dtype</type>
+      </param>
+      <param>
+        <type>typename SizeType</type>
+      </param>
+      <param>
+        <type>typename PointerType</type>
+      </param>
+      <param>
+        <type>typename DifferenceType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a9499fbe5fef7de7bcfa027bb0d7378f8" prot="private" static="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">NdArrayConstColumnIterator</ref>&lt; dtype, SizeType, PointerType, DifferenceType &gt;</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::self_type =  NdArrayConstColumnIterator&lt;dtype, SizeType, PointerType, DifferenceType&gt;</definition>
+        <argsstring></argsstring>
+        <name>self_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="500" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="500" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" prot="public" static="no">
+        <type>DifferenceType</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::difference_type =  DifferenceType</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="508" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="508" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a3ed61bf2a830e89fd8fbbb6efc2e7171" prot="public" static="no">
+        <type>std::random_access_iterator_tag</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::iterator_category =  std::random_access_iterator_tag</definition>
+        <argsstring></argsstring>
+        <name>iterator_category</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="503" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" prot="public" static="no">
+        <type>PointerType</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::pointer =  PointerType</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="506" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="506" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a6903047bac2424843ca26ed9116abb77" prot="public" static="no">
+        <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1a3b124e1120c2fb329dcb5d81abe39e1d" kindref="member">value_type</ref> &amp;</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::reference =  const value_type&amp;</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="507" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a99d31459bd356031b795095a38366706" prot="public" static="no">
+        <type>SizeType</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::size_type =  SizeType</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="505" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_nd_array_const_column_iterator_1a3b124e1120c2fb329dcb5d81abe39e1d" prot="public" static="no">
+        <type>dtype</type>
+        <definition>using nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::value_type =  dtype</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="504" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="504" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1_nd_array_const_column_iterator_1acc16ac6e04fee5f5573031659a6d5563" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+        <definition>pointer nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::currPtr_</definition>
+        <argsstring></argsstring>
+        <name>currPtr_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="751" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="751" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_nd_array_const_column_iterator_1aa497b43a91c2fd1070a1534d2370bc30" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+        <definition>difference_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::numCols_</definition>
+        <argsstring></argsstring>
+        <name>numCols_</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="753" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="753" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_nd_array_const_column_iterator_1a3b9f9c98e780212400be3da64584f7ee" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+        <definition>difference_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::numRows_</definition>
+        <argsstring></argsstring>
+        <name>numRows_</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="752" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="752" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_nd_array_const_column_iterator_1a4c376e0f70475b6850d2c0d427e59f2b" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+        <definition>pointer nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::ptr_</definition>
+        <argsstring></argsstring>
+        <name>ptr_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="750" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="750" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_nd_array_const_column_iterator_1aa64b098b597f9a3b70fd4c32d68ace50" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+        <definition>difference_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="754" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="754" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a3c779a77e6a0920d8fc799931feb3c3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::NdArrayConstColumnIterator</definition>
+        <argsstring>()=default</argsstring>
+        <name>NdArrayConstColumnIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="514" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1aff03e1020fa6e935fb0fe2a926a4f378" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::NdArrayConstColumnIterator</definition>
+        <argsstring>(pointer ptr, SizeType numRows, SizeType numCols) noexcept</argsstring>
+        <name>NdArrayConstColumnIterator</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>SizeType</type>
+          <declname>numRows</declname>
+        </param>
+        <param>
+          <type>SizeType</type>
+          <declname>numCols</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the iterator pointer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numRows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of rows in the array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numCols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of cols in the array </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="524" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="524" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1ad7a25b0cb28882ed45417dd3ed01e094" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator!=</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator not-equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="696" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="696" bodyend="699"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1ac096213e50279dc023bbf6270c31969a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a6903047bac2424843ca26ed9116abb77" kindref="member">reference</ref></type>
+        <definition>reference nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator*</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator*</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator dereference</para>
+<para><simplesect kind="return"><para>reference </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="538" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="538" bodyend="541"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a0375a9e5bb7a8e268d80da41186d58a4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref></type>
+        <definition>self_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator+</definition>
+        <argsstring>(const difference_type offset) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator addition operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="622" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="622" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1ad69593e9f3cbf04dff6941bd52827208" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+        <definition>self_type&amp; nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator++</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator++</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator prefix incrament operator</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref>&amp; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="560" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="560" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a82ded30f6199ce6c9f3630b28e971650" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref></type>
+        <definition>self_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator++</definition>
+        <argsstring>(int) noexcept</argsstring>
+        <name>operator++</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator postfix incrament operator</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="571" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="571" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1aa6b2701798827af7b54de723628a20d7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+        <definition>self_type&amp; nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator+=</definition>
+        <argsstring>(const difference_type offset) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator addition assignement operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref>&amp; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="609" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="609" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a6918b5de4f8eef3081abe3ce5ddefa7a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref></type>
+        <definition>self_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-</definition>
+        <argsstring>(const difference_type offset) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator subtraction operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="647" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="647" bodyend="651"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a60c7f27f5b0574716750257d89ba7a70" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+        <definition>difference_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator difference operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>difference_type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="660" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="660" bodyend="663"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a9813a585d99eb656cbe7e1e12476d30b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+        <definition>self_type&amp; nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator--</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator--</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator prefix decrament operator</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref>&amp; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="584" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="584" bodyend="587"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a5fea275f4afdd1fca5b59830ce182bff" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref></type>
+        <definition>self_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator--</definition>
+        <argsstring>(int) noexcept</argsstring>
+        <name>operator--</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator postfix decrament operator</para>
+<para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="595" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="595" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1af68690450642df08758a9e067edeee47" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+        <definition>self_type&amp; nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-=</definition>
+        <argsstring>(const difference_type offset) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator subtraction assignement operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array_const_iterator" kindref="compound">NdArrayConstIterator</ref>&amp; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="635" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="635" bodyend="638"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a33d2e58d269f938c742ac25f46edf008" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+        <definition>pointer nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-&gt;</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator-&gt;</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator pointer operator</para>
+<para><simplesect kind="return"><para>pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="549" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="549" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1ab0928638c653f5ed37088a3e5098064b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator&lt;</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator less than operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="708" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="708" bodyend="711"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a8468d6928d88c7f34d1456261331f238" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator&lt;=</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator less than equal operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="732" column="9" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="732" bodyend="735"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1aec9953c2361595fc656a1a5d306e36c0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator==</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="684" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="684" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a827d0a8431ec616ef0161144b3d24af6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator&gt;</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator greater than operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="720" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="720" bodyend="723"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a9935c5d4b3deff76207ccde7cfccbf62" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator&gt;=</definition>
+        <argsstring>(const self_type &amp;rhs) const noexcept</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator" kindref="compound">self_type</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator greater than equal operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="744" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="744" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1a3a37dd5a1496ecf2249950325b0a388c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a6903047bac2424843ca26ed9116abb77" kindref="member">reference</ref></type>
+        <definition>reference nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator[]</definition>
+        <argsstring>(const difference_type offset) const noexcept</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator access operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>reference </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="672" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="672" bodyend="675"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1af16387c2d94c56b0e4ae8ece481ed584" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+        <definition>pointer nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::colIdx2Ptr</definition>
+        <argsstring>(difference_type colIdx) const noexcept</argsstring>
+        <name>colIdx2Ptr</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+          <declname>colIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts column order index to a pointer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>colIdx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="788" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="788" bodyend="799"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1abf60dabf37af8c048afb52d36b4fb79a" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" kindref="member">difference_type</ref></type>
+        <definition>difference_type nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::ptr2ColIdx</definition>
+        <argsstring>(pointer ptr) const noexcept</argsstring>
+        <name>ptr2ColIdx</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a pointer to column order index</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>difference_type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="763" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="763" bodyend="779"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Custom column const_iterator for <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;</label>
+        <link refid="classnc_1_1_nd_array_const_column_iterator"/>
+      </node>
+      <node id="2">
+        <label>nc::NdArrayColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;</label>
+        <link refid="classnc_1_1_nd_array_column_iterator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>nc::NdArrayConstColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;</label>
+        <link refid="classnc_1_1_nd_array_const_column_iterator"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="498" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="497" bodyend="800"/>
+    <listofallmembers>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1af16387c2d94c56b0e4ae8ece481ed584" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>colIdx2Ptr</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1acc16ac6e04fee5f5573031659a6d5563" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>currPtr_</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1ad4e9c4a6df66608a4d6ea6e7608337ce" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>difference_type</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a3ed61bf2a830e89fd8fbbb6efc2e7171" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>iterator_category</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a3c779a77e6a0920d8fc799931feb3c3d" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>NdArrayConstColumnIterator</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1aff03e1020fa6e935fb0fe2a926a4f378" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>NdArrayConstColumnIterator</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1aa497b43a91c2fd1070a1534d2370bc30" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>numCols_</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a3b9f9c98e780212400be3da64584f7ee" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>numRows_</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1ad7a25b0cb28882ed45417dd3ed01e094" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1ac096213e50279dc023bbf6270c31969a" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator*</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a0375a9e5bb7a8e268d80da41186d58a4" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator+</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1ad69593e9f3cbf04dff6941bd52827208" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator++</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a82ded30f6199ce6c9f3630b28e971650" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator++</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1aa6b2701798827af7b54de723628a20d7" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator+=</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a6918b5de4f8eef3081abe3ce5ddefa7a" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator-</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a60c7f27f5b0574716750257d89ba7a70" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator-</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a9813a585d99eb656cbe7e1e12476d30b" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator--</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a5fea275f4afdd1fca5b59830ce182bff" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator--</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1af68690450642df08758a9e067edeee47" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator-=</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a33d2e58d269f938c742ac25f46edf008" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator-&gt;</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1ab0928638c653f5ed37088a3e5098064b" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator&lt;</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a8468d6928d88c7f34d1456261331f238" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator&lt;=</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1aec9953c2361595fc656a1a5d306e36c0" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator==</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a827d0a8431ec616ef0161144b3d24af6" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator&gt;</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a9935c5d4b3deff76207ccde7cfccbf62" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator&gt;=</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a3a37dd5a1496ecf2249950325b0a388c" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>operator[]</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>pointer</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1abf60dabf37af8c048afb52d36b4fb79a" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>ptr2ColIdx</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a4c376e0f70475b6850d2c0d427e59f2b" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>ptr_</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a6903047bac2424843ca26ed9116abb77" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>reference</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a9499fbe5fef7de7bcfa027bb0d7378f8" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>self_type</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1aa64b098b597f9a3b70fd4c32d68ace50" prot="private" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>size_</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a99d31459bd356031b795095a38366706" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>size_type</name></member>
+      <member refid="classnc_1_1_nd_array_const_column_iterator_1a3b124e1120c2fb329dcb5d81abe39e1d" prot="public" virt="non-virtual"><scope>nc::NdArrayConstColumnIterator</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

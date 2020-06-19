@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -75,7 +75,7 @@ namespace nc
             /// @return
             ///              u matrix
             ///
-            const NdArray<double>& u() noexcept
+            const NdArray<double>& u() noexcept 
             {
                 return u_;
             }
@@ -87,7 +87,7 @@ namespace nc
             /// @return
             ///              v matrix
             ///
-            const NdArray<double>& v() noexcept
+            const NdArray<double>& v() noexcept 
             {
                 return v_;
             }
@@ -99,7 +99,7 @@ namespace nc
             /// @return
             ///              s matrix
             ///
-            const NdArray<double>& s() noexcept
+            const NdArray<double>& s() noexcept 
             {
                 return s_;
             }
@@ -168,7 +168,7 @@ namespace nc
             /// @return
             ///              value
             ///
-            double SIGN(double inA, double inB) noexcept
+            double SIGN(double inA, double inB) noexcept 
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
@@ -518,7 +518,7 @@ namespace nc
             // Description:
             ///              reorders the input matrix
             ///
-            void reorder()
+            void reorder() 
             {
                 uint32  i = 0;
                 uint32  j = 0;

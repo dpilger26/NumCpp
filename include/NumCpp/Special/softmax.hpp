@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/exp.hpp"
 
 namespace nc
@@ -48,25 +49,27 @@ namespace nc
         /// @param      inAxis (Optional, default NONE)
         /// @return     NdArray<double>
         ///
-        template<typename T>
-        NdArray<double> softmax(const NdArray<T>& inArray, Axis inAxis = Axis::NONE) noexcept
+        template<typename dtype>
+        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    auto returnArray = exp(inArray);
-                    returnArray /= returnArray.sum().item();
+                    auto returnArray = exp(inArray).template astype<double>();
+                    returnArray /= static_cast<double>(returnArray.sum().item());
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    auto returnArray = exp(inArray);
+                    auto returnArray = exp(inArray).template astype<double>();
                     auto expSums = returnArray.sum(inAxis);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        double rowExpSum = expSums[row];
+                        const double rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
@@ -75,12 +78,12 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    auto returnArray = exp(inArray.transpose());
+                    auto returnArray = exp(inArray.transpose()).template astype<double>();
                     auto expSums = returnArray.sum(Axis::COL);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        double rowExpSum = expSums[row];
+                        const auto rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }

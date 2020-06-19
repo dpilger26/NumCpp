@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_9051d82ec7b39b1c992f5bf2868571ca" kind="dir">
     <compoundname>Functions</compoundname>
     <innerfile refid="abs_8hpp">abs.hpp</innerfile>
@@ -9,6 +9,7 @@
     <innerfile refid="allclose_8hpp">allclose.hpp</innerfile>
     <innerfile refid="amax_8hpp">amax.hpp</innerfile>
     <innerfile refid="amin_8hpp">amin.hpp</innerfile>
+    <innerfile refid="angle_8hpp">angle.hpp</innerfile>
     <innerfile refid="any_8hpp">any.hpp</innerfile>
     <innerfile refid="append_8hpp">append.hpp</innerfile>
     <innerfile refid="apply_function_8hpp">applyFunction.hpp</innerfile>
@@ -43,7 +44,9 @@
     <innerfile refid="center_of_mass_8hpp">centerOfMass.hpp</innerfile>
     <innerfile refid="clip_8hpp">clip.hpp</innerfile>
     <innerfile refid="column__stack_8hpp">column_stack.hpp</innerfile>
+    <innerfile refid="complex_8hpp">complex.hpp</innerfile>
     <innerfile refid="concatenate_8hpp">concatenate.hpp</innerfile>
+    <innerfile refid="conj_8hpp">conj.hpp</innerfile>
     <innerfile refid="contains_8hpp">contains.hpp</innerfile>
     <innerfile refid="copy_8hpp">copy.hpp</innerfile>
     <innerfile refid="copy_sign_8hpp">copySign.hpp</innerfile>
@@ -86,8 +89,8 @@
     <innerfile refid="fmax_8hpp">fmax.hpp</innerfile>
     <innerfile refid="fmin_8hpp">fmin.hpp</innerfile>
     <innerfile refid="fmod_8hpp">fmod.hpp</innerfile>
-    <innerfile refid="from_buffer_8hpp">fromBuffer.hpp</innerfile>
-    <innerfile refid="from_file_8hpp">fromFile.hpp</innerfile>
+    <innerfile refid="frombuffer_8hpp">frombuffer.hpp</innerfile>
+    <innerfile refid="fromfile_8hpp">fromfile.hpp</innerfile>
     <innerfile refid="fromiter_8hpp">fromiter.hpp</innerfile>
     <innerfile refid="full_8hpp">full.hpp</innerfile>
     <innerfile refid="full__like_8hpp">full_like.hpp</innerfile>
@@ -99,6 +102,7 @@
     <innerfile refid="hstack_8hpp">hstack.hpp</innerfile>
     <innerfile refid="hypot_8hpp">hypot.hpp</innerfile>
     <innerfile refid="identity_8hpp">identity.hpp</innerfile>
+    <innerfile refid="imag_8hpp">imag.hpp</innerfile>
     <innerfile refid="_functions_2interp_8hpp">Functions/interp.hpp</innerfile>
     <innerfile refid="intersect1d_8hpp">intersect1d.hpp</innerfile>
     <innerfile refid="invert_8hpp">invert.hpp</innerfile>
@@ -158,16 +162,19 @@
     <innerfile refid="pad_8hpp">pad.hpp</innerfile>
     <innerfile refid="partition_8hpp">partition.hpp</innerfile>
     <innerfile refid="percentile_8hpp">percentile.hpp</innerfile>
+    <innerfile refid="polar_8hpp">polar.hpp</innerfile>
     <innerfile refid="_functions_2power_8hpp">Functions/power.hpp</innerfile>
     <innerfile refid="_functions_2powerf_8hpp">Functions/powerf.hpp</innerfile>
     <innerfile refid="print_8hpp">print.hpp</innerfile>
     <innerfile refid="prod_8hpp">prod.hpp</innerfile>
+    <innerfile refid="proj_8hpp">proj.hpp</innerfile>
     <innerfile refid="ptp_8hpp">ptp.hpp</innerfile>
     <innerfile refid="put_8hpp">put.hpp</innerfile>
     <innerfile refid="putmask_8hpp">putmask.hpp</innerfile>
     <innerfile refid="rad2deg_8hpp">rad2deg.hpp</innerfile>
     <innerfile refid="radians_8hpp">radians.hpp</innerfile>
     <innerfile refid="ravel_8hpp">ravel.hpp</innerfile>
+    <innerfile refid="real_8hpp">real.hpp</innerfile>
     <innerfile refid="reciprocal_8hpp">reciprocal.hpp</innerfile>
     <innerfile refid="remainder_8hpp">remainder.hpp</innerfile>
     <innerfile refid="repeat_8hpp">repeat.hpp</innerfile>
@@ -222,6 +229,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Functions/"/>
   </compounddef>
 </doxygen>

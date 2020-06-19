@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['returnpolicystringmap',['returnPolicyStringMap',['../namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc',1,'nc::pybindInterface']]],
-  ['row',['row',['../classnc_1_1image_processing_1_1_pixel.html#a6e712ef3b6547f5cafb6e8db1349658e',1,'nc::imageProcessing::Pixel']]],
-  ['rows',['rows',['../classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a',1,'nc::Shape']]]
+  ['nan_2236',['nan',['../namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac',1,'nc::constants']]],
+  ['numiterations_5f_2237',['numIterations_',['../classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20',1,'nc::roots::Iteration']]]
 ];

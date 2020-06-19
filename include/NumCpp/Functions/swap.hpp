@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -40,7 +40,7 @@ namespace nc
     /// @param				inArray2
     ///
     template<typename dtype>
-    void swap(NdArray<dtype>& inArray1, NdArray<dtype>& inArray2) noexcept
+    void swap(NdArray<dtype>& inArray1, NdArray<dtype>& inArray2) noexcept 
     {
         NdArray<dtype> tmp(std::move(inArray1));
         inArray1 = std::move(inArray2);

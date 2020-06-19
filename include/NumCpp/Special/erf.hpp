@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/erf.hpp"
 
@@ -45,12 +46,14 @@ namespace nc
         /// @param
         ///				inValue
         /// @return
-        ///				double
+        ///				calculated-result-type
         ///
         template<typename dtype>
-        double erf(dtype inValue) noexcept
+        auto erf(dtype inValue)
         {
-            return boost::math::erf(static_cast<double>(inValue));
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            return boost::math::erf(inValue);
         }
 
         //============================================================================
@@ -61,15 +64,15 @@ namespace nc
         /// @param
         ///				inArray
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> erf(const NdArray<dtype>& inArray) noexcept
+        auto erf(const NdArray<dtype>& inArray)
         {
-            NdArray<double> returnArray(inArray.shape());
+            NdArray<decltype(erf(dtype{0}))> returnArray(inArray.shape());
 
             stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) noexcept -> double
+                [](dtype inValue) -> auto
                 {
                     return erf(inValue); 
                 });

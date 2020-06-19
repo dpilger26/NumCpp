@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,12 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/unique.hpp"
 
-#include <set>
+#include <complex>
 #include <vector>
 
 namespace nc
@@ -51,13 +55,20 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        std::vector<dtype> res(inArray1.size() + inArray2.size());
-        const std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
-        const std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto iter = std::set_difference(in1.begin(), in1.end(),
-            in2.begin(), in2.end(), res.begin());
-        res.resize(iter - res.begin());
-        return NdArray<dtype>(res);
+        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
+        {
+            return lhs < rhs;
+        };
+
+        const auto set1 = unique(inArray1);
+        const auto set2 = unique(inArray2);
+
+        std::vector<dtype> res(set1.size());
+        const auto last = stl_algorithms::set_difference(set1.begin(), set1.end(), 
+            set2.begin(), set2.end(), res.begin(), comp);
+
+        return NdArray<dtype>(res.begin(), last);
     }
 }

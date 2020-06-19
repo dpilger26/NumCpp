@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <string>
 #include <vector>
@@ -59,6 +60,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inStep > 0 && inStop < inStart)
         {
             THROW_INVALID_ARGUMENT_ERROR("stop value must be larger than the start value for positive step.");

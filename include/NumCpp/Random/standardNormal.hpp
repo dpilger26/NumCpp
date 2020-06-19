@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Random/normal.hpp"
 
 namespace nc
@@ -47,8 +48,10 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype standardNormal() noexcept
+        dtype standardNormal()
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return normal<dtype>(0, 1);
         }
 
@@ -66,8 +69,10 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> standardNormal(const Shape& inShape) noexcept
+        NdArray<dtype> standardNormal(const Shape& inShape)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return normal<dtype>(inShape, 0, 1);
         }
     }

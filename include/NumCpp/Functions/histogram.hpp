@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,12 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Functions/zeros.hpp"
-#include "NumCpp/NdArray.hpp"
 
 #include <string>
 #include <utility>
@@ -55,6 +56,8 @@ namespace nc
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inNumBins == 0)
         {
             THROW_INVALID_ARGUMENT_ERROR("number of bins must be positive.");
@@ -62,14 +65,14 @@ namespace nc
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);
 
-        const bool useEndPoint = true;
+        constexpr bool useEndPoint = true;
         NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
             static_cast<double>(inArray.max().item()), inNumBins + 1, useEndPoint);
 
         for (uint32 i = 0; i < inArray.size(); ++i)
         {
             // binary search to find the bin idx
-            const bool keepSearching = true;
+            constexpr bool keepSearching = true;
             uint32 lowIdx = 0;
             uint32 highIdx = binEdges.size() - 1;
             while (keepSearching)

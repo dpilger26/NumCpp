@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -47,7 +47,7 @@ namespace nc
         /// @return
         ///				double
         ///
-        inline double pnr(uint32 n, uint32 r) noexcept
+        inline double pnr(uint32 n, uint32 r)
         {
             if (r > n)
             {
@@ -62,14 +62,14 @@ namespace nc
 
             if (n <= boost::math::max_factorial<double>::value)
             {
-                double nFactorial = factorial(n);
-                double nMinusRFactoral = factorial(n - r);
+                const double nFactorial = factorial(n);
+                const double nMinusRFactoral = factorial(n - r);
 
                 combinations = nFactorial / nMinusRFactoral;
             }
             else
             {
-                uint32 lower = n - r + 1;
+                const uint32 lower = n - r + 1;
 
                 combinations = static_cast<double>(lower);
                 for (uint32 i = lower + 1; i < n; ++i)

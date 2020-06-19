@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,13 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+
+#include <complex>
 
 namespace nc
 {
@@ -49,8 +53,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
+    NdArray<double> reciprocal(const NdArray<dtype>& inArray) 
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         NdArray<double> returnArray(inArray.shape());
 
         uint32 counter = 0;
@@ -58,6 +64,37 @@ namespace nc
             [&returnArray, &counter](dtype value) noexcept -> void
             { 
                 returnArray[counter++] = 1.0 / static_cast<double>(value);
+            });
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the reciprocal of the argument, element-wise.
+    ///
+    ///						Calculates 1 / x.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    ///
+    /// @param
+    ///				inArray
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) 
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        NdArray<std::complex<double>> returnArray(inArray.shape());
+
+        uint32 counter = 0;
+        std::for_each(inArray.cbegin(), inArray.cend(),
+            [&returnArray, &counter](std::complex<dtype> value)  -> void
+            { 
+                returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value);
             });
 
         return returnArray;

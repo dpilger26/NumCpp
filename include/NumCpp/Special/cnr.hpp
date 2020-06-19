@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,8 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Special/factorial.hpp"
 #include "NumCpp/Special/pnr.hpp"
 
@@ -49,7 +49,7 @@ namespace nc
         /// @return
         ///				double
         ///
-        inline double cnr(uint32 n, uint32 r) noexcept
+        inline double cnr(uint32 n, uint32 r)
         {
             return pnr(n, r) / factorial(r);
         }

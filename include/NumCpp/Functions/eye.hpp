@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,10 @@
 ///
 #pragma once
 
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -49,8 +50,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) noexcept
+    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) 
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         NdArray<dtype> returnArray(inN, inM);
         returnArray.zeros();
 
@@ -64,7 +67,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row, col++) = 1;
+                returnArray(row, col++) = dtype{ 1 };
             }
         }
         else
@@ -77,7 +80,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row++, col) = 1;
+                returnArray(row++, col) = dtype{ 1 };
             }
         }
 
@@ -98,7 +101,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, int32 inK = 0) noexcept
+    NdArray<dtype> eye(uint32 inN, int32 inK = 0) 
     {
         return eye<dtype>(inN, inN, inK);
     }
@@ -117,7 +120,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0) noexcept
+    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0) 
     {
         return eye<dtype>(inShape.rows, inShape.cols, inK);
     }

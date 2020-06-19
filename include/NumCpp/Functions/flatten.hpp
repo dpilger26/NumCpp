@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -43,7 +43,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flatten(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> flatten(const NdArray<dtype>& inArray) 
     {
         return inArray.flatten();
     }

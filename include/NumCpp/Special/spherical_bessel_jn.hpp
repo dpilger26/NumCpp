@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/bessel.hpp"
 
@@ -44,12 +45,14 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				double
+        ///				calculated-result-type 
         ///
         template<typename dtype>
-        double spherical_bessel_jn(uint32 inV, dtype inX) noexcept
+        auto spherical_bessel_jn(uint32 inV, dtype inX)
         {
-            return boost::math::sph_bessel(inV, static_cast<double>(inX));
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            return boost::math::sph_bessel(inV, inX);
         }
 
         //============================================================================
@@ -59,15 +62,15 @@ namespace nc
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
         /// @return
-        ///				NdArray<double>
+        ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> spherical_bessel_jn(uint32 inV, const NdArray<dtype>& inArrayX) noexcept
+        auto spherical_bessel_jn(uint32 inV, const NdArray<dtype>& inArrayX) 
         {
-            NdArray<double> returnArray(inArrayX.shape());
+            NdArray<decltype(spherical_bessel_jn(inV, dtype{0}))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) noexcept -> double
+                [inV](dtype inX) -> auto
                 { 
                     return spherical_bessel_jn(inV, inX);
                 });

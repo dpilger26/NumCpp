@@ -1,5 +1,5 @@
 var trunc_8hpp =
 [
-    [ "trunc", "trunc_8hpp.html#ac83a50ef99e61f116a86df98196f4a8b", null ],
-    [ "trunc", "trunc_8hpp.html#a9e5373a985723f67cb7b5bbb4a65c86d", null ]
+    [ "trunc", "trunc_8hpp.html#adaf8b7ce0ee9ec1b91c27f5e6df30cfc", null ],
+    [ "trunc", "trunc_8hpp.html#ac83a50ef99e61f116a86df98196f4a8b", null ]
 ];

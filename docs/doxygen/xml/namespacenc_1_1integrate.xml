@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespacenc_1_1integrate" kind="namespace" language="C++">
     <compoundname>nc::integrate</compoundname>
     <innerclass refid="classnc_1_1integrate_1_1_legendre_polynomial" prot="public">nc::integrate::LegendrePolynomial</innerclass>
@@ -18,7 +18,7 @@
           <declname>high</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>n</declname>
         </param>
         <param>
@@ -28,40 +28,47 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Gauss-Legendre integration of the input function</para><para><parameterlist kind="param"><parameteritem>
+<para>Performs Gauss-Legendre integration of the input function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>low</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound of the integration </para></parameterdescription>
+<para>the lower bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>high</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound of the integration </para></parameterdescription>
+<para>the upper bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of iterations to perform </para></parameterdescription>
+<para>the number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to integrate over</para></parameterdescription>
+<para>the function to integrate over</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="183" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="183" bodyend="200"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="183" column="23" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" bodystart="183" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1integrate_1a5406412619aa59539dd19f62f0be8caf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -77,7 +84,7 @@
           <declname>high</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <type>const <ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">uint8</ref></type>
           <declname>n</declname>
         </param>
         <param>
@@ -87,45 +94,52 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Newton-Cotes Romberg integration of the input function</para><para><parameterlist kind="param"><parameteritem>
+<para>Performs Newton-Cotes Romberg integration of the input function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>low</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound of the integration </para></parameterdescription>
+<para>the lower bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>high</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound of the integration </para></parameterdescription>
+<para>the upper bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of iterations </para></parameterdescription>
+<para>the number of iterations </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to integrate over</para></parameterdescription>
+<para>the function to integrate over</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/romberg.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/romberg.hpp" bodystart="57" bodyend="93"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/romberg.hpp" line="57" column="23" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/romberg.hpp" bodystart="57" bodyend="93"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1integrate_1acc61bcd5ddb863c2d4f776d38197040e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1integrate_1aa7c55b05139ecfce5e5a9d0380df9eb1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::integrate::simpson</definition>
-        <argsstring>(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f)</argsstring>
+        <argsstring>(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
         <name>simpson</name>
         <param>
           <type>const double</type>
@@ -136,7 +150,7 @@
           <declname>high</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>n</declname>
         </param>
         <param>
@@ -146,45 +160,52 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Newton-Cotes Simpson integration of the input function</para><para><parameterlist kind="param"><parameteritem>
+<para>Performs Newton-Cotes Simpson integration of the input function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>low</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound of the integration </para></parameterdescription>
+<para>the lower bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>high</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound of the integration </para></parameterdescription>
+<para>the upper bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of subdivisions </para></parameterdescription>
+<para>the number of subdivisions </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to integrate over</para></parameterdescription>
+<para>the function to integrate over</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/simpson.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/simpson.hpp" bodystart="54" bodyend="69"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/simpson.hpp" line="54" column="23" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/simpson.hpp" bodystart="54" bodyend="69"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1integrate_1a73156d502caa3e23d9ba82381bc382bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1integrate_1acdfbecb87f7780b2961eb4e5d3b3d109" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::integrate::trapazoidal</definition>
-        <argsstring>(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f)</argsstring>
+        <argsstring>(const double low, const double high, const uint32 n, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
         <name>trapazoidal</name>
         <param>
           <type>const double</type>
@@ -195,7 +216,7 @@
           <declname>high</declname>
         </param>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>n</declname>
         </param>
         <param>
@@ -205,46 +226,53 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Performs Newton-Cotes trapazoidal integration of the input function</para><para><parameterlist kind="param"><parameteritem>
+<para>Performs Newton-Cotes trapazoidal integration of the input function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>low</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the lower bound of the integration </para></parameterdescription>
+<para>the lower bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>high</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the upper bound of the integration </para></parameterdescription>
+<para>the upper bound of the integration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of subdivisions </para></parameterdescription>
+<para>the number of subdivisions </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the function to integrate over</para></parameterdescription>
+<para>the function to integrate over</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/trapazoidal.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/trapazoidal.hpp" bodystart="54" bodyend="69"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Integrate/trapazoidal.hpp" line="54" column="23" bodyfile="C:/Github/NumCpp/include/NumCpp/Integrate/trapazoidal.hpp" bodystart="54" bodyend="69"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="46" column="1"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Integrate/gauss_legendre.hpp" line="46" column="1"/>
   </compounddef>
 </doxygen>

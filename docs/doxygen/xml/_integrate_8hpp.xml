@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_integrate_8hpp" kind="file" language="C++">
     <compoundname>Integrate.hpp</compoundname>
     <includes refid="trapazoidal_8hpp" local="yes">NumCpp/Integrate/trapazoidal.hpp</includes>
@@ -8,132 +8,165 @@
     <includes refid="gauss__legendre_8hpp" local="yes">NumCpp/Integrate/gauss_legendre.hpp</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="9032">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="9033" relation="include">
+      <node id="10">
+        <label>NumCpp/Core/Internal/TypeTraits.hpp</label>
+        <link refid="_type_traits_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="9034">
-        <label>functional</label>
-      </node>
-      <node id="9042">
-        <label>limits</label>
-      </node>
-      <node id="9037">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="9032" relation="include">
-        </childnode>
-      </node>
-      <node id="9030">
-        <label>Integrate.hpp</label>
-        <link refid="_integrate_8hpp"/>
-        <childnode refid="9031" relation="include">
-        </childnode>
-        <childnode refid="9035" relation="include">
-        </childnode>
-        <childnode refid="9036" relation="include">
-        </childnode>
-        <childnode refid="9039" relation="include">
-        </childnode>
-      </node>
-      <node id="9033">
-        <label>cstdint</label>
-      </node>
-      <node id="9041">
-        <label>cmath</label>
-      </node>
-      <node id="9043">
-        <label>string</label>
-      </node>
-      <node id="9044">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="9035">
-        <label>NumCpp/Integrate/simpson.hpp</label>
-        <link refid="simpson_8hpp"/>
-        <childnode refid="9032" relation="include">
-        </childnode>
-        <childnode refid="9034" relation="include">
-        </childnode>
-      </node>
-      <node id="9040">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="9041" relation="include">
-        </childnode>
-        <childnode refid="9042" relation="include">
-        </childnode>
-        <childnode refid="9043" relation="include">
-        </childnode>
-      </node>
-      <node id="9031">
-        <label>NumCpp/Integrate/trapazoidal.hpp</label>
-        <link refid="trapazoidal_8hpp"/>
-        <childnode refid="9032" relation="include">
-        </childnode>
-        <childnode refid="9034" relation="include">
-        </childnode>
-      </node>
-      <node id="9038">
-        <label>vector</label>
-      </node>
-      <node id="9039">
-        <label>NumCpp/Integrate/gauss_legendre.hpp</label>
-        <link refid="gauss__legendre_8hpp"/>
-        <childnode refid="9040" relation="include">
-        </childnode>
-        <childnode refid="9032" relation="include">
-        </childnode>
-        <childnode refid="9044" relation="include">
-        </childnode>
-        <childnode refid="9041" relation="include">
-        </childnode>
-        <childnode refid="9034" relation="include">
-        </childnode>
-        <childnode refid="9038" relation="include">
-        </childnode>
-      </node>
-      <node id="9036">
+      <node id="7">
         <label>NumCpp/Integrate/romberg.hpp</label>
         <link refid="romberg_8hpp"/>
-        <childnode refid="9032" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="9031" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="9037" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="9034" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="9038" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>functional</label>
+      </node>
+      <node id="17">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>NumCpp/Integrate/simpson.hpp</label>
+        <link refid="simpson_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cmath</label>
+      </node>
+      <node id="1">
+        <label>Integrate.hpp</label>
+        <link refid="_integrate_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>vector</label>
+      </node>
+      <node id="14">
+        <label>NumCpp/Integrate/gauss_legendre.hpp</label>
+        <link refid="gauss__legendre_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>type_traits</label>
+      </node>
+      <node id="11">
+        <label>complex</label>
+      </node>
+      <node id="2">
+        <label>NumCpp/Integrate/trapazoidal.hpp</label>
+        <link refid="trapazoidal_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>NumCpp/Core/Internal/StaticAsserts.hpp</label>
+        <link refid="_static_asserts_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="9046">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
-      <node id="9045">
+      <node id="1">
         <label>Integrate.hpp</label>
         <link refid="_integrate_8hpp"/>
-        <childnode refid="9046" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
       </node>
     </invincdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.3</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>2.0.0</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2020 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2020 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Numerical Integration routines </para></sect1>
+<para>Numerical Integration routines </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -143,6 +176,6 @@
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="romberg_8hpp" kindref="compound">NumCpp/Integrate/romberg.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gauss__legendre_8hpp" kindref="compound">NumCpp/Integrate/gauss_legendre.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Integrate.hpp"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Integrate.hpp"/>
   </compounddef>
 </doxygen>

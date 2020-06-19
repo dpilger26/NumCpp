@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 
@@ -48,8 +49,10 @@ namespace nc
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             std::vector<Centroid<dtype> > centroids;
 
             for (auto& cluster : inClusters)

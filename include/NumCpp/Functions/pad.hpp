@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -50,6 +50,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
         Shape outShape(inShape);
         outShape.rows += 2 * inPadWidth;

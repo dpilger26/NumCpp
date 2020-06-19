@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,8 +30,9 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <string>
 
@@ -50,8 +51,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         const Shape inShape = inArray.shape();
 
         switch (inAxis)

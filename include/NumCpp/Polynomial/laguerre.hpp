@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/laguerre.hpp"
 
@@ -47,8 +48,10 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double laguerre(uint32 n, dtype x) noexcept
+        double laguerre(uint32 n, dtype x)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::laguerre(n, static_cast<double>(x));
         }
 
@@ -63,8 +66,10 @@ namespace nc
         ///				double
         ///
         template<typename dtype>
-        double laguerre(uint32 n, uint32 m, dtype x) noexcept
+        double laguerre(uint32 n, uint32 m, dtype x)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return boost::math::laguerre(m, n, static_cast<double>(x));
         }
 
@@ -78,11 +83,11 @@ namespace nc
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> laguerre(uint32 n, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double> laguerre(uint32 n, const NdArray<dtype>& inArrayX)
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n](dtype x) noexcept -> double
+            const auto function = [n](dtype x) -> double
             {
                 return laguerre(n, x);
             };
@@ -103,11 +108,11 @@ namespace nc
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> laguerre(uint32 n, uint32 m, const NdArray<dtype>& inArrayX) noexcept
+        NdArray<double> laguerre(uint32 n, uint32 m, const NdArray<dtype>& inArrayX)
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            auto function = [n, m](dtype x) noexcept -> double
+            const auto function = [n, m](dtype x) -> double
             {
                 return laguerre(n, m, x);
             };

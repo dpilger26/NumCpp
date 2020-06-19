@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <string>
 
@@ -52,6 +53,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inTrim == "f")
         {
             uint32 place = 0;
@@ -92,7 +95,7 @@ namespace nc
                 }
             }
 
-            if (place == 0 || (place == 1 && inArray[0] == 0))
+            if (place == 0 || (place == 1 && inArray[0] == dtype{ 0 }))
             {
                 return NdArray<dtype>(0);
             }
@@ -135,7 +138,7 @@ namespace nc
                 }
             }
 
-            if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == 0))
+            if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == dtype{ 0 }))
             {
                 return NdArray<dtype>(0);
             }

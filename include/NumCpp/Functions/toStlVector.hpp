@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -42,7 +42,7 @@ namespace nc
     ///				std::vector
     ///
     template<typename dtype>
-    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) noexcept
+    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) 
     {
         return inArray.toStlVector();
     }

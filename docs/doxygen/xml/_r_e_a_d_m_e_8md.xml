@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
     <compoundname>README.md</compoundname>
     <briefdescription>
@@ -7,13 +7,19 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
+<codeline><highlight class="normal">![NumCpp<sp/>logo](https://github.com/dpilger26/NumCpp/raw/master/docs/logo/NumCppLogo.png)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[![GitHub<sp/>watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&amp;label=Watch&amp;maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)</highlight></codeline>
+<codeline><highlight class="normal">[![GitHub<sp/>stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&amp;label=Star&amp;maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)</highlight></codeline>
+<codeline><highlight class="normal">[![GitHub<sp/>forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&amp;label=Fork&amp;maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">#<sp/>NumCpp:<sp/>A<sp/>Templatized<sp/>Header<sp/>Only<sp/>C++<sp/>Implementation<sp/>of<sp/>the<sp/>[Python<sp/>NumPy<sp/>Library](http://www.numpy.org)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Author:<sp/>David<sp/>Pilger<sp/>dpilger26@gmail.com</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Version:<sp/>1.3</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Version:<sp/>2.0.0</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>License<sp/>[![MIT<sp/>license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Copyright<sp/>2020<sp/>David<sp/>Pilger</highlight></codeline>
 <codeline></codeline>
@@ -32,15 +38,40 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Testing</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">**C++<sp/>Standards:**<sp/>C++11,<sp/>C++14,<sp/>and<sp/>C++17<sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">**Compilers:**<sp/>VS<sp/>2017/2019,<sp/>GCC<sp/>7.4.0/8.3/9.1,<sp/>and<sp/>Clang<sp/>6.0/8.0/9.0<sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">**Boost<sp/>Versions:**<sp/>1.68<sp/>and<sp/>1.70<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">**C++<sp/>Standards:**<sp/>C++14,<sp/>C++17,<sp/>and<sp/>C++2a</highlight></codeline>
+<codeline><highlight class="normal">**Compilers:**<sp/>VS<sp/>2017/2019,<sp/>GCC<sp/>6.5.0/7.5.0/8.4.0/9.3.0,<sp/>and<sp/>Clang<sp/>8.0/9.0/10.0<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">**Boost<sp/>Versions:**<sp/>1.68,<sp/>1.70,<sp/>1.72,<sp/>and<sp/>1.73<sp/><sp/></highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>[Documentation](https://dpilger26.github.io/NumCpp)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>[GitHub](https://github.com/dpilger26/NumCpp)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>[Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Release<sp/>Notes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Version<sp/>2.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Dropped<sp/>support<sp/>of<sp/>C++11,<sp/>now<sp/>requires<sp/>a<sp/>C++14<sp/>or<sp/>higher<sp/>compiler</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Added<sp/>support<sp/>for<sp/>`std::complex&lt;T&gt;`,<sp/>closing<sp/>__Issue<sp/>#58__</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Added<sp/>more<sp/>NdArray<sp/>constructors<sp/>for<sp/>STL<sp/>containers<sp/>including<sp/>`std::vector&lt;std::vector&lt;T&gt;&gt;`,<sp/>closing<sp/>__Issue<sp/>#59__</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`polyfit`<sp/>routine<sp/>inline<sp/>with<sp/>Numpy<sp/>`polyfit`,<sp/>closing<sp/>__Issue<sp/>#61__</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Added<sp/>ability<sp/>to<sp/>use<sp/>`NdArray`<sp/>as<sp/>container<sp/>for<sp/>generic<sp/>structs</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Non-linear<sp/>least<sp/>squares<sp/>fitting<sp/>using<sp/>Gauss-Newton</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Root<sp/>finding<sp/>routines</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Numerical<sp/>integration<sp/>routines</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`lu_decomposition`<sp/>and<sp/>`pivotLU_decomposition`<sp/>added<sp/>to<sp/>`Linalg`<sp/>namespace</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>New<sp/>STL<sp/>iterators<sp/>added<sp/>to<sp/>NdArray</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`const_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`reverse_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`const_reverse_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`column_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`const_column_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`reverse_column_iterator`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`const_reverse_column_iterator`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Added<sp/>`rodriguesRotation`<sp/>and<sp/>`wahbasProblem`<sp/>to<sp/>`Rotations`<sp/>namespace</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Various<sp/>efficiency<sp/>and/or<sp/>bug<sp/>fixes</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>From<sp/>NumPy<sp/>To<sp/>NumCpp<sp/>–<sp/>A<sp/>Quick<sp/>Start<sp/>Guide</highlight></codeline>
 <codeline></codeline>
@@ -271,6 +302,6 @@
 <codeline><highlight class="normal">|<sp/>```Np.linalg.multi_dot(a,<sp/>b,<sp/>c)```<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>```nc::linalg::multi_dot({a,<sp/>b,<sp/>c})```<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>```np.linalg.svd(a)```<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>```nc::linalg::svd(a)```<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/README.md"/>
+    <location file="C:/Github/NumCpp/README.md"/>
   </compounddef>
 </doxygen>

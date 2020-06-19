@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include <algorithm>
@@ -49,8 +50,10 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(dtype inValue) noexcept
+        NdArray<dtype> permutation(dtype inValue) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray = arange(inValue);
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
@@ -68,8 +71,10 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(const NdArray<dtype>& inArray) noexcept
+        NdArray<dtype> permutation(const NdArray<dtype>& inArray) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             NdArray<dtype> returnArray(inArray);
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;

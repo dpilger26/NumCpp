@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -33,8 +33,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -57,7 +58,9 @@ namespace nc
         template<typename dtype>
         std::tuple<NdArray<double>, NdArray<double>, NdArray<double> > pivotLU_decomposition(const NdArray<dtype>& inMatrix)
         {
-            auto shape = inMatrix.shape();
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            const auto shape = inMatrix.shape();
 
             if(!shape.issquare()) 
             {
@@ -80,7 +83,7 @@ namespace nc
                         s += std::fabs(uMatrix(i, j));
                     }
 
-                    double q = std::fabs(uMatrix(i, k)) / s;
+                    const double q = std::fabs(uMatrix(i, k)) / s;
                     if(q > max)
                     {
                         max = q;

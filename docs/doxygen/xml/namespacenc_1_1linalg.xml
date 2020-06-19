@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespacenc_1_1linalg" kind="namespace" language="C++">
     <compoundname>nc::linalg</compoundname>
     <innerclass refid="classnc_1_1linalg_1_1_s_v_d" prot="public">nc::linalg::SVD</innerclass>
@@ -21,19 +21,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix cholesky decomposition A = L * <ref refid="namespacenc_1a4f2a0ece915add7cde89fcfefa30088d" kindref="member">L.transpose()</ref></para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>matrix cholesky decomposition A = L * <ref refid="namespacenc_1aa6c78ac10e4c3aa446716f80aa1a72ca" kindref="member">L.transpose()</ref></para>
+<para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inMatrix</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the decomposed L matrix </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the decomposed L matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/cholesky.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/cholesky.hpp" bodystart="54" bodyend="97"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/cholesky.hpp" line="55" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/cholesky.hpp" bodystart="55" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -52,19 +57,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix determinant. NOTE: can get verrrrry slow for large matrices (order &gt; 10)</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>matrix determinant. NOTE: can get verrrrry slow for large matrices (order &gt; 10)</para>
+<para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>matrix determinant </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>matrix determinant </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" bodystart="56" bodyend="110"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/det.hpp" line="57" column="15" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/det.hpp" bodystart="57" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1aff0f97e94666284100b584e13d27def3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -77,15 +87,15 @@
             <defname>Params</defname>
           </param>
           <param>
-            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; std::is_arithmetic&lt; dtype &gt;::value, int &gt;</type>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; is_arithmetic_v&lt; dtype &gt;, int &gt;</type>
             <defval>0</defval>
           </param>
           <param>
-            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_arithmetic&lt; Params... &gt;::value, int &gt;</type>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_arithmetic_v&lt; Params... &gt;, int &gt;</type>
             <defval>0</defval>
           </param>
           <param>
-            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_same&lt; dtype, Params... &gt;::value, int &gt;</type>
+            <type><ref refid="namespacenc_1ae6f8d4a50bd2b4254f00085e7f17ce01" kindref="member">nc::enable_if_t</ref>&lt; all_same_v&lt; dtype, Params... &gt;, int &gt;</type>
             <defval>0</defval>
           </param>
         </templateparamlist>
@@ -94,7 +104,7 @@
         <argsstring>(const uint32 numIterations, const NdArray&lt; dtype &gt; &amp;coordinates, const NdArray&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</argsstring>
         <name>gaussNewtonNlls</name>
         <param>
-          <type>const <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type>const <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>numIterations</declname>
         </param>
         <param>
@@ -110,7 +120,14 @@
           <declname>function</declname>
         </param>
         <param>
-          <type>const std::array&lt; std::function&lt; dtype(const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;, const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;</type>
+          <type>const std::array&lt; std::function&lt; dtype(const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;, const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;)&gt;</type>
+        </param>
+        <param>
+          <type>sizeof...</type>
+          <array>Params</array>
+        </param>
+        <param>
+          <type>&amp;</type>
           <declname>derivatives</declname>
         </param>
         <param>
@@ -120,107 +137,63 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The Gauss�Newton algorithm is used to solve non-linear least squares problems. It is a modification of Newton&apos;s method for finding a minimum of a function. <ulink url="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm">https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The Gauss�Newton algorithm is used to solve non-linear least squares problems. It is a modification of Newton&apos;s method for finding a minimum of a function. <ulink url="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm">https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>numIterations</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of iterations to perform </para></parameterdescription>
+<para>the number of iterations to perform </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coordinates</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the coordinate values. The shape needs to be [n x d], where d is the number of diminsions of the fit function (f(x) is one dimensional, f(x, y) is two dimensions, etc), and n is the number of observations that are being fit to. </para></parameterdescription>
+<para>the coordinate values. The shape needs to be [n x d], where d is the number of diminsions of the fit function (f(x) is one dimensional, f(x, y) is two dimensions, etc), and n is the number of observations that are being fit to. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>measurements</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the measured values that are being fit </para></parameterdescription>
+<para>the measured values that are being fit </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>function</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>a std::function of the function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para></parameterdescription>
+<para>a std::function of the function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>derivatives</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>array of std::functions to calculate the function derivatives. The function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para></parameterdescription>
+<para>array of std::functions to calculate the function derivatives. The function that is being fit. The function takes as inputs an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of a single set of the coordinate values, and an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of the current values of the fit parameters </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>initialGuess</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the initial guess of the parameters to be solved for</para></parameterdescription>
+<para>the initial guess of the parameters to be solved for</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::pair of <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of solved parameter values, and rms of the residuals value </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::pair of <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of solved parameter values, and rms of the residuals value </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" bodystart="78" bodyend="133"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename dtype</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
-        <definition>NdArray&lt;dtype&gt; nc::linalg::hat</definition>
-        <argsstring>(dtype inX, dtype inY, dtype inZ) noexcept</argsstring>
-        <name>hat</name>
-        <param>
-          <type>dtype</type>
-          <declname>inX</declname>
-        </param>
-        <param>
-          <type>dtype</type>
-          <declname>inY</declname>
-        </param>
-        <param>
-          <type>dtype</type>
-          <declname>inZ</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>vector hat operator</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inX</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>inY</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>inZ</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="52" bodyend="66"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" line="79" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/gaussNewtonNlls.hpp" bodystart="79" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1ae7ced3680f1ae95af4bc2e6b98a5a517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -239,19 +212,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>vector hat operator</para><para><parameterlist kind="param"><parameteritem>
+<para>vector hat operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(3x1, or 1x3 cartesian vector) </para></parameterdescription>
+<para>(3x1, or 1x3 cartesian vector) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="78" bodyend="86"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" line="81" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="81" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1ae9cdb091717a1c74dc659519d77e0048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -265,19 +242,82 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>vector hat operator</para><para><parameterlist kind="param"><parameteritem>
+<para>vector hat operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inVec</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="97" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="97" bodyend="100"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" line="102" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1linalg_1a12e16cb9d1a7b09e85b4abbef14ba2ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::linalg::hat</definition>
+        <argsstring>(dtype inX, dtype inY, dtype inZ)</argsstring>
+        <name>hat</name>
+        <param>
+          <type>dtype</type>
+          <declname>inX</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inY</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>vector hat operator</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" line="53" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="53" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1ae36553eb100d8f2c2167e8ecadf2a9fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -296,21 +336,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix inverse</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>matrix inverse</para>
+<para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/inv.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/inv.hpp" bodystart="54" bodyend="124"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/inv.hpp" line="55" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/inv.hpp" bodystart="55" bodyend="127"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1aac53030577bdcf972d77f0c528b2d302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1a9c15421c77e6b4b12fca1515596d1414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -318,7 +363,7 @@
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
         <definition>NdArray&lt;double&gt; nc::linalg::lstsq</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12) noexcept</argsstring>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12)</argsstring>
         <name>lstsq</name>
         <param>
           <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -336,33 +381,40 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Solves the equation a x = b by computing a vector x that minimizes the Euclidean 2-norm || b - a x ||^2. The equation may be under-, well-, or over- determined (i.e., the number of linearly independent rows of a can be less than, equal to, or greater than its number of linearly independent columns). If a is square and of full rank, then x (but for round-off error) is the &quot;exact&quot; solution of the equation.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Solves the equation a x = b by computing a vector x that minimizes the Euclidean 2-norm || b - a x ||^2. The equation may be under-, well-, or over- determined (i.e., the number of linearly independent rows of a can be less than, equal to, or greater than its number of linearly independent columns). If a is square and of full rank, then x (but for round-off error) is the &quot;exact&quot; solution of the equation.</para>
+<para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inA</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>coefficient matrix </para></parameterdescription>
+<para>coefficient matrix </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Ordinate or &quot;dependent variable&quot; values </para></parameterdescription>
+<para>Ordinate or &quot;dependent variable&quot; values </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inTolerance</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(default 1e-12)</para></parameterdescription>
+<para>(default 1e-12)</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lstsq.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lstsq.hpp" bodystart="59" bodyend="65"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/lstsq.hpp" line="60" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/lstsq.hpp" bodystart="60" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1a153a90dbcc2ca94c664c429868d15bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -381,19 +433,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix LU decomposition A = LU</para><para><parameterlist kind="param"><parameteritem>
+<para>matrix LU decomposition A = LU</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inMatrix</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::pair&lt;NdArray, NdArray&gt; of the decomposed L and U matrices </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::pair&lt;NdArray, NdArray&gt; of the decomposed L and U matrices </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lu_decomposition.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lu_decomposition.hpp" bodystart="57" bodyend="90"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/lu_decomposition.hpp" line="58" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/lu_decomposition.hpp" bodystart="58" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1ad27c1996e4e27a6f8ba5d2aed0743bba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -410,32 +466,39 @@
           <declname>inArray</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" kindref="member">int16</ref></type>
+          <type><ref refid="namespacenc_1a8f5045ed0f0a08d87fd76d7a74ac128d" kindref="member">int16</ref></type>
           <declname>inPower</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Raise a square matrix to the (integer) power n.</para><para>For positive integers n, the power is computed by repeated matrix squarings and matrix multiplications. If n == 0, the identity matrix of the same shape as M is returned. If n &lt; 0, the inverse is computed and then raised to the abs(n).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Raise a square matrix to the (integer) power n.</para>
+<para>For positive integers n, the power is computed by repeated matrix squarings and matrix multiplications. If n == 0, the identity matrix of the same shape as M is returned. If n &lt; 0, the inverse is computed and then raised to the abs(n).</para>
+<para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inPower</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" bodystart="62" bodyend="103"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" line="63" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" bodystart="63" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -454,19 +517,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Compute the dot product of two or more arrays in a single function call.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Compute the dot product of two or more arrays in a single function call.</para>
+<para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inList</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>list of arrays</para></parameterdescription>
+<para>list of arrays</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" bodystart="56" bodyend="77"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" line="57" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" bodystart="57" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1a390c3d32ed4b8ed7e718cbe121025ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -485,21 +553,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix pivot LU decomposition PA = LU</para><para><parameterlist kind="param"><parameteritem>
+<para>matrix pivot LU decomposition PA = LU</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inMatrix</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be decomposed</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::tuple&lt;NdArray, NdArray, NdArray&gt; of the decomposed L, U, and P matrices </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::tuple&lt;NdArray, NdArray, NdArray&gt; of the decomposed L, U, and P matrices </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/pivotLU_decomposition.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/pivotLU_decomposition.hpp" bodystart="58" bodyend="123"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/pivotLU_decomposition.hpp" line="59" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/pivotLU_decomposition.hpp" bodystart="59" bodyend="126"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1aa2a95731baaa5ff4d5837c601987af22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1acb38ad2613d50422afc539d005159055" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -507,7 +579,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void nc::linalg::svd</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt) noexcept</argsstring>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</argsstring>
         <name>svd</name>
         <param>
           <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -528,45 +600,52 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>matrix svd</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>matrix svd</para>
+<para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be SVDed </para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to be SVDed </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>outU</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output U </para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output U </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>outS</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output S </para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output S </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>outVt</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output V transpose </para></parameterdescription>
+<para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> output V transpose </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/svd.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/svd.hpp" bodystart="53" bodyend="63"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd.hpp" line="54" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd.hpp" bodystart="54" bodyend="66"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/cholesky.hpp" line="42" column="1"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Linalg/cholesky.hpp" line="43" column="1"/>
   </compounddef>
 </doxygen>

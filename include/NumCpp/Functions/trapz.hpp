@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <string>
 
@@ -51,8 +52,10 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) 
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         const Shape inShape = inArray.shape();
         switch (inAxis)
         {

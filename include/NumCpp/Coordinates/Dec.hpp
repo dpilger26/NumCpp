@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -52,9 +52,9 @@ namespace nc
         {
         public:
             //============================================================================
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
-            Dec() noexcept = default;
+            Dec() = default;
 
             //============================================================================
             ///						Constructor
@@ -71,7 +71,7 @@ namespace nc
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
-                double absDegrees = std::abs(degrees_);
+                const double absDegrees = std::abs(degrees_);
                 degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
 
                 const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
@@ -87,7 +87,7 @@ namespace nc
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds)  noexcept :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds) noexcept :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
@@ -104,7 +104,7 @@ namespace nc
             ///
             /// @return     Sign
             ///
-            Sign sign() const noexcept
+            Sign sign() const noexcept 
             {
                 return sign_;
             }
@@ -114,7 +114,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            double degrees() const noexcept
+            double degrees() const noexcept 
             {
                 return degrees_;
             }
@@ -124,7 +124,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            double radians() const noexcept
+            double radians() const noexcept 
             {
                 return radians_;
             }
@@ -134,7 +134,7 @@ namespace nc
             ///
             /// @return     whole degrees
             ///
-            uint8 degreesWhole() const noexcept
+            uint8 degreesWhole() const noexcept 
             {
                 return degreesWhole_;
             }
@@ -144,7 +144,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const noexcept
+            uint8 minutes() const noexcept 
             {
                 return minutes_;
             }
@@ -154,7 +154,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            double seconds() const noexcept
+            double seconds() const noexcept 
             {
                 return seconds_;
             }

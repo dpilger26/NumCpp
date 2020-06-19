@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -51,8 +52,10 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
+    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept 
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
     }
 

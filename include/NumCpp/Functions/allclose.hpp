@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,7 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/abs.hpp"
 #include "NumCpp/Functions/all.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -54,6 +55,8 @@ namespace nc
     template<typename dtype>
     bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array dimensions are not consistant.");

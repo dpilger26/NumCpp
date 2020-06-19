@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,26 +30,35 @@
 
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Filesystem.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/Filesystem.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/NdArray/NdArrayIterators.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Utils/value2str.hpp"
 
 #include <boost/algorithm/clamp.hpp>
-#include <boost/predef/other/endian.h>
 #include <boost/endian/conversion.hpp>
+#include <boost/predef/other/endian.h>
 
 #include <array>
 #include <cmath>
 #include <deque>
+#include <forward_list>
 #include <fstream>
 #include <initializer_list>
 #include <iostream>
+#include <iterator>
+#include <list>
+#include <memory>
 #include <numeric>
 #include <set>
 #include <string>
@@ -61,23 +70,42 @@ namespace nc
 {
     //================================================================================
     // Class Description:
-    ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype = double>
+    ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
+    template<typename dtype, class Allocator = std::allocator<dtype>>
     class NdArray
     {
+    private:
+        STATIC_ASSERT_VALID_DTYPE(dtype);
+        static_assert(is_same_v<dtype, typename Allocator::value_type>, "value_type and Allocator::value_type must match");
+
+        using AllocType     = typename std::allocator_traits<Allocator>::template rebind_alloc<dtype>;
+        using AllocTraits   = std::allocator_traits<AllocType>;
+
     public:
-        //====================================Typedefs================================
-        typedef dtype*			iterator;
-        typedef const dtype*	const_iterator;
+        using value_type                    = dtype;
+        using allocator_type                = Allocator;
+        using pointer                       = typename AllocTraits::pointer;
+        using const_pointer                 = typename AllocTraits::const_pointer;
+        using reference                     = dtype&;
+        using const_reference               = const dtype&;
+        using size_type                     = uint32;
+        using difference_type               = typename AllocTraits::difference_type;
+
+        using iterator                      = NdArrayIterator<dtype, pointer, difference_type>;
+        using const_iterator                = NdArrayConstIterator<dtype, const_pointer, difference_type>;
+        using reverse_iterator              = std::reverse_iterator<iterator>;
+        using const_reverse_iterator        = std::reverse_iterator<const_iterator>;
+
+        using column_iterator               = NdArrayColumnIterator<dtype, size_type, pointer, difference_type>;
+        using const_column_iterator         = NdArrayConstColumnIterator<dtype, size_type, const_pointer, difference_type>;
+        using reverse_column_iterator       = std::reverse_iterator<column_iterator>;
+        using const_reverse_column_iterator = std::reverse_iterator<const_column_iterator>;
 
         //============================================================================
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-        }
+        NdArray() = default;
 
         //============================================================================
         // Method Description:
@@ -86,13 +114,11 @@ namespace nc
         /// @param
         ///				inSquareSize: square number of rows and columns
         ///
-        explicit NdArray(uint32 inSquareSize) noexcept :
+        explicit NdArray(size_type inSquareSize) :
             shape_(inSquareSize, inSquareSize),
-            size_(inSquareSize * inSquareSize),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(inSquareSize * inSquareSize)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            newArray();
         }
 
         //============================================================================
@@ -102,13 +128,11 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray(uint32 inNumRows, uint32 inNumCols) noexcept :
+        NdArray(size_type inNumRows, size_type inNumCols) :
             shape_(inNumRows, inNumCols),
-            size_(inNumRows * inNumCols),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(inNumRows * inNumCols)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            newArray();
         }
 
         //============================================================================
@@ -118,13 +142,11 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        explicit NdArray(const Shape& inShape) noexcept :
+        explicit NdArray(const Shape& inShape) :
             shape_(inShape),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            newArray();
         }
 
         //============================================================================
@@ -134,14 +156,15 @@ namespace nc
         /// @param
         ///				inList
         ///
-        NdArray(const std::initializer_list<dtype>& inList) noexcept :
+        NdArray(const std::initializer_list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inList.begin(), inList.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inList.begin(), inList.end(), begin());
+            }
         }
 
         //============================================================================
@@ -154,12 +177,8 @@ namespace nc
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
-            for (auto& list : inList)
+            for (const auto& list : inList)
             {
-                size_ += static_cast<uint32>(list.size());
-
                 if (shape_.cols == 0)
                 {
                     shape_.cols = static_cast<uint32>(list.size());
@@ -170,68 +189,212 @@ namespace nc
                 }
             }
 
-            array_ = new dtype[size_];
+            size_ = shape_.size();
+            newArray();
             uint32 row = 0;
-            for (auto& list : inList)
+            for (const auto& list : inList)
             {
-                auto ptr = array_ + row * shape_.cols;
+                const auto ptr = begin() += row * shape_.cols;
                 stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
-
-            ownsPtr_ = true;
         }
 
         //============================================================================
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inArray
+        /// @param      inArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
         ///
-        template<size_t ArraySize>
-        explicit NdArray(const std::array<dtype, ArraySize>& inArray) noexcept :
-            shape_(1, static_cast<uint32>(inArray.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+        template<size_t ArraySize, 
+            std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+        NdArray(std::array<dtype, ArraySize>& inArray, bool copy = true) :
+            shape_(1, static_cast<uint32>(ArraySize)),
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(inArray.begin(), inArray.end(), begin());
+                }
+            }
+            else
+            {
+                array_ = inArray.data();
+                ownsPtr_ = false;
+            }
         }
 
         //============================================================================
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inVector
+        /// @param      in2dArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
         ///
-        explicit NdArray(const std::vector<dtype>& inVector) noexcept :
+        template<size_t Dim0Size, size_t Dim1Size>
+        NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) :
+            shape_(static_cast<uint32>(Dim0Size), static_cast<uint32>(Dim1Size)),
+            size_(shape_.size())
+        {
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    const auto start = in2dArray.front().begin();
+                    stl_algorithms::copy(start, start + size_, begin());
+                }
+            }
+            else
+            {
+                array_ = in2dArray.front().data();
+                ownsPtr_ = false;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inVector
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+        NdArray(std::vector<dtype>& inVector, bool copy = true) :
             shape_(1, static_cast<uint32>(inVector.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    stl_algorithms::copy(inVector.begin(), inVector.end(), begin());
+                }
+            }
+            else
+            {
+                array_ = inVector.data();
+                ownsPtr_ = false;
+            }
         }
 
         //============================================================================
         // Method Description:
         ///						Constructor
         ///
-        /// @param
-        ///				inDeque
+        /// @param      in2dVector
         ///
-        explicit NdArray(const std::deque<dtype>& inDeque) noexcept :
+        explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) :
+            shape_(static_cast<uint32>(in2dVector.size()), 0)
+        {
+            for (const auto& row : in2dVector)
+            {
+                if (shape_.cols == 0)
+                {
+                    shape_.cols = static_cast<uint32>(row.size());
+                }
+                else if (row.size() != shape_.cols)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
+                }
+            }
+
+            size_ = shape_.size();
+
+            newArray();
+            auto currentPosition = begin();
+            for (const auto& row : in2dVector)
+            {
+                stl_algorithms::copy(row.begin(), row.end(), currentPosition);
+                currentPosition += shape_.cols;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      in2dArray
+        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
+        ///                   act as a non-owning shell. Default true.
+        ///
+        template<size_t Dim1Size>
+        NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) :
+            shape_(static_cast<uint32>(in2dArray.size()), static_cast<uint32>(Dim1Size)),
+            size_(shape_.size())
+        {
+            if (copy)
+            {
+                newArray();
+                if (size_ > 0)
+                {
+                    const auto start = in2dArray.front().begin();
+                    stl_algorithms::copy(start, start + size_, begin());
+                }
+            }
+            else
+            {
+                array_ = in2dArray.front().data();
+                ownsPtr_ = false;
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inDeque
+        ///
+        template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
+        NdArray(const std::deque<dtype>& inDeque) :
             shape_(1, static_cast<uint32>(inDeque.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inDeque.begin(), inDeque.end(), begin());
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      in2dDeque
+        ///
+        explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) :
+            shape_(static_cast<uint32>(in2dDeque.size()), 0)
+        {
+            for (const auto& row : in2dDeque)
+            {
+                if (shape_.cols == 0)
+                {
+                    shape_.cols = static_cast<uint32>(row.size());
+                }
+                else if (row.size() != shape_.cols)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("All rows of the 2d vector need to have the same number of elements");
+                }
+            }
+
+            size_ = shape_.size();
+
+            newArray();
+            auto currentPosition = begin();
+            for (const auto& row : in2dDeque)
+            {
+                stl_algorithms::copy(row.begin(), row.end(), currentPosition);
+                currentPosition += shape_.cols;
+            }
         }
 
         //============================================================================
@@ -239,16 +402,17 @@ namespace nc
         ///						Constructor
         ///
         /// @param
-        ///				inSet
+        ///				inList
         ///
-        explicit NdArray(const std::set<dtype>& inSet) noexcept :
-            shape_(1, static_cast<uint32>(inSet.size())),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+        explicit NdArray(const std::list<dtype>& inList) :
+            shape_(1, static_cast<uint32>(inList.size())),
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inList.begin(), inList.end(), begin());
+            }
         }
 
         //============================================================================
@@ -258,34 +422,17 @@ namespace nc
         /// @param				inFirst
         /// @param				inLast
         ///
-        explicit NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
-            shape_(1, static_cast<uint32>(inLast - inFirst)),
-            size_(shape_.size()),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+        template<typename Iterator,
+            std::enable_if_t<std::is_same<typename std::iterator_traits<Iterator>::value_type, dtype>::value, int> = 0>
+        NdArray(Iterator inFirst, Iterator inLast) :
+            shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
+            size_(shape_.size())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inFirst, inLast, array_);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Constructor. Operates as a shell around an already existing
-        ///                     array of data.
-        ///
-        /// @param				inPtr: dtype* to beginning of the array
-        /// @param				numRows: the number of rows in the array
-        /// @param              numCols: the nubmer of column in the array
-        /// @param              takeOwnership: whether or not to take ownership of the data
-        ///                     and call delete[] in the destructor.
-        ///
-        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership = false) noexcept :
-            shape_(numRows, numCols),
-            size_(numRows * numCols),
-            array_(inPtr),
-            ownsPtr_(takeOwnership)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inFirst, inLast, begin());
+            }
         }
 
         //============================================================================
@@ -293,18 +440,78 @@ namespace nc
         ///						Constructor.  Copies the contents of the buffer into 
         ///                     the array.
         ///
-        /// @param				inPtr: dtype* to beginning of buffer
-        /// @param				inSize: number of elements in buffer
+        /// @param				inPtr: const_pointer to beginning of buffer
+        /// @param				size: number of elements in buffer
         ///
-        NdArray(const dtype* const inPtr, uint32 inSize) noexcept :
-            shape_(1, inSize),
-            size_(inSize),
-            array_(new dtype[size_]),
-            ownsPtr_(true)
+        explicit NdArray(const_pointer inPtr, size_type size) :
+            shape_(1, size),
+            size_(size)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-            stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            newArray();
+            if (inPtr != nullptr && size_ > 0)
+            {
+                stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            }
         }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor.  Copies the contents of the buffer into 
+        ///                     the array.
+        ///
+        /// @param				inPtr: const_pointer to beginning of buffer
+        /// @param				numRows: number of rows of the buffer
+        /// @param				numCols: number of cols of the buffer
+        ///
+        explicit NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) :
+            shape_(numRows, numCols),
+            size_(shape_.size())
+        {
+            newArray();
+            if (inPtr != nullptr && size_ > 0)
+            {
+                stl_algorithms::copy(inPtr, inPtr + size_, begin());
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor. Operates as a shell around an already existing
+        ///                     array of data.
+        ///
+        /// @param				inPtr: pointer to beginning of the array
+        /// @param				size: the number of elements in the array
+        /// @param              takeOwnership: whether or not to take ownership of the data
+        ///                     and call delete[] in the destructor.
+        ///
+        template<typename Bool,
+            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+        explicit NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
+            shape_(1, size),
+            size_(size),
+            array_(inPtr),
+            ownsPtr_(takeOwnership)
+        {}
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor. Operates as a shell around an already existing
+        ///                     array of data.
+        ///
+        /// @param				inPtr: pointer to beginning of the array
+        /// @param				numRows: the number of rows in the array
+        /// @param              numCols: the nubmer of column in the array
+        /// @param              takeOwnership: whether or not to take ownership of the data
+        ///                     and call delete[] in the destructor.
+        ///
+        template<typename Bool,
+            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
+            shape_(numRows, numCols),
+            size_(numRows * numCols),
+            array_(inPtr),
+            ownsPtr_(takeOwnership)
+        {}
 
         //============================================================================
         // Method Description:
@@ -313,14 +520,16 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray& inOtherArray) noexcept :
+        NdArray(const NdArray<dtype>& inOtherArray) :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
-            endianess_(inOtherArray.endianess_),
-            array_(new dtype[inOtherArray.size_]),
-            ownsPtr_(true)
+            endianess_(inOtherArray.endianess_)
         {
-            stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+            newArray();
+            if (size_ > 0)
+            {
+                stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+            }
         }
 
         //============================================================================
@@ -330,14 +539,15 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(NdArray&& inOtherArray) noexcept :
+        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(inOtherArray.array_),
             ownsPtr_(inOtherArray.ownsPtr_)
         {
-            inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
+            inOtherArray.shape_.rows = inOtherArray.shape_.cols = 0;
+            inOtherArray.size_ = 0;
             inOtherArray.ownsPtr_ = false;
             inOtherArray.array_ = nullptr;
         }
@@ -346,7 +556,7 @@ namespace nc
         // Method Description:
         ///						Destructor
         ///
-        ~NdArray()
+        ~NdArray() noexcept
         {
             deleteArray();
         }
@@ -360,14 +570,17 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(const NdArray& rhs) noexcept
+        NdArray<dtype>& operator=(const NdArray<dtype>& rhs)
         {
             if (&rhs != this)
             {
-                newArray(rhs.shape_);
-                endianess_ = rhs.endianess_;
+                if (rhs.size_ > 0)
+                {
+                    newArray(rhs.shape_);
+                    endianess_ = rhs.endianess_;
 
-                stl_algorithms::copy(rhs.cbegin(), rhs.cend(), begin());
+                    stl_algorithms::copy(rhs.cbegin(), rhs.cend(), begin());
+                }
             }
 
             return *this;
@@ -376,16 +589,19 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Assignment operator, sets the entire array to a single
-        ///                     scalar value.
+        ///                     scaler value.
         ///
         /// @param
         ///				inValue
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(dtype inValue) noexcept
+        NdArray<dtype>& operator=(value_type inValue) noexcept
         {
-            stl_algorithms::fill(begin(), end(), inValue);
+            if (array_ != nullptr)
+            {
+                stl_algorithms::fill(begin(), end(), inValue);
+            }
 
             return *this;
         }
@@ -399,7 +615,7 @@ namespace nc
         /// @return
         ///				NdArray<dtype>
         ///
-        NdArray& operator=(NdArray&& rhs) noexcept
+        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept 
         {
             if (&rhs != this)
             {
@@ -427,10 +643,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& operator[](int32 inIndex)
+        reference operator[](int32 inIndex) noexcept 
         {
-            checkNullPtr();
-
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -448,10 +662,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator[](int32 inIndex) const
+        const_reference operator[](int32 inIndex) const noexcept 
         {
-            checkNullPtr();
-
             if (inIndex < 0)
             {
                 inIndex += size_;
@@ -469,10 +681,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& operator()(int32 inRowIndex, int32 inColIndex) noexcept
+        reference operator()(int32 inRowIndex, int32 inColIndex) noexcept 
         {
-            checkNullPtr();
-
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -495,10 +705,8 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
+        const_reference operator()(int32 inRowIndex, int32 inColIndex) const noexcept 
         {
-            checkNullPtr();
-
             if (inRowIndex < 0)
             {
                 inRowIndex += shape_.rows;
@@ -554,7 +762,7 @@ namespace nc
 
             auto indices = inMask.flatnonzero();
             auto outArray = NdArray<dtype>(1, indices.size());
-            for (uint32 i = 0; i < indices.size(); ++i)
+            for (size_type i = 0; i < indices.size(); ++i)
             {
                 outArray[i] = operator[](indices[i]);
             }
@@ -571,15 +779,15 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<uint32>& inIndices) const
+        NdArray<dtype> operator[](const NdArray<size_type>& inIndices) const
         {
             if (inIndices.max().item() > size_ - 1)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input indices must be less than the array size.");
             }
 
-            auto outArray = NdArray<dtype>(1, static_cast<uint32>(inIndices.size()));
-            uint32 i = 0;
+            auto outArray = NdArray<dtype>(1, static_cast<size_type>(inIndices.size()));
+            size_type i = 0;
             for (auto& index : inIndices)
             {
                 outArray[i++] = operator[](index);
@@ -709,7 +917,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& at(int32 inIndex)
+        reference at(int32 inIndex)
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -732,7 +940,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& at(int32 inIndex) const
+        const_reference at(int32 inIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -755,7 +963,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype& at(int32 inRowIndex, int32 inColIndex)
+        reference at(int32 inRowIndex, int32 inColIndex)
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -787,7 +995,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        const dtype& at(int32 inRowIndex, int32 inColIndex) const
+        const_reference at(int32 inRowIndex, int32 inColIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -821,8 +1029,6 @@ namespace nc
         ///
         NdArray<dtype> at(const Slice& inSlice) const
         {
-            checkNullPtr();
-
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
             return operator[](inSlice);
@@ -878,15 +1084,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to the beginning of the flattened array	None
+        ///						iterator to the beginning of the flattened array
         /// @return
         ///				iterator
         ///
-        iterator begin()
+        iterator begin() noexcept 
         {
-            checkNullPtr();
-
-            return array_;
+            return iterator(array_);
         }
 
         //============================================================================
@@ -898,23 +1102,23 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator begin(uint32 inRow)
+        iterator begin(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return begin() + inRow * shape_.cols;
+            return begin() += (inRow * shape_.cols);
         }
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array	None
+        ///						const iterator to the beginning of the flattened array
         /// @return
         ///				const_iterator
         ///
-        const_iterator begin() const noexcept
+        const_iterator begin() const noexcept 
         {
             return cbegin();
         }
@@ -928,9 +1132,298 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator begin(uint32 inRow) const
+        const_iterator begin(size_type inRow) const
         {
             return cbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator cbegin() const noexcept 
+        {
+            return const_iterator(array_);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator cbegin(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return cbegin() += (inRow * shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the beginning of the flattened array
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colbegin() noexcept 
+        {
+            return column_iterator(array_, shape_.rows, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colbegin(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return colbegin() += (inCol * shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the beginning of the flattened array
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colbegin() const noexcept 
+        {
+            return ccolbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colbegin(size_type inCol) const
+        {
+            return ccolbegin(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin() const noexcept 
+        {
+            return const_column_iterator(array_, shape_.rows, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin() += (inCol * shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the beginning of the flattened array
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rbegin() noexcept
+        {
+            return reverse_iterator(end());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rbegin(size_type inRow)
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return rbegin() += (shape_.rows - inRow - 1) * shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_iterator rbegin() const noexcept
+        {
+            return crbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_iterator rbegin(size_type inRow) const
+        {
+            return crbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crbegin() const noexcept
+        {
+            return const_reverse_iterator(cend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crbegin(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin() += (shape_.rows - inRow - 1) * shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the beginning of the flattened array
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolbegin() noexcept
+        {
+            return reverse_column_iterator(colend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolbegin(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return rcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_column_iterator rcolbegin() const noexcept
+        {
+            return crcolbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_iterator
+        ///
+        const_reverse_column_iterator rcolbegin(size_type inCol) const
+        {
+            return crcolbegin(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin() const noexcept
+        {
+            return const_reverse_column_iterator(ccolend());
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the beginning of the input column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolbegin(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return crcolbegin() += (shape_.cols - inCol - 1) * shape_.rows;
         }
 
         //============================================================================
@@ -939,9 +1432,9 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator end() noexcept
+        iterator end() noexcept 
         {
-            return begin() + size_;
+            return begin() += size_;
         }
 
         //============================================================================
@@ -953,14 +1446,14 @@ namespace nc
         /// @return
         ///				iterator
         ///
-        iterator end(uint32 inRow)
+        iterator end(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return begin(inRow) + shape_.cols;
+            return begin(inRow) += shape_.cols;
         }
 
         //============================================================================
@@ -969,7 +1462,7 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator end() const noexcept
+        const_iterator end() const noexcept 
         {
             return cend();
         }
@@ -983,42 +1476,9 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator end(uint32 inRow) const
+        const_iterator end(size_type inRow) const
         {
             return cend(inRow);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to the beginning of the flattened array
-        ///
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cbegin() const
-        {
-            checkNullPtr();
-
-            return array_;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						const iterator to the beginning of the input row
-        ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
-        ///
-        const_iterator cbegin(uint32 inRow) const
-        {
-            if (inRow >= shape_.rows)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
-            }
-
-            return cbegin() + inRow * shape_.cols;
         }
 
         //============================================================================
@@ -1028,9 +1488,9 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cend() const noexcept
+        const_iterator cend() const noexcept 
         {
-            return cbegin() + size_;
+            return cbegin() += size_;
         }
 
         //============================================================================
@@ -1042,14 +1502,272 @@ namespace nc
         /// @return
         ///				const_iterator
         ///
-        const_iterator cend(uint32 inRow) const
+        const_iterator cend(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
             }
 
-            return cbegin(inRow) + shape_.cols;
+            return cbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rend() noexcept
+        {
+            return rbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				reverse_iterator
+        ///
+        reverse_iterator rend(size_type inRow)
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return rbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator rend() const noexcept
+        {
+            return crend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator rend(size_type inRow) const
+        {
+            return crend(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend() const noexcept
+        {
+            return crbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_iterator to 1 past the end of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_reverse_iterator
+        ///
+        const_reverse_iterator crend(size_type inRow) const
+        {
+            if (inRow >= shape_.rows)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input row is greater than the number of rows in the array.");
+            }
+
+            return crbegin(inRow) += shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend() noexcept 
+        {
+            return colbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				column_iterator
+        ///
+        column_iterator colend(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return colbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend() const noexcept 
+        {
+            return ccolend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator colend(size_type inCol) const
+        {
+            return ccolend(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend() const noexcept 
+        {
+            return ccolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_column_iterator to 1 past the end of the input col
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_column_iterator
+        ///
+        const_column_iterator ccolend(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return ccolbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolend() noexcept
+        {
+            return rcolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						reverse_column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				reverse_column_iterator
+        ///
+        reverse_column_iterator rcolend(size_type inCol)
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return rcolbegin(inCol) += shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator rcolend() const noexcept
+        {
+            return crcolend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to the 1 past end of the column
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator rcolend(size_type inCol) const
+        {
+            return crcolend(inCol);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the flattened array
+        ///
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolend() const noexcept
+        {
+            return crcolbegin() += size_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const_reverse_column_iterator to 1 past the end of the input col
+        ///
+        /// @param
+        ///				inCol
+        /// @return
+        ///				const_reverse_column_iterator
+        ///
+        const_reverse_column_iterator crcolend(size_type inCol) const
+        {
+            if (inCol >= shape_.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input col is greater than the number of cols in the array.");
+            }
+
+            return crcolbegin(inCol) += shape_.rows;
         }
 
         //============================================================================
@@ -1063,9 +1781,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> all(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool> all(Axis inAxis = Axis::NONE) const 
         {
-            auto function = [](dtype i) noexcept -> bool
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto function = [](dtype i)  -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -1100,9 +1820,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -1118,9 +1836,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> any(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool> any(Axis inAxis = Axis::NONE) const 
         {
-            auto function = [](dtype i) noexcept -> bool
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto function = [](dtype i)  -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -1155,9 +1875,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -1174,13 +1892,21 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::max_element(cbegin(), cend()) - cbegin()) };
+                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::max_element(cbegin(), 
+                        cend(), comparitor) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1188,7 +1914,8 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(cbegin(row), cend(row)) - cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(cbegin(row), 
+                            cend(row), comparitor) - cbegin(row));
                     }
 
                     return returnArray;
@@ -1200,16 +1927,14 @@ namespace nc
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(arrayTransposed.cbegin(row),
-                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                            arrayTransposed.cend(row), comparitor) - arrayTransposed.cbegin(row));
                     }
 
                     return returnArray;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1226,13 +1951,21 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::min_element(cbegin(), cend()) - cbegin()) };
+                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::min_element(cbegin(), 
+                        cend(), comparitor) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1240,7 +1973,8 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(cbegin(row), cend(row)) - cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(cbegin(row), 
+                            cend(row), comparitor) - cbegin(row));
                     }
 
                     return returnArray;
@@ -1252,16 +1986,14 @@ namespace nc
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(arrayTransposed.cbegin(row),
-                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                            arrayTransposed.cend(row), comparitor) - arrayTransposed.cbegin(row));
                     }
 
                     return returnArray;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1277,8 +2009,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1286,9 +2020,9 @@ namespace nc
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
 
-                    auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
+                    const auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
                     {
-                        return operator[](i1) < operator[](i2);
+                        return (*this)[i1] < (*this)[i2];
                     };
 
                     stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
@@ -1302,7 +2036,7 @@ namespace nc
                         std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
-                        auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
+                        const auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
                         {
                             return operator()(row, i1) < operator()(row, i2);
                         };
@@ -1325,7 +2059,7 @@ namespace nc
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
-                        auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
+                        const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
                         {
                             return arrayTransposed(row, i1) < arrayTransposed(row, i2);
                         };
@@ -1341,9 +2075,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<uint32>(0);
+                    return NdArray<uint32>(); // get rid of compiler warning
                 }
             }
         }
@@ -1351,14 +2083,18 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Returns a copy of the array, cast to a specified type.
+        ///                     Arithmetic to Arithmetic
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> astype() const noexcept
+        template<typename dtypeOut, typename dtype_ = dtype,
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
+        NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
 
@@ -1368,7 +2104,7 @@ namespace nc
             }
             else
             {
-                auto function = [](dtype value) noexcept -> dtypeOut
+                const auto function = [](dtype value)  -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
                 };
@@ -1381,12 +2117,103 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Arithmetic to Complex
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
+            enable_if_t<is_complex_v<dtypeOut>, int> = 0>
+            NdArray<dtypeOut> astype() const 
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            const auto function = [](const_reference value)  -> dtypeOut
+            {
+                return std::complex<typename dtypeOut::value_type>(value);
+            };
+
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Complex to Complex
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_complex_v<dtype_>, int> = 0,
+            enable_if_t<is_complex_v<dtypeOut>, int> = 0>
+        NdArray<dtypeOut> astype() const 
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            if (std::is_same<dtypeOut, dtype>::value)
+            {
+                std::copy(cbegin(), cend(), outArray.begin());
+            }
+            else
+            {
+                const auto function = [](const_reference value) noexcept -> dtypeOut
+                {
+                    return complex_cast<typename dtypeOut::value_type>(value);
+                };
+
+                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+            }
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the array, cast to a specified type.
+        ///                     Complex to Arithmetic
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut, typename dtype_ = dtype, 
+            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_complex_v<dtype_>, int> = 0,
+            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
+            NdArray<dtypeOut> astype() const 
+        {
+            NdArray<dtypeOut> outArray(shape_);
+
+            const auto function = [](const_reference value)  -> dtypeOut
+            {
+                return static_cast<dtypeOut>(value.real());
+            };
+
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+
+            return outArray;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Returns a copy of the last element of the flattened array.
         ///
         /// @return
         ///				dtype
         ///
-        dtype back() const noexcept
+        value_type back() const noexcept 
         {
             return *(cend() - 1);
         }
@@ -1398,9 +2225,33 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& back() noexcept
+        reference back() noexcept 
         {
             return *(end() - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the last element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        value_type back(size_type row) const 
+        {
+            return *(cend(row) - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference the last element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        reference back(size_type row) 
+        {
+            return *(end(row) - 1);
         }
 
         //============================================================================
@@ -1412,8 +2263,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype>& byteswap() noexcept
+        NdArray<dtype>& byteswap() 
         {
+            STATIC_ASSERT_INTEGER(dtype);
+
             switch (endianess_)
             {
                 case Endian::BIG:
@@ -1451,10 +2304,17 @@ namespace nc
         /// @return
         ///				clipped value
         ///
-        NdArray<dtype> clip(dtype inMin, dtype inMax) const noexcept
+        NdArray<dtype> clip(value_type inMin, value_type inMax) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             NdArray<dtype> outArray(shape_);
-            boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax);
+            boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax, 
+                [](dtype lhs, dtype rhs) noexcept -> bool
+                {
+                    return lhs < rhs;
+                });
+
             return outArray;
         }
 
@@ -1480,15 +2340,17 @@ namespace nc
         /// @return
         ///				bool
         ///
-        NdArray<bool> contains(dtype inValue, Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
                     NdArray<bool> returnArray = { stl_algorithms::find(cbegin(), cend(), inValue) != cend() };
                     return returnArray;
-            }
+                }
                 case Axis::COL:
                 {
                     NdArray<bool> returnArray(1, shape_.rows);
@@ -1512,12 +2374,10 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
+            }
         }
-    }
 
         //============================================================================
         // Method Description:
@@ -1528,7 +2388,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> copy() const noexcept
+        NdArray<dtype> copy() const 
         {
             return NdArray<dtype>(*this);
         }
@@ -1544,8 +2404,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1589,9 +2451,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1607,8 +2467,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1652,9 +2514,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1662,11 +2522,20 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Returns the raw pointer to the underlying data
-        /// @return dtype*
+        /// @return pointer
         ///
-        dtype* data() const
+        pointer data() noexcept 
         {
-            checkNullPtr();
+            return array_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the raw pointer to the underlying data
+        /// @return const_pointer
+        ///
+        const_pointer data() const noexcept 
+        {
             return array_;
         }
 
@@ -1675,9 +2544,9 @@ namespace nc
         ///						Releases the internal data pointer so that the destructor
         ///                     will not call delete on it, and returns the raw pointer
         ///                     to the underlying data.
-        /// @return dtype*
+        /// @return pointer
         ///
-        dtype* dataRelease()
+        pointer dataRelease() noexcept
         {
             ownsPtr_ = false;
             return data();
@@ -1694,7 +2563,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const 
         {
             switch (inAxis)
             {
@@ -1744,7 +2613,7 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -1765,6 +2634,8 @@ namespace nc
         ///
         NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
                 dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
@@ -1795,13 +2666,13 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
 
-            return NdArray<dtype>();  // getting rid of compiler warning
+            return NdArray<dtype>(); // get rid of compiler warning
         }
 
         //============================================================================
         // Method Description:
         ///						Dump a binary file of the array to the specified file.
-        ///						The array can be read back with or NC::load.
+        ///						The array can be read back with nc::load.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///
@@ -1809,8 +2680,6 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            checkNullPtr();
-
             filesystem::File f(inFilename);
             if (!f.hasExt())
             {
@@ -1823,8 +2692,42 @@ namespace nc
                 THROW_RUNTIME_ERROR("Unable to open the input file:\n\t" + inFilename);
             }
 
-            ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
+            if (array_ != nullptr)
+            {
+                ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
+            }
             ofile.close();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return the NdArrays endianess
+        ///
+        /// @return
+        ///				Endian
+        ///
+        Endian endianess() const noexcept 
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            return endianess_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Fill the array with a scaler value.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
+        ///
+        /// @param
+        ///				inFillValue
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype>& fill(value_type inFillValue) noexcept
+        {
+            stl_algorithms::fill(begin(), end(), inFillValue);
+            return *this;
         }
 
         //============================================================================
@@ -1835,8 +2738,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> flatnonzero() const noexcept
+        NdArray<uint32> flatnonzero() const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::vector<uint32> indices;
             uint32 idx = 0;
             for (auto value : *this)
@@ -1853,116 +2758,6 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return if the NdArray is empty. ie the default construtor
-        ///						was used.
-        ///
-        /// @return
-        ///				boolean
-        ///
-        bool isempty() const noexcept
-        {
-            return size_ == 0;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return if the NdArray is empty. ie the default construtor
-        ///						was used.
-        ///
-        /// @return
-        ///				boolean
-        ///
-        bool isflat() const noexcept
-        {
-            return shape_.rows == 1 || shape_.cols == 1;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return if the NdArray is sorted.
-        ///
-        /// @param inAxis
-        /// @return boolean
-        ///
-        NdArray<bool> issorted(Axis inAxis = Axis::NONE) const noexcept
-        {
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    return { stl_algorithms::is_sorted(cbegin(), cend()) };
-                }
-                case Axis::ROW:
-                {
-                    NdArray<bool> returnArray(shape_.cols, 1);
-                    auto transposedArray = transpose();
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = stl_algorithms::is_sorted(transposedArray.cbegin(row), transposedArray.cend(row));
-                    }
-
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<bool> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = stl_algorithms::is_sorted(cbegin(row), cend(row));
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    // not actually possible, just getting rid of compiler warning
-                    return NdArray<bool>(0);
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return if the NdArray is sorted.
-        ///
-        /// @return boolean
-        ///
-        bool issquare() const noexcept
-        {
-            return shape_.issquare();
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return the NdArrays endianess
-        ///
-        /// @return
-        ///				Endian
-        ///
-        Endian endianess() const noexcept
-        {
-            return endianess_;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Fill the array with a scalar value.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
-        ///
-        /// @param
-        ///				inFillValue
-        /// @return
-        ///				None
-        ///
-        NdArray<dtype>& fill(dtype inFillValue) noexcept
-        {
-            stl_algorithms::fill(begin(), end(), inFillValue);
-            return *this;
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Return a copy of the array collapsed into one dimension.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
@@ -1970,7 +2765,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> flatten() const noexcept
+        NdArray<dtype> flatten() const 
         {
             NdArray<dtype> outArray(1, size_);
             stl_algorithms::copy(cbegin(), cend(), outArray.begin());
@@ -1984,7 +2779,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype front() const noexcept
+        value_type front() const noexcept 
         {
             return *cbegin();
         }
@@ -1996,9 +2791,33 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        dtype& front() noexcept
+        reference front() noexcept 
         {
             return *begin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a copy of the first element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        value_type front(size_type row) const 
+        {
+            return *cbegin(row);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns a reference to the first element of the input row.
+        ///
+        /// @return
+        ///				dtype
+        ///
+        reference front(size_type row) 
+        {
+            return *begin(row);
         }
 
         //============================================================================
@@ -2033,25 +2852,109 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copy an element of an array to a standard C++ scalar and return it.
+        ///						Return if the NdArray is empty. ie the default construtor
+        ///						was used.
+        ///
+        /// @return
+        ///				boolean
+        ///
+        bool isempty() const noexcept 
+        {
+            return size_ == 0;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return if the NdArray is empty. ie the default construtor
+        ///						was used.
+        ///
+        /// @return
+        ///				boolean
+        ///
+        bool isflat() const noexcept 
+        {
+            return shape_.rows == 1 || shape_.cols == 1;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return if the NdArray is sorted.
+        ///
+        /// @param inAxis
+        /// @return boolean
+        ///
+        NdArray<bool> issorted(Axis inAxis = Axis::NONE) const 
+        {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    return { stl_algorithms::is_sorted(cbegin(), cend(), comparitor) };
+                }
+                case Axis::ROW:
+                {
+                    NdArray<bool> returnArray(shape_.cols, 1);
+                    auto transposedArray = transpose();
+                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::is_sorted(transposedArray.cbegin(row), 
+                            transposedArray.cend(row), comparitor);
+                    }
+
+                    return returnArray;
+                }
+                case Axis::COL:
+                {
+                    NdArray<bool> returnArray(1, shape_.rows);
+                    for (uint32 row = 0; row < shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::is_sorted(cbegin(row), cend(row), comparitor);
+                    }
+
+                    return returnArray;
+                }
+                default:
+                {
+                    return NdArray<bool>(); // get rid of compiler warning
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return if the NdArray is sorted.
+        ///
+        /// @return boolean
+        ///
+        bool issquare() const noexcept
+        {
+            return shape_.issquare();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Copy an element of an array to a standard C++ scaler and return it.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
         ///
         /// @return
         ///				array element
         ///
-        dtype item() const
+        value_type item() const
         {
-            if (size_ == 1)
+            if (size_ != 1)
             {
-                return array_[0];
-            }
-            else
-            {
-                THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scalar");
+                THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scaler");
             }
 
-            return 0; // getting rid of compiler warning
+            return front();
         }
 
         //============================================================================
@@ -2065,13 +2968,20 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> max(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> max(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::max_element(cbegin(), cend()) };
+                    NdArray<dtype> returnArray = { *stl_algorithms::max_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -2079,7 +2989,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = *stl_algorithms::max_element(cbegin(row), cend(row));
+                        returnArray(0, row) = *stl_algorithms::max_element(cbegin(row), cend(row), comparitor);
                     }
 
                     return returnArray;
@@ -2090,16 +3000,15 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = *stl_algorithms::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
+                        returnArray(0, row) = *stl_algorithms::max_element(transposedArray.cbegin(row), 
+                            transposedArray.cend(row), comparitor);
                     }
 
                     return returnArray;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2115,13 +3024,20 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> min(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> min(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::min_element(cbegin(), cend()) };
+                    NdArray<dtype> returnArray = { *stl_algorithms::min_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -2129,7 +3045,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = *stl_algorithms::min_element(cbegin(row), cend(row));
+                        returnArray(0, row) = *stl_algorithms::min_element(cbegin(row), cend(row), comparitor);
                     }
 
                     return returnArray;
@@ -2140,70 +3056,15 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = *stl_algorithms::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
+                        returnArray(0, row) = *stl_algorithms::min_element(transposedArray.cbegin(row), 
+                            transposedArray.cend(row), comparitor);
                     }
 
                     return returnArray;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return the mean along a given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> mean(Axis inAxis = Axis::NONE) const noexcept
-        {
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
-                    NdArray<double> returnArray = { sum /= static_cast<double>(size_) };
-
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        double sum = static_cast<double>(std::accumulate(cbegin(row), cend(row), 0.0));
-                        returnArray(0, row) = sum / static_cast<double>(shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
-                        returnArray(0, row) = sum / static_cast<double>(transposedArray.shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2221,8 +3082,15 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> median(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> median(Axis inAxis = Axis::NONE) const
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             if (size_ == 0)
             {
                 THROW_RUNTIME_ERROR("Median is undefined for an array of size = 0.");
@@ -2235,14 +3103,14 @@ namespace nc
                     NdArray<dtype> copyArray(*this);
 
                     const uint32 middleIdx = size_ / 2;  // integer division
-                    stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middleIdx, copyArray.end());
+                    stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middleIdx, copyArray.end(), comparitor);
 
                     dtype medianValue = copyArray.array_[middleIdx];
                     if (size_ % 2 == 0)
                     {
                         const uint32 lhsIndex = middleIdx - 1;
-                        stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + lhsIndex, copyArray.end());
-                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / static_cast<dtype>(2); // potentially integer division, ok
+                        stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + lhsIndex, copyArray.end(), comparitor);
+                        medianValue = (medianValue + copyArray.array_[lhsIndex]) / dtype{2}; // potentially integer division, ok
                     }
 
                     return { medianValue };
@@ -2255,15 +3123,17 @@ namespace nc
                     const bool isEven = shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        uint32 middleIdx = shape_.cols / 2;  // integer division
-                        stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middleIdx, copyArray.end(row));
+                        const uint32 middleIdx = shape_.cols / 2;  // integer division
+                        stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middleIdx,
+                            copyArray.end(row), comparitor);
 
                         dtype medianValue = copyArray(row, middleIdx);
                         if (isEven)
                         {
                             const uint32 lhsIndex = middleIdx - 1;
-                            stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + lhsIndex, copyArray.end(row));
-                            medianValue = (medianValue + copyArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
+                            stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + lhsIndex, 
+                                copyArray.end(row), comparitor);
+                            medianValue = (medianValue + copyArray(row, lhsIndex)) / dtype{2}; // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;
@@ -2280,14 +3150,16 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         const uint32 middleIdx = transposedArray.shape_.cols / 2;  // integer division
-                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middleIdx, transposedArray.end(row));
+                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middleIdx, 
+                            transposedArray.end(row), comparitor);
 
                         dtype medianValue = transposedArray(row, middleIdx);
                         if (isEven)
                         {
                             const uint32 lhsIndex = middleIdx - 1;
-                            stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + lhsIndex, transposedArray.end(row));
-                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / static_cast<dtype>(2); // potentially integer division, ok
+                            stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + lhsIndex,
+                                transposedArray.end(row), comparitor);
+                            medianValue = (medianValue + transposedArray(row, lhsIndex)) / dtype{2}; // potentially integer division, ok
                         }
 
                         returnArray(0, row) = medianValue;
@@ -2297,23 +3169,21 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
 
         //============================================================================
         // Method Description:
-        ///						Fills the array with nans; only really works with.
-        ///                     Only really works for dtype = float/double
+        ///						Fills the array with nans.
         ///
         ///
         NdArray<dtype>& nans() noexcept
         {
-            fill(constants::nan);
+            STATIC_ASSERT_FLOAT(dtype);
 
+            fill(constants::nan);
             return *this;
         }
 
@@ -2326,7 +3196,7 @@ namespace nc
         /// @return
         ///				number of bytes
         ///
-        uint64 nbytes() const noexcept
+        uint64 nbytes() const noexcept 
         {
             return static_cast<uint64>(sizeof(dtype) * size_);
         }
@@ -2345,7 +3215,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> newbyteorder(Endian inEndianess) const noexcept
+        NdArray<dtype> newbyteorder(Endian inEndianess) const 
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -2379,9 +3249,7 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2418,9 +3286,7 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
@@ -2442,7 +3308,7 @@ namespace nc
                         {
                             NdArray<dtype> outArray(shape_);
 
-                            auto function = [](dtype value) noexcept -> dtype
+                            const auto function = [](dtype value) noexcept -> dtype
                             {
                                 return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value));
                             };
@@ -2458,18 +3324,14 @@ namespace nc
                         }
                         default:
                         {
-                            // this isn't actually possible, just putting this here to get rid
-                            // of the compiler warning.
-                            return NdArray<dtype>(0);
+                            return NdArray<dtype>(); // get rid of compiler warning
                         }
                     }
                     break;
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2485,9 +3347,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> none(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<bool> none(Axis inAxis = Axis::NONE) const 
         {
-            auto function = [](dtype i) noexcept -> bool
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto function = [](dtype i)  -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -2522,9 +3386,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<bool>(0);
+                    return NdArray<bool>(); // get rid of compiler warning
                 }
             }
         }
@@ -2540,69 +3402,7 @@ namespace nc
         ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
         ///             column indices
         ///
-        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const noexcept;
-
-        //============================================================================
-        // Method Description:
-        ///						Returns the norm of the array
-        ///
-        ///                     Numpy Reference: http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				norm
-        ///
-        NdArray<double> norm(Axis inAxis = Axis::NONE) const noexcept
-        {
-            double sumOfSquares = 0.0;
-            auto function = [&sumOfSquares](dtype value) noexcept -> void
-            {
-                sumOfSquares += utils::sqr(static_cast<double>(value));
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    std::for_each(cbegin(), cend(), function);
-
-                    NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        sumOfSquares = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        sumOfSquares = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
-                }
-            }
-        }
+        std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const;
 
         //============================================================================
         // Method Description:
@@ -2612,7 +3412,7 @@ namespace nc
         /// @return
         ///				uint32
         ///
-        uint32 numCols() noexcept
+        uint32 numCols() const noexcept 
         {
             return shape_.cols;
         }
@@ -2625,7 +3425,7 @@ namespace nc
         /// @return
         ///				uint32
         ///
-        uint32 numRows() noexcept
+        uint32 numRows() const noexcept 
         {
             return shape_.rows;
         }
@@ -2637,8 +3437,9 @@ namespace nc
         ///
         NdArray<dtype>& ones() noexcept
         {
-            fill(1);
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
+            fill(dtype{ 1 });
             return *this;
         }
 
@@ -2671,6 +3472,13 @@ namespace nc
         ///
         NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2682,7 +3490,7 @@ namespace nc
                         THROW_INVALID_ARGUMENT_ERROR(errStr);
                     }
 
-                    stl_algorithms::nth_element(begin(), begin() + inKth, end());
+                    stl_algorithms::nth_element(begin(), begin() + inKth, end(), comparitor);
                     break;
                 }
                 case Axis::COL:
@@ -2696,7 +3504,7 @@ namespace nc
 
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        stl_algorithms::nth_element(begin(row), begin(row) + inKth, end(row));
+                        stl_algorithms::nth_element(begin(row), begin(row) + inKth, end(row), comparitor);
                     }
                     break;
                 }
@@ -2712,7 +3520,8 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
+                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth,
+                            transposedArray.end(row), comparitor);
                     }
                     *this = transposedArray.transpose();
                     break;
@@ -2727,8 +3536,10 @@ namespace nc
         ///						Prints the array to the console.
         ///
         ///
-        void print() const noexcept
+        void print() const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::cout << *this;
         }
 
@@ -2743,8 +3554,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> prod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> prod(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2779,9 +3592,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2797,13 +3608,20 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    auto result = stl_algorithms::minmax_element(cbegin(), cend());
+                    const auto result = stl_algorithms::minmax_element(cbegin(), cend(), comparitor);
                     NdArray<dtype> returnArray = { *result.second - *result.first };
                     return returnArray;
                 }
@@ -2812,7 +3630,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        auto result = stl_algorithms::minmax_element(cbegin(row), cend(row));
+                        const auto result = stl_algorithms::minmax_element(cbegin(row), cend(row), comparitor);
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -2824,7 +3642,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        auto result = stl_algorithms::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
+                        const auto result = stl_algorithms::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row), comparitor);
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -2832,9 +3650,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -2848,7 +3664,7 @@ namespace nc
         /// @param				inIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inIndex, dtype inValue)
+        NdArray<dtype>& put(int32 inIndex, value_type inValue)
         {
             at(inIndex) = inValue;
 
@@ -2865,7 +3681,7 @@ namespace nc
         /// @param				inCol
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRow, int32 inCol, dtype inValue)
+        NdArray<dtype>& put(int32 inRow, int32 inCol, value_type inValue)
         {
             at(inRow, inCol) = inValue;
 
@@ -2881,7 +3697,7 @@ namespace nc
         /// @param				inIndices
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const NdArray<uint32>& inIndices, dtype inValue)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, value_type inValue)
         {
             for (auto index : inIndices)
             {
@@ -2925,7 +3741,7 @@ namespace nc
         /// @param				inSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inSlice, value_type inValue)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -2971,7 +3787,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -3001,7 +3817,7 @@ namespace nc
         /// @param				inColIndex
         /// @param				inValue
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, value_type inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -3025,7 +3841,7 @@ namespace nc
         /// @param				inColSlice
         /// @param				inValue
         ///
-        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, value_type inValue)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -3127,7 +3943,7 @@ namespace nc
         /// @param				inMask
         /// @param				inValue
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, dtype inValue)
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, value_type inValue)
         {
             if (inMask.shape() != shape_)
             {
@@ -3162,7 +3978,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& ravel()
+        NdArray<dtype>& ravel() noexcept
         {
             reshape(size_);
             return *this;
@@ -3179,7 +3995,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const noexcept
+        NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const 
         {
             NdArray<dtype> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
 
@@ -3222,7 +4038,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> repeat(const Shape& inRepeatShape) const noexcept
+        NdArray<dtype> repeat(const Shape& inRepeatShape) const 
         {
             return repeat(inRepeatShape.rows, inRepeatShape.cols);
         }
@@ -3234,8 +4050,10 @@ namespace nc
         /// @param  oldValue: the value to replace
         /// @param  newValue: the value to replace with
         ///
-        void replace(dtype oldValue, dtype newValue) noexcept
+        void replace(value_type oldValue, value_type newValue) 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             stl_algorithms::replace(begin(), end(), oldValue, newValue);
         }
 
@@ -3250,7 +4068,7 @@ namespace nc
         ///
         /// @param      inSize
         ///
-        NdArray<dtype>& reshape(uint32 inSize)
+        NdArray<dtype>& reshape(size_type inSize)
         {
             if (inSize != size_)
             {
@@ -3347,11 +4165,9 @@ namespace nc
         /// @param      inNumRows
         /// @param      inNumCols
         ///
-        NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) 
         {
             newArray(Shape(inNumRows, inNumCols));
-            zeros();
-
             return *this;
         }
 
@@ -3365,7 +4181,7 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        NdArray<dtype>& resizeFast(const Shape& inShape) noexcept
+        NdArray<dtype>& resizeFast(const Shape& inShape) 
         {
             return resizeFast(inShape.rows, inShape.cols);
         }
@@ -3382,7 +4198,7 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) 
         {
             std::vector<dtype> oldData(size_);
             stl_algorithms::copy(begin(), end(), oldData.begin());
@@ -3422,68 +4238,9 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        NdArray<dtype>& resizeSlow(const Shape& inShape) noexcept
+        NdArray<dtype>& resizeSlow(const Shape& inShape) 
         {
             return resizeSlow(inShape.rows, inShape.cols);
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Return the root mean square (RMS) along a given axis.
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> rms(Axis inAxis = Axis::NONE) const noexcept
-        {
-            double squareSum = 0.0;
-            auto function = [&squareSum](dtype value) noexcept -> void
-            {
-                squareSum += utils::sqr(static_cast<double>(value));
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    std::for_each(cbegin(), cend(), function);
-                    NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        squareSum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        squareSum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
-                }
-            }
         }
 
         //============================================================================
@@ -3498,25 +4255,20 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> round(uint8 inNumDecimals = 0) const noexcept
+        NdArray<dtype> round(uint8 inNumDecimals = 0) const 
         {
-            if (DtypeInfo<dtype>::isInteger())
-            {
-                return NdArray<dtype>(*this);
-            }
-            else
-            {
-                NdArray<dtype> returnArray(shape_);
-                double multFactor = utils::power(10.0, inNumDecimals);
-                auto function = [multFactor](dtype value) noexcept -> dtype
-                {
-                    return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
-                };
+            STATIC_ASSERT_FLOAT(dtype);
 
-                stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
+            NdArray<dtype> returnArray(shape_);
+            const double multFactor = utils::power(10.0, inNumDecimals);
+            const auto function = [multFactor](dtype value) noexcept -> dtype
+            {
+                return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
+            };
 
-                return returnArray;
-            }
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
+
+            return returnArray;
         }
 
         //============================================================================
@@ -3541,7 +4293,7 @@ namespace nc
         /// @return
         ///				Shape
         ///
-        Shape shape() const noexcept
+        Shape shape() const noexcept 
         {
             return shape_;
         }
@@ -3555,7 +4307,7 @@ namespace nc
         /// @return
         ///				size
         ///
-        uint32 size() const noexcept
+        size_type size() const noexcept 
         {
             return size_;
         }
@@ -3571,20 +4323,27 @@ namespace nc
         /// @return
         ///				size
         ///
-        NdArray<dtype>& sort(Axis inAxis = Axis::NONE) noexcept
+        NdArray<dtype>& sort(Axis inAxis = Axis::NONE) 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            {
+                return lhs < rhs;
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    stl_algorithms::sort(begin(), end());
+                    stl_algorithms::sort(begin(), end(), comparitor);
                     break;
                 }
                 case Axis::COL:
                 {
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        stl_algorithms::sort(begin(row), end(row));
+                        stl_algorithms::sort(begin(row), end(row), comparitor);
                     }
                     break;
                 }
@@ -3593,7 +4352,7 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        stl_algorithms::sort(transposedArray.begin(row), transposedArray.end(row));
+                        stl_algorithms::sort(transposedArray.begin(row), transposedArray.end(row), comparitor);
                     }
 
                     *this = transposedArray.transpose();
@@ -3606,84 +4365,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the std along a given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> stdev(Axis inAxis = Axis::NONE) const noexcept
-        {
-            double meanValue = 0.0;
-            double sum = 0.0;
-
-            auto function = [&sum, &meanValue](dtype value) noexcept-> void
-            {
-                sum += utils::sqr(static_cast<double>(value) - meanValue);
-            };
-
-            switch (inAxis)
-            {
-                case Axis::NONE:
-                {
-                    meanValue = mean(inAxis).item();
-                    std::for_each(cbegin(), cend(), function);
-
-                    NdArray<double> returnArray = { std::sqrt(sum / size_) };
-                    return returnArray;
-                }
-                case Axis::COL:
-                {
-                    NdArray<double> meanValueArray = mean(inAxis);
-                    NdArray<double> returnArray(1, shape_.rows);
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        meanValue = meanValueArray[row];
-                        sum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
-
-                        returnArray(0, row) = std::sqrt(sum / shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                case Axis::ROW:
-                {
-                    NdArray<double> meanValueArray = mean(inAxis);
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        meanValue = meanValueArray[row];
-                        sum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-
-                        returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
-                    }
-
-                    return returnArray;
-                }
-                default:
-                {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<double>(0);
-                }
-            }
-        }
-
-        //============================================================================
-        // Method Description:
         ///						returns the NdArray as a string representation
         ///
         /// @return
         ///				string
         ///
-        std::string str() const noexcept
+        std::string str() const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             std::string out;
             out += "[";
             for (uint32 row = 0; row < shape_.rows; ++row)
@@ -3691,7 +4381,7 @@ namespace nc
                 out += "[";
                 for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    out += utils::num2str(operator()(row, col)) + ", ";
+                    out += utils::value2str(operator()(row, col)) + ", ";
                 }
 
                 if (row == shape_.rows - 1)
@@ -3718,8 +4408,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> sum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> sum(Axis inAxis = Axis::NONE) const 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -3751,9 +4443,7 @@ namespace nc
                 }
                 default:
                 {
-                    // this isn't actually possible, just putting this here to get rid
-                    // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<dtype>(); // get rid of compiler warning
                 }
             }
         }
@@ -3767,7 +4457,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> swapaxes() const noexcept
+        NdArray<dtype> swapaxes() const 
         {
             return transpose();
         }
@@ -3787,6 +4477,8 @@ namespace nc
         ///
         void tofile(const std::string& inFilename, const std::string& inSep = "") const
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             if (inSep.compare("") == 0)
             {
                 dump(inFilename);
@@ -3825,7 +4517,7 @@ namespace nc
         /// @return
         ///				std::vector
         ///
-        std::vector<dtype> toStlVector() const noexcept
+        std::vector<dtype> toStlVector() const 
         {
             return std::vector<dtype>(cbegin(), cend());
         }
@@ -3842,8 +4534,10 @@ namespace nc
         /// @return
         ///				value
         ///
-        dtype trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept 
         {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
             uint32 rowStart = 0;
             uint32 colStart = 0;
             switch (inAxis)
@@ -3894,7 +4588,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> transpose() const noexcept
+        NdArray<dtype> transpose() const 
         {
             NdArray<dtype> transArray(shape_.cols, shape_.rows);
             for (uint32 row = 0; row < shape_.rows; ++row)
@@ -3909,58 +4603,25 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the variance of the array elements, along given axis.
-        ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html
-        ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
-        ///
-        NdArray<double> var(Axis inAxis = Axis::NONE) const noexcept
-        {
-            NdArray<double> stdValues = stdev(inAxis);
-            auto function = [](double& value) noexcept -> void
-            {
-                value *= value;
-            };
-
-            stl_algorithms::for_each(stdValues.begin(), stdValues.end(), function);
-            return stdValues;
-        }
-
-        //============================================================================
-        // Method Description:
         ///						Fills the array with zeros
         ///
         ///
-        NdArray<dtype>& zeros()
+        NdArray<dtype>& zeros() noexcept
         {
-            fill(0);
-
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+            
+            fill(dtype{ 0 });
             return *this;
         }
 
     private:
         //====================================Attributes==============================
-        Shape			shape_{ 0, 0 };
-        uint32			size_{ 0 };
+        allocator_type  allocator_{};
+        Shape           shape_{ 0, 0 };
+        size_type       size_{ 0 };
         Endian          endianess_{ Endian::NATIVE };
-        dtype*			array_{ nullptr };
+        pointer         array_{ nullptr };
         bool            ownsPtr_{ false };
-
-        //============================================================================
-        // Method Description:
-        ///						Checks the array_ pointer for nullness on access
-        ///
-        void checkNullPtr() const
-        {
-            if (array_ == nullptr)
-            {
-                THROW_RUNTIME_ERROR("trying to access an empty array");
-            }
-        }
 
         //============================================================================
         // Method Description:
@@ -3970,13 +4631,27 @@ namespace nc
         {
             if (ownsPtr_ && array_ != nullptr)
             {
-                delete[] array_;
+                allocator_.deallocate(array_, size_);
             }
 
             array_ = nullptr;
             shape_.rows = shape_.cols = 0;
             size_ = 0;
             ownsPtr_ = false;
+            endianess_ = Endian::NATIVE;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Creates a new internal array
+        ///
+        void newArray() 
+        {
+            if (size_ > 0)
+            {
+                array_ = allocator_.allocate(size_);
+                ownsPtr_ = true;
+            }
         }
 
         //============================================================================
@@ -3986,23 +4661,23 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        void newArray(const Shape& inShape) noexcept
+        void newArray(const Shape& inShape) 
         {
             deleteArray();
 
             shape_ = inShape;
             size_ = inShape.size();
-            endianess_ = Endian::NATIVE;
-            array_ = new dtype[size_];
-            ownsPtr_ = true;
+            newArray();
         }
-};
+    };
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
-    template<typename dtype>
-    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype>::nonzero() const noexcept
+    template<typename dtype, class _Alloc>
+    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype, _Alloc>::nonzero() const 
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         std::vector<uint32> rowIndices;
         std::vector<uint32> colIndices;
 

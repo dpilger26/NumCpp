@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,72 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+
+#include <complex>
+#include <numeric>
 
 namespace nc
 {
+    //===========================================================================
+    // Method Description:
+    ///						Compute the mean along the specified axis.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
+    ///
+    /// @param				inArray
+    /// @param				inAxis (Optional, default NONE)
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), 0.0);
+                NdArray<double> returnArray = { sum /= static_cast<double>(inArray.size()) };
+
+                return returnArray;
+            }
+            case Axis::COL:
+            {
+                NdArray<double> returnArray(1, inArray.numRows());
+                for (uint32 row = 0; row < inArray.numRows(); ++row)
+                {
+                    auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0);
+                    returnArray(0, row) = sum / static_cast<double>(inArray.numCols());
+                }
+
+                return returnArray;
+            }
+            case Axis::ROW:
+            {
+                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<double> returnArray(1, transposedArray.numRows());
+                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
+                {
+                    double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
+                    returnArray(0, row) = sum / static_cast<double>(transposedArray.numCols());
+                }
+
+                return returnArray;
+            }
+            default:
+            {
+                return NdArray<double>(); // get rid of compiler warning
+            }
+        }
+    }
+
     //============================================================================
     // Method Description:
     ///						Compute the mean along the specified axis.
@@ -46,8 +107,47 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
+    NdArray<std::complex<double>> mean(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
     {
-        return inArray.mean(inAxis);
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), std::complex<double>(0.0));
+                NdArray<std::complex<double>> returnArray = { sum /= std::complex<double>(inArray.size()) };
+
+                return returnArray;
+            }
+            case Axis::COL:
+            {
+                NdArray<std::complex<double>> returnArray(1, inArray.numRows());
+                for (uint32 row = 0; row < inArray.numRows(); ++row)
+                {
+                    auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), std::complex<double>(0.0));
+                    returnArray(0, row) = sum / std::complex<double>(inArray.numCols());
+                }
+
+                return returnArray;
+            }
+            case Axis::ROW:
+            {
+                NdArray<std::complex<double>> transposedArray = inArray.transpose();
+                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
+                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
+                {
+                    auto sum = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 
+                        std::complex<double>(0.0));
+                    returnArray(0, row) = sum / std::complex<double>(transposedArray.numCols());
+                }
+
+                return returnArray;
+            }
+            default:
+            {
+                return NdArray<std::complex<double>>(); // get rid of compiler warning
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,9 +29,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/uniform_01.hpp"
@@ -50,8 +51,10 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype rand() noexcept
+        dtype rand() 
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             boost::random::uniform_01<dtype> dist;
             return dist(generator_);
         }
@@ -69,14 +72,16 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rand(const Shape& inShape) noexcept
+        NdArray<dtype> rand(const Shape& inShape) 
         {
+            STATIC_ASSERT_FLOAT(dtype);
+
             NdArray<dtype> returnArray(inShape);
 
             boost::random::uniform_01<dtype> dist;
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) noexcept -> void
+                [&dist](dtype& value)  -> void
                 {
                     value = dist(generator_);
                 });

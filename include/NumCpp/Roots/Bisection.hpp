@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -82,7 +82,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Bisection() noexcept override = default;
+            ~Bisection() = default;
 
             //============================================================================
             // Method Description:
@@ -141,7 +141,7 @@ namespace nc
             /// @param fx: the function evaluated at x
             /// @return x
             ///
-            double calculateX(double x, double &a, double &b, double fx) noexcept
+            double calculateX(double x, double &a, double &b, double fx) noexcept 
             {
                 if (fx < 0)
                 {

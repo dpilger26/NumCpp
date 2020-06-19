@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -49,7 +49,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) noexcept
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) 
     {
         inK %= 4;
         switch (inK)

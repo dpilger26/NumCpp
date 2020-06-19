@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,17 +28,19 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/Functions/clip.hpp"
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <algorithm>
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -65,6 +67,8 @@ namespace nc
     NdArray<dtype> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");
@@ -191,10 +195,6 @@ namespace nc
                 // of the compiler warning.
                 return NdArray<dtype>(0);
             }
-
-            // this isn't actually possible, just putting this here to get rid
-            // of the compiler warning.
-            return NdArray<dtype>(0);
         }
     }
 }

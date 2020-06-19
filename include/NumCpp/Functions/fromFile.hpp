@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Core/Filesystem.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/Filesystem.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -56,6 +57,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         if (!filesystem::File(inFilename).exists())
         {
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
@@ -74,7 +77,7 @@ namespace nc
             const uint32 fileSize = static_cast<uint32>(file.tellg());
             file.seekg(0, file.beg);
 
-            const auto fileBuffer = std::unique_ptr<char>(new char[fileSize]);
+            const auto fileBuffer = std::make_unique<char[]>(fileSize);
             file.read(fileBuffer.get(), fileSize);
 
             if (file.bad() || file.fail())

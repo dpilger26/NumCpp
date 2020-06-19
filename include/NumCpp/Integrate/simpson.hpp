@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -52,7 +52,7 @@ namespace nc
         /// @return             double
         ///
         inline double simpson(const double low, const double high, const uint32 n,
-            const std::function<double(double)>& f)
+            const std::function<double(double)>& f) noexcept
         {
             const double width = (high - low) / static_cast<double>(n);
 

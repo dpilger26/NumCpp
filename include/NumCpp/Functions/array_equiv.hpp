@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,7 +30,10 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+
+#include <complex>
 
 namespace nc
 {
@@ -52,6 +55,8 @@ namespace nc
     template<typename dtype>
     bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.size() != inArray2.size())
         {
             return false;
@@ -63,7 +68,7 @@ namespace nc
         }
         else
         {
-            auto b = [](dtype value1, dtype value2) noexcept -> bool
+            const auto b = [](dtype value1, dtype value2) noexcept -> bool
             {
                 return utils::essentiallyEqual(value1, value2);
             };

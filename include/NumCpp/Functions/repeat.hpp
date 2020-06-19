@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept
+    NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
     {
         return inArray.repeat(inNumRows, inNumCols);
     }
@@ -66,7 +66,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape) noexcept
+    NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape) 
     {
         return inArray.repeat(inRepeatShape);
     }

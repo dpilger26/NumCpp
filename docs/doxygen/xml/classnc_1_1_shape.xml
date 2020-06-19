@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classnc_1_1_shape" kind="class" language="C++" prot="public">
     <compoundname>nc::Shape</compoundname>
     <includes refid="_core_2_shape_8hpp" local="no">Shape.hpp</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::Shape::cols</definition>
         <argsstring></argsstring>
         <name>cols</name>
@@ -16,10 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="46" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="46" column="15" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>uint32 nc::Shape::rows</definition>
         <argsstring></argsstring>
         <name>rows</name>
@@ -30,85 +30,93 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="45" bodyend="-1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="45" column="15" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1_shape_1ac93a4d38f689fa910de74ffabb3d1bf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a0f41587a1b8f1c2b65035adc49705eec" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr nc::Shape::Shape</definition>
-        <argsstring>() noexcept=default</argsstring>
+        <argsstring>()=default</argsstring>
         <name>Shape</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor </para>        </detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="51" column="1"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="51" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a6e870e9fda60c8e82996802fcb71490a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
-        <type>constexpr</type>
-        <definition>constexpr nc::Shape::Shape</definition>
-        <argsstring>(uint32 inSquareSize) noexcept</argsstring>
-        <name>Shape</name>
-        <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>inSquareSize</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inSquareSize</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="58" bodyend="61"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a4b2cd200804257d9c53084f14fb38e31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a4b2cd200804257d9c53084f14fb38e31" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr nc::Shape::Shape</definition>
         <argsstring>(uint32 inRows, uint32 inCols) noexcept</argsstring>
         <name>Shape</name>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>inRows</declname>
         </param>
         <param>
-          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
           <declname>inCols</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inRows</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inCols</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="69" bodyend="72"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="69" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="69" bodyend="72"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a1f0b70fbb2cbd47d34023762c5651a28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a6e870e9fda60c8e82996802fcb71490a" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::Shape::Shape</definition>
+        <argsstring>(uint32 inSquareSize) noexcept</argsstring>
+        <name>Shape</name>
+        <param>
+          <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
+          <declname>inSquareSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inSquareSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="58" column="28" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_shape_1a1f0b70fbb2cbd47d34023762c5651a28" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>constexpr bool nc::Shape::isnull</definition>
         <argsstring>() const noexcept</argsstring>
@@ -116,13 +124,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns whether the shape is null (constructed with the default constructor).</para><para><simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns whether the shape is null (constructed with the default constructor).</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="114" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="114" bodyend="117"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="114" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="114" bodyend="117"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1af00a8f56e47b2052a8d1bfd48b303b5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1af00a8f56e47b2052a8d1bfd48b303b5f" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>constexpr bool nc::Shape::issquare</definition>
         <argsstring>() const noexcept</argsstring>
@@ -130,13 +141,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns whether the shape is square or not.</para><para><simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns whether the shape is square or not.</para>
+<para><simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="124" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="124" bodyend="127"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="124" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="124" bodyend="127"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a7d11217aa2ee93dfba99f356384c6068" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a7d11217aa2ee93dfba99f356384c6068" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>constexpr bool nc::Shape::operator!=</definition>
         <argsstring>(const Shape &amp;inOtherShape) const noexcept</argsstring>
@@ -148,21 +162,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Not equality operator</para><para><parameterlist kind="param"><parameteritem>
+<para>Not equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inOtherShape</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="93" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="93" bodyend="96"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="93" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="93" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a87b45277865c2839fd71ad8756fa0cfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a87b45277865c2839fd71ad8756fa0cfb" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
         <definition>constexpr bool nc::Shape::operator==</definition>
         <argsstring>(const Shape &amp;inOtherShape) const noexcept</argsstring>
@@ -174,67 +192,78 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<para>Equality operator</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inOtherShape</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="81" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="81" bodyend="84"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="81" column="24" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="81" bodyend="84"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a8bebd2bf23c9e0cfc1917006af3594c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1a494a3d8467911c47d56aa881e11a69f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void nc::Shape::print</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>print</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Prints the shape to the console </para>        </detaileddescription>
+<para>Prints the shape to the console </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="143" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="143" bodyend="146"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="143" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="143" bodyend="146"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a9c41935da2cc0d7225f76849bee97794" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+      <memberdef kind="function" id="classnc_1_1_shape_1a9c41935da2cc0d7225f76849bee97794" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr <ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
         <definition>constexpr uint32 nc::Shape::size</definition>
         <argsstring>() const noexcept</argsstring>
         <name>size</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the size of the shape</para><para><simplesect kind="return"><para>size </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the size of the shape</para>
+<para><simplesect kind="return"><para>size </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="103" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="103" bodyend="106"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="103" column="26" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="103" bodyend="106"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_shape_1aadb0e0d633d64e5eb5a4f9bef12b26c4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string nc::Shape::str</definition>
-        <argsstring>() const noexcept</argsstring>
+        <argsstring>() const</argsstring>
         <name>str</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the shape as a string representation</para><para><simplesect kind="return"><para>std::string </para></simplesect>
-</para>        </detaileddescription>
+<para>Returns the shape as a string representation</para>
+<para><simplesect kind="return"><para>std::string </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="134" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="134" bodyend="138"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="134" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="134" bodyend="138"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
-      <memberdef kind="friend" id="classnc_1_1_shape_1a435f2b3539d7ecb50285bd8845686623" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="friend" id="classnc_1_1_shape_1a520d818f31bbdacdf8cfbe6de9e88a28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::ostream &amp;</type>
         <definition>std::ostream&amp; operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;inOStream, const Shape &amp;inShape) noexcept</argsstring>
+        <argsstring>(std::ostream &amp;inOStream, const Shape &amp;inShape)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
           <type>std::ostream &amp;</type>
@@ -247,53 +276,59 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>IO operator for the <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> class</para><para><parameterlist kind="param"><parameteritem>
+<para>IO operator for the <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> class</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inOStream</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inShape</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::ostream </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::ostream </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="156" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="156" bodyend="160"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="156" column="16" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="156" bodyend="160"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>A <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> Class for NdArrays. </para>    </briefdescription>
+<para>A <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> Class for NdArrays. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="77">
+      <node id="1">
         <label>nc::Shape</label>
         <link refid="classnc_1_1_shape"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" line="42" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="41" bodyend="161"/>
+    <location file="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" line="42" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Shape.hpp" bodystart="41" bodyend="161"/>
     <listofallmembers>
       <member refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>cols</name></member>
       <member refid="classnc_1_1_shape_1a1f0b70fbb2cbd47d34023762c5651a28" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>isnull</name></member>
       <member refid="classnc_1_1_shape_1af00a8f56e47b2052a8d1bfd48b303b5f" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>issquare</name></member>
       <member refid="classnc_1_1_shape_1a7d11217aa2ee93dfba99f356384c6068" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>operator!=</name></member>
-      <member refid="classnc_1_1_shape_1a435f2b3539d7ecb50285bd8845686623" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1_shape_1a520d818f31bbdacdf8cfbe6de9e88a28" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>operator&lt;&lt;</name></member>
       <member refid="classnc_1_1_shape_1a87b45277865c2839fd71ad8756fa0cfb" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>operator==</name></member>
-      <member refid="classnc_1_1_shape_1a8bebd2bf23c9e0cfc1917006af3594c9" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>print</name></member>
+      <member refid="classnc_1_1_shape_1a494a3d8467911c47d56aa881e11a69f1" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>print</name></member>
       <member refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>rows</name></member>
-      <member refid="classnc_1_1_shape_1ac93a4d38f689fa910de74ffabb3d1bf6" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>Shape</name></member>
+      <member refid="classnc_1_1_shape_1a0f41587a1b8f1c2b65035adc49705eec" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>Shape</name></member>
       <member refid="classnc_1_1_shape_1a6e870e9fda60c8e82996802fcb71490a" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>Shape</name></member>
       <member refid="classnc_1_1_shape_1a4b2cd200804257d9c53084f14fb38e31" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>Shape</name></member>
       <member refid="classnc_1_1_shape_1a9c41935da2cc0d7225f76849bee97794" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>size</name></member>
-      <member refid="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>str</name></member>
+      <member refid="classnc_1_1_shape_1aadb0e0d633d64e5eb5a4f9bef12b26c4" prot="public" virt="non-virtual"><scope>nc::Shape</scope><name>str</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

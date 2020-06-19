@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Functions/floor.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/floor.hpp"
 
 #include <cmath>
 
@@ -49,6 +50,8 @@ namespace nc
     template<typename dtype>
     dtype floor_divide(dtype inValue1, dtype inValue2) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return std::floor(inValue1 / inValue2);
     }
 

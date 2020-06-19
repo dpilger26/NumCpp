@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,7 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 #include <cmath>
 
@@ -49,8 +50,10 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype unwrap(dtype inValue) noexcept
+    dtype unwrap(dtype inValue) noexcept 
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return static_cast<dtype>(std::atan2(std::sin(inValue), std::cos(inValue)));
     }
 
@@ -68,7 +71,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> unwrap(const NdArray<dtype>& inArray) noexcept
+    NdArray<dtype> unwrap(const NdArray<dtype>& inArray) 
     {
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),

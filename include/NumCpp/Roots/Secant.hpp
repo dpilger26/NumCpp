@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -83,7 +83,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            ~Secant() noexcept override = default;
+            ~Secant() = default;
 
             //============================================================================
             // Method Description:
@@ -137,7 +137,7 @@ namespace nc
             /// @param lastFx: the function evaluated at the previous x value
             /// @return x
             ///
-            double calculateX(double x, double lastX, double fx, double lastFx)
+            double calculateX(double x, double lastX, double fx, double lastFx) noexcept 
             {
                 const double functionDifference = fx - lastFx;
                 return x - fx * (x - lastX) / functionDifference;

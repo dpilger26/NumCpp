@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <string>
 
@@ -52,6 +53,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("the input array dimensions are not consistant.");
@@ -103,13 +106,14 @@ namespace nc
                 }
 
                 Shape returnArrayShape;
+                returnArrayShape.cols = arrayShape.cols;
                 if (arrayShape.rows == 2)
                 {
-                    returnArrayShape = Shape(1, arrayShape.cols);
+                    returnArrayShape.rows = 1;
                 }
                 else
                 {
-                    returnArrayShape = Shape(3, arrayShape.cols);
+                    returnArrayShape.rows = 3;
                 }
 
                 NdArray<dtype> returnArray(returnArrayShape);
@@ -134,13 +138,14 @@ namespace nc
                 }
 
                 Shape returnArrayShape;
+                returnArrayShape.rows = arrayShape.rows;
                 if (arrayShape.cols == 2)
                 {
-                    returnArrayShape = Shape(arrayShape.rows, 1);
+                    returnArrayShape.cols = 1;
                 }
                 else
                 {
-                    returnArrayShape = Shape(arrayShape.rows, 3);
+                    returnArrayShape.cols = 3;
                 }
 
                 NdArray<dtype> returnArray(returnArrayShape);

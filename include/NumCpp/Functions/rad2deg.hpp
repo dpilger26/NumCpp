@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,7 +30,8 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -47,8 +48,10 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    constexpr double rad2deg(dtype inValue) noexcept
+    constexpr auto rad2deg(dtype inValue) noexcept
     {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
         return inValue * 180.0 / constants::pi;
     }
 
@@ -65,11 +68,11 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> rad2deg(const NdArray<dtype>& inArray) noexcept
+    auto rad2deg(const NdArray<dtype>& inArray)
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<decltype(rad2deg(dtype{0})) > returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
+            [](dtype inValue) noexcept -> auto
             { 
                 return rad2deg(inValue);
             });

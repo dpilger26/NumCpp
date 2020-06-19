@@ -1,5 +1,5 @@
 var riemann__zeta_8hpp =
 [
-    [ "riemann_zeta", "riemann__zeta_8hpp.html#ad8ce69360402aff230c2d0ca72e13042", null ],
-    [ "riemann_zeta", "riemann__zeta_8hpp.html#a2839c02bab5022331ebecdae4bddc2a0", null ]
+    [ "riemann_zeta", "riemann__zeta_8hpp.html#a6a4ac80df3e9946630cf330d03cbbbd2", null ],
+    [ "riemann_zeta", "riemann__zeta_8hpp.html#a8d31d086f833496ad7eb98c5bd6304a2", null ]
 ];

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -44,8 +45,10 @@ namespace nc
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) 
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             return inImageArray > inThreshold;
         }
     }

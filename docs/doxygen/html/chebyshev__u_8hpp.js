@@ -1,5 +1,5 @@
 var chebyshev__u_8hpp =
 [
-    [ "chebyshev_u", "chebyshev__u_8hpp.html#abc99c09581c24b9eb1f7bcaa6f0d40e4", null ],
-    [ "chebyshev_u", "chebyshev__u_8hpp.html#aed39a034f0126aaeccbeb0718dea3c8b", null ]
+    [ "chebyshev_u", "chebyshev__u_8hpp.html#ae03d7859d449ee3fa17f2d09bb2b5638", null ],
+    [ "chebyshev_u", "chebyshev__u_8hpp.html#a1e0f56b8366b1f83b48e30e7bb04c937", null ]
 ];

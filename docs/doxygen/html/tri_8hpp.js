@@ -1,9 +1,9 @@
 var tri_8hpp =
 [
-    [ "tril", "tri_8hpp.html#ad9192133ab234457a9e9a5269b88865b", null ],
-    [ "tril", "tri_8hpp.html#a653a2564e609728da8b1240a478a5625", null ],
-    [ "tril", "tri_8hpp.html#a5c7a36b3e13fbf9f38a3b77692888b6c", null ],
-    [ "triu", "tri_8hpp.html#acc5de905ab2bb273cb01a4fd3fd357df", null ],
-    [ "triu", "tri_8hpp.html#a9464c274ad7737a74f70afe33a5b2f72", null ],
-    [ "triu", "tri_8hpp.html#a1fb506ce5644321b766a774447c14faf", null ]
+    [ "tril", "tri_8hpp.html#a0fc9894890a23f64d3a676f595920a9a", null ],
+    [ "tril", "tri_8hpp.html#aa5530b43e1ccdeeaded7a26fdcb43798", null ],
+    [ "tril", "tri_8hpp.html#a7c46d843ef0c6ea562cb89f9732d89ab", null ],
+    [ "triu", "tri_8hpp.html#a6719a9ad06f8286f1a18f91df4d9b049", null ],
+    [ "triu", "tri_8hpp.html#ab8fb31254bc1cdd83667f4f2ac3604c8", null ],
+    [ "triu", "tri_8hpp.html#a05c4de5a2c55f32884dec4b1d5634a36", null ]
 ];

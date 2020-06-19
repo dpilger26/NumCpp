@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 1.3
+/// @version 2.0.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -32,7 +32,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include <functional>
@@ -53,7 +53,7 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             ///
-            explicit Iteration(double epsilon) noexcept: 
+            explicit Iteration(double epsilon) noexcept : 
                 epsilon_(epsilon)
             {}
 
@@ -64,7 +64,7 @@ namespace nc
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
             ///
-            Iteration(double epsilon, uint32 maxNumIterations) noexcept: 
+            Iteration(double epsilon, uint32 maxNumIterations) noexcept : 
                 epsilon_(epsilon),
                 maxNumIterations_(maxNumIterations)
             {}
@@ -73,7 +73,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            virtual ~Iteration() {};
+            virtual ~Iteration() noexcept {}
 
             //============================================================================
             // Method Description:
@@ -81,7 +81,7 @@ namespace nc
             ///
             /// @return: number of iterations
             ///
-            uint32 numIterations() const noexcept
+            uint32 numIterations() const noexcept 
             { 
                 return numIterations_;
             }
@@ -91,7 +91,7 @@ namespace nc
             // Method Description:
             ///	Resets the number of iterations
             ///
-            void resetNumberOfIterations() noexcept
+            void resetNumberOfIterations() noexcept 
             { 
                 numIterations_ = 0;
             }
@@ -102,7 +102,7 @@ namespace nc
             ///
             /// @return the number of iterations prior to incramenting
             ///
-            void incrementNumberOfIterations() noexcept
+            void incrementNumberOfIterations()
             { 
                 ++numIterations_;
                 if (numIterations_ > maxNumIterations_)
