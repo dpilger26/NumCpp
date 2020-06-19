@@ -29,7 +29,7 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## Testing
 
-**C++ Standards:** C++14, C++17, and C++2a
+**C++ Standards:** C++14, C++17, and C++2a  
 **Compilers:** VS 2017/2019, GCC 6.5.0/7.5.0/8.4.0/9.3.0, and Clang 8.0/9.0/10.0  
 **Boost Versions:** 1.68, 1.70, 1.72, and 1.73  
 
@@ -45,14 +45,14 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 * Dropped support of C++11, now requires a C++14 or higher compiler
 * Added support for `std::complex<T>`, closing __Issue #58__
-* Added more NdArray constructors for STL containers including `std::vector<std::vector<T>>`, closing __Issue #59__
-* `polyfit` routine inline with Numpy `polyfit`, closing __Issue #61__
+* Added more `NdArray` constructors for STL containers including `std::vector<std::vector<T>>`, closing __Issue #59__
+* Added `polyfit` routine inline with Numpy `polyfit`, closing __Issue #61__
 * Added ability to use `NdArray` as container for generic structs
 * Non-linear least squares fitting using Gauss-Newton
 * Root finding routines
 * Numerical integration routines
 * `lu_decomposition` and `pivotLU_decomposition` added to `Linalg` namespace
-* New STL iterators added to NdArray
+* New STL iterators added to `NdArray`
   * `iterator`
   * `const_iterator`
   * `reverse_iterator`
