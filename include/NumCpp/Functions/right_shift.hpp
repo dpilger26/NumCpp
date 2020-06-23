@@ -50,4 +50,4 @@ namespace nc
     {
         return inArray >> inNumBits;
     }
-}
+}  // namespace nc

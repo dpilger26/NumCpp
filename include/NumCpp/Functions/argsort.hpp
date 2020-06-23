@@ -49,4 +49,4 @@ namespace nc
     {
         return inArray.argsort(inAxis);
     }
-}
+}  // namespace nc

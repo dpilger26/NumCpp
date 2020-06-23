@@ -30,15 +30,15 @@
 
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Slice.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray/NdArrayIterators.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
@@ -354,7 +354,7 @@ namespace nc
         /// @param      inDeque
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
-        NdArray(const std::deque<dtype>& inDeque) :
+        explicit NdArray(const std::deque<dtype>& inDeque) :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size())
         {
@@ -443,7 +443,7 @@ namespace nc
         /// @param				inPtr: const_pointer to beginning of buffer
         /// @param				size: number of elements in buffer
         ///
-        explicit NdArray(const_pointer inPtr, size_type size) :
+        NdArray(const_pointer inPtr, size_type size) :
             shape_(1, size),
             size_(size)
         {
@@ -463,7 +463,7 @@ namespace nc
         /// @param				numRows: number of rows of the buffer
         /// @param				numCols: number of cols of the buffer
         ///
-        explicit NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) :
+        NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) :
             shape_(numRows, numCols),
             size_(shape_.size())
         {
@@ -486,7 +486,7 @@ namespace nc
         ///
         template<typename Bool,
             std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-        explicit NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
+        NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
             array_(inPtr),
@@ -506,7 +506,7 @@ namespace nc
         ///
         template<typename Bool,
             std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
-        explicit NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
+        NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
@@ -888,7 +888,7 @@ namespace nc
         /// @return
         ///				Slice
         ///
-        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
+        Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.cols, inStepSize);
         }
@@ -903,7 +903,7 @@ namespace nc
         /// @return
         ///				Slice
         ///
-        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
+        Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.rows, inStepSize);
         }
@@ -2578,7 +2578,7 @@ namespace nc
                             ++col;
                             continue;
                         }
-                        else if (col >= static_cast<int32>(shape_.cols))
+                        if (col >= static_cast<int32>(shape_.cols))
                         {
                             break;
                         }
@@ -2600,7 +2600,7 @@ namespace nc
                             ++col;
                             continue;
                         }
-                        else if (col >= shape_.cols)
+                        if (col >= shape_.cols)
                         {
                             break;
                         }
@@ -2642,7 +2642,7 @@ namespace nc
                 NdArray<dtype> returnArray = { dotProduct };
                 return returnArray;
             }
-            else if (shape_.cols == inOtherArray.shape_.rows)
+            if (shape_.cols == inOtherArray.shape_.rows)
             {
                 // 2D array, use matrix multiplication
                 NdArray<dtype> returnArray(shape_.rows, inOtherArray.shape_.cols);
@@ -2658,14 +2658,12 @@ namespace nc
 
                 return returnArray;
             }
-            else
-            {
-                std::string errStr = "shapes of [" + utils::num2str(shape_.rows) + ", " + utils::num2str(shape_.cols) + "]";
-                errStr += " and [" + utils::num2str(inOtherArray.shape_.rows) + ", " + utils::num2str(inOtherArray.shape_.cols) + "]";
-                errStr += " are not consistent.";
-                THROW_INVALID_ARGUMENT_ERROR(errStr);
-            }
-
+            
+            std::string errStr = "shapes of [" + utils::num2str(shape_.rows) + ", " + utils::num2str(shape_.cols) + "]";
+            errStr += " and [" + utils::num2str(inOtherArray.shape_.rows) + ", " + utils::num2str(inOtherArray.shape_.cols) + "]";
+            errStr += " are not consistent.";
+            THROW_INVALID_ARGUMENT_ERROR(errStr);
+            
             return NdArray<dtype>(); // get rid of compiler warning
         }
 
@@ -4103,12 +4101,11 @@ namespace nc
                 {
                     return reshape(size_ / inNumCols, inNumCols);
                 }
-                else
-                {
-                    std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
-                    errStr += "with " + utils::num2str(inNumCols) + " columns";
-                    THROW_INVALID_ARGUMENT_ERROR(errStr);
-                }
+                
+                std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
+                errStr += "with " + utils::num2str(inNumCols) + " columns";
+                THROW_INVALID_ARGUMENT_ERROR(errStr);
+                
             }
 
             if (inNumCols < 0)
@@ -4117,12 +4114,11 @@ namespace nc
                 {
                     return reshape(inNumRows, size_ / inNumRows);
                 }
-                else
-                {
-                    std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
-                    errStr += "with " + utils::num2str(inNumRows) + " rows";
-                    THROW_INVALID_ARGUMENT_ERROR(errStr);
-                }
+                
+                std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
+                errStr += "with " + utils::num2str(inNumRows) + " rows";
+                THROW_INVALID_ARGUMENT_ERROR(errStr);
+                
             }
 
             if (static_cast<uint32>(inNumRows * inNumCols) != size_)
@@ -4479,7 +4475,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            if (inSep.compare("") == 0)
+            if (inSep.empty())
             {
                 dump(inFilename);
             }
@@ -4695,4 +4691,4 @@ namespace nc
 
         return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
     }
-}
+} // namespace nc

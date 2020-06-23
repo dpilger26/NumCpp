@@ -48,4 +48,4 @@ namespace nc
         returnArray.nans();
         return returnArray;
     }
-}
+}  // namespace nc

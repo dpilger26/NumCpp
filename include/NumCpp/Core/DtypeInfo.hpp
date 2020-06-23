@@ -196,4 +196,4 @@ namespace nc
             return { DtypeInfo<dtype>::max(), DtypeInfo<dtype>::max() };
         }
     };
-}
+}  // namespace nc

@@ -31,8 +31,8 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 #include <complex>
-#include <string>
 #include <sstream>
+#include <string>
 
 namespace nc
 {
@@ -54,5 +54,5 @@ namespace nc
             ss << inValue;
             return ss.str();
         }
-    }
-}
+    } // namespace utils
+} // namespace nc

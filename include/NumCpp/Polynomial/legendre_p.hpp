@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/legendre.hpp"
 
@@ -132,5 +132,5 @@ namespace nc
 
             return returnArray;
         }
-    }
-}
+    } // namespace polynomial
+}  // namespace nc

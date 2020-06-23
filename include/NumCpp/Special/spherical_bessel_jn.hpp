@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/bessel.hpp"
 
@@ -77,5 +77,5 @@ namespace nc
 
             return returnArray;
         }
-    }
-}
+    }  // namespace special
+} // namespace nc

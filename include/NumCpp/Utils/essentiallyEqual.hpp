@@ -32,8 +32,8 @@
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 
-#include <complex>
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -134,5 +134,5 @@ namespace nc
         {
             return essentiallyEqual(inValue1, inValue2, DtypeInfo<std::complex<dtype>>::epsilon());
         }
-    }
-}
+    }  // namespace utils
+}  // namespace nc

@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -53,4 +53,4 @@ namespace nc
         returnArray.ones();
         return returnArray;
     }
-}
+}  // namespace nc

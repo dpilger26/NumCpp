@@ -53,9 +53,7 @@ namespace nc
         {
             return indices;
         }
-        else
-        {
-            return indices[Slice(0, n)];
-        }
+        
+        return indices[Slice(0, n)];
     }
-}
+}  // namespace nc

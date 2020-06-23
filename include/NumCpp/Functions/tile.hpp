@@ -67,4 +67,4 @@ namespace nc
     {
         return inArray.repeat(inReps);
     }
-}
+}  // namespace nc

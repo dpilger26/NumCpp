@@ -53,5 +53,5 @@ namespace nc
             exponent /= sqr(inSigma);
             return std::exp(-exponent);
         }
-    }
-}
+    } // namespace utils
+}  // namespace nc

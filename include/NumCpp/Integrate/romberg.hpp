@@ -91,5 +91,5 @@ namespace nc
 
             return rombergIntegral.back();
         }
-    }
-}
+    }  // namespace integrate
+}  // namespace nc

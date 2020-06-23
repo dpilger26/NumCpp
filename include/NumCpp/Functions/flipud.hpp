@@ -50,4 +50,4 @@ namespace nc
     {
         return flip(inArray, Axis::ROW);
     }
-}
+}  // namespace nc

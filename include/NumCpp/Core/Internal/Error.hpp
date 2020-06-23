@@ -59,5 +59,5 @@ namespace nc
             std::cerr << errMsg;
             throw ErrorType(errMsg);
         }
-    }
-}
+    } // namespace error
+} // namespace nc

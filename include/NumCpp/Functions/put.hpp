@@ -72,4 +72,4 @@ namespace nc
         inArray.put(inIndices, inValues);
         return inArray;
     }
-}
+} // namespace nc

@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/factorials.hpp"
 
@@ -55,10 +55,8 @@ namespace nc
             {
                 return boost::math::factorial<double>(inValue);   
             }
-            else
-            {
-                return std::numeric_limits<double>::infinity();
-            }
+            
+            return std::numeric_limits<double>::infinity();
         }
 
         //============================================================================
@@ -82,5 +80,5 @@ namespace nc
 
             return returnArray;
         }
-    }
-}
+    }  // namespace special
+}  // namespace nc

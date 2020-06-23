@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/floor.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 
@@ -71,4 +71,4 @@ namespace nc
     {
         return floor(inArray1 / inArray2);
     }
-}
+}  // namespace nc

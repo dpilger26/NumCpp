@@ -71,4 +71,4 @@ namespace nc
 
         return NdArray<dtype>();  // getting rid of compiler warning
     }
-}
+}  // namespace nc

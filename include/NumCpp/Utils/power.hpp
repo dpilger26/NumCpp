@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 #include<complex>
 
@@ -62,5 +62,5 @@ namespace nc
             }
             return returnVal;
         }
-    }
-}
+    }  // namespace utils
+}  // namespace nc

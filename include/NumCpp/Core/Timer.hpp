@@ -159,4 +159,4 @@ namespace nc
             }
         }
     };
-}
+}  // namespace nc

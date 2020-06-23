@@ -57,4 +57,4 @@ namespace nc
         returnArray.partition(inKth, inAxis);
         return returnArray;
     }
-}
+}  // namespace nc

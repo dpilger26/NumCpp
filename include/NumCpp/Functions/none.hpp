@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -49,4 +49,4 @@ namespace nc
     {
         return inArray.none(inAxis);
     }
-}
+}  // namespace nc

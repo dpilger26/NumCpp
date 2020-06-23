@@ -67,5 +67,5 @@ namespace nc
 
             return simpson_integral;
         }
-    }
-}
+    }  // namespace integrate
+}  // namespace nc

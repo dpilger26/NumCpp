@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -63,7 +63,7 @@ namespace nc
                 {
                     for (uint32 col = 0; col < shape.cols; ++col)
                     {
-                        const double pixelValue = static_cast<double>(inArray(row, col));
+                        const auto pixelValue = static_cast<double>(inArray(row, col));
 
                         inten += pixelValue;
                         rowCenter += pixelValue * static_cast<double>(row);
@@ -122,4 +122,4 @@ namespace nc
             }
         }
     }
-}
+} // namespace nc

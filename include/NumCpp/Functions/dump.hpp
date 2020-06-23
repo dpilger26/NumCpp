@@ -49,4 +49,4 @@ namespace nc
     {
         inArray.dump(inFilename);
     }
-}
+} // namespace nc

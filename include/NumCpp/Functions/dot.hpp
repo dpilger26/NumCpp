@@ -78,7 +78,7 @@ namespace nc
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
-        else if (shape1.cols == shape2.rows)
+        if (shape1.cols == shape2.rows)
         {
             // 2D array, use matrix multiplication
             NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
@@ -95,13 +95,11 @@ namespace nc
 
             return returnArray;
         }
-        else
-        {
-            std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
-            errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
-            errStr += " are not consistent.";
-            THROW_INVALID_ARGUMENT_ERROR(errStr);
-        }
+        
+        std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
+        errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
+        errStr += " are not consistent.";
+        THROW_INVALID_ARGUMENT_ERROR(errStr);
 
         return NdArray<std::complex<dtype>>(); // get rid of compiler warning
     }
@@ -134,7 +132,7 @@ namespace nc
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
-        else if (shape1.cols == shape2.rows)
+        if (shape1.cols == shape2.rows)
         {
             // 2D array, use matrix multiplication
             NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
@@ -151,14 +149,12 @@ namespace nc
 
             return returnArray;
         }
-        else
-        {
-            std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
-            errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
-            errStr += " are not consistent.";
-            THROW_INVALID_ARGUMENT_ERROR(errStr);
-        }
-
+        
+        std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
+        errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
+        errStr += " are not consistent.";
+        THROW_INVALID_ARGUMENT_ERROR(errStr);
+        
         return NdArray<std::complex<dtype>>(); // get rid of compiler warning
     }
-}
+}  // namespace nc

@@ -72,4 +72,4 @@ namespace nc
 
         return true;
     }
-}
+}  // namespace nc

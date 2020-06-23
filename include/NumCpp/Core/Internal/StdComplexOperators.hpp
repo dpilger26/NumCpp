@@ -49,10 +49,8 @@ namespace nc
         {
             return lhs.real() < rhs.real();
         }
-        else
-        {
-            return lhs.imag() < rhs.imag();
-        }
+        
+        return lhs.imag() < rhs.imag();
     }
 
     //============================================================================
@@ -70,10 +68,8 @@ namespace nc
         {
             return lhs.real() <= rhs.real();
         }
-        else
-        {
-            return lhs.imag() <= rhs.imag();
-        }
+
+        return lhs.imag() <= rhs.imag();
     }
 
     //============================================================================
@@ -119,4 +115,4 @@ namespace nc
         return std::complex<Out>(static_cast<Out>(value.real()),
             static_cast<Out>(value.imag()));
     }
-}
+}  // namespace nc

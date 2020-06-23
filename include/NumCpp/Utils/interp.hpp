@@ -45,5 +45,5 @@ namespace nc
         {
             return inValue1 * (1.0 - inPercent) + inValue2 * inPercent;
         }
-    }
-}
+    } // namespace utils
+} // namespace nc

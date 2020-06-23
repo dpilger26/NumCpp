@@ -73,4 +73,4 @@ namespace nc
     {
         return inArray.newbyteorder(inEndianess);
     }
-}
+} // namespace nc

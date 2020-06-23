@@ -70,4 +70,4 @@ namespace nc
     {
         return inArray.repeat(inRepeatShape);
     }
-}
+}  // namespace nc

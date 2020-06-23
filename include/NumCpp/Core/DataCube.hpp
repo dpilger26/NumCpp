@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <deque>
 #include <limits>
@@ -58,7 +58,7 @@ namespace nc
         ///
         /// @param      inSize
         ///
-        DataCube(uint32 inSize) :
+        explicit DataCube(uint32 inSize) :
             cube_(inSize)
         {};
 
@@ -296,4 +296,4 @@ namespace nc
         std::deque<NdArray<dtype> >     cube_{};
         Shape                           elementShape_{ 0, 0 };
     };
-}
+}  // namespace nc

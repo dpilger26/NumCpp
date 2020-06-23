@@ -46,4 +46,4 @@ namespace nc
     {
         return inArray.toStlVector();
     }
-}
+}  // namespace nc

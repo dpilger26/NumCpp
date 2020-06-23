@@ -52,4 +52,4 @@ namespace nc
     {
         return inArray.nonzero();
     }
-}
+}  // namespace nc

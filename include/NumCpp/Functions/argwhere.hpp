@@ -48,4 +48,4 @@ namespace nc
     {
         return inArray.flatnonzero();
     }
-}
+}  // namespace nc

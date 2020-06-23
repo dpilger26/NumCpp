@@ -48,4 +48,4 @@ namespace nc
     {
         return NdArray<dtype>(inArray);
     }
-}
+} // namespace nc

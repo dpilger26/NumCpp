@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -68,6 +68,6 @@ namespace nc
 
                 return outArray;
             }
-        }
-    }
-}
+        }  // namespace boundary
+    }  // namespace filter
+}  // namespace nc

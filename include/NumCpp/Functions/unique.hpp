@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/sort.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <complex>
@@ -70,4 +70,4 @@ namespace nc
 
         return NdArray<dtype>(res.begin(), last);
     }
-}
+}  // namespace nc

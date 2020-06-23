@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <set>
 #include <vector>
@@ -65,4 +65,4 @@ namespace nc
         res.resize(iter - res.begin());
         return NdArray<dtype>(res);
     }
-}
+}  // namespace nc

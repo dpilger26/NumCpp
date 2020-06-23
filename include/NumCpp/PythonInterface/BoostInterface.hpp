@@ -75,22 +75,20 @@ namespace nc
 
                 return returnArray;
             }
-            else
+            
+            arrayShape.rows = static_cast<uint32>(helper.shape().front());
+            arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
+
+            NdArray<dtype> returnArray(arrayShape);
+            for (uint32 row = 0; row < arrayShape.rows; ++row)
             {
-                arrayShape.rows = static_cast<uint32>(helper.shape().front());
-                arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
-
-                NdArray<dtype> returnArray(arrayShape);
-                for (uint32 row = 0; row < arrayShape.rows; ++row)
+                for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
-                    for (uint32 col = 0; col < arrayShape.cols; ++col)
-                    {
-                        returnArray(row, col) = helper(row, col);
-                    }
+                    returnArray(row, col) = helper(row, col);
                 }
-
-                return returnArray;
             }
+
+            return returnArray;
         }
 
         //============================================================================
@@ -166,6 +164,6 @@ namespace nc
             }
             return dictionary;
         }
-    }
-}
+    } // namespace boostPythonInterface
+} // namespace nc
 #endif

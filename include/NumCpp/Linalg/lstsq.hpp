@@ -66,5 +66,5 @@ namespace nc
 
             return svdSolver.solve(inB.template astype<double>(), threshold);
         }
-    }
-}
+    }  // namespace linalg
+}  // namespace nc

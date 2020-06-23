@@ -74,4 +74,4 @@ namespace nc
         inArray.resizeFast(inNewShape);
         return inArray;
     }
-}
+}  // namespace nc

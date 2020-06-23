@@ -139,12 +139,10 @@ namespace nc
             {
                 return *this;
             }
-            else
-            {
-                Vec2 returnVec = Vec2(*this).normalize();
-                returnVec *= maxLength;
-                return returnVec;
-            }
+            
+            Vec2 returnVec = Vec2(*this).normalize();
+            returnVec *= maxLength;
+            return returnVec;
         }
 
         //============================================================================
@@ -451,7 +449,7 @@ namespace nc
     ///
     inline Vec2 operator-(const Vec2& vec) noexcept 
     {
-        return Vec2(-vec.x, -vec.y);
+        return {-vec.x, -vec.y};
     }
 
     //============================================================================
@@ -559,4 +557,4 @@ namespace nc
         stream << vec.toString() << std::endl;
         return stream;
     }
-}
+}  // namespace nc

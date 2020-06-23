@@ -46,4 +46,4 @@ namespace nc
         inArray1 = std::move(inArray2);
         inArray2 = std::move(tmp);
     }
-}
+}  // namespace nc

@@ -67,4 +67,4 @@ namespace nc
     {
         return NdArray<dtype>(inShape);
     }
-}
+} // namespace nc

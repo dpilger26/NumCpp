@@ -45,4 +45,4 @@ namespace nc
     {
         return ~inArray;
     }
-}
+}  // namespace nc

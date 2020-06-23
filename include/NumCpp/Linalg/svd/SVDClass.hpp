@@ -55,7 +55,7 @@ namespace nc
             /// @param
             ///              inMatrix: matrix to perform SVD on
             ///
-            SVD(const NdArray<double>& inMatrix) :
+            explicit SVD(const NdArray<double>& inMatrix) :
                 m_(inMatrix.shape().rows),
                 n_(inMatrix.shape().cols),
                 u_(inMatrix),
@@ -168,7 +168,7 @@ namespace nc
             /// @return
             ///              value
             ///
-            double SIGN(double inA, double inB) noexcept 
+            static double SIGN(double inA, double inB) noexcept 
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
@@ -489,7 +489,7 @@ namespace nc
                             z = pythag(f, h);
                             s_[j] = z;
 
-                            if (z)
+                            if (z != 0.0)
                             {
                                 z = 1.0 / z;
                                 c = f * z;
@@ -635,7 +635,7 @@ namespace nc
             /// @return
             ///              resultant value
             ///
-            double pythag(double inA, double inB) noexcept
+            static double pythag(double inA, double inB) noexcept
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);
@@ -653,5 +653,5 @@ namespace nc
             double				eps_;
             double				tsh_;
         };
-    }
-}
+    } // namespace linalg
+} // namespace nc

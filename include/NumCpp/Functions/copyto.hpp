@@ -49,4 +49,4 @@ namespace nc
         inDestArray = inSrcArray;
         return inDestArray;
     }
-}
+}  // namespace nc

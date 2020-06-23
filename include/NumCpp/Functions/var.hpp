@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/stdev.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <complex>
@@ -90,4 +90,4 @@ namespace nc
         stl_algorithms::for_each(stdValues.begin(), stdValues.end(), function);
         return stdValues;
     }
-}
+}  // namespace nc

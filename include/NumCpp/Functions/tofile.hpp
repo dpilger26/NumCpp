@@ -51,4 +51,4 @@ namespace nc
     {
         return inArray.tofile(inFilename, inSep);
     }
-}
+}  // namespace nc

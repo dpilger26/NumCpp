@@ -50,5 +50,5 @@ namespace nc
 
             return std::to_string(inNumber);
         }
-    }
-}
+    }  // namespace utils
+}  // namespace nc

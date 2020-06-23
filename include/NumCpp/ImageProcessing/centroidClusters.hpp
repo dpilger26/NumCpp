@@ -53,14 +53,15 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            std::vector<Centroid<dtype> > centroids;
+            std::vector<Centroid<dtype>> centroids;
 
+            centroids.reserve(inClusters.size());
             for (auto& cluster : inClusters)
             {
-                centroids.push_back(std::move(Centroid<dtype>(cluster)));
+                centroids.emplace_back(cluster);
             }
 
             return centroids;
         }
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

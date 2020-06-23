@@ -82,4 +82,4 @@ namespace nc
 
         return outArray;
     }
-}
+}  // namespace nc

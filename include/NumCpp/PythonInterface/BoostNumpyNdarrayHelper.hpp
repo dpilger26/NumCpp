@@ -36,9 +36,9 @@
 
 #include <cmath>
 #include <iostream>
-#include <vector>
 #include <string>
 #include <utility>
+#include <vector>
 
 #include "boost/python.hpp"
 #include "boost/python/numpy.hpp"
@@ -62,7 +62,7 @@ namespace nc
             ///
             /// @param      inArray:  ndarray
             ///
-            BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
+            explicit BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
                 theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<dtype>())),
                 numDimensions_(static_cast<uint8>(inArray.get_nd())),
                 shape_(numDimensions_),
@@ -88,7 +88,7 @@ namespace nc
             ///
             /// @param      inShape
             ///
-            BoostNdarrayHelper(boost::python::tuple inShape) :
+            explicit BoostNdarrayHelper(boost::python::tuple inShape) :
                 theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<dtype>())),
                 numDimensions_(static_cast<uint8>(theArray_.get_nd())),
                 shape_(numDimensions_),
@@ -329,6 +329,6 @@ namespace nc
                 checkIndicesGeneric(indices);
             }
         };
-    }
-}
+    }  // namespace boostPythonInterface
+} // namespace nc
 #endif

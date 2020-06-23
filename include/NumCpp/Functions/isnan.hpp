@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 
@@ -57,10 +57,8 @@ namespace nc
         {
             return false;
         }
-        else
-        {
-            return std::isnan(static_cast<double>(inValue)); // static_cast is needed for compiler error
-        }
+        
+        return std::isnan(static_cast<double>(inValue)); // static_cast is needed for compiler error
     }
 
     //============================================================================
@@ -87,4 +85,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

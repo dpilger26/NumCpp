@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <complex>
 
@@ -49,4 +49,4 @@ namespace nc
     {
         return inArray.template astype<dtypeOut>();
     }
-}
+}  // namespace nc

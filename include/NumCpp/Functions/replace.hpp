@@ -49,4 +49,4 @@ namespace nc
         returnArray.replace(oldValue, newValue);
         return returnArray;
     }
-}
+}  // namespace nc

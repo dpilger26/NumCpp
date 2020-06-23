@@ -52,5 +52,5 @@ namespace nc
         {
             generator_.seed(inSeed);
         }
-    }
-}
+    } // namespace random
+}  // namespace nc

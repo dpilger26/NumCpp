@@ -47,4 +47,4 @@ namespace nc
     {
         return inArray.min(inAxis);
     }
-}
+}  // namespace nc

@@ -66,4 +66,4 @@ namespace nc
     {
         return inArray.round(inNumDecimals);
     }
-}
+}  // namespace nc

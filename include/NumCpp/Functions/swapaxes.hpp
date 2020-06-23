@@ -48,4 +48,4 @@ namespace nc
     {
         return inArray.swapaxes();
     }
-}
+} // namespace nc

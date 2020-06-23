@@ -71,4 +71,4 @@ namespace nc
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
-}
+} // namespace nc

@@ -76,5 +76,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+} // namespace nc

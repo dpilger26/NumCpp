@@ -66,4 +66,4 @@ namespace nc
     {
         return deg2rad(inArray);
     }
-}
+}  // namespace nc

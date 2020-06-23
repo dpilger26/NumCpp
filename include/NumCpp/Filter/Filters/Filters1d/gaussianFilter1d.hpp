@@ -72,7 +72,7 @@ namespace nc
                 ++kernelSize; // make sure the kernel is an odd size
             }
 
-            const double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+            const auto kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
 
             // calculate the gaussian kernel
             NdArray<double> kernel(1, kernelSize);
@@ -92,5 +92,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+} // namespace nc

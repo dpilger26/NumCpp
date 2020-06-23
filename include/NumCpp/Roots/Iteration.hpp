@@ -73,7 +73,7 @@ namespace nc
             // Method Description:
             ///	Destructor
             ///
-            virtual ~Iteration() noexcept {}
+            virtual ~Iteration() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -116,5 +116,5 @@ namespace nc
             uint32          maxNumIterations_{1000};
             uint32          numIterations_{0};
         };
-    }
-}
+    }  // namespace roots
+} // namespace nc

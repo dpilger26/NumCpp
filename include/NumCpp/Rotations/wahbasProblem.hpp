@@ -33,7 +33,6 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
@@ -42,6 +41,7 @@
 #include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -130,5 +130,5 @@ namespace nc
             const auto ak = ones<dtype>({1, wk.shape().rows});
             return wahbasProblem(wk, vk, ak);
         }
-    }
-}
+    } // namespace rotations
+}  // namespace nc

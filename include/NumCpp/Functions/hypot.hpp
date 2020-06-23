@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <cmath>
@@ -122,4 +122,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

@@ -57,7 +57,7 @@ namespace nc
             ///
             /// @param				numIterations: the number of iterations to perform
             ///
-            LegendrePolynomial(const uint32 numIterations) noexcept :
+            explicit LegendrePolynomial(const uint32 numIterations) noexcept :
                 numIterations_(numIterations),
                 weight_(numIterations + 1),
                 root_(numIterations + 1)
@@ -116,7 +116,7 @@ namespace nc
             ///
             void calculateWeightAndRoot() noexcept
             {
-                const double numIterationsDouble = static_cast<double>(numIterations_);
+                const auto numIterationsDouble = static_cast<double>(numIterations_);
                 for (uint32 step = 0; step <= numIterations_; ++step)
                 {
                     double root = std::cos(constants::pi * (static_cast<double>(step) - 0.25) / (numIterationsDouble + 0.5));
@@ -150,7 +150,7 @@ namespace nc
                 const double f = 1.0 / (utils::sqr(x) - 1.0);
                 for (uint32 step = 2; step <= numIterations_; ++step)
                 {
-                    const double stepDouble = static_cast<double>(step);
+                    const auto stepDouble = static_cast<double>(step);
                     const double value = ((2.0 * stepDouble - 1.0) * x * result.value - (stepDouble - 1.0) * value_minus_1) / stepDouble;
                     result.derivative = stepDouble * f * (x * value - result.value);
 
@@ -198,5 +198,5 @@ namespace nc
 
             return gaussLegendre * width;
         }
-    }
-}
+    }  // namespace integrate
+}  // namespace nc

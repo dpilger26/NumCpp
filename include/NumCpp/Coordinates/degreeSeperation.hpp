@@ -62,5 +62,5 @@ namespace nc
             const Coordinate inCoord1(inVector1);
             return inCoord1.degreeSeperation(inVector2);
         }
-    }
-}
+    }  // namespace coordinates
+} // namespace nc

@@ -28,13 +28,13 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/max.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 #include <vector>
@@ -130,4 +130,4 @@ namespace nc
             }
         }
     }
-}
+}  // namespace nc

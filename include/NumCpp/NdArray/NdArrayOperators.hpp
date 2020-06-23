@@ -2556,4 +2556,4 @@ namespace nc
         inOStream << inArray.str();
         return inOStream;
     }
-}
+}  // namespace nc

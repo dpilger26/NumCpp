@@ -48,4 +48,4 @@ namespace nc
     {
         return inArray.contains(inValue, inAxis);
     }
-}
+} // namespace nc

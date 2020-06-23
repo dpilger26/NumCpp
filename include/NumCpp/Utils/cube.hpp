@@ -48,5 +48,5 @@ namespace nc
 
             return inValue * inValue * inValue;
         }
-    }
-}
+    }  // namespace utils
+}  // namespace nc

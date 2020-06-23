@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 #include <vector>
@@ -151,4 +151,4 @@ namespace nc
     {
         return arange<dtype>(inSlice.start, inSlice.stop, inSlice.step);
     }
-}
+}  // namespace nc

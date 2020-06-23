@@ -80,5 +80,5 @@ namespace nc
 
             return randFloat(inShape, inLow, inHigh);
         }
-    }
-}
+    } // namespace random
+} // namespace nc

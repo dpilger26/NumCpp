@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/arange.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <utility>
 
@@ -102,4 +102,4 @@ namespace nc
         return meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2));
     }
 
-}
+} // namespace nc

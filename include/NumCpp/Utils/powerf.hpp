@@ -55,5 +55,5 @@ namespace nc
 
             return std::pow(inValue, inPower);
         }
-    }
-}
+    } // namespace utils
+} // namespace nc

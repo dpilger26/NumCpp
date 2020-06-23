@@ -49,4 +49,4 @@ namespace nc
     {
         return inArray.cumsum(inAxis);
     }
-}
+}  // namespace nc

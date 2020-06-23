@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/unique.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <complex>
 #include <vector>
@@ -71,4 +71,4 @@ namespace nc
 
         return NdArray<dtype>(res.begin(), last);
     }
-}
+} // namespace nc

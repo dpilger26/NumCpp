@@ -72,4 +72,4 @@ namespace nc
 
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
-}
+}  // namespace nc

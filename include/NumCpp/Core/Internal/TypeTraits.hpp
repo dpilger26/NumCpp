@@ -190,4 +190,4 @@ namespace nc
     ///
     template<class T>
     constexpr bool is_complex_v = is_complex<T>::value;
-}
+} // namespace nc

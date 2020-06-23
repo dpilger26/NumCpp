@@ -30,8 +30,8 @@
 
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/flip.hpp"
-#include "NumCpp/Functions/flipud.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
+#include "NumCpp/Functions/flipud.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -78,4 +78,4 @@ namespace nc
             }
         }
     }
-}
+}  // namespace nc

@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/exp.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -69,7 +69,7 @@ namespace nc
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
-                        const double rowExpSum = static_cast<double>(expSums[row]);
+                        const auto rowExpSum = static_cast<double>(expSums[row]);
                         stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
@@ -98,5 +98,5 @@ namespace nc
                 }
             }
         }
-    }
-}
+    } // namespace special
+}  // namespace nc

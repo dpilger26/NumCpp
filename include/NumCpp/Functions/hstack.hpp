@@ -53,4 +53,4 @@ namespace nc
     {
         return column_stack(inArrayList);
     }
-}
+} // namespace nc

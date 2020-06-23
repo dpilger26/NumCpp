@@ -59,9 +59,9 @@ namespace nc
             /// @param f: the function 
             ///
             Secant(const double epsilon,
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
@@ -74,16 +74,16 @@ namespace nc
             ///
             Secant(const double epsilon,
                 const uint32 maxNumIterations,
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon, maxNumIterations),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
             // Method Description:
             ///	Destructor
             ///
-            ~Secant() = default;
+            ~Secant() override = default;
 
             //============================================================================
             // Method Description:
@@ -137,11 +137,11 @@ namespace nc
             /// @param lastFx: the function evaluated at the previous x value
             /// @return x
             ///
-            double calculateX(double x, double lastX, double fx, double lastFx) noexcept 
+            static double calculateX(double x, double lastX, double fx, double lastFx) noexcept 
             {
                 const double functionDifference = fx - lastFx;
                 return x - fx * (x - lastX) / functionDifference;
             }
         };
-    }
-}
+    }  // namespace roots
+}  // namespace nc

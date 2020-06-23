@@ -211,7 +211,7 @@ namespace nc
         /// @param f: the function to apply to the input iterators
         ///
         template<class InputIt, class UnaryFunction>
-        void for_each(InputIt first, InputIt last, UnaryFunction f) NO_EXCEPT
+        void for_each(InputIt first, InputIt last, UnaryFunction f)
         {
             std::for_each(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -701,7 +701,7 @@ namespace nc
         ///
         template<class InputIt, class OutputIt, class UnaryOperation>
         OutputIt transform(InputIt first, InputIt last, OutputIt destination,
-            UnaryOperation unaryFunction) NO_EXCEPT
+            UnaryOperation unaryFunction)
         {
             return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -723,7 +723,7 @@ namespace nc
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
         OutputIt transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
-            OutputIt destination, BinaryOperation unaryFunction) NO_EXCEPT 
+            OutputIt destination, BinaryOperation unaryFunction) 
         {
             return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -772,5 +772,5 @@ namespace nc
 #endif
                 first, last, destination, binaryFunction);
         }
-    }
-}
+    } // namespace stl_algorithms
+} // namespace nc

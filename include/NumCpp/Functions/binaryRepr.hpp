@@ -53,4 +53,4 @@ namespace nc
 
         return std::bitset<DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
-}
+}  // namespace nc

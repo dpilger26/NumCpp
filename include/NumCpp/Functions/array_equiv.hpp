@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <complex>
 
@@ -66,14 +66,14 @@ namespace nc
         {
             return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
         }
-        else
-        {
+        
+        
             const auto b = [](dtype value1, dtype value2) noexcept -> bool
             {
                 return utils::essentiallyEqual(value1, value2);
             };
 
             return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), b);
-        }
+        
     }
-}
+}  // namespace nc

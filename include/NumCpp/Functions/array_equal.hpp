@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Functions/array_equiv.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -55,4 +55,4 @@ namespace nc
 
         return array_equiv(inArray1, inArray2);
     }
-}
+}  // namespace nc

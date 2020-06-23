@@ -47,4 +47,4 @@ namespace nc
     {
         return inArray.max(inAxis);
     }
-}
+}  // namespace nc

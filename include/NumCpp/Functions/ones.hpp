@@ -28,9 +28,9 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/full.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -91,4 +91,4 @@ namespace nc
 
         return full(inShape, dtype{ 1 });
     }
-}
+} // namespace nc

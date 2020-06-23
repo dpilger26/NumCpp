@@ -30,6 +30,6 @@
 
 #include "NumCpp/Coordinates/Coordinate.hpp"
 #include "NumCpp/Coordinates/Dec.hpp"
-#include "NumCpp/Coordinates/degreeSeperation.hpp"
 #include "NumCpp/Coordinates/RA.hpp"
+#include "NumCpp/Coordinates/degreeSeperation.hpp"
 #include "NumCpp/Coordinates/radianSeperation.hpp"

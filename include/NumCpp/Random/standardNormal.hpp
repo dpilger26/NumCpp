@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/normal.hpp"
 
 namespace nc
@@ -75,5 +75,5 @@ namespace nc
 
             return normal<dtype>(inShape, 0, 1);
         }
-    }
-}
+    }  // namespace random
+}  // namespace nc

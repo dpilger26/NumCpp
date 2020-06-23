@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -74,15 +74,18 @@ namespace nc
             {
                 return identity<double>(inShape.rows);
             }
-            else if (inPower == 1)
+
+            if (inPower == 1)
             {
                 return inArray.template astype<double>();
             }
-            else if (inPower == -1)
+
+            if (inPower == -1)
             {
                 return inv(inArray);
             }
-            else if (inPower > 1)
+
+            if (inPower > 1)
             {
                 NdArray<double> inArrayDouble = inArray.template astype<double>();
                 NdArray<double> returnArray = dot(inArrayDouble, inArrayDouble);
@@ -92,17 +95,15 @@ namespace nc
                 }
                 return returnArray;
             }
-            else
+
+            NdArray<double> inverse = inv(inArray);
+            NdArray<double> returnArray = dot(inverse, inverse);
+            inPower *= -1;
+            for (int16 i = 2; i < inPower; ++i)
             {
-                NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot(inverse, inverse);
-                inPower *= -1;
-                for (int16 i = 2; i < inPower; ++i)
-                {
-                    returnArray = dot(returnArray, inverse);
-                }
-                return returnArray;
+                returnArray = dot(returnArray, inverse);
             }
+            return returnArray;
         }
-    }
-}
+    } // namespace linalg
+}  // namespace nc

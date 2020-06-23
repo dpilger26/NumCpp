@@ -78,5 +78,5 @@ namespace nc
 
             return xcds;
         }
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

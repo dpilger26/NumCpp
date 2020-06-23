@@ -188,4 +188,4 @@ namespace nc
             return inOStream;
         }
     };
-}
+} // namespace nc

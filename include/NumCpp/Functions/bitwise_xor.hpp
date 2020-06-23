@@ -48,4 +48,4 @@ namespace nc
     {
         return inArray1 ^ inArray2;
     }
-}
+}  // namespace nc

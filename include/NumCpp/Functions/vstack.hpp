@@ -52,4 +52,4 @@ namespace nc
     {
         return row_stack(inArrayList);
     }
-}
+}  // namespace nc

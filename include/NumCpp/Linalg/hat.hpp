@@ -103,5 +103,5 @@ namespace nc
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }
-    }
-}
+    }  // namespace linalg
+}  // namespace nc

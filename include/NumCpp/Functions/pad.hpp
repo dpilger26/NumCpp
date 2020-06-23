@@ -63,4 +63,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

@@ -30,8 +30,8 @@
 
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/fliplr.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -74,5 +74,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    }  // namespace filter
+}  // namespace nc

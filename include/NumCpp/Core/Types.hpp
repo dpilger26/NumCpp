@@ -49,4 +49,4 @@ namespace nc
     //================================================================================
     ///						Enum for endianess
     enum class Endian { NATIVE = 0, BIG, LITTLE };
-}
+} // namespace nc

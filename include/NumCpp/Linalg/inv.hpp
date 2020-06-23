@@ -125,5 +125,5 @@ namespace nc
 
             return returnArray;
         }
-    }
-}
+    } // namespace linalg
+}  // namespace nc

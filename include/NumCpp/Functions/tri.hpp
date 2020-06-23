@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -261,4 +261,4 @@ namespace nc
         outArray.putMask(tril<bool>(inShape.rows, inShape.cols, inOffset - 1), 0);
         return outArray;
     }
-}
+}  // namespace nc

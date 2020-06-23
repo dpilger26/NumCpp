@@ -48,4 +48,4 @@ namespace nc
     {
         applyFunction<dtype>(inArray, inPoly);
     }
-}
+}  // namespace nc

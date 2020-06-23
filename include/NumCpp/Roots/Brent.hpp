@@ -59,9 +59,9 @@ namespace nc
             /// @param f: the function 
             ///
             Brent(const double epsilon,
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
@@ -74,16 +74,16 @@ namespace nc
             ///
             Brent(const double epsilon,
                 const uint32 maxNumIterations, 
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon, maxNumIterations),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
             // Method Description:
             ///	Destructor
             ///
-            ~Brent() = default;
+            ~Brent() override = default;
 
             //============================================================================
             // Method Description:
@@ -165,7 +165,7 @@ namespace nc
             /// @param b: the upper bound
             /// @return x
             ///
-            double calculateBisection(const double a, const double b) const noexcept 
+            static double calculateBisection(const double a, const double b) noexcept 
             {
                 return 0.5 * (a + b);
             }
@@ -180,7 +180,7 @@ namespace nc
             /// @param fb: the function evaluated at b
             /// @return the secant point
             ///
-            double calculateSecant(const double a, const double b, const double fa, const double fb) const noexcept 
+            static double calculateSecant(const double a, const double b, const double fa, const double fb) noexcept 
             {
                 //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
                 return b - fb * (b - a) / (fb - fa);
@@ -198,8 +198,8 @@ namespace nc
             /// @param lastFb: the previous function evaluated at the upper bound
             /// @return the inverse quadratic interpolation
             ///
-            double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB,
-                const double fa, const double fb, const double lastFb) const noexcept 
+            static double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB,
+                const double fa, const double fb, const double lastFb) noexcept 
             {
                 return a * fb * lastFb / ((fa - fb) * (fa - lastFb)) +
                     b * fa * lastFb / ((fb - fa) * (fb - lastFb)) +
@@ -215,7 +215,7 @@ namespace nc
             /// @param lastFb: the previous function evaluated at the upper bound
             /// @return bool
             ///
-            bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) const noexcept 
+            static bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) noexcept 
             {
                 return fa != lastFb && fb != lastFb;
             }
@@ -229,7 +229,7 @@ namespace nc
             /// @param fa: the function evaluated at a
             /// @param fb: the function evaluated at b
             ///
-            void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept 
+            static void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept 
             {
                 //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (std::fabs(fa) < std::fabs(fb))
@@ -261,5 +261,5 @@ namespace nc
                     (!bisection && std::fabs(lastB - penultimateB) < DELTA); //If last iteration was using interpolation but difference between lastB ond penultimateB is < delta use biscetion for next iteration
             }
         };
-    }
-}
+    }  // namespace roots
+} // namespace nc

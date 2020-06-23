@@ -100,4 +100,4 @@ namespace nc
         inArray.reshape(inNewShape);
         return inArray;
     }
-}
+}  // namespace nc

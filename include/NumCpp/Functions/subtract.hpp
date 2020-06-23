@@ -186,4 +186,4 @@ namespace nc
     {
         return value - inArray;
     }
-}
+}  // namespace nc

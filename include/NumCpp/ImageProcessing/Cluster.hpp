@@ -73,7 +73,7 @@ namespace nc
             /// @param
             ///              inClusterId
             ///
-            Cluster(uint32 inClusterId) noexcept :
+            explicit Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
             {}
 
@@ -384,5 +384,5 @@ namespace nc
 
             double                      eod_{ 1.0 };
         };
-    }
-}
+    }  // namespace imageProcessing
+} // namespace nc

@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/factorial.hpp"
 #include "NumCpp/Special/pnr.hpp"
 
@@ -53,5 +53,5 @@ namespace nc
         {
             return pnr(n, r) / factorial(r);
         }
-    }
-}
+    }  // namespace special
+}  // namespace nc

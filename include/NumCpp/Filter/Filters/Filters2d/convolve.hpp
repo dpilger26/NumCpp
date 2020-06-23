@@ -32,11 +32,11 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/rot90.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <string>
@@ -90,5 +90,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+} // namespace nc

@@ -173,7 +173,7 @@ namespace nc
         }
 
         std::vector<uint32> indices;
-        for (uint32 i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
+        for (auto i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
         {
             indices.push_back(i);
         }
@@ -197,4 +197,4 @@ namespace nc
         NdArray<uint32> inIndices = { inIndex };
         return deleteIndices(inArray, inIndices, inAxis);
     }
-}
+} // namespace nc

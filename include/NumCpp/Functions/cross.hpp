@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -119,7 +119,7 @@ namespace nc
                 NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
-                    const int32 theCol = static_cast<int32>(col);
+                    const auto theCol = static_cast<int32>(col);
                     NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                     NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
@@ -151,7 +151,7 @@ namespace nc
                 NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
-                    const int32 theRow = static_cast<int32>(row);
+                    const auto theRow = static_cast<int32>(row);
                     NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                     NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
@@ -169,4 +169,4 @@ namespace nc
             }
         }
     }
-}
+}  // namespace nc

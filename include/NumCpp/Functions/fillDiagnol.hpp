@@ -55,4 +55,4 @@ namespace nc
             }
         }
     }
-}
+} // namespace nc

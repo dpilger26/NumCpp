@@ -52,4 +52,4 @@ namespace nc
     {
         return fromfile<dtype>(inFilename, "");
     }
-}
+}  // namespace nc

@@ -65,4 +65,4 @@ namespace nc
     {
         return inArray.round(inDecimals);
     }
-}
+}  // namespace nc

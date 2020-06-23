@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <complex>
 
@@ -60,14 +60,13 @@ namespace nc
         {
             return -1;
         }
-        else if (inValue > dtype{ 0 })
+
+        if (inValue > dtype{ 0 })
         {
             return 1;
         }
-        else
-        {
-            return 0;
-        }
+        
+        return 0;
     }
 
     //============================================================================
@@ -96,4 +95,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

@@ -32,10 +32,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -98,5 +98,5 @@ namespace nc
 
             return lMatrix;
         }
-    }
-}
+    }  // namespace linalg
+}  // namespace nc

@@ -89,4 +89,4 @@ namespace nc
     {
         return full(inShape.rows, inShape.cols, inFillValue);
     }
-}
+} // namespace nc

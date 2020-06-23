@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <iostream>
 
@@ -51,4 +51,4 @@ namespace nc
 
         std::cout << inArray;
     }
-}
+}  // namespace nc

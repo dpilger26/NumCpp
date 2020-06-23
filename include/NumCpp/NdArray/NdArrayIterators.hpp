@@ -64,7 +64,7 @@ namespace nc
         ///
         /// @param ptr: the iterator pointer
         ///
-        NdArrayConstIterator(pointer ptr) noexcept :
+        explicit NdArrayConstIterator(pointer ptr) noexcept :
             ptr_(ptr)
         {}
 
@@ -347,9 +347,9 @@ namespace nc
         ///
         /// @return pointer
         ///
-        const pointer operator->() const noexcept
+        pointer operator->() const noexcept
         {
-            return const_cast<const pointer>(MyBase::operator->());
+            return const_cast<pointer>(MyBase::operator->());
         }
 
         //============================================================================
@@ -858,9 +858,9 @@ namespace nc
         ///
         /// @return pointer
         ///
-        const pointer operator->() const noexcept
+        pointer operator->() const noexcept
         {
-            return const_cast<const pointer>(MyBase::operator->());
+            return const_cast<pointer>(MyBase::operator->());
         }
 
         //============================================================================
@@ -998,4 +998,4 @@ namespace nc
     {
         return next += offset;
     }
-}
+}  // namespace nc

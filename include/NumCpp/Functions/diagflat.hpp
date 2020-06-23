@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 
@@ -53,7 +53,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const uint32 absK = static_cast<uint32>(std::abs(k));
+        const auto absK = static_cast<uint32>(std::abs(k));
         NdArray<dtype> returnArray(inArray.size() + absK);
 
         const uint32 rowOffset = k < 0 ? absK : 0;
@@ -67,4 +67,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

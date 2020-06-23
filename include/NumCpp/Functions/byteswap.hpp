@@ -49,4 +49,4 @@ namespace nc
         returnArray.byteswap();
         return returnArray;
     }
-}
+}  // namespace nc

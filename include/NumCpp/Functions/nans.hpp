@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Functions/full.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -79,4 +79,4 @@ namespace nc
     {
         return full(inShape, constants::nan);
     }
-}
+}  // namespace nc

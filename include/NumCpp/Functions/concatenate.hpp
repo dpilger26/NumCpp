@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
@@ -88,4 +88,4 @@ namespace nc
             }
         }
     }
-}
+} // namespace nc

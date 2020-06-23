@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -80,4 +80,4 @@ namespace nc
             }
         }
     }
-}
+} // namespace nc

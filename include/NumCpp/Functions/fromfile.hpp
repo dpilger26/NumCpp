@@ -36,8 +36,8 @@
 
 #include <fstream>
 #include <memory>
-#include <string>
 #include <sstream>
+#include <string>
 
 namespace nc
 {
@@ -64,7 +64,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
         }
 
-        if (inSep.compare("") == 0)
+        if (inSep.empty())
         {
             // read in as binary file
             std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
@@ -73,12 +73,13 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
             }
 
-            file.seekg(0, file.end);
+            file.seekg(0, std::ifstream::end);
             const uint32 fileSize = static_cast<uint32>(file.tellg());
-            file.seekg(0, file.beg);
+            file.seekg(0, std::ifstream::beg);
 
-            const auto fileBuffer = std::make_unique<char[]>(fileSize);
-            file.read(fileBuffer.get(), fileSize);
+            std::vector<char> fileBuffer;
+            fileBuffer.reserve(fileSize);
+            file.read(fileBuffer.data(), fileSize);
 
             if (file.bad() || file.fail())
             {
@@ -87,57 +88,56 @@ namespace nc
 
             file.close();
 
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.get()), fileSize / sizeof(dtype));
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.data()), fileSize / sizeof(dtype));
 
             return returnArray;
         }
+        
+        // read in as txt file
+        if (!(inSep == " " || inSep == "\t" || inSep == "\n"))
+        {
+            THROW_INVALID_ARGUMENT_ERROR("only [' ', '\\t', '\\n'] seperators are supported");
+        }
+
+        std::vector<dtype> values;
+
+        std::ifstream file(inFilename.c_str());
+        if (file.is_open())
+        {
+            uint32 lineNumber = 0;
+            while (!file.eof())
+            {
+                std::string line;
+                std::getline(file, line);
+
+                std::istringstream iss(line);
+                try
+                {
+                    dtype value;
+                    while (iss >> value)
+                    {
+                        values.push_back(value);
+                    }
+                }
+                catch (const std::invalid_argument& ia)
+                {
+                    std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
+                }
+                catch (...)
+                {
+                    std::cout << "Warning: fromfile: line " << lineNumber << std::endl;
+                }
+
+                ++lineNumber;
+            }
+            file.close();
+        }
         else
         {
-            // read in as txt file
-            if (!(inSep.compare(" ") == 0 || inSep.compare("\t") == 0 || inSep.compare("\n") == 0))
-            {
-                THROW_INVALID_ARGUMENT_ERROR("only [' ', '\\t', '\\n'] seperators are supported");
-            }
-
-            std::vector<dtype> values;
-
-            std::ifstream file(inFilename.c_str());
-            if (file.is_open())
-            {
-                uint32 lineNumber = 0;
-                while (!file.eof())
-                {
-                    std::string line;
-                    std::getline(file, line);
-
-                    std::istringstream iss(line);
-                    try
-                    {
-                        dtype value;
-                        while (iss >> value)
-                        {
-                            values.push_back(value);
-                        }
-                    }
-                    catch (const std::invalid_argument& ia)
-                    {
-                        std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
-                    }
-                    catch (...)
-                    {
-                        std::cout << "Warning: fromfile: line " << lineNumber << std::endl;
-                    }
-
-                    ++lineNumber;
-                }
-                file.close();
-            }
-            else
-            {
-                THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
-            }
-
-            return NdArray<dtype>(values);
+            THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
         }
+
+        return NdArray<dtype>(values);
+        
     }
-}
+}  // namespace nc

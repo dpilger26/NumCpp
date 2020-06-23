@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <array>
 #include <deque>
@@ -345,4 +345,4 @@ namespace nc
     {
         return NdArray<dtype>(ptr, numRows, numCols, takeOwnership);
     }
-}
+}  // namespace nc

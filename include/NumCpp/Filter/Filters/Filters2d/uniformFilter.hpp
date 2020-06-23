@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
 #include "NumCpp/Functions/mean.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -77,5 +77,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+} // namespace nc

@@ -46,4 +46,4 @@ namespace nc
     {
         return inArray.nbytes();
     }
-}
+}  // namespace nc

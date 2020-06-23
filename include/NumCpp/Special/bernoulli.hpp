@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/bernoulli.hpp"
 
@@ -53,7 +53,7 @@ namespace nc
             {
                 return 0.5;
             }
-            else if (n % 2 != 0)
+            if (n % 2 != 0)
             {
                 return 0.0;
             }
@@ -82,5 +82,5 @@ namespace nc
 
             return returnArray;
         }
-    }
-}
+    } // namespace special
+} // namespace nc

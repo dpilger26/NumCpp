@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 #include <complex>
@@ -79,4 +79,4 @@ namespace nc
 
         return returnArray;
     }
-}
+} // namespace nc

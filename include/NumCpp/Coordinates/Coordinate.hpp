@@ -121,7 +121,7 @@ namespace nc
             ///
             /// @param				inCartesianVector
             ///
-            Coordinate(const NdArray<double> inCartesianVector)
+            Coordinate(const NdArray<double>& inCartesianVector)
             {
                 if (inCartesianVector.size() != 3)
                 {
@@ -349,5 +349,5 @@ namespace nc
                 z_ = std::sin(decRadians);
             }
         };
-    }
-}
+    } // namespace coordinates
+} // namespace nc

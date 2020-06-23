@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <functional>
 
@@ -50,4 +50,4 @@ namespace nc
     {
         stl_algorithms::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
     }
-}
+}  // namespace nc

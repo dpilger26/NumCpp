@@ -57,5 +57,5 @@ namespace nc
 
             return inImageArrayCopy;
         }
-    }
-}
+    }  // namespace filter
+} // namespace nc

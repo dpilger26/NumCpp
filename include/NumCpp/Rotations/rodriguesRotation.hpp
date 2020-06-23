@@ -84,5 +84,5 @@ namespace nc
         {
             return rodriguesRotation(Vec3(k), theta, Vec3(v)).toNdArray();
         }
-    }
-}
+    }  // namespace rotations
+}  // namespace nc

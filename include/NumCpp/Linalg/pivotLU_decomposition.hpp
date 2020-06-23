@@ -32,12 +32,12 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/eye.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
@@ -124,5 +124,5 @@ namespace nc
 
             return std::make_tuple(lMatrix, uMatrix, pMatrix);
         }
-    }
-}
+    }  // namespace linalg
+} // namespace nc

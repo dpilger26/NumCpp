@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/nanmean.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <algorithm>
@@ -135,4 +135,4 @@ namespace nc
         }
     }
 
-}
+}  // namespace nc

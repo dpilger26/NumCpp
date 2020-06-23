@@ -125,21 +125,12 @@ namespace nc
                 {
                     return true;
                 }
-                else if (row == rhs.row)
+                if (row == rhs.row)
                 {
-                    if (col < rhs.col)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return static_cast<bool>(col < rhs.col);
                 }
-                else
-                {
-                    return false;
-                }
+                
+                return false;
             }
 
             //=============================================================================
@@ -180,5 +171,5 @@ namespace nc
                 return inStream;
             }
         };
-    }
-}
+    }  // namespace imageProcessing
+} // namespace nc

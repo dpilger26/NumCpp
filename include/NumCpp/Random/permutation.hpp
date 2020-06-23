@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include <algorithm>
@@ -79,5 +79,5 @@ namespace nc
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }
-    }
-}
+    }  // namespace random
+} // namespace nc

@@ -67,5 +67,5 @@ namespace nc
 
             return trapezoidal_integral;
         }
-    }
-}
+    }  // namespace integrate
+}  // namespace nc

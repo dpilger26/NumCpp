@@ -49,4 +49,4 @@ namespace nc
     {
         return full(inArray.shape(), inFillValue);
     }
-}
+} // namespace nc

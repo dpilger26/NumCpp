@@ -51,4 +51,4 @@ namespace nc
         returnArray.sort(inAxis);
         return returnArray;
     }
-}
+} // namespace nc

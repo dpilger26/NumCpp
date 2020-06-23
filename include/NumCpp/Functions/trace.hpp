@@ -50,4 +50,4 @@ namespace nc
     {
         return inArray.trace(inOffset, inAxis);
     }
-}
+} // namespace nc

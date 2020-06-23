@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -64,7 +64,7 @@ namespace nc
             ///
             /// @param               inCluster
             ///
-            Centroid(const Cluster<dtype>& inCluster) :
+            explicit Centroid(const Cluster<dtype>& inCluster) :
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
@@ -242,5 +242,5 @@ namespace nc
                 col_ = rowCol.back() + colMin;
             }
         };
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

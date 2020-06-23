@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/constant2d.hpp"
-#include "NumCpp/Filter/Boundaries/Boundaries2d/nearest2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/mirror2d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries2d/nearest2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -101,6 +101,6 @@ namespace nc
 
                 return NdArray<dtype>(); // get rid of compiler warning
             }
-        }
-    }
-}
+        } // namespace boundary
+    }  // namespace filter
+}  // namespace nc

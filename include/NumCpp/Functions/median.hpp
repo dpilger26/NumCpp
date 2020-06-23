@@ -50,4 +50,4 @@ namespace nc
     {
         return inArray.median(inAxis);
     }
-}
+} // namespace nc
