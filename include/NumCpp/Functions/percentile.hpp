@@ -159,6 +159,7 @@ namespace nc
                 }
                 
                 THROW_INVALID_ARGUMENT_ERROR("intperpolation method has not been implemented: " + inInterpMethod);
+                break; // get rid of compiler warning...
             }
             case Axis::COL:
             {
@@ -189,10 +190,11 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<dtype>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
+
+        return NdArray<dtype>(0);
     }
 }  // namespace nc

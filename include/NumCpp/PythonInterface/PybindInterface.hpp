@@ -83,6 +83,7 @@ namespace nc
                 default:
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input array must be no more than 2 dimensional.");
+                    return {};
                 }
             }
         }

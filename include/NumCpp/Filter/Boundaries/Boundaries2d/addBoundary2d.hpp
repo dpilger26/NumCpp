@@ -94,8 +94,8 @@ namespace nc
                     }
                     default:
                     {
-                        // This can't actually happen but just adding to get rid of compiler warning
-                        THROW_INVALID_ARGUMENT_ERROR("ERROR!");
+                        THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                        return {}; // get rid of compiler warning
                     }
                 }
 

@@ -95,7 +95,8 @@ namespace nc
             }
             default:
             {
-                return NdArray<double>(); // get rid of compiler warning
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
@@ -156,7 +157,8 @@ namespace nc
             }
             default:
             {
-                return NdArray<std::complex<double>>(); // get rid of compiler warning
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }

@@ -1820,7 +1820,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -1875,7 +1876,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -1934,7 +1936,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -1993,7 +1996,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2075,7 +2079,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<uint32>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2374,7 +2379,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2451,7 +2457,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2514,7 +2521,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2613,7 +2621,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -2920,7 +2929,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3006,7 +3016,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3062,7 +3073,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3167,7 +3179,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3247,7 +3260,8 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            THROW_INVALID_ARGUMENT_ERROR("Unimplemented endian type.");
+                            return {}; // get rid of compiler warning
                         }
                     }
                     break;
@@ -3284,7 +3298,8 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            THROW_INVALID_ARGUMENT_ERROR("Unimplemented endian type.");
+                            return {}; // get rid of compiler warning
                         }
                     }
                     break;
@@ -3322,14 +3337,16 @@ namespace nc
                         }
                         default:
                         {
-                            return NdArray<dtype>(); // get rid of compiler warning
+                            THROW_INVALID_ARGUMENT_ERROR("Unimplemented endian type.");
+                            return {}; // get rid of compiler warning
                         }
                     }
                     break;
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented endian type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3384,7 +3401,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<bool>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3590,7 +3608,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -3648,7 +3667,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }
@@ -4439,7 +4459,8 @@ namespace nc
                 }
                 default:
                 {
-                    return NdArray<dtype>(); // get rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
                 }
             }
         }

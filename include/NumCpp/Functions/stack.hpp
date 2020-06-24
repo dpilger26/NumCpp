@@ -66,9 +66,8 @@ namespace nc
             default:
             {
                 THROW_INVALID_ARGUMENT_ERROR("inAxis must be either ROW or COL.");
+                return {};  // getting rid of compiler warning
             }
         }
-
-        return NdArray<dtype>();  // getting rid of compiler warning
     }
 }  // namespace nc
