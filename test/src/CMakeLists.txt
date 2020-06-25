@@ -8,7 +8,11 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_CXX_STANDARD 17)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
+
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 
 file(
