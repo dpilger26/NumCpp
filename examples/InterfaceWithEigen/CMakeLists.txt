@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.14)
 
 project(InterfaceWithEigen)
 
@@ -6,8 +6,6 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
 message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
-
-set(NUMCPP_INCLUDES ../../include)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -28,7 +26,7 @@ if (NOT (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC"))
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
-  ${NUMCPP_INCLUDES}
+  ../../include
   ${Boost_INCLUDE_DIRS} 
   ${EIGEN3_INCLUDE_DIR}
 )

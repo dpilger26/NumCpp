@@ -1,0 +1,21 @@
+# @PROJECT_NAME@Config.cmake
+# --------------------
+#
+# @PROJECT_NAME@ cmake module.
+# This module sets the following variables in your project::
+#
+#   @PROJECT_NAME@_FOUND - true if @PROJECT_NAME@ found on the system
+#   @PROJECT_NAME@_VERSION - @PROJECT_NAME@ version in format Major.Minor.Release
+#   @PROJECT_NAME@_INCLUDE_DIR - Directory where @PROJECT_NAME@ headers are located.
+#
+# The following variables can be set to guide the search for this package::
+#
+#   @PROJECT_NAME@_DIR - CMake variable, set to directory containing this Config file
+#   CMAKE_PREFIX_PATH - CMake variable, set to root directory of this package
+#   PATH - environment variable, set to bin directory of this package
+#
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
+set_and_check(@PROJECT_NAME@_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
+check_required_components("@PROJECT_NAME@")

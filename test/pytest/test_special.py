@@ -3,7 +3,7 @@ import scipy.special as sp
 import os
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
-import NumCpp  # noqa E402
+import NumCppPy as NumCpp  # noqa E402
 
 
 ####################################################################################

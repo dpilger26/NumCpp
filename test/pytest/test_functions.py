@@ -6,7 +6,7 @@ from functools import reduce
 import warnings
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
-import NumCpp  # noqa E402
+import NumCppPy as NumCpp  # noqa E402
 
 
 ####################################################################################

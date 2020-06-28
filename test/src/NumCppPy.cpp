@@ -5307,7 +5307,7 @@ namespace SpecialInterface
 
 //================================================================================
 
-BOOST_PYTHON_MODULE(NumCpp)
+BOOST_PYTHON_MODULE(NumCppPy)
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy

@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.14)
 
 set(NUMCPP_INCLUDES ../../include)
 
-project(NumCpp CXX)
+project(NumCppPy CXX)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -16,20 +16,20 @@ message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 
 file(
-    GLOB_RECURSE _source_list 
-    LIST_DIRECTORIES false
-    "${NUMCPP_INCLUDES}/*.c*"
-    "${NUMCPP_INCLUDES}/*.h*"
+  GLOB_RECURSE _source_list 
+  LIST_DIRECTORIES false
+  "${NUMCPP_INCLUDES}/*.c*"
+  "${NUMCPP_INCLUDES}/*.h*"
 )
 
 add_library(${PROJECT_NAME} SHARED NumCppPy.cpp ${_source_list})
 
 foreach(_source IN ITEMS ${_source_list})
-    get_filename_component(_source_path "${_source}" DIRECTORY)
-    string(REPLACE "${CMAKE_SOURCE_DIR}" "" _group_path "${_source_path}")
-    string(REPLACE "${NUMCPP_INCLUDES}" "" _group_path "${_group_path}")
-    string(REPLACE "/" "\\" _group_path "${_group_path}")
-    source_group("${_group_path}" FILES "${_source}")
+  get_filename_component(_source_path "${_source}" DIRECTORY)
+  string(REPLACE "${CMAKE_SOURCE_DIR}" "" _group_path "${_source_path}")
+  string(REPLACE "${NUMCPP_INCLUDES}" "" _group_path "${_group_path}")
+  string(REPLACE "/" "\\" _group_path "${_group_path}")
+  source_group("${_group_path}" FILES "${_source}")
 endforeach()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
