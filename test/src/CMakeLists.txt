@@ -11,7 +11,7 @@ endif()
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
-message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 
@@ -42,17 +42,24 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 
 set(Boost_USE_STATIC_LIBS ON) 
 set(Python3_USE_STATIC_LIBS True)
+find_package(Boost 1.68.0 REQUIRED 
+  COMPONENTS 
+  python37 
+  numpy37 
+)
 
-find_package(Boost 1.68.0 COMPONENTS python37 numpy37 REQUIRED)
-find_package(Python COMPONENTS Development)
+find_package(Python
+  COMPONENTS
+  Development
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ${NUMCPP_INCLUDES}
-  ${Boost_INCLUDE_DIRS}
   ${Python_INCLUDE_DIRS}  
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
+  Boost::headers
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python37>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy37>
   $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>

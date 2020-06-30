@@ -16,6 +16,13 @@
 #
 @PACKAGE_INIT@
 
-include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
-set_and_check(@PROJECT_NAME@_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
-check_required_components("@PROJECT_NAME@")
+if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
+    include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
+    set_and_check(@PROJECT_NAME@_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
+    check_required_components("@PROJECT_NAME@")
+
+    find_package(Boost REQUIRED)
+    set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND PROPERTY INTERFACE_LINK_LIBRARIES Boost::headers)
+
+    message(STATUS "Found NumCpp: ${@PROJECT_NAME@_INCLUDE_DIR} (found version ${@PROJECT_NAME@_VERSION})")
+endif()

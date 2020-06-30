@@ -36,7 +36,6 @@ write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
                                  VERSION ${PROJECT_VERSION}
                                  COMPATIBILITY SameMajorVersion)
 
-set(INCLUDE_INSTALL_DIR include/)
 configure_package_config_file(
     "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
     "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"

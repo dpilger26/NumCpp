@@ -5,7 +5,7 @@ project(InterfaceWithEigen)
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
-message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -19,16 +19,16 @@ set_target_properties(${PROJECT_NAME}
 )
 
 set(Boost_USE_STATIC_LIBS TRUE) 
-find_package(Boost 1.68.0)
-
-if (NOT (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC"))
-  find_package (Eigen3 3.3)
-endif()
+find_package(Boost 1.68.0 REQUIRED)
+find_package (Eigen3 3.3 REQUIRED)
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ../../include
-  ${Boost_INCLUDE_DIRS} 
-  ${EIGEN3_INCLUDE_DIR}
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  Eigen3::Eigen
+  Boost::headers  
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE

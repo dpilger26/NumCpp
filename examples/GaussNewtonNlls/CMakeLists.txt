@@ -5,7 +5,7 @@ project(GaussNewtonNlls)
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
-message("Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -18,12 +18,13 @@ set_target_properties(${PROJECT_NAME}
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
 )
 
-set(Boost_USE_STATIC_LIBS TRUE) 
-find_package(Boost 1.68.0)
-
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ../../include
-  ${Boost_INCLUDE_DIRS} 
+)
+
+find_package(Boost 1.68.0 REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  Boost::headers
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
