@@ -5,6 +5,7 @@ import pytest
 from pytest import ExitCode
 import shutil
 import subprocess
+import time
 
 _NUMCPP_ROOT_DIR = (Path(__file__).parent / '..' / '..').resolve()
 _PYTEST_DIR = _NUMCPP_ROOT_DIR / 'test' / 'pytest'
@@ -19,6 +20,18 @@ _TARGET_INTERFACE_WITH_OPENCV = 'InterfaceWithOpenCV'
 _TARGET_README = 'ReadMe'
 
 
+class SimpleTimer:
+    def __init__(self, name: str = None):
+        self._name = name
+        self._start = time.perf_counter()
+
+    def tic(self):
+        self._start = time.perf_counter()
+
+    def toc(self):
+        print(f'{self._name} elapsed time: {time.perf_counter() - self._start:.1f} seconds')
+
+
 class Compiler(Enum):
     GNU = 0
     Clang = 1
@@ -26,8 +39,8 @@ class Compiler(Enum):
 
 _COMPILERS = {Compiler.GNU: 'g++',
               Compiler.Clang: 'clang++'}
-_COMPILER_VERSIONS = {Compiler.GNU: [6, 7, 8, 9],
-                      Compiler.Clang: [9, 10]}
+_COMPILER_VERSIONS = {Compiler.GNU: [6, 7, 8, 9, 10],
+                      Compiler.Clang: [8, 9, 10]}
 
 
 class CxxStandard(Enum):
@@ -176,6 +189,9 @@ def run_pytest(fileOrDirectory: str):
 
 
 def run_all(root_dir: str):
+    timer = SimpleTimer(name='run_all')
+    timer.tic()
+
     builder = Builder(root_dir=root_dir)
 
     build_configs = Builder.BuildConfigs()
@@ -191,6 +207,7 @@ def run_all(root_dir: str):
                 builder.build_all()
 
                 run_pytest(fileOrDirectory=str(_PYTEST_DIR))
+                timer.toc()
 
 
 if __name__ == '__main__':
