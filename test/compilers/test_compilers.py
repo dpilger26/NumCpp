@@ -37,8 +37,8 @@ class Compiler(Enum):
     Clang = 1
 
 
-_COMPILERS = {Compiler.GNU: 'g++',
-              Compiler.Clang: 'clang++'}
+_COMPILERS = {Compiler.GNU: 'gcc',
+              Compiler.Clang: 'clang'}
 _COMPILER_VERSIONS = {Compiler.GNU: [6, 7, 8, 9, 10],
                       Compiler.Clang: [8, 9, 10]}
 
@@ -98,10 +98,7 @@ class Builder:
                                              f'{build_configs.opencv_root}')
                 cmake_cmd.append(f'-DOpenCV_DIR={build_configs.opencv_root}')
 
-            if build_configs.compiler is not None:
-                cmake_cmd.append(f'-DCMAKE_CXX_COMPILER={_COMPILERS[build_configs.compiler]}')
-
-            if build_configs.compiler is not None:
+            if build_configs.cxx_standard is not None:
                 cmake_cmd.append(f'-DCMAKE_CXX_STANDARD={_CXX_STANDARDS[build_configs.cxx_standard]}')
 
         subprocess.check_call(cmake_cmd)
@@ -175,6 +172,12 @@ class Builder:
             raise RuntimeError(f'{target} target not successfully built')
 
     @staticmethod
+    def update_compiler(compiler: Compiler):
+        update_alternatives_cmd = ['sudo', 'update-alternatives',
+                                   '--set', 'cc', f'/usr/bin/{_COMPILERS[compiler]}']
+        subprocess.check_call(update_alternatives_cmd)
+
+    @staticmethod
     def update_compiler_version(compiler: Compiler, version: int):
         compiler_str = _COMPILERS[compiler]
         update_alternatives_cmd = ['sudo', 'update-alternatives',
@@ -195,14 +198,15 @@ def run_all(root_dir: str):
     builder = Builder(root_dir=root_dir)
 
     build_configs = Builder.BuildConfigs()
-    for i_compiler in range(len(Compiler)):
-        build_configs.compiler = Compiler(i_compiler)
+    for compiler in Compiler:
+        build_configs.compiler = compiler
+        Builder.update_compiler(compiler=build_configs.compiler)
 
         for compiler_version in _COMPILER_VERSIONS[build_configs.compiler]:
             Builder.update_compiler_version(compiler=build_configs.compiler, version=compiler_version)
 
-            for i_cxx_standard in range(len(CxxStandard)):
-                build_configs.cxx_standard = CxxStandard(i_cxx_standard)
+            for cxx_standard in CxxStandard:
+                build_configs.cxx_standard = cxx_standard
                 builder.configure_cmake(build_configs=build_configs)
                 builder.build_all()
 
