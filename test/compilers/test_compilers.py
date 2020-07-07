@@ -40,7 +40,7 @@ class Compiler(Enum):
 _COMPILERS = {Compiler.GNU: 'gcc',
               Compiler.Clang: 'clang'}
 _COMPILER_VERSIONS = {Compiler.GNU: [6, 7, 8, 9, 10],
-                      Compiler.Clang: [8, 9, 10]}
+                      Compiler.Clang: [6, 7, 8, 9, 10]}
 
 
 class CxxStandard(Enum):
