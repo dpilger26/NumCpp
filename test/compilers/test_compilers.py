@@ -173,14 +173,14 @@ class Builder:
 
     @staticmethod
     def update_compiler(compiler: Compiler):
-        update_alternatives_cmd = ['sudo', 'update-alternatives',
+        update_alternatives_cmd = ['update-alternatives',
                                    '--set', 'cc', f'/usr/bin/{_COMPILERS[compiler]}']
         subprocess.check_call(update_alternatives_cmd)
 
     @staticmethod
     def update_compiler_version(compiler: Compiler, version: int):
         compiler_str = _COMPILERS[compiler]
-        update_alternatives_cmd = ['sudo', 'update-alternatives',
+        update_alternatives_cmd = ['update-alternatives',
                                    '--set', compiler_str, f'/usr/bin/{compiler_str}-{version}']
         subprocess.check_call(update_alternatives_cmd)
 
