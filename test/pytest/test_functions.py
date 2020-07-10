@@ -2543,47 +2543,6 @@ def test_dot():
 
 
 ####################################################################################
-def test_fromfile():
-    shapeInput = np.random.randint(1, 50, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
-    cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
-    NumCpp.dump(cArray, tempFile)
-    assert os.path.exists(tempFile)
-    data2 = np.fromfile(tempFile, dtype=np.double).reshape(shapeInput)
-    assert np.array_equal(data, data2)
-    os.remove(tempFile)
-
-    shapeInput = np.random.randint(1, 50, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 100, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
-    data = real + 1j * imag
-    cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
-    NumCpp.dump(cArray, tempFile)
-    assert os.path.exists(tempFile)
-    data2 = np.fromfile(tempFile, dtype=np.complex).reshape(shapeInput)
-    assert np.array_equal(data, data2)
-    os.remove(tempFile)
-
-
-####################################################################################
 def test_empty():
     shapeInput = np.random.randint(1, 100, [2, ])
     cArray = NumCpp.emptyRowCol(shapeInput[0].item(), shapeInput[1].item())
@@ -2949,7 +2908,7 @@ def test_fromfile():
     data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
     else:
         tempDir = r'C:\Temp'
     if not os.path.exists(tempDir):
@@ -3442,7 +3401,7 @@ def test_load():
     data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
     else:
         tempDir = r'C:\Temp'
     if not os.path.exists(tempDir):
@@ -6483,7 +6442,7 @@ def test_tofile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.bin')
     else:
         filename = r'C:\Temp\temp.bin'
@@ -6499,7 +6458,7 @@ def test_tofile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.txt')
     else:
         filename = r'C:\Temp\temp.txt'

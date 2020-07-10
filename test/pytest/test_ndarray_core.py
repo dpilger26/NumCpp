@@ -3449,7 +3449,7 @@ def test_tofile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.bin')
     else:
         filename = r'C:\Temp\temp.bin'
@@ -3465,7 +3465,7 @@ def test_tofile():
     data = real + 1j * imag
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.bin')
     else:
         filename = r'C:\Temp\temp.bin'
@@ -3479,7 +3479,7 @@ def test_tofile():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.txt')
     else:
         filename = r'C:\Temp\temp.txt'
@@ -3494,7 +3494,7 @@ def test_tofile():
     data = real + 1j * imag
     cArray.setArray(data)
     if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        tempDir = r'/home'
         filename = os.path.join(tempDir, 'temp.txt')
     else:
         filename = r'C:\Temp\temp.txt'

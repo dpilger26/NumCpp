@@ -114,5 +114,5 @@ RUN \
 	&& rm -rf /eigen \
 	# Make directory to mount to from the host
 	&& mkdir /NumCpp
-# CMD ["python3 /NumCpp/test/compilers/test_compilers.py"]
+WORKDIR /NumCpp
 CMD ["/bin/bash"]
