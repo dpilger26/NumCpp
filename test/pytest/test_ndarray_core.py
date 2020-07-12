@@ -1,7 +1,7 @@
 import numpy as np
 from functools import reduce
 import os
-import getpass
+import tempfile
 import warnings
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
@@ -3448,11 +3448,8 @@ def test_tofile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home'
-        filename = os.path.join(tempDir, 'temp.bin')
-    else:
-        filename = r'C:\Temp\temp.bin'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.bin')
     cArray.tofile(filename, '')
     assert os.path.exists(filename)
     os.remove(filename)
@@ -3464,11 +3461,8 @@ def test_tofile():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home'
-        filename = os.path.join(tempDir, 'temp.bin')
-    else:
-        filename = r'C:\Temp\temp.bin'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.bin')
     cArray.tofile(filename, '')
     assert os.path.exists(filename)
     os.remove(filename)
@@ -3478,11 +3472,8 @@ def test_tofile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home'
-        filename = os.path.join(tempDir, 'temp.txt')
-    else:
-        filename = r'C:\Temp\temp.txt'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.txt')
     cArray.tofile(filename, '\n')
     assert os.path.exists(filename)
 
@@ -3493,11 +3484,8 @@ def test_tofile():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home'
-        filename = os.path.join(tempDir, 'temp.txt')
-    else:
-        filename = r'C:\Temp\temp.txt'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.txt')
     cArray.tofile(filename, '\n')
     assert os.path.exists(filename)
 

@@ -39,11 +39,12 @@ RUN \
 	&& ln -s -T /usr/include/c++/10 /usr/include/c++/999 \
 	&& ln -s -T /usr/lib/gcc/x86_64-linux-gnu/10 /usr/lib/gcc/x86_64-linux-gnu/999 \
 	&& ln -s -T /usr/include/x86_64-linux-gnu/c++/10 /usr/include/x86_64-linux-gnu/c++/999 \
+	# link the GNU 7 headers to Clang 6 since the GNU 6 headers seem to have some issues...
 	&& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 6 \
 	--slave /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 \
-	--slave /usr/lib/gcc/x86_64-linux-gnu/999 clang-gcc-toolchain /usr/lib/gcc/x86_64-linux-gnu/6 \
-	--slave /usr/include/c++/999 clang-gcc-toolchain-includes /usr/include/c++/6 \
-	--slave /usr/include/x86_64-linux-gnu/c++/999 clang-gcc-toolchain-includes-x86_64 /usr/include/x86_64-linux-gnu/c++/6 \
+	--slave /usr/lib/gcc/x86_64-linux-gnu/999 clang-gcc-toolchain /usr/lib/gcc/x86_64-linux-gnu/7 \
+	--slave /usr/include/c++/999 clang-gcc-toolchain-includes /usr/include/c++/7 \
+	--slave /usr/include/x86_64-linux-gnu/c++/999 clang-gcc-toolchain-includes-x86_64 /usr/include/x86_64-linux-gnu/c++/7 \
 	&& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-7 7 \
 	--slave /usr/bin/clang++ clang++ /usr/bin/clang++-7 \
 	--slave /usr/lib/gcc/x86_64-linux-gnu/999 clang-gcc-toolchain /usr/lib/gcc/x86_64-linux-gnu/7 \
