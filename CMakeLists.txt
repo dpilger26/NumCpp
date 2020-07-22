@@ -22,7 +22,7 @@ target_include_directories(${PROJECT_NAME} INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_14)
+target_compile_features(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:cxx_std_17>)
 
 install(TARGETS ${PROJECT_NAME}
     EXPORT ${PROJECT_NAME}_Targets
