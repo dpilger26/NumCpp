@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -43,7 +43,7 @@ namespace nc
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
     ///
     /// @param      inArray
-    /// @param      k Diagonal to set; 0, the default, corresponds to the “main” diagonal, 
+    /// @param      k Diagonal to set; 0, the default, corresponds to the ï¿½mainï¿½ diagonal, 
     ///             a positive (negative) k giving the number of the diagonal above (below) the main.
     ///
     /// @return     NdArray

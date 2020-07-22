@@ -8,7 +8,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 2.0.0
+## Version: 2.1.0
 
 ## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
@@ -49,6 +49,11 @@ Clang: 6, 7, 8, 9, 10
 ## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html)
 
 ## Release Notes
+
+## Version 2.1.0
+
+* Improved installation and usage with CMake find_package support
+* Various minor improvements
 
 ### Version 2.0.0
 
