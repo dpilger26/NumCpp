@@ -31,9 +31,9 @@
       <node id="21">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
@@ -63,14 +63,14 @@
       <node id="15">
         <label>iterator</label>
       </node>
-      <node id="27">
+      <node id="29">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
@@ -109,14 +109,14 @@
       <node id="31">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="26">
         <label>fstream</label>
       </node>
       <node id="19">
@@ -134,9 +134,9 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
         <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="30">
@@ -150,13 +150,13 @@
       <node id="18">
         <label>NumCpp/Functions/complex.hpp</label>
         <link refid="complex_8hpp"/>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
@@ -227,7 +227,7 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="28">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
         <childnode refid="8" relation="include">
@@ -250,9 +250,9 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -273,15 +273,9 @@
         </childnode>
         <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
@@ -291,9 +285,15 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
@@ -315,7 +315,7 @@
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
@@ -340,22 +340,22 @@
         <childnode refid="45" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="27">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="25">
         <label>NumCpp/Core/Internal/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="29" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -3659,7 +3659,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -3703,7 +3703,7 @@
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::plus&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -3726,7 +3726,7 @@
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val1<sp/>+<sp/>val2;</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"></highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -3744,7 +3744,7 @@
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>+=<sp/>rhs;</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3761,7 +3761,7 @@
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>+=<sp/>rhs;</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3780,7 +3780,7 @@
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::plus&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"></highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -3805,7 +3805,7 @@
 <codeline lineno="194"><highlight class="normal"></highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.cbegin(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="199"><highlight class="normal"></highlight></codeline>
 <codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -3833,7 +3833,7 @@
 <codeline lineno="234"><highlight class="normal"></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"></highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"></highlight></codeline>
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3860,7 +3860,7 @@
 <codeline lineno="273"><highlight class="normal"></highlight></codeline>
 <codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="275"><highlight class="normal"></highlight></codeline>
-<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"></highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3887,7 +3887,7 @@
 <codeline lineno="312"><highlight class="normal"></highlight></codeline>
 <codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="314"><highlight class="normal"></highlight></codeline>
-<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="316"><highlight class="normal"></highlight></codeline>
 <codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3912,7 +3912,7 @@
 <codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="351"><highlight class="normal"></highlight></codeline>
-<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::minus&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="354"><highlight class="normal"></highlight></codeline>
 <codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -3935,7 +3935,7 @@
 <codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val1<sp/>-<sp/>val2;</highlight></codeline>
 <codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="380"><highlight class="normal"></highlight></codeline>
-<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
 <codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="383"><highlight class="normal"></highlight></codeline>
 <codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -3953,7 +3953,7 @@
 <codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>-=<sp/>rhs;</highlight></codeline>
 <codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="405"><highlight class="normal"></highlight></codeline>
-<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="407"><highlight class="normal"></highlight></codeline>
 <codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3970,7 +3970,7 @@
 <codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>-=<sp/>rhs;</highlight></codeline>
 <codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="429"><highlight class="normal"></highlight></codeline>
-<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="431"><highlight class="normal"></highlight></codeline>
 <codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -3989,7 +3989,7 @@
 <codeline lineno="452"><highlight class="normal"></highlight></codeline>
 <codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="454"><highlight class="normal"></highlight></codeline>
-<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::minus&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="457"><highlight class="normal"></highlight></codeline>
 <codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4014,7 +4014,7 @@
 <codeline lineno="483"><highlight class="normal"></highlight></codeline>
 <codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="485"><highlight class="normal"></highlight></codeline>
-<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.cbegin(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="488"><highlight class="normal"></highlight></codeline>
 <codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4039,7 +4039,7 @@
 <codeline lineno="514"><highlight class="normal"></highlight></codeline>
 <codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="516"><highlight class="normal"></highlight></codeline>
-<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
 <codeline lineno="518"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="519"><highlight class="normal"></highlight></codeline>
 <codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4059,7 +4059,7 @@
 <codeline lineno="540"><highlight class="normal"></highlight></codeline>
 <codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="542"><highlight class="normal"></highlight></codeline>
-<codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="544"><highlight class="normal"></highlight></codeline>
 <codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4078,7 +4078,7 @@
 <codeline lineno="565"><highlight class="normal"></highlight></codeline>
 <codeline lineno="566"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(rhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="567"><highlight class="normal"></highlight></codeline>
-<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="569"><highlight class="normal"></highlight></codeline>
 <codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="571"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4097,7 +4097,7 @@
 <codeline lineno="590"><highlight class="normal"></highlight></codeline>
 <codeline lineno="591"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="592"><highlight class="normal"></highlight></codeline>
-<codeline lineno="593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="594"><highlight class="normal"></highlight></codeline>
 <codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="596"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4116,7 +4116,7 @@
 <codeline lineno="615"><highlight class="normal"></highlight></codeline>
 <codeline lineno="616"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(rhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="617"><highlight class="normal"></highlight></codeline>
-<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="619"><highlight class="normal"></highlight></codeline>
 <codeline lineno="620"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="621"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4135,7 +4135,7 @@
 <codeline lineno="640"><highlight class="normal"></highlight></codeline>
 <codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="642"><highlight class="normal"></highlight></codeline>
-<codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="644"><highlight class="normal"></highlight></codeline>
 <codeline lineno="645"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="646"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4154,7 +4154,7 @@
 <codeline lineno="665"><highlight class="normal"></highlight></codeline>
 <codeline lineno="666"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(rhs.shape());</highlight></codeline>
 <codeline lineno="667"><highlight class="normal"></highlight></codeline>
-<codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.cbegin(),<sp/>rhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.cbegin(),<sp/>rhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="669"><highlight class="normal"></highlight></codeline>
 <codeline lineno="670"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="671"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4170,7 +4170,7 @@
 <codeline lineno="685"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="686"><highlight class="normal"></highlight></codeline>
 <codeline lineno="687"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>returnArray<sp/>=<sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
-<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="689"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="690"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="691"><highlight class="normal"></highlight></codeline>
@@ -4186,7 +4186,7 @@
 <codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="709"><highlight class="normal"></highlight></codeline>
-<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::multiplies&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="712"><highlight class="normal"></highlight></codeline>
 <codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4209,7 +4209,7 @@
 <codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val1<sp/>*<sp/>val2;</highlight></codeline>
 <codeline lineno="737"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="738"><highlight class="normal"></highlight></codeline>
-<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
+<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
 <codeline lineno="740"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="741"><highlight class="normal"></highlight></codeline>
 <codeline lineno="742"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4227,7 +4227,7 @@
 <codeline lineno="761"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>*=<sp/>rhs;</highlight></codeline>
 <codeline lineno="762"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="763"><highlight class="normal"></highlight></codeline>
-<codeline lineno="764"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="764"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="765"><highlight class="normal"></highlight></codeline>
 <codeline lineno="766"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="767"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4244,7 +4244,7 @@
 <codeline lineno="785"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>*=<sp/>rhs;</highlight></codeline>
 <codeline lineno="786"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="787"><highlight class="normal"></highlight></codeline>
-<codeline lineno="788"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="788"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="789"><highlight class="normal"></highlight></codeline>
 <codeline lineno="790"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="791"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4263,7 +4263,7 @@
 <codeline lineno="810"><highlight class="normal"></highlight></codeline>
 <codeline lineno="811"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="812"><highlight class="normal"></highlight></codeline>
-<codeline lineno="813"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="813"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="814"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::multiplies&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="815"><highlight class="normal"></highlight></codeline>
 <codeline lineno="816"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4288,7 +4288,7 @@
 <codeline lineno="841"><highlight class="normal"></highlight></codeline>
 <codeline lineno="842"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="843"><highlight class="normal"></highlight></codeline>
-<codeline lineno="844"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="844"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="845"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.cbegin(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="846"><highlight class="normal"></highlight></codeline>
 <codeline lineno="847"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4316,7 +4316,7 @@
 <codeline lineno="881"><highlight class="normal"></highlight></codeline>
 <codeline lineno="882"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="883"><highlight class="normal"></highlight></codeline>
-<codeline lineno="884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="885"><highlight class="normal"></highlight></codeline>
 <codeline lineno="886"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="887"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4343,7 +4343,7 @@
 <codeline lineno="920"><highlight class="normal"></highlight></codeline>
 <codeline lineno="921"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="922"><highlight class="normal"></highlight></codeline>
-<codeline lineno="923"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="923"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="924"><highlight class="normal"></highlight></codeline>
 <codeline lineno="925"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="926"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4370,7 +4370,7 @@
 <codeline lineno="959"><highlight class="normal"></highlight></codeline>
 <codeline lineno="960"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="961"><highlight class="normal"></highlight></codeline>
-<codeline lineno="962"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="962"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="963"><highlight class="normal"></highlight></codeline>
 <codeline lineno="964"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="965"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4395,7 +4395,7 @@
 <codeline lineno="996"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="997"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="998"><highlight class="normal"></highlight></codeline>
-<codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1000"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::divides&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1001"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1002"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4418,7 +4418,7 @@
 <codeline lineno="1025"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val1<sp/>/<sp/>val2;</highlight></codeline>
 <codeline lineno="1026"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1027"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1028"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
+<codeline lineno="1028"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight></codeline>
 <codeline lineno="1029"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.begin(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1030"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1031"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4436,7 +4436,7 @@
 <codeline lineno="1050"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>/=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1051"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1052"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1053"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1053"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1054"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1055"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1056"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4453,7 +4453,7 @@
 <codeline lineno="1074"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>/=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1075"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1076"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1077"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1077"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.begin(),<sp/>lhs.end(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1078"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1079"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1080"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4472,7 +4472,7 @@
 <codeline lineno="1099"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::divides&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1104"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4497,7 +4497,7 @@
 <codeline lineno="1130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val1<sp/>/<sp/>val2;</highlight></codeline>
 <codeline lineno="1131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.cbegin(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1135"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4522,7 +4522,7 @@
 <codeline lineno="1161"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="1163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
+<codeline lineno="1164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
 <codeline lineno="1165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1166"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4542,7 +4542,7 @@
 <codeline lineno="1187"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1191"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4561,7 +4561,7 @@
 <codeline lineno="1212"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(rhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1216"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4580,7 +4580,7 @@
 <codeline lineno="1237"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1239"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1241"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4599,7 +4599,7 @@
 <codeline lineno="1262"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(rhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1264"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1266"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1268"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4618,7 +4618,7 @@
 <codeline lineno="1287"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="1289"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1291"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4637,7 +4637,7 @@
 <codeline lineno="1312"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;std::complex&lt;dtype&gt;</ref>&gt;<sp/>returnArray(rhs.shape());</highlight></codeline>
 <codeline lineno="1314"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.cbegin(),<sp/>rhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.cbegin(),<sp/>rhs.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1316"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="1318"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4654,7 +4654,7 @@
 <codeline lineno="1335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1337"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::modulus&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1340"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4672,7 +4672,7 @@
 <codeline lineno="1360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>%=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1362"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1364"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1366"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4703,7 +4703,7 @@
 <codeline lineno="1409" refid="namespacenc_1a4c7d623473bf78038f36fe75395e685b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a54ce1f6f396a09dddabae0f02d9aeeeb" kindref="member">operator%</ref>(dtype<sp/>lhs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>rhs)<sp/></highlight></codeline>
 <codeline lineno="1410"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="1411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(rhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
-<codeline lineno="1412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),</highlight></codeline>
+<codeline lineno="1412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),</highlight></codeline>
 <codeline lineno="1413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[lhs](dtype<sp/>value)<sp/><sp/>-&gt;<sp/>dtype</highlight></codeline>
 <codeline lineno="1414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="1415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>lhs<sp/>%<sp/>value;</highlight></codeline>
@@ -4724,7 +4724,7 @@
 <codeline lineno="1436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1438"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::bit_or&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1441"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4742,7 +4742,7 @@
 <codeline lineno="1461"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>|=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1462"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1463"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1465"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1466"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1467"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4787,7 +4787,7 @@
 <codeline lineno="1530"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1531"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1532"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::bit_and&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1535"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4805,7 +4805,7 @@
 <codeline lineno="1555"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&amp;=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1556"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1557"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1558"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1558"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1559"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1560"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1561"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4850,7 +4850,7 @@
 <codeline lineno="1624"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Array<sp/>dimensions<sp/>do<sp/>not<sp/>match.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1625"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1626"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1627"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1627"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1628"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>std::bit_xor&lt;dtype&gt;());</highlight></codeline>
 <codeline lineno="1629"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1630"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
@@ -4868,7 +4868,7 @@
 <codeline lineno="1649"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>^=<sp/>rhs;</highlight></codeline>
 <codeline lineno="1650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1651"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1652"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1652"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1653"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1654"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="1655"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -4915,7 +4915,7 @@
 <codeline lineno="1719"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1720"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(inArray.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
 <codeline lineno="1721"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1722"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="1722"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="1723"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1724"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1725"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4939,7 +4939,7 @@
 <codeline lineno="1749"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1750"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1751"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
-<codeline lineno="1752"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1752"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1753"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1754"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1755"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4959,7 +4959,7 @@
 <codeline lineno="1775"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&amp;&amp;<sp/>rhs;</highlight></codeline>
 <codeline lineno="1776"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1777"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1778"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="1778"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="1779"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1780"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1781"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -4991,7 +4991,7 @@
 <codeline lineno="1819"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1820"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1821"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(lhs.<ref refid="classnc_1_1_nd_array_1a2d1b4adfe3c9897ffe3dca45e357b2b4" kindref="member">shape</ref>());</highlight></codeline>
-<codeline lineno="1822"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1822"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1823"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1824"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1825"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5011,7 +5011,7 @@
 <codeline lineno="1845"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>||<sp/>rhs;</highlight></codeline>
 <codeline lineno="1846"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1847"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1848"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="1848"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="1849"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1850"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1851"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5039,7 +5039,7 @@
 <codeline lineno="1884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!value;</highlight></codeline>
 <codeline lineno="1885"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1886"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1887"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="1887"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="1888"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1889"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1890"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5062,7 +5062,7 @@
 <codeline lineno="1914"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1915"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="1916"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1917"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
+<codeline lineno="1917"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
 <codeline lineno="1918"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>equalTo);</highlight></codeline>
 <codeline lineno="1919"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1920"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5080,7 +5080,7 @@
 <codeline lineno="1939"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1utils_1a963b90e7c9a3b057a924298750ddf74c" kindref="member">utils::essentiallyEqual</ref>(inValue,<sp/>value);</highlight></codeline>
 <codeline lineno="1940"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1941"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1942"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="1942"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="1943"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>equalTo);</highlight></codeline>
 <codeline lineno="1944"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1945"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5111,7 +5111,7 @@
 <codeline lineno="1984"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1985"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(lhs.shape());</highlight></codeline>
 <codeline lineno="1986"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1987"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
+<codeline lineno="1987"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),<sp/></highlight></codeline>
 <codeline lineno="1988"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>notEqualTo);</highlight></codeline>
 <codeline lineno="1989"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1990"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5129,7 +5129,7 @@
 <codeline lineno="2009"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!<ref refid="namespacenc_1_1utils_1a963b90e7c9a3b057a924298750ddf74c" kindref="member">utils::essentiallyEqual</ref>(inValue,<sp/>value);</highlight></codeline>
 <codeline lineno="2010"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2011"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2012"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
+<codeline lineno="2012"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),<sp/></highlight></codeline>
 <codeline lineno="2013"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>notEqualTo);</highlight></codeline>
 <codeline lineno="2014"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2015"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5162,7 +5162,7 @@
 <codeline lineno="2056"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs<sp/>&lt;<sp/>rhs;</highlight></codeline>
 <codeline lineno="2057"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2058"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2059"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
+<codeline lineno="2059"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
 <codeline lineno="2060"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2061"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2062"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5182,7 +5182,7 @@
 <codeline lineno="2083"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&lt;<sp/>inValue;</highlight></codeline>
 <codeline lineno="2084"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2085"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2086"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2086"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2087"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2088"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2089"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5202,7 +5202,7 @@
 <codeline lineno="2110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inValue<sp/>&lt;<sp/>value;</highlight></codeline>
 <codeline lineno="2111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2115"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5227,10 +5227,10 @@
 <codeline lineno="2142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs<sp/>&gt;<sp/>rhs;</highlight></codeline>
 <codeline lineno="2143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
+<codeline lineno="2145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
 <codeline lineno="2146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
+<codeline lineno="2148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
 <codeline lineno="2149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2150"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5250,7 +5250,7 @@
 <codeline lineno="2172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&gt;<sp/>inValue;</highlight></codeline>
 <codeline lineno="2173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2174"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2177"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5270,7 +5270,7 @@
 <codeline lineno="2199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inValue<sp/>&gt;<sp/>value;</highlight></codeline>
 <codeline lineno="2200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2201"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2204"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5295,7 +5295,7 @@
 <codeline lineno="2231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs<sp/>&lt;=<sp/>rhs;</highlight></codeline>
 <codeline lineno="2232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2233"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
+<codeline lineno="2234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
 <codeline lineno="2235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2236"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5315,7 +5315,7 @@
 <codeline lineno="2258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&lt;=<sp/>inValue;</highlight></codeline>
 <codeline lineno="2259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2260"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2263"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5335,7 +5335,7 @@
 <codeline lineno="2285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inValue<sp/>&lt;=<sp/>value;</highlight></codeline>
 <codeline lineno="2286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2287"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2290"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5360,7 +5360,7 @@
 <codeline lineno="2317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs<sp/>&gt;=<sp/>rhs;</highlight></codeline>
 <codeline lineno="2318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2319"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
+<codeline lineno="2320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.cbegin(),<sp/>lhs.cend(),</highlight></codeline>
 <codeline lineno="2321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2322"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5380,7 +5380,7 @@
 <codeline lineno="2344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>&gt;=<sp/>inValue;</highlight></codeline>
 <codeline lineno="2345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2346"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(lhs.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2349"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5400,7 +5400,7 @@
 <codeline lineno="2371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inValue<sp/>&gt;=<sp/>value;</highlight></codeline>
 <codeline lineno="2372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2373"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="2374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.<ref refid="classnc_1_1_nd_array_1a0bee49339bdc4d7edbeb5efa73133cc3" kindref="member">cbegin</ref>(),<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa16bc96e4bbafbc8a06743f3e4a10a6a" kindref="member">cend</ref>(),</highlight></codeline>
 <codeline lineno="2375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2376"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
@@ -5418,7 +5418,7 @@
 <codeline lineno="2396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>&lt;&lt;=<sp/>inNumBits;</highlight></codeline>
 <codeline lineno="2397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2398"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2400"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="2402"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -5447,7 +5447,7 @@
 <codeline lineno="2439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>&gt;&gt;=<sp/>inNumBits;</highlight></codeline>
 <codeline lineno="2440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2441"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(lhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>lhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2443"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lhs;</highlight></codeline>
 <codeline lineno="2445"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -5476,7 +5476,7 @@
 <codeline lineno="2480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++value;</highlight></codeline>
 <codeline lineno="2481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2482"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2484"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2485"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rhs;</highlight></codeline>
 <codeline lineno="2486"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -5503,7 +5503,7 @@
 <codeline lineno="2518"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--value;</highlight></codeline>
 <codeline lineno="2519"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="2520"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">stl_algorithms::for_each</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">stl_algorithms::for_each</ref>(rhs.<ref refid="classnc_1_1_nd_array_1ab57282e02905eeb2a932eeb73983221f" kindref="member">begin</ref>(),<sp/>rhs.<ref refid="classnc_1_1_nd_array_1a153d3032d72c24d233407a351d0f8174" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="2522"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rhs;</highlight></codeline>
 <codeline lineno="2524"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -5528,7 +5528,7 @@
 <codeline lineno="2556"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inOStream<sp/>&lt;&lt;<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aa44f94cc8d02a56636223686f30d84f1" kindref="member">str</ref>();</highlight></codeline>
 <codeline lineno="2557"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inOStream;</highlight></codeline>
 <codeline lineno="2558"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2559"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2559"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nc</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayOperators.hpp"/>
   </compounddef>

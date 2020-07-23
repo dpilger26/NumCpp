@@ -120,10 +120,10 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="67" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="67" bodyend="70"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1a44492e4a1849938cd7017154213ec002" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="virtual">
         <type></type>
         <definition>virtual nc::roots::Iteration::~Iteration</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>() noexcept=default</argsstring>
         <name>~Iteration</name>
         <briefdescription>
         </briefdescription>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="76" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" bodystart="76" bodyend="76"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Iteration.hpp" line="76" column="21"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">uint32</ref></type>
@@ -242,7 +242,7 @@
       <member refid="classnc_1_1roots_1_1_iteration_1ab3192d0f9de4b8b27b23013c65489e5a" prot="public" virt="non-virtual"><scope>nc::roots::Iteration</scope><name>numIterations</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" virt="non-virtual"><scope>nc::roots::Iteration</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" virt="non-virtual"><scope>nc::roots::Iteration</scope><name>resetNumberOfIterations</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Iteration</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a44492e4a1849938cd7017154213ec002" prot="public" virt="virtual"><scope>nc::roots::Iteration</scope><name>~Iteration</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

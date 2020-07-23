@@ -9,7 +9,7 @@ var _stl_algorithms_8hpp =
     [ "equal", "_stl_algorithms_8hpp.html#a684d1011b375da4078afb4474a36b0e6", null ],
     [ "fill", "_stl_algorithms_8hpp.html#af9a01fcb79e7a69b707081c1c17f361c", null ],
     [ "find", "_stl_algorithms_8hpp.html#a761aa9f3bd88f019c46fe6cece93ade2", null ],
-    [ "for_each", "_stl_algorithms_8hpp.html#a83612307e582ce3f2aed2251f1551c4d", null ],
+    [ "for_each", "_stl_algorithms_8hpp.html#a734698435eabdbc5bdf93b195d7fb6a7", null ],
     [ "is_sorted", "_stl_algorithms_8hpp.html#aca7862e3fe066fc65bf00cb7f5108e33", null ],
     [ "is_sorted", "_stl_algorithms_8hpp.html#a1f71dfda5f16d8a53c16260c5fa8fbdc", null ],
     [ "max_element", "_stl_algorithms_8hpp.html#a334cd50f7f10f689f82fa2ba7c5d88b2", null ],
@@ -34,8 +34,8 @@ var _stl_algorithms_8hpp =
     [ "sort", "_stl_algorithms_8hpp.html#a519432fa55645fab8162c354e387b1a6", null ],
     [ "stable_sort", "_stl_algorithms_8hpp.html#a3b9f4bb9ba9a3ea8d8f97258eaa732d9", null ],
     [ "stable_sort", "_stl_algorithms_8hpp.html#a7b2c4b6a3ef5cc55ebdae2aa757d1874", null ],
-    [ "transform", "_stl_algorithms_8hpp.html#a65dada83abf2bf7a4fe6bd5a7b00624e", null ],
-    [ "transform", "_stl_algorithms_8hpp.html#af110f81b7580e3bddbbfeea2fb92134b", null ],
+    [ "transform", "_stl_algorithms_8hpp.html#a616d5dabd547326285946d0014361ab4", null ],
+    [ "transform", "_stl_algorithms_8hpp.html#af358fec5563ae500162b310fe263a36d", null ],
     [ "unique_copy", "_stl_algorithms_8hpp.html#a7cec030870d1f3b4d1c7caf26c8d907d", null ],
     [ "unique_copy", "_stl_algorithms_8hpp.html#aefa150cdbb6a1110c2164a3970a317a8", null ]
 ];

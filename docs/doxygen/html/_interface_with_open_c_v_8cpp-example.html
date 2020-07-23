@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -95,11 +95,24 @@ $(document).ready(function(){initNavTree('_interface_with_open_c_v_8cpp-example.
 <div class="line"><span class="preprocessor">#include &quot;opencv2/highgui/highgui.hpp&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"> </div>
+<div class="line">constexpr <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> NUM_ROWS = 512;</div>
+<div class="line">constexpr <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> NUM_COLS = 512;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
-<div class="line">    <span class="comment">// create a random image with NumCpp</span></div>
-<div class="line">    <span class="keyword">auto</span> ncArray = nc::random::randInt&lt;nc::uint8&gt;({ 500, 500 }, 0, <a name="a0"></a><a class="code" href="classnc_1_1_dtype_info.html#a2a3dc0ba2812411660219f61189d8aca">nc::DtypeInfo&lt;nc::uint8&gt;::max</a>());</div>
+<div class="line">    <span class="comment">// create a ramp image with NumCpp</span></div>
+<div class="line">    constexpr <span class="keyword">auto</span> numHalfCols = NUM_COLS / 2; <span class="comment">// integer division</span></div>
+<div class="line">    <span class="keyword">auto</span> ncArray = <a name="_a0"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;nc::uint8&gt;</a>(NUM_ROWS, NUM_COLS);</div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> row = 0; row &lt; ncArray.numRows(); ++row)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">auto</span> begin = ncArray.begin(row);</div>
+<div class="line">        std::iota(begin, begin + numHalfCols, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a>{0});</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">auto</span> rbegin = ncArray.rbegin(row);</div>
+<div class="line">        std::iota(rbegin, rbegin + numHalfCols, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a>{0});</div>
+<div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// convert to OpenCV Mat</span></div>
 <div class="line">    <span class="keyword">auto</span> cvArray = cv::Mat(ncArray.numRows(), ncArray.numCols(), CV_8SC1, ncArray.data());</div>
@@ -119,10 +132,10 @@ $(document).ready(function(){initNavTree('_interface_with_open_c_v_8cpp-example.
 <div class="line">    cv::waitKey(0); <span class="comment">// Wait for a keystroke in the window</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// convert the transposed OpenCV Mat to a NumCpp array</span></div>
-<div class="line">    <span class="keyword">auto</span> transposedNcArray = <a name="_a2"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;nc::uint8&gt;</a>(transposedCvArray.data, transposedCvArray.rows, transposedCvArray.cols);</div>
+<div class="line">    <span class="keyword">auto</span> transposedNcArray = <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;nc::uint8&gt;</a>(transposedCvArray.data, transposedCvArray.rows, transposedCvArray.cols);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// make sure the two transposed arrays are the same</span></div>
-<div class="line">    <span class="keywordflow">if</span> (<a name="a3"></a><a class="code" href="namespacenc.html#a0e8c1396cc01ccd9ec8ba549b6347e21">nc::array_equal</a>(transposedNcArray, ncArray.transpose()))</div>
+<div class="line">    <span class="keywordflow">if</span> (<a name="a2"></a><a class="code" href="namespacenc.html#a0e8c1396cc01ccd9ec8ba549b6347e21">nc::array_equal</a>(transposedNcArray, ncArray.transpose()))</div>
 <div class="line">    {</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Arrays are equal.\n&quot;</span>;</div>
 <div class="line">    }</div>
@@ -135,10 +148,11 @@ $(document).ready(function(){initNavTree('_interface_with_open_c_v_8cpp-example.
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacenc_html_a9ba5a0aa26753a185985b8273fb9062d"><div class="ttname"><a href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a></div><div class="ttdeci">std::uint8_t uint8</div><div class="ttdef"><b>Definition:</b> Types.hpp:43</div></div>
 <div class="ttc" id="a_num_cpp_8hpp_html"><div class="ttname"><a href="_num_cpp_8hpp.html">NumCpp.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:75</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
 <div class="ttc" id="anamespacenc_html_a0e8c1396cc01ccd9ec8ba549b6347e21"><div class="ttname"><a href="namespacenc.html#a0e8c1396cc01ccd9ec8ba549b6347e21">nc::array_equal</a></div><div class="ttdeci">bool array_equal(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2) noexcept</div><div class="ttdef"><b>Definition:</b> array_equal.hpp:49</div></div>
-<div class="ttc" id="aclassnc_1_1_dtype_info_html_a2a3dc0ba2812411660219f61189d8aca"><div class="ttname"><a href="classnc_1_1_dtype_info.html#a2a3dc0ba2812411660219f61189d8aca">nc::DtypeInfo::max</a></div><div class="ttdeci">static constexpr dtype max() noexcept</div><div class="ttdef"><b>Definition:</b> DtypeInfo.hpp:111</div></div>
 <div class="ttc" id="anamespacenc_html_aa6c78ac10e4c3aa446716f80aa1a72ca"><div class="ttname"><a href="namespacenc.html#aa6c78ac10e4c3aa446716f80aa1a72ca">nc::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> transpose.hpp:48</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

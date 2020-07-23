@@ -20,50 +20,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a5a790e250fbf36fd99584f68099e315b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a05985162d3dac7a0919319c6cde74895" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Bisection::Bisection</definition>
-        <argsstring>(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
-        <name>Bisection</name>
-        <param>
-          <type>const double</type>
-          <declname>epsilon</declname>
-        </param>
-        <param>
-          <type>const std::function&lt; double(double)&gt; &amp;</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructor</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>epsilon</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the epsilon value </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>f</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the function </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="60" bodyend="64"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a0cac4b816910c90be235b0ad9487a2a4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::roots::Bisection::Bisection</definition>
-        <argsstring>(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
+        <argsstring>(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept</argsstring>
         <name>Bisection</name>
         <param>
           <type>const double</type>
@@ -74,7 +34,7 @@
           <declname>maxNumIterations</declname>
         </param>
         <param>
-          <type>const std::function&lt; double(double)&gt; &amp;</type>
+          <type>std::function&lt; double(double)&gt;</type>
           <declname>f</declname>
         </param>
         <briefdescription>
@@ -112,10 +72,50 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="74" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="74" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a772668ef46d44b18f482edad16f4644b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1ae9ccce420ccf01a829b0138f264956cb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::roots::Bisection::Bisection</definition>
+        <argsstring>(const double epsilon, std::function&lt; double(double)&gt; f) noexcept</argsstring>
+        <name>Bisection</name>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>std::function&lt; double(double)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a5e0d0c67681add5f2feec713901539df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Bisection::~Bisection</definition>
-        <argsstring>()=default</argsstring>
+        <argsstring>() override=default</argsstring>
         <name>~Bisection</name>
         <briefdescription>
         </briefdescription>
@@ -187,9 +187,51 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1ad08b9a1e592c30747e9a3a380afcc932" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a635b6eb837b7357b1aabf4cc1e3b4274" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::roots::Bisection::checkAndFixAlgorithmCriteria</definition>
+        <argsstring>(double &amp;a, double &amp;b) const noexcept</argsstring>
+        <name>checkAndFixAlgorithmCriteria</name>
+        <param>
+          <type>double &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the bounds criteria</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the lower bound </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the upper bound </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="125" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="125" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a5939d0d88e4de28c537dbdfed0ce848c" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
-        <definition>double nc::roots::Bisection::calculateX</definition>
+        <definition>static double nc::roots::Bisection::calculateX</definition>
         <argsstring>(double x, double &amp;a, double &amp;b, double fx) noexcept</argsstring>
         <name>calculateX</name>
         <param>
@@ -251,47 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="144" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="144" bodyend="156"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_bisection_1a635b6eb837b7357b1aabf4cc1e3b4274" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::roots::Bisection::checkAndFixAlgorithmCriteria</definition>
-        <argsstring>(double &amp;a, double &amp;b) const noexcept</argsstring>
-        <name>checkAndFixAlgorithmCriteria</name>
-        <param>
-          <type>double &amp;</type>
-          <declname>a</declname>
-        </param>
-        <param>
-          <type>double &amp;</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Checks the bounds criteria</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>a</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the lower bound </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>b</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the upper bound </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="125" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="125" bodyend="132"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="144" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="144" bodyend="156"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -401,9 +403,9 @@
     </collaborationgraph>
     <location file="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" line="51" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Bisection.hpp" bodystart="50" bodyend="157"/>
     <listofallmembers>
-      <member refid="classnc_1_1roots_1_1_bisection_1a5a790e250fbf36fd99584f68099e315b" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>Bisection</name></member>
-      <member refid="classnc_1_1roots_1_1_bisection_1a0cac4b816910c90be235b0ad9487a2a4" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>Bisection</name></member>
-      <member refid="classnc_1_1roots_1_1_bisection_1ad08b9a1e592c30747e9a3a380afcc932" prot="private" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>calculateX</name></member>
+      <member refid="classnc_1_1roots_1_1_bisection_1ae9ccce420ccf01a829b0138f264956cb" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>Bisection</name></member>
+      <member refid="classnc_1_1roots_1_1_bisection_1a05985162d3dac7a0919319c6cde74895" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>Bisection</name></member>
+      <member refid="classnc_1_1roots_1_1_bisection_1a5939d0d88e4de28c537dbdfed0ce848c" prot="private" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>calculateX</name></member>
       <member refid="classnc_1_1roots_1_1_bisection_1a635b6eb837b7357b1aabf4cc1e3b4274" prot="private" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>checkAndFixAlgorithmCriteria</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" prot="protected" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>epsilon_</name></member>
       <member refid="classnc_1_1roots_1_1_bisection_1ae6357e144a2b1fbb225d086de3cc3954" prot="private" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>f_</name></member>
@@ -415,8 +417,8 @@
       <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>resetNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_bisection_1a1199a68b6f57fee8b24bfc59ffeff486" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>solve</name></member>
-      <member refid="classnc_1_1roots_1_1_bisection_1a772668ef46d44b18f482edad16f4644b" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>~Bisection</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Bisection</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_bisection_1a5e0d0c67681add5f2feec713901539df" prot="public" virt="non-virtual"><scope>nc::roots::Bisection</scope><name>~Bisection</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a44492e4a1849938cd7017154213ec002" prot="public" virt="virtual"><scope>nc::roots::Bisection</scope><name>~Iteration</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -86,7 +86,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -121,7 +121,7 @@
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::bitset&lt;DtypeInfo&lt;dtype&gt;::bits()&gt;(inValue).to_string();</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nc</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/Functions/binaryRepr.hpp"/>
   </compounddef>

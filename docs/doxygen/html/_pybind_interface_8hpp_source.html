@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -137,54 +137,55 @@ $(document).ready(function(){initNavTree('_pybind_interface_8hpp_source.html',''
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input array must be no more than 2 dimensional.&quot;</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">   99</a></span>&#160;        <span class="keyword">inline</span> pybind11::array_t&lt;dtype&gt; <a class="code" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc2pybind</a>(<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a> returnPolicy = <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>) </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            std::vector&lt;pybind11::ssize_t&gt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>{ inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> };</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            std::vector&lt;pybind11::ssize_t&gt; strides{ inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> * <span class="keyword">sizeof</span>(dtype), <span class="keyword">sizeof</span>(dtype) };</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">switch</span> (returnPolicy)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>());</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f">ReturnPolicy::REFERENCE</a>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    <span class="keyword">typename</span> pybind11::capsule reference(inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), [](<span class="keywordtype">void</span>* ptr) {});</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), reference);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d">ReturnPolicy::TAKE_OWNERSHIP</a>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keyword">typename</span> pybind11::capsule garbageCollect(inArray.<a class="code" href="classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0">dataRelease</a>(),</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        [](<span class="keywordtype">void</span>* ptr)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                            dtype* dataPtr = reinterpret_cast&lt;dtype*&gt;(ptr);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                            delete[] dataPtr;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    );</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), garbageCollect);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    std::stringstream sstream;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    sstream &lt;&lt; <span class="stringliteral">&quot;ReturnPolicy &quot;</span> &lt;&lt; <a class="code" href="namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc">returnPolicyStringMap</a>.at(returnPolicy) &lt;&lt; <span class="stringliteral">&quot; has not been implemented yet&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(sstream.str());</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">  100</a></span>&#160;        <span class="keyword">inline</span> pybind11::array_t&lt;dtype&gt; <a class="code" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc2pybind</a>(<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a> returnPolicy = <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>) </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            std::vector&lt;pybind11::ssize_t&gt; <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>{ inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> };</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            std::vector&lt;pybind11::ssize_t&gt; strides{ inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> * <span class="keyword">sizeof</span>(dtype), <span class="keyword">sizeof</span>(dtype) };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">switch</span> (returnPolicy)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>());</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f">ReturnPolicy::REFERENCE</a>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    <span class="keyword">typename</span> pybind11::capsule reference(inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), [](<span class="keywordtype">void</span>* ptr) {});</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), reference);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d">ReturnPolicy::TAKE_OWNERSHIP</a>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    <span class="keyword">typename</span> pybind11::capsule garbageCollect(inArray.<a class="code" href="classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0">dataRelease</a>(),</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        [](<span class="keywordtype">void</span>* ptr)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                        {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                            dtype* dataPtr = reinterpret_cast&lt;dtype*&gt;(ptr);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                            delete[] dataPtr;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    );</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    <span class="keywordflow">return</span> pybind11::array_t&lt;dtype&gt;(<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>, strides, inArray.<a class="code" href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">data</a>(), garbageCollect);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    std::stringstream sstream;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    sstream &lt;&lt; <span class="stringliteral">&quot;ReturnPolicy &quot;</span> &lt;&lt; <a class="code" href="namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc">returnPolicyStringMap</a>.at(returnPolicy) &lt;&lt; <span class="stringliteral">&quot; has not been implemented yet&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(sstream.str());</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="anamespacenc_html_a25f36ba02112a206936fae22b0724bb9"><div class="ttname"><a href="namespacenc.html#a25f36ba02112a206936fae22b0724bb9">nc::size</a></div><div class="ttdeci">uint32 size(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</div><div class="ttdef"><b>Definition:</b> size.hpp:46</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html_ae2b224742bc8263190d451a44ebe5e34"><div class="ttname"><a href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">nc::shape</a></div><div class="ttdeci">Shape shape(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/Shape.hpp:45</div></div>
@@ -193,17 +194,17 @@ $(document).ready(function(){initNavTree('_pybind_interface_8hpp_source.html',''
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_a0ca16a67f36ad5d1960cd9567208ed19"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">nc::pybindInterface::ReturnPolicy</a></div><div class="ttdeci">ReturnPolicy</div><div class="ttdoc">Enum for the pybind array return policy.</div><div class="ttdef"><b>Definition:</b> PybindInterface.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">nc::pybindInterface::ReturnPolicy::COPY</a></div><div class="ttdeci">@ COPY</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ade07629d4094244f1dfca863af67e7c0"><div class="ttname"><a href="classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0">nc::NdArray::dataRelease</a></div><div class="ttdeci">pointer dataRelease() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2549</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ade07629d4094244f1dfca863af67e7c0"><div class="ttname"><a href="classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0">nc::NdArray::dataRelease</a></div><div class="ttdeci">pointer dataRelease() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2557</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_abde82685837c3645f506b0800472ffbc"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc">nc::pybindInterface::returnPolicyStringMap</a></div><div class="ttdeci">static const std::map&lt; ReturnPolicy, std::string &gt; returnPolicyStringMap</div><div class="ttdef"><b>Definition:</b> PybindInterface.hpp:50</div></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a3df9d88c710b83f211f67dd4511b4f49"><div class="ttname"><a href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">nc::NdArray::data</a></div><div class="ttdeci">pointer data() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2527</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a3df9d88c710b83f211f67dd4511b4f49"><div class="ttname"><a href="classnc_1_1_nd_array.html#a3df9d88c710b83f211f67dd4511b4f49">nc::NdArray::data</a></div><div class="ttdeci">pointer data() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2535</div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_a4f1f494ed8dc86610403627954600812"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a4f1f494ed8dc86610403627954600812">nc::pybindInterface::pybind2nc</a></div><div class="ttdeci">NdArray&lt; dtype &gt; pybind2nc(pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;numpyArray)</div><div class="ttdef"><b>Definition:</b> PybindInterface.hpp:63</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
-<div class="ttc" id="anamespacenc_1_1pybind_interface_html_a36135ab669dc2e6659bb9564e402edb4"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc::pybindInterface::nc2pybind</a></div><div class="ttdeci">pybind11::array_t&lt; dtype &gt; nc2pybind(NdArray&lt; dtype &gt; &amp;inArray, ReturnPolicy returnPolicy=ReturnPolicy::COPY)</div><div class="ttdef"><b>Definition:</b> PybindInterface.hpp:99</div></div>
+<div class="ttc" id="anamespacenc_1_1pybind_interface_html_a36135ab669dc2e6659bb9564e402edb4"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc::pybindInterface::nc2pybind</a></div><div class="ttdeci">pybind11::array_t&lt; dtype &gt; nc2pybind(NdArray&lt; dtype &gt; &amp;inArray, ReturnPolicy returnPolicy=ReturnPolicy::COPY)</div><div class="ttdef"><b>Definition:</b> PybindInterface.hpp:100</div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d">nc::pybindInterface::ReturnPolicy::TAKE_OWNERSHIP</a></div><div class="ttdeci">@ TAKE_OWNERSHIP</div></div>
 <div class="ttc" id="anamespacenc_1_1pybind_interface_html_a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f"><div class="ttname"><a href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f">nc::pybindInterface::ReturnPolicy::REFERENCE</a></div><div class="ttdeci">@ REFERENCE</div></div>
 <!-- start footer part -->

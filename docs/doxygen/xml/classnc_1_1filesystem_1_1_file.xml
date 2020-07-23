@@ -124,9 +124,9 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="82" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="82" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ac1ae0dc6fd070c5463564c96607256dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const std::string</type>
-        <definition>const std::string nc::filesystem::File::fullName</definition>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a0f3f9b0e15d7cd007ae2b8a808f74799" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::fullName</definition>
         <argsstring>() const</argsstring>
         <name>fullName</name>
         <briefdescription>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="93" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="93" bodyend="96"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="93" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a4e8ede3f75b64847964d4d85cd58f123" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -175,9 +175,9 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="115" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="115" bodyend="118"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ad06c53155121c8fb3641120f71e14be7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>const std::string</type>
-        <definition>const std::string nc::filesystem::File::withExt</definition>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1adde9dd84b2a023df3bb908e6b1c7030f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::withExt</definition>
         <argsstring>(const std::string &amp;ext)</argsstring>
         <name>withExt</name>
         <param>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="127" column="31" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="127" bodyend="131"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" line="127" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/Filesystem.hpp" bodystart="127" bodyend="131"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -217,10 +217,10 @@
       <member refid="classnc_1_1filesystem_1_1_file_1aa27dc231895f81412af1d8206b5496dd" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>File</name></member>
       <member refid="classnc_1_1filesystem_1_1_file_1a98d5b030a68c0e720634b05bbbb75ebf" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>filename_</name></member>
       <member refid="classnc_1_1filesystem_1_1_file_1a537a49e618f082e00a26ed48c704be18" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>fullFilename_</name></member>
-      <member refid="classnc_1_1filesystem_1_1_file_1ac1ae0dc6fd070c5463564c96607256dc" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>fullName</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a0f3f9b0e15d7cd007ae2b8a808f74799" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>fullName</name></member>
       <member refid="classnc_1_1filesystem_1_1_file_1a4e8ede3f75b64847964d4d85cd58f123" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>hasExt</name></member>
       <member refid="classnc_1_1filesystem_1_1_file_1a29fd40eb720c1caad3dcef59e2f215a4" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>name</name></member>
-      <member refid="classnc_1_1filesystem_1_1_file_1ad06c53155121c8fb3641120f71e14be7" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>withExt</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1adde9dd84b2a023df3bb908e6b1c7030f" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>withExt</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -98,7 +98,6 @@
     <includedby refid="rand_int_8hpp" local="yes">randInt.hpp</includedby>
     <includedby refid="student_t_8hpp" local="yes">studentT.hpp</includedby>
     <includedby refid="triangle_8hpp" local="yes">triangle.hpp</includedby>
-    <includedby refid="uniform_on_sphere_8hpp" local="yes">uniformOnSphere.hpp</includedby>
     <includedby refid="weibull_8hpp" local="yes">weibull.hpp</includedby>
     <includedby refid="_iteration_8hpp" local="yes">Iteration.hpp</includedby>
     <includedby refid="_quaternion_8hpp" local="yes">Quaternion.hpp</includedby>
@@ -3045,8 +3044,6 @@
         </childnode>
         <childnode refid="344" relation="include">
         </childnode>
-        <childnode refid="345" relation="include">
-        </childnode>
         <childnode refid="346" relation="include">
         </childnode>
         <childnode refid="384" relation="include">
@@ -3794,7 +3791,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -3836,8 +3833,8 @@
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/>errMsg;</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>ErrorType(errMsg);</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nc</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/Error.hpp"/>
   </compounddef>

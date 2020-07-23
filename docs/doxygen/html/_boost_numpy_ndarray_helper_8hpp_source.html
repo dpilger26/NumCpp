@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -98,9 +98,9 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;boost/python.hpp&quot;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;boost/python/numpy.hpp&quot;</span></div>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311">   58</a></span>&#160;<span class="comment"></span>            <span class="keyword">enum class</span> <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311">Order</a> { <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012">F</a>, <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311a0d61f8370cad1d412f80b84d143e1257">C</a> };</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aece0d05bbeaa992eb105dddafe11d3d6">   65</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aece0d05bbeaa992eb105dddafe11d3d6">BoostNdarrayHelper</a>(<span class="keyword">const</span> boost::python::numpy::ndarray&amp; inArray) :</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aece0d05bbeaa992eb105dddafe11d3d6">   65</a></span>&#160;<span class="comment"></span>            <span class="keyword">explicit</span> <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aece0d05bbeaa992eb105dddafe11d3d6">BoostNdarrayHelper</a>(<span class="keyword">const</span> boost::python::numpy::ndarray&amp; inArray) :</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                theArray_(inArray.<a class="code" href="namespacenc.html#a07250b272d24387fab405d29c14082e4">astype</a>(boost::python::numpy::dtype::get_builtin&lt;dtype&gt;())),</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                numDimensions_(static_cast&lt;<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a>&gt;(inArray.get_nd())),</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                shape_(numDimensions_),</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a649930af85396c05d2f3ccb528d4eb24">   91</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a649930af85396c05d2f3ccb528d4eb24">BoostNdarrayHelper</a>(boost::python::tuple inShape) :</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a649930af85396c05d2f3ccb528d4eb24">   91</a></span>&#160;<span class="comment"></span>            <span class="keyword">explicit</span> <a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a649930af85396c05d2f3ccb528d4eb24">BoostNdarrayHelper</a>(boost::python::tuple inShape) :</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                theArray_(boost::python::numpy::<a class="code" href="namespacenc.html#a8fb3ecc9cc7448e4b5d3d422e499b10e">zeros</a>(inShape, boost::python::numpy::dtype::get_builtin&lt;dtype&gt;())),</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                numDimensions_(static_cast&lt;<a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a>&gt;(theArray_.get_nd())),</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                shape_(numDimensions_),</div>
@@ -317,8 +317,8 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                checkIndicesGeneric(indices);</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            }</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        };</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }  <span class="comment">// namespace boostPythonInterface</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -3830,7 +3830,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -3968,9 +3968,9 @@
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="213"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>InputIt,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>UnaryFunction&gt;</highlight></codeline>
-<codeline lineno="214" refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">for_each</ref>(InputIt<sp/>first,<sp/>InputIt<sp/>last,<sp/>UnaryFunction<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)<sp/><ref refid="_stl_algorithms_8hpp_1a21a26d02e8952e85df87e4c35bb25ff5" kindref="member">NO_EXCEPT</ref></highlight></codeline>
+<codeline lineno="214" refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">for_each</ref>(InputIt<sp/>first,<sp/>InputIt<sp/>last,<sp/>UnaryFunction<sp/><ref refid="namespacenc_1_1random_1a00229c23da25284daf436c0a338ea25c" kindref="member">f</ref>)</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" kindref="member">std::for_each</ref>(</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" kindref="member">std::for_each</ref>(</highlight></codeline>
 <codeline lineno="217"><highlight class="normal">#ifdef<sp/>PARALLEL_ALGORITHMS_SUPPORTED</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::execution::par_unseq,</highlight></codeline>
 <codeline lineno="219"><highlight class="normal">#endif</highlight></codeline>
@@ -4281,10 +4281,10 @@
 <codeline lineno="692"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="693"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="702"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>InputIt,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>OutputIt,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>UnaryOperation&gt;</highlight></codeline>
-<codeline lineno="703" refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">transform</ref>(InputIt<sp/>first,<sp/>InputIt<sp/>last,<sp/>OutputIt<sp/>destination,</highlight></codeline>
-<codeline lineno="704"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnaryOperation<sp/>unaryFunction)<sp/><ref refid="_stl_algorithms_8hpp_1a21a26d02e8952e85df87e4c35bb25ff5" kindref="member">NO_EXCEPT</ref></highlight></codeline>
+<codeline lineno="703" refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">transform</ref>(InputIt<sp/>first,<sp/>InputIt<sp/>last,<sp/>OutputIt<sp/>destination,</highlight></codeline>
+<codeline lineno="704"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnaryOperation<sp/>unaryFunction)</highlight></codeline>
 <codeline lineno="705"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="706"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" kindref="member">std::transform</ref>(</highlight></codeline>
+<codeline lineno="706"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" kindref="member">std::transform</ref>(</highlight></codeline>
 <codeline lineno="707"><highlight class="normal">#ifdef<sp/>PARALLEL_ALGORITHMS_SUPPORTED</highlight></codeline>
 <codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::execution::par_unseq,</highlight></codeline>
 <codeline lineno="709"><highlight class="normal">#endif</highlight></codeline>
@@ -4294,10 +4294,10 @@
 <codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="724"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>InputIt1,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>InputIt2,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>OutputIt,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>BinaryOperation&gt;</highlight></codeline>
-<codeline lineno="725" refid="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/><ref refid="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" kindref="member">transform</ref>(InputIt1<sp/>first1,<sp/>InputIt1<sp/>last1,<sp/>InputIt2<sp/>first2,</highlight></codeline>
-<codeline lineno="726"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/>destination,<sp/>BinaryOperation<sp/>unaryFunction)<sp/><ref refid="_stl_algorithms_8hpp_1a21a26d02e8952e85df87e4c35bb25ff5" kindref="member">NO_EXCEPT</ref><sp/></highlight></codeline>
+<codeline lineno="725" refid="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">transform</ref>(InputIt1<sp/>first1,<sp/>InputIt1<sp/>last1,<sp/>InputIt2<sp/>first2,</highlight></codeline>
+<codeline lineno="726"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutputIt<sp/>destination,<sp/>BinaryOperation<sp/>unaryFunction)<sp/></highlight></codeline>
 <codeline lineno="727"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="728"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" kindref="member">std::transform</ref>(</highlight></codeline>
+<codeline lineno="728"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" kindref="member">std::transform</ref>(</highlight></codeline>
 <codeline lineno="729"><highlight class="normal">#ifdef<sp/>PARALLEL_ALGORITHMS_SUPPORTED</highlight></codeline>
 <codeline lineno="730"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::execution::par_unseq,</highlight></codeline>
 <codeline lineno="731"><highlight class="normal">#endif</highlight></codeline>
@@ -4329,8 +4329,8 @@
 <codeline lineno="772"><highlight class="normal">#endif</highlight></codeline>
 <codeline lineno="773"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>first,<sp/>last,<sp/>destination,<sp/>binaryFunction);</highlight></codeline>
 <codeline lineno="774"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="775"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="776"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="775"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>stl_algorithms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="776"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nc</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp"/>
   </compounddef>

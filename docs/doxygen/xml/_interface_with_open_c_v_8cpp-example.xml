@@ -11,11 +11,24 @@
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;opencv2/highgui/highgui.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">constexpr<sp/><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">nc::uint32</ref><sp/>NUM_ROWS<sp/>=<sp/>512;</highlight></codeline>
+<codeline><highlight class="normal">constexpr<sp/><ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">nc::uint32</ref><sp/>NUM_COLS<sp/>=<sp/>512;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
 <codeline><highlight class="normal">{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>random<sp/>image<sp/>with<sp/>NumCpp</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncArray<sp/>=<sp/>nc::random::randInt&lt;nc::uint8&gt;({<sp/>500,<sp/>500<sp/>},<sp/>0,<sp/><ref refid="classnc_1_1_dtype_info_1a2a3dc0ba2812411660219f61189d8aca" kindref="member">nc::DtypeInfo&lt;nc::uint8&gt;::max</ref>());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>ramp<sp/>image<sp/>with<sp/>NumCpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>numHalfCols<sp/>=<sp/>NUM_COLS<sp/>/<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>integer<sp/>division</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncArray<sp/>=<sp/><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray&lt;nc::uint8&gt;</ref>(NUM_ROWS,<sp/>NUM_COLS);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1af0f49663fb63332596e2e6327009d581" kindref="member">nc::uint32</ref><sp/>row<sp/>=<sp/>0;<sp/>row<sp/>&lt;<sp/>ncArray.numRows();<sp/>++row)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>begin<sp/>=<sp/>ncArray.begin(row);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::iota(begin,<sp/>begin<sp/>+<sp/>numHalfCols,<sp/><ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">nc::uint8</ref>{0});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rbegin<sp/>=<sp/>ncArray.rbegin(row);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::iota(rbegin,<sp/>rbegin<sp/>+<sp/>numHalfCols,<sp/><ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">nc::uint8</ref>{0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>to<sp/>OpenCV<sp/>Mat</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cvArray<sp/>=<sp/>cv::Mat(ncArray.numRows(),<sp/>ncArray.numCols(),<sp/>CV_8SC1,<sp/>ncArray.data());</highlight></codeline>

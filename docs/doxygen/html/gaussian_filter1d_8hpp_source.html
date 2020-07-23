@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('gaussian_filter1d_8hpp_source.html',''
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                ++kernelSize; <span class="comment">// make sure the kernel is an odd size</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">double</span> kernalHalfSize = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(kernelSize / 2); <span class="comment">// integer division</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> kernalHalfSize = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(kernelSize / 2); <span class="comment">// integer division</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">// calculate the gaussian kernel</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> kernel(1, kernelSize);</div>
@@ -143,11 +143,11 @@ $(document).ready(function(){initNavTree('gaussian_filter1d_8hpp_source.html',''
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> output;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    } <span class="comment">// namespace filter</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2950</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2958</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_a21d48fecf984290cb5a4388d50371b13"><div class="ttname"><a href="namespacenc_1_1filter.html#a21d48fecf984290cb5a4388d50371b13">nc::filter::convolve1d</a></div><div class="ttdeci">NdArray&lt; dtype &gt; convolve1d(const NdArray&lt; dtype &gt; &amp;inImageArray, const NdArray&lt; dtype &gt; &amp;inWeights, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> convolve1d.hpp:57</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="agaussian1d_8hpp_html"><div class="ttname"><a href="gaussian1d_8hpp.html">gaussian1d.hpp</a></div></div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('gaussian_filter1d_8hpp_source.html',''
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_boundary_8hpp_html"><div class="ttname"><a href="_boundary_8hpp.html">Boundary.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1utils_html_a263704ee2cc6ab3f77b462522c7150f8"><div class="ttname"><a href="namespacenc_1_1utils.html#a263704ee2cc6ab3f77b462522c7150f8">nc::utils::gaussian1d</a></div><div class="ttdeci">double gaussian1d(double inX, double inMu, double inSigma) noexcept</div><div class="ttdef"><b>Definition:</b> gaussian1d.hpp:49</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a467700098b002b5631c756ca0fd50cae"><div class="ttname"><a href="classnc_1_1_nd_array.html#a467700098b002b5631c756ca0fd50cae">nc::NdArray::sum</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sum(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4411</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a467700098b002b5631c756ca0fd50cae"><div class="ttname"><a href="classnc_1_1_nd_array.html#a467700098b002b5631c756ca0fd50cae">nc::NdArray::sum</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sum(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4427</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">nc::filter::Boundary::REFLECT</a></div><div class="ttdeci">@ REFLECT</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>

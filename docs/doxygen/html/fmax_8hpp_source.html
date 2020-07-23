@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -90,10 +90,10 @@ $(document).ready(function(){initNavTree('fmax_8hpp_source.html',''); initResiza
 <div class="contents">
 <a href="fmax_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('fmax_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inArray1.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e">stl_algorithms::transform</a>(inArray1.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArray1.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), inArray2.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArray1.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArray1.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), inArray2.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            [](dtype inValue1, dtype inValue2) noexcept -&gt; dtype</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            { </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                return fmax(inValue1, inValue2);</div>
@@ -135,21 +135,21 @@ $(document).ready(function(){initNavTree('fmax_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:51</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:703</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1491</div></div>
 <div class="ttc" id="anamespacenc_html_aebbd1fbc64f00fdeaae6c8cfdf6a7f59"><div class="ttname"><a href="namespacenc.html#aebbd1fbc64f00fdeaae6c8cfdf6a7f59">nc::fmax</a></div><div class="ttdeci">dtype fmax(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> fmax.hpp:57</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="anamespacenc_html_a4d5872f22ac07aeba503857cb5948bc1"><div class="ttname"><a href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">nc::max</a></div><div class="ttdeci">NdArray&lt; dtype &gt; max(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> max.hpp:46</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a65dada83abf2bf7a4fe6bd5a7b00624e"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:703</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1147</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1091</div></div>

@@ -97,7 +97,7 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1ae0561bbc9633e436139258b0c70b98ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1ae0561bbc9633e436139258b0c70b98ba" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>nc::linalg::SVD::SVD</definition>
         <argsstring>(const NdArray&lt; double &gt; &amp;inMatrix)</argsstring>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="58" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="58" bodyend="69"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="58" column="22" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="58" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a323915fbe7cbaabadef01ffa948d2f1a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
@@ -220,24 +220,10 @@
         <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="90" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="90" bodyend="93"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1acc6dd627cd3ff1e48c463e1524f83fa9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::linalg::SVD::decompose</definition>
-        <argsstring>()</argsstring>
-        <name>decompose</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>decomposes the input matrix </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="180" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="180" bodyend="515"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1aa53ea9413315fdcfb1486fcd3f3bd3ce" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a5f1d7ce1c65b6e206391b1e9fc72e860" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
-        <definition>double nc::linalg::SVD::pythag</definition>
+        <definition>static double nc::linalg::SVD::pythag</definition>
         <argsstring>(double inA, double inB) noexcept</argsstring>
         <name>pythag</name>
         <param>
@@ -275,25 +261,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="638" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="638" bodyend="644"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="638" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="638" bodyend="644"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a9d232414821dbb2e7d6058370c14906c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::linalg::SVD::reorder</definition>
-        <argsstring>()</argsstring>
-        <name>reorder</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>reorders the input matrix </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="521" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="521" bodyend="626"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a62e67a97c07c0907d70f6acaae7d460b" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a32daddef2ad3cba464a9885e7f46514b" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
-        <definition>double nc::linalg::SVD::SIGN</definition>
+        <definition>static double nc::linalg::SVD::SIGN</definition>
         <argsstring>(double inA, double inB) noexcept</argsstring>
         <name>SIGN</name>
         <param>
@@ -331,7 +303,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="171" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="171" bodyend="174"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="171" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="171" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1acc6dd627cd3ff1e48c463e1524f83fa9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::linalg::SVD::decompose</definition>
+        <argsstring>()</argsstring>
+        <name>decompose</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>decomposes the input matrix </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="180" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="180" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1linalg_1_1_s_v_d_1a9d232414821dbb2e7d6058370c14906c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::linalg::SVD::reorder</definition>
+        <argsstring>()</argsstring>
+        <name>reorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reorders the input matrix </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" line="521" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Linalg/svd/SVDClass.hpp" bodystart="521" bodyend="626"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -351,11 +353,11 @@
       <member refid="classnc_1_1linalg_1_1_s_v_d_1ac4b93500a4b94e4a11ca8fd69bec6d9a" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>eps_</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1adec1eeac4c4592426e3f41cbf553e12c" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>m_</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1a414f521ceebb8a174909aed54fbb3d86" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>n_</name></member>
-      <member refid="classnc_1_1linalg_1_1_s_v_d_1aa53ea9413315fdcfb1486fcd3f3bd3ce" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>pythag</name></member>
+      <member refid="classnc_1_1linalg_1_1_s_v_d_1a5f1d7ce1c65b6e206391b1e9fc72e860" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>pythag</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1a9d232414821dbb2e7d6058370c14906c" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>reorder</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1a323915fbe7cbaabadef01ffa948d2f1a" prot="public" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>s</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1afb3073b8d2678af17ab64f782d8d88e3" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>s_</name></member>
-      <member refid="classnc_1_1linalg_1_1_s_v_d_1a62e67a97c07c0907d70f6acaae7d460b" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>SIGN</name></member>
+      <member refid="classnc_1_1linalg_1_1_s_v_d_1a32daddef2ad3cba464a9885e7f46514b" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>SIGN</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1aa170c7ec6894fb30e115840d61bd58a1" prot="public" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>solve</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1ae0561bbc9633e436139258b0c70b98ba" prot="public" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>SVD</name></member>
       <member refid="classnc_1_1linalg_1_1_s_v_d_1a20a5ca72cbc4ddbfc6610fb2f91d96c2" prot="private" virt="non-virtual"><scope>nc::linalg::SVD</scope><name>tsh_</name></member>

@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -91,10 +91,10 @@ $(document).ready(function(){initNavTree('gradient_8hpp_source.html',''); initRe
 <a href="gradient_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_std_complex_operators_8hpp.html">NumCpp/Core/Internal/StdComplexOperators.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_std_complex_operators_8hpp.html">NumCpp/Core/Internal/StdComplexOperators.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('gradient_8hpp_source.html',''); initRe
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                returnArray[0] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray[1]) - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray[0]);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                returnArray[-1] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray[-1]) - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray[-2]);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e">stl_algorithms::transform</a>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>() + 2, inArray.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), returnArray.begin() + 1,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>() + 2, inArray.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), returnArray.begin() + 1,</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    [](dtype value1, dtype value2)  -&gt; <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    { </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                        return (static_cast&lt;double&gt;(value1) - static_cast&lt;double&gt;(value2)) / 2.0; </div>
@@ -266,7 +266,7 @@ $(document).ready(function(){initNavTree('gradient_8hpp_source.html',''); initRe
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                returnArray[0] = complex_cast&lt;double&gt;(inArray[1]) - complex_cast&lt;double&gt;(inArray[0]);</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                returnArray[-1] = complex_cast&lt;double&gt;(inArray[-1]) - complex_cast&lt;double&gt;(inArray[-2]);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e">stl_algorithms::transform</a>(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>() + 1,</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>() + 1,</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    [](<span class="keyword">const</span> std::complex&lt;dtype&gt;&amp; value1, <span class="keyword">const</span> std::complex&lt;dtype&gt;&amp; value2)  -&gt; std::complex&lt;double&gt;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    { </div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        return (complex_cast&lt;double&gt;(value1) - complex_cast&lt;double&gt;(value2)) / 2.0; </div>
@@ -276,25 +276,25 @@ $(document).ready(function(){initNavTree('gradient_8hpp_source.html',''); initRe
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            }</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        }</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:38</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a></div><div class="ttdeci">@ ROW</div></div>
 <div class="ttc" id="a_std_complex_operators_8hpp_html"><div class="ttname"><a href="_std_complex_operators_8hpp.html">StdComplexOperators.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:703</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4310</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4326</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1491</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:47</div></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a65dada83abf2bf7a4fe6bd5a7b00624e"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a65dada83abf2bf7a4fe6bd5a7b00624e">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:703</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1147</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html_ae2a11c3f92effc5991a2e0134f6a9188"><div class="ttname"><a href="namespacenc.html#ae2a11c3f92effc5991a2e0134f6a9188">nc::gradient</a></div><div class="ttdeci">NdArray&lt; double &gt; gradient(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::ROW)</div><div class="ttdef"><b>Definition:</b> gradient.hpp:57</div></div>

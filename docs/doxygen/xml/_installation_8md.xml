@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_installation_8md" kind="file" language="Markdown">
+    <compoundname>Installation.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Installation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.<sp/>Clone<sp/>the<sp/>NumCpp<sp/>repository<sp/>from<sp/>[GitHub](https://github.com/dpilger26/NumCpp)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**NUMCPP_REPO_PATH**<sp/>=<sp/>path<sp/>to<sp/>clone<sp/>repository</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cd<sp/>&lt;NUMCPP_REPO_PATH&gt;</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>git<sp/>clone<sp/>https://github.com/dpilger26/NumCpp.git</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.<sp/>Build<sp/>the<sp/>install<sp/>products<sp/>using<sp/>CMake</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cd<sp/>NumCpp</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cmake<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.<sp/>Install<sp/>the<sp/>includes<sp/>and<sp/>CMake<sp/>target<sp/>files</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">On<sp/>Linux<sp/>run<sp/>the<sp/>following<sp/>command<sp/>with<sp/>`sudo`.<sp/><sp/>On<sp/>Windows,<sp/>you<sp/>may<sp/>need<sp/>to<sp/>open<sp/>a<sp/>cmd<sp/>prompt<sp/>or<sp/>PowerShell<sp/>with<sp/>admin<sp/>privileges.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```console</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cmake<sp/>--build<sp/>.<sp/>--target<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Alternative</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**NumCpp**<sp/>is<sp/>a<sp/>header<sp/>only<sp/>library<sp/>so<sp/>you<sp/>can<sp/>of<sp/>course<sp/>simply<sp/>add<sp/>the<sp/>**NumCpp**<sp/>include<sp/>directory<sp/>(wherever<sp/>it<sp/>resides)<sp/>to<sp/>your<sp/>build<sp/>system&apos;s<sp/>include<sp/>directories<sp/>and<sp/>build<sp/>that<sp/>way.</highlight></codeline>
+    </programlisting>
+    <location file="C:/Github/NumCpp/docs/markdown/Installation.md"/>
+  </compounddef>
+</doxygen>

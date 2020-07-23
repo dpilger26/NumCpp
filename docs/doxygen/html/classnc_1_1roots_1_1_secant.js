@@ -1,8 +1,8 @@
 var classnc_1_1roots_1_1_secant =
 [
-    [ "Secant", "classnc_1_1roots_1_1_secant.html#ab4f5b3bf32f950969ccc02ad2b73ee3a", null ],
-    [ "Secant", "classnc_1_1roots_1_1_secant.html#ade0bc7e1d85f9dad939b41789078e915", null ],
-    [ "~Secant", "classnc_1_1roots_1_1_secant.html#ad0a5d01d81803c733e43c7b07497d192", null ],
+    [ "Secant", "classnc_1_1roots_1_1_secant.html#af8afc48a7393e85103a9c2acc662c63b", null ],
+    [ "Secant", "classnc_1_1roots_1_1_secant.html#adedf56589f2027e224d6044a071f20e3", null ],
+    [ "~Secant", "classnc_1_1roots_1_1_secant.html#aa5eb3c22ecf2ef92a381b6cf54fb1f83", null ],
     [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_secant.html#ad0262a1a694e734ebc154c77f010bcff", null ],
     [ "numIterations", "classnc_1_1roots_1_1_secant.html#ab3192d0f9de4b8b27b23013c65489e5a", null ],
     [ "resetNumberOfIterations", "classnc_1_1roots_1_1_secant.html#a85e79a4794bc3a6ac6bc3564956737a2", null ],

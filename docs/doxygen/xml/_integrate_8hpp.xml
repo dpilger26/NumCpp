@@ -2,68 +2,68 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_integrate_8hpp" kind="file" language="C++">
     <compoundname>Integrate.hpp</compoundname>
-    <includes refid="trapazoidal_8hpp" local="yes">NumCpp/Integrate/trapazoidal.hpp</includes>
-    <includes refid="simpson_8hpp" local="yes">NumCpp/Integrate/simpson.hpp</includes>
-    <includes refid="romberg_8hpp" local="yes">NumCpp/Integrate/romberg.hpp</includes>
     <includes refid="gauss__legendre_8hpp" local="yes">NumCpp/Integrate/gauss_legendre.hpp</includes>
+    <includes refid="romberg_8hpp" local="yes">NumCpp/Integrate/romberg.hpp</includes>
+    <includes refid="simpson_8hpp" local="yes">NumCpp/Integrate/simpson.hpp</includes>
+    <includes refid="trapazoidal_8hpp" local="yes">NumCpp/Integrate/trapazoidal.hpp</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="10">
+      <node id="11">
         <label>NumCpp/Core/Internal/TypeTraits.hpp</label>
         <link refid="_type_traits_8hpp"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="15">
         <label>NumCpp/Integrate/romberg.hpp</label>
         <link refid="romberg_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>functional</label>
-      </node>
-      <node id="17">
-        <label>limits</label>
-      </node>
-      <node id="18">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>cstdint</label>
-      </node>
-      <node id="6">
-        <label>NumCpp/Integrate/simpson.hpp</label>
-        <link refid="simpson_8hpp"/>
-        <childnode refid="3" relation="include">
+      <node id="3">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
-      <node id="16">
+      <node id="13">
+        <label>functional</label>
+      </node>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="9">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>NumCpp/Integrate/simpson.hpp</label>
+        <link refid="simpson_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>cmath</label>
       </node>
       <node id="1">
@@ -71,66 +71,66 @@
         <link refid="_integrate_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>vector</label>
-      </node>
-      <node id="14">
-        <label>NumCpp/Integrate/gauss_legendre.hpp</label>
-        <link refid="gauss__legendre_8hpp"/>
         <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
+      </node>
+      <node id="17">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>NumCpp/Integrate/gauss_legendre.hpp</label>
+        <link refid="gauss__legendre_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="7">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="12">
         <label>type_traits</label>
       </node>
-      <node id="11">
+      <node id="5">
         <label>complex</label>
       </node>
-      <node id="2">
+      <node id="16">
         <label>NumCpp/Integrate/trapazoidal.hpp</label>
         <link refid="trapazoidal_8hpp"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>NumCpp/Core/Internal/StaticAsserts.hpp</label>
         <link refid="_static_asserts_8hpp"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
@@ -153,7 +153,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -171,10 +171,10 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="trapazoidal_8hpp" kindref="compound">NumCpp/Integrate/trapazoidal.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="simpson_8hpp" kindref="compound">NumCpp/Integrate/simpson.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="romberg_8hpp" kindref="compound">NumCpp/Integrate/romberg.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gauss__legendre_8hpp" kindref="compound">NumCpp/Integrate/gauss_legendre.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gauss__legendre_8hpp" kindref="compound">NumCpp/Integrate/gauss_legendre.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="romberg_8hpp" kindref="compound">NumCpp/Integrate/romberg.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="simpson_8hpp" kindref="compound">NumCpp/Integrate/simpson.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="trapazoidal_8hpp" kindref="compound">NumCpp/Integrate/trapazoidal.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/Integrate.hpp"/>
   </compounddef>

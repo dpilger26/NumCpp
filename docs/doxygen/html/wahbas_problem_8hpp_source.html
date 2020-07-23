@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -90,15 +90,15 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="contents">
 <a href="wahbas_problem_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dot_8hpp.html">NumCpp/Functions/dot.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="eye_8hpp.html">NumCpp/Functions/eye.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ones_8hpp.html">NumCpp/Functions/ones.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zeros_8hpp.html">NumCpp/Functions/zeros.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="det_8hpp.html">NumCpp/Linalg/det.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="svd_8hpp.html">NumCpp/Linalg/svd.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dot_8hpp.html">NumCpp/Functions/dot.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="eye_8hpp.html">NumCpp/Functions/eye.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ones_8hpp.html">NumCpp/Functions/ones.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zeros_8hpp.html">NumCpp/Functions/zeros.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="det_8hpp.html">NumCpp/Linalg/det.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="svd_8hpp.html">NumCpp/Linalg/svd.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">auto</span> b = zeros&lt;dtype&gt;(3, 3);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> cSlice = wk.<a class="code" href="classnc_1_1_nd_array.html#a68afd83ab784fe80a1b05290e40570c7">cSlice</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> cSlice = wk.<a class="code" href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">cSlice</a>();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; wkShape.rows; ++row)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> wkVec = wk(row, cSlice);</div>
@@ -164,23 +164,24 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> ak = ones&lt;dtype&gt;({1, wk.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>().rows});</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1rotations.html#a84a42f4e7f09b7c0e1a9307cb5b6f281">wahbasProblem</a>(wk, vk, ak);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    } <span class="comment">// namespace rotations</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="azeros_8hpp_html"><div class="ttname"><a href="zeros_8hpp.html">zeros.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:38</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4591</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4608</div></div>
 <div class="ttc" id="anamespacenc_html_a2c9414f356ae2025a7cde3a192d6d67d"><div class="ttname"><a href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">nc::dot</a></div><div class="ttdeci">NdArray&lt; dtype &gt; dot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> dot.hpp:48</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a29eabba849b35a3095cd341fa1c7b123"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(int32 inStartIdx=0, uint32 inStepSize=1) const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:891</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="adot_8hpp_html"><div class="ttname"><a href="dot_8hpp.html">dot.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_acb38ad2613d50422afc539d005159055"><div class="ttname"><a href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</div><div class="ttdef"><b>Definition:</b> svd.hpp:54</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4310</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4326</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="asvd_8hpp_html"><div class="ttname"><a href="svd_8hpp.html">svd.hpp</a></div></div>
 <div class="ttc" id="adet_8hpp_html"><div class="ttname"><a href="det_8hpp.html">det.hpp</a></div></div>
@@ -189,7 +190,6 @@ $(document).ready(function(){initNavTree('wahbas_problem_8hpp_source.html',''); 
 <div class="ttc" id="anamespacenc_1_1linalg_html_a55bafcebbc897458164e8dc511b6119c"><div class="ttname"><a href="namespacenc_1_1linalg.html#a55bafcebbc897458164e8dc511b6119c">nc::linalg::det</a></div><div class="ttdeci">dtype det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> det.hpp:57</div></div>
 <div class="ttc" id="anamespacenc_1_1rotations_html_a84a42f4e7f09b7c0e1a9307cb5b6f281"><div class="ttname"><a href="namespacenc_1_1rotations.html#a84a42f4e7f09b7c0e1a9307cb5b6f281">nc::rotations::wahbasProblem</a></div><div class="ttdeci">NdArray&lt; double &gt; wahbasProblem(const NdArray&lt; dtype &gt; &amp;wk, const NdArray&lt; dtype &gt; &amp;vk, const NdArray&lt; dtype &gt; &amp;ak)</div><div class="ttdef"><b>Definition:</b> wahbasProblem.hpp:65</div></div>
 <div class="ttc" id="aones_8hpp_html"><div class="ttname"><a href="ones_8hpp.html">ones.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a68afd83ab784fe80a1b05290e40570c7"><div class="ttname"><a href="classnc_1_1_nd_array.html#a68afd83ab784fe80a1b05290e40570c7">nc::NdArray::cSlice</a></div><div class="ttdeci">const Slice cSlice(int32 inStartIdx=0, uint32 inStepSize=1) const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:891</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

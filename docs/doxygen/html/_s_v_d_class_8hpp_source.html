@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="comment">// =============================================================================</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">// Description:</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">   58</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">SVD</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inMatrix) :</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">   58</a></span>&#160;<span class="comment"></span>            <span class="keyword">explicit</span> <a class="code" href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">SVD</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inMatrix) :</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                m_(inMatrix.<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>().rows),</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                n_(inMatrix.<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>().cols),</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                u_(inMatrix),</div>
@@ -191,7 +191,7 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="comment">// =============================================================================</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="comment">// Description:</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"></span>            <span class="keywordtype">double</span> SIGN(<span class="keywordtype">double</span> inA, <span class="keywordtype">double</span> inB) noexcept </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">double</span> SIGN(<span class="keywordtype">double</span> inA, <span class="keywordtype">double</span> inB) noexcept </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            {</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="keywordflow">return</span> inB &gt;= 0 ? (inA &gt;= 0 ? inA : -inA) : (inA &gt;= 0 ? -inA : inA);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            }</div>
@@ -510,7 +510,7 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                            z = pythag(<a class="code" href="namespacenc_1_1random.html#a00229c23da25284daf436c0a338ea25c">f</a>, h);</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                            s_[<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>] = z;</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                            <span class="keywordflow">if</span> (z)</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                            <span class="keywordflow">if</span> (z != 0.0)</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                            {</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                                z = 1.0 / z;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                                <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> = <a class="code" href="namespacenc_1_1random.html#a00229c23da25284daf436c0a338ea25c">f</a> * z;</div>
@@ -646,7 +646,7 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            <span class="comment">// =============================================================================</span></div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            <span class="comment">// Description:</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment"></span>            <span class="keywordtype">double</span> pythag(<span class="keywordtype">double</span> inA, <span class="keywordtype">double</span> inB) noexcept</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">double</span> pythag(<span class="keywordtype">double</span> inA, <span class="keywordtype">double</span> inB) noexcept</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            {</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> absa = <a class="code" href="namespacenc.html#a6c2c40c4efcd5018f84f9aca0c03c29d">std::abs</a>(inA);</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> absb = <a class="code" href="namespacenc.html#a6c2c40c4efcd5018f84f9aca0c03c29d">std::abs</a>(inB);</div>
@@ -664,8 +664,8 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;            <span class="keywordtype">double</span>              eps_;</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            <span class="keywordtype">double</span>              tsh_;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        };</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    }</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;}</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    } <span class="comment">// namespace linalg</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
@@ -674,12 +674,12 @@ $(document).ready(function(){initNavTree('_s_v_d_class_8hpp_source.html',''); in
 <div class="ttc" id="aclassnc_1_1linalg_1_1_s_v_d_html_a323915fbe7cbaabadef01ffa948d2f1a"><div class="ttname"><a href="classnc_1_1linalg_1_1_s_v_d.html#a323915fbe7cbaabadef01ffa948d2f1a">nc::linalg::SVD::s</a></div><div class="ttdeci">const NdArray&lt; double &gt; &amp; s() noexcept</div><div class="ttdef"><b>Definition:</b> SVDClass.hpp:102</div></div>
 <div class="ttc" id="aclassnc_1_1linalg_1_1_s_v_d_html"><div class="ttname"><a href="classnc_1_1linalg_1_1_s_v_d.html">nc::linalg::SVD</a></div><div class="ttdef"><b>Definition:</b> SVDClass.hpp:48</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_aeabe57b820b8c8211565876e54d21422"><div class="ttname"><a href="classnc_1_1_nd_array.html#aeabe57b820b8c8211565876e54d21422">nc::NdArray::front</a></div><div class="ttdeci">value_type front() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2782</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aeabe57b820b8c8211565876e54d21422"><div class="ttname"><a href="classnc_1_1_nd_array.html#aeabe57b820b8c8211565876e54d21422">nc::NdArray::front</a></div><div class="ttdeci">value_type front() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2789</div></div>
 <div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1constants_html_ac3fc62713ed109e451648c67faab7581"><div class="ttname"><a href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">nc::constants::c</a></div><div class="ttdeci">constexpr double c</div><div class="ttdoc">speed of light</div><div class="ttdef"><b>Definition:</b> Constants.hpp:41</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4310</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4326</div></div>
 <div class="ttc" id="aclassnc_1_1linalg_1_1_s_v_d_html_a6b907070cfa7e89c3107fa628694e274"><div class="ttname"><a href="classnc_1_1linalg_1_1_s_v_d.html#a6b907070cfa7e89c3107fa628694e274">nc::linalg::SVD::v</a></div><div class="ttdeci">const NdArray&lt; double &gt; &amp; v() noexcept</div><div class="ttdef"><b>Definition:</b> SVDClass.hpp:90</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="aclassnc_1_1linalg_1_1_s_v_d_html_ae0561bbc9633e436139258b0c70b98ba"><div class="ttname"><a href="classnc_1_1linalg_1_1_s_v_d.html#ae0561bbc9633e436139258b0c70b98ba">nc::linalg::SVD::SVD</a></div><div class="ttdeci">SVD(const NdArray&lt; double &gt; &amp;inMatrix)</div><div class="ttdef"><b>Definition:</b> SVDClass.hpp:58</div></div>

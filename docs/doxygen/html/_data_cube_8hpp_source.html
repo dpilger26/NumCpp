@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -90,9 +90,9 @@ $(document).ready(function(){initNavTree('_data_cube_8hpp_source.html',''); init
 <div class="contents">
 <a href="_data_cube_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_filesystem_8hpp.html">NumCpp/Core/Internal/Filesystem.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_filesystem_8hpp.html">NumCpp/Core/Internal/Filesystem.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_data_cube_8hpp_source.html',''); init
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1_data_cube.html#a8224b613a7c87a16e06ef08d6f90926e">DataCube</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b">   61</a></span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b">DataCube</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inSize) :</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b">   61</a></span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b">DataCube</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inSize) :</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            cube_(inSize)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {};</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
@@ -275,10 +275,10 @@ $(document).ready(function(){initNavTree('_data_cube_8hpp_source.html',''); init
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        std::deque&lt;NdArray&lt;dtype&gt; &gt;     cube_{};</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        Shape                           elementShape_{ 0, 0 };</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    };</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="aclassnc_1_1_data_cube_html_a7ae08af82b0553d2b294286bdf06703b"><div class="ttname"><a href="classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b">nc::DataCube::DataCube</a></div><div class="ttdeci">DataCube(uint32 inSize)</div><div class="ttdef"><b>Definition:</b> DataCube.hpp:61</div></div>
 <div class="ttc" id="aclassnc_1_1_data_cube_html_a8224b613a7c87a16e06ef08d6f90926e"><div class="ttname"><a href="classnc_1_1_data_cube.html#a8224b613a7c87a16e06ef08d6f90926e">nc::DataCube::DataCube</a></div><div class="ttdeci">DataCube()=default</div></div>
 <div class="ttc" id="aclassnc_1_1_data_cube_html_a9aeac78f9aec9b69b9673c1e56778b1b"><div class="ttname"><a href="classnc_1_1_data_cube.html#a9aeac78f9aec9b69b9673c1e56778b1b">nc::DataCube::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> DataCube.hpp:161</div></div>

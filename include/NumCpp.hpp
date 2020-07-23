@@ -27,7 +27,18 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Testing
-/// Compiled and tested with Visual Studio 2017/2019, and g++ 7.3.0/8.0, clang 6.0, with Boost version 1.68 and 1.70.
+/// **C++ Standards:**  
+/// C++14  
+/// C++17  
+/// C++2a  
+///
+/// **Compilers:**  
+/// Visual Studio: 2017, 2019  
+/// GNU: 6.5, 7.5, 8.4, 9.3, 10.1  
+/// Clang: 6, 7, 8, 9, 10  
+/// 
+/// **Boost Versions:**  
+/// 1.68, 1.70, 1.72, and 1.73  
 ///
 #pragma once
 
