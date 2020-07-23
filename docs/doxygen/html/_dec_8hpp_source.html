@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -90,8 +90,8 @@ $(document).ready(function(){initNavTree('_dec_8hpp_source.html',''); initResiza
 <div class="contents">
 <a href="_dec_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="deg2rad_8hpp.html">NumCpp/Functions/deg2rad.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="essentially_equal_8hpp.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="num2str_8hpp.html">NumCpp/Utils/num2str.hpp</a>&quot;</span></div>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_dec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1coordinates_1_1_dec.html#af821e7394e5de4c396dd2c60aa7c0eca">Dec</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7">   64</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7">Dec</a>(<span class="keywordtype">double</span> inDegrees) :</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7">   64</a></span>&#160;<span class="comment"></span>            <span class="keyword">explicit</span> <a class="code" href="classnc_1_1coordinates_1_1_dec.html#a63de0ff17c7f842866893fdfacd0edb7">Dec</a>(<span class="keywordtype">double</span> inDegrees) :</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                degrees_(inDegrees),</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                radians_(<a class="code" href="namespacenc.html#a2cdc1c791ab98eb708ba5662ffb82b39">deg2rad</a>(inDegrees))</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
@@ -225,8 +225,8 @@ $(document).ready(function(){initNavTree('_dec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordtype">double</span>          degrees_{ 0.0 };</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <span class="keywordtype">double</span>          radians_{ 0.0 };</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        };</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }  <span class="comment">// namespace coordinates</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="adeg2rad_8hpp_html"><div class="ttname"><a href="deg2rad_8hpp.html">deg2rad.hpp</a></div></div>

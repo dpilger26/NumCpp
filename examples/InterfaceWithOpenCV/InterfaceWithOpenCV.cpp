@@ -4,11 +4,24 @@
 #include "opencv2/highgui/highgui.hpp"
 
 #include <iostream>
+#include <numeric>
+
+constexpr nc::uint32 NUM_ROWS = 512;
+constexpr nc::uint32 NUM_COLS = 512;
 
 int main()
 {
-    // create a random image with NumCpp
-    auto ncArray = nc::random::randInt<nc::uint8>({ 500, 500 }, 0, nc::DtypeInfo<nc::uint8>::max());
+    // create a ramp image with NumCpp
+    constexpr auto numHalfCols = NUM_COLS / 2; // integer division
+    auto ncArray = nc::NdArray<nc::uint8>(NUM_ROWS, NUM_COLS);
+    for (nc::uint32 row = 0; row < ncArray.numRows(); ++row)
+    {
+        auto begin = ncArray.begin(row);
+        std::iota(begin, begin + numHalfCols, nc::uint8{0});
+
+        auto rbegin = ncArray.rbegin(row);
+        std::iota(rbegin, rbegin + numHalfCols, nc::uint8{0});
+    }
 
     // convert to OpenCV Mat
     auto cvArray = cv::Mat(ncArray.numRows(), ncArray.numCols(), CV_8SC1, ncArray.data());

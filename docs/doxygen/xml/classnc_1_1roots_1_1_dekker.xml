@@ -20,50 +20,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a572739220f57db5c531ba4ad13afd43b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1ab0a5db20e82cfd3ef95810ccb7d8c4e6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Dekker::Dekker</definition>
-        <argsstring>(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
-        <name>Dekker</name>
-        <param>
-          <type>const double</type>
-          <declname>epsilon</declname>
-        </param>
-        <param>
-          <type>const std::function&lt; double(double)&gt; &amp;</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructor</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>epsilon</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the epsilon value </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>f</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the function </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="60" bodyend="64"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1afb2c5602f3d8c77a663bc81cb44efb8c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::roots::Dekker::Dekker</definition>
-        <argsstring>(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept</argsstring>
+        <argsstring>(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept</argsstring>
         <name>Dekker</name>
         <param>
           <type>const double</type>
@@ -74,7 +34,7 @@
           <declname>maxNumIterations</declname>
         </param>
         <param>
-          <type>const std::function&lt; double(double)&gt; &amp;</type>
+          <type>std::function&lt; double(double)&gt;</type>
           <declname>f</declname>
         </param>
         <briefdescription>
@@ -112,10 +72,50 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="74" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="74" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a560eb9cd8c7e6531888b1c85c62e37b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a77b88bb369da2d03d34717b7d8e0a2ab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::roots::Dekker::Dekker</definition>
+        <argsstring>(const double epsilon, std::function&lt; double(double)&gt; f) noexcept</argsstring>
+        <name>Dekker</name>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>std::function&lt; double(double)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the epsilon value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="60" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a49413387fbe4d12e20569d175fa7f486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::roots::Dekker::~Dekker</definition>
-        <argsstring>()=default</argsstring>
+        <argsstring>() override=default</argsstring>
         <name>~Dekker</name>
         <briefdescription>
         </briefdescription>
@@ -186,10 +186,10 @@
         <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="95" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="95" bodyend="131"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a5465e102ed3495d90e946de42fc5a8c0" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a740b47212cfe0658b1418657fcbfb35e" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
-        <definition>double nc::roots::Dekker::calculateBisection</definition>
+        <definition>static double nc::roots::Dekker::calculateBisection</definition>
         <argsstring>(double a, double b) noexcept</argsstring>
         <name>calculateBisection</name>
         <param>
@@ -227,11 +227,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="180" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="180" bodyend="183"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="180" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="180" bodyend="183"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a75b17d3c284630b66052733a2876425d" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1ae219a8982122af195a07a6d161d764aa" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>double</type>
-        <definition>double nc::roots::Dekker::calculateSecant</definition>
+        <definition>static double nc::roots::Dekker::calculateSecant</definition>
         <argsstring>(double b, double fb, double lastB, double lastFb) noexcept</argsstring>
         <name>calculateSecant</name>
         <param>
@@ -291,11 +291,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="166" column="20" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="166" bodyend="170"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="166" column="27" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="166" bodyend="170"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a002563ad0e34712e97ae4a2dff80f032" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1abcbc1b0e02fbcef4132943560c36acf4" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void nc::roots::Dekker::checkAndFixAlgorithmCriteria</definition>
+        <definition>static void nc::roots::Dekker::checkAndFixAlgorithmCriteria</definition>
         <argsstring>(double &amp;a, double &amp;b, double &amp;fa, double &amp;fb) noexcept</argsstring>
         <name>checkAndFixAlgorithmCriteria</name>
         <param>
@@ -355,11 +355,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="146" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="146" bodyend="154"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="146" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="146" bodyend="154"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a9dd1ff8a15a6356334d02342e2304e85" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1roots_1_1_dekker_1a2a6ad72e459f0cb3367475c7f74b5bb0" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
-        <definition>bool nc::roots::Dekker::useSecantMethod</definition>
+        <definition>static bool nc::roots::Dekker::useSecantMethod</definition>
         <argsstring>(double b, double s, double m) noexcept</argsstring>
         <name>useSecantMethod</name>
         <param>
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="194" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="194" bodyend="199"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="194" column="25" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="194" bodyend="199"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -517,11 +517,11 @@
     </collaborationgraph>
     <location file="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" line="51" column="1" bodyfile="C:/Github/NumCpp/include/NumCpp/Roots/Dekker.hpp" bodystart="50" bodyend="200"/>
     <listofallmembers>
-      <member refid="classnc_1_1roots_1_1_dekker_1a5465e102ed3495d90e946de42fc5a8c0" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>calculateBisection</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1a75b17d3c284630b66052733a2876425d" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>calculateSecant</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1a002563ad0e34712e97ae4a2dff80f032" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>checkAndFixAlgorithmCriteria</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1a572739220f57db5c531ba4ad13afd43b" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>Dekker</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1afb2c5602f3d8c77a663bc81cb44efb8c" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>Dekker</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1a740b47212cfe0658b1418657fcbfb35e" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>calculateBisection</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1ae219a8982122af195a07a6d161d764aa" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>calculateSecant</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1abcbc1b0e02fbcef4132943560c36acf4" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>checkAndFixAlgorithmCriteria</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1a77b88bb369da2d03d34717b7d8e0a2ab" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>Dekker</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1ab0a5db20e82cfd3ef95810ccb7d8c4e6" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>Dekker</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a5eafe219bb90f82da4ece84f012a411a" prot="protected" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>epsilon_</name></member>
       <member refid="classnc_1_1roots_1_1_dekker_1abae5bd70cb960e030627f6be6c63aca1" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>f_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1ad0262a1a694e734ebc154c77f010bcff" prot="protected" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>incrementNumberOfIterations</name></member>
@@ -532,9 +532,9 @@
       <member refid="classnc_1_1roots_1_1_iteration_1a84d7f2f7412d1f54861edeacc7bc0c20" prot="protected" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>numIterations_</name></member>
       <member refid="classnc_1_1roots_1_1_iteration_1a85e79a4794bc3a6ac6bc3564956737a2" prot="protected" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>resetNumberOfIterations</name></member>
       <member refid="classnc_1_1roots_1_1_dekker_1a5da7506a8f371764d0fae321fe081111" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>solve</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1a9dd1ff8a15a6356334d02342e2304e85" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>useSecantMethod</name></member>
-      <member refid="classnc_1_1roots_1_1_dekker_1a560eb9cd8c7e6531888b1c85c62e37b9" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>~Dekker</name></member>
-      <member refid="classnc_1_1roots_1_1_iteration_1a9e0d8b21c43858a04061975e079ba687" prot="public" virt="virtual"><scope>nc::roots::Dekker</scope><name>~Iteration</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1a2a6ad72e459f0cb3367475c7f74b5bb0" prot="private" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>useSecantMethod</name></member>
+      <member refid="classnc_1_1roots_1_1_dekker_1a49413387fbe4d12e20569d175fa7f486" prot="public" virt="non-virtual"><scope>nc::roots::Dekker</scope><name>~Dekker</name></member>
+      <member refid="classnc_1_1roots_1_1_iteration_1a44492e4a1849938cd7017154213ec002" prot="public" virt="virtual"><scope>nc::roots::Dekker</scope><name>~Iteration</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

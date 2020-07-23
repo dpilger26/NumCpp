@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -109,17 +109,18 @@ $(document).ready(function(){initNavTree('centroid_clusters_8hpp_source.html',''
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::vector&lt;Centroid&lt;dtype&gt; &gt; centroids;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::vector&lt;Centroid&lt;dtype&gt;&gt; centroids;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; cluster : inClusters)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                centroids.push_back(std::move(<a class="code" href="classnc_1_1image_processing_1_1_centroid.html">Centroid&lt;dtype&gt;</a>(cluster)));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> centroids;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            centroids.reserve(inClusters.size());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; cluster : inClusters)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                centroids.emplace_back(cluster);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> centroids;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }  <span class="comment">// namespace imageProcessing</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
@@ -128,7 +129,6 @@ $(document).ready(function(){initNavTree('centroid_clusters_8hpp_source.html',''
 <div class="ttc" id="anamespacenc_1_1image_processing_html_adbb987932dd69ec19029228e065c6603"><div class="ttname"><a href="namespacenc_1_1image_processing.html#adbb987932dd69ec19029228e065c6603">nc::imageProcessing::centroidClusters</a></div><div class="ttdeci">std::vector&lt; Centroid&lt; dtype &gt; &gt; centroidClusters(const std::vector&lt; Cluster&lt; dtype &gt; &gt; &amp;inClusters)</div><div class="ttdef"><b>Definition:</b> centroidClusters.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="a_cluster_8hpp_html"><div class="ttname"><a href="_cluster_8hpp.html">Cluster.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1image_processing_1_1_centroid_html"><div class="ttname"><a href="classnc_1_1image_processing_1_1_centroid.html">nc::imageProcessing::Centroid</a></div><div class="ttdoc">holds the information for a centroid</div><div class="ttdef"><b>Definition:</b> Centroid.hpp:49</div></div>
 <div class="ttc" id="aclassnc_1_1image_processing_1_1_cluster_html"><div class="ttname"><a href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a></div><div class="ttdoc">Holds the information for a cluster of pixels.</div><div class="ttdef"><b>Definition:</b> Cluster.hpp:54</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

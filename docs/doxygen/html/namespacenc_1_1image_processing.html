@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -118,9 +118,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9b0730e1067dc755ee1fa2ecf280c14f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9b0730e1067dc755ee1fa2ecf280c14f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">Cluster</a>&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1image_processing.html#a9b0730e1067dc755ee1fa2ecf280c14f">clusterPixels</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inExceedances, <a class="el" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inBorderWidth=0)</td></tr>
 <tr class="separator:a9b0730e1067dc755ee1fa2ecf280c14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d9008c72eceb98b40ada379f9d4587e"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a8d9008c72eceb98b40ada379f9d4587e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classnc_1_1image_processing_1_1_centroid.html">Centroid</a>&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1image_processing.html#a8d9008c72eceb98b40ada379f9d4587e">generateCentroids</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, <a class="el" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inBorderWidth=0)</td></tr>
-<tr class="separator:a8d9008c72eceb98b40ada379f9d4587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874d0f4174d10763002fdd70f190595b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a874d0f4174d10763002fdd70f190595b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classnc_1_1image_processing_1_1_centroid.html">Centroid</a>&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1image_processing.html#a874d0f4174d10763002fdd70f190595b">generateCentroids</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string &amp;inWindowType, <a class="el" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inBorderWidth=0)</td></tr>
+<tr class="separator:a874d0f4174d10763002fdd70f190595b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a356989d12dda6e1b0748d22d50d4ecaa"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a356989d12dda6e1b0748d22d50d4ecaa"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1image_processing.html#a356989d12dda6e1b0748d22d50d4ecaa">generateThreshold</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inRate)</td></tr>
 <tr class="separator:a356989d12dda6e1b0748d22d50d4ecaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,8 +241,8 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a8d9008c72eceb98b40ada379f9d4587e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d9008c72eceb98b40ada379f9d4587e">&#9670;&nbsp;</a></span>generateCentroids()</h2>
+<a id="a874d0f4174d10763002fdd70f190595b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874d0f4174d10763002fdd70f190595b">&#9670;&nbsp;</a></span>generateCentroids()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +264,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>inWindowType</em>, </td>
         </tr>
         <tr>

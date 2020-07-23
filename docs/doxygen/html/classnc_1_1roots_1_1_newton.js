@@ -1,8 +1,8 @@
 var classnc_1_1roots_1_1_newton =
 [
-    [ "Newton", "classnc_1_1roots_1_1_newton.html#a4625ab60dc1714f48a3759a4f5300a2b", null ],
-    [ "Newton", "classnc_1_1roots_1_1_newton.html#a96883d83bf3cae4e58be021dd7a49997", null ],
-    [ "~Newton", "classnc_1_1roots_1_1_newton.html#aeceb5130209309abf04880d0c7ed1a59", null ],
+    [ "Newton", "classnc_1_1roots_1_1_newton.html#ab5b82361c4ce325e6165e023c0255d3e", null ],
+    [ "Newton", "classnc_1_1roots_1_1_newton.html#aecc72e3899f42b277536689439ea24bc", null ],
+    [ "~Newton", "classnc_1_1roots_1_1_newton.html#a25702b087e2e9917af0c31fe1dbdf442", null ],
     [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_newton.html#ad0262a1a694e734ebc154c77f010bcff", null ],
     [ "numIterations", "classnc_1_1roots_1_1_newton.html#ab3192d0f9de4b8b27b23013c65489e5a", null ],
     [ "resetNumberOfIterations", "classnc_1_1roots_1_1_newton.html#a85e79a4794bc3a6ac6bc3564956737a2", null ],

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/max.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -61,13 +61,13 @@ namespace nc
         {
             case Axis::NONE:
             {
-                double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
+                auto sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
                     [](dtype inValue1, dtype inValue2)  -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                     }));
 
-                const double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
+                const auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
                     [](dtype inValue1, dtype inValue2)  -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
@@ -83,13 +83,13 @@ namespace nc
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
+                    auto sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
                         [](dtype inValue1, dtype inValue2)  -> dtype
                         {
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                         }));
 
-                    double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
+                    auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
                         [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
@@ -107,13 +107,13 @@ namespace nc
                 NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
-                    double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
+                    auto sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
                         [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; 
                         }));
 
-                    double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
+                    auto numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
                         [](dtype inValue1, dtype inValue2)  -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
@@ -126,10 +126,9 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<double>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
-}
+}  // namespace nc

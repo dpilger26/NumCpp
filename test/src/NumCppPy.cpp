@@ -3,8 +3,8 @@
 
 #include <algorithm>
 #include <array>
-#include <cstdio>
 #include <complex>
+#include <cstdio>
 #include <deque>
 #include <forward_list>
 #include <functional>
@@ -26,9 +26,9 @@
 #endif
 
 #include "boost/python.hpp"
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
-#include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
 #include "boost/python/numpy.hpp" // needed for working with numpy
+#include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
+#include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
 #define BOOST_LIB_NAME "boost_numpy37"
 #include "boost/config/auto_link.hpp"
 
@@ -45,14 +45,9 @@ namespace ShapeInterface
     bool testListContructor() 
     {
         const Shape test = { 357, 666 };
-        if (test.rows == 357 && test.cols == 666)
-        {
-            return true;
-        }
-
-        return false;
+        return test.rows == 357 && test.cols == 666;
     }
-}
+}  // namespace ShapeInterface
 
 //================================================================================
 
@@ -191,7 +186,7 @@ namespace IteratorInterface
     {
         return self[offset];
     }
-}
+}  // namespace IteratorInterface
 
 //================================================================================
 
@@ -275,7 +270,7 @@ namespace NdArrayInterface
     template<typename T>
     np::ndarray test2dArrayConstructor(T value1, T value2)
     {
-        std::array<std::array<T, 2>, 2> arr2d;
+        std::array<std::array<T, 2>, 2> arr2d{};
         arr2d[0][0] = value1;
         arr2d[0][1] = value2;
         arr2d[1][0] = value1;
@@ -543,7 +538,7 @@ namespace NdArrayInterface
         auto testStruct = TestStruct{ 666, 357, 3.14519, true };
         test6 = testStruct;
         test1.resizeFast({10, 10});
-        test1 = std::move(testStruct);
+        test1 = testStruct;
 
         test7.begin();
         test5_1.begin(0);
@@ -2014,7 +2009,7 @@ namespace NdArrayInterface
     {
         return nc2Boost(inArray--);
     }
-}
+}  // namespace NdArrayInterface
 
 //================================================================================
 
@@ -2301,7 +2296,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayArray2D(dtype inValue1, dtype inValue2)
     {
-        std::array<std::array<dtype, 2>, 2> arr;
+        std::array<std::array<dtype, 2>, 2> arr{};
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -2316,7 +2311,7 @@ namespace FunctionsInterface
     template<typename dtype>
     np::ndarray asarrayArray2DCopy(dtype inValue1, dtype inValue2)
     {
-        std::array<std::array<dtype, 2>, 2> arr;
+        std::array<std::array<dtype, 2>, 2> arr{};
         for (auto& row : arr)
         {
             row[0] = inValue1;
@@ -4168,7 +4163,7 @@ namespace FunctionsInterface
     {
         return nc2Boost(zeros<dtype>({ inNumRows, inNumCols }));
     }
-}
+} // namespace FunctionsInterface
 
 namespace RandomInterface
 {
@@ -4197,7 +4192,7 @@ namespace RandomInterface
     {
         return nc2Boost(random::permutation(inArray));
     }
-}
+}  // namespace RandomInterface
 
 namespace LinalgInterface
 {
@@ -4222,7 +4217,7 @@ namespace LinalgInterface
         auto& p = std::get<2>(lup);
         return bp::make_tuple(nc2Boost(l), nc2Boost(u), nc2Boost(p));
     }
-}
+}  // namespace LinalgInterface
 
 namespace RotationsInterface
 {
@@ -4299,7 +4294,7 @@ namespace RotationsInterface
         return nc2Boost(rotations::DCM::eulerAngles(roll, pitch, yaw));
     }
 
-    np::ndarray eulerAnglesArray(const NdArray<double> angles)
+    np::ndarray eulerAnglesArray(const NdArray<double>& angles)
     {
         return nc2Boost(rotations::DCM::eulerAngles(angles));
     }
@@ -4339,7 +4334,7 @@ namespace RotationsInterface
         auto ak = boost2Nc<T>(inAk);
         return nc2Boost(rotations::wahbasProblem(wk, vk, ak));
     }
-}
+} // namespace RotationsInterface
 
 namespace RaInterface
 {
@@ -4347,7 +4342,7 @@ namespace RaInterface
     {
         std::cout << inRa;
     }
-}
+} // namespace RaInterface
 
 namespace DecInterface
 {
@@ -4355,7 +4350,7 @@ namespace DecInterface
     {
         std::cout << self;
     }
-}
+} // namespace DecInterface
 
 namespace CoordinateInterface
 {
@@ -4383,7 +4378,7 @@ namespace CoordinateInterface
     {
         return self.radianSeperation(inVec);
     }
-}
+}  // namespace CoordinateInterface
 
 namespace DataCubeInterface
 {
@@ -4398,7 +4393,7 @@ namespace DataCubeInterface
     {
         return self[inIndex];
     }
-}
+}  // namespace DataCubeInterface
 
 //================================================================================
 
@@ -4539,7 +4534,7 @@ namespace PolynomialInterface
         std::vector<double> valueVec = {value.real(), value.imag()};
         return vector2list(valueVec);
     }
-}
+}  // namespace PolynomialInterface
 
 namespace RootsInterface
 {
@@ -4547,7 +4542,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double bisection(const polynomial::Poly1d<double>p, double a, double b)
+    double bisection(const polynomial::Poly1d<double>&p, double a, double b)
     {
         auto rootFinder = roots::Bisection(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -4555,7 +4550,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double brent(const polynomial::Poly1d<double>p, double a, double b)
+    double brent(const polynomial::Poly1d<double>&p, double a, double b)
     {
         auto rootFinder = roots::Brent(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -4563,7 +4558,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double dekker(const polynomial::Poly1d<double>p, double a, double b)
+    double dekker(const polynomial::Poly1d<double>&p, double a, double b)
     {
         auto rootFinder = roots::Dekker(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -4571,7 +4566,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double newton(const polynomial::Poly1d<double>p, double x)
+    double newton(const polynomial::Poly1d<double>&p, double x)
     {
         auto pPrime = p.deriv();
         auto rootFinder = roots::Newton(EPSILON, p, pPrime);
@@ -4580,12 +4575,12 @@ namespace RootsInterface
 
     //================================================================================
 
-    double secant(const polynomial::Poly1d<double>p, double a, double b)
+    double secant(const polynomial::Poly1d<double>&p, double a, double b)
     {
         auto rootFinder = roots::Secant(EPSILON, p);
         return rootFinder.solve(a, b);
     }
-}
+}  // namespace RootsInterface
 
 namespace IntegrateInterface
 {
@@ -4619,7 +4614,7 @@ namespace IntegrateInterface
     {
         return integrate::trapazoidal(a, b, NUM_SUBDIVISIONS, p);
     }
-}
+}  // namespace IntegrateInterface
 
 namespace Vec2Interface
 {
@@ -4697,7 +4692,7 @@ namespace Vec2Interface
     {
         std::cout << vec;
     }
-}
+}  // namespace Vec2Interface
 
 namespace Vec3Interface
 {
@@ -4775,7 +4770,7 @@ namespace Vec3Interface
     {
         std::cout << vec;
     }
-}
+} // namespace Vec3Interface
 
 //================================================================================
 
@@ -5308,11 +5303,11 @@ namespace SpecialInterface
     {
         return nc2Boost(special::trigamma(inArray));
     }
-}
+}  // namespace SpecialInterface
 
 //================================================================================
 
-BOOST_PYTHON_MODULE(NumCpp)
+BOOST_PYTHON_MODULE(NumCppPy)
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy
@@ -5362,7 +5357,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("map2dict", &map2dict<std::string, int>);
 
     // DtypeInfo.hpp
-    typedef DtypeInfo<uint32> DtypeInfoUint32;
+    using DtypeInfoUint32 = DtypeInfo<uint32>;
     bp::class_<DtypeInfoUint32>
         ("DtypeIntoUint32", bp::init<>())
         .def("bits", &DtypeInfoUint32::bits).staticmethod("bits")
@@ -5372,7 +5367,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("min", &DtypeInfoUint32::min).staticmethod("min")
         .def("max", &DtypeInfoUint32::max).staticmethod("max");
 
-    typedef DtypeInfo<std::complex<double>> DtypeInfoComplexDouble;
+    using DtypeInfoComplexDouble = DtypeInfo<std::complex<double> >;
     bp::class_<DtypeInfoComplexDouble>
         ("DtypeInfoComplexDouble", bp::init<>())
         .def("bits", &DtypeInfoComplexDouble::bits).staticmethod("bits")
@@ -5414,7 +5409,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__neq__", &Shape::operator!=);
 
     // Timer.hpp
-    typedef Timer<std::chrono::microseconds> MicroTimer;
+    using MicroTimer = Timer<std::chrono::microseconds>;
     bp::class_<MicroTimer>
         ("Timer", bp::init<>())
         .def(bp::init<std::string>())
@@ -6222,7 +6217,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>);
     bp::def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
-    typedef NdArray<uint32> NdArrayUInt32;
+    using NdArrayUInt32 = NdArray<uint32>;
     bp::class_<NdArrayUInt32>
         ("NdArrayUInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -6237,7 +6232,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("byteswap", &NdArrayUInt32::byteswap, bp::return_internal_reference<>())
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
-    typedef NdArray<uint64> NdArrayUInt64;
+    using NdArrayUInt64 = NdArray<uint64>;
     bp::class_<NdArrayUInt64>
         ("NdArrayUInt64", bp::init<>())
         .def(bp::init<uint32>())
@@ -6250,7 +6245,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt64::endianess)
         .def("setArray", &NdArrayInterface::setArray<uint64>);
 
-    typedef NdArray<uint16> NdArrayUInt16;
+    using NdArrayUInt16 = NdArray<uint16>;
     bp::class_<NdArrayUInt16>
         ("NdArrayUInt16", bp::init<>())
         .def(bp::init<uint32>())
@@ -6263,7 +6258,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt16::endianess)
         .def("setArray", NdArrayInterface::setArray<uint16>);
 
-    typedef NdArray<uint8> NdArrayUInt8;
+    using NdArrayUInt8 = NdArray<uint8>;
     bp::class_<NdArrayUInt8>
         ("NdArrayUInt8", bp::init<>())
         .def(bp::init<uint32>())
@@ -6276,7 +6271,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayUInt8::endianess)
         .def("setArray", NdArrayInterface::setArray<uint8>);
 
-    typedef NdArray<int64> NdArrayInt64;
+    using NdArrayInt64 = NdArray<int64>;
     bp::class_<NdArrayInt64>
         ("NdArrayInt64", bp::init<>())
         .def(bp::init<uint32>())
@@ -6290,7 +6285,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int64>)
         .def("setArray", &NdArrayInterface::setArray<int64>);
 
-    typedef NdArray<int32> NdArrayInt32;
+    using NdArrayInt32 = NdArray<int32>;
     bp::class_<NdArrayInt32>
         ("NdArrayInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -6304,7 +6299,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int32>)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
-    typedef NdArray<int16> NdArrayInt16;
+    using NdArrayInt16 = NdArray<int16>;
     bp::class_<NdArrayInt16>
         ("NdArrayInt16", bp::init<>())
         .def(bp::init<uint32>())
@@ -6318,7 +6313,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int16>)
         .def("setArray", &NdArrayInterface::setArray<int16>);
 
-    typedef NdArray<int8> NdArrayInt8;
+    using NdArrayInt8 = NdArray<int8>;
     bp::class_<NdArrayInt8>
         ("NdArrayInt8", bp::init<>())
         .def(bp::init<uint32>())
@@ -6332,7 +6327,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("replace", &NdArrayInterface::replace<int8>)
         .def("setArray", &NdArrayInterface::setArray<int8>);
 
-    typedef NdArray<float> NdArrayFloat;
+    using NdArrayFloat = NdArray<float>;
     bp::class_<NdArrayFloat>
         ("NdArrayFloat", bp::init<>())
         .def(bp::init<uint32>())
@@ -6345,7 +6340,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayFloat::endianess)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
-    typedef NdArray<bool> NdArrayBool;
+    using NdArrayBool = NdArray<bool>;
     bp::class_<NdArrayBool>
         ("NdArrayBool", bp::init<>())
         .def(bp::init<uint32>())
@@ -6358,7 +6353,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
-    typedef NdArray<std::complex<long double>> NdArrayComplexLongDouble;
+    using NdArrayComplexLongDouble = NdArray<std::complex<long double> >;
     bp::class_<NdArrayComplexLongDouble>
         ("NdArrayComplexLongDouble", bp::init<>())
         .def(bp::init<uint32>())
@@ -6370,7 +6365,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<long double>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
 
-    typedef NdArray<std::complex<float>> NdArrayComplexFloat;
+    using NdArrayComplexFloat = NdArray<std::complex<float> >;
     bp::class_<NdArrayComplexFloat>
         ("NdArrayComplexFloat", bp::init<>())
         .def(bp::init<uint32>())
@@ -6382,7 +6377,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
 
-    typedef NdArray<std::complex<int32>> NdArrayComplexInt32;
+    using NdArrayComplexInt32 = NdArray<std::complex<int32> >;
     bp::class_<NdArrayComplexInt32>
         ("NdArrayComplexInt32", bp::init<>())
         .def(bp::init<uint32>())
@@ -6394,7 +6389,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<int32>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<int32>>);
 
-    typedef NdArray<std::complex<uint32>> NdArrayComplexUint32;
+    using NdArrayComplexUint32 = NdArray<std::complex<uint32> >;
     bp::class_<NdArrayComplexUint32>
         ("NdArrayComplexUint32", bp::init<>())
         .def(bp::init<uint32>())
@@ -7473,7 +7468,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("uniformFilter1d", &filter::uniformFilter1d<double>);
 
     // Image Processing
-    typedef imageProcessing::Pixel<double> PixelDouble;
+    using PixelDouble = imageProcessing::Pixel<double>;
     bp::class_<PixelDouble>
         ("Pixel", bp::init<>())
         .def(bp::init<uint32, uint32, double>())
@@ -7488,7 +7483,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &PixelDouble::str)
         .def("print", &PixelDouble::print);
 
-    typedef imageProcessing::Cluster<double> ClusterDouble;
+    using ClusterDouble = imageProcessing::Cluster<double>;
     bp::class_<ClusterDouble>
         ("Cluster", bp::init<uint32>())
         .def(bp::init<ClusterDouble>())
@@ -7509,7 +7504,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &ClusterDouble::str)
         .def("print", &ClusterDouble::print);
 
-    typedef imageProcessing::Centroid<double> CentroidDouble;
+    using CentroidDouble = imageProcessing::Centroid<double>;
     bp::class_<CentroidDouble>
         ("Centroid", bp::init<>())
         .def(bp::init<ClusterDouble>())
@@ -7600,7 +7595,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("print", &coordinates::Coordinate::print);
 
     // DataCube
-    typedef DataCube<double> DataCubeDouble;
+    using DataCubeDouble = DataCube<double>;
     bp::class_<DataCubeDouble>
         ("DataCube", bp::init<>())
         .def(bp::init<uint32>())
@@ -7618,7 +7613,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("push_front", &DataCubeDouble::push_front);
 
     // Polynomial.hpp
-    typedef polynomial::Poly1d<double> Poly1d;
+    using Poly1d = polynomial::Poly1d<double>;
 
     Poly1d(*fit)(const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
     Poly1d (*fitWeighted)(const NdArrayDouble&, const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;

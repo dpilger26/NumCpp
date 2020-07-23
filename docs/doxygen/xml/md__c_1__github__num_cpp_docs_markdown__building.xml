@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md__c_1__github__num_cpp_docs_markdown__building" kind="page">
+    <compoundname>md_C:_Github_NumCpp_docs_markdown_Building</compoundname>
+    <title>Building</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">A NumCpp &quot;Hello World&quot; example</heading>
+</para>
+<para>This example assumes you have followed the steps for installing NumCpp on your system. You will also need to have CMake installed.</para>
+<para><heading level="2">1. Source File</heading>
+</para>
+<para><bold>main.cpp</bold></para>
+<para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_num_cpp_8hpp" kindref="compound">NumCpp.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>a<sp/>=<sp/>nc::random::randInt&lt;int&gt;({10,<sp/>10},<sp/>0,<sp/>100);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>a;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">2. CMakeLists.txt file</heading>
+</para>
+<para><programlisting filename=".cmake"><codeline><highlight class="normal">cmake_minimum_required(VERSION<sp/>3.14)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">project(&quot;HelloWorld&quot;<sp/>CXX)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">add_executable(${PROJECT_NAME}<sp/>main.cpp)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">find_package(NumCpp<sp/>2.1.0<sp/>REQUIRED)</highlight></codeline>
+<codeline><highlight class="normal">target_link_libraries(${PROJECT_NAME}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>NumCpp::NumCpp</highlight></codeline>
+<codeline><highlight class="normal">)</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">3. Build</heading>
+</para>
+<para><bold>SRC_DIRECTORY</bold> = directory containing <computeroutput>main.cpp</computeroutput> and <computeroutput>CMakeLists.txt</computeroutput> files</para>
+<para><programlisting filename=".console"><codeline><highlight class="normal">&gt;&gt;<sp/>cd<sp/>&lt;SRC_DIRECTORY&gt;</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cmake<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">&gt;&gt;<sp/>cmake<sp/>--build<sp/>.<sp/>--config<sp/>Release</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">4. Run</heading>
+</para>
+<para><heading level="3">Linux</heading>
+</para>
+<para><programlisting filename=".console"><codeline><highlight class="normal">&gt;&gt;<sp/>./HelloWorld</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Windows</heading>
+</para>
+<para><programlisting filename=".console"><codeline><highlight class="normal">&gt;&gt;<sp/>HelloWorld.exe</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">Alternative</heading>
+</para>
+<para><bold>NumCpp</bold> is a header only library so you can of course simply add the NumCpp include directory to your build system&apos;s include directories and build that way. However, <computeroutput>find_package(NumCpp)</computeroutput> takes care of finding and linking in the <bold>Boost</bold> headers automatically, so if you add the NumCpp headers manually you will need to manually include the <bold>Boost</bold> headers as well. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -223,8 +223,8 @@ $(document).ready(function(){initNavTree('_cluster_maker_8hpp_source.html',''); 
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <span class="comment">// using a set will auto take care of adding duplicate pixels on the edges</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                <span class="comment">// the 8 surrounding neighbors</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> row = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a><span class="keyword">&gt;</span>(inPixel.row);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> col = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a><span class="keyword">&gt;</span>(inPixel.col);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> row = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a><span class="keyword">&gt;</span>(inPixel.row);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> col = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a><span class="keyword">&gt;</span>(inPixel.col);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));</div>
@@ -361,12 +361,12 @@ $(document).ready(function(){initNavTree('_cluster_maker_8hpp_source.html',''); 
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            }</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        };</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }  <span class="comment">// namespace imageProcessing</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4296</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>
 <div class="ttc" id="anamespacenc_html_a9386099a0fdc2bc9fb0dbfde5606584d"><div class="ttname"><a href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">nc::int32</a></div><div class="ttdeci">std::int32_t int32</div><div class="ttdef"><b>Definition:</b> Types.hpp:37</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1image_processing_1_1_cluster_maker_html_ae437071bfc291a36745d043ddd4cba1d"><div class="ttname"><a href="classnc_1_1image_processing_1_1_cluster_maker.html#ae437071bfc291a36745d043ddd4cba1d">nc::imageProcessing::ClusterMaker::size</a></div><div class="ttdeci">uint32 size() noexcept</div><div class="ttdef"><b>Definition:</b> ClusterMaker.hpp:112</div></div>

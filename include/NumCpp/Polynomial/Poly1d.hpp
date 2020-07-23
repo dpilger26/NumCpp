@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -161,12 +161,12 @@ namespace nc
             /// @return Poly1d
             Poly1d<dtype> deriv() const 
             {
-                const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
+                const auto numCoefficients = static_cast<uint32>(coefficients_.size());
                 if (numCoefficients == 0)
                 {
                     return {};
                 }
-                else if (numCoefficients == 1)
+                if (numCoefficients == 1)
                 {
                     return Poly1d<dtype>({ 0 });
                 }
@@ -323,7 +323,7 @@ namespace nc
             /// @return Poly1d
             Poly1d<double> integ() const 
             {
-                const uint32 numCoefficients = static_cast<uint32>(coefficients_.size());
+                const auto numCoefficients = static_cast<uint32>(coefficients_.size());
                 if (numCoefficients == 0)
                 {
                     return {};
@@ -371,7 +371,7 @@ namespace nc
             ///
             std::string str() const 
             {
-                const uint32 numCoeffients = static_cast<uint32>(coefficients_.size());
+                const auto numCoeffients = static_cast<uint32>(coefficients_.size());
 
                 std::string repr = "Poly1d<";
                 uint32 power = 0;
@@ -607,7 +607,7 @@ namespace nc
                     coefficients_.push_back(1);
                     return *this;
                 }
-                else if (inPower == 1)
+                if (inPower == 1)
                 {
                     return *this;
                 }
@@ -639,5 +639,5 @@ namespace nc
         private:
             std::vector<dtype>      coefficients_{};
         };
-    }
-}
+    }  // namespace polynomial
+}  // namespace nc

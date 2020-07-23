@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -61,7 +61,7 @@ namespace nc
             ///
             /// @param      inDegrees
             ///
-            Dec(double inDegrees) :
+            explicit Dec(double inDegrees) :
                 degrees_(inDegrees),
                 radians_(deg2rad(inDegrees))
             {
@@ -227,5 +227,5 @@ namespace nc
             double          degrees_{ 0.0 };
             double          radians_{ 0.0 };
         };
-    }
-}
+    }  // namespace coordinates
+}  // namespace nc

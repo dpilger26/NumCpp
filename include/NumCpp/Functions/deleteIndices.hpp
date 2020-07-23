@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -131,9 +131,8 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<dtype>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
@@ -173,7 +172,7 @@ namespace nc
         }
 
         std::vector<uint32> indices;
-        for (uint32 i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
+        for (auto i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
         {
             indices.push_back(i);
         }
@@ -197,4 +196,4 @@ namespace nc
         NdArray<uint32> inIndices = { inIndex };
         return deleteIndices(inArray, inIndices, inAxis);
     }
-}
+} // namespace nc

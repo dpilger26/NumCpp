@@ -8,7 +8,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 2.0.0
+## Version: 2.1.0
 
 ## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
@@ -29,17 +29,33 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## Testing
 
-**C++ Standards:** C++14, C++17, and C++2a  
-**Compilers:** VS 2017/2019, GCC 6.5.0/7.5.0/8.4.0/9.3.0, and Clang 8.0/9.0/10.0  
-**Boost Versions:** 1.68, 1.70, 1.72, and 1.73  
+**C++ Standards:**  
+C++14  
+C++17  
+C++2a  
+
+**Compilers:**  
+Visual Studio: 2017, 2019  
+GNU: 6.5, 7.5, 8.4, 9.3, 10.1  
+Clang: 6, 7, 8, 9, 10  
+
+**Boost Versions:**  
+1.68, 1.70, 1.72, and 1.73  
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
-## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html)
+## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__installation.html)
+
+## [Building](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__building.html)
 
 ## Release Notes
+
+### Version 2.1.0
+
+* Improved installation and usage with CMake find_package support
+* Various minor improvements
 
 ### Version 2.0.0
 

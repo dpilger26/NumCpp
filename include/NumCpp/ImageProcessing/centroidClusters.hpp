@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -53,14 +53,15 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            std::vector<Centroid<dtype> > centroids;
+            std::vector<Centroid<dtype>> centroids;
 
+            centroids.reserve(inClusters.size());
             for (auto& cluster : inClusters)
             {
-                centroids.push_back(std::move(Centroid<dtype>(cluster)));
+                centroids.emplace_back(cluster);
             }
 
             return centroids;
         }
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

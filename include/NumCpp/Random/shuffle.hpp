@@ -49,5 +49,5 @@ namespace nc
         {
             std::shuffle(inArray.begin(), inArray.end(), generator_);
         }
-    }
-}
+    }  // namespace random
+}  // namespace nc

@@ -3,9 +3,11 @@ import matplotlib.pyplot as plt
 import os
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
-import NumCpp  # noqa E402
+import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
+
+PLOT_SHOW = False
 
 
 ####################################################################################
@@ -64,7 +66,8 @@ def test_imageProcessing():
     for centroid in centroids:
         plt.plot(centroid.col(), centroid.row(), 'og', fillstyle='none')
 
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
 
     centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
@@ -73,14 +76,16 @@ def test_imageProcessing():
     plt.title('Window Pre Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:, 1].flatten() * 100))
     plt.title('Window Pre Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
 
     centroids = list(NumCpp.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
     print(f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
@@ -97,7 +102,8 @@ def test_imageProcessing():
     for centroid in centroids:
         plt.plot(centroid.col(), centroid.row(), 'og', fillstyle='none')
 
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
 
     centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
@@ -106,11 +112,15 @@ def test_imageProcessing():
     plt.title('Window Post Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:, 1].flatten() * 100))
     plt.title('Window Post Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
-    plt.show()
+    if PLOT_SHOW:
+        plt.show()
+
+    plt.close('all')

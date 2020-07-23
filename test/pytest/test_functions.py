@@ -1,12 +1,12 @@
 import os
-import getpass
+import tempfile
 import numpy as np
 import scipy.ndimage.measurements as meas
 from functools import reduce
 import warnings
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
-import NumCpp  # noqa E402
+import NumCppPy as NumCpp  # noqa E402
 
 
 ####################################################################################
@@ -2543,47 +2543,6 @@ def test_dot():
 
 
 ####################################################################################
-def test_fromfile():
-    shapeInput = np.random.randint(1, 50, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
-    cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
-    NumCpp.dump(cArray, tempFile)
-    assert os.path.exists(tempFile)
-    data2 = np.fromfile(tempFile, dtype=np.double).reshape(shapeInput)
-    assert np.array_equal(data, data2)
-    os.remove(tempFile)
-
-    shapeInput = np.random.randint(1, 50, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 100, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 100, [shape.rows, shape.cols])
-    data = real + 1j * imag
-    cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
-    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
-    NumCpp.dump(cArray, tempFile)
-    assert os.path.exists(tempFile)
-    data2 = np.fromfile(tempFile, dtype=np.complex).reshape(shapeInput)
-    assert np.array_equal(data, data2)
-    os.remove(tempFile)
-
-
-####################################################################################
 def test_empty():
     shapeInput = np.random.randint(1, 100, [2, ])
     cArray = NumCpp.emptyRowCol(shapeInput[0].item(), shapeInput[1].item())
@@ -2948,12 +2907,7 @@ def test_fromfile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
+    tempDir = tempfile.gettempdir()
     tempFile = os.path.join(tempDir, 'NdArrayDump')
     NumCpp.tofile(cArray, tempFile, '\n')
     assert os.path.exists(tempFile + '.txt')
@@ -3441,12 +3395,7 @@ def test_load():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-    else:
-        tempDir = r'C:\Temp'
-    if not os.path.exists(tempDir):
-        os.mkdir(tempDir)
+    tempDir = tempfile.gettempdir()
     tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
     NumCpp.dump(cArray, tempFile)
     assert os.path.isfile(tempFile)
@@ -6482,11 +6431,8 @@ def test_tofile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-        filename = os.path.join(tempDir, 'temp.bin')
-    else:
-        filename = r'C:\Temp\temp.bin'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.bin')
     NumCpp.tofile(cArray, filename, '')
     assert os.path.exists(filename)
     data2 = np.fromfile(filename, np.double).reshape(shapeInput)
@@ -6498,11 +6444,8 @@ def test_tofile():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if sys.platform == 'linux':
-        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
-        filename = os.path.join(tempDir, 'temp.txt')
-    else:
-        filename = r'C:\Temp\temp.txt'
+    tempDir = tempfile.gettempdir()
+    filename = os.path.join(tempDir, 'temp.txt')
     NumCpp.tofile(cArray, filename, '\n')
     assert os.path.exists(filename)
     data2 = np.fromfile(filename, dtype=np.double, sep='\n').reshape(shapeInput)

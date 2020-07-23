@@ -7,9 +7,9 @@
     <includes refid="num2str_8hpp" local="yes">NumCpp/Utils/num2str.hpp</includes>
     <includes local="no">cmath</includes>
     <includes local="no">iostream</includes>
-    <includes local="no">vector</includes>
     <includes local="no">string</includes>
     <includes local="no">utility</includes>
+    <includes local="no">vector</includes>
     <includes local="yes">boost/python.hpp</includes>
     <includes local="yes">boost/python/numpy.hpp</includes>
     <includedby refid="_boost_interface_8hpp" local="yes">BoostInterface.hpp</includedby>
@@ -71,11 +71,11 @@
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
@@ -152,7 +152,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
 </simplesect>
-<simplesect kind="version"><para>2.0.0</para>
+<simplesect kind="version"><para>2.1.0</para>
 </simplesect>
 </para>
 <sect1 id="zeros__like_8hpp_1License">
@@ -178,9 +178,9 @@
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/python.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/python/numpy.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
@@ -198,7 +198,7 @@
 <codeline lineno="58" refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kindref="member">Order</ref><sp/>{<sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012" kindref="member">F</ref>,<sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a0d61f8370cad1d412f80b84d143e1257" kindref="member">C</ref><sp/>};</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
-<codeline lineno="65" refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" kindref="member">BoostNdarrayHelper</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>boost::python::numpy::ndarray&amp;<sp/>inArray)<sp/>:</highlight></codeline>
+<codeline lineno="65" refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aece0d05bbeaa992eb105dddafe11d3d6" kindref="member">BoostNdarrayHelper</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>boost::python::numpy::ndarray&amp;<sp/>inArray)<sp/>:</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theArray_(inArray.<ref refid="namespacenc_1a07250b272d24387fab405d29c14082e4" kindref="member">astype</ref>(boost::python::numpy::dtype::get_builtin&lt;dtype&gt;())),</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numDimensions_(static_cast&lt;<ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">uint8</ref>&gt;(inArray.get_nd())),</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shape_(numDimensions_),</highlight></codeline>
@@ -220,7 +220,7 @@
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
-<codeline lineno="91" refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" kindref="member">BoostNdarrayHelper</ref>(boost::python::tuple<sp/>inShape)<sp/>:</highlight></codeline>
+<codeline lineno="91" refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a649930af85396c05d2f3ccb528d4eb24" kindref="member">BoostNdarrayHelper</ref>(boost::python::tuple<sp/>inShape)<sp/>:</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theArray_(boost::python::numpy::<ref refid="namespacenc_1a8fb3ecc9cc7448e4b5d3d422e499b10e" kindref="member">zeros</ref>(inShape,<sp/>boost::python::numpy::dtype::get_builtin&lt;dtype&gt;())),</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numDimensions_(static_cast&lt;<ref refid="namespacenc_1a9ba5a0aa26753a185985b8273fb9062d" kindref="member">uint8</ref>&gt;(theArray_.get_nd())),</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shape_(numDimensions_),</highlight></codeline>
@@ -397,8 +397,8 @@
 <codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkIndicesGeneric(indices);</highlight></codeline>
 <codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="333"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>boostPythonInterface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nc</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="334"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="C:/Github/NumCpp/include/NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"/>

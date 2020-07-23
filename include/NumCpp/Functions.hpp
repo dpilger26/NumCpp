@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -77,8 +77,8 @@
 #include "NumCpp/Functions/conj.hpp"
 #include "NumCpp/Functions/contains.hpp"
 #include "NumCpp/Functions/copy.hpp"
-#include "NumCpp/Functions/copyto.hpp"
 #include "NumCpp/Functions/copySign.hpp"
+#include "NumCpp/Functions/copyto.hpp"
 #include "NumCpp/Functions/cos.hpp"
 #include "NumCpp/Functions/cosh.hpp"
 #include "NumCpp/Functions/count_nonzero.hpp"
@@ -152,9 +152,9 @@
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Functions/load.hpp"
 #include "NumCpp/Functions/log.hpp"
+#include "NumCpp/Functions/log10.hpp"
 #include "NumCpp/Functions/log1p.hpp"
 #include "NumCpp/Functions/log2.hpp"
-#include "NumCpp/Functions/log10.hpp"
 #include "NumCpp/Functions/logical_and.hpp"
 #include "NumCpp/Functions/logical_not.hpp"
 #include "NumCpp/Functions/logical_or.hpp"
@@ -170,8 +170,6 @@
 #include "NumCpp/Functions/minimum.hpp"
 #include "NumCpp/Functions/mod.hpp"
 #include "NumCpp/Functions/multiply.hpp"
-#include "NumCpp/Functions/matmul.hpp"
-#include "NumCpp/Functions/matmul.hpp"
 
 #include "NumCpp/Functions/nanargmax.hpp"
 #include "NumCpp/Functions/nanargmin.hpp"
@@ -253,8 +251,8 @@
 #include "NumCpp/Functions/tan.hpp"
 #include "NumCpp/Functions/tanh.hpp"
 #include "NumCpp/Functions/tile.hpp"
-#include "NumCpp/Functions/tofile.hpp"
 #include "NumCpp/Functions/toStlVector.hpp"
+#include "NumCpp/Functions/tofile.hpp"
 #include "NumCpp/Functions/trace.hpp"
 #include "NumCpp/Functions/transpose.hpp"
 #include "NumCpp/Functions/trapz.hpp"

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <cmath>
 
@@ -43,7 +43,7 @@ namespace nc
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
     ///
     /// @param      inArray
-    /// @param      k Diagonal to set; 0, the default, corresponds to the “main” diagonal, 
+    /// @param      k Diagonal to set; 0, the default, corresponds to the ï¿½mainï¿½ diagonal, 
     ///             a positive (negative) k giving the number of the diagonal above (below) the main.
     ///
     /// @return     NdArray
@@ -53,7 +53,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const uint32 absK = static_cast<uint32>(std::abs(k));
+        const auto absK = static_cast<uint32>(std::abs(k));
         NdArray<dtype> returnArray(inArray.size() + absK);
 
         const uint32 rowOffset = k < 0 ? absK : 0;
@@ -67,4 +67,4 @@ namespace nc
 
         return returnArray;
     }
-}
+}  // namespace nc

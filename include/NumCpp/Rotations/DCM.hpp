@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/round.hpp"
+#include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Rotations/Quaternion.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
@@ -118,13 +118,9 @@ namespace nc
             static bool isValid(const NdArray<double>& inArray)
             {
                 const Shape inShape = inArray.shape();
-                if (!(inShape.rows == inShape.cols &&
+                return inShape.rows == inShape.cols &&
                     utils::essentiallyEqual(round(linalg::det<double>(inArray), 2),  1.0) &&
-                    utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0)))
-                {
-                    return false;
-                }
-                return true;
+                    utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0);
             }
 
             //============================================================================
@@ -208,5 +204,5 @@ namespace nc
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }
         };
-    }
-}
+    }  // namespace rotations
+} // namespace nc

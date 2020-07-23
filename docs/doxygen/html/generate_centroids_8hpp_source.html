@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -92,8 +92,8 @@ $(document).ready(function(){initNavTree('generate_centroids_8hpp_source.html','
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="apply_threshold_8hpp.html">NumCpp/ImageProcessing/applyThreshold.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="centroid_clusters_8hpp.html">NumCpp/ImageProcessing/centroidClusters.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cluster_pixels_8hpp.html">NumCpp/ImageProcessing/clusterPixels.hpp</a>&quot;</span></div>
@@ -111,17 +111,17 @@ $(document).ready(function(){initNavTree('generate_centroids_8hpp_source.html','
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//============================================================================</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// Method Description:</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacenc_1_1image_processing.html#a8d9008c72eceb98b40ada379f9d4587e">   62</a></span>&#160;        std::vector&lt;Centroid&lt;dtype&gt; &gt; <a class="code" href="namespacenc_1_1image_processing.html#a8d9008c72eceb98b40ada379f9d4587e">generateCentroids</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageArray, <span class="keywordtype">double</span> inRate, <span class="keyword">const</span> std::string inWindowType, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inBorderWidth = 0)</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacenc_1_1image_processing.html#a874d0f4174d10763002fdd70f190595b">   62</a></span>&#160;        std::vector&lt;Centroid&lt;dtype&gt; &gt; <a class="code" href="namespacenc_1_1image_processing.html#a874d0f4174d10763002fdd70f190595b">generateCentroids</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageArray, <span class="keywordtype">double</span> inRate, <span class="keyword">const</span> std::string&amp; inWindowType, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inBorderWidth = 0)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> borderWidthPre = 0;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> borderWidthPost = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> (inWindowType.compare(<span class="stringliteral">&quot;pre&quot;</span>) == 0)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> (inWindowType == <span class="stringliteral">&quot;pre&quot;</span>)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                borderWidthPre = inBorderWidth;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (inWindowType.compare(<span class="stringliteral">&quot;post&quot;</span>) == 0)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (inWindowType == <span class="stringliteral">&quot;post&quot;</span>)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                borderWidthPost = inBorderWidth;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
@@ -148,8 +148,8 @@ $(document).ready(function(){initNavTree('generate_centroids_8hpp_source.html','
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="comment">// centroid the clusters</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1image_processing.html#adbb987932dd69ec19029228e065c6603">centroidClusters</a>(clusters);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }  <span class="comment">// namespace imageProcessing</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
@@ -169,9 +169,9 @@ $(document).ready(function(){initNavTree('generate_centroids_8hpp_source.html','
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="anamespacenc_1_1image_processing_html_afabcede2d9e7e67cc80fc822b30d70e6"><div class="ttname"><a href="namespacenc_1_1image_processing.html#afabcede2d9e7e67cc80fc822b30d70e6">nc::imageProcessing::applyThreshold</a></div><div class="ttdeci">NdArray&lt; bool &gt; applyThreshold(const NdArray&lt; dtype &gt; &amp;inImageArray, dtype inThreshold)</div><div class="ttdef"><b>Definition:</b> applyThreshold.hpp:48</div></div>
+<div class="ttc" id="anamespacenc_1_1image_processing_html_a874d0f4174d10763002fdd70f190595b"><div class="ttname"><a href="namespacenc_1_1image_processing.html#a874d0f4174d10763002fdd70f190595b">nc::imageProcessing::generateCentroids</a></div><div class="ttdeci">std::vector&lt; Centroid&lt; dtype &gt; &gt; generateCentroids(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string &amp;inWindowType, uint8 inBorderWidth=0)</div><div class="ttdef"><b>Definition:</b> generateCentroids.hpp:62</div></div>
 <div class="ttc" id="aapply_threshold_8hpp_html"><div class="ttname"><a href="apply_threshold_8hpp.html">applyThreshold.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1image_processing_html_a8d9008c72eceb98b40ada379f9d4587e"><div class="ttname"><a href="namespacenc_1_1image_processing.html#a8d9008c72eceb98b40ada379f9d4587e">nc::imageProcessing::generateCentroids</a></div><div class="ttdeci">std::vector&lt; Centroid&lt; dtype &gt; &gt; generateCentroids(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth=0)</div><div class="ttdef"><b>Definition:</b> generateCentroids.hpp:62</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

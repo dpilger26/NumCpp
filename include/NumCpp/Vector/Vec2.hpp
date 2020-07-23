@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -139,12 +139,10 @@ namespace nc
             {
                 return *this;
             }
-            else
-            {
-                Vec2 returnVec = Vec2(*this).normalize();
-                returnVec *= maxLength;
-                return returnVec;
-            }
+            
+            Vec2 returnVec = Vec2(*this).normalize();
+            returnVec *= maxLength;
+            return returnVec;
         }
 
         //============================================================================
@@ -451,7 +449,7 @@ namespace nc
     ///
     inline Vec2 operator-(const Vec2& vec) noexcept 
     {
-        return Vec2(-vec.x, -vec.y);
+        return {-vec.x, -vec.y};
     }
 
     //============================================================================
@@ -559,4 +557,4 @@ namespace nc
         stream << vec.toString() << std::endl;
         return stream;
     }
-}
+}  // namespace nc

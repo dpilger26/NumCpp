@@ -16,7 +16,7 @@
 </para>
 <para><heading level="2">Author: David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink></heading>
 </para>
-<para><heading level="2">Version: 2.0.0</heading>
+<para><heading level="2">Version: 2.1.0</heading>
 </para>
 <para><heading level="2">License <ulink url="https://lbesson.mit-license.org/"><image type="html" name="License-MIT-blue.svg" inline="yes"></image>
 </ulink></heading>
@@ -27,30 +27,49 @@
 <para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
 <para><heading level="2">Testing</heading>
 </para>
-<para><bold>C++ Standards:</bold> C++14, C++17, and C++2a <bold>Compilers:</bold> VS 2017/2019, GCC 6.5.0/7.5.0/8.4.0/9.3.0, and Clang 8.0/9.0/10.0 <linebreak/>
- <bold>Boost Versions:</bold> 1.68, 1.70, 1.72, and 1.73 <linebreak/>
+<para><bold>C++ Standards:</bold> <linebreak/>
+ C++14 <linebreak/>
+ C++17 <linebreak/>
+ C++2a <linebreak/>
+</para>
+<para><bold>Compilers:</bold> <linebreak/>
+ Visual Studio: 2017, 2019 <linebreak/>
+ GNU: 6.5, 7.5, 8.4, 9.3, 10.1 <linebreak/>
+ Clang: 6, 7, 8, 9, 10 <linebreak/>
+</para>
+<para><bold>Boost Versions:</bold> <linebreak/>
+ 1.68, 1.70, 1.72, and 1.73 <linebreak/>
 </para>
 <para><heading level="2"><ulink url="https://dpilger26.github.io/NumCpp">Documentation</ulink></heading>
 </para>
 <para><heading level="2"><ulink url="https://github.com/dpilger26/NumCpp">GitHub</ulink></heading>
 </para>
-<para><heading level="2"><ulink url="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html">Installation</ulink></heading>
+<para><heading level="2"><ulink url="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__installation.html">Installation</ulink></heading>
+</para>
+<para><heading level="2"><ulink url="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__building.html">Building</ulink></heading>
 </para>
 <para><heading level="2">Release Notes</heading>
+</para>
+<para><heading level="3">Version 2.1.0</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Improved installation and usage with CMake find_package support</para>
+</listitem><listitem><para>Various minor improvements</para>
+</listitem></itemizedlist>
 </para>
 <para><heading level="3">Version 2.0.0</heading>
 </para>
 <para><itemizedlist>
 <listitem><para>Dropped support of C++11, now requires a C++14 or higher compiler</para>
 </listitem><listitem><para>Added support for <computeroutput>std::complex&lt;T&gt;</computeroutput>, closing <bold>Issue #58</bold></para>
-</listitem><listitem><para>Added more NdArray constructors for STL containers including <computeroutput>std::vector&lt;std::vector&lt;T&gt;&gt;</computeroutput>, closing <bold>Issue #59</bold></para>
-</listitem><listitem><para><computeroutput>polyfit</computeroutput> routine inline with Numpy <computeroutput>polyfit</computeroutput>, closing <bold>Issue #61</bold></para>
+</listitem><listitem><para>Added more <computeroutput>NdArray</computeroutput> constructors for STL containers including <computeroutput>std::vector&lt;std::vector&lt;T&gt;&gt;</computeroutput>, closing <bold>Issue #59</bold></para>
+</listitem><listitem><para>Added <computeroutput>polyfit</computeroutput> routine inline with Numpy <computeroutput>polyfit</computeroutput>, closing <bold>Issue #61</bold></para>
 </listitem><listitem><para>Added ability to use <computeroutput>NdArray</computeroutput> as container for generic structs</para>
 </listitem><listitem><para>Non-linear least squares fitting using Gauss-Newton</para>
 </listitem><listitem><para>Root finding routines</para>
 </listitem><listitem><para>Numerical integration routines</para>
 </listitem><listitem><para><computeroutput>lu_decomposition</computeroutput> and <computeroutput>pivotLU_decomposition</computeroutput> added to <computeroutput>Linalg</computeroutput> namespace</para>
-</listitem><listitem><para>New STL iterators added to NdArray<itemizedlist>
+</listitem><listitem><para>New STL iterators added to <computeroutput>NdArray</computeroutput><itemizedlist>
 <listitem><para><computeroutput>iterator</computeroutput></para>
 </listitem><listitem><para><computeroutput>const_iterator</computeroutput></para>
 </listitem><listitem><para><computeroutput>reverse_iterator</computeroutput></para>

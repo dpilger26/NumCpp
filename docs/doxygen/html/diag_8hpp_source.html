@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -90,10 +90,10 @@ $(document).ready(function(){initNavTree('diag_8hpp_source.html',''); initResiza
 <div class="contents">
 <a href="diag_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="diagflat_8hpp.html">NumCpp/Functions/diagflat.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="diagonal_8hpp.html">NumCpp/Functions/diagonal.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="diagflat_8hpp.html">NumCpp/Functions/diagflat.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="diagonal_8hpp.html">NumCpp/Functions/diagonal.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
@@ -106,12 +106,10 @@ $(document).ready(function(){initNavTree('diag_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#af3ab63d17fa40b3c3880a9065a95e47f">diagflat</a>(inArray, k);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">diagonal</a>(inArray, k, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">diagonal</a>(inArray, k, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacenc_html_a8c80cee3e4853bc79290c995cf9d69dc"><div class="ttname"><a href="namespacenc.html#a8c80cee3e4853bc79290c995cf9d69dc">nc::diag</a></div><div class="ttdeci">NdArray&lt; dtype &gt; diag(const NdArray&lt; dtype &gt; &amp;inArray, int32 k=0)</div><div class="ttdef"><b>Definition:</b> diag.hpp:52</div></div>
@@ -120,7 +118,7 @@ $(document).ready(function(){initNavTree('diag_8hpp_source.html',''); initResiza
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html_a8eeb67e5ad2a5b0567570a774b7fb1f3"><div class="ttname"><a href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">nc::diagonal</a></div><div class="ttdeci">NdArray&lt; dtype &gt; diagonal(const NdArray&lt; dtype &gt; &amp;inArray, int32 inOffset=0, Axis inAxis=Axis::ROW)</div><div class="ttdef"><b>Definition:</b> diagonal.hpp:49</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a344f12e052eeb49cc87e361127386a64"><div class="ttname"><a href="classnc_1_1_nd_array.html#a344f12e052eeb49cc87e361127386a64">nc::NdArray::isflat</a></div><div class="ttdeci">bool isflat() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2874</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a344f12e052eeb49cc87e361127386a64"><div class="ttname"><a href="classnc_1_1_nd_array.html#a344f12e052eeb49cc87e361127386a64">nc::NdArray::isflat</a></div><div class="ttdeci">bool isflat() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2881</div></div>
 <div class="ttc" id="adiagonal_8hpp_html"><div class="ttname"><a href="diagonal_8hpp.html">diagonal.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html_af3ab63d17fa40b3c3880a9065a95e47f"><div class="ttname"><a href="namespacenc.html#af3ab63d17fa40b3c3880a9065a95e47f">nc::diagflat</a></div><div class="ttdeci">NdArray&lt; dtype &gt; diagflat(const NdArray&lt; dtype &gt; &amp;inArray, int32 k=0)</div><div class="ttdef"><b>Definition:</b> diagflat.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>

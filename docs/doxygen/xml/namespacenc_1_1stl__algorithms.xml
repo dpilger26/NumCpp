@@ -512,7 +512,7 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" line="196" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" bodystart="196" bodyend="203"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a83612307e582ce3f2aed2251f1551c4d" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a734698435eabdbc5bdf93b195d7fb6a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt</type>
@@ -523,7 +523,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void nc::stl_algorithms::for_each</definition>
-        <argsstring>(InputIt first, InputIt last, UnaryFunction f) noexcept</argsstring>
+        <argsstring>(InputIt first, InputIt last, UnaryFunction f)</argsstring>
         <name>for_each</name>
         <param>
           <type>InputIt</type>
@@ -2162,7 +2162,7 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" line="683" column="14" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" bodystart="683" bodyend="690"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a65dada83abf2bf7a4fe6bd5a7b00624e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt</type>
@@ -2176,7 +2176,7 @@
         </templateparamlist>
         <type>OutputIt</type>
         <definition>OutputIt nc::stl_algorithms::transform</definition>
-        <argsstring>(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction) noexcept</argsstring>
+        <argsstring>(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</argsstring>
         <name>transform</name>
         <param>
           <type>InputIt</type>
@@ -2239,7 +2239,7 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" line="703" column="18" bodyfile="C:/Github/NumCpp/include/NumCpp/Core/Internal/StlAlgorithms.hpp" bodystart="703" bodyend="711"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1af110f81b7580e3bddbbfeea2fb92134b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1stl__algorithms_1af358fec5563ae500162b310fe263a36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>class InputIt1</type>
@@ -2256,7 +2256,7 @@
         </templateparamlist>
         <type>OutputIt</type>
         <definition>OutputIt nc::stl_algorithms::transform</definition>
-        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction) noexcept</argsstring>
+        <argsstring>(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt destination, BinaryOperation unaryFunction)</argsstring>
         <name>transform</name>
         <param>
           <type>InputIt1</type>

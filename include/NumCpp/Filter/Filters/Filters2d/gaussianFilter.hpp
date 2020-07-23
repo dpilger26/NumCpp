@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -72,7 +72,7 @@ namespace nc
                 ++kernelSize; // make sure the kernel is an odd size
             }
 
-            const double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+            const auto kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
 
             // calculate the gaussian kernel
             NdArray<double> kernel(kernelSize);
@@ -97,5 +97,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+} // namespace nc

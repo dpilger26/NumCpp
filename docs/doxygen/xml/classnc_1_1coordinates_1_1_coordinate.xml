@@ -90,13 +90,13 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Coordinates/Coordinate.hpp" line="57" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a6558184fd2ee5aadfc6bb7cd8ad87e21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a35b32fa280c920d0b528472f7726a03d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>nc::coordinates::Coordinate::Coordinate</definition>
-        <argsstring>(const NdArray&lt; double &gt; inCartesianVector)</argsstring>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inCartesianVector)</argsstring>
         <name>Coordinate</name>
         <param>
-          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
           <declname>inCartesianVector</declname>
         </param>
         <briefdescription>
@@ -757,7 +757,7 @@
       <member refid="classnc_1_1coordinates_1_1_coordinate_1a68eafc66dfeb8551fa7d8960f116be83" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>Coordinate</name></member>
       <member refid="classnc_1_1coordinates_1_1_coordinate_1a7cf9e8138023ced7cfcb071299018fd5" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>Coordinate</name></member>
       <member refid="classnc_1_1coordinates_1_1_coordinate_1aa023b8b0e74159909e99aabcf778c57f" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>Coordinate</name></member>
-      <member refid="classnc_1_1coordinates_1_1_coordinate_1a6558184fd2ee5aadfc6bb7cd8ad87e21" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>Coordinate</name></member>
+      <member refid="classnc_1_1coordinates_1_1_coordinate_1a35b32fa280c920d0b528472f7726a03d" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>Coordinate</name></member>
       <member refid="classnc_1_1coordinates_1_1_coordinate_1ab5502c231ff400b90fc9ede39a524eed" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>dec</name></member>
       <member refid="classnc_1_1coordinates_1_1_coordinate_1aa7e413d5e418e45479098e7a3dab6fb2" prot="private" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>dec_</name></member>
       <member refid="classnc_1_1coordinates_1_1_coordinate_1a9fd37a2cb2c3b45aee933e4e5f95d074" prot="public" virt="non-virtual"><scope>nc::coordinates::Coordinate</scope><name>degreeSeperation</name></member>

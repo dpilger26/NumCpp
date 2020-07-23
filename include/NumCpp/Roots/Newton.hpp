@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -37,6 +37,7 @@
 
 #include <cmath>
 #include <functional>
+#include <utility>
 
 namespace nc
 {
@@ -58,11 +59,11 @@ namespace nc
             /// @param fPrime: the derivative of the function 
             ///
             Newton(const double epsilon,
-                const std::function<double(double)>& f,
-                const std::function<double(double)>& fPrime) noexcept :
+                std::function<double(double)>  f,
+                std::function<double(double)>  fPrime) noexcept :
                 Iteration(epsilon),
-                f_(f),
-                fPrime_(fPrime)
+                f_(std::move(f)),
+                fPrime_(std::move(fPrime))
             {}
 
             //============================================================================
@@ -76,18 +77,18 @@ namespace nc
             ///
             Newton(const double epsilon,
                 const uint32 maxNumIterations,
-                const std::function<double(double)>& f,
-                const std::function<double(double)>& fPrime) noexcept :
+                std::function<double(double)>  f,
+                std::function<double(double)>  fPrime) noexcept :
                 Iteration(epsilon, maxNumIterations),
-                f_(f),
-                fPrime_(fPrime)
+                f_(std::move(f)),
+                fPrime_(std::move(fPrime))
             {}
 
             //============================================================================
             // Method Description:
             ///	Destructor
             ///
-            ~Newton()noexcept  = default;
+            ~Newton()noexcept  override = default;
 
             //============================================================================
             // Method Description:
@@ -130,10 +131,10 @@ namespace nc
             /// @param fxPrime: the derivate of the function evaluated at the current x value
             /// @return x
             ///
-            double calculateX(double x, double fx, double fxPrime) noexcept 
+            static double calculateX(double x, double fx, double fxPrime) noexcept 
             {
                 return x - fx / fxPrime;
             }
         };
-    }
-}
+    }  // namespace roots
+}  // namespace nc

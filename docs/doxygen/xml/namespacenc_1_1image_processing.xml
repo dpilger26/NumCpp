@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" line="52" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" bodystart="52" bodyend="64"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" line="52" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" bodystart="52" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1image_processing_1a9b0730e1067dc755ee1fa2ecf280c14f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -149,7 +149,7 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/ImageProcessing/clusterPixels.hpp" line="55" column="21" bodyfile="C:/Github/NumCpp/include/NumCpp/ImageProcessing/clusterPixels.hpp" bodystart="55" bodyend="61"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1a8d9008c72eceb98b40ada379f9d4587e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a874d0f4174d10763002fdd70f190595b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -157,7 +157,7 @@
         </templateparamlist>
         <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_centroid" kindref="compound">Centroid</ref>&lt; dtype &gt; &gt;</type>
         <definition>std::vector&lt;Centroid&lt;dtype&gt; &gt; nc::imageProcessing::generateCentroids</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth=0)</argsstring>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string &amp;inWindowType, uint8 inBorderWidth=0)</argsstring>
         <name>generateCentroids</name>
         <param>
           <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -168,7 +168,7 @@
           <declname>inRate</declname>
         </param>
         <param>
-          <type>const std::string</type>
+          <type>const std::string &amp;</type>
           <declname>inWindowType</declname>
         </param>
         <param>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" line="58" column="15" bodyfile="C:/Github/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" bodystart="58" bodyend="147"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" line="58" column="15" bodyfile="C:/Github/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" bodystart="58" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1image_processing_1a896adf0319f58a2f44cbf3dfaf550fe2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>

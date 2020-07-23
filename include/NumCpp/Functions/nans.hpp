@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Functions/full.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -79,4 +79,4 @@ namespace nc
     {
         return full(inShape, constants::nan);
     }
-}
+}  // namespace nc

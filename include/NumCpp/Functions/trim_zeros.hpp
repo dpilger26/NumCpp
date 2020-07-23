@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
+    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string& inTrim = "fb")
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -64,10 +64,8 @@ namespace nc
                 {
                     break;
                 }
-                else
-                {
-                    ++place;
-                }
+                
+                ++place;
             }
 
             if (place == inArray.size())
@@ -80,7 +78,8 @@ namespace nc
 
             return returnArray;
         }
-        else if (inTrim == "b")
+
+        if (inTrim == "b")
         {
             uint32 place = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
@@ -89,10 +88,8 @@ namespace nc
                 {
                     break;
                 }
-                else
-                {
-                    --place;
-                }
+
+                --place;
             }
 
             if (place == 0 || (place == 1 && inArray[0] == dtype{ 0 }))
@@ -105,7 +102,8 @@ namespace nc
 
             return returnArray;
         }
-        else if (inTrim == "fb")
+
+        if (inTrim == "fb")
         {
             uint32 placeBegin = 0;
             for (auto value : inArray)
@@ -114,10 +112,8 @@ namespace nc
                 {
                     break;
                 }
-                else
-                {
-                    ++placeBegin;
-                }
+
+                ++placeBegin;
             }
 
             if (placeBegin == inArray.size())
@@ -132,10 +128,8 @@ namespace nc
                 {
                     break;
                 }
-                else
-                {
-                    --placeEnd;
-                }
+
+                --placeEnd;
             }
 
             if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == dtype{ 0 }))
@@ -148,11 +142,8 @@ namespace nc
 
             return returnArray;
         }
-        else
-        {
-            THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
-        }
-
-        return NdArray<dtype>();  // getting rid of compiler warning
+        
+        THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
+        return {};
     }
-}
+}  // namespace nc

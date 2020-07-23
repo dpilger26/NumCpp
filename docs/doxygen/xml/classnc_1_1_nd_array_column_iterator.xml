@@ -458,9 +458,9 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="949" column="19" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="949" bodyend="953"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_column_iterator_1ad86c327c4b4ac5ea95312d027a8d5fb6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const <ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
-        <definition>const pointer nc::NdArrayColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-&gt;</definition>
+      <memberdef kind="function" id="classnc_1_1_nd_array_column_iterator_1ae66efdfa1252f405042276e3e9a25364" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array_const_column_iterator_1a4070d7ef2c99fec46a8df015769f58b6" kindref="member">pointer</ref></type>
+        <definition>pointer nc::NdArrayColumnIterator&lt; dtype, SizeType, PointerType, DifferenceType &gt;::operator-&gt;</definition>
         <argsstring>() const noexcept</argsstring>
         <name>operator-&gt;</name>
         <briefdescription>
@@ -473,7 +473,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="861" column="23" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="861" bodyend="864"/>
+        <location file="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" line="861" column="17" bodyfile="C:/Github/NumCpp/include/NumCpp/NdArray/NdArrayIterators.hpp" bodystart="861" bodyend="864"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_nd_array_const_column_iterator_1ab0928638c653f5ed37088a3e5098064b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -705,7 +705,7 @@
       <member refid="classnc_1_1_nd_array_column_iterator_1a145c2fa5cbd327fbba7dd4701ef27baf" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator--</name></member>
       <member refid="classnc_1_1_nd_array_column_iterator_1a8ee7c1ecf2dc107159aec64377f5d6bd" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator--</name></member>
       <member refid="classnc_1_1_nd_array_column_iterator_1a80924e15c192ee04843add79ad2efece" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator-=</name></member>
-      <member refid="classnc_1_1_nd_array_column_iterator_1ad86c327c4b4ac5ea95312d027a8d5fb6" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator-&gt;</name></member>
+      <member refid="classnc_1_1_nd_array_column_iterator_1ae66efdfa1252f405042276e3e9a25364" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator-&gt;</name></member>
       <member refid="classnc_1_1_nd_array_const_column_iterator_1ab0928638c653f5ed37088a3e5098064b" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator&lt;</name></member>
       <member refid="classnc_1_1_nd_array_const_column_iterator_1a8468d6928d88c7f34d1456261331f238" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator&lt;=</name></member>
       <member refid="classnc_1_1_nd_array_const_column_iterator_1aec9953c2361595fc656a1a5d306e36c0" prot="public" virt="non-virtual"><scope>nc::NdArrayColumnIterator</scope><name>operator==</name></member>

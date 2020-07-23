@@ -1,0 +1,2 @@
+docker build --tag test_numcpp .
+docker run -it --rm -v C:\Github\NumCpp:/NumCpp --name test_numcpp test_numcpp /bin/bash

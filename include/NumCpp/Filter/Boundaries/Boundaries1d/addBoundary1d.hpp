@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -101,6 +101,6 @@ namespace nc
 
                 return NdArray<dtype>(); // get rid of compiler warning
             }
-        }
-    }
-}
+        } // namespace boundary
+    } // namespace filter
+} // namespace nc

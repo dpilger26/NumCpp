@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,8 +30,8 @@
 
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -70,5 +70,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    } // namespace filter
+}  // namespace nc

@@ -23,7 +23,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "Installation", "md__c_1__github__num_cpp_install__r_e_a_d_m_e.html", null ],
+    [ "Installation", "md__c_1__github__num_cpp_docs_markdown__installation.html", null ],
+    [ "Building", "md__c_1__github__num_cpp_docs_markdown__building.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -68,9 +69,9 @@ var NAVTREEINDEX =
 "classnc_1_1image_processing_1_1_cluster_maker.html#ae437071bfc291a36745d043ddd4cba1d",
 "cyclic__hankel__1_8hpp.html#ae7053cd6eafb59a62ba6ede63aac6f90",
 "functions_rela.html",
-"mod_8hpp.html",
-"ptp_8hpp.html",
-"tanh_8hpp.html#a3d75639028d96fe20286a82740361c6e"
+"mirror2d_8hpp_source.html",
+"proj_8hpp_source.html",
+"tanh_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

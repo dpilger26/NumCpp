@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -30,8 +30,8 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/applyThreshold.hpp"
 #include "NumCpp/ImageProcessing/centroidClusters.hpp"
 #include "NumCpp/ImageProcessing/clusterPixels.hpp"
@@ -59,17 +59,17 @@ namespace nc
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string& inWindowType, uint8 inBorderWidth = 0)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             uint8 borderWidthPre = 0;
             uint8 borderWidthPost = 0;
-            if (inWindowType.compare("pre") == 0)
+            if (inWindowType == "pre")
             {
                 borderWidthPre = inBorderWidth;
             }
-            else if (inWindowType.compare("post") == 0)
+            else if (inWindowType == "post")
             {
                 borderWidthPost = inBorderWidth;
             }
@@ -96,5 +96,5 @@ namespace nc
             // centroid the clusters
             return centroidClusters(clusters);
         }
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

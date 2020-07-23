@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 #include <string>
 
@@ -108,9 +108,8 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<double>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
@@ -149,7 +148,7 @@ namespace nc
                     double sum = 0;
                     for (uint32 col = 0; col < inShapeY.cols - 1; ++col)
                     {
-                        const double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
+                        const auto dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
                         sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 +
                             static_cast<double>(inArrayY(row, col)));
                     }
@@ -170,7 +169,7 @@ namespace nc
                     double sum = 0;
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
-                        const double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
+                        const auto dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
                         sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 +
                             static_cast<double>(arrayYTranspose(row, col)));
                     }
@@ -185,7 +184,7 @@ namespace nc
                 double sum = 0.0;
                 for (uint32 i = 0; i < inArrayY.size() - 1; ++i)
                 {
-                    const double dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
+                    const auto dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
                     sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]));
                 }
 
@@ -194,10 +193,9 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<double>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
-}
+} // namespace nc

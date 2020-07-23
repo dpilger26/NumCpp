@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -92,32 +92,48 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><a href="https://GitHub.com/dpilger26/NumCpp/watchers/"><object type="image/svg+xml" data="https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&amp;label=Watch&amp;maxAge=2592000" style="pointer-events: none;">GitHub watchers</object></a> <a href="https://GitHub.com/dpilger26/NumCpp/stargazers/"><object type="image/svg+xml" data="https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&amp;label=Star&amp;maxAge=2592000" style="pointer-events: none;">GitHub stars</object></a> <a href="https://GitHub.com/dpilger26/NumCpp/network/"><object type="image/svg+xml" data="https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&amp;label=Fork&amp;maxAge=2592000" style="pointer-events: none;">GitHub forks</object></a></p>
 <h1>NumCpp: A Templatized Header Only C++ Implementation of the <a href="http://www.numpy.org">Python NumPy Library</a></h1>
 <h2>Author: David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a></h2>
-<h2>Version: 2.0.0</h2>
+<h2>Version: 2.1.0</h2>
 <h2>License <a href="https://lbesson.mit-license.org/"><object type="image/svg+xml" data="https://img.shields.io/badge/License-MIT-blue.svg" style="pointer-events: none;">MIT license</object></a></h2>
 <p>Copyright 2020 David Pilger</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h2>Testing</h2>
-<p><b>C++ Standards:</b> C++14, C++17, and C++2a <b>Compilers:</b> VS 2017/2019, GCC 6.5.0/7.5.0/8.4.0/9.3.0, and Clang 8.0/9.0/10.0 <br  />
- <b>Boost Versions:</b> 1.68, 1.70, 1.72, and 1.73 <br  />
+<p><b>C++ Standards:</b> <br  />
+ C++14 <br  />
+ C++17 <br  />
+ C++2a <br  />
+</p>
+<p><b>Compilers:</b> <br  />
+ Visual Studio: 2017, 2019 <br  />
+ GNU: 6.5, 7.5, 8.4, 9.3, 10.1 <br  />
+ Clang: 6, 7, 8, 9, 10 <br  />
+</p>
+<p><b>Boost Versions:</b> <br  />
+ 1.68, 1.70, 1.72, and 1.73 <br  />
 </p>
 <h2><a href="https://dpilger26.github.io/NumCpp">Documentation</a></h2>
 <h2><a href="https://github.com/dpilger26/NumCpp">GitHub</a></h2>
-<h2><a href="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html">Installation</a></h2>
+<h2><a href="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__installation.html">Installation</a></h2>
+<h2><a href="https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__building.html">Building</a></h2>
 <h2>Release Notes</h2>
+<h3>Version 2.1.0</h3>
+<ul>
+<li>Improved installation and usage with CMake find_package support</li>
+<li>Various minor improvements</li>
+</ul>
 <h3>Version 2.0.0</h3>
 <ul>
 <li>Dropped support of C++11, now requires a C++14 or higher compiler</li>
 <li>Added support for <code>std::complex&lt;T&gt;</code>, closing <b>Issue #58</b></li>
-<li>Added more NdArray constructors for STL containers including <code>std::vector&lt;std::vector&lt;T&gt;&gt;</code>, closing <b>Issue #59</b></li>
-<li><code>polyfit</code> routine inline with Numpy <code>polyfit</code>, closing <b>Issue #61</b></li>
+<li>Added more <code>NdArray</code> constructors for STL containers including <code>std::vector&lt;std::vector&lt;T&gt;&gt;</code>, closing <b>Issue #59</b></li>
+<li>Added <code>polyfit</code> routine inline with Numpy <code>polyfit</code>, closing <b>Issue #61</b></li>
 <li>Added ability to use <code>NdArray</code> as container for generic structs</li>
 <li>Non-linear least squares fitting using Gauss-Newton</li>
 <li>Root finding routines</li>
 <li>Numerical integration routines</li>
 <li><code>lu_decomposition</code> and <code>pivotLU_decomposition</code> added to <code>Linalg</code> namespace</li>
-<li>New STL iterators added to NdArray<ul>
+<li>New STL iterators added to <code>NdArray</code><ul>
 <li><code>iterator</code></li>
 <li><code>const_iterator</code></li>
 <li><code>reverse_iterator</code></li>

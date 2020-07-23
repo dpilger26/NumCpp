@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <algorithm>
@@ -95,7 +95,8 @@ namespace nc
             }
             default:
             {
-                return NdArray<double>(); // get rid of compiler warning
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
@@ -156,8 +157,9 @@ namespace nc
             }
             default:
             {
-                return NdArray<std::complex<double>>(); // get rid of compiler warning
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
-}
+}  // namespace nc

@@ -5,7 +5,7 @@ var classnc_1_1coordinates_1_1_coordinate =
     [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a68eafc66dfeb8551fa7d8960f116be83", null ],
     [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a7cf9e8138023ced7cfcb071299018fd5", null ],
     [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#aa023b8b0e74159909e99aabcf778c57f", null ],
-    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a6558184fd2ee5aadfc6bb7cd8ad87e21", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a35b32fa280c920d0b528472f7726a03d", null ],
     [ "dec", "classnc_1_1coordinates_1_1_coordinate.html#ab5502c231ff400b90fc9ede39a524eed", null ],
     [ "degreeSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a9fd37a2cb2c3b45aee933e4e5f95d074", null ],
     [ "degreeSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a223ae10750fed3706997220e76f25c0d", null ],

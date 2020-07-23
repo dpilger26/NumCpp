@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -31,12 +31,12 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/square.hpp"
+#include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -217,7 +217,7 @@ namespace nc
             ///
             Quaternion conjugate() const noexcept
             {
-                return Quaternion(-i(), -j(), -k(), s());
+                return {-i(), -j(), -k(), s()};
             }
 
             //============================================================================
@@ -241,7 +241,7 @@ namespace nc
             ///
             static Quaternion identity() noexcept
             {
-                return Quaternion();
+                return {};
             }
 
             //============================================================================
@@ -302,13 +302,13 @@ namespace nc
                 {
                     return inQuat1;
                 }
-                else if (utils::essentiallyEqual(inPercent, 1.0))
+                if (utils::essentiallyEqual(inPercent, 1.0))
                 {
                     return inQuat2;
                 }
 
                 const double oneMinus = 1.0 - inPercent;
-                std::array<double, 4> newComponents;
+                std::array<double, 4> newComponents{};
 
                 stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
@@ -317,7 +317,7 @@ namespace nc
                         return oneMinus * component1 + inPercent * component2;
                     });
 
-                return Quaternion(newComponents[0], newComponents[1], newComponents[2], newComponents[3]);
+                return {newComponents[0], newComponents[1], newComponents[2], newComponents[3]};
             }
 
             //============================================================================
@@ -432,7 +432,7 @@ namespace nc
                 {
                     return inQuat1;
                 }
-                else if (inPercent == 1)
+                if (inPercent == 1)
                 {
                     return inQuat2;
                 }
@@ -1001,5 +1001,5 @@ namespace nc
                 }
             }
         };
-    }
-}
+    }  // namespace rotations
+}  // namespace nc

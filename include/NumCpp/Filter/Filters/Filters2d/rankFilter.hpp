@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -60,7 +60,7 @@ namespace nc
         NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            if (inRank < 0 || inRank >= utils::sqr(inSize))
+            if (inRank >= utils::sqr(inSize))
             {
                 THROW_INVALID_ARGUMENT_ERROR("rank not within filter footprint size.");
             }
@@ -86,5 +86,5 @@ namespace nc
 
             return output;
         }
-    }
-}
+    }  // namespace filter
+}  // namespace nc

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include <complex>
 #include <cmath>
+#include <complex>
 #include <limits>
 
 namespace nc
@@ -55,5 +55,5 @@ namespace nc
         constexpr double    SECONDS_PER_DAY = MINUTES_PER_DAY * SECONDS_PER_MINUTE; ///< Number of seconds in a day
         constexpr double    MILLISECONDS_PER_DAY = SECONDS_PER_DAY * MILLISECONDS_PER_SECOND; ///< Number of milliseconds in a day
         constexpr double    SECONDS_PER_WEEK = SECONDS_PER_DAY * DAYS_PER_WEEK; ///< Number of seconds in a week
-    }
-}
+    }  // namespace constants
+}  // namespace nc

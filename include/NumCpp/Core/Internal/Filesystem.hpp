@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -90,7 +90,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string fullName() const 
+            std::string fullName() const 
             {
                 return filename_ + "." + extension_;
             }
@@ -103,7 +103,7 @@ namespace nc
             ///
             bool hasExt() const
             {
-                return extension_ != "";
+                return !extension_.empty();
             }
 
             //============================================================================
@@ -124,7 +124,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string withExt(const std::string& ext) 
+            std::string withExt(const std::string& ext) 
             {
                 extension_ = ext;
                 return fullName();
@@ -137,5 +137,5 @@ namespace nc
             std::string extension_{""};
             bool        exists_{false};
         };
-    }
-}
+    }  // namespace filesystem
+}  // namespace nc

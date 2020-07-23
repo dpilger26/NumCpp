@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -156,12 +156,10 @@ namespace nc
             {
                 return *this;
             }
-            else
-            {
-                Vec3 returnVec = Vec3(*this).normalize();
-                returnVec *= maxLength;
-                return returnVec;
-            }
+            
+            Vec3 returnVec = Vec3(*this).normalize();
+            returnVec *= maxLength;
+            return returnVec;
         }
 
         //============================================================================
@@ -177,7 +175,7 @@ namespace nc
             const double crossY = -(x * otherVec.z - z * otherVec.x);
             const double crossZ = x * otherVec.y - y * otherVec.x;
 
-            return Vec3(crossX, crossY, crossZ);
+            return {crossX, crossY, crossZ};
         }
 
         //============================================================================
@@ -504,7 +502,7 @@ namespace nc
     ///
     inline Vec3 operator-(const Vec3& vec) noexcept
     {
-        return Vec3(-vec.x, -vec.y, -vec.z);
+        return {-vec.x, -vec.y, -vec.z};
     }
 
     //============================================================================
@@ -612,4 +610,4 @@ namespace nc
         stream << vec.toString() << std::endl;
         return stream;
     }
-}
+} // namespace nc

@@ -1,8 +1,8 @@
 var classnc_1_1roots_1_1_bisection =
 [
-    [ "Bisection", "classnc_1_1roots_1_1_bisection.html#a5a790e250fbf36fd99584f68099e315b", null ],
-    [ "Bisection", "classnc_1_1roots_1_1_bisection.html#a0cac4b816910c90be235b0ad9487a2a4", null ],
-    [ "~Bisection", "classnc_1_1roots_1_1_bisection.html#a772668ef46d44b18f482edad16f4644b", null ],
+    [ "Bisection", "classnc_1_1roots_1_1_bisection.html#ae9ccce420ccf01a829b0138f264956cb", null ],
+    [ "Bisection", "classnc_1_1roots_1_1_bisection.html#a05985162d3dac7a0919319c6cde74895", null ],
+    [ "~Bisection", "classnc_1_1roots_1_1_bisection.html#a5e0d0c67681add5f2feec713901539df", null ],
     [ "incrementNumberOfIterations", "classnc_1_1roots_1_1_bisection.html#ad0262a1a694e734ebc154c77f010bcff", null ],
     [ "numIterations", "classnc_1_1roots_1_1_bisection.html#ab3192d0f9de4b8b27b23013c65489e5a", null ],
     [ "resetNumberOfIterations", "classnc_1_1roots_1_1_bisection.html#a85e79a4794bc3a6ac6bc3564956737a2", null ],

@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -31,10 +31,10 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/rms.hpp"
 #include "NumCpp/Linalg/inv.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -133,5 +133,5 @@ namespace nc
 
             return std::make_pair(beta.flatten(), rms(residuals).item());
         }
-    }
-}
+    }  // namespace linalg
+}  // namespace nc

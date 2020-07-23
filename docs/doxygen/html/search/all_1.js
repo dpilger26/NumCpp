@@ -30,7 +30,7 @@ var searchData=
   ['bincount_2ehpp_117',['bincount.hpp',['../bincount_8hpp.html',1,'']]],
   ['binomial_118',['binomial',['../namespacenc_1_1random.html#a13657004ec565f15648a520e3d060002',1,'nc::random::binomial(dtype inN, double inP=0.5)'],['../namespacenc_1_1random.html#a83099ec22905c3ad69984a94d823a3d8',1,'nc::random::binomial(const Shape &amp;inShape, dtype inN, double inP=0.5)']]],
   ['binomial_2ehpp_119',['binomial.hpp',['../binomial_8hpp.html',1,'']]],
-  ['bisection_120',['Bisection',['../classnc_1_1roots_1_1_bisection.html',1,'nc::roots::Bisection'],['../classnc_1_1roots_1_1_bisection.html#a5a790e250fbf36fd99584f68099e315b',1,'nc::roots::Bisection::Bisection(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_bisection.html#a0cac4b816910c90be235b0ad9487a2a4',1,'nc::roots::Bisection::Bisection(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
+  ['bisection_120',['Bisection',['../classnc_1_1roots_1_1_bisection.html',1,'nc::roots::Bisection'],['../classnc_1_1roots_1_1_bisection.html#ae9ccce420ccf01a829b0138f264956cb',1,'nc::roots::Bisection::Bisection(const double epsilon, std::function&lt; double(double)&gt; f) noexcept'],['../classnc_1_1roots_1_1_bisection.html#a05985162d3dac7a0919319c6cde74895',1,'nc::roots::Bisection::Bisection(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept']]],
   ['bisection_2ehpp_121',['Bisection.hpp',['../_bisection_8hpp.html',1,'']]],
   ['bits_122',['bits',['../classnc_1_1_dtype_info.html#a3f6aa0cc80e59dc331bc0e8dfe2f20bb',1,'nc::DtypeInfo::bits()'],['../classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html#ae35570f524474adaa2315bead3f9be9e',1,'nc::DtypeInfo&lt; std::complex&lt; dtype &gt; &gt;::bits()']]],
   ['bitwise_5fand_123',['bitwise_and',['../namespacenc.html#a4a7fa01dbe15029314c6204f930c09af',1,'nc']]],
@@ -47,8 +47,10 @@ var searchData=
   ['boostnumpyndarrayhelper_2ehpp_134',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
   ['boundary_135',['Boundary',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6',1,'nc::filter']]],
   ['boundary_2ehpp_136',['Boundary.hpp',['../_boundary_8hpp.html',1,'']]],
-  ['brent_137',['Brent',['../classnc_1_1roots_1_1_brent.html',1,'nc::roots::Brent'],['../classnc_1_1roots_1_1_brent.html#aa9f4cea2c2770c669e84158186b075c2',1,'nc::roots::Brent::Brent(const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept'],['../classnc_1_1roots_1_1_brent.html#abf26bf1c5ace791386f2c0f6a91f57bb',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept']]],
+  ['brent_137',['Brent',['../classnc_1_1roots_1_1_brent.html',1,'nc::roots::Brent'],['../classnc_1_1roots_1_1_brent.html#aecf6662d1b7128d38796cf4ab99143f4',1,'nc::roots::Brent::Brent(const double epsilon, std::function&lt; double(double)&gt; f) noexcept'],['../classnc_1_1roots_1_1_brent.html#a1e9cf8f7be13c7bbb42a073ec9eb5369',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept']]],
   ['brent_2ehpp_138',['Brent.hpp',['../_brent_8hpp.html',1,'']]],
-  ['byteswap_139',['byteswap',['../classnc_1_1_nd_array.html#a5798774fe863c25277b4a3fa2c8f0326',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a244a5b96158e15e74e2cc1e54c17edff',1,'nc::byteswap()']]],
-  ['byteswap_2ehpp_140',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]]
+  ['building_2emd_139',['Building.md',['../_building_8md.html',1,'']]],
+  ['byteswap_140',['byteswap',['../classnc_1_1_nd_array.html#a5798774fe863c25277b4a3fa2c8f0326',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a244a5b96158e15e74e2cc1e54c17edff',1,'nc::byteswap()']]],
+  ['byteswap_2ehpp_141',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]],
+  ['building_142',['Building',['../md__c_1__github__num_cpp_docs_markdown__building.html',1,'']]]
 ];

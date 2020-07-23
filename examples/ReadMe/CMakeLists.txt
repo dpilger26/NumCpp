@@ -1,10 +1,11 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.14)
 
 project(ReadMe)
 
-set(CMAKE_CXX_STANDARD 17)
-
-set(NUMCPP_INCLUDES ../../include)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -17,15 +18,19 @@ set_target_properties(${PROJECT_NAME}
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
 )
 
-set(Boost_USE_STATIC_LIBS TRUE) 
-find_package(Boost 1.68.0 COMPONENTS system filesystem REQUIRED)
-
 target_include_directories(${PROJECT_NAME} PRIVATE 
-  ${NUMCPP_INCLUDES}
-  ${Boost_INCLUDE_DIRS} 
+  ../../include
+)
+
+set(Boost_USE_STATIC_LIBS TRUE) 
+find_package(Boost 1.68.0 REQUIRED 
+  COMPONENTS 
+  system
+  filesystem 
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
+  Boost::headers
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::system>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::filesystem>
 )

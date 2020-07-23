@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -106,10 +106,9 @@ namespace nc
             }
             default:
             {
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<dtype>(0);
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
             }
         }
     }
-}
+}  // namespace nc

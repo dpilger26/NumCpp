@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -217,8 +217,8 @@ namespace nc
                 // using a set will auto take care of adding duplicate pixels on the edges
 
                 // the 8 surrounding neighbors
-                const int32 row = static_cast<int32>(inPixel.row);
-                const int32 col = static_cast<int32>(inPixel.col);
+                const auto row = static_cast<int32>(inPixel.row);
+                const auto col = static_cast<int32>(inPixel.col);
 
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
@@ -375,5 +375,5 @@ namespace nc
                 }
             }
         };
-    }
-}
+    }  // namespace imageProcessing
+}  // namespace nc

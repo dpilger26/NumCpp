@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
    <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
   </td>
@@ -99,12 +99,12 @@ $(document).ready(function(){initNavTree('classnc_1_1roots_1_1_bisection.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5a790e250fbf36fd99584f68099e315b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a5a790e250fbf36fd99584f68099e315b">Bisection</a> (const double epsilon, const std::function&lt; double(double)&gt; &amp;f) noexcept</td></tr>
-<tr class="separator:a5a790e250fbf36fd99584f68099e315b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cac4b816910c90be235b0ad9487a2a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a0cac4b816910c90be235b0ad9487a2a4">Bisection</a> (const double epsilon, const <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations, const std::function&lt; double(double)&gt; &amp;f) noexcept</td></tr>
-<tr class="separator:a0cac4b816910c90be235b0ad9487a2a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a772668ef46d44b18f482edad16f4644b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a772668ef46d44b18f482edad16f4644b">~Bisection</a> ()=default</td></tr>
-<tr class="separator:a772668ef46d44b18f482edad16f4644b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05985162d3dac7a0919319c6cde74895"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a05985162d3dac7a0919319c6cde74895">Bisection</a> (const double epsilon, const <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations, std::function&lt; double(double)&gt; f) noexcept</td></tr>
+<tr class="separator:a05985162d3dac7a0919319c6cde74895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ccce420ccf01a829b0138f264956cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#ae9ccce420ccf01a829b0138f264956cb">Bisection</a> (const double epsilon, std::function&lt; double(double)&gt; f) noexcept</td></tr>
+<tr class="separator:ae9ccce420ccf01a829b0138f264956cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e0d0c67681add5f2feec713901539df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a5e0d0c67681add5f2feec713901539df">~Bisection</a> () override=default</td></tr>
+<tr class="separator:a5e0d0c67681add5f2feec713901539df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3192d0f9de4b8b27b23013c65489e5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_iteration.html#ab3192d0f9de4b8b27b23013c65489e5a">numIterations</a> () const noexcept</td></tr>
 <tr class="separator:ab3192d0f9de4b8b27b23013c65489e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1199a68b6f57fee8b24bfc59ffeff486"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1roots_1_1_bisection.html#a1199a68b6f57fee8b24bfc59ffeff486">solve</a> (double a, double b)</td></tr>
@@ -129,8 +129,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classnc_1_1roots_1_1_bisection.html">Bisection</a> root finding method </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5a790e250fbf36fd99584f68099e315b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a790e250fbf36fd99584f68099e315b">&#9670;&nbsp;</a></span>Bisection() <span class="overload">[1/2]</span></h2>
+<a id="ae9ccce420ccf01a829b0138f264956cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ccce420ccf01a829b0138f264956cb">&#9670;&nbsp;</a></span>Bisection() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +147,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; double(double)&gt; &amp;&#160;</td>
+          <td class="paramtype">std::function&lt; double(double)&gt;&#160;</td>
           <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
@@ -173,8 +173,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0cac4b816910c90be235b0ad9487a2a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cac4b816910c90be235b0ad9487a2a4">&#9670;&nbsp;</a></span>Bisection() <span class="overload">[2/2]</span></h2>
+<a id="a05985162d3dac7a0919319c6cde74895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05985162d3dac7a0919319c6cde74895">&#9670;&nbsp;</a></span>Bisection() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +197,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; double(double)&gt; &amp;&#160;</td>
+          <td class="paramtype">std::function&lt; double(double)&gt;&#160;</td>
           <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
@@ -224,8 +224,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a772668ef46d44b18f482edad16f4644b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a772668ef46d44b18f482edad16f4644b">&#9670;&nbsp;</a></span>~Bisection()</h2>
+<a id="a5e0d0c67681add5f2feec713901539df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e0d0c67681add5f2feec713901539df">&#9670;&nbsp;</a></span>~Bisection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +242,7 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

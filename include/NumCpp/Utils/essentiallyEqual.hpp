@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2020 David Pilger
@@ -32,8 +32,8 @@
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 
-#include <complex>
 #include <cmath>
+#include <complex>
 #include <string>
 
 namespace nc
@@ -134,5 +134,5 @@ namespace nc
         {
             return essentiallyEqual(inValue1, inValue2, DtypeInfo<std::complex<dtype>>::epsilon());
         }
-    }
-}
+    }  // namespace utils
+}  // namespace nc

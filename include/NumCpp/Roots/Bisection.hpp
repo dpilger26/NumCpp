@@ -1,7 +1,7 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.0.0
+/// @version 2.1.0
 ///
 /// @section License
 /// Copyright 2019 Benjamin Mahr
@@ -58,9 +58,9 @@ namespace nc
             /// @param f: the function 
             ///
             Bisection(const double epsilon, 
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
@@ -73,16 +73,16 @@ namespace nc
             ///
             Bisection(const double epsilon, 
                 const uint32 maxNumIterations,
-                const std::function<double(double)>& f) noexcept :
+                std::function<double(double)>  f) noexcept :
                 Iteration(epsilon, maxNumIterations),
-                f_(f)
+                f_(std::move(f))
             {}
 
             //============================================================================
             // Method Description:
             ///	Destructor
             ///
-            ~Bisection() = default;
+            ~Bisection() override = default;
 
             //============================================================================
             // Method Description:
@@ -141,7 +141,7 @@ namespace nc
             /// @param fx: the function evaluated at x
             /// @return x
             ///
-            double calculateX(double x, double &a, double &b, double fx) noexcept 
+            static double calculateX(double x, double &a, double &b, double fx) noexcept 
             {
                 if (fx < 0)
                 {
@@ -155,5 +155,5 @@ namespace nc
                 return 0.5 * (a + b);
             }
         };
-    }
-}
+    }  // namespace roots
+}  // namespace nc
