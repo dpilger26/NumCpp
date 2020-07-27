@@ -15,8 +15,10 @@ if (NUMCPP_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
-include(GNUInstallDirs)
 add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
+include(GNUInstallDirs)
 target_include_directories(${PROJECT_NAME} INTERFACE 
     $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
