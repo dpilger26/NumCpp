@@ -1,5 +1,6 @@
 ﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/raw/master/docs/logo/NumCppLogo.png)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea24c08d892e4beebd46cfca260823c1)](https://app.codacy.com/manual/dpilger26/NumCpp?utm_source=github.com&utm_medium=referral&utm_content=dpilger26/NumCpp&utm_campaign=Badge_Grade_Dashboard)
 [![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
 [![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
