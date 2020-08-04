@@ -4,6 +4,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/hjw01qui3bvxs8yi?svg=true)](https://ci.appveyor.com/project/hosseinmoein/dataframe)
+[![Build Status](https://travis-ci.org/hosseinmoein/DataFrame.svg?branch=master)](https://travis-ci.org/hosseinmoein/DataFrame)
+![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/dpilger26/NumCpp.svg?color=blue&label=Official%20Release&style=popout)
+[![C++14](https://img.shields.io/badge/C%2B%2B-14-blue.svg)](https://isocpp.org/std/the-standard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c28d691e3e9c428eb52164259cab09f3)](https://www.codacy.com/manual/dpilger26/NumCpp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dpilger26/NumCpp&amp;utm_campaign=Badge_Grade)
+
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
 ## Author: David Pilger dpilger26@gmail.com
