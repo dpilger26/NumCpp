@@ -1,5 +1,4 @@
 dist: focal
-sudo: required
 language: cpp
 
 compiler:
@@ -9,9 +8,9 @@ notifications:
   email: false
 
 before_install:
-  - sudo apt update
-  - sudo apt remove --purge cmake
-  - sudo apt install libboost-all-dev
+  - apt update
+  - apt remove --purge cmake
+  - apt install libboost-all-dev
 
 install:    
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
@@ -28,4 +27,4 @@ script:
   - cmake .. -DNUMCPP_EXAMPLES=True -DEXAMPLE_GAUSS_NEWTON_NLLS=True -DEXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
   - cmake --build . --config Release --target GaussNewtonNlls
   - cmake --build . --config Release --target ReadMe
-  - sudo cmake --build . --config Release --target install
+  - cmake --build . --config Release --target install
