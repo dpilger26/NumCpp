@@ -46,7 +46,7 @@ namespace nc
             ///
             /// @param filename: the full filename
             ///
-            File(const std::string& filename) :
+            explicit File(const std::string& filename) :
                 fullFilename_(filename)
             {
                 const size_t dot = filename.find_last_of('.');

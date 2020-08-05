@@ -463,7 +463,7 @@ namespace nc
                 const double s0 = std::cos(theta) - dotProduct * std::sin(theta) / std::sin(theta0);  // == sin(theta_0 - theta) / sin(theta_0)
                 const double s1 = std::sin(theta) / std::sin(theta0);
 
-                NdArray<double> interpQuat = (inQuat1.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
+                NdArray<double> interpQuat = (quat1Copy.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
                 return Quaternion(interpQuat);
             }
 

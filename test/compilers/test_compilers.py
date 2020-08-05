@@ -316,6 +316,10 @@ def run_single(root_dir: str,
     else:
         builder.build_target(target=target)
 
+    if (target == Target.NumCppPy or 
+        target == Target.all):
+        run_pytest(fileOrDirectory=str(_PYTEST_DIR))
+
     timer.toc()
 
 
