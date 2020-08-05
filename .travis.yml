@@ -5,26 +5,12 @@ language: cpp
 notifications:
   email: false
 
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          update: true
-          sources:
-            - ubuntu-toolchain-r-test   
-          packages:
-            - g++-10
-            - libboost-all-dev
-        snaps:
-          - name: cmake
-            confinement: classic
-      env:
-        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
-
 before_install:
+  - sudo apt update
   - sudo apt remove --purge cmake
-  - eval "${MATRIX_EVAL}"
+  - hash -r
+  - sudo snap install cmake --classic
+  - sudo apt install libboost-all-dev
 
 script:
   - mkdir build
