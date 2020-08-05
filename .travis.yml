@@ -16,6 +16,7 @@ matrix:
           packages:
             - g++-10
             - libboost-all-dev
+            - cmake
       env:
         - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
 
