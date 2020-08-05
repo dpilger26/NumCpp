@@ -3,29 +3,29 @@ sudo: required
 language: cpp
 
 notifications:
-    email: false
+  email: false
 
 matrix:
-    include:
-        - os: linux
-            addons:
-                apt:
-                    update: true
-                    sources:
-                        - ubuntu-toolchain-r-test
-                    packages:
-                        - g++-10
-                        - libboost-all-dev
-            env:
-                - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
+  include:
+    - os: linux
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test   
+          packages:
+            - g++-10
+            - libboost-all-dev
+      env:
+        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
 
 before_install:
-    - eval "${MATRIX_EVAL}"
+  - eval "${MATRIX_EVAL}"
 
 script:
-    - mkdir build
-    - cd build
-    - cmake .. -DNUMCPP_EXAMPLES=True -DEXAMPLE_GAUSS_NEWTON_NLLS=True -DEXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
-    - cmake --build . --config Release --target GaussNewtonNlls
-    - cmake --build . --config Release --target ReadMe
-    - cmake --build . --config Release --target install
+  - mkdir build
+  - cd build
+  - cmake .. -DNUMCPP_EXAMPLES=True -DEXAMPLE_GAUSS_NEWTON_NLLS=True -DEXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
+  - cmake --build . --config Release --target GaussNewtonNlls
+  - cmake --build . --config Release --target ReadMe
+  - cmake --build . --config Release --target install
