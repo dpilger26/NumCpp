@@ -5,7 +5,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)  
 
 [![C++14](https://img.shields.io/badge/C%2B%2B-14-blue.svg)](https://isocpp.org/std/the-standard)
-![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/dpilger26/NumCpp.svg?color=blue&label=Official%20Release&style=popout)
+![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/dpilger26/NumCpp.svg?color=blue&label=Official%20Release&style=popout)  
 [![Build status](https://ci.appveyor.com/api/projects/status/slxre2j64qc8ubvl/branch/master?svg=true)](https://ci.appveyor.com/project/dpilger26/numcpp/branch/master)
 [![Build Status](https://travis-ci.org/dpilger26/NumCpp.svg?branch=master)](https://travis-ci.org/dpilger26/NumCpp)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea24c08d892e4beebd46cfca260823c1)](https://app.codacy.com/manual/dpilger26/NumCpp?utm_source=github.com&utm_medium=referral&utm_content=dpilger26/NumCpp&utm_campaign=Badge_Grade_Dashboard)
