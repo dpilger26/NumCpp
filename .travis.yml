@@ -17,6 +17,9 @@ matrix:
             - g++-10
             - libboost-all-dev
             - cmake
+        snaps:
+          - name: cmake
+            confinement: classic
       env:
         - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
 
