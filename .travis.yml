@@ -1,4 +1,4 @@
-dist: bionic
+dist: focal
 sudo: required
 language: cpp
 
@@ -16,7 +16,6 @@ matrix:
           packages:
             - g++-10
             - libboost-all-dev
-            - cmake
         snaps:
           - name: cmake
             confinement: classic
@@ -24,6 +23,7 @@ matrix:
         - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
 
 before_install:
+  - sudo apt remove --purge cmake
   - eval "${MATRIX_EVAL}"
 
 script:
