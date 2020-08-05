@@ -63,7 +63,7 @@ namespace nc
         ///
         /// @param      inName
         ///
-        Timer(const std::string& inName)  :
+        explicit Timer(const std::string& inName)  :
             name_(inName + " "),
             start_(ChronoClock::now())
         {
