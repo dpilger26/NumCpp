@@ -6959,6 +6959,28 @@ def test_where():
     dataA = realA + 1j * imagA
     assert np.array_equal(NumCpp.where(cArrayMask, dataA, cArrayB), np.where(dataMask, dataA, dataB))
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    cArrayMask.setArray(dataMask)
+    dataB = np.random.randint(1, 100)
+    dataA = np.random.randint(1, 100)
+    assert np.array_equal(NumCpp.where(cArrayMask, dataA, dataB), np.where(dataMask, dataA, dataB))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    cArrayMask.setArray(dataMask)
+    realB = np.random.randint(1, 100)
+    imagB = np.random.randint(1, 100)
+    dataB = realB + 1j * imagB
+    realA = np.random.randint(1, 100)
+    imagA = np.random.randint(1, 100)
+    dataA = realA + 1j * imagA
+    assert np.array_equal(NumCpp.where(cArrayMask, dataA, dataB), np.where(dataMask, dataA, dataB))
+
 
 ####################################################################################
 def test_zeros():
