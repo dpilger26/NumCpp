@@ -195,7 +195,31 @@ $(document).ready(function(){initNavTree('where_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">return</span> outArray;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="namespacenc.html#a39dbf48fd9094cc969f3d006788f2137">  184</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#ac0af750215d0444ad9f0208620ca206b">where</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;bool&gt;</a>&amp; inMask, dtype inA, dtype inB)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keyword">auto</span> outArray = <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(inMask.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> idx = 0;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> maskValue : inMask)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keywordflow">if</span> (maskValue)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                outArray[idx] = inA;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                outArray[idx] = inB;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            ++idx;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span> outArray;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4312</div></div>

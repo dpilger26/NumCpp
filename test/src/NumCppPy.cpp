@@ -4151,6 +4151,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray whereScalerScaler(const NdArray<bool>& inMask, dtype inA, dtype inB)
+    {
+        return nc2Boost(nc::where(inMask, inA, inB));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray zerosSquare(uint32 inSquareSize)
     {
         return nc2Boost(zeros<dtype>(inSquareSize));
@@ -7151,6 +7159,8 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("where", &FunctionsInterface::whereArrayScaler<ComplexDouble>);
     bp::def("where", &FunctionsInterface::whereScalerArray<double>);
     bp::def("where", &FunctionsInterface::whereScalerArray<ComplexDouble>);
+    bp::def("where", &FunctionsInterface::whereScalerScaler<double>);
+    bp::def("where", &FunctionsInterface::whereScalerScaler<ComplexDouble>);
 
     bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
     bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<ComplexDouble>);
