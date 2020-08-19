@@ -1765,6 +1765,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0af750215d0444ad9f0208620ca206b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ac0af750215d0444ad9f0208620ca206b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac0af750215d0444ad9f0208620ca206b">where</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inA, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inB)</td></tr>
 <tr class="separator:ac0af750215d0444ad9f0208620ca206b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7191d45f29de05f27964f56f36c9be94"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a7191d45f29de05f27964f56f36c9be94"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a7191d45f29de05f27964f56f36c9be94">where</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inA, dtype inB)</td></tr>
+<tr class="separator:a7191d45f29de05f27964f56f36c9be94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446fff289053b687a994f9193941cd3f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a446fff289053b687a994f9193941cd3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a446fff289053b687a994f9193941cd3f">where</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask, dtype inA, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inB)</td></tr>
+<tr class="separator:a446fff289053b687a994f9193941cd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9751f678e096a185122168c1c52edb25"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9751f678e096a185122168c1c52edb25"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9751f678e096a185122168c1c52edb25">zeros</a> (const <a class="el" href="classnc_1_1_shape.html">Shape</a> &amp;inShape)</td></tr>
 <tr class="separator:a9751f678e096a185122168c1c52edb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -22145,7 +22151,7 @@ template&lt;typename dtype &gt; </div>
 </div>
 </div>
 <a id="ac0af750215d0444ad9f0208620ca206b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0af750215d0444ad9f0208620ca206b">&#9670;&nbsp;</a></span>where()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0af750215d0444ad9f0208620ca206b">&#9670;&nbsp;</a></span>where() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -22190,6 +22196,100 @@ template&lt;typename dtype &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_read_me_8cpp-example.html#a21">ReadMe.cpp</a>.</dd>
 </dl>
+
+</div>
+</div>
+<a id="a7191d45f29de05f27964f56f36c9be94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7191d45f29de05f27964f56f36c9be94">&#9670;&nbsp;</a></span>where() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::where </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return elements, either from x or y, depending on the input mask. The output array contains elements of x where mask is True, and elements from y elsewhere.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.where.html">https://www.numpy.org/devdocs/reference/generated/numpy.where.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inMask</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td></td></tr>
+    <tr><td class="paramname">inB</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a446fff289053b687a994f9193941cd3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446fff289053b687a994f9193941cd3f">&#9670;&nbsp;</a></span>where() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::where </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return elements, either from x or y, depending on the input mask. The output array contains elements of x where mask is True, and elements from y elsewhere.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.where.html">https://www.numpy.org/devdocs/reference/generated/numpy.where.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inMask</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td></td></tr>
+    <tr><td class="paramname">inB</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
 
 </div>
 </div>

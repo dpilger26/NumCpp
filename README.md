@@ -15,7 +15,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 2.1.0
+## Version: 2.2.0
 
 ## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
@@ -58,6 +58,10 @@ Clang: 6, 7, 8, 9, 10
 ## [Building](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__building.html)
 
 ## Release Notes
+
+### Version 2.2.0
+
+* Added additional where() overloads to match NumPy functionality  
 
 ### Version 2.1.0
 
