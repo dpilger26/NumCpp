@@ -6890,6 +6890,75 @@ def test_where():
     cArrayB.setArray(dataB)
     assert np.array_equal(NumCpp.where(cArrayMask, cArrayA, cArrayB), np.where(dataMask, dataA, dataB))
 
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    cArrayMask.setArray(dataMask)
+    cArrayA = NumCpp.NdArrayComplexDouble(shape)
+    realA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imagA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataA = realA + 1j * imagA
+    cArrayA.setArray(dataA)
+    cArrayB = NumCpp.NdArrayComplexDouble(shape)
+    realB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imagB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataB = realB + 1j * imagB
+    cArrayB.setArray(dataB)
+    assert np.array_equal(NumCpp.where(cArrayMask, cArrayA, cArrayB), np.where(dataMask, dataA, dataB))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    cArrayA = NumCpp.NdArray(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    dataA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataB = np.random.randint(1, 100)
+    cArrayMask.setArray(dataMask)
+    cArrayA.setArray(dataA)
+    assert np.array_equal(NumCpp.where(cArrayMask, cArrayA, dataB), np.where(dataMask, dataA, dataB))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    cArrayMask.setArray(dataMask)
+    cArrayA = NumCpp.NdArrayComplexDouble(shape)
+    realA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imagA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataA = realA + 1j * imagA
+    cArrayA.setArray(dataA)
+    realB = np.random.randint(1, 100)
+    imagB = np.random.randint(1, 100)
+    dataB = realB + 1j * imagB
+    assert np.array_equal(NumCpp.where(cArrayMask, cArrayA, dataB), np.where(dataMask, dataA, dataB))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    cArrayB = NumCpp.NdArray(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    dataB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataA = np.random.randint(1, 100)
+    cArrayMask.setArray(dataMask)
+    cArrayB.setArray(dataB)
+    assert np.array_equal(NumCpp.where(cArrayMask, dataA, cArrayB), np.where(dataMask, dataA, dataB))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    cArrayMask.setArray(dataMask)
+    cArrayB = NumCpp.NdArrayComplexDouble(shape)
+    realB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    imagB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataB = realB + 1j * imagB
+    cArrayB.setArray(dataB)
+    realA = np.random.randint(1, 100)
+    imagA = np.random.randint(1, 100)
+    dataA = realA + 1j * imagA
+    assert np.array_equal(NumCpp.where(cArrayMask, dataA, cArrayB), np.where(dataMask, dataA, dataB))
+
 
 ####################################################################################
 def test_zeros():

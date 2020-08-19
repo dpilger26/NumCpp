@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project("NumCpp"
-    VERSION 2.1.0
+    VERSION 2.2.0
     DESCRIPTION "A Templatized Header Only C++ Implementation of the Python NumPy Library"
     HOMEPAGE_URL "https://github.com/dpilger26/NumCpp"
     LANGUAGES CXX

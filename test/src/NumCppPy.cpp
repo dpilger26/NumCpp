@@ -4127,7 +4127,23 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    np::ndarray whereArrayArray(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    {
+        return nc2Boost(nc::where(inMask, inA, inB));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray whereScalerArray(const NdArray<bool>& inMask, const NdArray<dtype>& inA, dtype inB)
+    {
+        return nc2Boost(nc::where(inMask, inA, inB));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray whereArrayScaler(const NdArray<bool>& inMask, dtype inA, const NdArray<dtype>& inB)
     {
         return nc2Boost(nc::where(inMask, inA, inB));
     }
@@ -7129,8 +7145,12 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("var", varComplexDouble);
     bp::def("vstack", &FunctionsInterface::vstack<double>);
 
-    bp::def("where", &FunctionsInterface::where<double>);
-    bp::def("where", &FunctionsInterface::where<ComplexDouble>);
+    bp::def("where", &FunctionsInterface::whereArrayArray<double>);
+    bp::def("where", &FunctionsInterface::whereArrayArray<ComplexDouble>);
+    bp::def("where", &FunctionsInterface::whereArrayScaler<double>);
+    bp::def("where", &FunctionsInterface::whereArrayScaler<ComplexDouble>);
+    bp::def("where", &FunctionsInterface::whereScalerArray<double>);
+    bp::def("where", &FunctionsInterface::whereScalerArray<ComplexDouble>);
 
     bp::def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
     bp::def("zerosSquareComplex", &FunctionsInterface::zerosSquare<ComplexDouble>);

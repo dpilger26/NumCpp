@@ -24038,6 +24038,126 @@
         </inbodydescription>
         <location file="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" line="53" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" bodystart="53" bodyend="84"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1a7191d45f29de05f27964f56f36c9be94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::where</definition>
+        <argsstring>(const NdArray&lt; bool &gt; &amp;inMask, const NdArray&lt; dtype &gt; &amp;inA, dtype inB)</argsstring>
+        <name>where</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt; &amp;</type>
+          <declname>inMask</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inA</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inB</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return elements, either from x or y, depending on the input mask. The output array contains elements of x where mask is True, and elements from y elsewhere.</para>
+<para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.where.html">https://www.numpy.org/devdocs/reference/generated/numpy.where.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" line="100" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" bodystart="100" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1a446fff289053b687a994f9193941cd3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::where</definition>
+        <argsstring>(const NdArray&lt; bool &gt; &amp;inMask, dtype inA, const NdArray&lt; dtype &gt; &amp;inB)</argsstring>
+        <name>where</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt; &amp;</type>
+          <declname>inMask</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inA</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inB</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return elements, either from x or y, depending on the input mask. The output array contains elements of x where mask is True, and elements from y elsewhere.</para>
+<para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.where.html">https://www.numpy.org/devdocs/reference/generated/numpy.where.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" line="142" column="13" bodyfile="C:/Github/NumCpp/include/NumCpp/Functions/where.hpp" bodystart="142" bodyend="168"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1a9751f678e096a185122168c1c52edb25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
