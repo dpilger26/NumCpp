@@ -16,6 +16,7 @@ option(BUILD_EXAMPLE_README "Build the README example")
 
 include(NumCppTools)
 numcpp_find_version_file("" NUMCPP_VERSION_FILE)
+message(STATUS "Found version file: ${NUMCPP_VERSION_FILE}")
 numcpp_read_version("${NUMCPP_VERSION_FILE}" "" VERSION_STRING)
 
 project("NumCpp"
@@ -26,7 +27,6 @@ project("NumCpp"
 )
 
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
-message(STATUS "CMAKE_PROJECT_DESCRIPTION: ${CMAKE_PROJECT_DESCRIPTION}")
 
 if (BUILD_TESTS)
     add_subdirectory(test)

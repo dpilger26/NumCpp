@@ -15,16 +15,16 @@ before_install:
 install:    
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
-  - travis_retry wget --no-check-certificate https://cmake.org/files/v3.14/cmake-3.14.0-Linux-x86_64.tar.gz
-  - tar -xvf cmake-3.14.0-Linux-x86_64.tar.gz > /dev/null
-  - mv cmake-3.14.0-Linux-x86_64 cmake-install
+  - travis_retry wget --no-check-certificate https://cmake.org/files/v3.17/cmake-3.17.1-Linux-x86_64.tar.gz
+  - tar -xvf cmake-3.17.1-Linux-x86_64.tar.gz > /dev/null
+  - mv cmake-3.17.1-Linux-x86_64 cmake-install
   - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
   - cd ${TRAVIS_BUILD_DIR}
 
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=True -DBUILD_EXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
+  - cmake .. -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
   - cmake --build . --config Release --target GaussNewtonNlls
   - cmake --build . --config Release --target ReadMe
   - sudo make install
