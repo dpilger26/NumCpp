@@ -1,7 +1,7 @@
 function(numcpp_find_version_file search_path version_file_path)
     #find the file with the version
     find_file(VERSION_FILE
-              NAMES VERSION.hpp
+              NAMES Version.hpp
               PATHS
               "${CMAKE_CURRENT_SOURCE_DIR}/include/NumCpp/Core/Internal"
               ${search_path}
