@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,93 +89,93 @@ $(document).ready(function(){initNavTree('arange_8hpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="arange_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">   61</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(dtype inStart, dtype inStop, dtype inStep = 1)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">if</span> (inStep &gt; 0 &amp;&amp; inStop &lt; inStart)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;stop value must be larger than the start value for positive step.&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (inStep &lt; 0 &amp;&amp; inStop &gt; inStart)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;start value must be larger than the stop value for negative step.&quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        std::vector&lt;dtype&gt; values;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        dtype theValue = inStart;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">auto</span> counter = dtype{ 1 };</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> (inStep &gt; 0)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">while</span> (theValue &lt; inStop)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                values.push_back(theValue);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                theValue = inStart + inStep * counter++;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">while</span> (theValue &gt; inStop)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                values.push_back(theValue);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                theValue = inStart + inStep * counter++;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(values);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacenc.html#a2edad3e052b232bd9075c78aad3c9287">  120</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(dtype inStop)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span> (inStop &lt;= 0)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;stop value must ge greater than 0.&quot;</span>);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> arange&lt;dtype&gt;(0, inStop, 1);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="namespacenc.html#a724165d620d8bff96f8f004c18257ad6">  150</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_slice.html">Slice</a>&amp; inSlice)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> arange&lt;dtype&gt;(inSlice.<a class="code" href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">start</a>, inSlice.<a class="code" href="classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5">stop</a>, inSlice.<a class="code" href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">step</a>);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">   60</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(dtype inStart, dtype inStop, dtype inStep = 1)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (inStep &gt; 0 &amp;&amp; inStop &lt; inStart)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;stop value must be larger than the start value for positive step.&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (inStep &lt; 0 &amp;&amp; inStop &gt; inStart)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;start value must be larger than the stop value for negative step.&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::vector&lt;dtype&gt; values;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        dtype theValue = inStart;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">auto</span> counter = dtype{ 1 };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> (inStep &gt; 0)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">while</span> (theValue &lt; inStop)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                values.push_back(theValue);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                theValue = inStart + inStep * counter++;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">while</span> (theValue &gt; inStop)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                values.push_back(theValue);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                theValue = inStart + inStep * counter++;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(values);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="namespacenc.html#a2edad3e052b232bd9075c78aad3c9287">  119</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(dtype inStop)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> (inStop &lt;= 0)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;stop value must ge greater than 0.&quot;</span>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> arange&lt;dtype&gt;(0, inStop, 1);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="namespacenc.html#a724165d620d8bff96f8f004c18257ad6">  149</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_slice.html">Slice</a>&amp; inSlice)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> arange&lt;dtype&gt;(inSlice.<a class="code" href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">start</a>, inSlice.<a class="code" href="classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5">stop</a>, inSlice.<a class="code" href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">step</a>);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_slice_html_ac2d72f4ca003ed645bc82efcafee87f5"><div class="ttname"><a href="classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5">nc::Slice::stop</a></div><div class="ttdeci">int32 stop</div><div class="ttdef"><b>Definition:</b> Slice.hpp:49</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html_ac2d72f4ca003ed645bc82efcafee87f5"><div class="ttname"><a href="classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5">nc::Slice::stop</a></div><div class="ttdeci">int32 stop</div><div class="ttdef"><b>Definition:</b> Slice.hpp:48</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:38</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_slice_html_a36ddb261d9057db4a9794b4fc46e9d3f"><div class="ttname"><a href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">nc::Slice::start</a></div><div class="ttdeci">int32 start</div><div class="ttdef"><b>Definition:</b> Slice.hpp:48</div></div>
-<div class="ttc" id="aclassnc_1_1_slice_html_a112855a11aa1737b7859e3d63feb09c4"><div class="ttname"><a href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">nc::Slice::step</a></div><div class="ttdeci">int32 step</div><div class="ttdef"><b>Definition:</b> Slice.hpp:50</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
-<div class="ttc" id="anamespacenc_html_a465e2385ac78ca4cc23928a4a0cd9f53"><div class="ttname"><a href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">nc::arange</a></div><div class="ttdeci">NdArray&lt; dtype &gt; arange(dtype inStart, dtype inStop, dtype inStep=1)</div><div class="ttdef"><b>Definition:</b> arange.hpp:61</div></div>
-<div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:44</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html_a36ddb261d9057db4a9794b4fc46e9d3f"><div class="ttname"><a href="classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f">nc::Slice::start</a></div><div class="ttdeci">int32 start</div><div class="ttdef"><b>Definition:</b> Slice.hpp:47</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html_a112855a11aa1737b7859e3d63feb09c4"><div class="ttname"><a href="classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4">nc::Slice::step</a></div><div class="ttdeci">int32 step</div><div class="ttdef"><b>Definition:</b> Slice.hpp:49</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="anamespacenc_html_a465e2385ac78ca4cc23928a4a0cd9f53"><div class="ttname"><a href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">nc::arange</a></div><div class="ttdeci">NdArray&lt; dtype &gt; arange(dtype inStart, dtype inStop, dtype inStep=1)</div><div class="ttdef"><b>Definition:</b> arange.hpp:60</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:43</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

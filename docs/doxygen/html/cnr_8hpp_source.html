@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,39 +89,39 @@ $(document).ready(function(){initNavTree('cnr_8hpp_source.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 <a href="cnr_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="factorial_8hpp.html">NumCpp/Special/factorial.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pnr_8hpp.html">NumCpp/Special/pnr.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">namespace </span>special</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">   52</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">cnr</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> r)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1special.html#ab52643e0c6a859c47871094023c834b5">pnr</a>(n, r) / <a class="code" href="namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3">factorial</a>(r);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }  <span class="comment">// namespace special</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="factorial_8hpp.html">NumCpp/Special/factorial.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pnr_8hpp.html">NumCpp/Special/pnr.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">namespace </span>special</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">   51</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">cnr</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> r)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1special.html#ab52643e0c6a859c47871094023c834b5">pnr</a>(n, r) / <a class="code" href="namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3">factorial</a>(r);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }  <span class="comment">// namespace special</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenc_1_1special_html_a8249c674798e782f98a90942818ab395"><div class="ttname"><a href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">nc::special::cnr</a></div><div class="ttdeci">double cnr(uint32 n, uint32 r)</div><div class="ttdef"><b>Definition:</b> cnr.hpp:52</div></div>
+<div class="ttc" id="anamespacenc_1_1special_html_a8249c674798e782f98a90942818ab395"><div class="ttname"><a href="namespacenc_1_1special.html#a8249c674798e782f98a90942818ab395">nc::special::cnr</a></div><div class="ttdeci">double cnr(uint32 n, uint32 r)</div><div class="ttdef"><b>Definition:</b> cnr.hpp:51</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="apnr_8hpp_html"><div class="ttname"><a href="pnr_8hpp.html">pnr.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
 <div class="ttc" id="afactorial_8hpp_html"><div class="ttname"><a href="factorial_8hpp.html">factorial.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1special_html_a429b2caa6cf7fcbdba8ce3184c0367e3"><div class="ttname"><a href="namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3">nc::special::factorial</a></div><div class="ttdeci">double factorial(uint32 inValue)</div><div class="ttdef"><b>Definition:</b> factorial.hpp:52</div></div>
+<div class="ttc" id="anamespacenc_1_1special_html_a429b2caa6cf7fcbdba8ce3184c0367e3"><div class="ttname"><a href="namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3">nc::special::factorial</a></div><div class="ttdeci">double factorial(uint32 inValue)</div><div class="ttdef"><b>Definition:</b> factorial.hpp:51</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1special_html_ab52643e0c6a859c47871094023c834b5"><div class="ttname"><a href="namespacenc_1_1special.html#ab52643e0c6a859c47871094023c834b5">nc::special::pnr</a></div><div class="ttdeci">double pnr(uint32 n, uint32 r)</div><div class="ttdef"><b>Definition:</b> pnr.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_1_1special_html_ab52643e0c6a859c47871094023c834b5"><div class="ttname"><a href="namespacenc_1_1special.html#ab52643e0c6a859c47871094023c834b5">nc::special::pnr</a></div><div class="ttdeci">double pnr(uint32 n, uint32 r)</div><div class="ttdef"><b>Definition:</b> pnr.hpp:49</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

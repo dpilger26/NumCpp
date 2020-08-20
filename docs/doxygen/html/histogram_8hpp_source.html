@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,92 +89,92 @@ $(document).ready(function(){initNavTree('histogram_8hpp_source.html',''); initR
 </div><!--header-->
 <div class="contents">
 <a href="histogram_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="linspace_8hpp.html">NumCpp/Functions/linspace.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zeros_8hpp.html">NumCpp/Functions/zeros.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">   57</a></span>&#160;    std::pair&lt;NdArray&lt;uint32&gt;, <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> &gt; <a class="code" href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">histogram</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inNumBins = 10)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (inNumBins == 0)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;number of bins must be positive.&quot;</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a> histo = zeros&lt;uint32&gt;(1, inNumBins);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        constexpr <span class="keywordtype">bool</span> useEndPoint = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> binEdges = <a class="code" href="namespacenc.html#a672fbcbd2271d5fc58bd1b94750bbdcc">linspace</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a7f0c49ac50a79ba24ea8d351ee70fd55">min</a>().<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>()),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray.<a class="code" href="classnc_1_1_nd_array.html#abbca6c205525a4b706729f9f36acc06d">max</a>().<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>()), inNumBins + 1, useEndPoint);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>(); ++i)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">// binary search to find the bin idx</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            constexpr <span class="keywordtype">bool</span> keepSearching = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> lowIdx = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> highIdx = binEdges.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>() - 1;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">while</span> (keepSearching)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> idx = (lowIdx + highIdx) / 2; <span class="comment">// integer division</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">if</span> (lowIdx == highIdx || lowIdx == highIdx - 1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="comment">// we found the bin</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    ++histo[lowIdx];</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">if</span> (inArray[i] &gt; binEdges[idx])</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    lowIdx = idx;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (inArray[i] &lt; binEdges[idx])</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    highIdx = idx;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <span class="comment">// we found the bin</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    ++histo[idx];</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> std::make_pair(histo, binEdges);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="linspace_8hpp.html">NumCpp/Functions/linspace.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zeros_8hpp.html">NumCpp/Functions/zeros.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">   56</a></span>&#160;    std::pair&lt;NdArray&lt;uint32&gt;, <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> &gt; <a class="code" href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">histogram</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inNumBins = 10)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (inNumBins == 0)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;number of bins must be positive.&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a> histo = zeros&lt;uint32&gt;(1, inNumBins);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        constexpr <span class="keywordtype">bool</span> useEndPoint = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> binEdges = <a class="code" href="namespacenc.html#a672fbcbd2271d5fc58bd1b94750bbdcc">linspace</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a7f0c49ac50a79ba24ea8d351ee70fd55">min</a>().<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>()),</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(inArray.<a class="code" href="classnc_1_1_nd_array.html#abbca6c205525a4b706729f9f36acc06d">max</a>().<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>()), inNumBins + 1, useEndPoint);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>(); ++i)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// binary search to find the bin idx</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            constexpr <span class="keywordtype">bool</span> keepSearching = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> lowIdx = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> highIdx = binEdges.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>() - 1;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">while</span> (keepSearching)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> idx = (lowIdx + highIdx) / 2; <span class="comment">// integer division</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span> (lowIdx == highIdx || lowIdx == highIdx - 1)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="comment">// we found the bin</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    ++histo[lowIdx];</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">if</span> (inArray[i] &gt; binEdges[idx])</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    lowIdx = idx;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (inArray[i] &lt; binEdges[idx])</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    highIdx = idx;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="comment">// we found the bin</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    ++histo[idx];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> std::make_pair(histo, binEdges);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2958</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2957</div></div>
 <div class="ttc" id="azeros_8hpp_html"><div class="ttname"><a href="zeros_8hpp.html">zeros.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:38</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abbca6c205525a4b706729f9f36acc06d"><div class="ttname"><a href="classnc_1_1_nd_array.html#abbca6c205525a4b706729f9f36acc06d">nc::NdArray::max</a></div><div class="ttdeci">NdArray&lt; dtype &gt; max(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2979</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_abbca6c205525a4b706729f9f36acc06d"><div class="ttname"><a href="classnc_1_1_nd_array.html#abbca6c205525a4b706729f9f36acc06d">nc::NdArray::max</a></div><div class="ttdeci">NdArray&lt; dtype &gt; max(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2978</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="alinspace_8hpp_html"><div class="ttname"><a href="linspace_8hpp.html">linspace.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4326</div></div>
-<div class="ttc" id="anamespacenc_html_a672fbcbd2271d5fc58bd1b94750bbdcc"><div class="ttname"><a href="namespacenc.html#a672fbcbd2271d5fc58bd1b94750bbdcc">nc::linspace</a></div><div class="ttdeci">NdArray&lt; dtype &gt; linspace(dtype inStart, dtype inStop, uint32 inNum=50, bool endPoint=true)</div><div class="ttdef"><b>Definition:</b> linspace.hpp:63</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4325</div></div>
+<div class="ttc" id="anamespacenc_html_a672fbcbd2271d5fc58bd1b94750bbdcc"><div class="ttname"><a href="namespacenc.html#a672fbcbd2271d5fc58bd1b94750bbdcc">nc::linspace</a></div><div class="ttdeci">NdArray&lt; dtype &gt; linspace(dtype inStart, dtype inStop, uint32 inNum=50, bool endPoint=true)</div><div class="ttdef"><b>Definition:</b> linspace.hpp:62</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_a9f8af3a8f7adefd20992fe0686837cf6"><div class="ttname"><a href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">nc::histogram</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; uint32 &gt;, NdArray&lt; double &gt; &gt; histogram(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNumBins=10)</div><div class="ttdef"><b>Definition:</b> histogram.hpp:57</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a7f0c49ac50a79ba24ea8d351ee70fd55"><div class="ttname"><a href="classnc_1_1_nd_array.html#a7f0c49ac50a79ba24ea8d351ee70fd55">nc::NdArray::min</a></div><div class="ttdeci">NdArray&lt; dtype &gt; min(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3036</div></div>
+<div class="ttc" id="anamespacenc_html_a9f8af3a8f7adefd20992fe0686837cf6"><div class="ttname"><a href="namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6">nc::histogram</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; uint32 &gt;, NdArray&lt; double &gt; &gt; histogram(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNumBins=10)</div><div class="ttdef"><b>Definition:</b> histogram.hpp:56</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a7f0c49ac50a79ba24ea8d351ee70fd55"><div class="ttname"><a href="classnc_1_1_nd_array.html#a7f0c49ac50a79ba24ea8d351ee70fd55">nc::NdArray::min</a></div><div class="ttdeci">NdArray&lt; dtype &gt; min(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3035</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

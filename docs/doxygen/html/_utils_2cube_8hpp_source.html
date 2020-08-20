@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,29 +89,29 @@ $(document).ready(function(){initNavTree('_utils_2cube_8hpp_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_utils_2cube_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html">   35</a></span>&#160;    <span class="keyword">namespace </span>utils</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">   45</a></span>&#160;        constexpr dtype <a class="code" href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">cube</a>(dtype inValue) noexcept</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">return</span> inValue * inValue * inValue;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }  <span class="comment">// namespace utils</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html">   34</a></span>&#160;    <span class="keyword">namespace </span>utils</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">   44</a></span>&#160;        constexpr dtype <a class="code" href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">cube</a>(dtype inValue) noexcept</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> inValue * inValue * inValue;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }  <span class="comment">// namespace utils</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:51</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a46e88717d4d32003bb449fd5cefd401c"><div class="ttname"><a href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">nc::utils::cube</a></div><div class="ttdeci">constexpr dtype cube(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> Utils/cube.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a46e88717d4d32003bb449fd5cefd401c"><div class="ttname"><a href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">nc::utils::cube</a></div><div class="ttdeci">constexpr dtype cube(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> Utils/cube.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

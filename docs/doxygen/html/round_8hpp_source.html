@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,38 +89,38 @@ $(document).ready(function(){initNavTree('round_8hpp_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="round_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">   47</a></span>&#160;    dtype <a class="code" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">round</a>(dtype inValue, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inDecimals = 0) </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> input = { inValue };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> input.<a class="code" href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">round</a>(inDecimals).<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="namespacenc.html#a2a3a666494e7c95975d40ce80b156f0f">   64</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">round</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inDecimals = 0) </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">round</a>(inDecimals);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">   46</a></span>&#160;    dtype <a class="code" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">round</a>(dtype inValue, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inDecimals = 0) </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> input = { inValue };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> input.<a class="code" href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">round</a>(inDecimals).<a class="code" href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">item</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacenc.html#a2a3a666494e7c95975d40ce80b156f0f">   63</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">round</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a> inDecimals = 0) </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">round</a>(inDecimals);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2958</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a13b0f7af99772cfbca83b6734fbef04d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">nc::NdArray::round</a></div><div class="ttdeci">NdArray&lt; dtype &gt; round(uint8 inNumDecimals=0) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4274</div></div>
-<div class="ttc" id="anamespacenc_html_a9ba5a0aa26753a185985b8273fb9062d"><div class="ttname"><a href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a></div><div class="ttdeci">std::uint8_t uint8</div><div class="ttdef"><b>Definition:</b> Types.hpp:43</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2957</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a13b0f7af99772cfbca83b6734fbef04d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d">nc::NdArray::round</a></div><div class="ttdeci">NdArray&lt; dtype &gt; round(uint8 inNumDecimals=0) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4273</div></div>
+<div class="ttc" id="anamespacenc_html_a9ba5a0aa26753a185985b8273fb9062d"><div class="ttname"><a href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">nc::uint8</a></div><div class="ttdeci">std::uint8_t uint8</div><div class="ttdef"><b>Definition:</b> Types.hpp:42</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html_af9c0b27b59e8a7be27130c9f470c4ef3"><div class="ttname"><a href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">nc::round</a></div><div class="ttdeci">dtype round(dtype inValue, uint8 inDecimals=0)</div><div class="ttdef"><b>Definition:</b> round.hpp:47</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_html_af9c0b27b59e8a7be27130c9f470c4ef3"><div class="ttname"><a href="namespacenc.html#af9c0b27b59e8a7be27130c9f470c4ef3">nc::round</a></div><div class="ttdeci">dtype round(dtype inValue, uint8 inDecimals=0)</div><div class="ttdef"><b>Definition:</b> round.hpp:46</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

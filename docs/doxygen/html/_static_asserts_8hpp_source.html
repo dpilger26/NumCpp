@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,30 +89,30 @@ $(document).ready(function(){initNavTree('_static_asserts_8hpp_source.html','');
 </div><!--header-->
 <div class="contents">
 <a href="_static_asserts_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_type_traits_8hpp.html">NumCpp/Core/Internal/TypeTraits.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a00cfe1ea01e56fe28ffe3d6ce5cae468">   35</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_VALID_DTYPE(dtype) \</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    static_assert(nc::is_valid_dtype_v&lt;dtype&gt;, &quot;Template type is not a valid dtype for NdArray&quot;)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">   38</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_ARITHMETIC(dtype) \</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    static_assert(is_arithmetic_v&lt;dtype&gt;, &quot;Can only be used with arithmetic types&quot;)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">   41</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_INTEGER(dtype) \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    static_assert(is_integral_v&lt;dtype&gt;, &quot;Can only be used with integer types&quot;)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">   44</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_FLOAT(dtype) \</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">    static_assert(is_floating_point_v&lt;dtype&gt;, &quot;Can only be used with float types&quot;)</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a1cd1b98c2b918cbd369afc12c11a0597">   47</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_COMPLEX(dtype) \</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">    static_assert(is_complex_v&lt;dtype&gt;, \</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">    &quot;Can only be used with std::complex types&quot;)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">   51</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype) \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    static_assert(std::is_arithmetic&lt;dtype&gt;::value || is_complex_v&lt;dtype&gt;, \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">    &quot;Can only be used with arithmetic types or std::complex types&quot;)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_type_traits_8hpp.html">NumCpp/Core/Internal/TypeTraits.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a00cfe1ea01e56fe28ffe3d6ce5cae468">   34</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_VALID_DTYPE(dtype) \</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">    static_assert(nc::is_valid_dtype_v&lt;dtype&gt;, &quot;Template type is not a valid dtype for NdArray&quot;)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">   37</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_ARITHMETIC(dtype) \</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    static_assert(is_arithmetic_v&lt;dtype&gt;, &quot;Can only be used with arithmetic types&quot;)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">   40</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_INTEGER(dtype) \</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">    static_assert(is_integral_v&lt;dtype&gt;, &quot;Can only be used with integer types&quot;)</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">   43</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_FLOAT(dtype) \</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">    static_assert(is_floating_point_v&lt;dtype&gt;, &quot;Can only be used with float types&quot;)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a1cd1b98c2b918cbd369afc12c11a0597">   46</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_COMPLEX(dtype) \</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">    static_assert(is_complex_v&lt;dtype&gt;, \</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">    &quot;Can only be used with std::complex types&quot;)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">   50</a></span>&#160;<span class="preprocessor">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype) \</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    static_assert(std::is_arithmetic&lt;dtype&gt;::value || is_complex_v&lt;dtype&gt;, \</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    &quot;Can only be used with arithmetic types or std::complex types&quot;)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_type_traits_8hpp_html"><div class="ttname"><a href="_type_traits_8hpp.html">TypeTraits.hpp</a></div></div>

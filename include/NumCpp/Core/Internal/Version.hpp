@@ -1,9 +1,8 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-/// @version 2.2.0
 ///
-/// @section License
+/// License
 /// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,12 +22,12 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section Description
+/// Description
 /// Library version
 ///
 #pragma once
 
 namespace nc
 {
-    constexpr char VERSION[] = "1.4.0"; ///< Current NumCpp version number
+    constexpr char VERSION[] = "2.2.0"; ///< Current NumCpp version number
 } // namespace nc

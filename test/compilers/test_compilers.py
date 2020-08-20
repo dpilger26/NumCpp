@@ -115,19 +115,18 @@ class Builder:
 
         # NOTE: bypass InterfaceWithEigen example with VS on C++20 for now since Eigen doesn't
         # seem to compile. Revisit this in the future
-        build_eigen_example = True
+        build_eigen_example = 'ON'
         if _IS_WINDOWS and build_configs.cxx_standard == CxxStandard.cxx_20:
-            build_eigen_example = False
+            build_eigen_example = 'OFF'
 
         cmake_cmd = ['cmake',
                      '-S', str(self._root_dir),
                      '-B', str(self._build_dir),
-                     '-DNUMCPP_TEST=True',
-                     '-DNUMCPP_EXAMPLES=True',
-                     '-DEXAMPLE_GAUSS_NEWTON_NLLS=True',
-                     f'-DEXAMPLE_INTERFACE_WITH_EIGEN={build_eigen_example}',
-                     '-DEXAMPLE_INTERFACE_WITH_OPENCV=True',
-                     '-DEXAMPLE_README=True']
+                     '-DBUILD_TESTS=ON',
+                     '-DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON',
+                     f'-DBUILD_EXAMPLE_INTERFACE_WITH_EIGEN={build_eigen_example}',
+                     '-DBUILD_EXAMPLE_INTERFACE_WITH_OPENCV=ON',
+                     '-DBUILD_EXAMPLE_README=ON']
 
         if _IS_WINDOWS:
             cmake_cmd.extend(['-G', 'Visual Studio 16 2019',

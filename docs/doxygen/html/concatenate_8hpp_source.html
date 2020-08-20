@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,58 +89,58 @@ $(document).ready(function(){initNavTree('concatenate_8hpp_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <a href="concatenate_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="column__stack_8hpp.html">NumCpp/Functions/column_stack.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="row__stack_8hpp.html">NumCpp/Functions/row_stack.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">   53</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">concatenate</a>(<span class="keyword">const</span> std::initializer_list&lt;<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> &gt;&amp; inArrayList, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">switch</span> (inAxis)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> finalSize = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; ndarray : inArrayList)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    finalSize += ndarray.size();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(1, finalSize);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> offset = 0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; ndarray : inArrayList)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <a class="code" href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">stl_algorithms::copy</a>(ndarray.cbegin(), ndarray.cend(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>() + offset);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    offset += ndarray.size();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">row_stack</a>(inArrayList);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">Axis::COL</a>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a940bbaf9f760ce2d85119beb4a5c23f2">column_stack</a>(inArrayList);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="column__stack_8hpp.html">NumCpp/Functions/column_stack.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="row__stack_8hpp.html">NumCpp/Functions/row_stack.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">   52</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">concatenate</a>(<span class="keyword">const</span> std::initializer_list&lt;<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> &gt;&amp; inArrayList, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">switch</span> (inAxis)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> finalSize = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; ndarray : inArrayList)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    finalSize += ndarray.size();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(1, finalSize);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> offset = 0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; ndarray : inArrayList)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    <a class="code" href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">stl_algorithms::copy</a>(ndarray.cbegin(), ndarray.cend(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>() + offset);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    offset += ndarray.size();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">row_stack</a>(inArrayList);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">Axis::COL</a>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a940bbaf9f760ce2d85119beb4a5c23f2">column_stack</a>(inArrayList);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">nc::Axis::NONE</a></div><div class="ttdeci">@ NONE</div></div>
@@ -148,18 +148,18 @@ $(document).ready(function(){initNavTree('concatenate_8hpp_source.html',''); ini
 <div class="ttc" id="acolumn__stack_8hpp_html"><div class="ttname"><a href="column__stack_8hpp.html">column_stack.hpp</a></div></div>
 <div class="ttc" id="arow__stack_8hpp_html"><div class="ttname"><a href="row__stack_8hpp.html">row_stack.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
-<div class="ttc" id="anamespacenc_html_a940bbaf9f760ce2d85119beb4a5c23f2"><div class="ttname"><a href="namespacenc.html#a940bbaf9f760ce2d85119beb4a5c23f2">nc::column_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; column_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> column_stack.hpp:52</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_ae62a4e197ec640aacea520220bd27cef"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">nc::stl_algorithms::copy</a></div><div class="ttdeci">OutputIt copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:96</div></div>
-<div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:47</div></div>
-<div class="ttc" id="anamespacenc_html_a0d82f81eba247f95974bd20039bd56fc"><div class="ttname"><a href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">nc::row_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; row_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> row_stack.hpp:52</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
+<div class="ttc" id="anamespacenc_html_a940bbaf9f760ce2d85119beb4a5c23f2"><div class="ttname"><a href="namespacenc.html#a940bbaf9f760ce2d85119beb4a5c23f2">nc::column_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; column_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> column_stack.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_ae62a4e197ec640aacea520220bd27cef"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">nc::stl_algorithms::copy</a></div><div class="ttdeci">OutputIt copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:95</div></div>
+<div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:46</div></div>
+<div class="ttc" id="anamespacenc_html_a0d82f81eba247f95974bd20039bd56fc"><div class="ttname"><a href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">nc::row_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; row_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> row_stack.hpp:51</div></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
-<div class="ttc" id="anamespacenc_html_a027070169f1750a74315d07c5bbdfb03"><div class="ttname"><a href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">nc::concatenate</a></div><div class="ttdeci">NdArray&lt; dtype &gt; concatenate(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> concatenate.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="anamespacenc_html_a027070169f1750a74315d07c5bbdfb03"><div class="ttname"><a href="namespacenc.html#a027070169f1750a74315d07c5bbdfb03">nc::concatenate</a></div><div class="ttdeci">NdArray&lt; dtype &gt; concatenate(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> concatenate.hpp:52</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1091</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1090</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">nc::Axis::COL</a></div><div class="ttdeci">@ COL</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

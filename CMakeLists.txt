@@ -1,19 +1,38 @@
 cmake_minimum_required(VERSION 3.14)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+option(BUILD_DOCS "Build the doxygen documentation")
+option(BUILD_TESTS "Build the unit tests")
+option(BUILD_EXAMPLE_ALL "Build all of the examples")
+option(BUILD_EXAMPLE_GAUSS_NEWTON_NLLS "Build the Gauss-Newton NLLS example")
+option(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN "Build the Interface with Eigen example")
+option(BUILD_EXAMPLE_INTERFACE_WITH_OPENCV "Build the Interface with OpenCV example")
+option(BUILD_EXAMPLE_README "Build the README example")
+
+include(NumCppTools)
+numcpp_find_version_file("" NUMCPP_VERSION_FILE)
+numcpp_read_version("${NUMCPP_VERSION_FILE}" "" VERSION_STRING)
+
 project("NumCpp"
-    VERSION 2.2.0
+    VERSION "${VERSION_STRING}"
     DESCRIPTION "A Templatized Header Only C++ Implementation of the Python NumPy Library"
     HOMEPAGE_URL "https://github.com/dpilger26/NumCpp"
     LANGUAGES CXX
 )
 
-if (NUMCPP_TEST)
+message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
+message(STATUS "CMAKE_PROJECT_DESCRIPTION: ${CMAKE_PROJECT_DESCRIPTION}")
+
+if (BUILD_TESTS)
     add_subdirectory(test)
 endif()
 
-if (NUMCPP_EXAMPLES)
-    add_subdirectory(examples)
-endif()
+add_subdirectory(examples)
 
 add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
@@ -25,6 +44,28 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 )
 
 target_compile_features(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:cxx_std_17>)
+
+if (BUILD_DOCS)
+    find_package(Doxygen)
+    if(DOXYGEN_FOUND)
+        if (CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
+            message("Doxygen build started")
+
+            set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxygen/Doxyfile.in)
+            set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+            configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+
+            add_custom_target( docs ALL
+                COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+                COMMENT "Generating API documentation with Doxygen"
+                VERBATIM )
+        endif()
+    else(DOXYGEN_FOUND)
+        message(WARNING "Doxygen needs to be installed to generate the doxygen documentation")
+    endif(DOXYGEN_FOUND)
+endif(BUILD_DOCS)
 
 install(TARGETS ${PROJECT_NAME}
     EXPORT ${PROJECT_NAME}_Targets
