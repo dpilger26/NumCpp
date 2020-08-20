@@ -16,6 +16,7 @@ option(BUILD_EXAMPLE_README "Build the README example")
 
 include(NumCppTools)
 numcpp_find_version_file("" NUMCPP_VERSION_FILE)
+message(STATUS "Found version file: ${NUMCPP_VERSION_FILE}")
 numcpp_read_version("${NUMCPP_VERSION_FILE}" "" VERSION_STRING)
 
 project("NumCpp"
