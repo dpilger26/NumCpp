@@ -26,7 +26,6 @@ project("NumCpp"
 )
 
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
-message(STATUS "CMAKE_PROJECT_DESCRIPTION: ${CMAKE_PROJECT_DESCRIPTION}")
 
 if (BUILD_TESTS)
     add_subdirectory(test)
