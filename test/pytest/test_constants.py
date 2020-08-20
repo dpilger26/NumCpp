@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import re
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
 import NumCppPy as NumCpp  # noqa E402
@@ -9,7 +10,14 @@ NUM_DECIMALS_ROUND = 10
 
 ####################################################################################
 def test_version():
-    assert NumCpp.VERSION == '1.4.0'
+    version_file = r'../../include/NumCpp/Core/Internal/Version.hpp'
+    with open(version_file, 'r') as fid:
+        version_contents = fid.read()
+
+    version_re = re.compile('constexpr[ ]char[ ]VERSION\\[\\][ ]=[ ]\"(.+)\"')
+    version_toks = version_re.findall(version_contents)
+    assert len(version_toks) == 1, 'Unable to parse the version number'
+    assert NumCpp.VERSION == version_toks[0]
 
 
 ####################################################################################

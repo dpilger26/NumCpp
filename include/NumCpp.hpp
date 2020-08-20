@@ -1,5 +1,5 @@
 /// @section Description
-/// A C++ Implementation of the Python Numpy Library
+/// A Templatized Header Only C++ Implementation of the Python Numpy Library
 ///
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)

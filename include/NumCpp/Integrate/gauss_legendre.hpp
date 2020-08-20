@@ -2,7 +2,7 @@
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
-/// @section License
+/// License
 /// Copyright 2019 Benjamin Mahr
 /// Copyright 2020 David Pilger
 ///
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section Description
+/// Description
 /// Numerical Integration
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/numericalIntegration

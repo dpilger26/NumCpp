@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,38 +89,38 @@ $(document).ready(function(){initNavTree('_error_8hpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="_error_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">   37</a></span>&#160;<span class="preprocessor">#define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError&lt;std::invalid_argument&gt;(__FILE__, __func__, __LINE__, msg)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">   38</a></span>&#160;<span class="preprocessor">#define THROW_RUNTIME_ERROR(msg) nc::error::throwError&lt;std::runtime_error&gt;(__FILE__, __func__, __LINE__, msg)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacenc_1_1error.html">   42</a></span>&#160;    <span class="keyword">namespace </span>error</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ErrorType&gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">   53</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">throwError</a>(<span class="keyword">const</span> std::string&amp; file,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keyword">const</span> std::string&amp; <span class="keyword">function</span>,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> line,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">const</span> std::string&amp; msg = <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::string errMsg = <span class="stringliteral">&quot;File: &quot;</span> + file + <span class="stringliteral">&quot;\n\tFunction: &quot;</span> + <span class="keyword">function</span> + <span class="stringliteral">&quot;\n\tLine: &quot;</span> + std::to_string(line) + <span class="stringliteral">&quot;\n\tError: &quot;</span> + msg;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            std::cerr &lt;&lt; errMsg;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">throw</span> ErrorType(errMsg);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    } <span class="comment">// namespace error</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">   36</a></span>&#160;<span class="preprocessor">#define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError&lt;std::invalid_argument&gt;(__FILE__, __func__, __LINE__, msg)</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">   37</a></span>&#160;<span class="preprocessor">#define THROW_RUNTIME_ERROR(msg) nc::error::throwError&lt;std::runtime_error&gt;(__FILE__, __func__, __LINE__, msg)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacenc_1_1error.html">   41</a></span>&#160;    <span class="keyword">namespace </span>error</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ErrorType&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">throwError</a>(<span class="keyword">const</span> std::string&amp; file,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keyword">const</span> std::string&amp; <span class="keyword">function</span>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> line,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">const</span> std::string&amp; msg = <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::string errMsg = <span class="stringliteral">&quot;File: &quot;</span> + file + <span class="stringliteral">&quot;\n\tFunction: &quot;</span> + <span class="keyword">function</span> + <span class="stringliteral">&quot;\n\tLine: &quot;</span> + std::to_string(line) + <span class="stringliteral">&quot;\n\tError: &quot;</span> + msg;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::cerr &lt;&lt; errMsg;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">throw</span> ErrorType(errMsg);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    } <span class="comment">// namespace error</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1error_html_ae23be92f797ad9d90604456bdf27092f"><div class="ttname"><a href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">nc::error::throwError</a></div><div class="ttdeci">void throwError(const std::string &amp;file, const std::string &amp;function, uint32 line, const std::string &amp;msg=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> Error.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_1_1error_html_ae23be92f797ad9d90604456bdf27092f"><div class="ttname"><a href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">nc::error::throwError</a></div><div class="ttdeci">void throwError(const std::string &amp;file, const std::string &amp;function, uint32 line, const std::string &amp;msg=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> Error.hpp:52</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

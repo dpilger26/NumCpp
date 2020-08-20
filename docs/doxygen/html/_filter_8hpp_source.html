@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,29 +89,29 @@ $(document).ready(function(){initNavTree('_filter_8hpp_source.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <a href="_filter_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_boundary_8hpp.html">NumCpp/Filter/Boundaries/Boundary.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complementary_median_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/complementaryMedianFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/convolve1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gaussian_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/gaussianFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="maximum_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/maximumFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="median_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/medianFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minimum_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/minimumFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="percentile_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/percentileFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rank_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/rankFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uniform_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/uniformFilter1d.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complementary_median_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/complementaryMedianFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve_8hpp.html">NumCpp/Filter/Filters/Filters2d/convolve.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gaussian_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/gaussianFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_filter_2_filters_2_filters2d_2laplace_8hpp.html">NumCpp/Filter/Filters/Filters2d/laplace.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="maximum_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/maximumFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="median_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/medianFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minimum_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/minimumFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="percentile_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/percentileFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rank_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/rankFilter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uniform_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_boundary_8hpp.html">NumCpp/Filter/Boundaries/Boundary.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complementary_median_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/complementaryMedianFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/convolve1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gaussian_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/gaussianFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="maximum_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/maximumFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="median_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/medianFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minimum_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/minimumFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="percentile_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/percentileFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rank_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/rankFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uniform_filter1d_8hpp.html">NumCpp/Filter/Filters/Filters1d/uniformFilter1d.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complementary_median_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/complementaryMedianFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve_8hpp.html">NumCpp/Filter/Filters/Filters2d/convolve.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gaussian_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/gaussianFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_filter_2_filters_2_filters2d_2laplace_8hpp.html">NumCpp/Filter/Filters/Filters2d/laplace.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="maximum_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/maximumFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="median_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/medianFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minimum_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/minimumFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="percentile_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/percentileFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rank_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/rankFilter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uniform_filter_8hpp.html">NumCpp/Filter/Filters/Filters2d/uniformFilter.hpp</a>&quot;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aminimum_filter_8hpp_html"><div class="ttname"><a href="minimum_filter_8hpp.html">minimumFilter.hpp</a></div></div>

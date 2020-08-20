@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,52 +89,52 @@ $(document).ready(function(){initNavTree('unique_8hpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="unique_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sort_8hpp.html">NumCpp/Functions/sort.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="essentially_equal_8hpp.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">   57</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">unique</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray) </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> comp = [](<span class="keyword">const</span> dtype lhs, <span class="keyword">const</span> dtype rhs) noexcept -&gt; <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(lhs, rhs);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sorted = <a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">sort</a>(inArray);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::vector&lt;dtype&gt; res(sorted.size());</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> last = <a class="code" href="namespacenc_1_1stl__algorithms.html#a7cec030870d1f3b4d1c7caf26c8d907d">stl_algorithms::unique_copy</a>(sorted.begin(), sorted.end(), res.begin(), comp);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(res.begin(), last);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sort_8hpp.html">NumCpp/Functions/sort.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="essentially_equal_8hpp.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">   56</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">unique</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray) </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> comp = [](<span class="keyword">const</span> dtype lhs, <span class="keyword">const</span> dtype rhs) noexcept -&gt; <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(lhs, rhs);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sorted = <a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">sort</a>(inArray);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::vector&lt;dtype&gt; res(sorted.size());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> last = <a class="code" href="namespacenc_1_1stl__algorithms.html#a7cec030870d1f3b4d1c7caf26c8d907d">stl_algorithms::unique_copy</a>(sorted.begin(), sorted.end(), res.begin(), comp);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(res.begin(), last);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:53</div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:52</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:50</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_ad4832f2be01449e48737aa0e06792494"><div class="ttname"><a href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> unique.hpp:57</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_html_ad4832f2be01449e48737aa0e06792494"><div class="ttname"><a href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> unique.hpp:56</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
 <div class="ttc" id="aessentially_equal_8hpp_html"><div class="ttname"><a href="essentially_equal_8hpp.html">essentiallyEqual.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a7cec030870d1f3b4d1c7caf26c8d907d"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a7cec030870d1f3b4d1c7caf26c8d907d">nc::stl_algorithms::unique_copy</a></div><div class="ttdeci">constexpr OutputIt unique_copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:745</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a7cec030870d1f3b4d1c7caf26c8d907d"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a7cec030870d1f3b4d1c7caf26c8d907d">nc::stl_algorithms::unique_copy</a></div><div class="ttdeci">constexpr OutputIt unique_copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:744</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="asort_8hpp_html"><div class="ttname"><a href="sort_8hpp.html">sort.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_a8273e1ecb5eafba97b7ed5b8f10a6cdf"><div class="ttname"><a href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">nc::sort</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sort(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> sort.hpp:48</div></div>
+<div class="ttc" id="anamespacenc_html_a8273e1ecb5eafba97b7ed5b8f10a6cdf"><div class="ttname"><a href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">nc::sort</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sort(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> sort.hpp:47</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

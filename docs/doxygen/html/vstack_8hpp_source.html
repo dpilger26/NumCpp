@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,30 +89,30 @@ $(document).ready(function(){initNavTree('vstack_8hpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="vstack_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="row__stack_8hpp.html">NumCpp/Functions/row_stack.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">   51</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">vstack</a>(<span class="keyword">const</span> std::initializer_list&lt;<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> &gt;&amp; inArrayList)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">row_stack</a>(inArrayList);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="row__stack_8hpp.html">NumCpp/Functions/row_stack.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">   50</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">vstack</a>(<span class="keyword">const</span> std::initializer_list&lt;<a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> &gt;&amp; inArrayList)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">row_stack</a>(inArrayList);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenc_html_a8dec1ff4db1d89ab4b3a7d32ff4b5cf3"><div class="ttname"><a href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">nc::vstack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; vstack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> vstack.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_html_a8dec1ff4db1d89ab4b3a7d32ff4b5cf3"><div class="ttname"><a href="namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3">nc::vstack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; vstack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> vstack.hpp:50</div></div>
 <div class="ttc" id="arow__stack_8hpp_html"><div class="ttname"><a href="row__stack_8hpp.html">row_stack.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_a0d82f81eba247f95974bd20039bd56fc"><div class="ttname"><a href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">nc::row_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; row_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> row_stack.hpp:52</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_html_a0d82f81eba247f95974bd20039bd56fc"><div class="ttname"><a href="namespacenc.html#a0d82f81eba247f95974bd20039bd56fc">nc::row_stack</a></div><div class="ttdeci">NdArray&lt; dtype &gt; row_stack(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inArrayList)</div><div class="ttdef"><b>Definition:</b> row_stack.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

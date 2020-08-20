@@ -1,15 +1,15 @@
-if (EXAMPLE_GAUSS_NEWTON_NLLS)
+if (BUILD_EXAMPLE_GAUSS_NEWTON_NLLS OR BUILD_EXAMPLE_ALL)
     add_subdirectory(GaussNewtonNlls)
 endif()
 
-if (EXAMPLE_INTERFACE_WITH_EIGEN)
+if (BUILD_EXAMPLE_INTERFACE_WITH_EIGEN OR BUILD_EXAMPLE_ALL)
     add_subdirectory(InterfaceWithEigen)
 endif()
 
-if (EXAMPLE_INTERFACE_WITH_OPENCV)
+if (BUILD_EXAMPLE_INTERFACE_WITH_OPENCV OR BUILD_EXAMPLE_ALL)
     add_subdirectory(InterfaceWithOpenCV)
 endif()
 
-if (EXAMPLE_README)
+if (BUILD_EXAMPLE_README OR BUILD_EXAMPLE_ALL)
     add_subdirectory(ReadMe)
 endif()

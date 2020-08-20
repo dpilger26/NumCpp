@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,63 +89,63 @@ $(document).ready(function(){initNavTree('spherical__harmonic_8hpp_source.html',
 </div><!--header-->
 <div class="contents">
 <a href="spherical__harmonic_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;boost/math/special_functions/spherical_harmonic.hpp&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">namespace </span>polynomial</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">   57</a></span>&#160;        std::complex&lt;double&gt; <a class="code" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">spherical_harmonic</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">boost::math::spherical_harmonic</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">   80</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">spherical_harmonic_r</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">boost::math::spherical_harmonic_r</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">  103</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">spherical_harmonic_i</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">boost::math::spherical_harmonic_i</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    } <span class="comment">// namespace polynomial</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;boost/math/special_functions/spherical_harmonic.hpp&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">namespace </span>polynomial</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">   56</a></span>&#160;        std::complex&lt;double&gt; <a class="code" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">spherical_harmonic</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">boost::math::spherical_harmonic</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">   79</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">spherical_harmonic_r</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">boost::math::spherical_harmonic_r</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype1, <span class="keyword">typename</span> dtype2&gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">  102</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">spherical_harmonic_i</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">int32</a> m,  dtype1 theta, dtype2 phi)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype1);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype2);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">boost::math::spherical_harmonic_i</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(phi), <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(theta));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    } <span class="comment">// namespace polynomial</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_a9386099a0fdc2bc9fb0dbfde5606584d"><div class="ttname"><a href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">nc::int32</a></div><div class="ttdeci">std::int32_t int32</div><div class="ttdef"><b>Definition:</b> Types.hpp:37</div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:38</div></div>
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:41</div></div>
-<div class="ttc" id="anamespacenc_1_1polynomial_html_a5ed971ca59899f372f28a53913796745"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">nc::polynomial::spherical_harmonic_r</a></div><div class="ttdeci">double spherical_harmonic_r(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:80</div></div>
+<div class="ttc" id="anamespacenc_html_a9386099a0fdc2bc9fb0dbfde5606584d"><div class="ttname"><a href="namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d">nc::int32</a></div><div class="ttdeci">std::int32_t int32</div><div class="ttdef"><b>Definition:</b> Types.hpp:36</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html_a5ed971ca59899f372f28a53913796745"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a5ed971ca59899f372f28a53913796745">nc::polynomial::spherical_harmonic_r</a></div><div class="ttdeci">double spherical_harmonic_r(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:79</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1polynomial_html_a583c30981b9547a90ad7c33edbe041c1"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">nc::polynomial::spherical_harmonic_i</a></div><div class="ttdeci">double spherical_harmonic_i(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:103</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1polynomial_html_aa5bb22676f3f43eda1e7c0af04da376a"><div class="ttname"><a href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">nc::polynomial::spherical_harmonic</a></div><div class="ttdeci">std::complex&lt; double &gt; spherical_harmonic(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:57</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html_a583c30981b9547a90ad7c33edbe041c1"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a583c30981b9547a90ad7c33edbe041c1">nc::polynomial::spherical_harmonic_i</a></div><div class="ttdeci">double spherical_harmonic_i(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:102</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html_aa5bb22676f3f43eda1e7c0af04da376a"><div class="ttname"><a href="namespacenc_1_1polynomial.html#aa5bb22676f3f43eda1e7c0af04da376a">nc::polynomial::spherical_harmonic</a></div><div class="ttdeci">std::complex&lt; double &gt; spherical_harmonic(uint32 n, int32 m, dtype1 theta, dtype2 phi)</div><div class="ttdef"><b>Definition:</b> spherical_harmonic.hpp:56</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

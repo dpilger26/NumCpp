@@ -10,7 +10,7 @@ build_script:
 
     cd build
 
-    cmake .. -DNUMCPP_EXAMPLES=True -DEXAMPLE_GAUSS_NEWTON_NLLS=True -DEXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
+    cmake .. -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=True -DBUILD_EXAMPLE_README=True -DBOOST_ROOT=C:\Libraries\boost_1_73_0
     
     cmake --build . --config Release --target GaussNewtonNlls
 

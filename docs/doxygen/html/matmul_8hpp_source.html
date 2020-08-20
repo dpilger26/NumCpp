@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,46 +89,46 @@ $(document).ready(function(){initNavTree('matmul_8hpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="matmul_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dot_8hpp.html">NumCpp/Functions/dot.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">   51</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray2)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacenc.html#a82209f3c03cb63a659d28e7c87f7ee23">   69</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;std::complex&lt;dtype&gt;</a>&gt; <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray</a>&lt;std::complex&lt;dtype&gt;&gt;&amp; inArray2)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="namespacenc.html#a9f795cdfcf86a07f1a7febcb9d024c73">   87</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;std::complex&lt;dtype&gt;</a>&gt; <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray</a>&lt;std::complex&lt;dtype&gt;&gt;&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray2)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dot_8hpp.html">NumCpp/Functions/dot.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">   50</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray2)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacenc.html#a82209f3c03cb63a659d28e7c87f7ee23">   68</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;std::complex&lt;dtype&gt;</a>&gt; <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray</a>&lt;std::complex&lt;dtype&gt;&gt;&amp; inArray2)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacenc.html#a9f795cdfcf86a07f1a7febcb9d024c73">   86</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;std::complex&lt;dtype&gt;</a>&gt; <a class="code" href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">matmul</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray</a>&lt;std::complex&lt;dtype&gt;&gt;&amp; inArray1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray2)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">dot</a>(inArray1, inArray2);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenc_html_a2c9414f356ae2025a7cde3a192d6d67d"><div class="ttname"><a href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">nc::dot</a></div><div class="ttdeci">NdArray&lt; dtype &gt; dot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> dot.hpp:48</div></div>
+<div class="ttc" id="anamespacenc_html_a2c9414f356ae2025a7cde3a192d6d67d"><div class="ttname"><a href="namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d">nc::dot</a></div><div class="ttdeci">NdArray&lt; dtype &gt; dot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> dot.hpp:47</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="adot_8hpp_html"><div class="ttname"><a href="dot_8hpp.html">dot.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html_ab39e4a1bc6bcd0f28dbd5806d5f2d0b9"><div class="ttname"><a href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">nc::matmul</a></div><div class="ttdeci">NdArray&lt; dtype &gt; matmul(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> matmul.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_html_ab39e4a1bc6bcd0f28dbd5806d5f2d0b9"><div class="ttname"><a href="namespacenc.html#ab39e4a1bc6bcd0f28dbd5806d5f2d0b9">nc::matmul</a></div><div class="ttdeci">NdArray&lt; dtype &gt; matmul(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> matmul.hpp:50</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

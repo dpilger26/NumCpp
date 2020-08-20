@@ -2,7 +2,7 @@
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
-/// @section License
+/// License
 /// Copyright 2020 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -22,7 +22,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section Description
+/// Description
 /// In applied mathematics, Wahba's problem, first posed by Grace Wahba in 1965, seeks to
 /// find a rotation matrix (special orthogonal matrix) between two coordinate systems from
 /// a set of (weighted) vector observations. Solutions to Wahba's problem are often used in 

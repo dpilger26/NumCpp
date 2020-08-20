@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
-   <div id="projectbrief">A C++ implementation of the Python Numpy library</div>
+   <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
  </tr>
  </tbody>
@@ -89,33 +89,33 @@ $(document).ready(function(){initNavTree('_filter_2_filters_2_filters2d_2laplace
 </div><!--header-->
 <div class="contents">
 <a href="_filter_2_filters_2_filters2d_2laplace_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve_8hpp.html">NumCpp/Filter/Filters/Filters2d/convolve.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">namespace </span>filter</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">   51</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">laplace</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageArray, <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a> inBoundaryType = <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue = 0)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> kernel = { {0, 1, 0}, {1, -4, 1}, {0, 1, 0} };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1filter.html#abc4c77c759de3cd79f3fc02b7461d971">convolve</a>(inImageArray, 3, kernel, inBoundaryType, inConstantValue);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    } <span class="comment">// namespace filter</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="convolve_8hpp.html">NumCpp/Filter/Filters/Filters2d/convolve.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">namespace </span>filter</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">   50</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">laplace</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageArray, <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a> inBoundaryType = <a class="code" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue = 0)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> kernel = { {0, 1, 0}, {1, -4, 1}, {0, 1, 0} };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1filter.html#abc4c77c759de3cd79f3fc02b7461d971">convolve</a>(inImageArray, 3, kernel, inBoundaryType, inConstantValue);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    } <span class="comment">// namespace filter</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenc_1_1filter_html_aae2d06efe29180faf7363b9322588f46"><div class="ttname"><a href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">nc::filter::laplace</a></div><div class="ttdeci">NdArray&lt; dtype &gt; laplace(const NdArray&lt; dtype &gt; &amp;inImageArray, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> Filter/Filters/Filters2d/laplace.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_html_aae2d06efe29180faf7363b9322588f46"><div class="ttname"><a href="namespacenc_1_1filter.html#aae2d06efe29180faf7363b9322588f46">nc::filter::laplace</a></div><div class="ttdeci">NdArray&lt; dtype &gt; laplace(const NdArray&lt; dtype &gt; &amp;inImageArray, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> Filter/Filters/Filters2d/laplace.hpp:50</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1filter_html_abc4c77c759de3cd79f3fc02b7461d971"><div class="ttname"><a href="namespacenc_1_1filter.html#abc4c77c759de3cd79f3fc02b7461d971">nc::filter::convolve</a></div><div class="ttdeci">NdArray&lt; dtype &gt; convolve(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, const NdArray&lt; dtype &gt; &amp;inWeights, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> convolve.hpp:63</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_html_abc4c77c759de3cd79f3fc02b7461d971"><div class="ttname"><a href="namespacenc_1_1filter.html#abc4c77c759de3cd79f3fc02b7461d971">nc::filter::convolve</a></div><div class="ttdeci">NdArray&lt; dtype &gt; convolve(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, const NdArray&lt; dtype &gt; &amp;inWeights, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> convolve.hpp:62</div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">nc::filter::Boundary::REFLECT</a></div><div class="ttdeci">@ REFLECT</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">nc::filter::Boundary</a></div><div class="ttdeci">Boundary</div><div class="ttdoc">Boundary condition to apply to the image filter.</div><div class="ttdef"><b>Definition:</b> Boundary.hpp:38</div></div>
+<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_html_ada517a46ea965fa51ed51101135c6ac6"><div class="ttname"><a href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">nc::filter::Boundary</a></div><div class="ttdeci">Boundary</div><div class="ttdoc">Boundary condition to apply to the image filter.</div><div class="ttdef"><b>Definition:</b> Boundary.hpp:37</div></div>
 <div class="ttc" id="aconvolve_8hpp_html"><div class="ttname"><a href="convolve_8hpp.html">convolve.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
