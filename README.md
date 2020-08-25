@@ -57,6 +57,10 @@ Clang: 6, 7, 8, 9, 10
 
 ## Release Notes
 
+### Version 2.3.0
+
+* Added slicing to DataCube class  
+
 ### Version 2.2.0
 
 * Added additional where() overloads to match NumPy functionality  
