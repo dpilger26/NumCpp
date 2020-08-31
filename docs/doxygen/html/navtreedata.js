@@ -64,14 +64,14 @@ var NAVTREEINDEX =
 "_bisection_8hpp.html",
 "_pybind_interface_8hpp_source.html",
 "arange_8hpp.html#a724165d620d8bff96f8f004c18257ad6",
-"classnc_1_1_nd_array.html#a20fb268d9bd6c25dd70b6772f5ff5b89",
-"classnc_1_1_nd_array_const_iterator.html#ac055ccace7f791cfb94d7df8e7100dc2",
-"classnc_1_1image_processing_1_1_cluster_maker.html#ae437071bfc291a36745d043ddd4cba1d",
-"cyclic__hankel__1_8hpp.html#ae7053cd6eafb59a62ba6ede63aac6f90",
-"functions_rela.html",
-"mirror2d_8hpp_source.html",
-"proj_8hpp_source.html",
-"tanh_8hpp.html"
+"classnc_1_1_nd_array.html#a094424d8f368eaa3730102a5f75f0c2e",
+"classnc_1_1_nd_array_const_iterator.html#a171276f9e90a1336d156c61c2b61bd23",
+"classnc_1_1image_processing_1_1_cluster.html#a8c884e5e55d41c09165bca85446edb1f",
+"cos_8hpp_source.html",
+"functions_func_v.html",
+"meshgrid_8hpp_source.html",
+"polar_8hpp_source.html",
+"subtract_8hpp.html#afa4586729c62bfae485a6e7664ba7117"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
