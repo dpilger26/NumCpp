@@ -4417,6 +4417,127 @@ namespace DataCubeInterface
     {
         return self[inIndex];
     }
+
+    template<typename dtype>
+    np::ndarray sliceZIndexAll(const DataCube<dtype>& self, int32 inIndex)
+    {
+        return nc2Boost(self.sliceZAll(inIndex));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZIndex(const DataCube<dtype>& self, int32 inIndex, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZ(inIndex, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZRowColAll(const DataCube<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return nc2Boost(self.sliceZAll(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZRowCol(const DataCube<dtype>& self, int32 inRow, int32 inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZ(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZSliceScalerAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
+    {
+        return nc2Boost(self.sliceZAll(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZ(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZScalerSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
+    {
+        return nc2Boost(self.sliceZAll(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZ(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    DataCube<dtype> sliceZSliceSliceAll(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol)
+    {
+        return self.sliceZAll(inRow, inCol);
+    }
+
+    template<typename dtype>
+    DataCube<dtype> sliceZSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
+    {
+        return self.sliceZ(inRow, inCol, inSlice);
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtIndexAll(const DataCube<dtype>& self, int32 inIndex)
+    {
+        return nc2Boost(self.sliceZAllat(inIndex));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtIndex(const DataCube<dtype>& self, int32 inIndex, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZat(inIndex, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtRowColAll(const DataCube<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return nc2Boost(self.sliceZAllat(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtRowCol(const DataCube<dtype>& self, int32 inRow, int32 inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZat(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtSliceScalerAll(const DataCube<dtype>& self, const Slice& inRow, int32 inCol)
+    {
+        return nc2Boost(self.sliceZAllat(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZat(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtScalerSliceAll(const DataCube<dtype>& self, int32 inRow, const Slice& inCol)
+    {
+        return nc2Boost(self.sliceZAllat(inRow, inCol));
+    }
+
+    template<typename dtype>
+    np::ndarray sliceZAtScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
+    {
+        return nc2Boost(self.sliceZat(inRow, inCol, inSlice));
+    }
+
+    template<typename dtype>
+    DataCube<dtype> sliceZAtSliceSliceAll(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol)
+    {
+        return self.sliceZAllat(inRow, inCol);
+    }
+
+    template<typename dtype>
+    DataCube<dtype> sliceZAtSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
+    {
+        return self.sliceZat(inRow, inCol, inSlice);
+    }
+
 }  // namespace DataCubeInterface
 
 //================================================================================
@@ -7636,11 +7757,29 @@ BOOST_PYTHON_MODULE(NumCppPy)
         .def("front", &DataCubeDouble::front, bp::return_internal_reference<>())
         .def("isempty", &DataCubeDouble::isempty)
         .def("shape", &DataCubeDouble::shape, bp::return_internal_reference<>())
-        .def("size", &DataCubeDouble::size)
+        .def("sizeZ", &DataCubeDouble::sizeZ)
         .def("pop_back", &DataCubeDouble::pop_back)
-        .def("pop_front", &DataCubeDouble::pop_front)
         .def("push_back", &DataCubeDouble::push_back)
-        .def("push_front", &DataCubeDouble::push_front);
+        .def("sliceZAll", &DataCubeInterface::sliceZIndexAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZIndex<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZRowColAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZRowCol<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZSliceScalerAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZSliceScaler<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZScalerSliceAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZScalerSlice<double>)
+        .def("sliceZAll", &DataCubeInterface::sliceZSliceSliceAll<double>)
+        .def("sliceZ", &DataCubeInterface::sliceZSliceSlice<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtIndexAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtIndex<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtRowColAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtRowCol<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtSliceScalerAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtSliceScaler<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtScalerSliceAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtScalerSlice<double>)
+        .def("sliceZAllat", &DataCubeInterface::sliceZAtSliceSliceAll<double>)
+        .def("sliceZat", &DataCubeInterface::sliceZAtSliceSlice<double>);
 
     // Polynomial.hpp
     using Poly1d = polynomial::Poly1d<double>;
