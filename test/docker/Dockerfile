@@ -14,8 +14,8 @@ RUN \
 	&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' \
 	&& apt update \
 	# Install python and the dependency packages
-	&& apt install -y python3.7 \
-	&& update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 10 \
+	&& apt install -y python3.8 \
+	&& update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 10 \
 	&& apt install -y python3-pip \
 	&& python3 -m pip install numpy scipy astropy matplotlib vectormath pytest \
 	# Install the GNU compiler versions
@@ -74,7 +74,7 @@ RUN \
 	&& cd /boost_1_72_0 \
 	&& ./bootstrap.sh \
 	&& cp /boost_1_72_0/tools/build/example/user-config.jam /boost_1_72_0/tools/build/src \
-	&& echo "using python : 3.7 : /usr/bin/python3 : /usr/include/python3.6m : /usr/lib ;" >> /boost_1_72_0/tools/build/src/user-config.jam \
+	&& echo "using python : 3.8 : /usr/bin/python3 : /usr/include/python3.6m : /usr/lib ;" >> /boost_1_72_0/tools/build/src/user-config.jam \
 	&& ./b2 install cxxflags=-fPIC -j8 --with-python --with-filesystem --with-system \
 	&& cd / \
 	&& rm -rf /boost_1_72_0 \
