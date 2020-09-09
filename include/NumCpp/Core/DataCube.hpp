@@ -533,7 +533,6 @@ namespace nc
         ///
         /// @param       inRow
         /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
         /// @return      NdArray
         ///
         NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const

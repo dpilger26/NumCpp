@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"meshgrid_8hpp.html#ae392e03f9e01b088a082c6055082df49":[4,0,235,0],
 "meshgrid_8hpp_source.html":[4,0,235],
 "min_8hpp.html":[4,0,236],
 "min_8hpp.html#a8a61a49362258590b70289fd63fb2d8e":[4,0,236,0],
@@ -89,22 +90,22 @@ var NAVTREEINDEX8 =
 "namespacenc_1_1boost_python_interface.html":[2,0,0,0],
 "namespacenc_1_1boost_python_interface.html":[3,0,0,0],
 "namespacenc_1_1constants.html":[2,0,0,1],
-"namespacenc_1_1coordinates.html":[3,0,0,1],
 "namespacenc_1_1coordinates.html":[2,0,0,2],
+"namespacenc_1_1coordinates.html":[3,0,0,1],
 "namespacenc_1_1error.html":[2,0,0,3],
 "namespacenc_1_1filesystem.html":[3,0,0,2],
 "namespacenc_1_1filesystem.html":[2,0,0,4],
 "namespacenc_1_1filter.html":[3,0,0,3],
 "namespacenc_1_1filter.html":[2,0,0,5],
 "namespacenc_1_1filter_1_1boundary.html":[2,0,0,5,0],
-"namespacenc_1_1image_processing.html":[3,0,0,4],
 "namespacenc_1_1image_processing.html":[2,0,0,6],
-"namespacenc_1_1integrate.html":[3,0,0,5],
+"namespacenc_1_1image_processing.html":[3,0,0,4],
 "namespacenc_1_1integrate.html":[2,0,0,7],
+"namespacenc_1_1integrate.html":[3,0,0,5],
 "namespacenc_1_1linalg.html":[2,0,0,8],
 "namespacenc_1_1linalg.html":[3,0,0,6],
-"namespacenc_1_1polynomial.html":[3,0,0,7],
 "namespacenc_1_1polynomial.html":[2,0,0,9],
+"namespacenc_1_1polynomial.html":[3,0,0,7],
 "namespacenc_1_1pybind_interface.html":[2,0,0,10],
 "namespacenc_1_1random.html":[2,0,0,11],
 "namespacenc_1_1roots.html":[2,0,0,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "poisson_8hpp.html#ae18029c16ca489ea9db6331c609b20e8":[4,0,291,1],
 "poisson_8hpp_source.html":[4,0,291],
 "polar_8hpp.html":[4,0,292],
-"polar_8hpp.html#a4f674e5cab66c911b212a5eae86a641b":[4,0,292,0],
-"polar_8hpp.html#abbf3200fe11e4cb7ae6363b00099c2fe":[4,0,292,1]
+"polar_8hpp.html#a4f674e5cab66c911b212a5eae86a641b":[4,0,292,0]
 };

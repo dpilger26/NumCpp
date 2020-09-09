@@ -29,7 +29,7 @@
 #include "boost/python/numpy.hpp" // needed for working with numpy
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
 #include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
-#define BOOST_LIB_NAME "boost_numpy37"
+#define BOOST_LIB_NAME "boost_numpy38"
 #include "boost/config/auto_link.hpp"
 
 namespace bp = boost::python;
@@ -3208,6 +3208,15 @@ namespace FunctionsInterface
     np::ndarray gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(nc::gradient(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray histogramWithEdges(const NdArray<dtype>& inArray, const NdArray<dtype>& inBinEdges)
+    {
+        auto histo = nc::histogram(inArray, inBinEdges);
+        return nc2Boost(histo);
     }
 
     //================================================================================
@@ -6989,6 +6998,7 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("gradient", &FunctionsInterface::gradient<ComplexDouble>);
 
     bp::def("histogram", &FunctionsInterface::histogram<double>);
+    bp::def("histogram", &FunctionsInterface::histogramWithEdges<double>);
     bp::def("hstack", &FunctionsInterface::hstack<double>);
     bp::def("hypotScaler", &FunctionsInterface::hypotScaler<double>);
     bp::def("hypotScalerTriple", &FunctionsInterface::hypotScalerTriple<double>);

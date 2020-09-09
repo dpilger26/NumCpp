@@ -6,7 +6,7 @@ var searchData=
   ['height_445',['height',['../classnc_1_1image_processing_1_1_cluster.html#a71ccd5ee3fea70b4b1b27ba25f4b3fb8',1,'nc::imageProcessing::Cluster']]],
   ['hermite_446',['hermite',['../namespacenc_1_1polynomial.html#aeea1ebbc592a6a8c533f2230fb0f6f10',1,'nc::polynomial::hermite(uint32 n, dtype x)'],['../namespacenc_1_1polynomial.html#ad88f67a61dad283461c6121958c5af54',1,'nc::polynomial::hermite(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX)']]],
   ['hermite_2ehpp_447',['hermite.hpp',['../hermite_8hpp.html',1,'']]],
-  ['histogram_448',['histogram',['../namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6',1,'nc']]],
+  ['histogram_448',['histogram',['../namespacenc.html#abff7fb8fdafbdd8db4dad38cc5a2267c',1,'nc::histogram(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; double &gt; &amp;inBinEdges)'],['../namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6',1,'nc::histogram(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNumBins=10)']]],
   ['histogram_2ehpp_449',['histogram.hpp',['../histogram_8hpp.html',1,'']]],
   ['hours_450',['hours',['../classnc_1_1coordinates_1_1_r_a.html#a52af78880f6c5a5ec8750a7ad20c2e2d',1,'nc::coordinates::RA']]],
   ['hours_5fper_5fday_451',['HOURS_PER_DAY',['../namespacenc_1_1constants.html#aef903b1f40001bc712b61f5dec7de716',1,'nc::constants']]],

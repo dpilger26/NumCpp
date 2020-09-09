@@ -3131,6 +3131,17 @@ def test_histogram():
     assert np.array_equal(histogram.getNumpyArray().flatten().astype(np.int32), h)
     assert np.array_equal(np.round(bins.getNumpyArray().flatten(), 9), np.round(b, 9))
 
+    shape = NumCpp.Shape(1024, 1024)
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(1024, 1024) * np.random.randint(1, 10, [1, ]).item() + np.random.randint(1, 10, [1, ]).item()
+    cArray.setArray(data)
+    binEdges = np.linspace(data.min(), data.max(), 15, endpoint=True)
+    cBinEdges = NumCpp.NdArray(1, binEdges.size)
+    cBinEdges.setArray(binEdges)
+    histogram = NumCpp.histogram(cArray, cBinEdges)
+    h, _ = np.histogram(data, binEdges)
+    assert np.array_equal(histogram.flatten().astype(np.int32), h)
+
 
 ####################################################################################
 def test_hstack():

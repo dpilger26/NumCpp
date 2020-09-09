@@ -93,7 +93,8 @@ var NAVTREEINDEX7 =
 "hermite_8hpp_source.html":[4,0,183],
 "hierarchy.html":[3,2],
 "histogram_8hpp.html":[4,0,184],
-"histogram_8hpp.html#a9f8af3a8f7adefd20992fe0686837cf6":[4,0,184,0],
+"histogram_8hpp.html#a9f8af3a8f7adefd20992fe0686837cf6":[4,0,184,1],
+"histogram_8hpp.html#abff7fb8fdafbdd8db4dad38cc5a2267c":[4,0,184,0],
 "histogram_8hpp_source.html":[4,0,184],
 "hstack_8hpp.html":[4,0,185],
 "hstack_8hpp.html#a80a6677582b65c19750b0d82ac182081":[4,0,185,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "median_filter_8hpp.html#a6edb931e0ad73a60625c4854f11ab82a":[4,0,233,0],
 "median_filter_8hpp_source.html":[4,0,233],
 "meshgrid_8hpp.html":[4,0,235],
-"meshgrid_8hpp.html#a2338e094bb1195888e3f385d01627c4f":[4,0,235,1],
-"meshgrid_8hpp.html#ae392e03f9e01b088a082c6055082df49":[4,0,235,0]
+"meshgrid_8hpp.html#a2338e094bb1195888e3f385d01627c4f":[4,0,235,1]
 };

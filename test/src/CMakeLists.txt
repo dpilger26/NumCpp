@@ -42,10 +42,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 
 set(Boost_USE_STATIC_LIBS ON) 
 set(Python3_USE_STATIC_LIBS True)
-find_package(Boost 1.68.0 REQUIRED 
+find_package(Boost 1.72.0 REQUIRED 
   COMPONENTS 
-  python37 
-  numpy37 
+  python38
+  numpy38
 )
 
 find_package(Python
@@ -60,8 +60,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python37>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy37>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python38>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy38>
   $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
 )
 
