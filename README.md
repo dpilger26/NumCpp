@@ -57,13 +57,17 @@ Clang: 6, 7, 8, 9, 10
 
 ## Release Notes
 
+### Version 2.3.1
+
+* Added option for user defined bin edges in `histogram()` function
+
 ### Version 2.3.0
 
-* Added slicing to DataCube class  
+* Added slicing to `DataCube` class  
 
 ### Version 2.2.0
 
-* Added additional where() overloads to match NumPy functionality  
+* Added additional `where()` overloads to match NumPy functionality  
 
 ### Version 2.1.0
 
