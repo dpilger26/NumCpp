@@ -31,11 +31,10 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/randInt.hpp"
+#include "NumCpp/Random/uniform.hpp"
 
-namespace nc
-{
-    namespace random
-    {
+namespace nc {
+    namespace random {
         //============================================================================
         // Method Description:
         ///						Chooses a random sample from an input array.
@@ -45,8 +44,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        dtype choice(const NdArray<dtype>& inArray)
-        {
+        dtype choice(const NdArray<dtype> &inArray) {
             uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
             return inArray[randIdx];
         }
@@ -62,16 +60,54 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum)
-        {
-            NdArray<dtype> outArray(1, inNum);
-            for (uint32 i = 0; i < inNum; ++i)
-            {
-                uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
-                outArray[i] = inArray[randIdx];
-            }
+        NdArray<dtype> choice(const NdArray<dtype> &inArray, uint32 inNum, bool replace = true) {
+            NdArray<dtype> outArray(1, inNum); // row vector
+            if (replace){
+                for (uint32 i = 0; i < inNum; ++i) {
+                    uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
+                    outArray[i] = inArray[randIdx];
+                }
+            } else {
+                /*
+                 * floyds algorithm
+                 * This is the equivalent python algorithm
+                 *   import numpy as np
+                 *   import seaborn
+                 *   import matplotlib.pyplot as plt
+                 *
+                 *   def sample_without_replacement(nsamples, npop):
+                 *       m = nsamples
+                 *       n = npop
+                 *       samples = []
+                 *       for j in range(n-m + 1, n+1):
+                 *           t = 1 + int(j*np.random.uniform(0, 1))
+                 *           if t in samples:
+                 *               samples.append(j)
+                 *           else:
+                 *               samples.append(t)
+                 *       return [i -1 for i in samples] #(subtract 1 for 0 indexed C/C++/Python)
+                 *
+                 *   # check it works:
+                 *   arr = np.empty((4, 10000))
+                 *   for i in range(10000):
+                 *       arr[:, i] = sample_without_replacement2(4, 10)
+                 *
+                 *   seaborn.distplot(arr)
+                 *   plt.show()
+                 */
+                int npop = inArray.shape()[0];
+                int nsamples = inNum;
+                for (int j= npop - nsamples + 1; j < npop + 1; j++ ){
+                    uint32 t = 1 + (int)j*uniform(0, 1);
+                    if (outArray.contains(t)){
+                        outArray[j] = j;
+                    } else {
+                        outArray[j] = t;
+                    }
+                }
+            } // if(replace)
 
             return outArray;
         }
-    }  // namespace random
-}  // namespace nc
+    }// namespace random
+}// namespace nc
