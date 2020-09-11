@@ -95,11 +95,11 @@ namespace nc {
                  *   seaborn.distplot(arr)
                  *   plt.show()
                  */
-                int npop = inArray.shape()[0];
+                int npop = inArray.shape().rows;
                 int nsamples = inNum;
                 for (int j= npop - nsamples + 1; j < npop + 1; j++ ){
-                    uint32 t = 1 + (int)j*uniform(0, 1);
-                    if (outArray.contains(t)){
+                    uint32 t = 1 + (int)j*uniform(0.0, 1.0);
+                    if (outArray.contains(t)[0] ){
                         outArray[j] = j;
                     } else {
                         outArray[j] = t;
