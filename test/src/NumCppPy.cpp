@@ -7404,12 +7404,10 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("cauchy", cauchyArray);
     bp::def("cauchy", cauchyScalar);
 
-
     NdArray<double> (*chiSquareArray)(const Shape&, double) = &random::chiSquare<double>;
     double (*chiSquareScalar)(double) = &random::chiSquare<double>;
     bp::def("chiSquare", chiSquareArray);
     bp::def("chiSquare", chiSquareScalar);
-
 
     bp::def("choiceSingle", &RandomInterface::choiceSingle<double>);
     bp::def("choiceMultiple", &RandomInterface::choiceMultiple<double>);

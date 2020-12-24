@@ -30,7 +30,7 @@ if _IS_WINDOWS:
 _SUDO_REQUIRED = True
 try:
     subprocess.check_call(['sudo', '-h'], stdout=subprocess.DEVNULL)
-except Exception:
+except:  # noqa
     _SUDO_REQUIRED = False
 
 
