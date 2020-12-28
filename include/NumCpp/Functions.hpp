@@ -170,6 +170,7 @@
 #include "NumCpp/Functions/mod.hpp"
 #include "NumCpp/Functions/multiply.hpp"
 
+#include "NumCpp/Functions/nan_to_num.hpp"
 #include "NumCpp/Functions/nanargmax.hpp"
 #include "NumCpp/Functions/nanargmin.hpp"
 #include "NumCpp/Functions/nancumprod.hpp"

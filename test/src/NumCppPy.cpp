@@ -3516,6 +3516,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray nan_to_num(const NdArray<dtype>& inArray, dtype nan, dtype posInf, dtype negInf)
+    {
+        return nc2Boost(nc::nan_to_num(inArray, nan, posInf, negInf));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype newbyteorderScaler(dtype inValue, Endian inEndianess)
     {
         return newbyteorder(inValue, inEndianess);
@@ -7077,6 +7085,7 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("multiply", &FunctionsInterface::multiply<NdArray<ComplexDouble>, double>);
     bp::def("multiply", &FunctionsInterface::multiply<double, NdArray<ComplexDouble>>);
 
+    bp::def("nan_to_num", &FunctionsInterface::nan_to_num<double>);
     bp::def("nanargmax", &nanargmax<double>);
     bp::def("nanargmin", &nanargmin<double>);
     bp::def("nancumprod", &nancumprod<double>);

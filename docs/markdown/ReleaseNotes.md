@@ -3,6 +3,7 @@
 ## Version 2.4.0
 
 * Added `replace` option into `random::choice`
+* Added `nan_to_num` function
 
 ## Version 2.3.1
 

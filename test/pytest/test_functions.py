@@ -4017,6 +4017,31 @@ def test_multiply():
 
 
 ####################################################################################
+def test_nan_to_num():
+    shapeInput = np.random.randint(50, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.size(), ]).astype(np.double)
+
+    nan_idx = np.random.choice(range(data.size), 10, replace=False)
+    pos_inf_idx = np.random.choice(range(data.size), 10, replace=False)
+    neg_inf_idx = np.random.choice(range(data.size), 10, replace=False)
+
+    data[nan_idx] = np.nan
+    data[pos_inf_idx] = np.inf
+    data[neg_inf_idx] = -np.inf
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+
+    nan_replace = float(np.random.randint(100))
+    pos_inf_replace = float(np.random.randint(100))
+    neg_inf_replace = float(np.random.randint(100))
+
+    assert np.array_equal(NumCpp.nan_to_num(cArray, nan_replace, pos_inf_replace, neg_inf_replace),
+                          np.nan_to_num(data, nan=nan_replace, posinf=pos_inf_replace, neginf=neg_inf_replace))
+
+
+####################################################################################
 def test_nanargmax():
     shapeInput = np.random.randint(10, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

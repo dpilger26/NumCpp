@@ -97,8 +97,6 @@ namespace nc
                         return {}; // get rid of compiler warning
                     }
                 }
-
-                return NdArray<dtype>(); // get rid of compiler warning
             }
         } // namespace boundary
     }  // namespace filter
