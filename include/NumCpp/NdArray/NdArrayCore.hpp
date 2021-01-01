@@ -29,6 +29,7 @@
 
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/Endian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
@@ -43,10 +44,6 @@
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Utils/value2str.hpp"
-
-#include <boost/algorithm/clamp.hpp>
-#include <boost/endian/conversion.hpp>
-#include <boost/predef/other/endian.h>
 
 #include <array>
 #include <cmath>
@@ -2271,28 +2268,12 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            switch (endianess_)
-            {
-                case Endian::BIG:
+            stl_algorithms::for_each(begin(), end(),
+                [](dtype& value) noexcept -> void
                 {
-                    *this = newbyteorder(Endian::LITTLE);
-                    break;
+                    value = endian::byteSwap(value);
                 }
-                case Endian::LITTLE:
-                {
-                    *this = newbyteorder(Endian::BIG);
-                    break;
-                }
-                case Endian::NATIVE:
-                {
-#if BOOST_ENDIAN_BIG_BYTE
-                    *this = newbyteorder(Endian::LITTLE);
-#elif BOOST_ENDIAN_LITTLE_BYTE
-                    *this = newbyteorder(Endian::BIG);
-#endif
-                    break;
-                }
-            }
+            );
 
             return *this;
         }
@@ -2313,10 +2294,19 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
             NdArray<dtype> outArray(shape_);
-            boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax, 
-                [](dtype lhs, dtype rhs) noexcept -> bool
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), 
+                [inMin, inMax](dtype value) noexcept -> dtype
                 {
-                    return lhs < rhs;
+                    if (value < inMin)
+                    {
+                        return inMin;
+                    }
+                    else if (value > inMax)
+                    {
+                        return inMax;
+                    }
+
+                    return value;
                 });
 
             return outArray;
@@ -3214,9 +3204,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Return the array with the same data viewed with a
-        ///						different byte order. only works for integer types,
-        ///						floating point types will not compile and you will
-        ///						be confused as to why...
+        ///						different byte order. only works for integer types.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
         ///
@@ -3228,6 +3216,8 @@ namespace nc
         NdArray<dtype> newbyteorder(Endian inEndianess) const 
         {
             STATIC_ASSERT_INTEGER(dtype);
+
+            const bool nativeIsLittle = endian::isLittleEndian();
 
             switch (endianess_)
             {
@@ -3241,21 +3231,39 @@ namespace nc
                         }
                         case Endian::BIG:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            if (nativeIsLittle)
+                            {
+                                NdArray<dtype> outArray(shape_);
 
-                            stl_algorithms::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
+                                stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
-                            outArray.endianess_ = Endian::BIG;
-                            return outArray;
+                                outArray.endianess_ = Endian::BIG;
+                                return outArray;
+                            }
+                            else
+                            {
+                                auto outArray = NdArray(*this);
+                                outArray.endianess_ = Endian::BIG;
+                                return outArray;
+                            }
                         }
                         case Endian::LITTLE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            if (nativeIsLittle)
+                            {
+                                auto outArray = NdArray(*this);
+                                outArray.endianess_ = Endian::LITTLE;
+                                return outArray;
+                            }
+                            else
+                            {
+                                NdArray<dtype> outArray(shape_);
 
-                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
+                                stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
-                            outArray.endianess_ = Endian::LITTLE;
-                            return outArray;
+                                outArray.endianess_ = Endian::LITTLE;
+                                return outArray;
+                            }
                         }
                         default:
                         {
@@ -3271,12 +3279,21 @@ namespace nc
                     {
                         case Endian::NATIVE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            if (nativeIsLittle)
+                            {
+                                NdArray<dtype> outArray(shape_);
 
-                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
+                                stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
-                            outArray.endianess_ = Endian::NATIVE;
-                            return outArray;
+                                outArray.endianess_ = Endian::NATIVE;
+                                return outArray;
+                            }
+                            else
+                            {
+                                auto outArray = NdArray(*this);
+                                outArray.endianess_ = Endian::NATIVE;
+                                return outArray;
+                            }
                         }
                         case Endian::BIG:
                         {
@@ -3286,11 +3303,7 @@ namespace nc
                         {
                             NdArray<dtype> outArray(shape_);
 
-                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
-                                [](dtype value) noexcept -> dtype
-                                {
-                                    return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value));
-                                });
+                            stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
@@ -3309,23 +3322,27 @@ namespace nc
                     {
                         case Endian::NATIVE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            if (nativeIsLittle)
+                            {
+                                auto outArray = NdArray(*this);
+                                outArray.endianess_ = Endian::NATIVE;
+                                return outArray;
+                            }
+                            else
+                            {
+                                NdArray<dtype> outArray(shape_);
 
-                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
+                                stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
-                            outArray.endianess_ = Endian::NATIVE;
-                            return outArray;
+                                outArray.endianess_ = Endian::NATIVE;
+                                return outArray;
+                            }
                         }
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
 
-                            const auto function = [](dtype value) noexcept -> dtype
-                            {
-                                return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value));
-                            };
-
-                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+                            stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
                             outArray.endianess_ = Endian::BIG;
                             return outArray;

@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/bernoulli_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -46,22 +45,19 @@ namespace nc
         // Method Description:
         ///						Single random value sampled from the "bernoulli" distribution.
         ///
-        /// @param				inP (probability of success [0, 1])
+        /// @param				inP (probability of success [0, 1]). Default 0.5
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        dtype bernoulli(dtype inP)
+        inline bool bernoulli(double inP = 0.5)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
             if (inP < 0 || inP > 1)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
+                THROW_INVALID_ARGUMENT_ERROR("input probability of success must be of the range [0, 1].");
             }
 
-            const boost::random::bernoulli_distribution<dtype> dist(inP);
-            return dist(generator_); ;
+            const std::bernoulli_distribution dist(inP);
+            return dist(generator_);
         }
 
         //============================================================================
@@ -70,26 +66,23 @@ namespace nc
         ///						random samples from the "bernoulli" distribution.
         ///
         /// @param				inShape
-        /// @param				inP (probability of success [0, 1])
+        /// @param				inP (probability of success [0, 1]). Default 0.5
         /// @return
         ///				NdArray
         ///
-        template<typename dtype>
-        NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
+        inline NdArray<bool> bernoulli(const Shape& inShape, double inP = 0.5)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
             if (inP < 0 || inP > 1)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
+                THROW_INVALID_ARGUMENT_ERROR("input probability of success must be of the range [0, 1].");
             }
 
-            NdArray<dtype> returnArray(inShape);
+            NdArray<bool> returnArray(inShape);
 
-            const boost::random::bernoulli_distribution<dtype> dist(inP);
+            const std::bernoulli_distribution dist(inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value)  -> void
+                [&dist](bool& value)  -> void
                 {
                     value = dist(generator_); 
                 });

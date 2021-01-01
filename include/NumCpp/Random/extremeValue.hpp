@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include <boost/random/extreme_value_distribution.hpp>
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -66,7 +65,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
             }
 
-            const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
+            const std::extreme_value_distribution<dtype> dist(inA, inB);
             return dist(generator_);
         }
 
@@ -98,7 +97,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
+            const std::extreme_value_distribution<dtype> dist(inA, inB);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

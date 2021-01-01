@@ -23,55 +23,62 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// Such a distribution produces random numbers uniformly
-///	distributed on the unit sphere of arbitrary dimension dim.
+/// Functions for determining and swaping endianess
 ///
 #pragma once
 
-#ifndef NO_USE_BOOST
-
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/uniform_on_sphere.hpp"
-
-#include <string>
+#include <climits>
 
 namespace nc
 {
-    namespace random
+    namespace endian
     {
         //============================================================================
-        // Method Description:
-        ///						Such a distribution produces random numbers uniformly
-        ///						distributed on the unit sphere of arbitrary dimension dim.
+        // Function Description:
+        ///	Determines the endianess of the system
         ///
-        /// @param				inNumPoints
-        /// @param				inDims: dimension of the sphere (default 2)
-        /// @return
-        ///				NdArray
+        /// @return bool true if the system is little endian
         ///
-        template<typename dtype>
-        NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
+        bool isLittleEndian() noexcept
         {
-            STATIC_ASSERT_FLOAT(dtype);
-
-            boost::random::uniform_on_sphere<dtype> dist(inDims);
-
-            NdArray<dtype> returnArray(inNumPoints, inDims);
-            for (uint32 row = 0; row < inNumPoints; ++row)
+            union
             {
-                std::vector<dtype> point = dist(generator_);
-                stl_algorithms::copy(returnArray.begin(row), returnArray.end(row), point.begin());
+                uint32  i;
+                char    c[4];
+            } fourBytes = { 0x01020304 };
+
+            return fourBytes.c[0] == 4;
+        }
+
+        //============================================================================
+        // Function Description:
+        ///	Swaps the bytes of the input value
+        ///
+        /// @param	value
+        /// @return byte swapped value
+        ///
+        template <typename dtype>
+        dtype byteSwap(dtype value) noexcept
+        {
+            STATIC_ASSERT_INTEGER(dtype);
+            static_assert(CHAR_BIT == 8, "CHAR_BIT != 8");
+
+            union
+            {
+                dtype   value;
+                uint8   value8[sizeof(dtype)];
+            } source, dest;
+
+            source.value = value;
+
+            for (size_t k = 0; k < sizeof(dtype); ++k)
+            {
+                dest.value8[k] = source.value8[sizeof(dtype) - k - 1];
             }
 
-            return returnArray;
+            return dest.value;
         }
-    } // namespace random
-} // namespace nc
-
-#endif
+    }  // namespace endian
+}  // namespace nc

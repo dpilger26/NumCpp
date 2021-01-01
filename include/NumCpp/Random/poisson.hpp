@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/poisson_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -62,7 +61,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");
             }
 
-            const boost::random::poisson_distribution<dtype, double> dist(inMean);
+            const std::poisson_distribution<dtype> dist(inMean);
             return dist(generator_); 
         }
 
@@ -90,7 +89,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::poisson_distribution<dtype, double> dist(inMean);
+            const std::poisson_distribution<dtype> dist(inMean);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

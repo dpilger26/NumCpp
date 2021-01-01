@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/fisher_f_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -68,7 +67,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("denominator degrees of freedom should be greater than zero.");
             }
 
-            boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
+            std::fisher_f_distribution<dtype> dist(inDofN, inDofD);
             return dist(generator_);
         }
 
@@ -102,7 +101,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
+            std::fisher_f_distribution<dtype> dist(inDofN, inDofD);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

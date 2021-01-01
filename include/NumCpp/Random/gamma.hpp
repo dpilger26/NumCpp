@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/gamma_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -68,7 +67,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input scale should be greater than zero.");
             }
 
-            boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
+            std::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
             return dist(generator_); 
 
         }
@@ -102,7 +101,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
+            std::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

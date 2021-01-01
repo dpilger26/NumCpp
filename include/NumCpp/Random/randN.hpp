@@ -33,7 +33,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/normal_distribution.hpp"
+#include <random>
 
 namespace nc
 {
@@ -52,7 +52,7 @@ namespace nc
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            boost::random::normal_distribution<dtype> dist;
+            std::normal_distribution<dtype> dist;
             return dist(generator_);
         }
 
@@ -75,7 +75,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::normal_distribution<dtype> dist;
+            std::normal_distribution<dtype> dist;
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

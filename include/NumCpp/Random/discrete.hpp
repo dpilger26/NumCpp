@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/discrete_distribution.hpp"
-
+#include <random>
 
 namespace nc
 {
@@ -57,7 +56,7 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
+            std::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
             return dist(generator_);
         }
 
@@ -81,7 +80,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
+            std::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

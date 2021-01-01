@@ -19,7 +19,7 @@ def test_bernoulli():
     assert np.array_equiv(randArray.shape, shapeInput)
 
     randValue = NumCpp.bernoulli(p)
-    assert isinstance(randValue, float)
+    assert isinstance(randValue, bool)
 
 
 ####################################################################################

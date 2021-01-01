@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/chi_squared_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -62,7 +61,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("numerator degrees of freedom must be greater than zero.");
             }
 
-            boost::random::chi_squared_distribution<dtype> dist(inDof);
+            std::chi_squared_distribution<dtype> dist(inDof);
             return dist(generator_);
         }
 
@@ -90,7 +89,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::chi_squared_distribution<dtype> dist(inDof);
+            std::chi_squared_distribution<dtype> dist(inDof);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

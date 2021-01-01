@@ -33,7 +33,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/exponential_distribution.hpp"
+#include <random>
 
 namespace nc
 {
@@ -54,7 +54,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            const boost::random::exponential_distribution<dtype> dist(inScaleValue);
+            const std::exponential_distribution<dtype> dist(inScaleValue);
             return dist(generator_); 
         }
 
@@ -77,7 +77,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::exponential_distribution<dtype> dist(inScaleValue);
+            const std::exponential_distribution<dtype> dist(inScaleValue);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

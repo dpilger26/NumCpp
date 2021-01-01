@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/geometric_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -62,7 +61,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            const boost::random::geometric_distribution<dtype, double> dist(inP);
+            const std::geometric_distribution<dtype> dist(inP);
             return dist(generator_);
         }
 
@@ -90,7 +89,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::geometric_distribution<dtype, double> dist(inP);
+            const std::geometric_distribution<dtype> dist(inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

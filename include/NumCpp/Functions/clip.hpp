@@ -30,8 +30,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include "boost/algorithm/clamp.hpp"
-
 namespace nc
 {
     //============================================================================
@@ -51,11 +49,16 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue, 
-            [](dtype lhs, dtype rhs) noexcept -> bool
-            {
-                return lhs < rhs;
-            });
+        if (inValue < inMinValue)
+        {
+            return inMinValue;
+        }
+        else if (inValue > inMaxValue)
+        {
+            return inMaxValue;
+        }
+
+        return inValue;
     }
 
     //============================================================================

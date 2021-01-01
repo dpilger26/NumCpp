@@ -7393,8 +7393,8 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("powerf", powerf_uint64);
 
     // Random.hpp
-    NdArray<double> (*bernoulliArray)(const Shape&, double) = &random::bernoulli<double>;
-    double (*bernoilliScalar)(double) = &random::bernoulli<double>;
+    NdArray<bool> (*bernoulliArray)(const Shape&, double) = &random::bernoulli;
+    bool (*bernoilliScalar)(double) = &random::bernoulli;
     bp::def("bernoulli", bernoulliArray);
     bp::def("bernoulli", bernoilliScalar);
 

@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#ifdef INCLUDE_BOOST_PYTHON_INTERFACE
+#if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
@@ -165,4 +165,5 @@ namespace nc
         }
     } // namespace boostPythonInterface
 } // namespace nc
+
 #endif

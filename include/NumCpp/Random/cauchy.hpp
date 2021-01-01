@@ -34,8 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/cauchy_distribution.hpp"
-
+#include <random>
 #include <string>
 
 namespace nc
@@ -61,7 +60,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");
             }
 
-            boost::random::cauchy_distribution<dtype> dist(inMean, inSigma);
+            std::cauchy_distribution<dtype> dist(inMean, inSigma);
             return dist(generator_);
         }
 
@@ -88,7 +87,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::cauchy_distribution<dtype> dist(inMean, inSigma);
+            std::cauchy_distribution<dtype> dist(inMean, inSigma);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

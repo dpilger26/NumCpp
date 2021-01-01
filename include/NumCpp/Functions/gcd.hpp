@@ -31,13 +31,22 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifndef NO_USE_BOOST
 #include "boost/integer/common_factor_rt.hpp"
+#endif
+
+#ifdef __cpp_lib_gcd_lcm
+#include <numeric>
+#endif
 
 namespace nc
 {
+#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
     //============================================================================
     // Method Description:
-    ///						Returns the greatest common divisor of |x1| and |x2|
+    ///						Returns the greatest common divisor of |x1| and |x2|.
+    ///                     NOTE: Use of this function requires either using the Boost
+    ///                     includes or a C++17 complient compiler.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
@@ -50,13 +59,21 @@ namespace nc
     dtype gcd(dtype inValue1, dtype inValue2) noexcept 
     {
         STATIC_ASSERT_INTEGER(dtype);
-        return boost::integer::gcd(inValue1, inValue2);
-    }
 
+#ifdef __cpp_lib_gcd_lcm
+        return std::gcd(inValue1, inValue2);
+#else
+        return boost::integer::gcd(inValue1, inValue2);
+#endif
+    }
+#endif
+
+#ifndef NO_USE_BOOST
     //============================================================================
     // Method Description:
     ///						Returns the greatest common divisor of the values in the
     ///                     input array.
+    ///                     NOTE: Use of this function requires using the Boost includes.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
@@ -70,4 +87,5 @@ namespace nc
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
+#endif
 } // namespace nc

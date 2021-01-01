@@ -42,10 +42,10 @@ namespace nc
     using uint8 = std::uint8_t;
 
     //================================================================================
-    ///						Enum To describe an axis
+    ///	Enum To describe an axis
     enum class Axis { NONE = 0, ROW, COL };
 
     //================================================================================
-    ///						Enum for endianess
+    ///	Enum for endianess
     enum class Endian { NATIVE = 0, BIG, LITTLE };
 } // namespace nc
