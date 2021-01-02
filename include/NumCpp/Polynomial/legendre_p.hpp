@@ -27,12 +27,18 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#elif !defined(NO_USE_BOOST)
 #include "boost/math/special_functions/legendre.hpp"
+#endif
 
 namespace nc
 {
@@ -40,7 +46,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind
+        ///	Legendre Polynomial of the first kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the legendre polynomial
         /// @param      x: the input value. Requires -1 <= x <= 1
@@ -57,12 +65,18 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }
 
+#ifdef __cpp_lib_math_special_functions
+            return std::legendre(n, static_cast<double>(x));
+#elif !defined(NO_USE_BOOST)
             return boost::math::legendre_p(n, static_cast<double>(x));
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind
+        ///	Associated Legendre Polynomial of the first kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the legendre polynomial
         /// @param      m: the degree of the legendre polynomial
@@ -80,12 +94,18 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }
 
+#ifdef __cpp_lib_math_special_functions
+            return std::assoc_legendre(m, n, static_cast<double>(x));
+#elif !defined(NO_USE_BOOST)
             return boost::math::legendre_p(m, n, static_cast<double>(x));
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind
+        ///	Legendre Polynomial of the first kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
@@ -109,7 +129,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind
+        ///	Associated Legendre Polynomial of the first kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the legendre polynomial
         /// @param      m: the degree of the legendre polynomial
@@ -133,3 +155,5 @@ namespace nc
         }
     } // namespace polynomial
 }  // namespace nc
+
+#endif

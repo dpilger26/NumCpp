@@ -46,7 +46,7 @@ namespace nc
     // Method Description:
     ///						Returns the greatest common divisor of |x1| and |x2|.
     ///                     NOTE: Use of this function requires either using the Boost
-    ///                     includes or a C++17 complient compiler.
+    ///                     includes or a C++17 compliant compiler.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///

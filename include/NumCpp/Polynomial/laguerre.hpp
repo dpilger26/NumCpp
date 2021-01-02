@@ -27,11 +27,17 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#elif !defined(NO_USE_BOOST)
 #include "boost/math/special_functions/laguerre.hpp"
+#endif
 
 namespace nc
 {
@@ -39,7 +45,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Laguerre Polynomial
+        ///	Laguerre Polynomial.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the leguerre polynomial
         /// @param      x: the input value
@@ -51,12 +59,18 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::laguerre(n, static_cast<double>(x));
+#elif !defined(NO_USE_BOOST)
             return boost::math::laguerre(n, static_cast<double>(x));
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Associated Laguerre Polynomial
+        ///	Associated Laguerre Polynomial.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the leguerre polynomial
         /// @param      m: the degree of the legendre polynomial
@@ -69,12 +83,18 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::assoc_laguerre(m, n, static_cast<double>(x));
+#elif !defined(NO_USE_BOOST)
             return boost::math::laguerre(m, n, static_cast<double>(x));
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Laguerre Polynomial
+        ///	Laguerre Polynomial.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the leguerre polynomial
         /// @param      inArrayX: the input value
@@ -98,7 +118,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Laguerre Polynomial
+        ///	Associated Laguerre Polynomial.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the leguerre polynomial
         /// @param      m: the degree of the legendre polynomial
@@ -122,3 +144,5 @@ namespace nc
         }
     } // namespace polynomial
 } // namespace nc
+
+#endif

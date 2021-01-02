@@ -47,9 +47,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "triangle" distribution.
+        ///	Single random value sampled from the "triangle" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
         /// @param				inA
         /// @param				inB
@@ -90,10 +91,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "triangle" distribution.
+        ///	Create an array of the given shape and populate it with
+        ///	random samples from the "triangle" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
         /// @param				inShape
         /// @param				inA

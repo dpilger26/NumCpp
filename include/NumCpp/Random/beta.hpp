@@ -46,9 +46,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "beta" distribution.
+        ///	Single random value sampled from the from the "beta" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param				inAlpha
         /// @param				inBeta
@@ -76,10 +77,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "beta" distribution.
+        ///	Create an array of the given shape and populate it with
+        ///	random samples from the "beta" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param				inShape
         /// @param				inAlpha

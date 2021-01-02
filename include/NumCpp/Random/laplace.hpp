@@ -43,9 +43,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "laplace" distrubution.
+        ///	Single random value sampled from the "laplace" distrubution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
         /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
         /// @param				inScale: (float optional the exponential decay. Default is 1)
@@ -63,10 +64,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "laplace" distrubution.
+        ///	Create an array of the given shape and populate it with
+        ///	random samples from a "laplace" distrubution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
         /// @param              inShape
         /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
