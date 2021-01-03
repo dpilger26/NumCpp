@@ -54,7 +54,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            const std::exponential_distribution<dtype> dist(inScaleValue);
+            std::exponential_distribution<dtype> dist(inScaleValue);
             return dist(generator_); 
         }
 
@@ -77,7 +77,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const std::exponential_distribution<dtype> dist(inScaleValue);
+            std::exponential_distribution<dtype> dist(inScaleValue);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

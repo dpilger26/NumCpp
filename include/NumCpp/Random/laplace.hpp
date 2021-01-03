@@ -58,7 +58,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
+            boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
             return dist(generator_); 
         }
 
@@ -83,7 +83,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
+            boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

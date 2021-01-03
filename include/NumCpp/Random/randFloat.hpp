@@ -70,7 +70,7 @@ namespace nc
                 std::swap(inLow, inHigh);
             }
 
-            const std::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
+            std::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
             return dist(generator_);
         }
 
@@ -104,7 +104,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const std::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
+            std::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

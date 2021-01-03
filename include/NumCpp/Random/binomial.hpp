@@ -67,7 +67,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            const std::binomial_distribution<dtype> dist(inN, inP);
+            std::binomial_distribution<dtype> dist(inN, inP);
             return dist(generator_);
         }
 
@@ -101,7 +101,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const std::binomial_distribution<dtype> dist(inN, inP);
+            std::binomial_distribution<dtype> dist(inN, inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

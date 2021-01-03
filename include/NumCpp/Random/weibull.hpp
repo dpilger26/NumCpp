@@ -67,7 +67,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
             }
 
-            const std::weibull_distribution<dtype> dist(inA, inB);
+            std::weibull_distribution<dtype> dist(inA, inB);
             return dist(generator_);
         }
 
@@ -101,7 +101,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const std::weibull_distribution<dtype> dist(inA, inB);
+            std::weibull_distribution<dtype> dist(inA, inB);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

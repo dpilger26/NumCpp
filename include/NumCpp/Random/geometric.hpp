@@ -61,7 +61,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
-            const std::geometric_distribution<dtype> dist(inP);
+            std::geometric_distribution<dtype> dist(inP);
             return dist(generator_);
         }
 
@@ -89,7 +89,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const std::geometric_distribution<dtype> dist(inP);
+            std::geometric_distribution<dtype> dist(inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

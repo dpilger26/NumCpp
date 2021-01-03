@@ -71,7 +71,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input beta must be greater than zero.");
             }
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
             return dist(generator_); 
         }
 
@@ -106,7 +106,7 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value)  -> void

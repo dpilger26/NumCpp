@@ -56,7 +56,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input probability of success must be of the range [0, 1].");
             }
 
-            const std::bernoulli_distribution dist(inP);
+            std::bernoulli_distribution dist(inP);
             return dist(generator_);
         }
 
@@ -79,7 +79,7 @@ namespace nc
 
             NdArray<bool> returnArray(inShape);
 
-            const std::bernoulli_distribution dist(inP);
+            std::bernoulli_distribution dist(inP);
 
             stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](bool& value)  -> void
