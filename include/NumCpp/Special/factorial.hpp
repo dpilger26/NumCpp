@@ -31,7 +31,9 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifndef NO_USE_BOOST
 #include "boost/math/special_functions/factorials.hpp"
+#endif
 
 #include <limits>
 
@@ -50,12 +52,22 @@ namespace nc
         ///
         inline double factorial(uint32 inValue)
         {
+#ifndef NO_USE_BOOST
             if (inValue <= boost::math::max_factorial<double>::value)
             {
                 return boost::math::factorial<double>(inValue);   
             }
-            
+
             return std::numeric_limits<double>::infinity();
+#else
+            double result = 1.0;
+            for (uint32 i = 2; i <= inValue; ++i)
+            {
+                result *= static_cast<double>(i);
+            }
+            
+            return result;
+#endif
         }
 
         //============================================================================

@@ -31,7 +31,11 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#elif !defined(NO_USE_BOOST)
 #include "boost/math/special_functions/beta.hpp"
+#endif
 
 #include <type_traits>
 
@@ -41,7 +45,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The beta function
+        ///	The beta function.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      a
         /// @param      b
@@ -54,12 +60,18 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::beta(a, b);
+#elif !defined(NO_USE_BOOST)
             return boost::math::beta(a, b);
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	The beta function
+        ///	The beta function.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      inArrayA
         /// @param      inArrayB

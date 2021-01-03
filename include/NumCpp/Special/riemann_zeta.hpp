@@ -31,7 +31,11 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#elif !defined(NO_USE_BOOST)
 #include "boost/math/special_functions/zeta.hpp"
+#endif
 
 namespace nc
 {
@@ -41,6 +45,8 @@ namespace nc
         // Method Description:
         ///	The Riemann Zeta function
         /// https://en.wikipedia.org/wiki/Riemann_zeta_function
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param
         ///				inValue
@@ -52,13 +58,19 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::riemann_zeta(inValue);
+#elif !defined(NO_USE_BOOST)
             return boost::math::zeta(inValue);
+#endif
         }
 
         //============================================================================
         // Method Description:
         ///	The Riemann Zeta function
         /// https://en.wikipedia.org/wiki/Riemann_zeta_function
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param
         ///				inArray
