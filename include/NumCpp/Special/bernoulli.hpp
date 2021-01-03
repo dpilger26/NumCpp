@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -40,6 +42,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Both return the nth Bernoulli number B2n.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				n
@@ -63,6 +66,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Both return the nth Bernoulli number B2n.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inArray
@@ -83,3 +87,5 @@ namespace nc
         }
     } // namespace special
 } // namespace nc
+
+#endif

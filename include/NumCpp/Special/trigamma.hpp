@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -40,7 +42,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the trigamma function of x. Trigamma is defined as the derivative 
-        /// of the digamma function
+        /// of the digamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inValue
@@ -58,7 +61,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the trigamma function of x. Trigamma is defined as the derivative 
-        /// of the digamma function
+        /// of the digamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inArray
@@ -80,3 +84,5 @@ namespace nc
         }
     } // namespace special
 }  // namespace nc
+
+#endif

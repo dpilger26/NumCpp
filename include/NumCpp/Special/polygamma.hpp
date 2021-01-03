@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -40,7 +42,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the polygamma function of inValue. Polygamma is defined as the
-        /// n'th derivative of the digamma function
+        /// n'th derivative of the digamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param n: the nth derivative
         /// @param inValue
@@ -58,7 +61,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the polygamma function of the values in inArray. Polygamma is defined as the
-        /// n'th derivative of the digamma function
+        /// n'th derivative of the digamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param n: the nth derivative
         /// @param inArray
@@ -80,3 +84,5 @@ namespace nc
         }
     } // namespace special
 }  // namespace nc
+
+#endif

@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -41,7 +43,8 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Spherical Hankel funcion of the second kind
+        ///	Spherical Hankel funcion of the second kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
@@ -59,7 +62,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Spherical Hankel funcion of the second kind
+        /// Spherical Hankel funcion of the second kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArray: the input value
@@ -81,3 +85,5 @@ namespace nc
         }
     } // namespace special
 } // namespace nc
+
+#endif

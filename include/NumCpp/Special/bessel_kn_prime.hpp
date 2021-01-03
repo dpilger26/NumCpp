@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -41,7 +43,8 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind
+        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
@@ -60,6 +63,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///	Derivcative of the Modified Cylindrical Bessel function of the second kind
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
@@ -81,3 +85,5 @@ namespace nc
         }
     } // namespace special
 }  // namespace nc
+
+#endif
