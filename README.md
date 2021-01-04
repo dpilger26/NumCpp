@@ -17,7 +17,7 @@
 
 ## License [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-Copyright 2020 David Pilger
+Copyright 2018-2021 David Pilger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
 software and associated documentation files(the "Software"), to deal in the Software

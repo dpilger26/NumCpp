@@ -2,6 +2,55 @@
 
 ## Version 2.4.0
 
+* Compile with `NO_USE_BOOST` definition to remove the Boost libraries as a dependency, with reduced functionality:
+  * `gcd` with a pair of values (still available using a C++17 compliant compiler)
+  * `gcd` array
+  * `lcm` with a pair of values (still available using a C++17 compliant compiler)
+  * `lcm` array
+  * `polynomial::chebyshev_t`
+  * `polynomial::chebyshev_u`
+  * `polynomial::hermite` (still available using a C++17 compliant compiler)
+  * `polynomial::laguerre` (still available using a C++17 compliant compiler)
+  * `polynomial::legendre_p` (still available using a C++17 compliant compiler)
+  * `polynomial::legendre_q`
+  * `polynomial::spherical_harmonic`
+  * `random::beta`
+  * `random::laplace`
+  * `random::nonCentralChiSquared`
+  * `random::triangle`
+  * `random::uniformOnSphere`
+  * `special::airy_ai`
+  * `special::airy_ai_prime`
+  * `special::airy_bi`
+  * `special::airy_bi_prime`
+  * `special::bernoulli`
+  * `special::bessel_in` (still available using a C++17 compliant compiler)
+  * `special::bessel_in_prime`
+  * `special::bessel_jn` (still available using a C++17 compliant compiler)
+  * `special::bessel_jn_prime`
+  * `special::bessel_kn` (still available using a C++17 compliant compiler)
+  * `special::bessel_kn_prime`
+  * `special::bessel_yn` (still available using a C++17 compliant compiler)
+  * `special::bessel_yn_prime`
+  * `special::beta` (still available using a C++17 compliant compiler)
+  * `special::cyclic_hankel_1`
+  * `special::cyclic_hankel_2`
+  * `special::digamma`
+  * `special::erf`
+  * `special::erf_inv`
+  * `special::erfc`
+  * `special::erfc_inv`
+  * `special::gamma`
+  * `special::gamma1pm1`
+  * `special::log_gamma`
+  * `special::polygamma`
+  * `special::prime`
+  * `special::riemann_zeta` (still available using a C++17 compliant compiler)
+  * `special::spherical_bessel_jn` (still available using a C++17 compliant compiler)
+  * `special::spherical_bessel_yn` (still available using a C++17 compliant compiler)
+  * `special::spherical_hankel_1`
+  * `special::spherical_hankel_2`
+  * `special::trigamma`
 * Added `replace` option into `random::choice`
 * Added `nan_to_num` function
 
