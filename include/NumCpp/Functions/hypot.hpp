@@ -51,15 +51,14 @@ namespace nc
     /// @param				inValue2
     ///
     /// @return
-    ///				NdArray
+    ///				value
     ///
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
-            utils::sqr(static_cast<double>(inValue2)));
+        return std::hypot(static_cast<double>(inValue1), static_cast<double>(inValue2));
     }
 
     //============================================================================
@@ -76,16 +75,22 @@ namespace nc
     /// @param				inValue3
     ///
     /// @return
-    ///				NdArray
+    ///				value
     ///
     template<typename dtype>
     double hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_hypot
+        return std::hypot(static_cast<double>(inValue1),
+            static_cast<double>(inValue2),
+            static_cast<double>(inValue3));
+#else
         return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
             utils::sqr(static_cast<double>(inValue2)) + 
             utils::sqr(static_cast<double>(inValue3)));
+#endif
     }
 
     //============================================================================
@@ -111,7 +116,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
-        NdArray<dtype> returnArray(inArray1.shape());
+        NdArray<double> returnArray(inArray1.shape());
 
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, dtype inValue2) noexcept -> double

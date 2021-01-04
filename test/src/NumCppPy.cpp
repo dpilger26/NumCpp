@@ -5492,6 +5492,48 @@ BOOST_PYTHON_MODULE(NumCppPy)
         .def_readonly("first", &uint32Pair::first)
         .def_readonly("second", &uint32Pair::second);
 
+#ifdef NO_USE_BOOST
+    bp::scope().attr("NO_USE_BOOST") = true;
+#else
+    bp::scope().attr("NO_USE_BOOST") = false;
+#endif
+
+#ifdef __cpp_lib_gcd_lcm
+    bp::scope().attr("STL_GCD_LCM") = true;
+#else
+    bp::scope().attr("STL_GCD_LCM") = false;
+#endif
+
+#ifdef __cpp_lib_clamp
+    bp::scope().attr("STL_CLAMP") = true;
+#else
+    bp::scope().attr("STL_CLAMP") = false;
+#endif
+
+#ifdef __cpp_lib_hypot
+    bp::scope().attr("STL_HYPOT") = true;
+#else
+    bp::scope().attr("STL_HYPOT") = false;
+#endif
+
+#ifdef __cpp_lib_math_special_functions
+    bp::scope().attr("STL_SPECIAL_FUNCTIONS") = true;
+#else
+    bp::scope().attr("STL_SPECIAL_FUNCTIONS") = false;
+#endif
+
+#ifdef __cpp_lib_execution
+    bp::scope().attr("STL_LIB_EXECUTION") = true;
+#else
+    bp::scope().attr("STL_LIB_EXECUTION") = false;
+#endif
+
+#ifdef __cpp_lib_parallel_algorithm
+    bp::scope().attr("STL_LIB_PARALLEL_ALGORITHM") = true;
+#else
+    bp::scope().attr("STL_LIB_PARALLEL_ALGORITHM") = false;
+#endif
+
     // Version.hpp
     bp::scope().attr("VERSION") = VERSION;
 

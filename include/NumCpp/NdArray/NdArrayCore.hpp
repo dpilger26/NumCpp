@@ -2297,6 +2297,14 @@ namespace nc
             stl_algorithms::transform(cbegin(), cend(), outArray.begin(), 
                 [inMin, inMax](dtype value) noexcept -> dtype
                 {
+#ifdef __cpp_lib_clamp
+                    const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+                    {
+                        return lhs < rhs;
+                    };
+
+                    return std::clamp(value, inMin, inMax, comparitor);
+#else
                     if (value < inMin)
                     {
                         return inMin;
@@ -2307,6 +2315,7 @@ namespace nc
                     }
 
                     return value;
+#endif
                 });
 
             return outArray;

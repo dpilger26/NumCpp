@@ -118,7 +118,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Sets the extension to teh input extension.  Do not input the dot.
+            ///	Sets the extension to the input extension.  Do not input the dot.
             /// E.g. input "txt", not ".txt" 
             ///
             /// @return     std::string

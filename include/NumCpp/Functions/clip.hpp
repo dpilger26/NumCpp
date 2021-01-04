@@ -28,7 +28,12 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/NdArray.hpp"
+
+#ifdef __cpp_lib_clamp
+#include <algorithm>
+#endif
 
 namespace nc
 {
@@ -49,6 +54,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
+#ifdef __cpp_lib_clamp
+        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs < rhs;
+        };
+
+        return std::clamp(inValue, inMinValue, inMaxValue, comparitor);
+#else
         if (inValue < inMinValue)
         {
             return inMinValue;
@@ -59,6 +72,7 @@ namespace nc
         }
 
         return inValue;
+#endif
     }
 
     //============================================================================
