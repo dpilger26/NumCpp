@@ -84,4 +84,4 @@ namespace nc
     }  // namespace polynomial
 }  // namespace nc
 
-#endif
+#endif // #ifndef NO_USE_BOOST

@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -41,7 +43,6 @@
 
 namespace nc
 {
-#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
     //============================================================================
     // Method Description:
     ///						Returns the greatest common divisor of |x1| and |x2|.
@@ -64,9 +65,8 @@ namespace nc
         return std::gcd(inValue1, inValue2);
 #else
         return boost::integer::gcd(inValue1, inValue2);
-#endif
+#endif // #ifdef __cpp_lib_gcd_lcm
     }
-#endif
 
 #ifndef NO_USE_BOOST
     //============================================================================
@@ -87,5 +87,7 @@ namespace nc
         STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
-#endif
+#endif // #ifndef NO_USE_BOOST
 } // namespace nc
+
+#endif // defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)

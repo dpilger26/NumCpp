@@ -35,7 +35,7 @@
 
 #ifdef __cpp_lib_math_special_functions
 #include <cmath>
-#elif !defined(NO_USE_BOOST)
+#else
 #include "boost/math/special_functions/laguerre.hpp"
 #endif
 
@@ -61,7 +61,7 @@ namespace nc
 
 #ifdef __cpp_lib_math_special_functions
             return std::laguerre(n, static_cast<double>(x));
-#elif !defined(NO_USE_BOOST)
+#else
             return boost::math::laguerre(n, static_cast<double>(x));
 #endif
         }
@@ -85,7 +85,7 @@ namespace nc
 
 #ifdef __cpp_lib_math_special_functions
             return std::assoc_laguerre(m, n, static_cast<double>(x));
-#elif !defined(NO_USE_BOOST)
+#else
             return boost::math::laguerre(m, n, static_cast<double>(x));
 #endif
         }
@@ -145,4 +145,4 @@ namespace nc
     } // namespace polynomial
 } // namespace nc
 
-#endif
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)

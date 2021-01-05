@@ -119,4 +119,4 @@ namespace nc
     } // namespace random
 } // namespace nc
 
-#endif
+#endif // #ifndef NO_USE_BOOST

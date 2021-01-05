@@ -35,7 +35,7 @@
 
 #ifdef __cpp_lib_math_special_functions
 #include <cmath>
-#elif !defined(NO_USE_BOOST)
+#else
 #include "boost/math/special_functions/hermite.hpp"
 #endif
 
@@ -59,10 +59,9 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-
 #ifdef __cpp_lib_math_special_functions
             return std::hermite(n, static_cast<double>(x));
-#elif !defined(NO_USE_BOOST)
+#else
             return boost::math::hermite(n, static_cast<double>(x));
 #endif
         }
@@ -95,4 +94,4 @@ namespace nc
     } // namespace polynomial
 } // namespace nc
 
-#endif
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)

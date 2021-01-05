@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -41,7 +43,6 @@
 
 namespace nc
 {
-#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
     //============================================================================
     // Method Description:
     ///						Returns the least common multiple of |x1| and |x2|.
@@ -67,8 +68,6 @@ namespace nc
 #endif
     }
 
-#endif
-
 #ifndef NO_USE_BOOST
     //============================================================================
     // Method Description:
@@ -88,6 +87,7 @@ namespace nc
 
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
-#endif
+#endif // #ifndef NO_USE_BOOST
 }  // namespace nc
 
+#endif // #if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)

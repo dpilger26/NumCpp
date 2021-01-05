@@ -331,4 +331,4 @@ namespace nc
     }  // namespace boostPythonInterface
 } // namespace nc
 
-#endif
+#endif // #if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)

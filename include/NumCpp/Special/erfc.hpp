@@ -84,4 +84,4 @@ namespace nc
     }  // namespace special
 }  // namespace nc
 
-#endif
+#endif // #ifndef NO_USE_BOOST

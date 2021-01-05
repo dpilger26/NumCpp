@@ -27,13 +27,15 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #ifdef __cpp_lib_math_special_functions
 #include <cmath>
-#elif !defined(NO_USE_BOOST)
+#else
 #include "boost/math/special_functions/bessel.hpp"
 #endif
 
@@ -63,7 +65,7 @@ namespace nc
             return boost::math::cyl_neumann(inV, inX);
 #ifdef __cpp_lib_math_special_functions
             return std::cyl_neumann(inV, inX);
-#elif !defined(NO_USE_BOOST)
+#else
             return boost::math::cyl_neumann(inV, inX);
 #endif
         }
@@ -94,3 +96,5 @@ namespace nc
         }
     } // namespace special
 }  // namespace nc
+
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
