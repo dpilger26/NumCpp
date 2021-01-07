@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.special as sp
+import mpmath
 import os
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
@@ -12,7 +13,7 @@ NUM_DECIMALS_ROUND = 7
 
 ####################################################################################
 def test_seed():
-    np.random.seed(26)
+    np.random.seed(1)
 
 
 ####################################################################################
@@ -238,6 +239,60 @@ def test_beta():
 
 
 ####################################################################################
+def test_comp_ellint_1():
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_1_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipk(a**2).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_1_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipk(np.square(a)), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_comp_ellint_2():
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_2_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipe(a**2).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_2_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipe(np.square(a)), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_comp_ellint_3():
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_3_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(float(mpmath.ellippi(b, a**2)), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    result = np.zeros_like(a)
+    for row in range(a.shape[0]):
+        for col in range(a.shape[1]):
+            result[row, col] = float(mpmath.ellippi(b[row, col], a[row, col]**2))
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_3_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(result, NUM_DECIMALS_ROUND))
+
+
+####################################################################################
 def test_cnr():
     n = np.random.randint(0, 50)
     r = np.random.randint(0, n + 1)
@@ -291,6 +346,74 @@ def test_digamma():
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.digamma_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.digamma(data), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_ellint_1():
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_1_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    assert np.array_equal(roundArray(NumCpp.ellint_1_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_ellint_2():
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_2_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    assert np.array_equal(roundArray(NumCpp.ellint_2_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_ellint_3():
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    c = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_3_Scaler(a, b, c), NUM_DECIMALS_ROUND) ==
+            roundScaler(float(mpmath.ellippi(b, c, a**2)), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    cArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    c = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+    cArray.setArray(c)
+
+    result = np.zeros_like(a)
+    for row in range(a.shape[0]):
+        for col in range(a.shape[1]):
+            result[row, col] = float(mpmath.ellippi(b[row, col], c[row, col], a[row, col]**2))
+    assert np.array_equal(roundArray(NumCpp.ellint_3_Array(aArray, bArray, cArray), NUM_DECIMALS_ROUND),
+                          roundArray(result, NUM_DECIMALS_ROUND))
 
 
 ####################################################################################
@@ -351,6 +474,21 @@ def test_erfcinv():
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.erfc_inv_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.erfcinv(data), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_expint():
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.expint_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.expi(a).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.expint_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.expi(a), NUM_DECIMALS_ROUND))
 
 
 ####################################################################################

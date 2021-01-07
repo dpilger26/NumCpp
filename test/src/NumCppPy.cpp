@@ -5161,6 +5161,54 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
+    dtype comp_ellint_1_Scaler(dtype k) 
+    {
+        return special::comp_ellint_1(k);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray comp_ellint_1_Array(const NdArray<dtype>& k) 
+    {
+        return nc2Boost(special::comp_ellint_1(k));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype comp_ellint_2_Scaler(dtype k) 
+    {
+        return special::comp_ellint_2(k);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray comp_ellint_2_Array(const NdArray<dtype>& k) 
+    {
+        return nc2Boost(special::comp_ellint_2(k));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype comp_ellint_3_Scaler(dtype k, dtype v) 
+    {
+        return special::comp_ellint_3(k, v);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    np::ndarray comp_ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v) 
+    {
+        return nc2Boost(special::comp_ellint_3(k, v));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x) 
     {
         return special::cyclic_hankel_1(v, x);
@@ -5188,6 +5236,70 @@ namespace SpecialInterface
     np::ndarray cyclic_hankel_2_Array(dtype v, const NdArray<dtype>& x)
     {
         return nc2Boost(special::cyclic_hankel_2(v, x));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype ellint_1_Scaler(dtype k, dtype p) 
+    {
+        return special::ellint_1(k, p);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    np::ndarray ellint_1_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p) 
+    {
+        return nc2Boost(special::ellint_1(k, p));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype ellint_2_Scaler(dtype k, dtype p) 
+    {
+        return special::ellint_2(k, p);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    np::ndarray ellint_2_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p) 
+    {
+        return nc2Boost(special::ellint_2(k, p));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype ellint_3_Scaler(dtype k, dtype v, dtype p) 
+    {
+        return special::ellint_3(k, v, p);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2, typename dtype3>
+    np::ndarray ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v, const NdArray<dtype3>& p) 
+    {
+        return nc2Boost(special::ellint_3(k, v, p));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype expint_Scaler(dtype k) 
+    {
+        return special::expint(k);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray expint_Array(const NdArray<dtype>& k) 
+    {
+        return nc2Boost(special::expint(k));
     }
 
     //================================================================================
@@ -8017,11 +8129,25 @@ BOOST_PYTHON_MODULE(NumCppPy)
     bp::def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
     bp::def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
     bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
+    bp::def("comp_ellint_1_Scaler", &SpecialInterface::comp_ellint_1_Scaler<double>);
+    bp::def("comp_ellint_1_Array", &SpecialInterface::comp_ellint_1_Array<double>);
+    bp::def("comp_ellint_2_Scaler", &SpecialInterface::comp_ellint_2_Scaler<double>);
+    bp::def("comp_ellint_2_Array", &SpecialInterface::comp_ellint_2_Array<double>);
+    bp::def("comp_ellint_3_Scaler", &SpecialInterface::comp_ellint_3_Scaler<double>);
+    bp::def("comp_ellint_3_Array", &SpecialInterface::comp_ellint_3_Array<double, double>);
     bp::def("cnr", &special::cnr);
     bp::def("cyclic_hankel_1_Scaler", &SpecialInterface::cyclic_hankel_1_Scaler<double>);
     bp::def("cyclic_hankel_1_Array", &SpecialInterface::cyclic_hankel_1_Array<double>);
     bp::def("cyclic_hankel_2_Scaler", &SpecialInterface::cyclic_hankel_2_Scaler<double>);
     bp::def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double>);
+    bp::def("ellint_1_Scaler", &SpecialInterface::ellint_1_Scaler<double>);
+    bp::def("ellint_1_Array", &SpecialInterface::ellint_1_Array<double, double>);
+    bp::def("ellint_2_Scaler", &SpecialInterface::ellint_2_Scaler<double>);
+    bp::def("ellint_2_Array", &SpecialInterface::ellint_2_Array<double, double>);
+    bp::def("ellint_3_Scaler", &SpecialInterface::ellint_3_Scaler<double>);
+    bp::def("ellint_3_Array", &SpecialInterface::ellint_3_Array<double, double, double>);
+    bp::def("expint_Scaler", &SpecialInterface::expint_Scaler<double>);
+    bp::def("expint_Array", &SpecialInterface::expint_Array<double>);
     bp::def("spherical_hankel_1_Scaler", &SpecialInterface::spherical_hankel_1_Scaler<double>);
     bp::def("spherical_hankel_1_Array", &SpecialInterface::spherical_hankel_1_Array<double>);
     bp::def("spherical_hankel_2_Scaler", &SpecialInterface::spherical_hankel_2_Scaler<double>);

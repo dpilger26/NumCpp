@@ -53,6 +53,8 @@
   * `special::trigamma`
 * Added `replace` option into `random::choice`
 * Added `nan_to_num` function
+* Added complete and incomplete elliptical integrals of the first, second, and third kind to `special` namespace (requires either Boost or C++17 compliant compiler)
+* Added exponential integral to `special` namespace (requires either Boost or C++17 compliant compiler)
 
 ## Version 2.3.1
 
