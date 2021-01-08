@@ -2264,7 +2264,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype>& byteswap() 
+        NdArray<dtype>& byteswap() noexcept
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -2274,6 +2274,25 @@ namespace nc
                     value = endian::byteSwap(value);
                 }
             );
+
+            switch (endianess_)
+            {
+                case Endian::NATIVE:
+                {
+                    endianess_ = endian::isLittleEndian() ? Endian::BIG : Endian::LITTLE;
+                    break;
+                }
+                case Endian::LITTLE:
+                {
+                    endianess_ = Endian::BIG;
+                    break;
+                }
+                case Endian::BIG:
+                {
+                    endianess_ = Endian::LITTLE;
+                    break;
+                }
+            }
 
             return *this;
         }

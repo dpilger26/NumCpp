@@ -95,9 +95,9 @@ namespace nc
             }
 
 #ifdef __cpp_lib_math_special_functions
-            return std::assoc_legendre(m, n, static_cast<double>(x));
+            return std::assoc_legendre(m, n, static_cast<double>(x)) * (n % 2 == 0 ? 1 : -1);
 #else
-            return boost::math::legendre_p(m, n, static_cast<double>(x));
+            return boost::math::legendre_p(n, m, static_cast<double>(x));
 #endif
         }
 
