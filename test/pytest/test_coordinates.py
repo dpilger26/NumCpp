@@ -20,7 +20,7 @@ def test_ra_default_constructor():
 def test_ra_degrees_constructor():
     randDegrees = np.random.rand(1).item() * 360
     ra = NumCpp.Ra(randDegrees)
-    raPy = Longitude(randDegrees, unit=u.deg)
+    raPy = Longitude(randDegrees, unit=u.deg)  # noqa
     assert round(ra.degrees(), 9) == round(randDegrees, 9)
     assert ra.hours() == raPy.hms.h
     assert ra.minutes() == raPy.hms.m
@@ -77,7 +77,7 @@ def test_dec_default_constructor():
 def test_dec_degree_constructor():
     randDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(randDegrees)
-    decPy = Latitude(randDegrees, unit=u.deg)
+    decPy = Latitude(randDegrees, unit=u.deg)  # noqa
     sign = NumCpp.Sign.NEGATIVE if randDegrees < 0 else NumCpp.Sign.POSITIVE
     assert round(dec.degrees(), 8) == round(randDegrees, 8)
     assert dec.sign() == sign
@@ -143,7 +143,7 @@ def test_coord_degree_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
 
-    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
     cCoord = NumCpp.Coordinate(raDegrees, decDegrees)
     assert cCoord.ra() == ra
     assert cCoord.dec() == dec
@@ -159,7 +159,7 @@ def test_coord_radec_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
 
-    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
     cCoord = NumCpp.Coordinate(ra, dec)
     assert cCoord.ra() == ra
     assert cCoord.dec() == dec
@@ -174,7 +174,7 @@ def test_coord_cartesian_constructor():
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
-    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
     cCoord = NumCpp.Coordinate(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
     assert round(cCoord.ra().degrees(), 9) == round(ra.degrees(), 9)
     assert round(cCoord.dec().degrees(), 9) == round(dec.degrees(), 9)
@@ -189,7 +189,7 @@ def test_coord_cartesian_vector_constructor():
     ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
-    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
+    pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
     vec = np.asarray([pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
@@ -219,7 +219,7 @@ def test_coord_rms_constructor():
     cCoord = NumCpp.Coordinate(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
     cRa = cCoord.ra()
     cDec = cCoord.dec()
-    pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)
+    pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)  # noqa
     assert round(cRa.degrees(), 9) == round(raDegreesPy, 9)
     assert cRa.hours() == raHours
     assert cRa.minutes() == raMinutes
@@ -267,8 +267,8 @@ def test_coord_degreeSeperation():
     decDegrees = np.random.rand(1).item() * 180 - 90
     cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
 
-    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
-    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
     cDegSep = cCoord.degreeSeperation(cCoord2)
     pyDegSep = pyCoord.separation(pyCoord2).value
@@ -283,8 +283,8 @@ def test_coord_radianSeperation():
     decDegrees = np.random.rand(1).item() * 180 - 90
     cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
 
-    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
-    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
     cRadSep = cCoord.radianSeperation(cCoord2)
     pyRadSep = np.deg2rad(pyCoord.separation(pyCoord2).value)
@@ -300,8 +300,8 @@ def test_coord_degreeSeperation_vec():
     decDegrees = np.random.rand(1).item() * 180 - 90
     cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
 
-    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
-    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
     vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
@@ -319,15 +319,15 @@ def test_coord_radianSeperation_vec():
     decDegrees = np.random.rand(1).item() * 180 - 90
     cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
 
-    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)
-    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)
+    pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
+    pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
     vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cRadSep = cCoord.radianSeperation(cArray)
     pyRadSep = np.radians(pyCoord.separation(pyCoord2).value)
-    assert round(cRadSep, 9) == round(pyRadSep, 9)
+    assert round(cRadSep, 9) == round(pyRadSep, 9)  # noqa
 
 
 ####################################################################################

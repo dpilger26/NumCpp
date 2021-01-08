@@ -366,7 +366,7 @@ def test_amin():
 def test_angle():
     components = np.random.randint(-100, -1, [2, ]).astype(np.double)
     value = np.complex(components[0], components[1])
-    assert np.round(NumCpp.angleScaler(value), 9) == np.round(np.angle(value), 9)
+    assert np.round(NumCpp.angleScaler(value), 9) == np.round(np.angle(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -803,7 +803,7 @@ def test_argsort():
     cIdx = NumCpp.argsort(cArray, NumCpp.Axis.COL).astype(np.uint16)
     allPass = True
     for idx, row in enumerate(data):
-        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):
+        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):  # noqa
             allPass = False
             break
     assert allPass
@@ -1150,7 +1150,7 @@ def test_asarray():
     cArrayCast = NumCpp.astypeComplexToDouble(cArray).getNumpyArray()
     warnings.filterwarnings('ignore', category=np.ComplexWarning)
     assert np.array_equal(cArrayCast, data.astype(np.double))
-    warnings.filters.pop()
+    warnings.filters.pop()  # noqa
     assert cArrayCast.dtype == np.double
 
 
@@ -1456,7 +1456,7 @@ def test_clip():
     value = np.random.randint(0, 100, [1, ]).item() + 1j * np.random.randint(0, 100, [1, ]).item()
     minValue = np.random.randint(0, 10, [1, ]).item() + 1j * np.random.randint(0, 10, [1, ]).item()
     maxValue = np.random.randint(90, 100, [1, ]).item() + 1j * np.random.randint(0, 100, [1, ]).item()
-    assert NumCpp.clipScaler(value, minValue, maxValue) == np.clip(value, minValue, maxValue)
+    assert NumCpp.clipScaler(value, minValue, maxValue) == np.clip(value, minValue, maxValue)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2997,15 +2997,17 @@ def test_full_like():
 
 ####################################################################################
 def test_gcd():
-    value1 = np.random.randint(1, 1000, [1, ]).item()
-    value2 = np.random.randint(1, 1000, [1, ]).item()
-    assert NumCpp.gcdScaler(value1, value2) == np.gcd(value1, value2)
+    if not NumCpp.NO_USE_BOOST or NumCpp.STL_GCD_LCM:
+        value1 = np.random.randint(1, 1000, [1, ]).item()
+        value2 = np.random.randint(1, 1000, [1, ]).item()
+        assert NumCpp.gcdScaler(value1, value2) == np.gcd(value1, value2)
 
-    size = np.random.randint(20, 100, [1, ]).item()
-    cArray = NumCpp.NdArrayUInt32(1, size)
-    data = np.random.randint(1, 1000, [size, ], dtype=np.uint32)
-    cArray.setArray(data)
-    assert NumCpp.gcdArray(cArray) == np.gcd.reduce(data)
+    if not NumCpp.NO_USE_BOOST:
+        size = np.random.randint(20, 100, [1, ]).item()
+        cArray = NumCpp.NdArrayUInt32(1, size)
+        data = np.random.randint(1, 1000, [size, ], dtype=np.uint32)
+        cArray.setArray(data)
+        assert NumCpp.gcdArray(cArray) == np.gcd.reduce(data)  # noqa
 
 
 ####################################################################################
@@ -3204,7 +3206,7 @@ def test_identity():
 def test_imag():
     components = np.random.rand(2).astype(np.double)
     value = np.complex(components[0], components[1])
-    assert np.round(NumCpp.imagScaler(value), 9) == np.round(np.imag(value), 9)
+    assert np.round(NumCpp.imagScaler(value), 9) == np.round(np.imag(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3301,15 +3303,17 @@ def test_isnan():
 
 ####################################################################################
 def test_lcm():
-    value1 = np.random.randint(1, 1000, [1, ]).item()
-    value2 = np.random.randint(1, 1000, [1, ]).item()
-    assert NumCpp.lcmScaler(value1, value2) == np.lcm(value1, value2)
+    if not NumCpp.NO_USE_BOOST or NumCpp.STL_GCD_LCM:
+        value1 = np.random.randint(1, 1000, [1, ]).item()
+        value2 = np.random.randint(1, 1000, [1, ]).item()
+        assert NumCpp.lcmScaler(value1, value2) == np.lcm(value1, value2)
 
-    size = np.random.randint(2, 10, [1, ]).item()
-    cArray = NumCpp.NdArrayUInt32(1, size)
-    data = np.random.randint(1, 100, [size, ])
-    cArray.setArray(data)
-    assert NumCpp.lcmArray(cArray) == np.lcm.reduce(data)
+    if not NumCpp.NO_USE_BOOST:
+        size = np.random.randint(2, 10, [1, ]).item()
+        cArray = NumCpp.NdArrayUInt32(1, size)
+        data = np.random.randint(1, 100, [size, ])
+        cArray.setArray(data)
+        assert NumCpp.lcmArray(cArray) == np.lcm.reduce(data)  # noqa
 
 
 ####################################################################################
@@ -3753,7 +3757,7 @@ def test_median():
     while isEven:
         shapeInput = np.random.randint(20, 100, [2, ])
         isEven = shapeInput.prod().item() % 2 == 0
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())  # noqa
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
@@ -4255,7 +4259,7 @@ def test_nanmedian():
     while isEven:
         shapeInput = np.random.randint(20, 100, [2, ])
         isEven = shapeInput.prod().item() % 2 == 0
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())  # noqa
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     data = data.flatten()
@@ -5533,7 +5537,7 @@ def test_ravel():
 def test_real():
     components = np.random.rand(2).astype(np.double)
     value = np.complex(components[0], components[1])
-    assert np.round(NumCpp.realScaler(value), 9) == np.round(np.real(value), 9)
+    assert np.round(NumCpp.realScaler(value), 9) == np.round(np.real(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -5712,7 +5716,7 @@ def test_rint():
 
 
 ####################################################################################
-def test_mean():
+def test_rms():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

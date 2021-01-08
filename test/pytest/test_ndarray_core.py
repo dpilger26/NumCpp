@@ -1622,7 +1622,7 @@ def test_argsort():
     cIdx = cArray.argsort(NumCpp.Axis.COL).astype(np.uint16)
     allPass = True
     for idx, row in enumerate(data):
-        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):
+        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):  # noqa
             allPass = False
             break
     assert allPass
@@ -1686,7 +1686,7 @@ def test_astype():
     cArrayCast = cArray.astypeDouble().getNumpyArray()
     warnings.filterwarnings('ignore', category=np.ComplexWarning)
     assert np.array_equal(cArrayCast, data.astype(np.double))
-    warnings.filters.pop()
+    warnings.filters.pop()  # noqa
     assert cArrayCast.dtype == np.double
 
 
@@ -3206,7 +3206,7 @@ def test_resize():
     cArray = NumCpp.NdArray(shape1)
     data = np.random.randint(1, 100, [shape1.rows, shape1.cols], dtype=np.uint32)
     cArray.setArray(data)
-    res = cArray.resizeFast(shape2)
+    res = cArray.resizeFast(shape2)  # noqa
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 
@@ -3219,7 +3219,7 @@ def test_resize():
     imag = np.random.randint(1, 100, [shape1.rows, shape1.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    res = cArray.resizeFast(shape2)
+    res = cArray.resizeFast(shape2)  # noqa
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 

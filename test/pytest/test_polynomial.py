@@ -35,7 +35,7 @@ def test_poly1D_roots_constructor():
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
     polyC = NumCpp.Poly1d(rootsC, True)
-    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients)
+    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients)  # noqa
 
 
 ####################################################################################
@@ -79,7 +79,7 @@ def test_poly1D_fit():
     cX.setArray(xValues)
     cY.setArray(yValues)
 
-    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder).convert().coef
+    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder).convert().coef  # noqa
     polyC = NumCpp.Poly1d.fit(cX, cY, polyOrder).coefficients().getNumpyArray().flatten()
 
     assert np.array_equal(np.round(poly, 5), np.round(polyC, 5))
@@ -108,7 +108,7 @@ def test_poly1D_fit_weighted():
     cY.setArray(yValues)
     cWeights.setArray(weights)
 
-    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder, w=weights).convert().coef
+    poly = Polynomial.fit(xValues, yValues.flatten(), polyOrder, w=weights).convert().coef  # noqa
     polyC = NumCpp.Poly1d.fitWeighted(cX, cY, cWeights, polyOrder).coefficients().getNumpyArray().flatten()
 
     assert np.array_equal(np.round(poly, 1), np.round(polyC, 1))
@@ -147,6 +147,9 @@ def test_poly1D_operators():
 
 ####################################################################################
 def test_chebyshev():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -198,6 +201,9 @@ def test_chebyshev():
 
 ####################################################################################
 def test_hermite():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -225,6 +231,9 @@ def test_hermite():
 
 ####################################################################################
 def test_laguerre():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -278,6 +287,9 @@ def test_laguerre():
 
 ####################################################################################
 def test_legendre():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
@@ -302,30 +314,34 @@ def test_legendre():
 
     assert allTrue
 
-    allTrue = True
-    for order in range(ORDER_MAX):
-        x = np.random.rand(1).item()
-        degree = np.random.randint(order, ORDER_MAX)
-        valuePy = sp.lpmn(order, degree, x)[0][order, degree]
-        valueCpp = NumCpp.legendre_p_Scaler2(order, degree, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+    if not NumCpp.NO_USE_BOOST:
+        allTrue = True
+        for order in range(ORDER_MAX):
+            x = np.random.rand(1).item()
+            degree = np.random.randint(order, ORDER_MAX)
+            valuePy = sp.lpmn(order, degree, x)[0][order, degree]
+            valueCpp = NumCpp.legendre_p_Scaler2(order, degree, x)
+            if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
+                allTrue = False
 
-    assert allTrue
+        assert allTrue
 
-    allTrue = True
-    for order in range(ORDER_MAX):
-        x = np.random.rand(1).item()
-        valuePy = sp.lqn(order, x)[0][order]
-        valueCpp = NumCpp.legendre_q_Scaler(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        allTrue = True
+        for order in range(ORDER_MAX):
+            x = np.random.rand(1).item()
+            valuePy = sp.lqn(order, x)[0][order]
+            valueCpp = NumCpp.legendre_q_Scaler(order, x)
+            if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
+                allTrue = False
 
-    assert allTrue
+        assert allTrue
 
 
 ####################################################################################
 def test_spherical_harmonic():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
