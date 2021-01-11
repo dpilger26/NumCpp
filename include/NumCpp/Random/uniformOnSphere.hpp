@@ -31,7 +31,6 @@
 #ifndef NO_USE_BOOST
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -39,6 +38,7 @@
 
 #include "boost/random/uniform_on_sphere.hpp"
 
+#include <algorithm>
 #include <string>
 
 namespace nc
@@ -67,7 +67,7 @@ namespace nc
             for (uint32 row = 0; row < inNumPoints; ++row)
             {
                 std::vector<dtype> point = dist(generator_);
-                stl_algorithms::copy(returnArray.begin(row), returnArray.end(row), point.begin());
+                std::copy(returnArray.begin(row), returnArray.end(row), point.begin());
             }
 
             return returnArray;

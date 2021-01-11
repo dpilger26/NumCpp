@@ -31,13 +31,13 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/beta_distribution.hpp"
 
+#include <algorithm>
 #include <string>
 
 namespace nc
@@ -108,7 +108,7 @@ namespace nc
 
             boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) -> void
                 {
                     value = dist(generator_); 

@@ -30,12 +30,13 @@
 #ifndef NO_USE_BOOST
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/laplace_distribution.hpp"
+
+#include <algorithm>
 
 namespace nc
 {
@@ -85,7 +86,7 @@ namespace nc
 
             boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) -> void
                 { 
                     value = dist(generator_); 

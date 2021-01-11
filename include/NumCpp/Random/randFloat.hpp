@@ -30,12 +30,12 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
+#include <algorithm>
 #include <random>
 #include <string>
 
@@ -106,7 +106,7 @@ namespace nc
 
             std::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) -> void
                 { 
                     value = dist(generator_); 

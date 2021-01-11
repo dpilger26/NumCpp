@@ -28,7 +28,6 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -77,7 +76,7 @@ namespace nc
             if (replace)
             {
                 NdArray<dtype> outArray(1, inNum);
-                stl_algorithms::for_each(outArray.begin(), outArray.end(),
+                std::for_each(outArray.begin(), outArray.end(),
                     [&inArray](dtype& value) -> void
                     { 
                         value = choice(inArray); 
