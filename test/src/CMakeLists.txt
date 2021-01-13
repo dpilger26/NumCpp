@@ -40,6 +40,14 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
   -DBOOST_NUMPY_STATIC_LIB
 )
 
+if(NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_USE_BOOST)
+endif()
+
+if(NO_MULTITHREAD)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_MULTITHREAD)
+endif()
+
 set(Boost_USE_STATIC_LIBS ON) 
 set(Python3_USE_STATIC_LIBS True)
 find_package(Boost 1.72.0 REQUIRED 

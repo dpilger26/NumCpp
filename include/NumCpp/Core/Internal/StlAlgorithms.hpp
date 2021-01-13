@@ -32,7 +32,7 @@
 #include <numeric>
 #include <utility>
 
-#if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm)
+#if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm) && !defined(NO_MULTITHREAD)
 #define PARALLEL_ALGORITHMS_SUPPORTED
 #define NO_EXCEPT
 #include <execution>

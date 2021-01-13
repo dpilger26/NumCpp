@@ -6,6 +6,7 @@ import platform
 import shutil
 import subprocess
 import time
+from typing import Union, List
 
 _IS_WINDOWS = False
 if platform.system() == 'Windows':
@@ -35,7 +36,7 @@ except:  # noqa
 
 
 class SimpleTimer:
-    def __init__(self, name: str = None):
+    def __init__(self, name: str = None) -> None:
         self._name = name
         self._start = time.perf_counter()
 
@@ -77,6 +78,8 @@ _CXX_STANDARDS = {CxxStandard.cxx_14: '14',
                   CxxStandard.cxx_17: '17',
                   CxxStandard.cxx_20: '20'}
 
+_CMAKE_DEFINES = ['NO_USE_BOOST', 'NO_MULTITHREAD']
+
 
 @dataclass
 class BuildConfigs:
@@ -104,10 +107,11 @@ class Builder:
         self._cmake_configured = False
         self._current_compiler = None
         self._current_compiler_version = None
+        self._cmake_defines = []
         self.update_compiler(compiler=Compiler.Default)
         self.update_compiler_version(version=_COMPILER_VERSIONS[Compiler.Default][-1])
 
-    def configure_cmake(self, build_configs: BuildConfigs = None):
+    def configure_cmake(self, build_configs: BuildConfigs = None) -> None:
         if self._build_dir.exists():
             shutil.rmtree(self._build_dir)
 
@@ -127,6 +131,9 @@ class Builder:
                      f'-DBUILD_EXAMPLE_INTERFACE_WITH_EIGEN={build_eigen_example}',
                      '-DBUILD_EXAMPLE_INTERFACE_WITH_OPENCV=ON',
                      '-DBUILD_EXAMPLE_README=ON']
+
+        for cmake_define in self._cmake_defines:
+            cmake_cmd.append(f'-D{cmake_define}=True')
 
         if _IS_WINDOWS:
             cmake_cmd.extend(['-G', 'Visual Studio 16 2019',
@@ -158,7 +165,7 @@ class Builder:
         subprocess.check_call(cmake_cmd)
         self._cmake_configured = True
 
-    def build_target(self, target: Target):
+    def build_target(self, target: Target) -> None:
         if not self._cmake_configured:
             self.configure_cmake()
 
@@ -169,38 +176,38 @@ class Builder:
             cmake_cmd.extend(['--target', target.name])
         subprocess.check_call(cmake_cmd)
 
-    def build_all(self):
+    def build_all(self) -> None:
         self.build_target(Target.all)
 
-    def build_unit_test(self):
+    def build_unit_test(self) -> None:
         self.delete_unit_test()
         self.build_target(target=Target.NumCppPy)
         self.check_unit_test_binary()
 
-    def build_examples(self):
+    def build_examples(self) -> None:
         self.build_gauss_newton_nlls()
         self.build_interface_with_eigen()
         self.build_interface_with_opencv()
         self.build_readme()
 
-    def build_example_target(self, target: Target):
+    def build_example_target(self, target: Target) -> None:
         self.delete_example(target=target)
         self.build_target(target=target)
         self.check_example_binary(target=target)
 
-    def build_gauss_newton_nlls(self):
+    def build_gauss_newton_nlls(self) -> None:
         self.build_example_target(target=Target.GaussNewtonNlls)
 
-    def build_interface_with_eigen(self):
+    def build_interface_with_eigen(self) -> None:
         self.build_example_target(target=Target.InterfaceWithEigen)
 
-    def build_interface_with_opencv(self):
+    def build_interface_with_opencv(self) -> None:
         self.build_example_target(target=Target.InterfaceWithOpenCV)
 
-    def build_readme(self):
+    def build_readme(self) -> None:
         self.build_example_target(target=Target.ReadMe)
 
-    def update_compiler(self, compiler: Compiler):
+    def update_compiler(self, compiler: Compiler) -> None:
         if not _IS_WINDOWS:
             update_alternatives_cmd = ['update-alternatives',
                                        '--set', 'cc', f'/usr/bin/{_COMPILERS[compiler]}']
@@ -211,7 +218,7 @@ class Builder:
 
         self._current_compiler = compiler
 
-    def update_compiler_version(self, version: str):
+    def update_compiler_version(self, version: str) -> None:
         if version not in _COMPILER_VERSIONS[self._current_compiler]:
             raise ValueError(f"Unknown version '{version}' for {self._current_compiler} compiler\n"
                              f'Valid options are {_COMPILER_VERSIONS[self._current_compiler]}')
@@ -227,8 +234,13 @@ class Builder:
 
         self._current_compiler_version = version
 
+    def add_cmake_defines(self, defines: Union[List[str], str]) -> None:
+        if type(defines) is str:
+            defines = [defines]
+        self._cmake_defines = defines
+
     @staticmethod
-    def delete_unit_test():
+    def delete_unit_test() -> None:
         binary = _UNIT_TEST_LIB_DIR / f'{Target.NumCppPy.name}'
         if _IS_WINDOWS:
             binary = binary.with_suffix('.pyd')
@@ -238,7 +250,7 @@ class Builder:
             binary.unlink()
 
     @staticmethod
-    def delete_example(target: Target):
+    def delete_example(target: Target) -> None:
         target_str = target.name
         binary = _EXAMPLE_DIR / target_str / 'bin' / target_str
         if _IS_WINDOWS:
@@ -247,7 +259,7 @@ class Builder:
             binary.unlink()
 
     @staticmethod
-    def check_unit_test_binary():
+    def check_unit_test_binary() -> None:
         binary = _UNIT_TEST_LIB_DIR / f'{Target.NumCppPy.name}'
         if _IS_WINDOWS:
             binary = binary.with_suffix('.pyd')
@@ -257,7 +269,7 @@ class Builder:
             raise RuntimeError(f'unit test not successfully built:\n\t{binary}')
 
     @staticmethod
-    def check_example_binary(target: Target):
+    def check_example_binary(target: Target) -> None:
         target_str = target.name
         binary = _EXAMPLE_DIR / target_str / 'bin' / target_str
         if _IS_WINDOWS:
@@ -266,12 +278,12 @@ class Builder:
             raise RuntimeError(f'{target_str} target not successfully built:\n\t{binary}')
 
 
-def run_pytest(fileOrDirectory: str):
+def run_pytest(fileOrDirectory: str) -> None:
     # spawn a seperate process to avoid this python instance from owning the dll/so
     subprocess.check_call(['pytest', fileOrDirectory])
 
 
-def run_all(root_dir: str):
+def run_all(root_dir: str) -> None:
     timer = SimpleTimer(name='run_all')
     timer.tic()
 
@@ -286,18 +298,24 @@ def run_all(root_dir: str):
 
             for cxx_standard in CxxStandard:
                 build_configs.cxx_standard = cxx_standard
-                builder.configure_cmake(build_configs=build_configs)
-                builder.build_all()
 
-                run_pytest(fileOrDirectory=str(_PYTEST_DIR))
-                timer.toc()
+                for cmake_define in [*_CMAKE_DEFINES, _CMAKE_DEFINES]:
+                    builder.add_cmake_defines([cmake_define])
+
+                    builder.configure_cmake(build_configs=build_configs)
+                    builder.build_all()
+
+                    run_pytest(fileOrDirectory=str(_PYTEST_DIR))
+                    timer.toc()
 
 
 def run_single(root_dir: str,
                compiler: Compiler,
                compiler_version: str,
                cxx_standard: CxxStandard,
-               target: Target = None):
+               no_use_boost: bool = False,
+               no_multithread: bool = False,
+               target: Target = None) -> None:
     timer = SimpleTimer(name=target.name)
     timer.tic()
 
@@ -308,6 +326,13 @@ def run_single(root_dir: str,
     builder.update_compiler(compiler=compiler)
     builder.update_compiler_version(version=compiler_version)
 
+    cmake_defines = []
+    if no_use_boost:
+        cmake_defines.append('NO_USE_CMAKE')
+    if no_multithread:
+        cmake_defines.append('NO_MULTITHREAD')
+    builder.add_cmake_defines(defines=cmake_defines)
+
     builder.configure_cmake(build_configs=build_configs)
 
     if target is None:
@@ -316,7 +341,7 @@ def run_single(root_dir: str,
         builder.build_target(target=target)
 
     if (target == Target.NumCppPy or 
-        target == Target.all):
+            target == Target.all):
         run_pytest(fileOrDirectory=str(_PYTEST_DIR))
 
     timer.toc()
@@ -325,12 +350,17 @@ def run_single(root_dir: str,
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     if _IS_WINDOWS:
-        parser.add_argument('-c', '--compiler', type=str, required=False, default='MSVC')
-        parser.add_argument('-v', '--compiler_version', type=str, required=False, default='v142')
+        default_compiler = 'MSVC'
+        default_compiler_version = 'v142'
     else:
-        parser.add_argument('-c', '--compiler', type=str, required=False, default='GNU')
-        parser.add_argument('-v', '--compiler_version', type=str, required=False, default='10')
+        default_compiler = 'GNU'
+        default_compiler_version = '10'
+
+    parser.add_argument('-c', '--compiler', type=str, required=False, default='GNU')
+    parser.add_argument('-v', '--compiler_version', type=str, required=False, default='10')
     parser.add_argument('-s', '--cxx_standard', type=str, required=False, default='cxx_17')
+    parser.add_argument('-nb', '--no_use_boost', type=bool, required=False, default=False)
+    parser.add_argument('-nmt', '--no_multithread', type=bool, required=False, default=False)
     parser.add_argument('-t', '--target', type=str, required=False, default='all')
     parser.add_argument('-r', '--run_all', type=bool, required=False, default=False)
     args = parser.parse_args()
@@ -342,4 +372,6 @@ if __name__ == '__main__':
                    compiler=Compiler[args.compiler],
                    compiler_version=args.compiler_version,
                    cxx_standard=CxxStandard[args.cxx_standard],
+                   no_use_boost=args.no_use_boost,
+                   no_multithread=args.no_multithread,
                    target=Target[args.target])
