@@ -2099,7 +2099,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            if (std::is_same<dtypeOut, dtype>::value)
+            if (is_same_v<dtypeOut, dtype>)
             {
                 std::copy(cbegin(), cend(), outArray.begin());
             }

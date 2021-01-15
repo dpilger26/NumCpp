@@ -34,10 +34,8 @@ endforeach()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
   -DINCLUDE_PYTHON_INTERFACE
-  # -DINCLUDE_PYBIND_PYTHON_INTERFACE
-  -DINCLUDE_BOOST_PYTHON_INTERFACE
-  -DBOOST_PYTHON_STATIC_LIB
-  -DBOOST_NUMPY_STATIC_LIB
+  -DINCLUDE_PYBIND_PYTHON_INTERFACE
+  # -DINCLUDE_BOOST_PYTHON_INTERFACE
 )
 
 if(NO_USE_BOOST)
@@ -48,14 +46,10 @@ if(NO_MULTITHREAD)
   target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_MULTITHREAD)
 endif()
 
-set(Boost_USE_STATIC_LIBS ON) 
-set(Python3_USE_STATIC_LIBS True)
-find_package(Boost 1.72.0 REQUIRED 
-  COMPONENTS 
-  python38
-  numpy38
-)
 
+find_package(Boost 1.72.0 REQUIRED)
+
+set(Python3_USE_STATIC_LIBS True)
 find_package(Python
   COMPONENTS
   Development
@@ -66,15 +60,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
   ${Python_INCLUDE_DIRS}  
 )
 
+target_include_directories(${PROJECT_NAME} PRIVATE .)
+
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python38>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy38>
   $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
-)
-
-target_link_directories(${PROJECT_NAME} PRIVATE
-  $<$<CXX_COMPILER_ID:MSVC>:${Boost_LIBRARY_DIRS}>
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")

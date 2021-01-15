@@ -77,7 +77,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator==(const Shape& inOtherShape) const noexcept
+        bool operator==(const Shape& inOtherShape) const noexcept
         {
             return rows == inOtherShape.rows && cols == inOtherShape.cols;
         }
@@ -89,7 +89,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator!=(const Shape& inOtherShape) const noexcept
+        bool operator!=(const Shape& inOtherShape) const noexcept
         {
             return !(*this == inOtherShape);
         }
@@ -99,7 +99,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        constexpr uint32 size() const noexcept
+        uint32 size() const noexcept
         {
             return rows * cols;
         }
@@ -110,7 +110,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool isnull() const noexcept
+        bool isnull() const noexcept
         {
             return rows == 0 && cols == 0;
         }
@@ -120,7 +120,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool issquare() const noexcept
+        bool issquare() const noexcept
         {
             return rows == cols;
         }

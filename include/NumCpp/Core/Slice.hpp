@@ -87,6 +87,30 @@ namespace nc
         {}
 
         //============================================================================
+        ///						Equality operator
+        ///
+        /// @param      inOtherSlice
+        ///
+        /// @return     bool
+        ///
+        bool operator==(const Slice& inOtherSlice) const noexcept
+        {
+            return start == inOtherSlice.start && stop == inOtherSlice.stop && step == inOtherSlice.step;
+        }
+
+        //============================================================================
+        ///						Not equality operator
+        ///
+        /// @param      inOtherSlice
+        ///
+        /// @return     bool
+        ///
+        bool operator!=(const Slice& inOtherSlice) const noexcept
+        {
+            return !(*this == inOtherSlice);
+        }
+
+        //============================================================================
         ///						Prints the shape to the console
         ///
         /// @return     std::string
