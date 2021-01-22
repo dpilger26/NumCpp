@@ -424,7 +424,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test1dPointerShellConstructor(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray);
+        auto ncArray = pybind2nc(inArray).copy();
         auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.size(), true);
 
         return nc2pybind(newNcArray.reshape(ncArray.shape()));
@@ -435,7 +435,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test2dPointerShellConstructor(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray);
+        auto ncArray = pybind2nc(inArray).copy();
         auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.numRows(), ncArray.numCols(), true);
 
         return nc2pybind(newNcArray);
