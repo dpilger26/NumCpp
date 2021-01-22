@@ -2878,8 +2878,8 @@ def test_fmod():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
     cArray2 = NumCpp.NdArrayUInt32(shape)
-    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]) * 100 + 1000
-    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]) * 100 + 1000
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32) * 100 + 1000
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32) * 100 + 1000
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.fmodArray(cArray1, cArray2), np.fmod(data1, data2))
@@ -3311,7 +3311,7 @@ def test_lcm():
     if not NumCpp.NO_USE_BOOST:
         size = np.random.randint(2, 10, [1, ]).item()
         cArray = NumCpp.NdArrayUInt32(1, size)
-        data = np.random.randint(1, 100, [size, ])
+        data = np.random.randint(1, 100, [size, ], dtype=np.uint32)
         cArray.setArray(data)
         assert NumCpp.lcmArray(cArray) == np.lcm.reduce(data)  # noqa
 
@@ -3327,7 +3327,7 @@ def test_ldexp():
     cArray1 = NumCpp.NdArray(shape)
     cArray2 = NumCpp.NdArrayUInt8(shape)
     data1 = np.random.randn(shape.rows, shape.cols) * 100
-    data2 = np.random.randint(1, 20, [shape.rows, shape.cols])
+    data2 = np.random.randint(1, 20, [shape.rows, shape.cols], dtype=np.uint8)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(np.round(NumCpp.ldexpArray(cArray1, cArray2), 9), np.round(np.ldexp(data1, data2), 9))
@@ -3797,9 +3797,9 @@ def test_meshgrid():
     dataJ = np.arange(start, end, step)
     jSlice = NumCpp.Slice(start, end, step)
     iMesh, jMesh = np.meshgrid(dataI, dataJ)
-    meshData = NumCpp.meshgrid(iSlice, jSlice)
-    assert np.array_equal(meshData.first.getNumpyArray(), iMesh)
-    assert np.array_equal(meshData.second.getNumpyArray(), jMesh)
+    iMeshC, jMeshC = NumCpp.meshgrid(iSlice, jSlice)
+    assert np.array_equal(iMeshC.getNumpyArray(), iMesh)
+    assert np.array_equal(jMeshC.getNumpyArray(), jMesh)
 
 
 ####################################################################################
@@ -3890,8 +3890,8 @@ def test_mod():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
     cArray2 = NumCpp.NdArrayUInt32(shape)
-    data1 = np.random.randint(1, 100, [shape.rows, shape.cols])
-    data2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.mod(cArray1, cArray2).getNumpyArray(), np.mod(data1, data2))
@@ -4817,10 +4817,9 @@ def test_nonzero():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     row, col = np.nonzero(data)
-    rowCol = NumCpp.nonzero(cArray)
-    rowC = rowCol.first.getNumpyArray().flatten()
-    colC = rowCol.second.getNumpyArray().flatten()
-    assert np.array_equal(rowC, row) and np.array_equal(colC, col)
+    rowC, colC = NumCpp.nonzero(cArray)
+    assert (np.array_equal(rowC.getNumpyArray().flatten(), row) and
+            np.array_equal(colC.getNumpyArray().flatten(), col))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4830,10 +4829,9 @@ def test_nonzero():
     data = real + 1j * imag
     cArray.setArray(data)
     row, col = np.nonzero(data)
-    rowCol = NumCpp.nonzero(cArray)
-    rowC = rowCol.first.getNumpyArray().flatten()
-    colC = rowCol.second.getNumpyArray().flatten()
-    assert np.array_equal(rowC, row) and np.array_equal(colC, col)
+    rowC, colC = NumCpp.nonzero(cArray)
+    assert (np.array_equal(rowC.getNumpyArray().flatten(), row) and
+            np.array_equal(colC.getNumpyArray().flatten(), col))
 
 
 ####################################################################################
@@ -5471,7 +5469,7 @@ def test_put():
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size())
-    indices = np.asarray(range(numIndices))
+    indices = np.asarray(range(numIndices), np.uint32)
     value = np.random.randint(1, 500)
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cIndices.setArray(indices)
@@ -5485,7 +5483,7 @@ def test_put():
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size())
-    indices = np.asarray(range(numIndices))
+    indices = np.asarray(range(numIndices), dtype=np.uint32)
     values = np.random.randint(1, 500, [numIndices, ])
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cValues = NumCpp.NdArray(1, numIndices)
@@ -5855,8 +5853,8 @@ def test_setdiff1d():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
     cArray2 = NumCpp.NdArrayUInt32(shape)
-    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
-    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.setdiff1d(cArray1, cArray2).getNumpyArray().flatten(),
@@ -5864,8 +5862,8 @@ def test_setdiff1d():
 
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayComplexUint32(shape)
-    cArray2 = NumCpp.NdArrayComplexUint32(shape)
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
     real1 = np.random.randint(1, 100, [shape.rows, shape.cols])
     imag1 = np.random.randint(1, 100, [shape.rows, shape.cols])
     data1 = real1 + 1j * imag1
@@ -6543,7 +6541,7 @@ def test_trapz():
     cArray.setArray(data)
     integralC = NumCpp.trapzDx(cArray, dx, NumCpp.Axis.NONE).item()
     integralPy = np.trapz(data, dx=dx)
-    assert np.round(integralC, 9) == np.round(integralPy, 9)
+    assert np.round(integralC, 8) == np.round(integralPy, 8)
 
     shape = NumCpp.Shape(np.random.randint(10, 20, [1, ]).item(), np.random.randint(10, 20, [1, ]).item())
     cArray = NumCpp.NdArray(shape)
@@ -6575,7 +6573,7 @@ def test_trapz():
     cArrayX.setArray(dx)
     integralC = NumCpp.trapz(cArrayY, cArrayX, NumCpp.Axis.NONE).item()
     integralPy = np.trapz(data, x=dx)
-    assert np.round(integralC, 9) == np.round(integralPy, 9)
+    assert np.round(integralC, 8) == np.round(integralPy, 8)
 
     shape = NumCpp.Shape(np.random.randint(10, 20, [1, ]).item(), np.random.randint(10, 20, [1, ]).item())
     cArrayY = NumCpp.NdArray(shape)
@@ -6786,16 +6784,16 @@ def test_union1d():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArrayUInt32(shape)
     cArray2 = NumCpp.NdArrayUInt32(shape)
-    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
-    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.union1d(cArray1, cArray2).getNumpyArray().flatten(), np.union1d(data1, data2))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayComplexUint32(shape)
-    cArray2 = NumCpp.NdArrayComplexUint32(shape)
+    cArray1 = NumCpp.NdArrayComplexDouble(shape)
+    cArray2 = NumCpp.NdArrayComplexDouble(shape)
     real1 = np.random.randint(1, 100, [shape.rows, shape.cols])
     imag1 = np.random.randint(1, 100, [shape.rows, shape.cols])
     data1 = real1 + 1j * imag1
@@ -6812,13 +6810,13 @@ def test_unique():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert np.array_equal(NumCpp.unique(cArray).getNumpyArray().flatten(), np.unique(data))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArrayComplexUint32(shape)
+    cArray = NumCpp.NdArrayComplexDouble(shape)
     real = np.random.randint(1, 100, [shape.rows, shape.cols])
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag

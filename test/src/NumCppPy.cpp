@@ -1,8 +1,3 @@
-#include "pybind11/pybind11.h"
-#include "pybind11/complex.h"
-#include "pybind11/numpy.h"
-#include "pybind11/stl.h"
-
 #include "NumCpp.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 
@@ -21,6 +16,11 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
+
+#include "pybind11/pybind11.h"
+#include "pybind11/complex.h"
+#include "pybind11/numpy.h"
+#include "pybind11/stl.h"
 
 using namespace nc;
 using namespace nc::pybindInterface;
@@ -2115,7 +2115,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccosScaler(dtype inValue)  -> decltype(arccos(inValue)) // trailing return type to help gcc
+    auto arccosScaler(dtype inValue) -> decltype(arccos(inValue)) // trailing return type to help gcc
     {
         return arccos(inValue);
     }
@@ -2131,7 +2131,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccoshScaler(dtype inValue)  -> decltype(arccosh(inValue)) // trailing return type to help gcc
+    auto arccoshScaler(dtype inValue) -> decltype(arccosh(inValue)) // trailing return type to help gcc
     {
         return arccosh(inValue);
     }
@@ -6982,13 +6982,6 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
     m.def("averageWeighted", &FunctionsInterface::averageWeightedComplex<double>);
 
-    m.def("binaryRepr", &binaryRepr<int8>);
-    m.def("binaryRepr", &binaryRepr<int16>);
-    m.def("binaryRepr", &binaryRepr<int32>);
-    m.def("binaryRepr", &binaryRepr<int64>);
-    m.def("binaryRepr", &binaryRepr<uint8>);
-    m.def("binaryRepr", &binaryRepr<uint16>);
-    m.def("binaryRepr", &binaryRepr<uint32>);
     m.def("binaryRepr", &binaryRepr<uint64>);
     m.def("bincount", &FunctionsInterface::bincount<uint32>);
     m.def("bincountWeighted", &FunctionsInterface::bincountWeighted<uint32>);
@@ -7337,7 +7330,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
 
     m.def("setdiff1d", &setdiff1d<uint32>);
-    m.def("setdiff1d", &setdiff1d<std::complex<uint32>>);
+    m.def("setdiff1d", &setdiff1d<std::complex<double>>);
     m.def("signScaler", &FunctionsInterface::signScaler<double>);
     m.def("signScaler", &FunctionsInterface::signScaler<ComplexDouble>);
     m.def("signArray", &FunctionsInterface::signArray<double>);
@@ -7423,9 +7416,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("truncArray", &FunctionsInterface::truncArray<double>);
 
     m.def("union1d", &union1d<uint32>);
-    m.def("union1d", &union1d<std::complex<uint32>>);
+    m.def("union1d", &union1d<std::complex<double>>);
     m.def("unique", &unique<uint32>);
-    m.def("unique", &unique<std::complex<uint32>>);
+    m.def("unique", &unique<std::complex<double>>);
     m.def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
     m.def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
