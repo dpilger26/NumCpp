@@ -7460,72 +7460,12 @@ PYBIND11_MODULE(NumCppPy, m)
         (ComplexDouble, ComplexDouble) = &utils::powerf<ComplexDouble, ComplexDouble>;
     m.def("powerf_complex", powerf_complexDouble);
 
-    m.def("num2str", &utils::num2str<float>);
-    m.def("sqr", &utils::sqr<float>);
-    m.def("cube", &utils::cube<float>);
-    m.def("power", &utils::power<float>);
-    m.def("power", &utils::power<std::complex<float>>);
-    decltype(utils::powerf<float, float>(float{ 0 }, float{ 0 }))(*powerf_float)(float, float) = &utils::powerf<float, float>;
-    m.def("powerf", powerf_float);
-    decltype(utils::powerf<std::complex<float>, std::complex<float>>(std::complex<float>{ 0 }, std::complex<float>{ 0 }))(*powerf_complexFloat)
-        (std::complex<float>, std::complex<float>) = &utils::powerf<std::complex<float>, std::complex<float>>;
-    m.def("powerf_complex", powerf_complexFloat);
-
-    m.def("num2str", &utils::num2str<int8>);
-    m.def("sqr", &utils::sqr<int8>);
-    m.def("cube", &utils::cube<int8>);
-    m.def("power", &utils::power<int8>);
-    decltype(utils::powerf<int8, double>(int8{ 0 }, double{ 0 }))(*powerf_int8)(int8, double) = &utils::powerf<int8, double>;
-    m.def("powerf", powerf_int8);
-
-    m.def("num2str", &utils::num2str<int16>);
-    m.def("sqr", &utils::sqr<int16>);
-    m.def("cube", &utils::cube<int16>);
-    m.def("power", &utils::power<int16>);
-    decltype(utils::powerf<int16, double>(int16{ 0 }, double{ 0 }))(*powerf_int16)(int16, double) = &utils::powerf<int16, double>;
-    m.def("powerf", powerf_int16);
-
-    m.def("num2str", &utils::num2str<int32>);
-    m.def("sqr", &utils::sqr<int32>);
-    m.def("cube", &utils::cube<int32>);
-    m.def("power", &utils::power<int32>);
-    decltype(utils::powerf<int32, double>(int32{ 0 }, double{ 0 }))(*powerf_int32)(int32, double) = &utils::powerf<int32, double>;
-    m.def("powerf", powerf_int32);
-
     m.def("num2str", &utils::num2str<int64>);
     m.def("sqr", &utils::sqr<int64>);
     m.def("cube", &utils::cube<int64>);
     m.def("power", &utils::power<int64>);
     decltype(utils::powerf<int64, double>(int64{ 0 }, double{ 0 }))(*powerf_int64)(int64, double) = &utils::powerf<int64, double>;
     m.def("powerf", powerf_int64);
-
-    m.def("num2str", &utils::num2str<uint8>);
-    m.def("sqr", &utils::sqr<uint8>);
-    m.def("cube", &utils::cube<uint8>);
-    m.def("power", &utils::power<uint8>);
-    decltype(utils::powerf<uint8, double>(uint8{ 0 }, double{ 0 }))(*powerf_uint8)(uint8, double) = &utils::powerf<uint8, double>;
-    m.def("powerf", powerf_uint8);
-
-    m.def("num2str", &utils::num2str<uint16>);
-    m.def("sqr", &utils::sqr<uint16>);
-    m.def("cube", &utils::cube<uint16>);
-    m.def("power", &utils::power<uint16>);
-    decltype(utils::powerf<uint16, double>(uint16{ 0 }, double{ 0 }))(*powerf_uint16)(uint16, double) = &utils::powerf<uint16, double>;
-    m.def("powerf", powerf_uint16);
-
-    m.def("num2str", &utils::num2str<uint32>);
-    m.def("sqr", &utils::sqr<uint32>);
-    m.def("cube", &utils::cube<uint32>);
-    m.def("power", &utils::power<uint32>);
-    decltype(utils::powerf<uint32, double>(uint32{ 0 }, double{ 0 }))(*powerf_uint32)(uint32, double) = &utils::powerf<uint32, double>;
-    m.def("powerf", powerf_uint32);
-
-    m.def("num2str", &utils::num2str<uint64>);
-    m.def("sqr", &utils::sqr<uint64>);
-    m.def("cube", &utils::cube<uint64>);
-    m.def("power", &utils::power<uint64>);
-    decltype(utils::powerf<uint64, double>(uint64{ 0 }, double{ 0 }))(*powerf_uint64)(uint64, double) = &utils::powerf<uint64, double>;
-    m.def("powerf", powerf_uint64);
 
     // Random.hpp
     NdArray<bool> (*bernoulliArray)(const Shape&, double) = &random::bernoulli;

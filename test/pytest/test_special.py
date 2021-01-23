@@ -584,7 +584,7 @@ def test_factorial():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(0, 170, [shape.rows, shape.cols])
+    data = np.random.randint(0, 170, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.factorial_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.factorial(data), NUM_DECIMALS_ROUND))
@@ -682,7 +682,7 @@ def test_prime():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(0, 10000, [shape.rows, shape.cols])
+    data = np.random.randint(0, 10000, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert NumCpp.prime_Array(cArray) is not None
 
