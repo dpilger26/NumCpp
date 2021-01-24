@@ -65,6 +65,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE .)
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers
   $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")

@@ -13,6 +13,8 @@ RUN \
 	&& add-apt-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-10 main" \
 	&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' \
 	&& apt update \
+	# Install tbb
+	&& apt install -y libtbb-dev \
 	# Install python and the dependency packages
 	&& apt install -y python3.8 \
 	&& update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 10 \

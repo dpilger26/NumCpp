@@ -299,7 +299,7 @@ def run_all(root_dir: str) -> None:
             for cxx_standard in CxxStandard:
                 build_configs.cxx_standard = cxx_standard
 
-                for cmake_define in [*_CMAKE_DEFINES, _CMAKE_DEFINES]:
+                for cmake_define in [*_CMAKE_DEFINES, _CMAKE_DEFINES, []]:
                     builder.add_cmake_defines([cmake_define])
 
                     builder.configure_cmake(build_configs=build_configs)
