@@ -50,13 +50,13 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the legendre polynomial
+        /// @param      n: the degree of the legendre polynomial
         /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
         ///				double
         ///
         template<typename dtype>
-        double legendre_p(int32 n, dtype x)
+        double legendre_p(uint32 n, dtype x)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -78,14 +78,14 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      m: the degree of the legendre polynomial
+        /// @param      m: the order of the legendre polynomial
+        /// @param      n: the degree of the legendre polynomial
         /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
         ///				double
         ///
         template<typename dtype>
-        double legendre_p(int32 n, int32 m, dtype x)
+        double legendre_p(uint32 m, uint32 n, dtype x)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -95,7 +95,7 @@ namespace nc
             }
 
 #ifdef __cpp_lib_math_special_functions
-            return std::assoc_legendre(m, n, static_cast<double>(x)) * (n % 2 == 0 ? 1 : -1);
+            return std::assoc_legendre(n, m, static_cast<double>(x)) * (n % 2 == 0 ? 1 : -1);
 #else
             return boost::math::legendre_p(n, m, static_cast<double>(x));
 #endif
@@ -107,13 +107,13 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the legendre polynomial
+        /// @param      n: the degree of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, const NdArray<dtype>& inArrayX) 
+        NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX) 
         {
             NdArray<double> returnArray(inArrayX.shape());
 
@@ -133,20 +133,20 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      m: the degree of the legendre polynomial
+        /// @param      m: the order of the legendre polynomial
+        /// @param      n: the degree of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
         ///				NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(int32 n, int32 m, const NdArray<dtype>& inArrayX) 
+        NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX) 
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n, m](dtype x) -> double
+            const auto function = [m, n](dtype x) -> double
             {
-                return legendre_p(n, m, x);
+                return legendre_p(m, n, x);
             };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);

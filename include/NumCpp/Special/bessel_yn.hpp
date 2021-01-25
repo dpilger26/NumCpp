@@ -62,7 +62,6 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
-            return boost::math::cyl_neumann(inV, inX);
 #ifdef __cpp_lib_math_special_functions
             return std::cyl_neumann(inV, inX);
 #else

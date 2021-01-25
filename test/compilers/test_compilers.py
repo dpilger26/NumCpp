@@ -283,32 +283,6 @@ def run_pytest(fileOrDirectory: str) -> None:
     subprocess.check_call(['pytest', fileOrDirectory])
 
 
-def run_all(root_dir: str) -> None:
-    timer = SimpleTimer(name='run_all')
-    timer.tic()
-
-    builder = Builder(root_dir=root_dir)
-
-    build_configs = BuildConfigs()
-    for compiler in Compiler:
-        builder.update_compiler(compiler=compiler)
-
-        for compiler_version in _COMPILER_VERSIONS[compiler]:
-            builder.update_compiler_version(version=compiler_version)
-
-            for cxx_standard in CxxStandard:
-                build_configs.cxx_standard = cxx_standard
-
-                for cmake_define in [*_CMAKE_DEFINES, _CMAKE_DEFINES, []]:
-                    builder.add_cmake_defines([cmake_define])
-
-                    builder.configure_cmake(build_configs=build_configs)
-                    builder.build_all()
-
-                    run_pytest(fileOrDirectory=str(_PYTEST_DIR))
-                    timer.toc()
-
-
 def run_single(root_dir: str,
                compiler: Compiler,
                compiler_version: str,
@@ -316,7 +290,16 @@ def run_single(root_dir: str,
                no_use_boost: bool = False,
                no_multithread: bool = False,
                target: Target = None) -> None:
-    timer = SimpleTimer(name=target.name)
+    print('=====================================================================================')
+    print(f'root_dir:         {root_dir}')
+    print(f'compiler:         {compiler}')
+    print(f'compiler_version: {compiler_version}')
+    print(f'cxx_standard:     {cxx_standard}')
+    print(f'no_use_boost:     {no_use_boost}')
+    print(f'no_multithread:   {no_multithread}')
+    print('=====================================================================================')
+
+    timer = SimpleTimer(name=target.name if target is not None else 'All')
     timer.tic()
 
     build_configs = BuildConfigs()
@@ -328,7 +311,7 @@ def run_single(root_dir: str,
 
     cmake_defines = []
     if no_use_boost:
-        cmake_defines.append('NO_USE_CMAKE')
+        cmake_defines.append('NO_USE_BOOST')
     if no_multithread:
         cmake_defines.append('NO_MULTITHREAD')
     builder.add_cmake_defines(defines=cmake_defines)
@@ -347,6 +330,24 @@ def run_single(root_dir: str,
     timer.toc()
 
 
+def run_all(root_dir: str) -> None:
+    timer = SimpleTimer(name='run_all')
+    timer.tic()
+
+    for compiler in Compiler:
+        for compiler_version in _COMPILER_VERSIONS[compiler]:
+            for cxx_standard in CxxStandard:
+                for cmake_define in [*_CMAKE_DEFINES, _CMAKE_DEFINES, []]:
+                    run_single(root_dir=root_dir,
+                               compiler=compiler,
+                               compiler_version=compiler_version,
+                               cxx_standard=cxx_standard,
+                               no_use_boost='NO_USE_BOOST' in cmake_define,
+                               no_multithread='NO_MULTITHREAD' in cmake_define)
+                    run_pytest(fileOrDirectory=str(_PYTEST_DIR))
+    timer.toc()
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     if _IS_WINDOWS:
@@ -359,10 +360,10 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--compiler', type=str, required=False, default='GNU')
     parser.add_argument('-v', '--compiler_version', type=str, required=False, default='10')
     parser.add_argument('-s', '--cxx_standard', type=str, required=False, default='cxx_17')
-    parser.add_argument('-nb', '--no_use_boost', type=bool, required=False, default=False)
-    parser.add_argument('-nmt', '--no_multithread', type=bool, required=False, default=False)
     parser.add_argument('-t', '--target', type=str, required=False, default='all')
-    parser.add_argument('-r', '--run_all', type=bool, required=False, default=False)
+    parser.add_argument('-nb', '--no_use_boost', dest='no_use_boost', action='store_true', required=False)
+    parser.add_argument('-nmt', '--no_multithread', dest='no_multithread', action='store_true', required=False)
+    parser.add_argument('-r', '--run_all', dest='run_all', action='store_true', required=False)
     args = parser.parse_args()
 
     if args.run_all:

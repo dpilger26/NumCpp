@@ -54,7 +54,7 @@ namespace nc
             {
                 return 0.0;
             }
-            if (r == n)
+            else if (r == n)
             {
                 return factorial(n);
             }
@@ -73,9 +73,8 @@ namespace nc
             {
 #endif
                 const uint32 lower = n - r + 1;
-
                 combinations = static_cast<double>(lower);
-                for (uint32 i = lower + 1; i < n; ++i)
+                for (uint32 i = lower + 1; i <= n; ++i)
                 {
                     combinations *= static_cast<double>(i);
                 }

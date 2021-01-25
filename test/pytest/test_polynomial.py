@@ -150,17 +150,12 @@ def test_chebyshev():
     if NumCpp.NO_USE_BOOST:
         return
 
-    allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_chebyt(order, x)
         valueCpp = NumCpp.chebyshev_t_Scaler(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
         shape = NumCpp.Shape(*shapeInput)
@@ -169,22 +164,14 @@ def test_chebyshev():
         cArray.setArray(x)
         valuePy = sp.eval_chebyt(order, x)
         valueCpp = NumCpp.chebyshev_t_Array(order, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_chebyu(order, x)
         valueCpp = NumCpp.chebyshev_u_Scaler(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
         shape = NumCpp.Shape(*shapeInput)
@@ -193,10 +180,7 @@ def test_chebyshev():
         cArray.setArray(x)
         valuePy = sp.eval_chebyu(order, x)
         valueCpp = NumCpp.chebyshev_u_Array(order, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
-
-    assert allTrue
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
 
 ####################################################################################
@@ -204,17 +188,12 @@ def test_hermite():
     if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
-    allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_hermite(order, x)
         valueCpp = NumCpp.hermite_Scaler(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
         shape = NumCpp.Shape(*shapeInput)
@@ -223,10 +202,7 @@ def test_hermite():
         cArray.setArray(x)
         valuePy = sp.eval_hermite(order, x)
         valueCpp = NumCpp.hermite_Array(order, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
-
-    assert allTrue
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
 
 ####################################################################################
@@ -234,17 +210,12 @@ def test_laguerre():
     if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
-    allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_laguerre(order, x)
         valueCpp = NumCpp.laguerre_Scaler1(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
         shape = NumCpp.Shape(*shapeInput)
@@ -253,23 +224,15 @@ def test_laguerre():
         cArray.setArray(x)
         valuePy = sp.eval_laguerre(order, x)
         valueCpp = NumCpp.laguerre_Array1(order, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(0, 10, [1, ]).item()
         x = np.random.rand(1).item()
         valuePy = sp.eval_genlaguerre(degree, order, x)
         valueCpp = NumCpp.laguerre_Scaler2(order, degree, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(0, 10, [1, ]).item()
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
@@ -279,10 +242,7 @@ def test_laguerre():
         cArray.setArray(x)
         valuePy = sp.eval_genlaguerre(degree, order, x)
         valueCpp = NumCpp.laguerre_Array2(order, degree, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
-
-    assert allTrue
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
 
 ####################################################################################
@@ -290,17 +250,12 @@ def test_legendre():
     if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
-    allTrue = True
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_legendre(order, x)
         valueCpp = NumCpp.legendre_p_Scaler1(order, x)
-        if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         shapeInput = np.random.randint(10, 100, [2, ], dtype=np.uint32)
         shape = NumCpp.Shape(*shapeInput)
@@ -309,32 +264,22 @@ def test_legendre():
         cArray.setArray(x)
         valuePy = sp.eval_legendre(order, x)
         valueCpp = NumCpp.legendre_p_Array1(order, cArray)
-        if not np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND)):
-            allTrue = False
-
-    assert allTrue
+        assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
     if not NumCpp.NO_USE_BOOST:
-        allTrue = True
         for order in range(ORDER_MAX):
             x = np.random.rand(1).item()
             degree = np.random.randint(order, ORDER_MAX)
             valuePy = sp.lpmn(order, degree, x)[0][order, degree]
             valueCpp = NumCpp.legendre_p_Scaler2(order, degree, x)
-            if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-                allTrue = False
+            assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND), \
+                f'order={order}, degree={degree}, x={x}'
 
-        assert allTrue
-
-        allTrue = True
         for order in range(ORDER_MAX):
             x = np.random.rand(1).item()
             valuePy = sp.lqn(order, x)[0][order]
             valueCpp = NumCpp.legendre_q_Scaler(order, x)
-            if np.round(valuePy, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-                allTrue = False
-
-        assert allTrue
+            assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
 
 ####################################################################################
@@ -342,39 +287,27 @@ def test_spherical_harmonic():
     if NumCpp.NO_USE_BOOST:
         return
 
-    allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
         theta = np.random.rand(1).item() * np.pi * 2
         phi = np.random.rand(1).item() * np.pi
         valuePy = sp.sph_harm(order, degree, theta, phi)
         valueCpp = NumCpp.spherical_harmonic(order, degree, theta, phi)
-        if (np.round(valuePy.real, DECIMALS_ROUND) != np.round(valueCpp[0], DECIMALS_ROUND) or
-                np.round(valuePy.imag, DECIMALS_ROUND) != np.round(valueCpp[1], DECIMALS_ROUND)):
-            allTrue = False
+        assert (np.round(valuePy.real, DECIMALS_ROUND) == np.round(valueCpp[0], DECIMALS_ROUND) and
+                np.round(valuePy.imag, DECIMALS_ROUND) == np.round(valueCpp[1], DECIMALS_ROUND))
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
         theta = np.random.rand(1).item() * np.pi * 2
         phi = np.random.rand(1).item() * np.pi
         valuePy = sp.sph_harm(order, degree, theta, phi)
         valueCpp = NumCpp.spherical_harmonic_r(order, degree, theta, phi)
-        if np.round(valuePy.real, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
+        assert np.round(valuePy.real, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)
 
-    assert allTrue
-
-    allTrue = True
     for order in range(ORDER_MAX):
         degree = np.random.randint(order, ORDER_MAX)
         theta = np.random.rand(1).item() * np.pi * 2
         phi = np.random.rand(1).item() * np.pi
         valuePy = sp.sph_harm(order, degree, theta, phi)
         valueCpp = NumCpp.spherical_harmonic_i(order, degree, theta, phi)
-        if np.round(valuePy.imag, DECIMALS_ROUND) != np.round(valueCpp, DECIMALS_ROUND):
-            allTrue = False
-
-    assert allTrue
+        assert np.round(valuePy.imag, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND)

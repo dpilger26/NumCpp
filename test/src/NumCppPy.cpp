@@ -3175,7 +3175,7 @@ namespace FunctionsInterface
 
     //================================================================================
 
-#ifdef __cpp_lib_gcd_lcm
+#if !defined(NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     template<typename dtype>
     dtype gcdScaler(dtype inValue1, dtype inValue2) 
     {
@@ -3370,7 +3370,7 @@ namespace FunctionsInterface
 
     //================================================================================
 
-#if !defined(NO_USE_BOOSTdef) || defined(__cpp_lib_gcd_lcm)
+#if !defined(NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     template<typename dtype>
     dtype lcmScaler(dtype inValue1, dtype inValue2) 
     {
