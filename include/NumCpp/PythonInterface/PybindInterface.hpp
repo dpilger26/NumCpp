@@ -171,7 +171,7 @@ namespace nc
                 }
                 case ReturnPolicy::REFERENCE:
                 {
-                    typename pybind11::capsule reference(inArray.data(), [](void* ptr) {});
+                    typename pybind11::capsule reference(inArray.data(), [](void* /*ptr*/) {});
                     return pbArrayGeneric(shape, strides, inArray.data(), reference);
                 }
                 case ReturnPolicy::TAKE_OWNERSHIP:

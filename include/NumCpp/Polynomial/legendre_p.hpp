@@ -95,10 +95,40 @@ namespace nc
             }
 
 #ifdef __cpp_lib_math_special_functions
-            return std::assoc_legendre(n, m, static_cast<double>(x)) * (n % 2 == 0 ? 1 : -1);
-#else
+
+            auto value = std::assoc_legendre(n, m, static_cast<double>(x));
+
+#ifdef __GNUC__
+#if __GNUC__ != 7 && __GNUC__ != 8
+
+            // gcc std::assoc_legendre is not standard compliant
+            value *= n % 2 == 0 ? 1 : -1;
+
+#endif // #if __GNUC__ != 7 && __GNUC__ != 8
+#endif // #ifdef __GNUC__
+
+#ifdef __clang__
+#if __clang_major__ != 6 && __clang_major__ != 7 && __clang_major__ != 8
+
+            // clang uses gcc headers where std::assoc_legendre is not standard compliant
+            value *= n % 2 == 0 ? 1 : -1;
+
+#endif // #if __clang_major__ != 6 && __clang_major__ != 7 && __clang_major__ != 8
+#endif // #ifdef __clang__
+
+#ifdef _MSC_VER
+
+            value *= n % 2 == 0 ? 1 : -1;
+            
+#endif // #ifdef _MSC_VER
+
+            return value;
+
+#else // #ifdef __cpp_lib_math_special_functions
+
             return boost::math::legendre_p(n, m, static_cast<double>(x));
-#endif
+
+#endif // #ifdef __cpp_lib_math_special_functions
         }
 
         //============================================================================

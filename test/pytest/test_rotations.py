@@ -68,14 +68,14 @@ def test_quaternion():
     cCross = NumCpp.NdArray(3, 1)
     cCross.setArray(np.reshape(cross, [3, 1]))
 
-    q0 = np.asarray([cross[0] * np.sin(theta0 / 2),
-                     cross[1] * np.sin(theta0 / 2),
-                     cross[2] * np.sin(theta0 / 2),
-                     np.cos(theta0 / 2)])
-    q1 = np.asarray([cross[0] * np.sin(theta1 / 2),
-                     cross[1] * np.sin(theta1 / 2),
-                     cross[2] * np.sin(theta1 / 2),
-                     np.cos(theta1 / 2)])
+    q0 = np.array([cross[0] * np.sin(theta0 / 2),
+                   cross[1] * np.sin(theta0 / 2),
+                   cross[2] * np.sin(theta0 / 2),
+                   np.cos(theta0 / 2)])
+    q1 = np.array([cross[0] * np.sin(theta1 / 2),
+                   cross[1] * np.sin(theta1 / 2),
+                   cross[2] * np.sin(theta1 / 2),
+                   np.cos(theta1 / 2)])
     quat0 = NumCpp.Quaternion(q0[0], q0[1], q0[2], q0[3])
     quat1 = NumCpp.Quaternion(q1[0], q1[1], q1[2], q1[3])
     crossTo = quat0.rotateNdArray(cCross).flatten()
@@ -140,7 +140,7 @@ def test_quaternion():
     cVec = NumCpp.NdArray(3, 1)
     cVec.setArray(vec)
     newVec = cQuat.rotateNdArray(cVec)
-    newVecPy = np.asarray(np.array(cQuat.toDCM()).dot(np.array(vec)))
+    newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
     assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
     myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
@@ -149,7 +149,7 @@ def test_quaternion():
     cVec = NumCpp.NdArray(3, 1)
     cVec.setArray(vec)
     newVec = cQuat.rotateVec3(cVec)
-    newVecPy = np.asarray(np.array(cQuat.toDCM()).dot(np.array(vec)))
+    newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
     assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
     myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
@@ -278,8 +278,8 @@ def test_dcm():
 
 ####################################################################################
 def test_functions():
-    k = np.random.randint(1, 5, [3, 1]).astype(np.double)
-    v = np.random.randint(1, 5, [3, 1]).astype(np.double)
+    k = np.random.randint(1, 5, [3, ]).astype(np.double)
+    v = np.random.randint(1, 5, [3, ]).astype(np.double)
     theta = np.random.rand(1).item() * np.pi * 2
     vec = NumCpp.rodriguesRotation(k, theta, v).flatten()
 
@@ -297,7 +297,7 @@ def test_functions():
     vecBody = list()
     vecInertial = list()
     for _ in range(1000):
-        vec = np.random.randint(1, 100, [3, 1])
+        vec = np.random.randint(1, 100, [3, ])
         vec = vec / np.linalg.norm(vec)
         vecBody.append(vec.flatten())
 
@@ -319,7 +319,7 @@ def test_functions():
     vecBody = list()
     vecInertial = list()
     for _ in range(1000):
-        vec = np.random.randint(1, 100, [3, 1])
+        vec = np.random.randint(1, 100, [3, ])
         vec = vec / np.linalg.norm(vec)
         vecBody.append(vec.flatten())
 
@@ -349,7 +349,7 @@ def dcm2quat(dcm):
     q1 = (dcm[2, 0] - dcm[0, 2]) / (4 * q3)
     q2 = (dcm[0, 1] - dcm[1, 0]) / (4 * q3)
 
-    quat = np.asarray([q0, q1, q2, q3])
+    quat = np.array([q0, q1, q2, q3])
     quat = quat / np.linalg.norm(quat)
 
     return quat
@@ -400,7 +400,7 @@ def quatMult(quat1, quat2):
     q2 = quat2N[3] * quat1N[2] - quat2N[0] * quat1N[1] + quat2N[1] * quat1N[0] + quat2N[2] * quat1N[3]
     q3 = quat2N[3] * quat1N[3] - quat2N[0] * quat1N[0] - quat2N[1] * quat1N[1] - quat2N[2] * quat1N[2]
 
-    quat = np.asarray([q0, q1, q2, q3])
+    quat = np.array([q0, q1, q2, q3])
     return quat / np.linalg.norm(quat)
 
 
@@ -432,13 +432,13 @@ def nlerp(quat1, quat2, inT):
 
 ########################################################################################################################
 def quatRotateAngleAxis(axis, radians):
-    axis = axis / np.linalg.norm(axis)
+    axis = np.array(axis) / np.linalg.norm(axis)
     halfRadians = radians / 2
-    quat = np.asarray([axis[0] * np.sin(halfRadians),
-                       axis[1] * np.sin(halfRadians),
-                       axis[2] * np.sin(halfRadians),
-                       np.cos(halfRadians)])
-    return quat / np.linalg.norm(quat)
+    quatList = [axis[0] * np.sin(halfRadians),
+                axis[1] * np.sin(halfRadians),
+                axis[2] * np.sin(halfRadians),
+                np.cos(halfRadians)]
+    return np.array(quatList) / np.linalg.norm(quatList)
 
 
 ########################################################################################################################
@@ -484,4 +484,6 @@ def rotateZ(radians):
 
 ########################################################################################################################
 def hat(xyz):
-    return np.asarray([[0, -xyz[2], xyz[1]], [xyz[2], 0, -xyz[0]], [-xyz[1], xyz[0], 0]])
+    return np.array([[0, -xyz[2], xyz[1]],
+                     [xyz[2], 0, -xyz[0]],
+                     [-xyz[1], xyz[0], 0]])

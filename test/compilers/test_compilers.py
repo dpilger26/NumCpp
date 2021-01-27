@@ -50,16 +50,14 @@ class SimpleTimer:
 if _IS_WINDOWS:
     class Compiler(Enum):
         MSVC = 0
-        Default = MSVC
 
     _COMPILERS = {Compiler.MSVC: 'msbuild'}
 
-    _COMPILER_VERSIONS = {Compiler.MSVC: ['v142']}  # DP NOTE: add v141 back in, need to use different boost version
+    _COMPILER_VERSIONS = {Compiler.MSVC: ['v141', 'v142']}
 else:
     class Compiler(Enum):
         GNU = 0
         Clang = 1
-        Default = GNU
 
     _COMPILERS = {Compiler.GNU: 'gcc',
                   Compiler.Clang: 'clang'}
@@ -108,8 +106,8 @@ class Builder:
         self._current_compiler = None
         self._current_compiler_version = None
         self._cmake_defines = []
-        self.update_compiler(compiler=Compiler.Default)
-        self.update_compiler_version(version=_COMPILER_VERSIONS[Compiler.Default][-1])
+        self.update_compiler(compiler=Compiler(0))
+        self.update_compiler_version(version=_COMPILER_VERSIONS[Compiler(0)][-1])
 
     def configure_cmake(self, build_configs: BuildConfigs = None) -> None:
         if self._build_dir.exists():

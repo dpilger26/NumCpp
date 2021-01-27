@@ -4674,7 +4674,7 @@ def test_nanvar():
     data[np.random.randint(0, shape.size(), [shape.size() // 10, ])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    assert np.round(NumCpp.nanvar(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.nanvar(data), 9)
+    assert np.round(NumCpp.nanvar(cArray, NumCpp.Axis.NONE).item(), 8) == np.round(np.nanvar(data), 8)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4684,8 +4684,8 @@ def test_nanvar():
     data[np.random.randint(0, shape.size(), [shape.size() // 10, ])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.nanvar(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 9),
-                          np.round(np.nanvar(data, axis=0), 9))
+    assert np.array_equal(np.round(NumCpp.nanvar(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 8),
+                          np.round(np.nanvar(data, axis=0), 8))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4695,8 +4695,8 @@ def test_nanvar():
     data[np.random.randint(0, shape.size(), [shape.size() // 10, ])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.nanvar(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 9),
-                          np.round(np.nanvar(data, axis=1), 9))
+    assert np.array_equal(np.round(NumCpp.nanvar(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 8),
+                          np.round(np.nanvar(data, axis=1), 8))
 
 
 ####################################################################################
@@ -6844,7 +6844,7 @@ def test_var():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.round(NumCpp.var(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.var(data), 9)
+    assert np.round(NumCpp.var(cArray, NumCpp.Axis.NONE).item(), 8) == np.round(np.var(data), 8)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6860,8 +6860,8 @@ def test_var():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.var(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 9),
-                          np.round(np.var(data, axis=0), 9))
+    assert np.array_equal(np.round(NumCpp.var(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 8),
+                          np.round(np.var(data, axis=0), 8))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6877,8 +6877,8 @@ def test_var():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.var(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 9),
-                          np.round(np.var(data, axis=1), 9))
+    assert np.array_equal(np.round(NumCpp.var(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 8),
+                          np.round(np.var(data, axis=1), 8))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
