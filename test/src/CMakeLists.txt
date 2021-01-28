@@ -47,7 +47,7 @@ if(NO_MULTITHREAD)
 endif()
 
 
-find_package(Boost 1.72.0 REQUIRED)
+find_package(Boost 1.68.0 REQUIRED)
 
 set(Python3_USE_STATIC_LIBS True)
 find_package(Python

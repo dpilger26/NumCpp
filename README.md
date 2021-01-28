@@ -45,7 +45,7 @@ GNU: 6.5, 7.5, 8.4, 9.3, 10.1
 Clang: 6, 7, 8, 9, 10  
 
 **Boost Versions:**  
-1.68, 1.70, 1.72, and 1.73  
+1.68+
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 

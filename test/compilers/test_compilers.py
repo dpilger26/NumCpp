@@ -17,8 +17,9 @@ _DEFAULT_EIGEN_DIR = None
 _DEFAULT_OPENCV_DIR = None
 if _IS_WINDOWS:
     _DEFAULT_BOOST_DIR = Path(r'C:\libs\boost\boost_1_73_0')
+    _DEFAULT_BOOST_DIR_v141 = Path(r'C:\libs\boost\boost_1_68_0')
     _DEFAULT_EIGEN_DIR = Path(r'C:\Program Files (x86)\Eigen3\share\eigen3\cmake')
-    _DEFAULT_OPENCV_DIR = Path(r'C:\libs\opencv-4.3.0\build\install')
+    _DEFAULT_OPENCV_DIR = Path(r'C:\libs\opencv\build')
 
 _NUMCPP_ROOT_DIR = (Path(__file__).parent / '..' / '..').resolve()
 _PYTEST_DIR = _NUMCPP_ROOT_DIR / 'test' / 'pytest'
@@ -302,6 +303,8 @@ def run_single(root_dir: str,
 
     build_configs = BuildConfigs()
     build_configs.cxx_standard = cxx_standard
+    if _IS_WINDOWS and compiler_version == 'v141':
+        build_configs.boost_root = _DEFAULT_BOOST_DIR_v141
 
     builder = Builder(root_dir=root_dir)
     builder.update_compiler(compiler=compiler)
@@ -355,8 +358,8 @@ if __name__ == '__main__':
         default_compiler = 'GNU'
         default_compiler_version = '10'
 
-    parser.add_argument('-c', '--compiler', type=str, required=False, default='GNU')
-    parser.add_argument('-v', '--compiler_version', type=str, required=False, default='10')
+    parser.add_argument('-c', '--compiler', type=str, required=False, default=default_compiler)
+    parser.add_argument('-v', '--compiler_version', type=str, required=False, default=default_compiler_version)
     parser.add_argument('-s', '--cxx_standard', type=str, required=False, default='cxx_17')
     parser.add_argument('-t', '--target', type=str, required=False, default='all')
     parser.add_argument('-nb', '--no_use_boost', dest='no_use_boost', action='store_true', required=False)
