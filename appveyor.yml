@@ -2,25 +2,20 @@ version: '{build}'
 branches:
   only:
   - master
-image: Previous Visual Studio 2019
+  - develop
+image: Visual Studio 2019
 platform: x64
+configuration: Release
 build_script:
 - cmd: >-
     mkdir build
-
     cd build
-
     cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON -DBOOST_ROOT=C:\Libraries\boost_1_73_0
-
     cmake --build . --config Release --target NumCppPy
-    
     cmake --build . --config Release --target GaussNewtonNlls
-
     cmake --build . --config Release --target ReadMe
-    
     cmake --build . --config Release --target install
-
-    cd ../test/pytest
-    
-    python -m pytest
-test: off
+test_script:
+- cmd: >-
+    cd ..\test\pytest
+    C:\Python37-x64 -m pytest

@@ -1,17 +1,14 @@
 dist: focal
-language: cpp
 
+language: cpp
 compiler:
   - gcc
-
 notifications:
   email: false
-
 before_install:
   - sudo apt update
   - sudo apt remove --purge cmake
   - sudo apt install libboost-all-dev
-
 install:    
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
@@ -20,7 +17,6 @@ install:
   - mv cmake-3.17.1-Linux-x86_64 cmake-install
   - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
   - cd ${TRAVIS_BUILD_DIR}
-
 script:
   - mkdir build
   - cd build
@@ -29,5 +25,20 @@ script:
   - cmake --build . --config Release --target GaussNewtonNlls
   - cmake --build . --config Release --target ReadMe
   - cmake --build . --config Release --target install
+
+language: python
+python:
+  - 3.7
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install -U numpy
+  - pip install -U scipy
+  - pip install -U astropy
+  - pip install -U matplotlib
+  - pip install -U mpmath
+  - pip install -U vectormath
+script: 
   - cd ../test/pytest
   - python -m pytest
