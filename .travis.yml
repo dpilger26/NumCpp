@@ -24,7 +24,10 @@ install:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target GaussNewtonNlls
   - cmake --build . --config Release --target ReadMe
-  - sudo make install
+  - cmake --build . --config Release --target install
+  - cd ../test/pytest
+  - python -m pytest

@@ -108,7 +108,7 @@ namespace nc
 #endif // #ifdef __GNUC__
 
 #ifdef __clang__
-#if __clang_major__ != 6 && __clang_major__ != 7 && __clang_major__ != 8
+#if __clang_major__ != 7 && __clang_major__ != 8
 
             // clang uses gcc headers where std::assoc_legendre is not standard compliant
             value *= n % 2 == 0 ? 1 : -1;
