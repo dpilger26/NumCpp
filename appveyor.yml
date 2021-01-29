@@ -8,6 +8,7 @@ platform: x64
 configuration: Release
 build_script:
 - cmd: >-
+    cd C:\projects\numcpp &&
     mkdir build &&
     cd build &&
     cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON -DBOOST_ROOT=C:\Libraries\boost_1_73_0 &&
