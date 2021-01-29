@@ -40,5 +40,5 @@ before_install:
   - pip install -U mpmath
   - pip install -U vectormath
 script: 
-  - cd ../test/pytest
+  - cd ${TRAVIS_BUILD_DIR}/test/pytest
   - python -m pytest

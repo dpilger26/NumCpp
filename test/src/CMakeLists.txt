@@ -35,7 +35,6 @@ endforeach()
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
   -DINCLUDE_PYTHON_INTERFACE
   -DINCLUDE_PYBIND_PYTHON_INTERFACE
-  # -DINCLUDE_BOOST_PYTHON_INTERFACE
 )
 
 if(NO_USE_BOOST)
@@ -50,21 +49,20 @@ endif()
 find_package(Boost 1.68.0 REQUIRED)
 
 set(Python3_USE_STATIC_LIBS True)
-find_package(Python
+find_package(Python 3.8 EXACT
   COMPONENTS
   Development
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ${NUMCPP_INCLUDES}
-  ${Python_INCLUDE_DIRS}  
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE .)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers
-  $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
+  Python::Python
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
 )
 
