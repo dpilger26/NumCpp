@@ -30,7 +30,7 @@ jobs:
         - cmake --build . --config Release --target NumCppPy
         - cmake --build . --config Release --target GaussNewtonNlls
         - cmake --build . --config Release --target ReadMe
-        - cmake --build . --config Release --target install
+        - sudo cmake --build . --config Release --target install
     - os: linux
       dist: focal
       language: python
