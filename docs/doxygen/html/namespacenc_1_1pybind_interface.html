@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('namespacenc_1_1pybind_interface.html',
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -93,6 +94,14 @@ $(document).ready(function(){initNavTree('namespacenc_1_1pybind_interface.html',
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:adfe4a3d878913657435705edfb3c331d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:adfe4a3d878913657435705edfb3c331d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">pbArray</a> = pybind11::array_t&lt; dtype, pybind11::array::c_style &gt;</td></tr>
+<tr class="separator:adfe4a3d878913657435705edfb3c331d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c5b0b49fb9d54b885582f85ff25d4f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">pbArrayGeneric</a> = pybind11::array</td></tr>
+<tr class="separator:a92c5b0b49fb9d54b885582f85ff25d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a0ca16a67f36ad5d1960cd9567208ed19"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a> { <a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>, 
@@ -104,18 +113,55 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a36135ab669dc2e6659bb9564e402edb4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a36135ab669dc2e6659bb9564e402edb4"><td class="memTemplItemLeft" align="right" valign="top">pybind11::array_t&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc2pybind</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a> returnPolicy=<a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a>)</td></tr>
-<tr class="separator:a36135ab669dc2e6659bb9564e402edb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f1f494ed8dc86610403627954600812"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a4f1f494ed8dc86610403627954600812"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a4f1f494ed8dc86610403627954600812">pybind2nc</a> (pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;numpyArray)</td></tr>
-<tr class="separator:a4f1f494ed8dc86610403627954600812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">pbArrayGeneric</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#adf2283c3c717906d9ddfbd73f3ab8927">nc2pybind</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">pbArrayGeneric</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a10c33cf2d4fc1d454901280f1a2dc861">nc2pybind</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a> returnPolicy)</td></tr>
+<tr class="separator:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab473eb4036fcf02ed3c15342956cc9db"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ab473eb4036fcf02ed3c15342956cc9db"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#ab473eb4036fcf02ed3c15342956cc9db">pybind2nc</a> (<a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">pbArray</a>&lt; dtype &gt; &amp;numpyArray)</td></tr>
+<tr class="separator:ab473eb4036fcf02ed3c15342956cc9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a1bbfbfcb2ba31e4364d101820bfc2ff8">pybind2nc_copy</a> (const <a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">pbArray</a>&lt; dtype &gt; &amp;numpyArray)</td></tr>
+<tr class="separator:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:abde82685837c3645f506b0800472ffbc"><td class="memItemLeft" align="right" valign="top">static const std::map&lt; <a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc">returnPolicyStringMap</a></td></tr>
 <tr class="separator:abde82685837c3645f506b0800472ffbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="adfe4a3d878913657435705edfb3c331d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe4a3d878913657435705edfb3c331d">&#9670;&nbsp;</a></span>pbArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">nc::pybindInterface::pbArray</a> = typedef pybind11::array_t&lt;dtype, pybind11::array::c_style&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92c5b0b49fb9d54b885582f85ff25d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c5b0b49fb9d54b885582f85ff25d4f">&#9670;&nbsp;</a></span>pbArrayGeneric</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">nc::pybindInterface::pbArrayGeneric</a> = typedef pybind11::array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a0ca16a67f36ad5d1960cd9567208ed19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ca16a67f36ad5d1960cd9567208ed19">&#9670;&nbsp;</a></span>ReturnPolicy</h2>
@@ -147,19 +193,44 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a36135ab669dc2e6659bb9564e402edb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36135ab669dc2e6659bb9564e402edb4">&#9670;&nbsp;</a></span>nc2pybind()</h2>
+<a id="adf2283c3c717906d9ddfbd73f3ab8927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf2283c3c717906d9ddfbd73f3ab8927">&#9670;&nbsp;</a></span>nc2pybind() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pybind11::array_t&lt;dtype&gt; nc::pybindInterface::nc2pybind </td>
+          <td class="memname"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">pbArrayGeneric</a> nc::pybindInterface::nc2pybind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>converts a numcpp <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> to numpy array using pybind bindings</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td>the input array</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pybind11::array_t </dd></dl>
+
+</div>
+</div>
+<a id="a10c33cf2d4fc1d454901280f1a2dc861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c33cf2d4fc1d454901280f1a2dc861">&#9670;&nbsp;</a></span>nc2pybind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">pbArrayGeneric</a> nc::pybindInterface::nc2pybind </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
           <td class="paramname"><em>inArray</em>, </td>
@@ -168,7 +239,7 @@ template&lt;typename dtype &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">ReturnPolicy</a>&#160;</td>
-          <td class="paramname"><em>returnPolicy</em> = <code><a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">ReturnPolicy::COPY</a></code>&#160;</td>
+          <td class="paramname"><em>returnPolicy</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -176,11 +247,6 @@ template&lt;typename dtype &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>converts a numcpp <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> to numpy array using pybind bindings</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -194,30 +260,50 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a4f1f494ed8dc86610403627954600812"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f1f494ed8dc86610403627954600812">&#9670;&nbsp;</a></span>pybind2nc()</h2>
+<a id="ab473eb4036fcf02ed3c15342956cc9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab473eb4036fcf02ed3c15342956cc9db">&#9670;&nbsp;</a></span>pybind2nc()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::pybindInterface::pybind2nc </td>
           <td>(</td>
-          <td class="paramtype">pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">pbArray</a>&lt; dtype &gt; &amp;&#160;</td>
           <td class="paramname"><em>numpyArray</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+<p>converts a numpy array to a numcpp <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> using pybind bindings Python will still own the underlying data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numpyArray</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1bbfbfcb2ba31e4364d101820bfc2ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bbfbfcb2ba31e4364d101820bfc2ff8">&#9670;&nbsp;</a></span>pybind2nc_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::pybindInterface::pybind2nc_copy </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">pbArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>numpyArray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 <p>converts a numpy array to a numcpp <a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> using pybind bindings Python will still own the underlying data.</p>
 <dl class="params"><dt>Parameters</dt><dd>

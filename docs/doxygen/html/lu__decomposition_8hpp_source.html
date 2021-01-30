@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('lu__decomposition_8hpp_source.html',''
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a> = inMatrix.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span>(!<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#af00a8f56e47b2052a8d1bfd48b303b5f">issquare</a>()) </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span>(!<a class="code" href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">shape</a>.<a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>()) </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <a class="code" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(<span class="stringliteral">&quot;Input matrix should be square.&quot;</span>);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
@@ -148,14 +148,14 @@ $(document).ready(function(){initNavTree('lu__decomposition_8hpp_source.html',''
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4311</div></div>
+<div class="ttc" id="aclassnc_1_1_shape_html_a939dd0ab6edf83b7abaf8b8c93a99152"><div class="ttname"><a href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">nc::Shape::issquare</a></div><div class="ttdeci">bool issquare() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:123</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4356</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
 <div class="ttc" id="anamespacenc_html_ae2b224742bc8263190d451a44ebe5e34"><div class="ttname"><a href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">nc::shape</a></div><div class="ttdeci">Shape shape(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/Shape.hpp:44</div></div>
 <div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_a153a90dbcc2ca94c664c429868d15bc4"><div class="ttname"><a href="namespacenc_1_1linalg.html#a153a90dbcc2ca94c664c429868d15bc4">nc::linalg::lu_decomposition</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; double &gt;, NdArray&lt; double &gt; &gt; lu_decomposition(const NdArray&lt; dtype &gt; &amp;inMatrix)</div><div class="ttdef"><b>Definition:</b> lu_decomposition.hpp:57</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_shape_html_af00a8f56e47b2052a8d1bfd48b303b5f"><div class="ttname"><a href="classnc_1_1_shape.html#af00a8f56e47b2052a8d1bfd48b303b5f">nc::Shape::issquare</a></div><div class="ttdeci">constexpr bool issquare() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:123</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="azeros__like_8hpp_html"><div class="ttname"><a href="zeros__like_8hpp.html">zeros_like.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>

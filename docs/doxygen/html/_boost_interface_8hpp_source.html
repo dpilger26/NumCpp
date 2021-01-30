@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_boost_interface_8hpp_source.html','')
 <div class="contents">
 <a href="_boost_interface_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifdef INCLUDE_BOOST_PYTHON_INTERFACE</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if defined(INCLUDE_BOOST_PYTHON_INTERFACE) &amp;&amp; !defined(NO_USE_BOOST)</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('_boost_interface_8hpp_source.html','')
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                arrayShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a><span class="keyword">&gt;</span>(helper.<a class="code" href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a3bc1683f38f594bae02c4eb4795a9aab">shape</a>().front());</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(arrayShape);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; arrayShape.<a class="code" href="classnc_1_1_shape.html#a9c41935da2cc0d7225f76849bee97794">size</a>(); ++i)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; arrayShape.<a class="code" href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">size</a>(); ++i)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    returnArray[i] = helper(i);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                }</div>
@@ -198,10 +198,11 @@ $(document).ready(function(){initNavTree('_boost_interface_8hpp_source.html','')
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        }</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    } <span class="comment">// namespace boostPythonInterface</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;} <span class="comment">// namespace nc</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif // #if defined(INCLUDE_BOOST_PYTHON_INTERFACE) &amp;&amp; !defined(NO_USE_BOOST)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4311</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4356</div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html_ae2b224742bc8263190d451a44ebe5e34"><div class="ttname"><a href="namespacenc.html#ae2b224742bc8263190d451a44ebe5e34">nc::shape</a></div><div class="ttdeci">Shape shape(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/Shape.hpp:44</div></div>
 <div class="ttc" id="anamespacenc_1_1boost_python_interface_html_aafe87a2533a53c470b051e7499131e47"><div class="ttname"><a href="namespacenc_1_1boost_python_interface.html#aafe87a2533a53c470b051e7499131e47">nc::boostPythonInterface::list2vector</a></div><div class="ttdeci">std::vector&lt; T &gt; list2vector(const boost::python::list &amp;inList)</div><div class="ttdef"><b>Definition:</b> BoostInterface.hpp:125</div></div>
@@ -213,6 +214,7 @@ $(document).ready(function(){initNavTree('_boost_interface_8hpp_source.html','')
 <div class="ttc" id="aclassnc_1_1boost_python_interface_1_1_boost_ndarray_helper_html_a0a6c3bfdab008b433ba0dae0689ee1fa"><div class="ttname"><a href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a0a6c3bfdab008b433ba0dae0689ee1fa">nc::boostPythonInterface::BoostNdarrayHelper::getArray</a></div><div class="ttdeci">const boost::python::numpy::ndarray &amp; getArray() noexcept</div><div class="ttdef"><b>Definition:</b> BoostNumpyNdarrayHelper.hpp:117</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:40</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1_shape_html_ab29f87cc8479a2d0610a918cd9b08bbc"><div class="ttname"><a href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">nc::Shape::size</a></div><div class="ttdeci">uint32 size() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:102</div></div>
 <div class="ttc" id="anamespacenc_1_1boost_python_interface_html_adc8d67693f9ad1c0ea5c4cd6ff89d532"><div class="ttname"><a href="namespacenc_1_1boost_python_interface.html#adc8d67693f9ad1c0ea5c4cd6ff89d532">nc::boostPythonInterface::vector2list</a></div><div class="ttdeci">boost::python::list vector2list(std::vector&lt; T &gt; &amp;inVector)</div><div class="ttdef"><b>Definition:</b> BoostInterface.hpp:138</div></div>
 <div class="ttc" id="aclassnc_1_1boost_python_interface_1_1_boost_ndarray_helper_html"><div class="ttname"><a href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html">nc::boostPythonInterface::BoostNdarrayHelper</a></div><div class="ttdoc">Helper class for ndarray.</div><div class="ttdef"><b>Definition:</b> BoostNumpyNdarrayHelper.hpp:52</div></div>
 <div class="ttc" id="a_boost_numpy_ndarray_helper_8hpp_html"><div class="ttname"><a href="_boost_numpy_ndarray_helper_8hpp.html">BoostNumpyNdarrayHelper.hpp</a></div></div>
@@ -221,7 +223,6 @@ $(document).ready(function(){initNavTree('_boost_interface_8hpp_source.html','')
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
-<div class="ttc" id="aclassnc_1_1_shape_html_a9c41935da2cc0d7225f76849bee97794"><div class="ttname"><a href="classnc_1_1_shape.html#a9c41935da2cc0d7225f76849bee97794">nc::Shape::size</a></div><div class="ttdeci">constexpr uint32 size() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:102</div></div>
 <div class="ttc" id="aclassnc_1_1boost_python_interface_1_1_boost_ndarray_helper_html_a73b77718d65b0531030c795bcc6fe7e4"><div class="ttname"><a href="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a73b77718d65b0531030c795bcc6fe7e4">nc::boostPythonInterface::BoostNdarrayHelper::numDimensions</a></div><div class="ttdeci">uint8 numDimensions() noexcept</div><div class="ttdef"><b>Definition:</b> BoostNumpyNdarrayHelper.hpp:137</div></div>
 <div class="ttc" id="anamespacenc_1_1boost_python_interface_html_a6ab60209d41ac522bcbf51d03e03b0b6"><div class="ttname"><a href="namespacenc_1_1boost_python_interface.html#a6ab60209d41ac522bcbf51d03e03b0b6">nc::boostPythonInterface::nc2Boost</a></div><div class="ttdeci">boost::python::numpy::ndarray nc2Boost(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> BoostInterface.hpp:101</div></div>
 <!-- start footer part -->

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -104,6 +104,8 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacenc_1_1constants"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds usefull constants. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1coordinates"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1coordinates.html">coordinates</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenc_1_1endian"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1endian.html">endian</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1error"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1error.html">error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -943,6 +945,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afe5c0aa7fc5442e1453159e1fa78115a"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:afe5c0aa7fc5442e1453159e1fa78115a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#afe5c0aa7fc5442e1453159e1fa78115a">multiply</a> (dtype value, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; std::complex&lt; dtype &gt;&gt; &amp;inArray)</td></tr>
 <tr class="separator:afe5c0aa7fc5442e1453159e1fa78115a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b2173fccfe4b4a8c91edb704c51b12"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ab5b2173fccfe4b4a8c91edb704c51b12"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ab5b2173fccfe4b4a8c91edb704c51b12">nan_to_num</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; inArray, dtype nan=static_cast&lt; dtype &gt;(0.0), dtype posInf=<a class="el" href="classnc_1_1_dtype_info.html">DtypeInfo</a>&lt; dtype &gt;::<a class="el" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>(), dtype negInf=<a class="el" href="classnc_1_1_dtype_info.html">DtypeInfo</a>&lt; dtype &gt;::<a class="el" href="namespacenc.html#a8a61a49362258590b70289fd63fb2d8e">min</a>())</td></tr>
+<tr class="separator:ab5b2173fccfe4b4a8c91edb704c51b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f3d3d15fae35dc9538f6daa792f3e1b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a5f3d3d15fae35dc9538f6daa792f3e1b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a5f3d3d15fae35dc9538f6daa792f3e1b">nanargmax</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis=<a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
 <tr class="separator:a5f3d3d15fae35dc9538f6daa792f3e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1816,7 +1821,7 @@ Variables</h2></td></tr>
 <tr class="memitem:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memTemplParams" colspan="2">template&lt;class dtype &gt; </td></tr>
 <tr class="memitem:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aae4eab83016ec7dcaa7d78b6d1e78481">is_valid_dtype_v</a> = <a class="el" href="structnc_1_1is__valid__dtype.html">is_valid_dtype</a>&lt;dtype&gt;::value</td></tr>
 <tr class="separator:aae4eab83016ec7dcaa7d78b6d1e78481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa2b5de82ba40f346d1ba1e3ad0397a"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8fa2b5de82ba40f346d1ba1e3ad0397a">VERSION</a> [] = &quot;2.3.1&quot;</td></tr>
+<tr class="memitem:a8fa2b5de82ba40f346d1ba1e3ad0397a"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8fa2b5de82ba40f346d1ba1e3ad0397a">VERSION</a> [] = &quot;2.4.0&quot;</td></tr>
 <tr class="memdesc:a8fa2b5de82ba40f346d1ba1e3ad0397a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current NumCpp version number.  <a href="namespacenc.html#a8fa2b5de82ba40f346d1ba1e3ad0397a">More...</a><br /></td></tr>
 <tr class="separator:a8fa2b5de82ba40f346d1ba1e3ad0397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -8502,7 +8507,7 @@ template&lt;typename dtype &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the greatest common divisor of the values in the input array.</p>
+<p>Returns the greatest common divisor of the values in the input array. NOTE: Use of this function requires using the Boost includes.</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html">https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -8549,7 +8554,7 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the greatest common divisor of |x1| and |x2|</p>
+<p>Returns the greatest common divisor of |x1| and |x2|. NOTE: Use of this function requires either using the Boost includes or a C++17 compliant compiler.</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html">https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -8919,7 +8924,7 @@ template&lt;typename dtype &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -8975,7 +8980,7 @@ template&lt;typename dtype &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -9449,7 +9454,7 @@ template&lt;typename dtype &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the least common multiple of the values of the input array.</p>
+<p>Returns the least common multiple of the values of the input array. NOTE: Use of this function requires using the Boost includes.</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html">https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -9496,7 +9501,7 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the least common multiple of |x1| and |x2|</p>
+<p>Returns the least common multiple of |x1| and |x2|. NOTE: Use of this function requires either using the Boost includes or a C++17 compliant compiler.</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html">https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -11103,6 +11108,60 @@ template&lt;typename dtype &gt; </div>
   <table class="params">
     <tr><td class="paramname">value</td><td></td></tr>
     <tr><td class="paramname">inArray</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab5b2173fccfe4b4a8c91edb704c51b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b2173fccfe4b4a8c91edb704c51b12">&#9670;&nbsp;</a></span>nan_to_num()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; nc::nan_to_num </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>nan</em> = <code>static_cast&lt;dtype&gt;(0.0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>posInf</em> = <code><a class="el" href="classnc_1_1_dtype_info.html">DtypeInfo</a>&lt;dtype&gt;::<a class="el" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">max</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>negInf</em> = <code><a class="el" href="classnc_1_1_dtype_info.html">DtypeInfo</a>&lt;dtype&gt;::<a class="el" href="namespacenc.html#a8a61a49362258590b70289fd63fb2d8e">min</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Replace NaN with zero and infinity with large finite numbers (default behaviour) or with the numbers defined by the user using the nan, posinf and/or neginf keywords.</p>
+<p>NumPy Reference: <a href="https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html">https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">nan</td><td>value to be used to fill NaN values, default 0 </td></tr>
+    <tr><td class="paramname">posInf</td><td>value to be used to fill positive infinity values, default a very large number </td></tr>
+    <tr><td class="paramname">negInf</td><td>value to be used to fill negative infinity values, default a very large negative number </td></tr>
   </table>
   </dd>
 </dl>
@@ -22724,7 +22783,7 @@ template&lt;class dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr char nc::VERSION[] = &quot;2.3.1&quot;</td>
+          <td class="memname">constexpr char nc::VERSION[] = &quot;2.4.0&quot;</td>
         </tr>
       </table>
   </td>

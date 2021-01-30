@@ -1,5 +1,5 @@
 var bernoilli_8hpp =
 [
-    [ "bernoulli", "bernoilli_8hpp.html#ae9acf3bca4da5307534d454cfa55d57c", null ],
-    [ "bernoulli", "bernoilli_8hpp.html#ae6cf7419d9b8943b63209faa3a09bb4a", null ]
+    [ "bernoulli", "bernoilli_8hpp.html#a8d4a1a62fc03a44cccfa4012413bd70f", null ],
+    [ "bernoulli", "bernoilli_8hpp.html#a1a5af4283601fd8663dcdc34599aede3", null ]
 ];

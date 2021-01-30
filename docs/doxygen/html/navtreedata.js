@@ -23,6 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
+    [ "Release Notes", "md__c_1__github__num_cpp_docs_markdown__release_notes.html", null ],
     [ "Installation", "md__c_1__github__num_cpp_docs_markdown__installation.html", null ],
     [ "Building", "md__c_1__github__num_cpp_docs_markdown__building.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -62,16 +63,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
-"_pybind_interface_8hpp_source.html",
-"arange_8hpp.html#a724165d620d8bff96f8f004c18257ad6",
-"classnc_1_1_nd_array.html#a094424d8f368eaa3730102a5f75f0c2e",
-"classnc_1_1_nd_array_const_iterator.html#a171276f9e90a1336d156c61c2b61bd23",
-"classnc_1_1image_processing_1_1_cluster.html#a8c884e5e55d41c09165bca85446edb1f",
-"cos_8hpp_source.html",
-"functions_func_v.html",
-"meshgrid_8hpp.html#ae392e03f9e01b088a082c6055082df49",
-"polar_8hpp.html#abbf3200fe11e4cb7ae6363b00099c2fe",
-"subtract_8hpp.html#ae4be1086253a0b121695d9cabfcb86ce"
+"_pybind_interface_8hpp.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f",
+"apply_poly1d_8hpp.html#a52f3be5bbad0243643027a1477662356",
+"classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc",
+"classnc_1_1_nd_array_const_column_iterator.html#ad69593e9f3cbf04dff6941bd52827208",
+"classnc_1_1image_processing_1_1_cluster.html#a27734d0fa45c7440e3018fa36c6633f9",
+"constant2d_8hpp_source.html",
+"full_8hpp.html",
+"lu__decomposition_8hpp_source.html",
+"ones_8hpp.html",
+"square_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

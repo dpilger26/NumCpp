@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -90,44 +90,61 @@ $(document).ready(function(){initNavTree('gcd_8hpp_source.html',''); initResizab
 <div class="contents">
 <a href="gcd_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;boost/integer/common_factor_rt.hpp&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_static_asserts_8hpp.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">   50</a></span>&#160;    dtype <a class="code" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">gcd</a>(dtype inValue1, dtype inValue2) noexcept </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a>(dtype);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">boost::integer::gcd</a>(inValue1, inValue2);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">   68</a></span>&#160;    dtype <a class="code" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">gcd</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a>(dtype);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> boost::integer::gcd_range(inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArray.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>()).first;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifndef NO_USE_BOOST</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;boost/integer/common_factor_rt.hpp&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_gcd_lcm</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">   60</a></span>&#160;    dtype <a class="code" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">gcd</a>(dtype inValue1, dtype inValue2) noexcept </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a>(dtype);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_gcd_lcm</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">std::gcd</a>(inValue1, inValue2);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">boost::integer::gcd</a>(inValue1, inValue2);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // #ifdef __cpp_lib_gcd_lcm</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#ifndef NO_USE_BOOST</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">   85</a></span>&#160;    dtype <a class="code" href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">gcd</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a>(dtype);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> boost::integer::gcd_range(inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArray.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>()).first;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // #ifndef NO_USE_BOOST</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif // defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_static_asserts_8hpp_html_a187660686583e9047c0cf4424259ad10"><div class="ttname"><a href="_static_asserts_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a></div><div class="ttdeci">#define STATIC_ASSERT_INTEGER(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:40</div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
-<div class="ttc" id="anamespacenc_html_a45b5db91eb9f524459fa3878e23ca0ec"><div class="ttname"><a href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">nc::gcd</a></div><div class="ttdeci">dtype gcd(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> gcd.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_html_a45b5db91eb9f524459fa3878e23ca0ec"><div class="ttname"><a href="namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec">nc::gcd</a></div><div class="ttdeci">dtype gcd(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> gcd.hpp:60</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_html_a4a496eaa0a42e0b9c80724358664d432"><div class="ttname"><a href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">nc::gcd</a></div><div class="ttdeci">dtype gcd(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> gcd.hpp:68</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1490</div></div>
+<div class="ttc" id="anamespacenc_html_a4a496eaa0a42e0b9c80724358664d432"><div class="ttname"><a href="namespacenc.html#a4a496eaa0a42e0b9c80724358664d432">nc::gcd</a></div><div class="ttdeci">dtype gcd(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> gcd.hpp:85</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1487</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1146</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1143</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="contents">
 <a href="_boost_numpy_ndarray_helper_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifdef INCLUDE_BOOST_PYTHON_INTERFACE</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if defined(INCLUDE_BOOST_PYTHON_INTERFACE) &amp;&amp; !defined(NO_USE_BOOST)</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_stl_algorithms_8hpp.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
@@ -319,7 +319,8 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp_sourc
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        };</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }  <span class="comment">// namespace boostPythonInterface</span></div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;} <span class="comment">// namespace nc</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif // #if defined(INCLUDE_BOOST_PYTHON_INTERFACE) &amp;&amp; !defined(NO_USE_BOOST)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacenc_html_a8fb3ecc9cc7448e4b5d3d422e499b10e"><div class="ttname"><a href="namespacenc.html#a8fb3ecc9cc7448e4b5d3d422e499b10e">nc::zeros</a></div><div class="ttdeci">NdArray&lt; dtype &gt; zeros(uint32 inSquareSize)</div><div class="ttdef"><b>Definition:</b> zeros.hpp:50</div></div>
