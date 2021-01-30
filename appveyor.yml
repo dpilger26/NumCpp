@@ -11,11 +11,11 @@ build_script:
     cd C:\projects\numcpp &&
     mkdir build &&
     cd build &&
-    cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON -DBOOST_ROOT="C:\Libraries\boost_1_73_0" -DPython_ROOT_DIR="C:\Python39-x64" &&
+    cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON -DBOOST_ROOT="C:\Libraries\boost_1_73_0" &&
     cmake --build . --config Release &&
     cmake --build . --target install
 test_script:
 - cmd: >-
-    C:\Python39-x64\python -m pip install -U pytest numpy scipy astropy matplotlib mpmath vectormath &&
+    C:\Python37-x64\python -m pip install -U pytest numpy scipy astropy matplotlib mpmath vectormath &&
     cd C:\projects\numcpp\test\pytest &&
-    C:\Python39-x64\python -m pytest
+    C:\Python37-x64\python -m pytest
