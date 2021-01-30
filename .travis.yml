@@ -1,12 +1,11 @@
-dist: focal
-
-matrix:
+jobs:
   include:
-    - language: cpp
+    - os: linux
+      dist: focal
+      language: cpp
       compiler:
         - gcc
-      notifications:
-        email: false
+        - clang
       before_install:
         - sudo apt update
         - sudo apt remove --purge cmake
@@ -27,7 +26,9 @@ matrix:
         - cmake --build . --config Release --target GaussNewtonNlls
         - cmake --build . --config Release --target ReadMe
         - cmake --build . --config Release --target install
-    - language: python
+    - os: linux
+      dist: focal
+      language: python
       python:
         - 3.7
       before_install:

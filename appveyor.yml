@@ -13,7 +13,7 @@ build_script:
     cd build &&
     cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON -DBOOST_ROOT="C:\Libraries\boost_1_73_0" &&
     cmake --build . --config Release &&
-    cmake --build . --target install
+    cmake --build . --config Release --target install
 test_script:
 - cmd: >-
     C:\Python37-x64\python -m pip install -U pytest numpy scipy astropy matplotlib mpmath vectormath &&
