@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,11 +27,17 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#else
 #include "boost/math/special_functions/bessel.hpp"
+#endif
 
 #include <type_traits>
 
@@ -41,7 +47,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the second kind
+        ///	Modified Cylindrical Bessel function of the second kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
@@ -54,12 +62,18 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::cyl_bessel_k(inV, inX);
+#else
             return boost::math::cyl_bessel_k(inV, inX);
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the second kind
+        ///	Modified Cylindrical Bessel function of the second kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
@@ -69,7 +83,7 @@ namespace nc
         template<typename dtype1, typename dtype2>
         auto bessel_kn(dtype1 inV, const NdArray<dtype2>& inArrayX)
         {
-            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
+            NdArray<decltype(bessel_kn(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype2 inX) -> auto
@@ -81,3 +95,5 @@ namespace nc
         }
     }  // namespace special
 }  // namespace nc
+
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)

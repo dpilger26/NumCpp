@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.special as sp
+import mpmath
 import os
 import sys
 sys.path.append(os.path.abspath(r'../lib'))
@@ -12,11 +13,14 @@ NUM_DECIMALS_ROUND = 7
 
 ####################################################################################
 def test_seed():
-    np.random.seed(26)
+    np.random.seed(1)
 
 
 ####################################################################################
 def test_airy_ai():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_ai_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[0].item(), NUM_DECIMALS_ROUND))
@@ -32,6 +36,9 @@ def test_airy_ai():
 
 ####################################################################################
 def test_airy_ai_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_ai_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[1].item(), NUM_DECIMALS_ROUND))
@@ -47,6 +54,9 @@ def test_airy_ai_prime():
 
 ####################################################################################
 def test_airy_bi():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_bi_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[2].item(), NUM_DECIMALS_ROUND))
@@ -62,6 +72,9 @@ def test_airy_bi():
 
 ####################################################################################
 def test_airy_bi_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.airy_bi_prime_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.airy(value)[3].item(), NUM_DECIMALS_ROUND))
@@ -77,6 +90,9 @@ def test_airy_bi_prime():
 
 ####################################################################################
 def test_bernoulli():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.randint(0, 20)
     assert (roundScaler(NumCpp.bernoulli_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.bernoulli(value)[-1], NUM_DECIMALS_ROUND))
@@ -84,6 +100,9 @@ def test_bernoulli():
 
 ####################################################################################
 def test_cylindrical_bessel_i():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_in_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -101,6 +120,9 @@ def test_cylindrical_bessel_i():
 
 ####################################################################################
 def test_cylindrical_bessel_i_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_in_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -118,6 +140,9 @@ def test_cylindrical_bessel_i_prime():
 
 ####################################################################################
 def test_cylindrical_bessel_j():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -135,6 +160,9 @@ def test_cylindrical_bessel_j():
 
 ####################################################################################
 def test_cylindrical_bessel_j_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_jn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -147,11 +175,14 @@ def test_cylindrical_bessel_j_prime():
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.bessel_jn_prime_Array(order, cArray), NUM_DECIMALS_ROUND),
-                          roundArray(sp.jvp(order, data), NUM_DECIMALS_ROUND))
+                          roundArray(sp.jvp(order, data), NUM_DECIMALS_ROUND))  # noqa
 
 
 ####################################################################################
 def test_cylindrical_bessel_k():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_kn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -169,6 +200,9 @@ def test_cylindrical_bessel_k():
 
 ####################################################################################
 def test_cylindrical_bessel_k_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_kn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -186,6 +220,9 @@ def test_cylindrical_bessel_k_prime():
 
 ####################################################################################
 def test_cylindrical_bessel_y():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -203,6 +240,9 @@ def test_cylindrical_bessel_y():
 
 ####################################################################################
 def test_cylindrical_bessel_y_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.bessel_yn_prime_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -215,11 +255,14 @@ def test_cylindrical_bessel_y_prime():
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.bessel_yn_prime_Array(order, cArray), NUM_DECIMALS_ROUND),
-                          roundArray(sp.yvp(order, data), NUM_DECIMALS_ROUND))
+                          roundArray(sp.yvp(order, data), NUM_DECIMALS_ROUND))  # noqa
 
 
 ####################################################################################
 def test_beta():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     a = np.random.rand(1).item() * 10
     b = np.random.rand(1).item() * 10
     assert (roundScaler(NumCpp.beta_Scaler(a, b), NUM_DECIMALS_ROUND) ==
@@ -238,6 +281,69 @@ def test_beta():
 
 
 ####################################################################################
+def test_comp_ellint_1():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_1_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipk(a**2).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_1_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipk(np.square(a)), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_comp_ellint_2():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_2_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipe(a**2).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_2_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipe(np.square(a)), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_comp_ellint_3():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.comp_ellint_3_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(float(mpmath.ellippi(b, a**2)), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    result = np.zeros_like(a)
+    for row in range(a.shape[0]):
+        for col in range(a.shape[1]):
+            result[row, col] = float(mpmath.ellippi(b[row, col], a[row, col]**2))
+    assert np.array_equal(roundArray(NumCpp.comp_ellint_3_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(result, NUM_DECIMALS_ROUND))
+
+
+####################################################################################
 def test_cnr():
     n = np.random.randint(0, 50)
     r = np.random.randint(0, n + 1)
@@ -246,6 +352,9 @@ def test_cnr():
 
 ####################################################################################
 def test_cylindrical_hankel_1():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
     assert (roundComplex(complex(NumCpp.cyclic_hankel_1_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
@@ -263,6 +372,9 @@ def test_cylindrical_hankel_1():
 
 ####################################################################################
 def test_cylindrical_hankel_2():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(0, 6)
     value = np.random.rand(1).item() * 10
     assert (roundComplex(complex(NumCpp.cyclic_hankel_2_Scaler(order, value)), NUM_DECIMALS_ROUND) ==
@@ -280,6 +392,9 @@ def test_cylindrical_hankel_2():
 
 ####################################################################################
 def test_digamma():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item() * 10
     assert (roundScaler(NumCpp.digamma_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.digamma(value), NUM_DECIMALS_ROUND))
@@ -294,7 +409,87 @@ def test_digamma():
 
 
 ####################################################################################
+def test_ellint_1():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_1_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    assert np.array_equal(roundArray(NumCpp.ellint_1_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipkinc(b, a**2), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_ellint_2():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_2_Scaler(a, b), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+
+    assert np.array_equal(roundArray(NumCpp.ellint_2_Array(aArray, bArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.ellipeinc(b, a**2), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
+def test_ellint_3():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    b = np.random.rand(1).item()
+    c = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.ellint_3_Scaler(a, b, c), NUM_DECIMALS_ROUND) ==
+            roundScaler(float(mpmath.ellippi(b, c, a**2)), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    bArray = NumCpp.NdArray(shape)
+    cArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    b = np.random.rand(shape.rows, shape.cols)
+    c = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    bArray.setArray(b)
+    cArray.setArray(c)
+
+    result = np.zeros_like(a)
+    for row in range(a.shape[0]):
+        for col in range(a.shape[1]):
+            result[row, col] = float(mpmath.ellippi(b[row, col], c[row, col], a[row, col]**2))
+    assert np.array_equal(roundArray(NumCpp.ellint_3_Array(aArray, bArray, cArray), NUM_DECIMALS_ROUND),
+                          roundArray(result, NUM_DECIMALS_ROUND))
+
+
+####################################################################################
 def test_erf():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.erf_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.erf(value), NUM_DECIMALS_ROUND))
@@ -310,6 +505,9 @@ def test_erf():
 
 ####################################################################################
 def test_erfinv():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.erf_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.erfinv(value), NUM_DECIMALS_ROUND))
@@ -325,6 +523,9 @@ def test_erfinv():
 
 ####################################################################################
 def test_erfc():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.erfc_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.erfc(value), NUM_DECIMALS_ROUND))
@@ -340,6 +541,9 @@ def test_erfc():
 
 ####################################################################################
 def test_erfcinv():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.erfc_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.erfcinv(value), NUM_DECIMALS_ROUND))
@@ -354,6 +558,24 @@ def test_erfcinv():
 
 
 ####################################################################################
+def test_expint():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
+    a = np.random.rand(1).item()
+    assert (roundScaler(NumCpp.expint_Scaler(a), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.expi(a).item(), NUM_DECIMALS_ROUND))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.rand(shape.rows, shape.cols)
+    aArray.setArray(a)
+    assert np.array_equal(roundArray(NumCpp.expint_Array(aArray), NUM_DECIMALS_ROUND),
+                          roundArray(sp.expi(a), NUM_DECIMALS_ROUND))
+
+
+####################################################################################
 def test_factorial():
     n = np.random.randint(0, 170)
     assert (roundScaler(NumCpp.factorial_Scaler(n), NUM_DECIMALS_ROUND) ==
@@ -362,7 +584,7 @@ def test_factorial():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(0, 170, [shape.rows, shape.cols])
+    data = np.random.randint(0, 170, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert np.array_equal(roundArray(NumCpp.factorial_Array(cArray), NUM_DECIMALS_ROUND),
                           roundArray(sp.factorial(data), NUM_DECIMALS_ROUND))
@@ -370,6 +592,9 @@ def test_factorial():
 
 ####################################################################################
 def test_gamma():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.gamma(value), NUM_DECIMALS_ROUND))
@@ -385,6 +610,9 @@ def test_gamma():
 
 ####################################################################################
 def test_gamma1pm1():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     # There is no scipy equivalent to this function
     value = np.random.rand(1).item()
     assert NumCpp.gamma1pm1_Scaler(value) is not None
@@ -399,6 +627,9 @@ def test_gamma1pm1():
 
 ####################################################################################
 def test_loggamma():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.log_gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.loggamma(value), NUM_DECIMALS_ROUND))
@@ -421,6 +652,9 @@ def test_pnr():
 
 ####################################################################################
 def test_polygamma():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     order = np.random.randint(1, 5)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.polygamma_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -438,6 +672,9 @@ def test_polygamma():
 
 ####################################################################################
 def test_prime():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     # There is no scipy equivalent to this function
     value = np.random.randint(10000)
     assert NumCpp.prime_Scaler(value) is not None
@@ -445,13 +682,16 @@ def test_prime():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(0, 10000, [shape.rows, shape.cols])
+    data = np.random.randint(0, 10000, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert NumCpp.prime_Array(cArray) is not None
 
 
 ####################################################################################
 def test_zeta():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     value = np.random.rand(1).item() * 5 + 1
     assert (roundScaler(NumCpp.riemann_zeta_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.zeta(value, 1).item(), NUM_DECIMALS_ROUND))
@@ -494,6 +734,9 @@ def test_softmax():
 
 ####################################################################################
 def test_spherical_bessel_j():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.spherical_bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -511,6 +754,9 @@ def test_spherical_bessel_j():
 
 ####################################################################################
 def test_spherical_bessel_y():
+    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+        return
+
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.spherical_bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
@@ -528,6 +774,9 @@ def test_spherical_bessel_y():
 
 ####################################################################################
 def test_spherical_hankel_1():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
@@ -543,7 +792,10 @@ def test_spherical_hankel_1():
 
 
 ####################################################################################
-def test_spherical_hankel_1():
+def test_spherical_hankel_2():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     # There is no equivalent scipy functions
     order = np.random.randint(0, 10)
     value = np.random.rand(1).item()
@@ -560,6 +812,9 @@ def test_spherical_hankel_1():
 
 ####################################################################################
 def test_trigamma():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     value = np.random.rand(1).item()
     assert (roundScaler(NumCpp.trigamma_Scaler(value), NUM_DECIMALS_ROUND) ==
             roundScaler(sp.polygamma(1, value).item(), NUM_DECIMALS_ROUND))
@@ -575,7 +830,7 @@ def test_trigamma():
 
 ####################################################################################
 def roundScaler(value: float, numDecimals: int) -> float:
-    return float(f'{{:.{numDecimals}g}}'.format(value))
+    return float(f'{{:.{numDecimals}g}}'.format(value))  # noqa
 
 
 ####################################################################################

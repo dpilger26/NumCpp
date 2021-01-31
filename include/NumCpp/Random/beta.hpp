@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,15 +27,17 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/beta_distribution.hpp"
 
+#include <algorithm>
 #include <string>
 
 namespace nc
@@ -44,9 +46,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "beta" distribution.
+        ///	Single random value sampled from the from the "beta" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param				inAlpha
         /// @param				inBeta
@@ -68,16 +71,17 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input beta must be greater than zero.");
             }
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
             return dist(generator_); 
         }
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "beta" distribution.
+        ///	Create an array of the given shape and populate it with
+        ///	random samples from the "beta" distribution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param				inShape
         /// @param				inAlpha
@@ -102,10 +106,10 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value)  -> void
+            std::for_each(returnArray.begin(), returnArray.end(),
+                [&dist](dtype& value) -> void
                 {
                     value = dist(generator_); 
                 });
@@ -114,3 +118,5 @@ namespace nc
         }
     } // namespace random
 } // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

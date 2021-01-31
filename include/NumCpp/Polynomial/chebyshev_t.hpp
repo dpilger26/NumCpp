@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -39,7 +41,8 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the first kind
+        ///	Chebyshev Polynomial of the first kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      n: the order of the chebyshev polynomial
         /// @param      x: the input value
@@ -56,7 +59,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the first kind
+        ///	Chebyshev Polynomial of the first kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      n: the order of the chebyshev polynomial
         /// @param      inArrayX: the input value
@@ -79,3 +83,5 @@ namespace nc
         }
     }  // namespace polynomial
 }  // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

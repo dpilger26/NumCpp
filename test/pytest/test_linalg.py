@@ -83,10 +83,8 @@ def test_lu_decomposition():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    lu = NumCpp.lu_decomposition(cArray)
-    ll = lu.first
-    u = lu.second
-    p = np.round(np.dot(ll.getNumpyArray(), u.getNumpyArray())).astype(np.int)
+    l, u = NumCpp.lu_decomposition(cArray)
+    p = np.round(np.dot(l.getNumpyArray(), u.getNumpyArray())).astype(np.int)
     assert np.array_equal(p, data)
 
 

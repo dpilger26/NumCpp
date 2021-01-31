@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -77,7 +77,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator==(const Shape& inOtherShape) const noexcept
+        bool operator==(const Shape& inOtherShape) const noexcept
         {
             return rows == inOtherShape.rows && cols == inOtherShape.cols;
         }
@@ -89,7 +89,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool operator!=(const Shape& inOtherShape) const noexcept
+        bool operator!=(const Shape& inOtherShape) const noexcept
         {
             return !(*this == inOtherShape);
         }
@@ -99,7 +99,7 @@ namespace nc
         ///
         /// @return     size
         ///
-        constexpr uint32 size() const noexcept
+        uint32 size() const noexcept
         {
             return rows * cols;
         }
@@ -110,7 +110,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool isnull() const noexcept
+        bool isnull() const noexcept
         {
             return rows == 0 && cols == 0;
         }
@@ -120,7 +120,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        constexpr bool issquare() const noexcept
+        bool issquare() const noexcept
         {
             return rows == cols;
         }

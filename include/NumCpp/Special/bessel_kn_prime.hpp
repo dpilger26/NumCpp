@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -41,7 +43,8 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind
+        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
@@ -60,6 +63,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///	Derivcative of the Modified Cylindrical Bessel function of the second kind
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
@@ -69,7 +73,7 @@ namespace nc
         template<typename dtype1, typename dtype2>
         auto bessel_kn_prime(dtype1 inV, const NdArray<dtype2>& inArrayX)
         {
-            NdArray<decltype(bessel_in(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
+            NdArray<decltype(bessel_kn_prime(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype2 inX) -> auto
@@ -81,3 +85,5 @@ namespace nc
         }
     } // namespace special
 }  // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

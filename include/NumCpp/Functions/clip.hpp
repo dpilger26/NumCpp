@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -28,9 +28,12 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include "boost/algorithm/clamp.hpp"
+#ifdef __cpp_lib_clamp
+#include <algorithm>
+#endif
 
 namespace nc
 {
@@ -51,11 +54,25 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue, 
-            [](dtype lhs, dtype rhs) noexcept -> bool
-            {
-                return lhs < rhs;
-            });
+#ifdef __cpp_lib_clamp
+        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+        {
+            return lhs < rhs;
+        };
+
+        return std::clamp(inValue, inMinValue, inMaxValue, comparitor);
+#else
+        if (inValue < inMinValue)
+        {
+            return inMinValue;
+        }
+        else if (inValue > inMaxValue)
+        {
+            return inMaxValue;
+        }
+
+        return inValue;
+#endif
     }
 
     //============================================================================

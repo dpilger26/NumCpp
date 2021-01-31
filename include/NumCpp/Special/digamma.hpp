@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -40,7 +42,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the digamma or psi function of inValue. Digamma is defined as the 
-        /// logarithmic derivative of the gamma function:
+        /// logarithmic derivative of the gamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inValue
@@ -58,7 +61,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the digamma or psi function of values in inArray. Digamma is defined as the 
-        /// logarithmic derivative of the gamma function:
+        /// logarithmic derivative of the gamma function.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inArray
@@ -80,3 +84,5 @@ namespace nc
         }
     }  // namespace special
 }  // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

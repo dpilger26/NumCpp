@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,13 +42,20 @@
 #include "NumCpp/Special/bessel_yn_prime.hpp"
 #include "NumCpp/Special/beta.hpp"
 #include "NumCpp/Special/cnr.hpp"
+#include "NumCpp/Special/comp_ellint_1.hpp"
+#include "NumCpp/Special/comp_ellint_2.hpp"
+#include "NumCpp/Special/comp_ellint_3.hpp"
 #include "NumCpp/Special/cyclic_hankel_1.hpp"
 #include "NumCpp/Special/cyclic_hankel_2.hpp"
 #include "NumCpp/Special/digamma.hpp"
+#include "NumCpp/Special/ellint_1.hpp"
+#include "NumCpp/Special/ellint_2.hpp"
+#include "NumCpp/Special/ellint_3.hpp"
 #include "NumCpp/Special/erf.hpp"
 #include "NumCpp/Special/erf_inv.hpp"
 #include "NumCpp/Special/erfc.hpp"
 #include "NumCpp/Special/erfc_inv.hpp"
+#include "NumCpp/Special/expint.hpp"
 #include "NumCpp/Special/factorial.hpp"
 #include "NumCpp/Special/gamma.hpp"
 #include "NumCpp/Special/gamma1pm1.hpp"

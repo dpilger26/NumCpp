@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('_pybind_interface_8hpp.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -110,6 +111,14 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacenc_1_1pybind_interface"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html">nc::pybindInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:adfe4a3d878913657435705edfb3c331d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:adfe4a3d878913657435705edfb3c331d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d">nc::pybindInterface::pbArray</a> = pybind11::array_t&lt; dtype, pybind11::array::c_style &gt;</td></tr>
+<tr class="separator:adfe4a3d878913657435705edfb3c331d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c5b0b49fb9d54b885582f85ff25d4f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f">nc::pybindInterface::pbArrayGeneric</a> = pybind11::array</td></tr>
+<tr class="separator:a92c5b0b49fb9d54b885582f85ff25d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a0ca16a67f36ad5d1960cd9567208ed19"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19">nc::pybindInterface::ReturnPolicy</a> { <a class="el" href="namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f">nc::pybindInterface::ReturnPolicy::COPY</a>, 
@@ -121,12 +130,18 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a36135ab669dc2e6659bb9564e402edb4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a36135ab669dc2e6659bb9564e402edb4"><td class="memTemplItemLeft" align="right" valign="top">pybind11::array_t&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a36135ab669dc2e6659bb9564e402edb4">nc::pybindInterface::nc2pybind</a> (NdArray&lt; dtype &gt; &amp;inArray, ReturnPolicy returnPolicy=ReturnPolicy::COPY)</td></tr>
-<tr class="separator:a36135ab669dc2e6659bb9564e402edb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f1f494ed8dc86610403627954600812"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a4f1f494ed8dc86610403627954600812"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a4f1f494ed8dc86610403627954600812">nc::pybindInterface::pybind2nc</a> (pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;numpyArray)</td></tr>
-<tr class="separator:a4f1f494ed8dc86610403627954600812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memTemplItemLeft" align="right" valign="top">pbArrayGeneric&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#adf2283c3c717906d9ddfbd73f3ab8927">nc::pybindInterface::nc2pybind</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:adf2283c3c717906d9ddfbd73f3ab8927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memTemplItemLeft" align="right" valign="top">pbArrayGeneric&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a10c33cf2d4fc1d454901280f1a2dc861">nc::pybindInterface::nc2pybind</a> (NdArray&lt; dtype &gt; &amp;inArray, ReturnPolicy returnPolicy)</td></tr>
+<tr class="separator:a10c33cf2d4fc1d454901280f1a2dc861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab473eb4036fcf02ed3c15342956cc9db"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ab473eb4036fcf02ed3c15342956cc9db"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#ab473eb4036fcf02ed3c15342956cc9db">nc::pybindInterface::pybind2nc</a> (pbArray&lt; dtype &gt; &amp;numpyArray)</td></tr>
+<tr class="separator:ab473eb4036fcf02ed3c15342956cc9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html#a1bbfbfcb2ba31e4364d101820bfc2ff8">nc::pybindInterface::pybind2nc_copy</a> (const pbArray&lt; dtype &gt; &amp;numpyArray)</td></tr>
+<tr class="separator:a1bbfbfcb2ba31e4364d101820bfc2ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -135,7 +150,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a></dd></dl>
-<p>License Copyright 2020 David Pilger</p>
+<p>License Copyright 2018-2021 David Pilger</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>

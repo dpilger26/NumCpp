@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,15 +27,17 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/non_central_chi_squared_distribution.hpp"
 
+#include <algorithm>
 #include <string>
 
 namespace nc
@@ -44,9 +46,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "non central chi squared" distrubution.
+        ///	Single random value sampled from the "non central chi squared" distrubution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
         /// @param				inK (default 1)
         /// @param				inLambda (default 1)
@@ -74,10 +77,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "non central chi squared" distrubution.
+        ///	Create an array of the given shape and populate it with
+        ///	random samples from a "non central chi squared" distrubution.
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
         /// @param				inShape
         /// @param				inK (default 1)
@@ -104,8 +108,8 @@ namespace nc
 
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value)  -> void
+            std::for_each(returnArray.begin(), returnArray.end(),
+                [&dist](dtype& value) -> void
                 { 
                     value = dist(generator_);
                 });
@@ -114,3 +118,5 @@ namespace nc
         }
     }  // namespace random
 }  // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

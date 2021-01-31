@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -112,6 +112,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4d518d51dad679d9a9c6938b065e38f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab35be40c38521a4bd9b3c99b3d33731"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731">numElements</a> (<a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inArraySize)</td></tr>
 <tr class="separator:aab35be40c38521a4bd9b3c99b3d33731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd66bc2d5f975f986e62230b124ae607"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#afd66bc2d5f975f986e62230b124ae607">operator!=</a> (const <a class="el" href="classnc_1_1_slice.html">Slice</a> &amp;inOtherSlice) const noexcept</td></tr>
+<tr class="separator:afd66bc2d5f975f986e62230b124ae607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769815d8fbb98ba34101c18a21efbbf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#a769815d8fbb98ba34101c18a21efbbf5">operator==</a> (const <a class="el" href="classnc_1_1_slice.html">Slice</a> &amp;inOtherSlice) const noexcept</td></tr>
+<tr class="separator:a769815d8fbb98ba34101c18a21efbbf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24c1eb77b94d3120bb02868cc965c058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#a24c1eb77b94d3120bb02868cc965c058">print</a> () const</td></tr>
 <tr class="separator:a24c1eb77b94d3120bb02868cc965c058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8bc3bb19b48fd09c769fd1fa9860ed5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_slice.html#af8bc3bb19b48fd09c769fd1fa9860ed5">str</a> () const</td></tr>
@@ -352,6 +356,74 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="afd66bc2d5f975f986e62230b124ae607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd66bc2d5f975f986e62230b124ae607">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nc::Slice::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_slice.html">Slice</a> &amp;&#160;</td>
+          <td class="paramname"><em>inOtherSlice</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Not equality operator</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inOtherSlice</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a769815d8fbb98ba34101c18a21efbbf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769815d8fbb98ba34101c18a21efbbf5">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nc::Slice::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_slice.html">Slice</a> &amp;&#160;</td>
+          <td class="paramname"><em>inOtherSlice</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Equality operator</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inOtherSlice</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>

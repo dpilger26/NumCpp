@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,10 +27,14 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Random/permutation.hpp"
 #include "NumCpp/Random/randInt.hpp"
+
+#include <algorithm>
 
 namespace nc
 {
@@ -47,31 +51,41 @@ namespace nc
         template<typename dtype>
         dtype choice(const NdArray<dtype>& inArray)
         {
-            uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
+            uint32 randIdx = random::randInt<uint32>(0, inArray.size());
             return inArray[randIdx];
         }
 
         //============================================================================
         // Method Description:
-        ///						Chooses inNum random samples from an input array. Samples
-        ///                     are in no way guarunteed to be unique.
+        ///						Chooses inNum random samples from an input array.
         ///
         /// @param      inArray
         /// @param      inNum
+        /// @param      replace: Whether the sample is with or without replacement
         /// @return
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum)
+        NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
         {
-            NdArray<dtype> outArray(1, inNum);
-            for (uint32 i = 0; i < inNum; ++i)
+            if (!replace && inNum > inArray.size())
             {
-                uint32 randIdx = random::randInt<uint32>(Shape(1), 0, inArray.size()).item();
-                outArray[i] = inArray[randIdx];
+                THROW_INVALID_ARGUMENT_ERROR("when 'replace' == false 'inNum' must be <= inArray.size()");
             }
 
-            return outArray;
+            if (replace)
+            {
+                NdArray<dtype> outArray(1, inNum);
+                std::for_each(outArray.begin(), outArray.end(),
+                    [&inArray](dtype& value) -> void
+                    { 
+                        value = choice(inArray); 
+                    });
+
+                return outArray;
+            }
+
+            return permutation(inArray)[Slice(inNum)];
         }
     }  // namespace random
 }  // namespace nc

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -90,52 +90,74 @@ $(document).ready(function(){initNavTree('choice_8hpp_source.html',''); initResi
 <div class="contents">
 <a href="choice_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rand_int_8hpp.html">NumCpp/Random/randInt.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">namespace </span>random</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">   48</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">choice</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> randIdx = random::randInt&lt;uint32&gt;(<a class="code" href="classnc_1_1_shape.html">Shape</a>(1), 0, inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>()).item();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> inArray[randIdx];</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a550d14627dafe31efa2e66a10d2fce73">   65</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">choice</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inNum)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> outArray(1, inNum);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; inNum; ++i)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> randIdx = random::randInt&lt;uint32&gt;(<a class="code" href="classnc_1_1_shape.html">Shape</a>(1), 0, inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>()).item();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                outArray[i] = inArray[randIdx];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> outArray;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }  <span class="comment">// namespace random</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_error_8hpp.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_2_shape_8hpp.html">NumCpp/Core/Shape.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="permutation_8hpp.html">NumCpp/Random/permutation.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rand_int_8hpp.html">NumCpp/Random/randInt.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">namespace </span>random</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">   52</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">choice</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> randIdx = random::randInt&lt;uint32&gt;(0, inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> inArray[randIdx];</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a7fcf28e4b1a2b015b1099986c5202877">   69</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">choice</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inNum, <span class="keywordtype">bool</span> <a class="code" href="namespacenc.html#a8e35a8cdb9a2a053820c58d2a9eab4e2">replace</a> = <span class="keyword">true</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacenc.html#a8e35a8cdb9a2a053820c58d2a9eab4e2">replace</a> &amp;&amp; inNum &gt; inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>())</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;when &#39;replace&#39; == false &#39;inNum&#39; must be &lt;= inArray.size()&quot;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacenc.html#a8e35a8cdb9a2a053820c58d2a9eab4e2">replace</a>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> outArray(1, inNum);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(outArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), outArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(),</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    [&amp;inArray](dtype&amp; value) -&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    { </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        value = choice(inArray); </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    });</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">return</span> outArray;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">permutation</a>(inArray)[<a class="code" href="classnc_1_1_slice.html">Slice</a>(inNum)];</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }  <span class="comment">// namespace random</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}  <span class="comment">// namespace nc</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacenc_1_1random_html_a01eed1c9d55b68fa4c93afef918dd3e0"><div class="ttname"><a href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">nc::random::permutation</a></div><div class="ttdeci">NdArray&lt; dtype &gt; permutation(dtype inValue)</div><div class="ttdef"><b>Definition:</b> permutation.hpp:52</div></div>
+<div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
+<div class="ttc" id="anamespacenc_html_a8e35a8cdb9a2a053820c58d2a9eab4e2"><div class="ttname"><a href="namespacenc.html#a8e35a8cdb9a2a053820c58d2a9eab4e2">nc::replace</a></div><div class="ttdeci">NdArray&lt; dtype &gt; replace(const NdArray&lt; dtype &gt; &amp;inArray, dtype oldValue, dtype newValue)</div><div class="ttdef"><b>Definition:</b> replace.hpp:45</div></div>
 <div class="ttc" id="arand_int_8hpp_html"><div class="ttname"><a href="rand_int_8hpp.html">randInt.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; dtype &gt;</a></div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a734698435eabdbc5bdf93b195d7fb6a7"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">nc::stl_algorithms::for_each</a></div><div class="ttdeci">void for_each(InputIt first, InputIt last, UnaryFunction f)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:213</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:40</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4325</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_ad60ec32743642bd0540fec0076043fed"><div class="ttname"><a href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a></div><div class="ttdeci">dtype choice(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> choice.hpp:48</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a153d3032d72c24d233407a351d0f8174"><div class="ttname"><a href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">nc::NdArray::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1431</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4370</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_ad60ec32743642bd0540fec0076043fed"><div class="ttname"><a href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a></div><div class="ttdeci">dtype choice(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> choice.hpp:52</div></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:44</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1087</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:43</div></div>
+<div class="ttc" id="apermutation_8hpp_html"><div class="ttname"><a href="permutation_8hpp.html">permutation.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

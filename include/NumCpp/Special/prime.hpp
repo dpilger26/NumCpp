@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#ifndef NO_USE_BOOST
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -43,7 +45,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
+        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice).
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				n: the nth prime number to return
@@ -63,7 +66,8 @@ namespace nc
         //============================================================================
         // Method Description:
         /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
+        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice).
+        /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
         ///				inArray
@@ -84,3 +88,5 @@ namespace nc
         }
     }  // namespace special
 }  // namespace nc
+
+#endif // #ifndef NO_USE_BOOST

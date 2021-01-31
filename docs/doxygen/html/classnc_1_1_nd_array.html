@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.4.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -240,8 +240,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a57fa866d30c298337bfc906ae73b6a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3cdc446e55744b31d42dfb53fcdc7cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html#a49deeee0db98eae1c16ac6bca6fa6f31">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#ab3cdc446e55744b31d42dfb53fcdc7cf">begin</a> (<a class="el" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> inRow) const</td></tr>
 <tr class="separator:ab3cdc446e55744b31d42dfb53fcdc7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5798774fe863c25277b4a3fa2c8f0326"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a5798774fe863c25277b4a3fa2c8f0326">byteswap</a> ()</td></tr>
-<tr class="separator:a5798774fe863c25277b4a3fa2c8f0326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3f796540ca2966cd2964a358627630"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a2d3f796540ca2966cd2964a358627630">byteswap</a> () noexcept</td></tr>
+<tr class="separator:a2d3f796540ca2966cd2964a358627630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bee49339bdc4d7edbeb5efa73133cc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html#a49deeee0db98eae1c16ac6bca6fa6f31">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a> () const noexcept</td></tr>
 <tr class="separator:a0bee49339bdc4d7edbeb5efa73133cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3d1f968c924a4dc74cd8b617d30df6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html#a49deeee0db98eae1c16ac6bca6fa6f31">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a4a3d1f968c924a4dc74cd8b617d30df6">cbegin</a> (<a class="el" href="classnc_1_1_nd_array.html#ae2bdede667042f52176de3f3649735f6">size_type</a> inRow) const</td></tr>
@@ -2601,8 +2601,8 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
 
 </div>
 </div>
-<a id="a5798774fe863c25277b4a3fa2c8f0326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5798774fe863c25277b4a3fa2c8f0326">&#9670;&nbsp;</a></span>byteswap()</h2>
+<a id="a2d3f796540ca2966cd2964a358627630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3f796540ca2966cd2964a358627630">&#9670;&nbsp;</a></span>byteswap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2621,7 +2621,7 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -4678,7 +4678,7 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the array with the same data viewed with a different byte order. only works for integer types, floating point types will not compile and you will be confused as to why...</p>
+<p>Return the array with the same data viewed with a different byte order. only works for integer types.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

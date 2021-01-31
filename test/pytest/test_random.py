@@ -14,18 +14,29 @@ def test_bernoulli():
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     p = np.random.rand()
-    assert NumCpp.bernoulli(inShape, p) is not None
-    assert NumCpp.bernoulli(p) is not None
+
+    randArray = NumCpp.bernoulli(inShape, p).getNumpyArray()
+    assert np.array_equiv(randArray.shape, shapeInput)
+
+    randValue = NumCpp.bernoulli(p)
+    assert isinstance(randValue, bool)
 
 
 ####################################################################################
 def test_beta():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     alpha = np.random.rand()
     beta = np.random.rand()
-    assert NumCpp.beta(inShape, alpha, beta) is not None
-    assert NumCpp.beta(alpha, beta) is not None
+
+    randArray = NumCpp.beta(inShape, alpha, beta).getNumpyArray()
+    assert np.array_equiv(randArray.shape, shapeInput)
+
+    randValue = NumCpp.beta(alpha, beta)
+    assert isinstance(randValue, float)
 
 
 ####################################################################################
@@ -136,6 +147,9 @@ def test_geometric():
 
 ####################################################################################
 def test_laplace():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     loc = np.random.rand() * 10
@@ -166,6 +180,9 @@ def test_negativeBinomial():
 
 ####################################################################################
 def test_nonCentralChiSquared():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     k = np.random.rand() * 10
@@ -243,7 +260,18 @@ def test_randN():
 
 ####################################################################################
 def test_seed():
-    NumCpp.seed(np.random.randint(0, 100000, [1, ]).item())
+    seed = np.random.randint(0, 100000)
+    NumCpp.seed(seed)
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
+    values = np.random.randint(1, 100, [2, ])
+    values.sort()
+
+    values1 = NumCpp.randInt(inShape, values[0].item(), values[1].item()).getNumpyArray()
+    NumCpp.seed(seed)
+    values2 = NumCpp.randInt(inShape, values[0].item(), values[1].item()).getNumpyArray()
+    assert np.array_equal(values1, values2)
 
 
 ####################################################################################
@@ -275,6 +303,9 @@ def test_studentT():
 
 ####################################################################################
 def test_triangle():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.rand(3)
@@ -295,6 +326,9 @@ def test_uniform():
 
 ####################################################################################
 def test_uniformOnSphere():
+    if NumCpp.NO_USE_BOOST:
+        return
+
     inputs = np.random.randint(1, 100, [2, ])
     assert NumCpp.uniformOnSphere(inputs[0].item(), inputs[1].item()) is not None
 

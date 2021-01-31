@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,11 +27,17 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#else
 #include "boost/math/special_functions/hermite.hpp"
+#endif
 
 namespace nc
 {
@@ -40,6 +46,8 @@ namespace nc
         //============================================================================
         // Method Description:
         ///	Hermite Polynomial
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the hermite polynomial
         /// @param      x: the input value
@@ -51,12 +59,18 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::hermite(n, static_cast<double>(x));
+#else
             return boost::math::hermite(n, static_cast<double>(x));
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Hermite Polynomial
+        ///	Hermite Polynomial.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the order of the hermite polynomial
         /// @param      inArrayX: the input value
@@ -79,3 +93,5 @@ namespace nc
         }
     } // namespace polynomial
 } // namespace nc
+
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)

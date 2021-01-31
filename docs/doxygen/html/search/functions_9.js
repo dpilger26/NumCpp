@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['j_1887',['j',['../classnc_1_1rotations_1_1_quaternion.html#acb62c703a1f96333bf76ad0735cb8b97',1,'nc::rotations::Quaternion']]]
+  ['j_1930',['j',['../classnc_1_1rotations_1_1_quaternion.html#acb62c703a1f96333bf76ad0735cb8b97',1,'nc::rotations::Quaternion']]]
 ];

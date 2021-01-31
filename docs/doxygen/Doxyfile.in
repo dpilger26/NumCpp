@@ -792,6 +792,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@/README.md \
+                         @CMAKE_CURRENT_SOURCE_DIR@/docs/markdown/ReleaseNotes.md \
                          @CMAKE_CURRENT_SOURCE_DIR@/docs/markdown/Installation.md \
                          @CMAKE_CURRENT_SOURCE_DIR@/docs/markdown/Building.md \
                          @CMAKE_CURRENT_SOURCE_DIR@/include \

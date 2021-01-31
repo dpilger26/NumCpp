@@ -1,17 +1,22 @@
+os: linux
 dist: focal
 language: cpp
-
 compiler:
   - gcc
-
-notifications:
-  email: false
-
 before_install:
   - sudo apt update
   - sudo apt remove --purge cmake
   - sudo apt install libboost-all-dev
-
+  - sudo apt install -y libtbb-dev
+  - python3 --version
+  - pip3 install -U pip
+  - pip3 install -U pytest
+  - pip3 install -U numpy
+  - pip3 install -U scipy
+  - pip3 install -U astropy
+  - pip3 install -U matplotlib
+  - pip3 install -U mpmath
+  - pip3 install -U vectormath
 install:    
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
@@ -20,11 +25,13 @@ install:
   - mv cmake-3.17.1-Linux-x86_64 cmake-install
   - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
   - cd ${TRAVIS_BUILD_DIR}
-
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target GaussNewtonNlls
   - cmake --build . --config Release --target ReadMe
   - sudo make install
+  - cd ../test/pytest
+  - python -m pytest

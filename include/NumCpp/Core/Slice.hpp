@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -85,6 +85,30 @@ namespace nc
             stop(inStop),
             step(inStep)
         {}
+
+        //============================================================================
+        ///						Equality operator
+        ///
+        /// @param      inOtherSlice
+        ///
+        /// @return     bool
+        ///
+        bool operator==(const Slice& inOtherSlice) const noexcept
+        {
+            return start == inOtherSlice.start && stop == inOtherSlice.stop && step == inOtherSlice.step;
+        }
+
+        //============================================================================
+        ///						Not equality operator
+        ///
+        /// @param      inOtherSlice
+        ///
+        /// @return     bool
+        ///
+        bool operator!=(const Slice& inOtherSlice) const noexcept
+        {
+            return !(*this == inOtherSlice);
+        }
 
         //============================================================================
         ///						Prints the shape to the console

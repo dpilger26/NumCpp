@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,10 +42,10 @@ namespace nc
     using uint8 = std::uint8_t;
 
     //================================================================================
-    ///						Enum To describe an axis
+    ///	Enum To describe an axis
     enum class Axis { NONE = 0, ROW, COL };
 
     //================================================================================
-    ///						Enum for endianess
+    ///	Enum for endianess
     enum class Endian { NATIVE = 0, BIG, LITTLE };
 } // namespace nc

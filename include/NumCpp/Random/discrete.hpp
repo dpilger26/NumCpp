@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -29,13 +29,12 @@
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/discrete_distribution.hpp"
-
+#include <algorithm>
+#include <random>
 
 namespace nc
 {
@@ -57,7 +56,7 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
+            std::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
             return dist(generator_);
         }
 
@@ -81,10 +80,10 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
+            std::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value)  -> void
+            std::for_each(returnArray.begin(), returnArray.end(),
+                [&dist](dtype& value) -> void
                 { 
                     value = dist(generator_);
                 });

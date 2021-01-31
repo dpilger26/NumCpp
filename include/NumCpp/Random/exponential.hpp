@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -28,12 +28,12 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-#include "boost/random/exponential_distribution.hpp"
+#include <algorithm>
+#include <random>
 
 namespace nc
 {
@@ -54,7 +54,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            const boost::random::exponential_distribution<dtype> dist(inScaleValue);
+            std::exponential_distribution<dtype> dist(inScaleValue);
             return dist(generator_); 
         }
 
@@ -77,10 +77,10 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::exponential_distribution<dtype> dist(inScaleValue);
+            std::exponential_distribution<dtype> dist(inScaleValue);
 
-            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value)  -> void
+            std::for_each(returnArray.begin(), returnArray.end(),
+                [&dist](dtype& value) -> void
                 {
                     value = dist(generator_); 
                 });

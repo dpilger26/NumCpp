@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -31,7 +31,9 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/factorial.hpp"
 
+#ifndef NO_USE_BOOST
 #include "boost/math/special_functions/factorials.hpp"
+#endif
 
 namespace nc
 {
@@ -52,13 +54,14 @@ namespace nc
             {
                 return 0.0;
             }
-            if (r == n)
+            else if (r == n)
             {
                 return factorial(n);
             }
 
             double combinations = 1.0;
 
+#ifndef NO_USE_BOOST
             if (n <= boost::math::max_factorial<double>::value)
             {
                 const double nFactorial = factorial(n);
@@ -68,14 +71,16 @@ namespace nc
             }
             else
             {
+#endif
                 const uint32 lower = n - r + 1;
-
                 combinations = static_cast<double>(lower);
-                for (uint32 i = lower + 1; i < n; ++i)
+                for (uint32 i = lower + 1; i <= n; ++i)
                 {
                     combinations *= static_cast<double>(i);
                 }
+#ifndef NO_USE_BOOST
             }
+#endif
 
             return combinations;
         }

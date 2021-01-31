@@ -7,10 +7,10 @@ import NumCppPy as NumCpp  # noqa E402
 
 
 modes = {'reflect': NumCpp.Mode.REFLECT,
-            'constant': NumCpp.Mode.CONSTANT,
-            'nearest': NumCpp.Mode.NEAREST,
-            'mirror': NumCpp.Mode.MIRROR,
-            'wrap': NumCpp.Mode.WRAP}
+         'constant': NumCpp.Mode.CONSTANT,
+         'nearest': NumCpp.Mode.NEAREST,
+         'mirror': NumCpp.Mode.MIRROR,
+         'wrap': NumCpp.Mode.WRAP}
 
 
 ####################################################################################
@@ -194,9 +194,9 @@ def test_uniformFilter1d():
 def test_complementaryMedianFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -211,9 +211,9 @@ def test_complementaryMedianFilter():
 def test_convolve():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(10, 20, shape).astype(np.double)
+        data = np.random.randint(10, 20, shape).astype(np.double)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -231,9 +231,9 @@ def test_convolve():
 def test_gaussianFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)
+        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1, ]).item()  # only actaully needed for constant boundary condition
         sigma = np.random.rand(1).item() * 2
@@ -246,9 +246,9 @@ def test_gaussianFilter():
 def test_laplaceFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)
+        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1, ]).item()  # only actaully needed for constant boundary condition
         dataOutC = NumCpp.laplaceFilter(cArray, modes[mode], constantValue).getNumpyArray()
@@ -260,9 +260,9 @@ def test_laplaceFilter():
 def test_maximumFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -277,9 +277,9 @@ def test_maximumFilter():
 def test_median_filter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -294,9 +294,9 @@ def test_median_filter():
 def test_minimum_filter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -311,9 +311,9 @@ def test_minimum_filter():
 def test_percentileFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -329,9 +329,9 @@ def test_percentileFilter():
 def test_rankFilter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -347,9 +347,9 @@ def test_rankFilter():
 def test_uniform_filter():
     for mode in modes.keys():
         shape = np.random.randint(100, 200, [2, ]).tolist()
-        cShape = NumCpp.Shape(shape[0], shape[1])
+        cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)
+        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:

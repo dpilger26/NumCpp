@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -118,7 +118,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Sets the extension to teh input extension.  Do not input the dot.
+            ///	Sets the extension to the input extension.  Do not input the dot.
             /// E.g. input "txt", not ".txt" 
             ///
             /// @return     std::string

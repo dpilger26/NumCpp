@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#ifdef INCLUDE_BOOST_PYTHON_INTERFACE
+#if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
@@ -165,4 +165,5 @@ namespace nc
         }
     } // namespace boostPythonInterface
 } // namespace nc
-#endif
+
+#endif // #if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)

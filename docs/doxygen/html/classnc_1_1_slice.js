@@ -6,6 +6,8 @@ var classnc_1_1_slice =
     [ "Slice", "classnc_1_1_slice.html#a91177c7ea9b87318232b8d916a487d38", null ],
     [ "makePositiveAndValidate", "classnc_1_1_slice.html#a4d518d51dad679d9a9c6938b065e38f8", null ],
     [ "numElements", "classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731", null ],
+    [ "operator!=", "classnc_1_1_slice.html#afd66bc2d5f975f986e62230b124ae607", null ],
+    [ "operator==", "classnc_1_1_slice.html#a769815d8fbb98ba34101c18a21efbbf5", null ],
     [ "print", "classnc_1_1_slice.html#a24c1eb77b94d3120bb02868cc965c058", null ],
     [ "str", "classnc_1_1_slice.html#af8bc3bb19b48fd09c769fd1fa9860ed5", null ],
     [ "operator<<", "classnc_1_1_slice.html#ad6889d2df295fef3796aebb769b8cac0", null ],

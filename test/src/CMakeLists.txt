@@ -34,39 +34,36 @@ endforeach()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
   -DINCLUDE_PYTHON_INTERFACE
-  # -DINCLUDE_PYBIND_PYTHON_INTERFACE
-  -DINCLUDE_BOOST_PYTHON_INTERFACE
-  -DBOOST_PYTHON_STATIC_LIB
-  -DBOOST_NUMPY_STATIC_LIB
+  -DINCLUDE_PYBIND_PYTHON_INTERFACE
 )
 
-set(Boost_USE_STATIC_LIBS ON) 
+if(NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_USE_BOOST)
+endif()
+
+if(NO_MULTITHREAD)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_MULTITHREAD)
+endif()
+
+
+find_package(Boost 1.68.0 REQUIRED)
+
 set(Python3_USE_STATIC_LIBS True)
-find_package(Boost 1.72.0 REQUIRED 
-  COMPONENTS 
-  python38
-  numpy38
-)
-
-find_package(Python
+find_package(Python 3.8 EXACT
   COMPONENTS
   Development
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ${NUMCPP_INCLUDES}
-  ${Python_INCLUDE_DIRS}  
 )
+
+target_include_directories(${PROJECT_NAME} PRIVATE .)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::python38>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::numpy38>
-  $<$<CXX_COMPILER_ID:MSVC>:${Python_LIBRARIES}>
-)
-
-target_link_directories(${PROJECT_NAME} PRIVATE
-  $<$<CXX_COMPILER_ID:MSVC>:${Boost_LIBRARY_DIRS}>
+  Python::Python
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
@@ -99,6 +96,7 @@ $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
   $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
   $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
   $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE

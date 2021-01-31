@@ -4,7 +4,7 @@ var searchData=
   ['begin_91',['begin',['../classnc_1_1_data_cube.html#a430de05758db67815f957784b298b011',1,'nc::DataCube::begin()'],['../classnc_1_1image_processing_1_1_cluster.html#a6e761b470453d5506015b9332b12e4a4',1,'nc::imageProcessing::Cluster::begin()'],['../classnc_1_1image_processing_1_1_cluster_maker.html#a37c172d7253190e76b065ed2547c3020',1,'nc::imageProcessing::ClusterMaker::begin()'],['../classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f',1,'nc::NdArray::begin() noexcept'],['../classnc_1_1_nd_array.html#a57fa866d30c298337bfc906ae73b6a40',1,'nc::NdArray::begin(size_type inRow)'],['../classnc_1_1_nd_array.html#ae47b79d2054d83dc0c7deb617ab7d1c2',1,'nc::NdArray::begin() const noexcept'],['../classnc_1_1_nd_array.html#ab3cdc446e55744b31d42dfb53fcdc7cf',1,'nc::NdArray::begin(size_type inRow) const']]],
   ['bernoilli_92',['bernoilli',['../namespacenc_1_1special.html#a1af26e52a24fca2b572605ec4b2c1f1b',1,'nc::special::bernoilli(uint32 n)'],['../namespacenc_1_1special.html#a59caf35b816a219aa2782dd45df207ca',1,'nc::special::bernoilli(const NdArray&lt; uint32 &gt; &amp;inArray)']]],
   ['bernoilli_2ehpp_93',['bernoilli.hpp',['../bernoilli_8hpp.html',1,'']]],
-  ['bernoulli_94',['bernoulli',['../namespacenc_1_1random.html#ae6cf7419d9b8943b63209faa3a09bb4a',1,'nc::random::bernoulli(dtype inP)'],['../namespacenc_1_1random.html#ae9acf3bca4da5307534d454cfa55d57c',1,'nc::random::bernoulli(const Shape &amp;inShape, dtype inP)']]],
+  ['bernoulli_94',['bernoulli',['../namespacenc_1_1random.html#a1a5af4283601fd8663dcdc34599aede3',1,'nc::random::bernoulli(double inP=0.5)'],['../namespacenc_1_1random.html#a8d4a1a62fc03a44cccfa4012413bd70f',1,'nc::random::bernoulli(const Shape &amp;inShape, double inP=0.5)']]],
   ['bernoulli_2ehpp_95',['bernoulli.hpp',['../bernoulli_8hpp.html',1,'']]],
   ['bessel_5fin_96',['bessel_in',['../namespacenc_1_1special.html#a6e9dbda70e7c0732d0b63ea389e5af49',1,'nc::special::bessel_in(dtype1 inV, dtype2 inX)'],['../namespacenc_1_1special.html#a92141b6d9ffda6c68c7cb13dee3eae60',1,'nc::special::bessel_in(dtype1 inV, const NdArray&lt; dtype2 &gt; &amp;inArrayX)']]],
   ['bessel_5fin_2ehpp_97',['bessel_in.hpp',['../bessel__in_8hpp.html',1,'']]],
@@ -50,7 +50,7 @@ var searchData=
   ['brent_137',['Brent',['../classnc_1_1roots_1_1_brent.html',1,'nc::roots::Brent'],['../classnc_1_1roots_1_1_brent.html#aecf6662d1b7128d38796cf4ab99143f4',1,'nc::roots::Brent::Brent(const double epsilon, std::function&lt; double(double)&gt; f) noexcept'],['../classnc_1_1roots_1_1_brent.html#a1e9cf8f7be13c7bbb42a073ec9eb5369',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept']]],
   ['brent_2ehpp_138',['Brent.hpp',['../_brent_8hpp.html',1,'']]],
   ['building_2emd_139',['Building.md',['../_building_8md.html',1,'']]],
-  ['byteswap_140',['byteswap',['../classnc_1_1_nd_array.html#a5798774fe863c25277b4a3fa2c8f0326',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a244a5b96158e15e74e2cc1e54c17edff',1,'nc::byteswap()']]],
+  ['byteswap_140',['byteswap',['../classnc_1_1_nd_array.html#a2d3f796540ca2966cd2964a358627630',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a244a5b96158e15e74e2cc1e54c17edff',1,'nc::byteswap()'],['../namespacenc_1_1endian.html#a28d96487f9ac66755e2dd4925a459e0d',1,'nc::endian::byteSwap()']]],
   ['byteswap_2ehpp_141',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]],
   ['building_142',['Building',['../md__c_1__github__num_cpp_docs_markdown__building.html',1,'']]]
 ];

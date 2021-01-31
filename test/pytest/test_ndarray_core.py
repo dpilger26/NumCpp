@@ -416,7 +416,7 @@ def test_access_operators():
     data = np.random.randint(1, 100, shapeInput)
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size(), [1, ]).item()
-    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    indices = np.random.randint(0, shape.size(), [numIndices, ], dtype=np.uint32)
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cIndices.setArray(indices)
     assert np.array_equal(cArray.get(cIndices).flatten(), data.flatten()[indices])
@@ -429,7 +429,7 @@ def test_access_operators():
     data = real + 1j * imag
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size(), [1, ]).item()
-    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    indices = np.random.randint(0, shape.size(), [numIndices, ], dtype=np.uint32)
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cIndices.setArray(indices)
     assert np.array_equal(cArray.get(cIndices).flatten(), data.flatten()[indices])
@@ -1622,7 +1622,7 @@ def test_argsort():
     cIdx = cArray.argsort(NumCpp.Axis.COL).astype(np.uint16)
     allPass = True
     for idx, row in enumerate(data):
-        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):
+        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):  # noqa
             allPass = False
             break
     assert allPass
@@ -1686,7 +1686,7 @@ def test_astype():
     cArrayCast = cArray.astypeDouble().getNumpyArray()
     warnings.filterwarnings('ignore', category=np.ComplexWarning)
     assert np.array_equal(cArrayCast, data.astype(np.double))
-    warnings.filters.pop()
+    warnings.filters.pop()  # noqa
     assert cArrayCast.dtype == np.double
 
 
@@ -2171,7 +2171,7 @@ def test_getBy():
     data = np.random.randint(1, 100, shapeInput)
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size(), [1, ]).item()
-    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    indices = np.random.randint(0, shape.size(), [numIndices, ], dtype=np.uint32)
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cIndices.setArray(indices)
     assert np.array_equal(cArray.getByIndices(cIndices).flatten(), data.flatten()[indices])
@@ -2184,7 +2184,7 @@ def test_getBy():
     data = real + 1j * imag
     cArray.setArray(data)
     numIndices = np.random.randint(0, shape.size(), [1, ]).item()
-    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    indices = np.random.randint(0, shape.size(), [numIndices, ], dtype=np.uint32)
     cIndices = NumCpp.NdArrayUInt32(1, numIndices)
     cIndices.setArray(indices)
     assert np.array_equal(cArray.getByIndices(cIndices).flatten(), data.flatten()[indices])
@@ -3082,7 +3082,7 @@ def test_replace():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt32(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.int32)
     cArray.setArray(data)
     oldValue = np.random.randint(1, 100, 1).item()
     newValue = np.random.randint(1, 100, 1).item()
@@ -3206,7 +3206,7 @@ def test_resize():
     cArray = NumCpp.NdArray(shape1)
     data = np.random.randint(1, 100, [shape1.rows, shape1.cols], dtype=np.uint32)
     cArray.setArray(data)
-    res = cArray.resizeFast(shape2)
+    res = cArray.resizeFast(shape2)  # noqa
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 
@@ -3219,7 +3219,7 @@ def test_resize():
     imag = np.random.randint(1, 100, [shape1.rows, shape1.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    res = cArray.resizeFast(shape2)
+    res = cArray.resizeFast(shape2)  # noqa
     assert cArray.shape().rows == shape2.rows
     assert cArray.shape().cols == shape2.cols
 

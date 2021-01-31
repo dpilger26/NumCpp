@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2020 David Pilger
+/// Copyright 2018-2021 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -27,11 +27,17 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#ifdef __cpp_lib_math_special_functions
+#include <cmath>
+#else
 #include "boost/math/special_functions/bessel.hpp"
+#endif
 
 namespace nc
 {
@@ -39,7 +45,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Spherical Bessel function of the second kind
+        ///	Spherical Bessel function of the second kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
@@ -51,12 +59,18 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
+#ifdef __cpp_lib_math_special_functions
+            return std::sph_neumann(inV, inX);
+#else
             return boost::math::sph_neumann(inV, inX);
+#endif
         }
 
         //============================================================================
         // Method Description:
-        ///	Spherical Bessel function of the second kind
+        ///	Spherical Bessel function of the second kind.
+        /// NOTE: Use of this function requires either using the Boost
+        /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
@@ -78,3 +92,5 @@ namespace nc
         }
     } // namespace special
 } // namespace nc
+
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
