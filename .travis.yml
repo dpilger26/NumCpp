@@ -1,51 +1,37 @@
 os: linux
 dist: focal
 language: cpp
-
-jobs:
-  include:
-    - os: linux
-      dist: focal
-      language: cpp
-      compiler:
-        - gcc
-        - clang
-      before_install:
-        - sudo apt update
-        - sudo apt remove --purge cmake
-        - sudo apt install libboost-all-dev
-        - sudo apt install -y libtbb-dev
-      install:    
-        - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
-        - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
-        - travis_retry wget --no-check-certificate https://cmake.org/files/v3.17/cmake-3.17.1-Linux-x86_64.tar.gz
-        - tar -xvf cmake-3.17.1-Linux-x86_64.tar.gz > /dev/null
-        - mv cmake-3.17.1-Linux-x86_64 cmake-install
-        - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
-        - cd ${TRAVIS_BUILD_DIR}
-      script:
-        - mkdir build
-        - cd build
-        - cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
-        - cmake --build . --config Release --target NumCppPy
-        - cmake --build . --config Release --target GaussNewtonNlls
-        - cmake --build . --config Release --target ReadMe
-        - sudo make install
-    - os: linux
-      dist: focal
-      language: python
-      python:
-        - 3.8
-      before_install:
-        - python --version
-        - pip install -U pip
-        - pip install -U pytest
-        - pip install -U numpy
-        - pip install -U scipy
-        - pip install -U astropy
-        - pip install -U matplotlib
-        - pip install -U mpmath
-        - pip install -U vectormath
-      script: 
-        - cd ${TRAVIS_BUILD_DIR}/test/pytest
-        - python -m pytest
+compiler:
+  - gcc
+before_install:
+  - sudo apt update
+  - sudo apt remove --purge cmake
+  - sudo apt install libboost-all-dev
+  - sudo apt install -y libtbb-dev
+  - python3 --version
+  - pip3 install -U pip
+  - pip3 install -U pytest
+  - pip3 install -U numpy
+  - pip3 install -U scipy
+  - pip3 install -U astropy
+  - pip3 install -U matplotlib
+  - pip3 install -U mpmath
+  - pip3 install -U vectormath
+install:    
+  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
+  - travis_retry wget --no-check-certificate https://cmake.org/files/v3.17/cmake-3.17.1-Linux-x86_64.tar.gz
+  - tar -xvf cmake-3.17.1-Linux-x86_64.tar.gz > /dev/null
+  - mv cmake-3.17.1-Linux-x86_64 cmake-install
+  - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
+  - cd ${TRAVIS_BUILD_DIR}
+script:
+  - mkdir build
+  - cd build
+  - cmake .. -DBUILD_TESTS=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake --build . --config Release --target NumCppPy
+  - cmake --build . --config Release --target GaussNewtonNlls
+  - cmake --build . --config Release --target ReadMe
+  - sudo make install
+  - cd ../test/pytest
+  - python -m pytest
