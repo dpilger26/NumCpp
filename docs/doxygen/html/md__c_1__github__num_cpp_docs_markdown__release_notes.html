@@ -88,7 +88,11 @@ $(document).ready(function(){initNavTree('md__c_1__github__num_cpp_docs_markdown
 <div class="title">Release Notes </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Version 2.4.0</h1>
+<div class="textblock"><h1>Version 2.4.1</h1>
+<ul>
+<li>fixed a build error for multiply defined symbols of <code>isLittleEndian</code></li>
+</ul>
+<h1>Version 2.4.0</h1>
 <ul>
 <li>Compile with <code>NO_USE_BOOST</code> definition to remove the Boost libraries as a dependency, with reduced functionality:<ul>
 <li><code>gcd</code> with a pair of values (still available using a C++17 compliant compiler)</li>

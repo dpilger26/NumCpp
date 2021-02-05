@@ -9,6 +9,7 @@ endif()
 option(BUILD_ALL "Build All targets")
 option(BUILD_DOCS "Build the doxygen documentation")
 option(BUILD_TESTS "Build the unit tests")
+option(BUILD_MULTIPLE_TEST "Build the multiple translation unit test")
 option(BUILD_EXAMPLE_ALL "Build all of the examples")
 option(BUILD_EXAMPLE_GAUSS_NEWTON_NLLS "Build the Gauss-Newton NLLS example")
 option(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN "Build the Interface with Eigen example")
@@ -18,6 +19,7 @@ option(BUILD_EXAMPLE_README "Build the README example")
 if(BUILD_ALL)
     set(BUILD_DOCS ON)
     set(BUILD_TESTS ON)
+    set(BUILD_MULTIPLE_TEST ON)
     set(BUILD_EXAMPLE_ALL ON)
 endif()
 
@@ -35,7 +37,7 @@ project("NumCpp"
 
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
-if (BUILD_TESTS)
+if (BUILD_TESTS OR BUILD_MULTIPLE_TEST) 
     add_subdirectory(test)
 endif()
 

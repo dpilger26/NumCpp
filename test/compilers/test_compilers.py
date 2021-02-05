@@ -22,8 +22,10 @@ if _IS_WINDOWS:
     _DEFAULT_OPENCV_DIR = Path(r'C:\libs\opencv\build')
 
 _NUMCPP_ROOT_DIR = (Path(__file__).parent / '..' / '..').resolve()
-_PYTEST_DIR = _NUMCPP_ROOT_DIR / 'test' / 'pytest'
-_UNIT_TEST_LIB_DIR = _NUMCPP_ROOT_DIR / 'test' / 'lib'
+_TEST_DIR = _NUMCPP_ROOT_DIR / 'test'
+_PYTEST_DIR = _TEST_DIR / 'pytest'
+_UNIT_TEST_LIB_DIR = _TEST_DIR / 'lib'
+_MULTIPLE_TEST_BIN_DIR = _TEST_DIR / 'bin'
 _EXAMPLE_DIR = _NUMCPP_ROOT_DIR / 'examples'
 _BUILD_DIR_NAME = 'build'
 if _IS_WINDOWS:
@@ -94,7 +96,8 @@ class Target(Enum):
     InterfaceWithEigen = 2
     InterfaceWithOpenCV = 3
     ReadMe = 4
-    all = 5
+    Multiple = 5
+    all = 6
 
 
 class Builder:
@@ -126,6 +129,7 @@ class Builder:
                      '-S', str(self._root_dir),
                      '-B', str(self._build_dir),
                      '-DBUILD_TESTS=ON',
+                     '-DBUILD_MULTIPLE_TEST=ON'
                      '-DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON',
                      f'-DBUILD_EXAMPLE_INTERFACE_WITH_EIGEN={build_eigen_example}',
                      '-DBUILD_EXAMPLE_INTERFACE_WITH_OPENCV=ON',
@@ -177,11 +181,22 @@ class Builder:
 
     def build_all(self) -> None:
         self.build_target(Target.all)
+        self.check_unit_test_binary()
+        self.check_multiple_test_binary()
+        self.check_example_binary(target=Target.GaussNewtonNlls)
+        self.check_example_binary(target=Target.InterfaceWithEigen)
+        self.check_example_binary(target=Target.InterfaceWithOpenCV)
+        self.check_example_binary(target=Target.ReadMe)
 
     def build_unit_test(self) -> None:
         self.delete_unit_test()
         self.build_target(target=Target.NumCppPy)
         self.check_unit_test_binary()
+
+    def build_multiple_test(self) -> None:
+        self.delete_multiple_test()
+        self.build_target(target=Target.Multiple)
+        self.check_multiple_test_binary()
 
     def build_examples(self) -> None:
         self.build_gauss_newton_nlls()
@@ -249,6 +264,14 @@ class Builder:
             binary.unlink()
 
     @staticmethod
+    def delete_multiple_test() -> None:
+        binary = _MULTIPLE_TEST_BIN_DIR / f'{Target.Multiple.name}'
+        if _IS_WINDOWS:
+            binary = binary.with_suffix('.exe')
+        if binary.is_file():
+            binary.unlink()
+
+    @staticmethod
     def delete_example(target: Target) -> None:
         target_str = target.name
         binary = _EXAMPLE_DIR / target_str / 'bin' / target_str
@@ -266,6 +289,14 @@ class Builder:
             binary = binary.with_suffix('.so')
         if not binary.is_file():
             raise RuntimeError(f'unit test not successfully built:\n\t{binary}')
+
+    @staticmethod
+    def check_multiple_test_binary() -> None:
+        binary = _MULTIPLE_TEST_BIN_DIR / f'{Target.Multiple.name}'
+        if _IS_WINDOWS:
+            binary = binary.with_suffix('.exe')
+        if not binary.is_file():
+            raise RuntimeError(f'multiple test not successfully built:\n\t{binary}')
 
     @staticmethod
     def check_example_binary(target: Target) -> None:
@@ -319,10 +350,22 @@ def run_single(root_dir: str,
 
     builder.configure_cmake(build_configs=build_configs)
 
-    if target is None:
+    if target is None or target == Target.all:
         builder.build_all()
+    elif target == Target.NumCppPy:
+        builder.build_unit_test()
+    elif target == Target.Multiple:
+        builder.build_multiple_test()
+    elif target == Target.GaussNewtonNlls:
+        builder.build_gauss_newton_nlls()
+    elif target == Target.InterfaceWithOpenCV:
+        builder.build_interface_with_opencv()
+    elif target == Target.InterfaceWithEigen:
+        builder.build_interface_with_eigen()
+    elif target == Target.ReadMe:
+        builder.build_readme()
     else:
-        builder.build_target(target=target)
+        raise RuntimeError(f'target {target} no supported, add it!')
 
     if (target == Target.NumCppPy or 
             target == Target.all):

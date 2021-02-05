@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.4.1
+
+* fixed a build error for multiply defined symbols of `isLittleEndian`
+
 ## Version 2.4.0
 
 * Compile with `NO_USE_BOOST` definition to remove the Boost libraries as a dependency, with reduced functionality:
