@@ -41,7 +41,7 @@ namespace nc
         ///
         /// @return bool true if the system is little endian
         ///
-        bool isLittleEndian() noexcept
+        inline bool isLittleEndian() noexcept
         {
             union
             {
