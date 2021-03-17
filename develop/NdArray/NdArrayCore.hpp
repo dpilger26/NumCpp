@@ -283,7 +283,7 @@ namespace nc_develop
         ///
         iterator begin() noexcept 
         {
-            return iterator(data_);
+            return iterator(data_.get());
         }
 
         //============================================================================
@@ -304,7 +304,7 @@ namespace nc_develop
         ///
         const_iterator cbegin() const noexcept 
         {
-            return const_iterator(data_);
+            return const_iterator(data_.get());
         }
 
         //============================================================================

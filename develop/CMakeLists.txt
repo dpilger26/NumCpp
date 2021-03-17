@@ -32,6 +32,7 @@ find_package(NumCpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     NumCpp::NumCpp
+    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE

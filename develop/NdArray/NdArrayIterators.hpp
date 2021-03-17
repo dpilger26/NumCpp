@@ -27,12 +27,9 @@
 ///
 #pragma once
 
-#include "Types.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 #include <iterator>
-#include <memory>
-#include <utility>
-#include <vector>
 
 namespace nc_develop
 {
@@ -56,15 +53,18 @@ namespace nc_develop
 
         //============================================================================
         // Method Description:
+        ///	Default Constructor
+        ///
+        NdArrayConstIterator() = default;
+
+        //============================================================================
+        // Method Description:
         ///	Constructor
         ///
         /// @param ptr: the iterator pointer
-        /// @param strides: the array strides
         ///
-        NdArrayConstIterator(std::shared_ptr<value_type> ptr, difference_type offset, strides_t strides) noexcept :
-            ptr_(ptr),
-            offset_(offset),
-            strides_(std::move(strides))
+        explicit NdArrayConstIterator(pointer ptr) noexcept :
+            ptr_(ptr)
         {}
 
         //============================================================================
@@ -75,7 +75,7 @@ namespace nc_develop
         ///
         reference operator*() const noexcept 
         {
-            return *ptr_.get();
+            return *ptr_;
         }
 
         //============================================================================
@@ -86,7 +86,7 @@ namespace nc_develop
         ///
         pointer operator->() const noexcept
         {
-            return ptr_.get();
+            return ptr_;
         }
 
         //============================================================================
@@ -97,7 +97,7 @@ namespace nc_develop
         ///
         self_type& operator++() noexcept 
         {
-
+            ++ptr_;
             return *this;
         }
 
@@ -122,7 +122,7 @@ namespace nc_develop
         ///
         self_type& operator--() noexcept 
         {
-
+            --ptr_;
             return *this;
         }
 
@@ -199,7 +199,7 @@ namespace nc_develop
         ///
         difference_type operator-(const self_type& rhs) const noexcept 
         {
-            return ptr_.get() - rhs.ptr_.get();
+            return ptr_ - rhs.ptr_;
         }
 
         //============================================================================
@@ -287,9 +287,7 @@ namespace nc_develop
         }
 
     private:
-        std::shared_ptr<value_type>     ptr_{nullptr};
-        difference_type                 offset_{ 0 };
-        strides_t                       strides_{};
+        pointer ptr_{};
     };
 
     //============================================================================
@@ -469,22 +467,4 @@ namespace nc_develop
             return const_cast<reference>(MyBase::operator[](offset));
         }
     };
-
-    //============================================================================
-    // Method Description:
-    ///	Iterator addition operator
-    ///
-    /// @param offset
-    /// @param next
-    /// @return NdArrayIterator
-    ///
-    template <class dtype,
-        typename PointerType,
-        typename DifferenceType>
-    NdArrayIterator<dtype, PointerType, DifferenceType> operator+(
-        typename NdArrayIterator<dtype, PointerType, DifferenceType>::difference_type offset,
-        NdArrayIterator<dtype, PointerType, DifferenceType> next) noexcept
-    {
-        return next += offset;
-    }
 }  // namespace nc
