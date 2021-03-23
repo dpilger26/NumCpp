@@ -1,96 +1,80 @@
 /*---------------- Search Box */
 
-#FSearchBox {
-    float: left;
-}
-
 #MSearchBox {
     white-space : nowrap;
-    float: none;
-    margin-top: 8px;
-    right: 0px;
-    width: 170px;
-    height: 24px;
+    background: white;
+    border-radius: 0.65em;
+    box-shadow: inset 0.5px 0.5px 3px 0px #555;
     z-index: 102;
 }
 
-#MSearchBox .left
-{
-    display:block;
-    position:absolute;
-    left:10px;
-    width:20px;
-    height:19px;
-    background:url('search_l.png') no-repeat;
-    background-position:right;
+#MSearchBox .left {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.4em;
 }
 
 #MSearchSelect {
-    display:block;
-    position:absolute;
-    width:20px;
-    height:19px;
-}
-
-.left #MSearchSelect {
-    left:4px;
-}
-
-.right #MSearchSelect {
-    right:5px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.4em;
+    padding: 0 0 0 0.3em;
+    margin: 0;
 }
 
 #MSearchField {
-    display:block;
-    position:absolute;
-    height:19px;
-    background:url('search_m.png') repeat-x;
+    display: inline-block;
+    vertical-align: middle;
+    width: 7.5em;
+    height: 1.1em;
+    margin: 0 0.15em;
+    padding: 0;
+    line-height: 1em;
     border:none;
-    width:115px;
-    margin-left:20px;
-    padding-left:4px;
     color: #909090;
     outline: none;
-    font: 9pt Arial, Verdana, sans-serif;
+    font-family: Arial, Verdana, sans-serif;
     -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: none;
 }
 
-#FSearchBox #MSearchField {
-    margin-left:15px;
-}
 
 #MSearchBox .right {
-    display:block;
-    position:absolute;
-    right:10px;
-    top:8px;
-    width:20px;
-    height:19px;
-    background:url('search_r.png') no-repeat;
-    background-position:left;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.4em;
+    height: 1.4em;
 }
 
 #MSearchClose {
     display: none;
-    position: absolute;
-    top: 4px;
+    font-size: inherit;
     background : none;
     border: none;
-    margin: 0px 4px 0px 0px;
-    padding: 0px 0px;
+    margin: 0;
+    padding: 0;
     outline: none;
+
 }
 
-.left #MSearchClose {
-    left: 6px;
-}
-
-.right #MSearchClose {
-    right: 2px;
+#MSearchCloseImg {
+    height: 1.4em;
+    padding: 0.3em;
+    margin: 0;
 }
 
 .MSearchBoxActive #MSearchField {
     color: #000000;
+}
+
+#main-menu > li:last-child {
+    /* This <li> object is the parent of the search bar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    margin-right: 1em;
 }
 
 /*---------------- Search filter selection */
@@ -99,8 +83,8 @@
     display: none;
     position: absolute;
     left: 0; top: 0;
-    border: 1px solid #7171ED;
-    background-color: #F7F7FE;
+    border: 1px solid #2E9AFE;
+    background-color: #F3F9FE;
     z-index: 10001;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -144,7 +128,7 @@ a.SelectItem:active {
 
 a.SelectItem:hover {
     color: #FFFFFF;
-    background-color: #1515B3;
+    background-color: #004789;
     outline-style: none;
     text-decoration: none;
     cursor: pointer;
@@ -163,7 +147,7 @@ iframe#MSearchResults {
     position: absolute;
     left: 0; top: 0;
     border: 1px solid #000;
-    background-color: #E9E9FC;
+    background-color: #DDEEFE;
     z-index:10000;
 }
 
@@ -199,7 +183,7 @@ body.SRPage {
 
 .SRSymbol {
     font-weight: bold; 
-    color: #1717C2;
+    color: #004F99;
     font-family: Arial, Verdana, sans-serif;
     text-decoration: none;
     outline: none;
@@ -207,7 +191,7 @@ body.SRPage {
 
 a.SRScope {
     display: block;
-    color: #1717C2; 
+    color: #004F99; 
     font-family: Arial, Verdana, sans-serif;
     text-decoration: none;
     outline: none;
@@ -220,19 +204,21 @@ a.SRScope:focus, a.SRScope:active {
 
 span.SRScope {
     padding-left: 4px;
+    font-family: Arial, Verdana, sans-serif;
 }
 
 .SRPage .SRStatus {
     padding: 2px 5px;
     font-size: 8pt;
     font-style: italic;
+    font-family: Arial, Verdana, sans-serif;
 }
 
 .SRResult {
     display: none;
 }
 
-DIV.searchresults {
+div.searchresults {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -240,7 +226,7 @@ DIV.searchresults {
 /*---------------- External search page results */
 
 .searchresult {
-    background-color: #ECECFC;
+    background-color: #E1F0FF;
 }
 
 .pages b {

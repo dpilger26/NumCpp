@@ -63,8 +63,9 @@ namespace nc_develop
         ///
         /// @param ptr: the iterator pointer
         ///
-        explicit NdArrayConstIterator(pointer ptr) noexcept :
-            ptr_(ptr)
+        explicit NdArrayConstIterator(pointer ptr, difference_type stride=1) noexcept :
+            ptr_(ptr),
+            stride_(stride)
         {}
 
         //============================================================================
@@ -97,7 +98,7 @@ namespace nc_develop
         ///
         self_type& operator++() noexcept 
         {
-            ++ptr_;
+            ptr_ += stride_;
             return *this;
         }
 
@@ -122,7 +123,7 @@ namespace nc_develop
         ///
         self_type& operator--() noexcept 
         {
-            --ptr_;
+            ptr_ -= stride_;
             return *this;
         }
 
@@ -148,7 +149,7 @@ namespace nc_develop
         ///
         self_type& operator+=(const difference_type offset) noexcept 
         {
-            ptr_ += offset;
+            ptr_ += offset * stride_;
             return *this;
         }
 
@@ -199,7 +200,7 @@ namespace nc_develop
         ///
         difference_type operator-(const self_type& rhs) const noexcept 
         {
-            return ptr_ - rhs.ptr_;
+            return (ptr_ - rhs.ptr_) / stride_;
         }
 
         //============================================================================
@@ -211,7 +212,7 @@ namespace nc_develop
         ///
         reference operator[](const difference_type offset) const noexcept 
         {
-            return *(*this + offset);
+            return *(*this + offset * stride_);
         }
 
         //============================================================================
@@ -288,6 +289,7 @@ namespace nc_develop
 
     private:
         pointer ptr_{};
+        difference_type stride_{1};
     };
 
     //============================================================================
