@@ -30,6 +30,9 @@
 #include "Types.hpp"
 
 #include <iterator>
+#include <memory>
+#include <utility>
+#include <vector>
 
 namespace nc_develop
 {
@@ -53,18 +56,15 @@ namespace nc_develop
 
         //============================================================================
         // Method Description:
-        ///	Default Constructor
-        ///
-        NdArrayConstIterator() = default;
-
-        //============================================================================
-        // Method Description:
         ///	Constructor
         ///
         /// @param ptr: the iterator pointer
+        /// @param strides: the array strides
         ///
-        explicit NdArrayConstIterator(pointer ptr) noexcept :
-            ptr_(ptr)
+        NdArrayConstIterator(std::shared_ptr<value_type> ptr, difference_type offset, strides_t strides) noexcept :
+            ptr_(ptr),
+            offset_(offset),
+            strides_(std::move(strides))
         {}
 
         //============================================================================
@@ -75,7 +75,7 @@ namespace nc_develop
         ///
         reference operator*() const noexcept 
         {
-            return *ptr_;
+            return *ptr_.get();
         }
 
         //============================================================================
@@ -86,7 +86,7 @@ namespace nc_develop
         ///
         pointer operator->() const noexcept
         {
-            return ptr_;
+            return ptr_.get();
         }
 
         //============================================================================
@@ -97,7 +97,7 @@ namespace nc_develop
         ///
         self_type& operator++() noexcept 
         {
-            ++ptr_;
+
             return *this;
         }
 
@@ -122,7 +122,7 @@ namespace nc_develop
         ///
         self_type& operator--() noexcept 
         {
-            --ptr_;
+
             return *this;
         }
 
@@ -199,7 +199,7 @@ namespace nc_develop
         ///
         difference_type operator-(const self_type& rhs) const noexcept 
         {
-            return ptr_ - rhs.ptr_;
+            return ptr_.get() - rhs.ptr_.get();
         }
 
         //============================================================================
@@ -287,7 +287,9 @@ namespace nc_develop
         }
 
     private:
-        pointer ptr_{};
+        std::shared_ptr<value_type>     ptr_{nullptr};
+        difference_type                 offset_{ 0 };
+        strides_t                       strides_{};
     };
 
     //============================================================================
