@@ -245,7 +245,7 @@ ALIASES                =
 # A mapping has the form "name=value". For example adding "class=itcl::class"
 # will allow you to use the command class in the itcl::class meaning.
 
-TCL_SUBST              =
+#TCL_SUBST              =
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C sources
 # only. Doxygen will then generate output that is more tailored for C. For
@@ -1084,7 +1084,7 @@ VERBATIM_HEADERS       = YES
 # generated with the -Duse-libclang=ON option for CMake.
 # The default value is: NO.
 
-CLANG_ASSISTED_PARSING = NO
+#CLANG_ASSISTED_PARSING = NO
 
 # If clang assisted parsing is enabled you can provide the compiler with command
 # line options that you would normally use when invoking the compiler. Note that
@@ -1092,7 +1092,7 @@ CLANG_ASSISTED_PARSING = NO
 # specified with INPUT and INCLUDE_PATH.
 # This tag requires that the tag CLANG_ASSISTED_PARSING is set to YES.
 
-CLANG_OPTIONS          =
+#CLANG_OPTIONS          =
 
 # If clang assisted parsing is enabled you can provide the clang parser with the
 # path to the compilation database (see:
@@ -1121,7 +1121,7 @@ ALPHABETICAL_INDEX     = YES
 # Minimum value: 1, maximum value: 20, default value: 5.
 # This tag requires that the tag ALPHABETICAL_INDEX is set to YES.
 
-COLS_IN_ALPHA_INDEX    = 5
+#COLS_IN_ALPHA_INDEX    = 5
 
 # In case all classes in a project start with a common prefix, all classes will
 # be put under the same header in the alphabetical index. The IGNORE_PREFIX tag
@@ -1208,7 +1208,7 @@ HTML_STYLESHEET        =
 # list). For an example see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_STYLESHEET  = @CMAKE_CURRENT_SOURCE_DIR@/docs/doxygen-awesome-css/doxygen-awesome.css # @CMAKE_CURRENT_SOURCE_DIR@/docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
@@ -1229,7 +1229,7 @@ HTML_EXTRA_FILES       =
 # Minimum value: 0, maximum value: 359, default value: 220.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_COLORSTYLE_HUE    = 240
+HTML_COLORSTYLE_HUE    = 209
 
 # The HTML_COLORSTYLE_SAT tag controls the purity (or saturation) of the colors
 # in the HTML output. For a value of 0 the output will use grayscales only. A
@@ -1237,7 +1237,7 @@ HTML_COLORSTYLE_HUE    = 240
 # Minimum value: 0, maximum value: 255, default value: 100.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_COLORSTYLE_SAT    = 200
+HTML_COLORSTYLE_SAT    = 255
 
 # The HTML_COLORSTYLE_GAMMA tag controls the gamma correction applied to the
 # luminance component of the colors in the HTML output. Values below 100
@@ -1248,7 +1248,7 @@ HTML_COLORSTYLE_SAT    = 200
 # Minimum value: 40, maximum value: 240, default value: 80.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_COLORSTYLE_GAMMA  = 80
+HTML_COLORSTYLE_GAMMA  = 113
 
 # If the HTML_TIMESTAMP tag is set to YES then the footer of each generated HTML
 # page will contain the date and time when the page was generated. Setting this
