@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numcpp_2403',['NumCpp',['../index.html',1,'']]]
+  ['release_20notes_2398',['Release Notes',['../md__c___github__num_cpp_docs_markdown__release_notes.html',1,'']]]
 ];
