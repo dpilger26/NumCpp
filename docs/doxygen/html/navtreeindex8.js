@@ -21,9 +21,9 @@ var NAVTREEINDEX8 =
 "maximum_filter_8hpp.html":[5,0,237],
 "maximum_filter_8hpp.html#a237010b21fd77fa3b72c1fda0360f6a9":[5,0,237,0],
 "maximum_filter_8hpp_source.html":[5,0,237],
-"md__c___github__num_cpp_docs_markdown__building.html":[2],
-"md__c___github__num_cpp_docs_markdown__installation.html":[1],
-"md__c___github__num_cpp_docs_markdown__release_notes.html":[0],
+"md__home_dpilger26__git_hub__num_cpp_docs_markdown__building.html":[2],
+"md__home_dpilger26__git_hub__num_cpp_docs_markdown__installation.html":[1],
+"md__home_dpilger26__git_hub__num_cpp_docs_markdown__release_notes.html":[0],
 "mean_8hpp.html":[5,0,239],
 "mean_8hpp.html#ac0b868e518c5b489ce25b8a84ebc618b":[5,0,239,1],
 "mean_8hpp.html#ae215351046b49fec834d006fd35a4078":[5,0,239,0],
@@ -125,7 +125,6 @@ var NAVTREEINDEX8 =
 "namespacemembers_w.html":[3,1,0,20],
 "namespacemembers_z.html":[3,1,0,21],
 "namespacenc.html":[3,0,0],
-"namespacenc.html#a007882f79ea4b5bb0d146f7f40e317aa":[3,0,0,297],
 "namespacenc.html#a00ab1c4ed4358cba5e87a3d107720474":[3,0,0,293],
 "namespacenc.html#a01db30b2b68eb0dde0d8ffdc7b72dd53":[3,0,0,549],
 "namespacenc.html#a01f43fad4032a2823fc3ed56137b93de":[3,0,0,89],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "namespacenc.html#a38b544f6e77741848387a3a427579704":[3,0,0,565],
 "namespacenc.html#a395197f9b1d3f53a5fdcd234fa6e6baf":[3,0,0,459],
 "namespacenc.html#a39964568372712a2a5427c44e59ffbe2":[3,0,0,423],
-"namespacenc.html#a39a0d39388c73f10ab8b462108675e98":[3,0,0,106]
+"namespacenc.html#a39a0d39388c73f10ab8b462108675e98":[3,0,0,106],
+"namespacenc.html#a39b128708b2225a00de527c8ec83d72a":[3,0,0,345]
 };
