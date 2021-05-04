@@ -35,6 +35,7 @@
 #include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/isnan.hpp"
+#include "NumCpp/Functions/percentile.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
@@ -59,144 +60,41 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         STATIC_ASSERT_FLOAT(dtype);
-
-        if (inPercentile < 0.0 || inPercentile > 100.0)
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");
-        }
-
-        if (inInterpMethod != "linear" &&
-            inInterpMethod != "lower" &&
-            inInterpMethod != "higher" &&
-            inInterpMethod != "nearest" &&
-            inInterpMethod != "midpoint")
-        {
-            std::string errStr = "input interpolation method is not a vaid option.\n";
-            errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
-            THROW_INVALID_ARGUMENT_ERROR(errStr);
-        }
 
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                if (utils::essentiallyEqual(inPercentile, 0.0))
-                {
-                    for (auto value : inArray)
-                    {
-                        if (!isnan(value))
-                        {
-                            NdArray<dtype> returnArray = { value };
-                            return returnArray;
-                        }
-                    }
-                    return NdArray<dtype>(0);
-                }
-
-                if (utils::essentiallyEqual(inPercentile, 100.0))
-                {
-                    for (int32 i = static_cast<int32>(inArray.size()) - 1; i > -1; --i)
-                    {
-                        if (!isnan(inArray[i]))
-                        {
-                            NdArray<dtype> returnArray = { inArray[i] };
-                            return returnArray;
-                        }
-                    }
-                    return NdArray<dtype>(0);
-                }
-
                 std::vector<double> arrayCopy;
-                uint32 numNonNan = 0;
+                arrayCopy.reserve(inArray.size());
                 for (auto value : inArray)
                 {
                     if (!isnan(value))
                     {
-                        arrayCopy.push_back(value);
-                        ++numNonNan;
+                        arrayCopy.push_back(static_cast<double>(value));
                     }
                 }
 
-                if (arrayCopy.size() < 2)
+                if (arrayCopy.empty())
                 {
-                    return NdArray<dtype>(0);
-                }
-
-                const auto i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
-                const auto indexLower = static_cast<uint32>(clip<uint32>(i, 0, numNonNan - 2));
-
-                stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
-
-                if (inInterpMethod == "linear")
-                {
-                    const double percentI = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
-                    const double fraction = (inPercentile / 100.0 - percentI) /
-                        (static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1) - percentI);
-
-                    const double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
-                    NdArray<dtype> returnArray = { returnValue };
+                    NdArray<double> returnArray = { constants::nan };
                     return returnArray;
                 }
 
-                if (inInterpMethod == "lower")
-                {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower] };
-                    return returnArray;
-                }
-
-                if (inInterpMethod == "higher")
-                {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
-                    return returnArray;
-                }
-
-                if (inInterpMethod == "nearest")
-                {
-                    const double percent = inPercentile / 100.0;
-                    const double percent1 = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
-                    const double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1);
-                    const double diff1 = percent - percent1;
-                    const double diff2 = percent2 - percent;
-
-                    switch (argmin<double>({ diff1, diff2 }).item())
-                    {
-                        case 0:
-                        {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower] };
-                            return returnArray;
-                        }
-                        case 1:
-                        {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
-                            return returnArray;
-                        }
-                    }
-                }
-
-                if (inInterpMethod == "midpoint")
-                {
-                    NdArray<dtype> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
-                    return returnArray;
-                }
-
-                THROW_INVALID_ARGUMENT_ERROR("intperpolation method has not been implemented: " + inInterpMethod);
-
-                // this isn't actually possible, just putting this here to get rid
-                // of the compiler warning.
-                return NdArray<dtype>(0);
+                return percentile(NdArray<double>(arrayCopy.data(), arrayCopy.size(), false), inPercentile, Axis::NONE, inInterpMethod);
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtype> outValue = nanpercentile(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    NdArray<double> outValue = nanpercentile(NdArray<dtype>(&inArray.front(row), inShape.cols),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -216,10 +114,10 @@ namespace nc
                 NdArray<dtype> arrayTrans = inArray.transpose();
                 const Shape inShape = arrayTrans.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtype> outValue = nanpercentile(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    NdArray<double> outValue = nanpercentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -240,5 +138,7 @@ namespace nc
                 return {}; // get rid of compiler warning
             }
         }
+
+        return {}; // get rid of compiler warning
     }
 } // namespace nc

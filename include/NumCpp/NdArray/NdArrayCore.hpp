@@ -459,7 +459,10 @@ namespace nc
         /// @param				numRows: number of rows of the buffer
         /// @param				numCols: number of cols of the buffer
         ///
-        NdArray(const_pointer inPtr, uint32 numRows, uint32 numCols) :
+        template<typename UIntType1, typename UIntType2,
+            std::enable_if_t<!std::is_same<UIntType1, bool>::value, int> = 0,
+            std::enable_if_t<!std::is_same<UIntType2, bool>::value, int> = 0>
+        NdArray(const_pointer inPtr, UIntType1 numRows, UIntType2 numCols) :
             shape_(numRows, numCols),
             size_(shape_.size())
         {
@@ -2214,7 +2217,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type back() const noexcept 
+        const_reference back() const noexcept 
         {
             return *(cend() - 1);
         }
@@ -2238,7 +2241,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type back(size_type row) const 
+        const_reference back(size_type row) const 
         {
             return *(cend(row) - 1);
         }
@@ -2803,7 +2806,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type front() const noexcept 
+        const_reference front() const noexcept 
         {
             return *cbegin();
         }
@@ -2827,7 +2830,7 @@ namespace nc
         /// @return
         ///				dtype
         ///
-        value_type front(size_type row) const 
+        const_reference front(size_type row) const 
         {
             return *cbegin(row);
         }
