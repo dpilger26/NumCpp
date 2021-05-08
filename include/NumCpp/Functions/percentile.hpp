@@ -63,7 +63,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> percentile(const NdArray<dtype>& inArray, double inPercentile,
+    NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
@@ -71,6 +71,16 @@ namespace nc
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");
+        }
+
+        if (inArray.isempty())
+        {
+            return {};
+        }
+        else if (inArray.size() == 1)
+        {
+            NdArray<double> returnArray = { static_cast<double>(inArray.front()) };
+            return returnArray;
         }
 
         if (inInterpMethod != "linear" &&
@@ -88,22 +98,22 @@ namespace nc
         {
             case Axis::NONE:
             {
+                NdArray<double> arrayCopy = inArray.template astype<double>();
+                stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
+
                 if (utils::essentiallyEqual(inPercentile, 0.0))
                 {
-                    NdArray<dtype> returnArray = { *inArray.cbegin() };
+                    NdArray<double> returnArray = { arrayCopy.front() };
                     return returnArray;
                 }
                 if (utils::essentiallyEqual(inPercentile, 100.0))
                 {
-                    NdArray<dtype> returnArray = { *inArray.cend() };
+                    NdArray<double> returnArray = { arrayCopy.back() };
                     return returnArray;
                 }
 
-                const auto i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
-                const auto indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
-
-                NdArray<double> arrayCopy = inArray.template astype<double>();
-                stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
+                const auto i = static_cast<uint32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
+                const auto indexLower = clip<uint32>(i, 0, inArray.size() - 2);
 
                 if (inInterpMethod == "linear")
                 {
@@ -111,20 +121,19 @@ namespace nc
                     const double fraction = (inPercentile / 100.0 - percentI) /
                         (static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
 
-                    const double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
-                    NdArray<dtype> returnArray = { returnValue };
+                    NdArray<double> returnArray = { arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction };
                     return returnArray;
                 }
 
                 if (inInterpMethod == "lower")
                 {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower] };
+                    NdArray<double> returnArray = { arrayCopy[indexLower] };
                     return returnArray;
                 }
 
                 if (inInterpMethod == "higher")
                 {
-                    NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
+                    NdArray<double> returnArray = { arrayCopy[indexLower + 1] };
                     return returnArray;
                 }
 
@@ -140,12 +149,12 @@ namespace nc
                     {
                         case 0:
                         {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower] };
+                            NdArray<double> returnArray = { arrayCopy[indexLower] };
                             return returnArray;
                         }
                         case 1:
                         {
-                            NdArray<dtype> returnArray = { arrayCopy[indexLower + 1] };
+                            NdArray<double> returnArray = { arrayCopy[indexLower + 1] };
                             return returnArray;
                         }
                     }
@@ -153,21 +162,21 @@ namespace nc
 
                 if (inInterpMethod == "midpoint")
                 {
-                    NdArray<dtype> returnArray = { static_cast<dtype>((arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0) };
+                    NdArray<double> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
                     return returnArray;
                 }
                 
-                THROW_INVALID_ARGUMENT_ERROR("intperpolation method has not been implemented: " + inInterpMethod);
+                THROW_INVALID_ARGUMENT_ERROR("interpolation method has not been implemented: " + inInterpMethod);
                 break; // get rid of compiler warning...
             }
             case Axis::COL:
             {
                 const Shape inShape = inArray.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    returnArray[row] = percentile(NdArray<dtype>(&inArray.front(row), inShape.cols),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -178,10 +187,10 @@ namespace nc
                 NdArray<dtype> arrayTrans = inArray.transpose();
                 const Shape inShape = arrayTrans.shape();
 
-                NdArray<dtype> returnArray(1, inShape.rows);
+                NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    returnArray[row] = percentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -194,6 +203,6 @@ namespace nc
             }
         }
 
-        return NdArray<dtype>(0);
+        return {}; // get rid of compiler warning
     }
 }  // namespace nc

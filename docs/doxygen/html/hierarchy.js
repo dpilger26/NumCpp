@@ -46,6 +46,5 @@ var hierarchy =
     [ "nc::Vec2", "classnc_1_1_vec2.html", null ],
     [ "nc::Vec3", "classnc_1_1_vec3.html", null ],
     [ "nc::NdArray< bool >", "classnc_1_1_nd_array.html", null ],
-    [ "nc::NdArray< double >", "classnc_1_1_nd_array.html", null ],
-    [ "nc::NdArray< dtype >", "classnc_1_1_nd_array.html", null ]
+    [ "nc::NdArray< double >", "classnc_1_1_nd_array.html", null ]
 ];

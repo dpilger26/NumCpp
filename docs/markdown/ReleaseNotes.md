@@ -1,5 +1,10 @@
 # Release Notes
 
+## Version 2.4.2
+
+* fixed a type error with `percentile` and `nanpercentile`
+* updated doxygen API css
+
 ## Version 2.4.1
 
 * fixed a build error for multiply defined symbols of `isLittleEndian`
