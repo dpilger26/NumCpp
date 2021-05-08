@@ -3,6 +3,7 @@
 ## Version 2.4.2
 
 * fixed a type error with `percentile` and `nanpercentile`
+* updated doxygen API css
 
 ## Version 2.4.1
 
