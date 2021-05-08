@@ -16,6 +16,6 @@ build_script:
     cmake --build . --config Release --target install
 test_script:
 - cmd: >-
-    C:\Python38-x64\python -m pip install -U pytest numpy scipy astropy matplotlib mpmath vectormath &&
+    C:\Python39-x64\python -m pip install -U pytest numpy scipy astropy matplotlib mpmath vectormath &&
     cd C:\projects\numcpp\test\pytest &&
-    C:\Python38-x64\python -m pytest
+    C:\Python39-x64\python -m pytest
