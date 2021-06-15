@@ -879,6 +879,45 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						2D index access operator with bounds checking.
+        ///						returned array is of the range.
+        ///
+        /// @param				rowIndices
+        /// @param				colIndices
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator()(NdArray<int32> rowIndices, NdArray<int32> colIndices) const
+        {
+            rowIndices.sort();
+            colIndices.sort();
+
+            std::vector<int32> rowIndicesUnique(rowIndices.size());
+            std::vector<int32> colIndicesUnique(colIndices.size());
+
+            const auto lastRow = stl_algorithms::unique_copy(rowIndices.begin(), rowIndices.end(), rowIndicesUnique.begin());
+            const auto lastCol = stl_algorithms::unique_copy(colIndices.begin(), colIndices.end(), colIndicesUnique.begin());
+
+            NdArray<dtype> returnArray(static_cast<uint32>(lastRow - rowIndicesUnique.begin()), 
+                static_cast<uint32>(lastCol - colIndicesUnique.begin()));
+
+            uint32 rowCounter = 0;
+            for (const auto rowIter = rowIndicesUnique.begin(); rowIter != lastRow; ++rowIter)
+            {
+                uint32 colCounter = 0;
+                for (const auto colIter = colIndicesUnique.begin(); colIter != lastCol; ++colIter)
+                {
+                    returnArray(rowCounter, colCounter++) = at(*rowIter, *colIter);
+                }
+
+                ++rowCounter;
+            }
+
+            return returnArray;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Returns a Slice object for slicing a row to the end of
         ///                     array.
         ///
@@ -1079,6 +1118,22 @@ namespace nc
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
             return operator()(inRowIndex, inColSlice);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const 2D access method with bounds checking
+        ///
+        /// @param				rowIndices
+        /// @param				colIndices
+        /// @return
+        ///				Ndarray
+        ///
+        NdArray<dtype> at(const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices) const
+        {
+            // the slice operator already provides bounds checking. just including
+            // the at method for completeness
+            return operator()(rowIndices, colIndices);
         }
 
         //============================================================================

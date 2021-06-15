@@ -861,6 +861,13 @@ namespace NdArrayInterface
         return nc2pybind(self(inRowIndex, inColSlice));
     }
 
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric getIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self(rowIndices, colIndices));
+    }
 
     //================================================================================
 
@@ -6422,8 +6429,6 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<ComplexDouble>);
 
-    
-
     pb11::class_<NdArrayDouble>
         (m, "NdArray")
         .def(pb11::init<>())
@@ -6444,6 +6449,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("get", &NdArrayInterface::getSlice2D<double>)
         .def("get", &NdArrayInterface::getSlice2DRow<double>)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("get", &NdArrayInterface::getIndices2D<double>)
         .def("at", atSingleScaler, pb11::return_value_policy::copy)
         .def("atConst", atSingleScalerConst, pb11::return_value_policy::copy)
         .def("at", atRowColScalers, pb11::return_value_policy::copy)
