@@ -85,8 +85,8 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | ```a[2:5, 5:8]```                                        | ```a(nc::Slice(2, 5), nc::Slice(5, 8))```                |
 |                                                          | ```a({2, 5}, {5, 8})```                                  |
 | ```a[:, 7]```                                            | ```a(a.rSlice(), 7)```                                   |
-| ```a[a > 5]```                                           | ```a[a > 50]```                                          |
-| ```a[a > 5] = 0```                                       | ```a.putMask(a > 50, 666)```                             |
+| ```a[a > 5]```                                           | ```a[a > 0]```                                           |
+| ```a[a > 5] = 0```                                       | ```a.putMask(a > 5, 0)```                                |
 
 ### RANDOM
 
