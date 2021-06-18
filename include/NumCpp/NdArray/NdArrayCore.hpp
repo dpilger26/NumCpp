@@ -902,10 +902,10 @@ namespace nc
                 static_cast<uint32>(lastCol - colIndicesUnique.begin()));
 
             uint32 rowCounter = 0;
-            for (const auto rowIter = rowIndicesUnique.begin(); rowIter != lastRow; ++rowIter)
+            for (auto rowIter = rowIndicesUnique.begin(); rowIter != lastRow; ++rowIter)
             {
                 uint32 colCounter = 0;
-                for (const auto colIter = colIndicesUnique.begin(); colIter != lastCol; ++colIter)
+                for (auto colIter = colIndicesUnique.begin(); colIter != lastCol; ++colIter)
                 {
                     returnArray(rowCounter, colCounter++) = at(*rowIter, *colIter);
                 }

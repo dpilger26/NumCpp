@@ -57,7 +57,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
   ${NUMCPP_INCLUDES}
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE .)
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers

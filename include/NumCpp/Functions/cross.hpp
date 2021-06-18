@@ -118,8 +118,8 @@ namespace nc
                 for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
                     const auto theCol = static_cast<int32>(col);
-                    NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
-                    NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
+                    NdArray<dtype> vec1 = inArray1(inArray1.rSlice(), { theCol, theCol + 1 });
+                    NdArray<dtype> vec2 = inArray2(inArray2.rSlice(), { theCol, theCol + 1 });
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
@@ -150,8 +150,8 @@ namespace nc
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     const auto theRow = static_cast<int32>(row);
-                    NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
-                    NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
+                    NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, inArray1.cSlice());
+                    NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, inArray2.cSlice());
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
