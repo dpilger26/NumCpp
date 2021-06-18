@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)
+#if defined(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -331,4 +331,4 @@ namespace nc
     }  // namespace boostPythonInterface
 } // namespace nc
 
-#endif // #if defined(INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NO_USE_BOOST)
+#endif // #if defined(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NUMCPP_NO_USE_BOOST)

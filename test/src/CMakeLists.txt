@@ -33,8 +33,7 @@ foreach(_source IN ITEMS ${_source_list})
 endforeach()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
-  -DINCLUDE_PYTHON_INTERFACE
-  -DINCLUDE_PYBIND_PYTHON_INTERFACE
+  -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 )
 
 if(NO_USE_BOOST)

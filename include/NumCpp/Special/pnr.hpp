@@ -31,7 +31,7 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/factorial.hpp"
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
 #include "boost/math/special_functions/factorials.hpp"
 #endif
 
@@ -61,7 +61,7 @@ namespace nc
 
             double combinations = 1.0;
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
             if (n <= boost::math::max_factorial<double>::value)
             {
                 const double nFactorial = factorial(n);
@@ -78,7 +78,7 @@ namespace nc
                 {
                     combinations *= static_cast<double>(i);
                 }
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
             }
 #endif
 

@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -86,4 +86,4 @@ namespace nc
     } // namespace special
 } // namespace nc
 
-#endif // #ifndef NO_USE_BOOST
+#endif // #ifndef NUMCPP_NO_USE_BOOST

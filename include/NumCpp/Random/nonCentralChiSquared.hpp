@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
@@ -119,4 +119,4 @@ namespace nc
     }  // namespace random
 }  // namespace nc
 
-#endif // #ifndef NO_USE_BOOST
+#endif // #ifndef NUMCPP_NO_USE_BOOST

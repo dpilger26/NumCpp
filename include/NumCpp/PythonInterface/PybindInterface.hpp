@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
+#ifdef NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"

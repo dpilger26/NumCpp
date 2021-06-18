@@ -32,12 +32,12 @@
 #include <numeric>
 #include <utility>
 
-#if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm) && !defined(NO_MULTITHREAD)
+#if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm) && defined(NUMCPP_USE_MULTITHREAD)
 #define PARALLEL_ALGORITHMS_SUPPORTED
-#define NO_EXCEPT
+#define CONDITIONAL_NO_EXCEPT
 #include <execution>
 #else
-#define NO_EXCEPT noexcept
+#define CONDITIONAL_NO_EXCEPT noexcept
 #endif
 
 namespace nc
@@ -54,7 +54,7 @@ namespace nc
         /// @return bool
         /// 
         template<class InputIt, class UnaryPredicate>
-        bool all_of(InputIt first, InputIt last, UnaryPredicate p) NO_EXCEPT
+        bool all_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
             return std::all_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -73,7 +73,7 @@ namespace nc
         /// @return bool
         /// 
         template<class InputIt, class UnaryPredicate>
-        bool any_of(InputIt first, InputIt last, UnaryPredicate p) NO_EXCEPT
+        bool any_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
             return std::any_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -92,7 +92,7 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt, class OutputIt>
-        OutputIt copy(InputIt first, InputIt last, OutputIt destination) NO_EXCEPT
+        OutputIt copy(InputIt first, InputIt last, OutputIt destination) CONDITIONAL_NO_EXCEPT
         {
             return std::copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -112,7 +112,7 @@ namespace nc
         ///
         template<class InputIt, class T>
         typename std::iterator_traits<InputIt>::difference_type
-            count(InputIt first, InputIt last, const T &value) NO_EXCEPT
+            count(InputIt first, InputIt last, const T &value) CONDITIONAL_NO_EXCEPT
         {
             return std::count(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -132,7 +132,7 @@ namespace nc
         /// @return bool
         ///
         template<class InputIt1, class InputIt2>
-        bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2) NO_EXCEPT
+        bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2) CONDITIONAL_NO_EXCEPT
         {
             return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -153,7 +153,7 @@ namespace nc
         ///
         template<class InputIt1, class InputIt2, class BinaryPredicate>
         bool equal(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, BinaryPredicate p) NO_EXCEPT
+            InputIt2 first2, BinaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
             return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -171,7 +171,7 @@ namespace nc
         /// @param value: the function to apply to the input iterators
         ///
         template<class ForwardIt, class T>
-        void fill(ForwardIt first, ForwardIt last, const T& value) NO_EXCEPT 
+        void fill(ForwardIt first, ForwardIt last, const T& value) CONDITIONAL_NO_EXCEPT 
         {
             return std::fill(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -192,7 +192,7 @@ namespace nc
         /// @return InputIt
         ///
         template<class InputIt, class T>
-        InputIt find(InputIt first, InputIt last, const T& value) NO_EXCEPT 
+        InputIt find(InputIt first, InputIt last, const T& value) CONDITIONAL_NO_EXCEPT 
         {
             return std::find(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -228,7 +228,7 @@ namespace nc
         /// @return bool true if sorted
         ///
         template<class ForwardIt>
-        bool is_sorted(ForwardIt first, ForwardIt last) NO_EXCEPT
+        bool is_sorted(ForwardIt first, ForwardIt last) CONDITIONAL_NO_EXCEPT
         {
             return std::is_sorted(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -247,7 +247,7 @@ namespace nc
         /// @return bool true if sorted
         ///
         template<class ForwardIt, class Compare>
-        bool is_sorted(ForwardIt first, ForwardIt last, Compare comp) NO_EXCEPT
+        bool is_sorted(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::is_sorted(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -265,7 +265,7 @@ namespace nc
         /// @return ForwordIt
         ///
         template<class ForwardIt>
-        ForwardIt max_element(ForwardIt first, ForwardIt last) NO_EXCEPT
+        ForwardIt max_element(ForwardIt first, ForwardIt last) CONDITIONAL_NO_EXCEPT
         {
             return std::max_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -284,7 +284,7 @@ namespace nc
         /// @return ForwordIt
         ///
         template<class ForwardIt, class Compare>
-        ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp) NO_EXCEPT
+        ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::max_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -301,7 +301,7 @@ namespace nc
         /// @param last: the last iterator of the source
         /// @return ForwardIt
         template<class ForwardIt>
-        ForwardIt min_element(ForwardIt first, ForwardIt last) NO_EXCEPT
+        ForwardIt min_element(ForwardIt first, ForwardIt last) CONDITIONAL_NO_EXCEPT
         {
             return std::min_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -320,7 +320,7 @@ namespace nc
         /// @return ForwordIt
         ///
         template<class ForwardIt, class Compare>
-        ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp) NO_EXCEPT
+        ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::min_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -338,7 +338,7 @@ namespace nc
         /// @return std::pair
         ///
         template<class ForwardIt>
-        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last) NO_EXCEPT
+        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last) CONDITIONAL_NO_EXCEPT
         {
             return std::minmax_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -357,7 +357,7 @@ namespace nc
         /// @return std::pair
         ///
         template<class ForwardIt, class Compare>
-        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, Compare comp) NO_EXCEPT
+        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::minmax_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -376,7 +376,7 @@ namespace nc
         /// @return bool
         /// 
         template<class InputIt, class UnaryPredicate>
-        bool none_of(InputIt first, InputIt last, UnaryPredicate p) NO_EXCEPT
+        bool none_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
             return std::none_of(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -394,7 +394,7 @@ namespace nc
         /// @param last: the last iterator of the range
         ///
         template<class RandomIt>
-        void nth_element(RandomIt first, RandomIt nth, RandomIt last) NO_EXCEPT
+        void nth_element(RandomIt first, RandomIt nth, RandomIt last) CONDITIONAL_NO_EXCEPT
         {
             std::nth_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -413,7 +413,7 @@ namespace nc
         /// @param comp: the comparitor function
         ///
         template<class RandomIt, class Compare>
-        void nth_element(RandomIt first, RandomIt nth, RandomIt last, Compare comp) NO_EXCEPT
+        void nth_element(RandomIt first, RandomIt nth, RandomIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             std::nth_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -433,7 +433,7 @@ namespace nc
         ///
         template<class ForwardIt, class T>
         void replace(ForwardIt first, ForwardIt last,
-            const T& oldValue, const T& newValue) NO_EXCEPT 
+            const T& oldValue, const T& newValue) CONDITIONAL_NO_EXCEPT 
         {
             std::replace(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -450,7 +450,7 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class BidirIt>
-        void reverse(BidirIt first, BidirIt last) NO_EXCEPT
+        void reverse(BidirIt first, BidirIt last) CONDITIONAL_NO_EXCEPT
         {
             std::reverse(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -468,7 +468,7 @@ namespace nc
         /// @param last: the last iterator of the range
         ///
         template<class ForwardIt>
-        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last) NO_EXCEPT 
+        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last) CONDITIONAL_NO_EXCEPT 
         {
             std::rotate(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -515,7 +515,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
         OutputIt set_difference(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) NO_EXCEPT
+            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_difference(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -538,7 +538,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt>
         OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination) NO_EXCEPT 
+            OutputIt destination) CONDITIONAL_NO_EXCEPT 
         {
             return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -562,7 +562,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
         OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) NO_EXCEPT
+            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -585,7 +585,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt>
         OutputIt set_union(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination) NO_EXCEPT
+            OutputIt destination) CONDITIONAL_NO_EXCEPT
         {
             return std::set_union(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -609,7 +609,7 @@ namespace nc
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
         OutputIt set_union(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) NO_EXCEPT
+            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_union(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -626,7 +626,7 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class RandomIt>
-        void sort(RandomIt first, RandomIt last) NO_EXCEPT 
+        void sort(RandomIt first, RandomIt last) CONDITIONAL_NO_EXCEPT 
         {
             return std::sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -644,7 +644,7 @@ namespace nc
         /// @param comp: the comparitor function
         ///
         template<class RandomIt, class Compare>
-        void sort(RandomIt first, RandomIt last, Compare comp) NO_EXCEPT
+        void sort(RandomIt first, RandomIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -661,7 +661,7 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class RandomIt>
-        void stable_sort(RandomIt first, RandomIt last) NO_EXCEPT
+        void stable_sort(RandomIt first, RandomIt last) CONDITIONAL_NO_EXCEPT
         {
             std::stable_sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -679,7 +679,7 @@ namespace nc
         /// @param comp: the comparitor function
         ///
         template<class RandomIt, class Compare>
-        void stable_sort(RandomIt first, RandomIt last, Compare comp) NO_EXCEPT
+        void stable_sort(RandomIt first, RandomIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             std::stable_sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -742,7 +742,7 @@ namespace nc
         ///
         template<class InputIt, class OutputIt>
         constexpr OutputIt unique_copy(InputIt first, InputIt last,
-            OutputIt destination) NO_EXCEPT
+            OutputIt destination) CONDITIONAL_NO_EXCEPT
         {
             return std::unique_copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -763,7 +763,7 @@ namespace nc
         ///
         template<class InputIt, class OutputIt, class BinaryPredicate>
         constexpr OutputIt unique_copy(InputIt first, InputIt last,
-            OutputIt destination, BinaryPredicate binaryFunction) NO_EXCEPT
+            OutputIt destination, BinaryPredicate binaryFunction) CONDITIONAL_NO_EXCEPT
         {
             return std::unique_copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED

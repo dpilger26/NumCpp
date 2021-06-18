@@ -1,5 +1,13 @@
 # Release Notes
 
+## Version 2.5.0
+
+* added additional `NdArray` slice overloads
+* Removed `NO_MULTITHREAD` compiler flag and replaced with `NUMCPP_USE_MULTITHREAD` so that single threaded is now the default
+* renamed `NO_USE_BOOST` compiler flag to `NUMCPP_NO_USE_BOOST`
+* renamed `INCLUDE_BOOST_PYTHON_INTERFACE` compiler flat to `NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE`
+* renamed `INCLUDE_PYBIND_PYTHON_INTERFACE` compiler flag to `NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE`
+
 ## Version 2.4.2
 
 * fixed a type error with `percentile` and `nanpercentile`

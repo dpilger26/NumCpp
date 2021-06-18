@@ -95,10 +95,10 @@ The random module provides simple ways to create random arrays.
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.random.seed(666)```                                | ```nc::random::seed(666)```                              |
-| ```np.random.randn(3, 4)```                              | ```nc::random::randN<double>(nc::Shape(3,4))```          |
+| ```np.random.randn(3, 4)```                              | ```nc::random::randN<double>(nc::Shape(3, 4))```         |
 |                                                          | ```nc::random::randN<double>({3, 4})```                  |
-| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random::randInt<int>(nc::Shape(3,4),0,10)```      |
-|                                                          | ```nc::random::randInt<int>({3, 4},0,10)```              |
+| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random::randInt<int>(nc::Shape(3, 4), 0, 10)```   |
+|                                                          | ```nc::random::randInt<int>({3, 4}, 0, 10)```            |
 | ```np.random.rand(3, 4)```                               | ```nc::random::rand<double>(nc::Shape(3,4))```           |
 |                                                          | ```nc::random::rand<double>({3, 4})```                   |
 | ```np.random.choice(a, 3)```                             | ```nc::random::choice(a, 3)```                           |

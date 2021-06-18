@@ -27,13 +27,13 @@
 ///
 #pragma once
 
-#if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
+#if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
 #include "boost/integer/common_factor_rt.hpp"
 #endif
 
@@ -68,7 +68,7 @@ namespace nc
 #endif
     }
 
-#ifndef NO_USE_BOOST
+#ifndef NUMCPP_NO_USE_BOOST
     //============================================================================
     // Method Description:
     ///						Returns the least common multiple of the values of the input array.
@@ -87,7 +87,7 @@ namespace nc
 
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
-#endif // #ifndef NO_USE_BOOST
+#endif // #ifndef NUMCPP_NO_USE_BOOST
 }  // namespace nc
 
-#endif // #if defined(__cpp_lib_gcd_lcm) || !defined(NO_USE_BOOST)
+#endif // #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)

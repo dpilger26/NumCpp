@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
@@ -102,4 +102,4 @@ namespace nc
     }  // namespace special
 }  // namespace nc
 
-#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
