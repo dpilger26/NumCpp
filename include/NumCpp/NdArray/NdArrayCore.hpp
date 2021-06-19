@@ -419,7 +419,7 @@ namespace nc
         /// @param				inLast
         ///
         template<typename Iterator,
-            std::enable_if_t<std::is_same<typename std::iterator_traits<Iterator>::value_type, dtype>::value, int> = 0>
+            std::enable_if_t<is_same_v<typename std::iterator_traits<Iterator>::value_type, dtype>, int> = 0>
         NdArray(Iterator inFirst, Iterator inLast) :
             shape_(1, static_cast<uint32>(std::distance(inFirst, inLast))),
             size_(shape_.size())
@@ -460,8 +460,8 @@ namespace nc
         /// @param				numCols: number of cols of the buffer
         ///
         template<typename UIntType1, typename UIntType2,
-            std::enable_if_t<!std::is_same<UIntType1, bool>::value, int> = 0,
-            std::enable_if_t<!std::is_same<UIntType2, bool>::value, int> = 0>
+            std::enable_if_t<!is_same_v<UIntType1, bool>, int> = 0,
+            std::enable_if_t<!is_same_v<UIntType2, bool>, int> = 0>
         NdArray(const_pointer inPtr, UIntType1 numRows, UIntType2 numCols) :
             shape_(numRows, numCols),
             size_(shape_.size())
@@ -484,7 +484,7 @@ namespace nc
         ///                     and call delete[] in the destructor.
         ///
         template<typename Bool,
-            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+            std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
         NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
             shape_(1, size),
             size_(size),
@@ -504,7 +504,7 @@ namespace nc
         ///                     and call delete[] in the destructor.
         ///
         template<typename Bool,
-            std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
+            std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
         NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
@@ -888,7 +888,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename Indices,
-            enable_if_t<std::is_same<Indices, NdArray<int32>>::value, int> = 0>
+            enable_if_t<is_same_v<Indices, NdArray<int32>>, int> = 0>
         NdArray<dtype> operator()(Indices rowIndices, Indices colIndices) const
         {
             rowIndices.sort();
@@ -2152,9 +2152,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype,
-            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
-            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
-            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
+            enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
+            enable_if_t<is_arithmetic_v<dtype_>, int> = 0,
+            enable_if_t<is_arithmetic_v<dtypeOut>, int> = 0>
         NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
@@ -2187,8 +2187,8 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
-            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
-            enable_if_t<std::is_arithmetic<dtype_>::value, int> = 0,
+            enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
+            enable_if_t<is_arithmetic_v<dtype_>, int> = 0,
             enable_if_t<is_complex_v<dtypeOut>, int> = 0>
             NdArray<dtypeOut> astype() const 
         {
@@ -2215,14 +2215,14 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
-            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
             enable_if_t<is_complex_v<dtype_>, int> = 0,
             enable_if_t<is_complex_v<dtypeOut>, int> = 0>
         NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            if (std::is_same<dtypeOut, dtype>::value)
+            if (is_same_v<dtypeOut, dtype>)
             {
                 std::copy(cbegin(), cend(), outArray.begin());
             }
@@ -2250,9 +2250,9 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
-            enable_if_t<std::is_same<dtype_, dtype>::value, int> = 0,
+            enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
             enable_if_t<is_complex_v<dtype_>, int> = 0,
-            enable_if_t<std::is_arithmetic<dtypeOut>::value, int> = 0>
+            enable_if_t<is_arithmetic_v<dtypeOut>, int> = 0>
             NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
