@@ -887,7 +887,9 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(NdArray<int32> rowIndices, NdArray<int32> colIndices) const
+        template<typename Indices,
+            enable_if_t<std::is_same<Indices, NdArray<int32>>::value, int> = 0>
+        NdArray<dtype> operator()(Indices rowIndices, Indices colIndices) const
         {
             rowIndices.sort();
             colIndices.sort();
