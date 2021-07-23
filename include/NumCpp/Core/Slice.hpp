@@ -115,7 +115,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const 
+        std::string str() const
         {
             std::string out = "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
             return out;
@@ -124,7 +124,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print() const 
+        void print() const
         {
             std::cout << *this;
         }
@@ -185,17 +185,17 @@ namespace nc
         ///
         /// @param      inArraySize
         ///
-        uint32 numElements(uint32 inArraySize) 
-        { 
-            makePositiveAndValidate(inArraySize); 
+        uint32 numElements(uint32 inArraySize)
+        {
+            makePositiveAndValidate(inArraySize);
 
-            uint32 num = 0; 
-            for (int32 i = start; i < stop; i += step) 
-            { 
-                ++num; 
-            } 
-            return num; 
-        } 
+            uint32 num = 0;
+            for (int32 i = start; i < stop; i += step)
+            {
+                ++num;
+            }
+            return num;
+        }
 
         //============================================================================
         ///						IO operator for the Slice class
@@ -205,7 +205,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) 
+        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {
             inOStream << inSlice.str();
             return inOStream;

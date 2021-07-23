@@ -778,7 +778,10 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<size_type>& inIndices) const
+        ///
+        template<typename Indices,
+            enable_if_t<is_same_v<Indices, NdArray<size_type>>, int> = 0>
+        NdArray<dtype> operator[](const Indices& inIndices) const
         {
             if (inIndices.max().item() > size_ - 1)
             {
@@ -805,18 +808,15 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
+        NdArray<dtype> operator()(Slice inRowSlice, Slice inColSlice) const
         {
-            Slice inRowSliceCopy(inRowSlice);
-            Slice inColSliceCopy(inColSlice);
-
-            NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), inColSliceCopy.numElements(shape_.cols));
+            NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), inColSlice.numElements(shape_.cols));
 
             uint32 rowCounter = 0;
             uint32 colCounter = 0;
-            for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+            for (int32 row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
             {
-                for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+                for (int32 col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
                 {
                     returnArray(rowCounter, colCounter++) = at(row, col);
                 }
@@ -837,14 +837,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(const Slice& inRowSlice, int32 inColIndex) const
+        NdArray<dtype> operator()(Slice inRowSlice, int32 inColIndex) const
         {
-            Slice inRowSliceCopy(inRowSlice);
-
-            NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), 1);
+            NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), 1);
 
             uint32 rowCounter = 0;
-            for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+            for (int32 row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
             {
                 returnArray(rowCounter++, 0) = at(row, inColIndex);
             }
@@ -862,14 +860,12 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator()(int32 inRowIndex, const Slice& inColSlice) const
+        NdArray<dtype> operator()(int32 inRowIndex, Slice inColSlice) const
         {
-            Slice inColSliceCopy(inColSlice);
-
-            NdArray<dtype> returnArray(1, inColSliceCopy.numElements(shape_.cols));
+            NdArray<dtype> returnArray(1, inColSlice.numElements(shape_.cols));
 
             uint32 colCounter = 0;
-            for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+            for (int32 col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
             {
                 returnArray(0, colCounter++) = at(inRowIndex, col);
             }
@@ -883,13 +879,84 @@ namespace nc
         ///						returned array is of the range.
         ///
         /// @param				rowIndices
+        /// @param				colIndex
+        /// @return
+        ///				NdArray
+        ///
+        template<typename Indices,
+            enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
+        NdArray<dtype> operator()(const Indices& rowIndices, int32 colIndex) const
+        {
+            const NdArray<int32> colIndices = { colIndex };
+            return operator()(rowIndices, colIndices);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						2D index access operator with bounds checking.
+        ///						returned array is of the range.
+        ///
+        /// @param				rowIndices
+        /// @param				colSlice
+        /// @return
+        ///				NdArray
+        ///
+        template<typename Indices,
+            enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
+        NdArray<dtype> operator()(const Indices& rowIndices, Slice colSlice) const
+        {
+            return operator()(rowIndices, toIndices(colSlice, Axis::COL));
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						2D index access operator with bounds checking.
+        ///						returned array is of the range.
+        ///
+        /// @param				rowIndex
         /// @param				colIndices
         /// @return
         ///				NdArray
         ///
         template<typename Indices,
-            enable_if_t<is_same_v<Indices, NdArray<int32>>, int> = 0>
-        NdArray<dtype> operator()(Indices rowIndices, Indices colIndices) const
+            enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
+        NdArray<dtype> operator()(int32 rowIndex, const Indices& colIndices) const
+        {
+            const NdArray<int32> rowIndices = { rowIndex };
+            return operator()(rowIndices, colIndices);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						2D index access operator with bounds checking.
+        ///						returned array is of the range.
+        ///
+        /// @param				rowSlice
+        /// @param				colIndices
+        /// @return
+        ///				NdArray
+        ///
+        template<typename Indices,
+            enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
+        NdArray<dtype> operator()(Slice rowSlice, const Indices& colIndices) const
+        {
+            return operator()(toIndices(rowSlice, Axis::ROW), colIndices);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						2D index access operator with bounds checking.
+        ///						returned array is of the range.
+        ///
+        /// @param				rowIndices
+        /// @param				colIndices
+        /// @return
+        ///				NdArray
+        ///
+        template<typename RowIndices, typename ColIndices,
+            enable_if_t<is_same_v<RowIndices, NdArray<int32>> || is_same_v<RowIndices, NdArray<uint32>>, int> = 0,
+            enable_if_t<is_same_v<ColIndices, NdArray<int32>> || is_same_v<ColIndices, NdArray<uint32>>, int> = 0>
+        NdArray<dtype> operator()(RowIndices rowIndices, ColIndices colIndices) const
         {
             rowIndices.sort();
             colIndices.sort();
@@ -4629,6 +4696,57 @@ namespace nc
                 }
                 ofile.close();
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	Converts the slice object to an NdArray of indices for this array
+        /// 
+        /// @param inSlice: the slice object
+        /// @param inAxis: the array axis
+        /// 
+        /// @return NdArray<int32>
+        ///
+        NdArray<uint32> toIndices(Slice inSlice, Axis inAxis = Axis::ROW) const
+        {
+            uint32 numElements = 0;
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    numElements = inSlice.numElements(size_);
+                    break;
+                }
+                case Axis::ROW:
+                {
+                    numElements = inSlice.numElements(shape_.rows);
+                    break;
+                }
+                case Axis::COL:
+                {
+                    numElements = inSlice.numElements(shape_.cols);
+                    break;
+                }
+                default:
+                {
+                    // not actually possible, getting rid of compiler warning
+                    THROW_INVALID_ARGUMENT_ERROR("Invalid 'inAxis' option");
+                }
+            }
+
+            if (numElements == 0)
+            {
+                return {};
+            }
+
+            NdArray<uint32> indices(1, numElements);
+            indices[0] = inSlice.start;
+            for (uint32 i = 1; i < indices.size(); ++i)
+            {
+                indices[i] = static_cast<uint32>(indices[i - 1] + inSlice.step);
+            }
+
+            return indices;
         }
 
         //============================================================================

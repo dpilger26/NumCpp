@@ -864,7 +864,44 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices)
+    pbArrayGeneric getIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
+        int32 colIndex)
+    {
+        return nc2pybind(self(rowIndices, colIndex));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric getIndicesSlice(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
+        Slice colSlice)
+    {
+        return nc2pybind(self(rowIndices, colSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric getScalerIndices(const NdArray<dtype>& self, int32 rowIndex,
+        const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self(rowIndex, colIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric getSliceIndices(const NdArray<dtype>& self, Slice rowSlice,
+        const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self(rowSlice, colIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric getIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
+        const NdArray<int32>& colIndices)
     {
         return nc2pybind(self(rowIndices, colIndices));
     }
@@ -6449,6 +6486,10 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("get", &NdArrayInterface::getSlice2D<double>)
         .def("get", &NdArrayInterface::getSlice2DRow<double>)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("get", &NdArrayInterface::getIndicesScaler<double>)
+        .def("get", &NdArrayInterface::getIndicesSlice<double>)
+        .def("get", &NdArrayInterface::getScalerIndices<double>)
+        .def("get", &NdArrayInterface::getSliceIndices<double>)
         .def("get", &NdArrayInterface::getIndices2D<double>)
         .def("at", atSingleScaler, pb11::return_value_policy::copy)
         .def("atConst", atSingleScalerConst, pb11::return_value_policy::copy)
@@ -6569,6 +6610,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("sum", &NdArrayInterface::sum<double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
         .def("tofile", &NdArrayDouble::tofile)
+        .def("toIndices", &NdArrayDouble::toIndices)
         .def("toStlVector", &NdArrayDouble::toStlVector)
         .def("trace", &NdArrayDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<double>)

@@ -564,6 +564,44 @@ def test_access_operators():
     assert np.array_equal(cArray.get(row, NumCpp.Slice(startCol, stopCol, stepCol)).flatten(),
                           data[row, startCol:stopCol:stepCol])
 
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    rowIndices = np.unique(np.random.randint(0, shape.rows, [50, ]))
+    cRowIndices = NumCpp.NdArrayInt32(1, rowIndices.size)
+    cRowIndices.setArray(rowIndices)
+    colIndex = np.random.randint(0, shape.cols)
+    assert np.array_equal(cArray.get(cRowIndices, colIndex).flatten(),
+                          data[rowIndices, colIndex])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    colIndices = np.unique(np.random.randint(0, shape.cols, [50, ]))
+    cColIndices = NumCpp.NdArrayInt32(1, colIndices.size)
+    cColIndices.setArray(colIndices)
+    rowIndex = np.random.randint(0, shape.rows)
+    assert np.array_equal(cArray.get(rowIndex, cColIndices).flatten(),
+                          data[rowIndex, colIndices])
+
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    rowIndices = np.unique(np.random.randint(0, shape.rows, [50, ]))
+    cRowIndices = NumCpp.NdArrayInt32(1, rowIndices.size)
+    cRowIndices.setArray(rowIndices)
+    colIndices = np.unique(np.random.randint(0, shape.cols, [50, ]))
+    cColIndices = NumCpp.NdArrayInt32(1, colIndices.size)
+    cColIndices.setArray(colIndices)
+    assert np.array_equal(cArray.get(cRowIndices, cColIndices),
+                          data[rowIndices, colIndices])
+
 
 ####################################################################################
 def test_at():
