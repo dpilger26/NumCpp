@@ -35,7 +35,7 @@ def test_poly1D_roots_constructor():
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
     polyC = NumCpp.Poly1d(rootsC, True)
-    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients)  # noqa
+    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(int), poly.coefficients)  # noqa
 
 
 ####################################################################################
