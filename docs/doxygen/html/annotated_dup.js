@@ -1,9 +1,6 @@
 var annotated_dup =
 [
     [ "nc", "namespacenc.html", [
-      [ "boostPythonInterface", "namespacenc_1_1boost_python_interface.html", [
-        [ "BoostNdarrayHelper", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" ]
-      ] ],
       [ "coordinates", "namespacenc_1_1coordinates.html", [
         [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html", "classnc_1_1coordinates_1_1_coordinate" ],
         [ "Dec", "classnc_1_1coordinates_1_1_dec.html", "classnc_1_1coordinates_1_1_dec" ],

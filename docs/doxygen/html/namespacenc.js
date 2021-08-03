@@ -1,6 +1,5 @@
 var namespacenc =
 [
-    [ "boostPythonInterface", "namespacenc_1_1boost_python_interface.html", "namespacenc_1_1boost_python_interface" ],
     [ "constants", "namespacenc_1_1constants.html", [
       [ "c", "namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581", null ],
       [ "DAYS_PER_WEEK", "namespacenc_1_1constants.html#a2c11c386e1a07a17f95122fc4630cbe9", null ],
@@ -33,20 +32,6 @@ var namespacenc =
     [ "integrate", "namespacenc_1_1integrate.html", "namespacenc_1_1integrate" ],
     [ "linalg", "namespacenc_1_1linalg.html", "namespacenc_1_1linalg" ],
     [ "polynomial", "namespacenc_1_1polynomial.html", "namespacenc_1_1polynomial" ],
-    [ "pybindInterface", "namespacenc_1_1pybind_interface.html", [
-      [ "pbArray", "namespacenc_1_1pybind_interface.html#adfe4a3d878913657435705edfb3c331d", null ],
-      [ "pbArrayGeneric", "namespacenc_1_1pybind_interface.html#a92c5b0b49fb9d54b885582f85ff25d4f", null ],
-      [ "ReturnPolicy", "namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19", [
-        [ "COPY", "namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f", null ],
-        [ "REFERENCE", "namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f", null ],
-        [ "TAKE_OWNERSHIP", "namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d", null ]
-      ] ],
-      [ "nc2pybind", "namespacenc_1_1pybind_interface.html#adf2283c3c717906d9ddfbd73f3ab8927", null ],
-      [ "nc2pybind", "namespacenc_1_1pybind_interface.html#a10c33cf2d4fc1d454901280f1a2dc861", null ],
-      [ "pybind2nc", "namespacenc_1_1pybind_interface.html#ab473eb4036fcf02ed3c15342956cc9db", null ],
-      [ "pybind2nc_copy", "namespacenc_1_1pybind_interface.html#a1bbfbfcb2ba31e4364d101820bfc2ff8", null ],
-      [ "returnPolicyStringMap", "namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc", null ]
-    ] ],
     [ "random", "namespacenc_1_1random.html", [
       [ "bernoulli", "namespacenc_1_1random.html#a8d4a1a62fc03a44cccfa4012413bd70f", null ],
       [ "bernoulli", "namespacenc_1_1random.html#a1a5af4283601fd8663dcdc34599aede3", null ],

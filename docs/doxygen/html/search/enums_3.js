@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['order_2365',['Order',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a6f7c27e9f931e541dc034cd7fe9c3311',1,'nc::boostPythonInterface::BoostNdarrayHelper']]]
+  ['sign_2319',['Sign',['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates']]]
 ];
