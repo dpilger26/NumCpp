@@ -1,8 +1,8 @@
 ﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/raw/master/docs/logo/NumCppLogo.png)
 
-<!-- [![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
+[![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
 [![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
-[![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)   -->
+[![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/slxre2j64qc8ubvl/branch/master?svg=true)](https://ci.appveyor.com/project/dpilger26/numcpp/branch/master)
 [![Build Status](https://travis-ci.com/dpilger26/NumCpp.svg?branch=master)](https://travis-ci.com/dpilger26/NumCpp)
