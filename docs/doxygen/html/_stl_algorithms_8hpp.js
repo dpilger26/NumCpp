@@ -1,6 +1,6 @@
 var _stl_algorithms_8hpp =
 [
-    [ "NO_EXCEPT", "_stl_algorithms_8hpp.html#a21a26d02e8952e85df87e4c35bb25ff5", null ],
+    [ "CONDITIONAL_NO_EXCEPT", "_stl_algorithms_8hpp.html#a328745b2b79b264770ec2783aa489f26", null ],
     [ "all_of", "_stl_algorithms_8hpp.html#a6c632e800fd350eb36ea01eb522eeb1f", null ],
     [ "any_of", "_stl_algorithms_8hpp.html#a0ae9c71c7298f83822ab49d270c867ba", null ],
     [ "copy", "_stl_algorithms_8hpp.html#ae62a4e197ec640aacea520220bd27cef", null ],

@@ -24,7 +24,7 @@ def test_bernoulli():
 
 ####################################################################################
 def test_beta():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -147,7 +147,7 @@ def test_geometric():
 
 ####################################################################################
 def test_laplace():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -180,7 +180,7 @@ def test_negativeBinomial():
 
 ####################################################################################
 def test_nonCentralChiSquared():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -303,7 +303,7 @@ def test_studentT():
 
 ####################################################################################
 def test_triangle():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     shapeInput = np.random.randint(1, 100, [2, ])
@@ -326,7 +326,7 @@ def test_uniform():
 
 ####################################################################################
 def test_uniformOnSphere():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     inputs = np.random.randint(1, 100, [2, ])

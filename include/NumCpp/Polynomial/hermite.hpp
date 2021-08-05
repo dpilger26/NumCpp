@@ -27,7 +27,7 @@
 ///
 #pragma once
 
-#if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -94,4 +94,4 @@ namespace nc
     } // namespace polynomial
 } // namespace nc
 
-#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NO_USE_BOOST)
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

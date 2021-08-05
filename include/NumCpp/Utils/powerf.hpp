@@ -30,8 +30,6 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 
-#include "boost/type_traits/is_complex.hpp"
-
 #include <cmath>
 #include <complex>
 

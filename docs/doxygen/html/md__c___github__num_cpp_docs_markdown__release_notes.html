@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.4.2</span>
+   &#160;<span id="projectnumber">2.5.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -89,9 +89,18 @@ $(document).ready(function(){initNavTree('md__c___github__num_cpp_docs_markdown_
 <div class="title">Release Notes </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Version 2.4.2</h1>
+<div class="textblock"><h1>Version 2.5.0</h1>
+<ul>
+<li>added additional <code>NdArray</code> slice overloads</li>
+<li>Removed <code>NO_MULTITHREAD</code> compiler flag and replaced with <code>NUMCPP_USE_MULTITHREAD</code> so that single threaded is now the default</li>
+<li>renamed <code>NO_USE_BOOST</code> compiler flag to <code>NUMCPP_NO_USE_BOOST</code></li>
+<li>renamed <code>INCLUDE_BOOST_PYTHON_INTERFACE</code> compiler flat to <code>NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE</code></li>
+<li>renamed <code>INCLUDE_PYBIND_PYTHON_INTERFACE</code> compiler flag to <code>NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE</code></li>
+</ul>
+<h1>Version 2.4.2</h1>
 <ul>
 <li>fixed a type error with <code>percentile</code> and <code>nanpercentile</code></li>
+<li>updated doxygen API css</li>
 </ul>
 <h1>Version 2.4.1</h1>
 <ul>

@@ -35,7 +35,7 @@ def test_poly1D_roots_constructor():
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
     polyC = NumCpp.Poly1d(rootsC, True)
-    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients)  # noqa
+    assert np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(int), poly.coefficients)  # noqa
 
 
 ####################################################################################
@@ -147,7 +147,7 @@ def test_poly1D_operators():
 
 ####################################################################################
 def test_chebyshev():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     for order in range(ORDER_MAX):
@@ -185,7 +185,7 @@ def test_chebyshev():
 
 ####################################################################################
 def test_hermite():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     for order in range(ORDER_MAX):
@@ -207,7 +207,7 @@ def test_hermite():
 
 ####################################################################################
 def test_laguerre():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     for order in range(ORDER_MAX):
@@ -247,7 +247,7 @@ def test_laguerre():
 
 ####################################################################################
 def test_legendre():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     for order in range(ORDER_MAX):
@@ -266,7 +266,7 @@ def test_legendre():
         valueCpp = NumCpp.legendre_p_Array1(order, cArray)
         assert np.array_equal(np.round(valuePy, DECIMALS_ROUND), np.round(valueCpp, DECIMALS_ROUND))
 
-    if not NumCpp.NO_USE_BOOST:
+    if not NumCpp.NUMCPP_NO_USE_BOOST:
         for order in range(ORDER_MAX):
             x = np.random.rand(1).item()
             degree = np.random.randint(order, ORDER_MAX)
@@ -284,7 +284,7 @@ def test_legendre():
 
 ####################################################################################
 def test_spherical_harmonic():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     for order in range(ORDER_MAX):

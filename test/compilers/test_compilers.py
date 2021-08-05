@@ -79,7 +79,7 @@ _CXX_STANDARDS = {CxxStandard.cxx_14: '14',
                   CxxStandard.cxx_17: '17',
                   CxxStandard.cxx_20: '20'}
 
-_CMAKE_DEFINES = ['NO_USE_BOOST', 'NO_MULTITHREAD']
+_CMAKE_DEFINES = ['NUMCPP_NO_USE_BOOST', 'NUMCPP_USE_MULTITHREAD']
 
 
 @dataclass
@@ -313,12 +313,12 @@ def run_pytest(fileOrDirectory: str) -> None:
     subprocess.check_call(['pytest', fileOrDirectory])
 
 
-def run_single(root_dir: str,
+def run_single(root_dir: Union[Path, str],
                compiler: Compiler,
                compiler_version: str,
                cxx_standard: CxxStandard,
                no_use_boost: bool = False,
-               no_multithread: bool = False,
+               multithread: bool = False,
                target: Target = None) -> None:
     print('=====================================================================================')
     print(f'root_dir:         {root_dir}')
@@ -326,7 +326,7 @@ def run_single(root_dir: str,
     print(f'compiler_version: {compiler_version}')
     print(f'cxx_standard:     {cxx_standard}')
     print(f'no_use_boost:     {no_use_boost}')
-    print(f'no_multithread:   {no_multithread}')
+    print(f'multithread:      {multithread}')
     print('=====================================================================================')
 
     timer = SimpleTimer(name=target.name if target is not None else 'All')
@@ -343,9 +343,9 @@ def run_single(root_dir: str,
 
     cmake_defines = []
     if no_use_boost:
-        cmake_defines.append('NO_USE_BOOST')
-    if no_multithread:
-        cmake_defines.append('NO_MULTITHREAD')
+        cmake_defines.append('NUMCPP_NO_USE_BOOST')
+    if multithread:
+        cmake_defines.append('NUMCPP_USE_MULTITHREAD')
     builder.add_cmake_defines(defines=cmake_defines)
 
     builder.configure_cmake(build_configs=build_configs)
@@ -374,7 +374,7 @@ def run_single(root_dir: str,
     timer.toc()
 
 
-def run_all(root_dir: str) -> None:
+def run_all(root_dir: Union[Path, str]) -> None:
     timer = SimpleTimer(name='run_all')
     timer.tic()
 
@@ -386,8 +386,8 @@ def run_all(root_dir: str) -> None:
                                compiler=compiler,
                                compiler_version=compiler_version,
                                cxx_standard=cxx_standard,
-                               no_use_boost='NO_USE_BOOST' in cmake_define,
-                               no_multithread='NO_MULTITHREAD' in cmake_define)
+                               no_use_boost='NUMCPP_NO_USE_BOOST' in cmake_define,
+                               multithread='NUMCPP_USE_MULTITHREAD' in cmake_define)
                     run_pytest(fileOrDirectory=str(_PYTEST_DIR))
     timer.toc()
 
@@ -406,7 +406,7 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--cxx_standard', type=str, required=False, default='cxx_17')
     parser.add_argument('-t', '--target', type=str, required=False, default='all')
     parser.add_argument('-nb', '--no_use_boost', dest='no_use_boost', action='store_true', required=False)
-    parser.add_argument('-nmt', '--no_multithread', dest='no_multithread', action='store_true', required=False)
+    parser.add_argument('-mt', '--multithread', dest='multithread', action='store_true', required=False)
     parser.add_argument('-r', '--run_all', dest='run_all', action='store_true', required=False)
     args = parser.parse_args()
 
@@ -418,5 +418,5 @@ if __name__ == '__main__':
                    compiler_version=args.compiler_version,
                    cxx_standard=CxxStandard[args.cxx_standard],
                    no_use_boost=args.no_use_boost,
-                   no_multithread=args.no_multithread,
+                   multithread=args.multithread,
                    target=Target[args.target])

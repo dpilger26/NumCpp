@@ -1,11 +1,11 @@
 ﻿![NumCpp logo](https://github.com/dpilger26/NumCpp/raw/master/docs/logo/NumCppLogo.png)
 
-<!-- [![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
+[![GitHub watchers](https://img.shields.io/github/watchers/dpilger26/NumCpp.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/watchers/)
 [![GitHub stars](https://img.shields.io/github/stars/dpilger26/NumCpp.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/stargazers/)
-[![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)   -->
+[![GitHub forks](https://img.shields.io/github/forks/dpilger26/NumCpp.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/dpilger26/NumCpp/network/)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/slxre2j64qc8ubvl/branch/master?svg=true)](https://ci.appveyor.com/project/dpilger26/numcpp/branch/master)
-[![Build Status](https://travis-ci.org/dpilger26/NumCpp.svg?branch=master)](https://travis-ci.org/dpilger26/NumCpp)
+[![Build Status](https://travis-ci.com/dpilger26/NumCpp.svg?branch=master)](https://travis-ci.com/dpilger26/NumCpp)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea24c08d892e4beebd46cfca260823c1)](https://app.codacy.com/manual/dpilger26/NumCpp?utm_source=github.com&utm_medium=referral&utm_content=dpilger26/NumCpp&utm_campaign=Badge_Grade_Dashboard)
 
 # NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
@@ -24,9 +24,9 @@
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org/std/the-standard)
 
 **Compilers:**  
-Visual Studio: 2017, 2019  
-GNU: 6.5, 7.5, 8.4, 9.3, 10.1  
-Clang: 6, 7, 8, 9, 10  
+Visual Studio: 2017, 2019, 2022  
+GNU: 6.5, 7.5, 8.4, 9.3, 10.1, 11.1  
+Clang: 6, 7, 8, 9, 10, 11, 12  
 
 **Boost Versions:**  
 1.68+
@@ -85,8 +85,8 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | ```a[2:5, 5:8]```                                        | ```a(nc::Slice(2, 5), nc::Slice(5, 8))```                |
 |                                                          | ```a({2, 5}, {5, 8})```                                  |
 | ```a[:, 7]```                                            | ```a(a.rSlice(), 7)```                                   |
-| ```a[a > 5]```                                           | ```a[a > 50]```                                          |
-| ```a[a > 5] = 0```                                       | ```a.putMask(a > 50, 666)```                             |
+| ```a[a > 5]```                                           | ```a[a > 0]```                                           |
+| ```a[a > 5] = 0```                                       | ```a.putMask(a > 5, 0)```                                |
 
 ### RANDOM
 
@@ -95,10 +95,10 @@ The random module provides simple ways to create random arrays.
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.random.seed(666)```                                | ```nc::random::seed(666)```                              |
-| ```np.random.randn(3, 4)```                              | ```nc::random::randN<double>(nc::Shape(3,4))```          |
+| ```np.random.randn(3, 4)```                              | ```nc::random::randN<double>(nc::Shape(3, 4))```         |
 |                                                          | ```nc::random::randN<double>({3, 4})```                  |
-| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random::randInt<int>(nc::Shape(3,4),0,10)```      |
-|                                                          | ```nc::random::randInt<int>({3, 4},0,10)```              |
+| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random::randInt<int>(nc::Shape(3, 4), 0, 10)```   |
+|                                                          | ```nc::random::randInt<int>({3, 4}, 0, 10)```            |
 | ```np.random.rand(3, 4)```                               | ```nc::random::rand<double>(nc::Shape(3,4))```           |
 |                                                          | ```nc::random::rand<double>({3, 4})```                   |
 | ```np.random.choice(a, 3)```                             | ```nc::random::choice(a, 3)```                           |

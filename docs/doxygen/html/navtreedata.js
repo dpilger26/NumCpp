@@ -28,6 +28,7 @@ var NAVTREE =
     [ "Release Notes", "md__c___github__num_cpp_docs_markdown__release_notes.html", null ],
     [ "Installation", "md__c___github__num_cpp_docs_markdown__installation.html", null ],
     [ "Building", "md__c___github__num_cpp_docs_markdown__building.html", null ],
+    [ "Compiler Flags", "md__c___github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -47,7 +48,6 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -65,20 +65,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
-"_pybind_interface_8hpp.html#a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f",
-"apply_poly1d_8hpp.html#a52f3be5bbad0243643027a1477662356",
-"classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc",
-"classnc_1_1_nd_array_const_column_iterator.html#ad69593e9f3cbf04dff6941bd52827208",
-"classnc_1_1image_processing_1_1_cluster.html#a27734d0fa45c7440e3018fa36c6633f9",
-"constant2d_8hpp_source.html",
-"full_8hpp.html",
-"lu__decomposition_8hpp_source.html",
-"namespacenc.html#a39da0502565b913855379ea1439047e1",
-"namespacenc.html#aa6be940ce9eed012ca0fac881d884411",
-"namespacenc_1_1filter_1_1boundary.html#aa318761ec07aeb7764e2e5f0a7ec9e86",
-"namespacenc_1_1stl__algorithms.html#ae1007b77aafe5a99b4952d9a8d8307af",
-"replace_8hpp.html#a8e35a8cdb9a2a053820c58d2a9eab4e2",
-"unique_8hpp.html"
+"_random_2beta_8hpp.html#a9cf5ddddc350278c76e077c67b5254ab",
+"arccosh_8hpp.html#a9063e7275b83f3201f74a0014a9b54d5",
+"classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d",
+"classnc_1_1_nd_array_const_iterator.html#a17535e5dcb696923adaa626c86cc3c00",
+"classnc_1_1image_processing_1_1_cluster_maker.html#a870aeb2f713b4efba22a2f978704c215",
+"count__nonzero_8hpp.html",
+"functions_func_l.html",
+"mean_8hpp_source.html",
+"namespacenc.html#a47dcd15b30a7fd2b977377ebb37cbdb6",
+"namespacenc.html#ab1ac162f983d66eec0f6189325bd1720",
+"namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517",
+"nanmedian_8hpp_source.html",
+"round_8hpp.html#af9c0b27b59e8a7be27130c9f470c4ef3",
+"zeros__like_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

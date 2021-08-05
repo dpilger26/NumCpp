@@ -33,16 +33,15 @@ foreach(_source IN ITEMS ${_source_list})
 endforeach()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
-  -DINCLUDE_PYTHON_INTERFACE
-  -DINCLUDE_PYBIND_PYTHON_INTERFACE
+  -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 )
 
-if(NO_USE_BOOST)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_USE_BOOST)
+if(NUMCPP_NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
 endif()
 
-if(NO_MULTITHREAD)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNO_MULTITHREAD)
+if(NUMCPP_USE_MULTITHREAD)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_USE_MULTITHREAD)
 endif()
 
 
@@ -58,7 +57,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
   ${NUMCPP_INCLUDES}
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE .)
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Boost::headers

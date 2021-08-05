@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.4.2</span>
+   &#160;<span id="projectnumber">2.5.0</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -166,9 +166,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter"><code>a[:, 7]</code>   </td><td class="markdownTableBodyCenter"><code>a(a.rSlice(), 7)</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><code>a[a &gt; 5]</code>   </td><td class="markdownTableBodyCenter"><code>a[a &gt; 50]</code>    </td></tr>
+<td class="markdownTableBodyCenter"><code>a[a &gt; 5]</code>   </td><td class="markdownTableBodyCenter"><code>a[a &gt; 0]</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><code>a[a &gt; 5] = 0</code>   </td><td class="markdownTableBodyCenter"><code>a.putMask(a &gt; 50, 666)</code>   </td></tr>
+<td class="markdownTableBodyCenter"><code>a[a &gt; 5] = 0</code>   </td><td class="markdownTableBodyCenter"><code>a.putMask(a &gt; 5, 0)</code>   </td></tr>
 </table>
 <h3>RANDOM</h3>
 <p>The random module provides simple ways to create random arrays.</p>
@@ -178,13 +178,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter"><code>np.random.seed(666)</code>   </td><td class="markdownTableBodyCenter"><code>nc::random::seed(666)</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><code>np.random.randn(3, 4)</code>   </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#aeffa74d48c1fb2603f83eaa358f17501">nc::random::randN</a>&lt;double&gt;(<a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays.">nc::Shape(3,4)</a>)</code>    </td></tr>
+<td class="markdownTableBodyCenter"><code>np.random.randn(3, 4)</code>   </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#aeffa74d48c1fb2603f83eaa358f17501">nc::random::randN</a>&lt;double&gt;(<a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays.">nc::Shape(3, 4)</a>)</code>    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#aeffa74d48c1fb2603f83eaa358f17501">nc::random::randN</a>&lt;double&gt;({3, 4})</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><code>np.random.randint(0, 10, [3, 4])</code>   </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#a43201ec4ec8e0c99041647ab45ac0133">nc::random::randInt</a>&lt;int&gt;(<a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays.">nc::Shape(3,4)</a>,0,10)</code>    </td></tr>
+<td class="markdownTableBodyCenter"><code>np.random.randint(0, 10, [3, 4])</code>   </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#a43201ec4ec8e0c99041647ab45ac0133">nc::random::randInt</a>&lt;int&gt;(<a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays.">nc::Shape(3, 4)</a>, 0, 10)</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#a43201ec4ec8e0c99041647ab45ac0133">nc::random::randInt</a>&lt;int&gt;({3, 4},0,10)</code>    </td></tr>
+<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#a43201ec4ec8e0c99041647ab45ac0133">nc::random::randInt</a>&lt;int&gt;({3, 4}, 0, 10)</code>    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter"><code>np.random.rand(3, 4)</code>   </td><td class="markdownTableBodyCenter"><code><a class="el" href="namespacenc_1_1random.html#a0f5694167e15a8bc566a3fa6f842c3b4">nc::random::rand</a>&lt;double&gt;(<a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays.">nc::Shape(3,4)</a>)</code>    </td></tr>
 <tr class="markdownTableRowOdd">

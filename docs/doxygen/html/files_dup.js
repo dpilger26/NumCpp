@@ -59,10 +59,8 @@ var files_dup =
     [ "bitwise_not.hpp", "bitwise__not_8hpp.html", "bitwise__not_8hpp" ],
     [ "bitwise_or.hpp", "bitwise__or_8hpp.html", "bitwise__or_8hpp" ],
     [ "bitwise_xor.hpp", "bitwise__xor_8hpp.html", "bitwise__xor_8hpp" ],
-    [ "BoostInterface.hpp", "_boost_interface_8hpp.html", "_boost_interface_8hpp" ],
-    [ "BoostNumpyNdarrayHelper.hpp", "_boost_numpy_ndarray_helper_8hpp.html", [
-      [ "BoostNdarrayHelper", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html", "classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" ]
-    ] ],
+    [ "BoostInterface.hpp", "_boost_interface_8hpp.html", null ],
+    [ "BoostNumpyNdarrayHelper.hpp", "_boost_numpy_ndarray_helper_8hpp.html", null ],
     [ "Boundary.hpp", "_boundary_8hpp.html", "_boundary_8hpp" ],
     [ "Brent.hpp", "_brent_8hpp.html", [
       [ "Brent", "classnc_1_1roots_1_1_brent.html", "classnc_1_1roots_1_1_brent" ]
@@ -351,7 +349,7 @@ var files_dup =
     [ "ptp.hpp", "ptp_8hpp.html", "ptp_8hpp" ],
     [ "put.hpp", "put_8hpp.html", "put_8hpp" ],
     [ "putmask.hpp", "putmask_8hpp.html", "putmask_8hpp" ],
-    [ "PybindInterface.hpp", "_pybind_interface_8hpp.html", "_pybind_interface_8hpp" ],
+    [ "PybindInterface.hpp", "_pybind_interface_8hpp.html", null ],
     [ "PythonInterface.hpp", "_python_interface_8hpp.html", null ],
     [ "Quaternion.hpp", "_quaternion_8hpp.html", [
       [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html", "classnc_1_1rotations_1_1_quaternion" ]

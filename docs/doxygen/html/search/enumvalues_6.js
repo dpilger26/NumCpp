@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['positive_2380',['POSITIVE',['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94aab6c31432785221bae58327ef5f6ea58',1,'nc::coordinates']]]
+  ['reflect_2330',['REFLECT',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df',1,'nc::filter']]],
+  ['row_2331',['ROW',['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7',1,'nc']]]
 ];
