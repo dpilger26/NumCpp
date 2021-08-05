@@ -18,7 +18,7 @@ def test_seed():
 
 ####################################################################################
 def test_airy_ai():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -36,7 +36,7 @@ def test_airy_ai():
 
 ####################################################################################
 def test_airy_ai_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -54,7 +54,7 @@ def test_airy_ai_prime():
 
 ####################################################################################
 def test_airy_bi():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -72,7 +72,7 @@ def test_airy_bi():
 
 ####################################################################################
 def test_airy_bi_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -90,7 +90,7 @@ def test_airy_bi_prime():
 
 ####################################################################################
 def test_bernoulli():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.randint(0, 20)
@@ -100,7 +100,7 @@ def test_bernoulli():
 
 ####################################################################################
 def test_cylindrical_bessel_i():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 10)
@@ -120,7 +120,7 @@ def test_cylindrical_bessel_i():
 
 ####################################################################################
 def test_cylindrical_bessel_i_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 10)
@@ -140,7 +140,7 @@ def test_cylindrical_bessel_i_prime():
 
 ####################################################################################
 def test_cylindrical_bessel_j():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 10)
@@ -160,7 +160,7 @@ def test_cylindrical_bessel_j():
 
 ####################################################################################
 def test_cylindrical_bessel_j_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 10)
@@ -180,7 +180,7 @@ def test_cylindrical_bessel_j_prime():
 
 ####################################################################################
 def test_cylindrical_bessel_k():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 10)
@@ -200,7 +200,7 @@ def test_cylindrical_bessel_k():
 
 ####################################################################################
 def test_cylindrical_bessel_k_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 5)
@@ -220,7 +220,7 @@ def test_cylindrical_bessel_k_prime():
 
 ####################################################################################
 def test_cylindrical_bessel_y():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 5)
@@ -240,7 +240,7 @@ def test_cylindrical_bessel_y():
 
 ####################################################################################
 def test_cylindrical_bessel_y_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 5)
@@ -260,7 +260,7 @@ def test_cylindrical_bessel_y_prime():
 
 ####################################################################################
 def test_beta():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item() * 10
@@ -282,7 +282,7 @@ def test_beta():
 
 ####################################################################################
 def test_comp_ellint_1():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -300,7 +300,7 @@ def test_comp_ellint_1():
 
 ####################################################################################
 def test_comp_ellint_2():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -318,7 +318,7 @@ def test_comp_ellint_2():
 
 ####################################################################################
 def test_comp_ellint_3():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -352,7 +352,7 @@ def test_cnr():
 
 ####################################################################################
 def test_cylindrical_hankel_1():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 6)
@@ -372,7 +372,7 @@ def test_cylindrical_hankel_1():
 
 ####################################################################################
 def test_cylindrical_hankel_2():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(0, 6)
@@ -392,7 +392,7 @@ def test_cylindrical_hankel_2():
 
 ####################################################################################
 def test_digamma():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item() * 10
@@ -410,7 +410,7 @@ def test_digamma():
 
 ####################################################################################
 def test_ellint_1():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -433,7 +433,7 @@ def test_ellint_1():
 
 ####################################################################################
 def test_ellint_2():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -456,7 +456,7 @@ def test_ellint_2():
 
 ####################################################################################
 def test_ellint_3():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -487,7 +487,7 @@ def test_ellint_3():
 
 ####################################################################################
 def test_erf():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -505,7 +505,7 @@ def test_erf():
 
 ####################################################################################
 def test_erfinv():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -523,7 +523,7 @@ def test_erfinv():
 
 ####################################################################################
 def test_erfc():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -541,7 +541,7 @@ def test_erfc():
 
 ####################################################################################
 def test_erfcinv():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -559,7 +559,7 @@ def test_erfcinv():
 
 ####################################################################################
 def test_expint():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     a = np.random.rand(1).item()
@@ -592,7 +592,7 @@ def test_factorial():
 
 ####################################################################################
 def test_gamma():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -610,7 +610,7 @@ def test_gamma():
 
 ####################################################################################
 def test_gamma1pm1():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     # There is no scipy equivalent to this function
@@ -627,7 +627,7 @@ def test_gamma1pm1():
 
 ####################################################################################
 def test_loggamma():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()
@@ -652,7 +652,7 @@ def test_pnr():
 
 ####################################################################################
 def test_polygamma():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     order = np.random.randint(1, 5)
@@ -672,7 +672,7 @@ def test_polygamma():
 
 ####################################################################################
 def test_prime():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     # There is no scipy equivalent to this function
@@ -689,7 +689,7 @@ def test_prime():
 
 ####################################################################################
 def test_zeta():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     value = np.random.rand(1).item() * 5 + 1
@@ -734,7 +734,7 @@ def test_softmax():
 
 ####################################################################################
 def test_spherical_bessel_j():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 10)
@@ -754,7 +754,7 @@ def test_spherical_bessel_j():
 
 ####################################################################################
 def test_spherical_bessel_y():
-    if NumCpp.NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
+    if NumCpp.NUMCPP_NO_USE_BOOST and not NumCpp.STL_SPECIAL_FUNCTIONS:
         return
 
     order = np.random.randint(0, 10)
@@ -774,7 +774,7 @@ def test_spherical_bessel_y():
 
 ####################################################################################
 def test_spherical_hankel_1():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     # There is no equivalent scipy functions
@@ -793,7 +793,7 @@ def test_spherical_hankel_1():
 
 ####################################################################################
 def test_spherical_hankel_2():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     # There is no equivalent scipy functions
@@ -812,7 +812,7 @@ def test_spherical_hankel_2():
 
 ####################################################################################
 def test_trigamma():
-    if NumCpp.NO_USE_BOOST:
+    if NumCpp.NUMCPP_NO_USE_BOOST:
         return
 
     value = np.random.rand(1).item()

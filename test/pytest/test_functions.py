@@ -2997,12 +2997,12 @@ def test_full_like():
 
 ####################################################################################
 def test_gcd():
-    if not NumCpp.NO_USE_BOOST or NumCpp.STL_GCD_LCM:
+    if not NumCpp.NUMCPP_NO_USE_BOOST or NumCpp.STL_GCD_LCM:
         value1 = np.random.randint(1, 1000, [1, ]).item()
         value2 = np.random.randint(1, 1000, [1, ]).item()
         assert NumCpp.gcdScaler(value1, value2) == np.gcd(value1, value2)
 
-    if not NumCpp.NO_USE_BOOST:
+    if not NumCpp.NUMCPP_NO_USE_BOOST:
         size = np.random.randint(20, 100, [1, ]).item()
         cArray = NumCpp.NdArrayUInt32(1, size)
         data = np.random.randint(1, 1000, [size, ], dtype=np.uint32)
@@ -3303,12 +3303,12 @@ def test_isnan():
 
 ####################################################################################
 def test_lcm():
-    if not NumCpp.NO_USE_BOOST or NumCpp.STL_GCD_LCM:
+    if not NumCpp.NUMCPP_NO_USE_BOOST or NumCpp.STL_GCD_LCM:
         value1 = np.random.randint(1, 1000, [1, ]).item()
         value2 = np.random.randint(1, 1000, [1, ]).item()
         assert NumCpp.lcmScaler(value1, value2) == np.lcm(value1, value2)
 
-    if not NumCpp.NO_USE_BOOST:
+    if not NumCpp.NUMCPP_NO_USE_BOOST:
         size = np.random.randint(2, 10, [1, ]).item()
         cArray = NumCpp.NdArrayUInt32(1, size)
         data = np.random.randint(1, 100, [size, ], dtype=np.uint32)
