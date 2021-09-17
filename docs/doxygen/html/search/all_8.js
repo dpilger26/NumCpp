@@ -8,7 +8,7 @@ var searchData=
   ['imageprocessing_2ehpp_479',['ImageProcessing.hpp',['../_image_processing_8hpp.html',1,'']]],
   ['incrementnumberofiterations_480',['incrementNumberOfIterations',['../classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff',1,'nc::roots::Iteration']]],
   ['inf_481',['inf',['../namespacenc_1_1constants.html#a4649bfc00f6360ccda3b3f9316e2dc0e',1,'nc::constants']]],
-  ['installation_482',['Installation',['../md__c___github__num_cpp_docs_markdown__installation.html',1,'']]],
+  ['installation_482',['Installation',['../md__c___git_hub__num_cpp_docs_markdown__installation.html',1,'']]],
   ['installation_2emd_483',['Installation.md',['../_installation_8md.html',1,'']]],
   ['int16_484',['int16',['../namespacenc.html#a8f5045ed0f0a08d87fd76d7a74ac128d',1,'nc']]],
   ['int32_485',['int32',['../namespacenc.html#a9386099a0fdc2bc9fb0dbfde5606584d',1,'nc']]],

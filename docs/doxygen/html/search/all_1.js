@@ -47,7 +47,7 @@ var searchData=
   ['boundary_2ehpp_134',['Boundary.hpp',['../_boundary_8hpp.html',1,'']]],
   ['brent_135',['Brent',['../classnc_1_1roots_1_1_brent.html#aecf6662d1b7128d38796cf4ab99143f4',1,'nc::roots::Brent::Brent(const double epsilon, std::function&lt; double(double)&gt; f) noexcept'],['../classnc_1_1roots_1_1_brent.html#a1e9cf8f7be13c7bbb42a073ec9eb5369',1,'nc::roots::Brent::Brent(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept'],['../classnc_1_1roots_1_1_brent.html',1,'nc::roots::Brent']]],
   ['brent_2ehpp_136',['Brent.hpp',['../_brent_8hpp.html',1,'']]],
-  ['building_137',['Building',['../md__c___github__num_cpp_docs_markdown__building.html',1,'']]],
+  ['building_137',['Building',['../md__c___git_hub__num_cpp_docs_markdown__building.html',1,'']]],
   ['building_2emd_138',['Building.md',['../_building_8md.html',1,'']]],
   ['byteswap_139',['byteswap',['../classnc_1_1_nd_array.html#a2d3f796540ca2966cd2964a358627630',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a244a5b96158e15e74e2cc1e54c17edff',1,'nc::byteswap()']]],
   ['byteswap_140',['byteSwap',['../namespacenc_1_1endian.html#a28d96487f9ac66755e2dd4925a459e0d',1,'nc::endian']]],

@@ -58,7 +58,7 @@ var searchData=
   ['comp_5fellint_5f2_2ehpp_197',['comp_ellint_2.hpp',['../comp__ellint__2_8hpp.html',1,'']]],
   ['comp_5fellint_5f3_198',['comp_ellint_3',['../namespacenc_1_1special.html#a8c90b0cd0de06a5e789e3b9f8b0a1243',1,'nc::special::comp_ellint_3(dtype1 inK, dtype2 inV)'],['../namespacenc_1_1special.html#a40e29e793c7c7ee437f242a8cc7e8e26',1,'nc::special::comp_ellint_3(const NdArray&lt; dtype1 &gt; &amp;inArrayK, const NdArray&lt; dtype2 &gt; &amp;inArrayV)']]],
   ['comp_5fellint_5f3_2ehpp_199',['comp_ellint_3.hpp',['../comp__ellint__3_8hpp.html',1,'']]],
-  ['compiler_20flags_200',['Compiler Flags',['../md__c___github__num_cpp_docs_markdown__compiler_flags.html',1,'']]],
+  ['compiler_20flags_200',['Compiler Flags',['../md__c___git_hub__num_cpp_docs_markdown__compiler_flags.html',1,'']]],
   ['compilerflags_2emd_201',['CompilerFlags.md',['../_compiler_flags_8md.html',1,'']]],
   ['complementarymedianfilter_202',['complementaryMedianFilter',['../namespacenc_1_1filter.html#a2343ac38b1ec7c4cbde82a3fe20b4c21',1,'nc::filter']]],
   ['complementarymedianfilter_2ehpp_203',['complementaryMedianFilter.hpp',['../complementary_median_filter_8hpp.html',1,'']]],
