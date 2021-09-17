@@ -35,11 +35,11 @@ Clang: 6, 7, 8, 9, 10, 11, 12
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
-## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__installation.html)
+## [Installation](https://github.com/dpilger26/NumCpp/tree/master/docs/markdown/Installation.md)
 
-## [Building](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__building.html)
+## [Building](https://github.com/dpilger26/NumCpp/tree/master/docs/markdown/Building.md)
 
-## [Release Notes](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__github__num_cpp_docs_markdown__release_notes.html)
+## [Release Notes](https://github.com/dpilger26/NumCpp/tree/master/docs/markdown/ReleaseNotes.md)
 
 ## From NumPy To NumCpp – A Quick Start Guide
 
