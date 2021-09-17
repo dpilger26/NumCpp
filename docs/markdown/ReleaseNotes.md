@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 2.5.1
+
+* Made behavior of `interp` function consistent with `NumPy` when passing in non-sorted data 
+
 ## Version 2.5.0
 
 * added additional `NdArray` slice overloads

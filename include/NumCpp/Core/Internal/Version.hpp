@@ -29,5 +29,5 @@
 
 namespace nc
 {
-    constexpr char VERSION[] = "2.5.0"; ///< Current NumCpp version number
+    constexpr char VERSION[] = "2.5.1"; ///< Current NumCpp version number
 } // namespace nc

@@ -3233,6 +3233,22 @@ def test_interp():
     assert np.array_equal(np.round(NumCpp.interp(cX, cXp, cFp).flatten(), 9),
                           np.round(np.interp(xData, xpData, fpData), 9))
 
+    endPoint = np.random.randint(10, 20, [1, ]).item()
+    numPoints = np.random.randint(50, 100, [1, ]).item()
+    resample = np.random.randint(2, 5, [1, ]).item()
+    xpData = np.linspace(0, endPoint, numPoints, endpoint=True)
+    fpData = np.sin(xpData)
+    xData = np.linspace(0, endPoint, numPoints * resample, endpoint=True)
+    np.random.shuffle(xData)  # NumPy doesn't require ordered data so let's match that behavoir
+    cXp = NumCpp.NdArray(1, numPoints)
+    cFp = NumCpp.NdArray(1, numPoints)
+    cX = NumCpp.NdArray(1, numPoints * resample)
+    cXp.setArray(xpData)
+    cFp.setArray(fpData)
+    cX.setArray(xData)
+    assert np.array_equal(np.round(NumCpp.interp(cX, cXp, cFp).flatten(), 9),
+                          np.round(np.interp(xData, xpData, fpData), 9))
+
 
 ####################################################################################
 def test_intersect1d():

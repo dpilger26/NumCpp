@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.5.0</span>
+   &#160;<span id="projectnumber">2.5.1</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -133,30 +133,37 @@ $(document).ready(function(){initNavTree('_functions_2interp_8hpp_source.html','
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            sortedFp[counter++] = inFp[sortedXpIdx];</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// sort the input inX array</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> sortedX = <a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">sort</a>(inX);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// get the sorted input inX array indices</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;uint32&gt;</a> sortedXIdxs = <a class="code" href="namespacenc.html#a88c217359f5e295649dd0cabe648ce6a">argsort</a>(inX);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(1, inX.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>());</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> currXpIdx = 0;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> currXidx = 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">while</span> (currXidx &lt; sortedX.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>())</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">while</span> (currXidx &lt; inX.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>())</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span> (sortedXp[currXpIdx] &lt;= sortedX[currXidx] &amp;&amp; sortedX[currXidx] &lt;= sortedXp[currXpIdx + 1])</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> percent = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(sortedX[currXidx] - sortedXp[currXpIdx]) /</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                returnArray[currXidx++] = <a class="code" href="namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e">utils::interp</a>(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                ++currXpIdx;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> sortedXIdx = sortedXIdxs[currXidx];</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> x = inX[sortedXIdx];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> xPLow = sortedXp[currXpIdx];</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> xPHigh = sortedXp[currXpIdx + 1];</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> fPLow = sortedFp[currXpIdx];</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> fPHigh = sortedFp[currXpIdx + 1];</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">if</span> (xPLow &lt;= x &amp;&amp; x &lt;= xPHigh)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> percent = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x - xPLow) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(xPHigh - xPLow);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                returnArray[sortedXIdx] = <a class="code" href="namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e">utils::interp</a>(fPLow, fPHigh, percent);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                ++currXidx;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                ++currXpIdx;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}  <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
@@ -168,7 +175,6 @@ $(document).ready(function(){initNavTree('_functions_2interp_8hpp_source.html','
 <div class="ttc" id="anamespacenc_1_1utils_html_a691a52cfcc401340af355bd53869600e"><div class="ttname"><a href="namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e">nc::utils::interp</a></div><div class="ttdeci">constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept</div><div class="ttdef"><b>Definition:</b> Utils/interp.hpp:43</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a5b9584eeac344f9d37beb6be475300ca"><div class="ttname"><a href="namespacenc.html#a5b9584eeac344f9d37beb6be475300ca">nc::interp</a></div><div class="ttdeci">constexpr double interp(dtype inValue1, dtype inValue2, double inPercent) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/interp.hpp:48</div></div>
-<div class="ttc" id="anamespacenc_html_a8273e1ecb5eafba97b7ed5b8f10a6cdf"><div class="ttname"><a href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">nc::sort</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sort(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> sort.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_a88c217359f5e295649dd0cabe648ce6a"><div class="ttname"><a href="namespacenc.html#a88c217359f5e295649dd0cabe648ce6a">nc::argsort</a></div><div class="ttdeci">NdArray&lt; uint32 &gt; argsort(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> argsort.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->

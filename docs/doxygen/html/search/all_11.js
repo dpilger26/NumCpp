@@ -41,7 +41,7 @@ var searchData=
   ['reflect1d_2ehpp_876',['reflect1d.hpp',['../reflect1d_8hpp.html',1,'']]],
   ['reflect2d_877',['reflect2d',['../namespacenc_1_1filter_1_1boundary.html#add9a7d70820161e370ecd37212b1f397',1,'nc::filter::boundary']]],
   ['reflect2d_2ehpp_878',['reflect2d.hpp',['../reflect2d_8hpp.html',1,'']]],
-  ['release_20notes_879',['Release Notes',['../md__c___github__num_cpp_docs_markdown__release_notes.html',1,'']]],
+  ['release_20notes_879',['Release Notes',['../md__c___git_hub__num_cpp_docs_markdown__release_notes.html',1,'']]],
   ['releasenotes_2emd_880',['ReleaseNotes.md',['../_release_notes_8md.html',1,'']]],
   ['remainder_881',['remainder',['../namespacenc.html#a14fb9f7c88fca02b0ef3f5ebd04d9099',1,'nc::remainder(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespacenc.html#a12bfc5b4d937aa0366b70fb15270bd41',1,'nc::remainder(dtype inValue1, dtype inValue2) noexcept']]],
   ['remainder_2ehpp_882',['remainder.hpp',['../remainder_8hpp.html',1,'']]],

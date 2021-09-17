@@ -93,20 +93,27 @@ namespace nc
             sortedFp[counter++] = inFp[sortedXpIdx];
         }
 
-        // sort the input inX array
-        NdArray<dtype> sortedX = sort(inX);
+        // get the sorted input inX array indices
+        NdArray<uint32> sortedXIdxs = argsort(inX);
 
         NdArray<dtype> returnArray(1, inX.size());
 
         uint32 currXpIdx = 0;
         uint32 currXidx = 0;
-        while (currXidx < sortedX.size())
+        while (currXidx < inX.size())
         {
-            if (sortedXp[currXpIdx] <= sortedX[currXidx] && sortedX[currXidx] <= sortedXp[currXpIdx + 1])
+            const auto sortedXIdx = sortedXIdxs[currXidx];
+            const auto x = inX[sortedXIdx];
+            const auto xPLow = sortedXp[currXpIdx];
+            const auto xPHigh = sortedXp[currXpIdx + 1];
+            const auto fPLow = sortedFp[currXpIdx];
+            const auto fPHigh = sortedFp[currXpIdx + 1];
+
+            if (xPLow <= x && x <= xPHigh)
             {
-                const double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
-                    static_cast<double>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);
-                returnArray[currXidx++] = utils::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
+                const double percent = static_cast<double>(x - xPLow) / static_cast<double>(xPHigh - xPLow);
+                returnArray[sortedXIdx] = utils::interp(fPLow, fPHigh, percent);
+                ++currXidx;
             }
             else
             {
