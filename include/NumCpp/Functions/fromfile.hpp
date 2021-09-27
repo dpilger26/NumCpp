@@ -42,19 +42,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Construct an array from data in a text or binary file.
+    ///						Construct an array from data in a binary file.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
     /// @param				inFilename
-    /// @param				inSep: Separator between items if file is a text file. Empty ("")
-    ///							separator means the file should be treated as binary.
-    ///							Right now the only supported seperators are " ", "\t", "\n"
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
+    NdArray<dtype> fromfile(const std::string& inFilename)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -63,80 +60,84 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
         }
 
-        if (inSep.empty())
-        {
-            // read in as binary file
-            std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
-            if (!file.is_open())
-            {
-                THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
-            }
-
-            file.seekg(0, std::ifstream::end);
-            const uint32 fileSize = static_cast<uint32>(file.tellg());
-            file.seekg(0, std::ifstream::beg);
-
-            std::vector<char> fileBuffer;
-            fileBuffer.reserve(fileSize);
-            file.read(fileBuffer.data(), fileSize);
-
-            if (file.bad() || file.fail())
-            {
-                THROW_INVALID_ARGUMENT_ERROR("error occured while reading the file");
-            }
-
-            file.close();
-
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.data()), fileSize / sizeof(dtype));
-
-            return returnArray;
-        }
-        
-        // read in as txt file
-        if (!(inSep == " " || inSep == "\t" || inSep == "\n"))
-        {
-            THROW_INVALID_ARGUMENT_ERROR("only [' ', '\\t', '\\n'] seperators are supported");
-        }
-
-        std::vector<dtype> values;
-
-        std::ifstream file(inFilename.c_str());
-        if (file.is_open())
-        {
-            uint32 lineNumber = 0;
-            while (!file.eof())
-            {
-                std::string line;
-                std::getline(file, line);
-
-                std::istringstream iss(line);
-                try
-                {
-                    dtype value;
-                    while (iss >> value)
-                    {
-                        values.push_back(value);
-                    }
-                }
-                catch (const std::invalid_argument& ia)
-                {
-                    std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
-                }
-                catch (...)
-                {
-                    std::cout << "Warning: fromfile: line " << lineNumber << std::endl;
-                }
-
-                ++lineNumber;
-            }
-            file.close();
-        }
-        else
+        // read in as binary file
+        std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
+        if (!file.is_open())
         {
             THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
         }
 
-        return NdArray<dtype>(values);
+        file.seekg(0, std::ifstream::end);
+        const uint32 fileSize = static_cast<uint32>(file.tellg());
+        file.seekg(0, std::ifstream::beg);
+
+        std::vector<char> fileBuffer;
+        fileBuffer.reserve(fileSize);
+        file.read(fileBuffer.data(), fileSize);
+
+        if (file.bad() || file.fail())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("error occured while reading the file");
+        }
+
+        file.close();
+
+        NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.data()), fileSize / sizeof(dtype));
+
+        return returnArray;
+    }
         
+    //============================================================================
+    // Method Description:
+    ///						Construct an array from data in a text file.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
+    ///
+    /// @param				inFilename
+    /// @param				inSep: Delimiter separator between values in the file
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> fromfile(const std::string& inFilename, const char inSep)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        std::ifstream file(inFilename.c_str());
+        if (!file.is_open())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
+        }
+
+        std::vector<dtype> values;
+        uint32 lineNumber = 0;
+        while (!file.eof())
+        {
+            std::string line;
+            std::getline(file, line, inSep);
+
+            std::istringstream iss(line);
+            try
+            {
+                dtype value;
+                while (iss >> value)
+                {
+                    values.push_back(value);
+                }
+            }
+            catch (const std::invalid_argument& ia)
+            {
+                std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
+            }
+            catch (...)
+            {
+                std::cout << "Warning: fromfile: line " << lineNumber << std::endl;
+            }
+
+            ++lineNumber;
+        }
+        file.close();
+
+        return NdArray<dtype>(values);
     }
 }  // namespace nc
