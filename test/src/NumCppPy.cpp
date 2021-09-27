@@ -4297,6 +4297,12 @@ namespace LinalgInterface
         auto& p = std::get<2>(lup);
         return pb11::make_tuple(nc2pybind(l), nc2pybind(u), nc2pybind(p));
     }
+
+    template<typename dtype>
+    pbArray<double> solve(const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    {
+        return nc2pybind(linalg::solve(inA, inB));
+    }
 }  // namespace LinalgInterface
 
 namespace RotationsInterface
@@ -7884,6 +7890,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("multi_dot", &LinalgInterface::multi_dot<double>);
     m.def("multi_dot", &LinalgInterface::multi_dot<ComplexDouble>);
     m.def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
+    m.def("solve", &LinalgInterface::solve<double>);
     m.def("svd", &linalg::svd<double>);
 
     // Rotations.hpp

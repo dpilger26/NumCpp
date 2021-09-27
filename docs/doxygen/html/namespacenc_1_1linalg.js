@@ -13,5 +13,6 @@ var namespacenc_1_1linalg =
     [ "matrix_power", "namespacenc_1_1linalg.html#ad27c1996e4e27a6f8ba5d2aed0743bba", null ],
     [ "multi_dot", "namespacenc_1_1linalg.html#a86ab79e41b748e7ea0ee4f2e0bc462a6", null ],
     [ "pivotLU_decomposition", "namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd", null ],
+    [ "solve", "namespacenc_1_1linalg.html#afe2a5221f8e22e671e9e6eb231516205", null ],
     [ "svd", "namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055", null ]
 ];
