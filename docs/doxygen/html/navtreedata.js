@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "Release Notes", "md__c___git_hub__num_cpp_docs_markdown__release_notes.html", null ],
-    [ "Installation", "md__c___git_hub__num_cpp_docs_markdown__installation.html", null ],
-    [ "Building", "md__c___git_hub__num_cpp_docs_markdown__building.html", null ],
-    [ "Compiler Flags", "md__c___git_hub__num_cpp_docs_markdown__compiler_flags.html", null ],
+    [ "Release Notes", "md__mnt_c__github__num_cpp_docs_markdown__release_notes.html", null ],
+    [ "Installation", "md__mnt_c__github__num_cpp_docs_markdown__installation.html", null ],
+    [ "Building", "md__mnt_c__github__num_cpp_docs_markdown__building.html", null ],
+    [ "Compiler Flags", "md__mnt_c__github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -76,9 +76,9 @@ var NAVTREEINDEX =
 "namespacenc.html#a47dcd15b30a7fd2b977377ebb37cbdb6",
 "namespacenc.html#ab1ac162f983d66eec0f6189325bd1720",
 "namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517",
-"nanmedian_8hpp_source.html",
-"round_8hpp.html#af9c0b27b59e8a7be27130c9f470c4ef3",
-"zeros__like_8hpp.html"
+"nanmedian_8hpp.html#a60fd6cc6607d10bf8fe4913a5daa7f3a",
+"round_8hpp.html#a2a3a666494e7c95975d40ce80b156f0f",
+"zeros_8hpp.html#a8fb3ecc9cc7448e4b5d3d422e499b10e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,12 +1,16 @@
 # Release Notes
 
+## Version 2.6.0
+
+* Added linalg::solve
+
 ## Version 2.5.1
 
 * Made behavior of `interp` function consistent with `NumPy` when passing in non-sorted data 
 
 ## Version 2.5.0
 
-* added additional `NdArray` slice overloads
+* Added additional `NdArray` slice overloads
 * Removed `NO_MULTITHREAD` compiler flag and replaced with `NUMCPP_USE_MULTITHREAD` so that single threaded is now the default
 * renamed `NO_USE_BOOST` compiler flag to `NUMCPP_NO_USE_BOOST`
 * renamed `INCLUDE_BOOST_PYTHON_INTERFACE` compiler flat to `NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE`
@@ -14,12 +18,12 @@
 
 ## Version 2.4.2
 
-* fixed a type error with `percentile` and `nanpercentile`
-* updated doxygen API css
+* Fixed a type error with `percentile` and `nanpercentile`
+* Updated doxygen API css
 
 ## Version 2.4.1
 
-* fixed a build error for multiply defined symbols of `isLittleEndian`
+* Fixed a build error for multiply defined symbols of `isLittleEndian`
 
 ## Version 2.4.0
 

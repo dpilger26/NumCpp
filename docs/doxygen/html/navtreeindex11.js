@@ -2,6 +2,7 @@ var NAVTREEINDEX11 =
 {
 "namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517":[4,0,0,8,4],
 "namespacenc_1_1linalg.html#ae9cdb091717a1c74dc659519d77e0048":[4,0,0,8,5],
+"namespacenc_1_1linalg.html#afe2a5221f8e22e671e9e6eb231516205":[4,0,0,8,13],
 "namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3":[4,0,0,8,3],
 "namespacenc_1_1polynomial.html":[4,0,0,9],
 "namespacenc_1_1polynomial.html#a0ce5634d805736db2082358497bac2f4":[4,0,0,9,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "nanmean_8hpp.html":[6,0,259],
 "nanmean_8hpp.html#acac66186b7fff8d8cdc1dd3f37b98297":[6,0,259,0],
 "nanmean_8hpp_source.html":[6,0,259],
-"nanmedian_8hpp.html":[6,0,260],
-"nanmedian_8hpp.html#a60fd6cc6607d10bf8fe4913a5daa7f3a":[6,0,260,0]
+"nanmedian_8hpp.html":[6,0,260]
 };

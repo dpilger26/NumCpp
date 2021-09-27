@@ -207,6 +207,19 @@ def test_pivotLU_decomposition():
 
 
 ####################################################################################
+def test_solve():
+    sizeInput = np.random.randint(5, 50)
+    shape = NumCpp.Shape(sizeInput)
+    aArray = NumCpp.NdArray(shape)
+    a = np.random.randint(1, 100, [shape.rows, shape.cols])
+    aArray.setArray(a)
+    b = np.random.randint(1, 100, [shape.rows, 1])
+    bArray = NumCpp.NdArray(*b.shape)
+    bArray.setArray(b)
+    assert np.array_equal(np.round(NumCpp.solve(aArray, bArray), 8), np.round(np.linalg.solve(a, b), 8))
+
+
+####################################################################################
 def hat(inVec):
     mat = np.zeros([3, 3])
     mat[0, 1] = -inVec[2]
