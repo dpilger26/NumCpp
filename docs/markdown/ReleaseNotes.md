@@ -2,7 +2,7 @@
 
 ## Version 2.6.0
 
-* Added linalg::solve
+* Added `linalg::solve`
 
 ## Version 2.5.1
 
