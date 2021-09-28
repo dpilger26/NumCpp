@@ -19,7 +19,7 @@ def test_sqr():
     value = np.random.randint(1, 100, [1, ], dtype=np.int64).item()
     assert NumCpp.sqr(value) == value ** 2
 
-    value = np.random.randint(1, 100, [1, ]).astype(np.double).item()
+    value = np.random.randint(1, 100, [1, ]).astype(float).item()
     assert NumCpp.sqr(value) == value ** 2
 
 
@@ -28,7 +28,7 @@ def test_cube():
     value = np.random.randint(1, 100, [1, ], dtype=np.int64).item()
     assert NumCpp.cube(value) == value ** 3
 
-    value = np.random.randint(1, 100, [1, ]).astype(np.double).item()
+    value = np.random.randint(1, 100, [1, ]).astype(float).item()
     assert NumCpp.cube(value) == value ** 3
 
 
@@ -38,11 +38,11 @@ def test_power():
     power = np.random.randint(1, 4, dtype=np.uint8).item()
     assert NumCpp.power(value, power) == np.power(value, power)
 
-    value = np.random.randint(1, 5, [1, ]).astype(np.double).item()
+    value = np.random.randint(1, 5, [1, ]).astype(float).item()
     assert NumCpp.power(value, power) == np.power(value, power)
 
-    real = np.random.rand(1).astype(np.double).item()
-    imag = np.random.rand(1).astype(np.double).item()
+    real = np.random.rand(1).astype(float).item()
+    imag = np.random.rand(1).astype(float).item()
     value = np.complex128(complex(real, imag))
     assert np.round(NumCpp.power(value, power), 5) == np.round(np.power(value, power), 5)
 
@@ -53,14 +53,14 @@ def test_powerf():
     power = np.random.rand(1).item() * 5
     assert NumCpp.powerf(value, power) == np.power(value, power)
 
-    value = np.random.rand(1).astype(np.double).item()
+    value = np.random.rand(1).astype(float).item()
     assert np.round(NumCpp.powerf(value, power), 5) == \
         np.round(np.power(value, power), 5)
 
-    realPower = np.random.rand(1).astype(np.double).item()
-    imagPower = np.random.rand(1).astype(np.double).item()
+    realPower = np.random.rand(1).astype(float).item()
+    imagPower = np.random.rand(1).astype(float).item()
     power = np.complex128(complex(realPower, imagPower))
-    real = np.random.rand(1).astype(np.double).item()
-    imag = np.random.rand(1).astype(np.double).item()
+    real = np.random.rand(1).astype(float).item()
+    imag = np.random.rand(1).astype(float).item()
     value = np.complex128(complex(real, imag))
     assert np.round(NumCpp.powerf_complex(value, power), 5) == np.round(np.float_power(value, power), 5)

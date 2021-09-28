@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"functions_func_j.html":[5,3,1,9],
+"functions_func_k.html":[5,3,1,10],
 "functions_func_l.html":[5,3,1,11],
 "functions_func_m.html":[5,3,1,12],
 "functions_func_n.html":[5,3,1,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "md__mnt_c__github__num_cpp_docs_markdown__compiler_flags.html":[3],
 "md__mnt_c__github__num_cpp_docs_markdown__installation.html":[1],
 "md__mnt_c__github__num_cpp_docs_markdown__release_notes.html":[0],
-"mean_8hpp.html":[6,0,239],
-"mean_8hpp.html#ac0b868e518c5b489ce25b8a84ebc618b":[6,0,239,1],
-"mean_8hpp.html#ae215351046b49fec834d006fd35a4078":[6,0,239,0]
+"mean_8hpp.html":[6,0,239]
 };

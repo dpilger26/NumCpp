@@ -1,12 +1,16 @@
 # Release Notes
 
+## Version 2.6.1
+
+* Added more delimeter support to `fromfile` method
+
 ## Version 2.6.0
 
-* Added linalg::solve
+* Added `linalg::solve`
 
 ## Version 2.5.1
 
-* Made behavior of `interp` function consistent with `NumPy` when passing in non-sorted data 
+* Made behavior of `interp` function consistent with `NumPy` when passing in non-sorted data
 
 ## Version 2.5.0
 

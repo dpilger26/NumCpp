@@ -68,17 +68,17 @@ var NAVTREEINDEX =
 "_random_2beta_8hpp.html#a9cf5ddddc350278c76e077c67b5254ab",
 "arccosh_8hpp.html#a9063e7275b83f3201f74a0014a9b54d5",
 "classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d",
-"classnc_1_1_nd_array_const_iterator.html#a17535e5dcb696923adaa626c86cc3c00",
-"classnc_1_1image_processing_1_1_cluster_maker.html#a870aeb2f713b4efba22a2f978704c215",
-"count__nonzero_8hpp.html",
-"functions_func_l.html",
-"mean_8hpp_source.html",
-"namespacenc.html#a47dcd15b30a7fd2b977377ebb37cbdb6",
-"namespacenc.html#ab1ac162f983d66eec0f6189325bd1720",
-"namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517",
-"nanmedian_8hpp.html#a60fd6cc6607d10bf8fe4913a5daa7f3a",
-"round_8hpp.html#a2a3a666494e7c95975d40ce80b156f0f",
-"zeros_8hpp.html#a8fb3ecc9cc7448e4b5d3d422e499b10e"
+"classnc_1_1_nd_array_const_iterator.html#a171276f9e90a1336d156c61c2b61bd23",
+"classnc_1_1image_processing_1_1_cluster_maker.html#a7d5ceccddb2db3b143c772ec9d66460a",
+"cosh_8hpp_source.html",
+"functions_func_j.html",
+"mean_8hpp.html#ac0b868e518c5b489ce25b8a84ebc618b",
+"namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53",
+"namespacenc.html#aafc4846f2f7956841d356060c9689cba",
+"namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19",
+"nanmean_8hpp.html",
+"rot90_8hpp.html",
+"wrap1d_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

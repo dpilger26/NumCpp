@@ -122,8 +122,8 @@ int main()
 
     auto tempDir = boost::filesystem::temp_directory_path();
     auto tempTxt = (tempDir / "temp.txt").string();
-    a.tofile(tempTxt, "\n");
-    auto a50 = nc::fromfile<int>(tempTxt, "\n");
+    a.tofile(tempTxt, '\n');
+    auto a50 = nc::fromfile<int>(tempTxt, '\n');
 
     auto tempBin = (tempDir / "temp.bin").string();
     nc::dump(a, tempBin);

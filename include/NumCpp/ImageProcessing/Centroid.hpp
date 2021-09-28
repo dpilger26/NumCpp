@@ -129,7 +129,7 @@ namespace nc
             {
                 std::string out;
                 out += "row = " + utils::num2str(row_) + " col = " + utils::num2str(col_);
-                out += " intensity = " + utils::num2str(intensity_) + " eod = " + utils::num2str(eod_) + "\n";
+                out += " intensity = " + utils::num2str(intensity_) + " eod = " + utils::num2str(eod_) + '\n';
 
                 return out;
             }

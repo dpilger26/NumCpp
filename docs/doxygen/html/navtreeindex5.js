@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"classnc_1_1image_processing_1_1_cluster_maker.html#a7d5ceccddb2db3b143c772ec9d66460a":[5,0,0,2,2,4],
 "classnc_1_1image_processing_1_1_cluster_maker.html#a870aeb2f713b4efba22a2f978704c215":[5,0,0,2,2,0],
 "classnc_1_1image_processing_1_1_cluster_maker.html#ae437071bfc291a36745d043ddd4cba1d":[5,0,0,2,2,6],
 "classnc_1_1image_processing_1_1_cluster_maker.html#ae92d75ae626bb18324b0dfe69ee44f25":[5,0,0,2,2,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "cos_8hpp_source.html":[6,0,99],
 "cosh_8hpp.html":[6,0,100],
 "cosh_8hpp.html#a520e0290bb667b43a9f494b3858b5f17":[6,0,100,0],
-"cosh_8hpp.html#abb07133a1f54b24a4a4986eefb5eda85":[6,0,100,1],
-"cosh_8hpp_source.html":[6,0,100]
+"cosh_8hpp.html#abb07133a1f54b24a4a4986eefb5eda85":[6,0,100,1]
 };

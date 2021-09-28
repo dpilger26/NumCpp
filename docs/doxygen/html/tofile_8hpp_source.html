@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.6.0</span>
+   &#160;<span id="projectnumber">2.6.1</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -100,17 +100,25 @@ $(document).ready(function(){initNavTree('tofile_8hpp_source.html',''); initResi
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//============================================================================</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacenc.html#a4a3f6b571a0b4761515a67f98957de2a">   49</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacenc.html#a4a3f6b571a0b4761515a67f98957de2a">tofile</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> std::string&amp; inFilename, <span class="keyword">const</span> std::string&amp; inSep = <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#aea0b5300f1a62b3fa51d0b18e5f0ce38">tofile</a>(inFilename, inSep);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}  <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacenc.html#adf3cdf51801e83c58bc58c606781467d">   48</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacenc.html#adf3cdf51801e83c58bc58c606781467d">tofile</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> std::string&amp; inFilename)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a3533a4192c58304b6be7035098d8e263">tofile</a>(inFilename);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespacenc.html#a7dc5b27b93f5a921a39151714fa78d67">   66</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacenc.html#adf3cdf51801e83c58bc58c606781467d">tofile</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <span class="keyword">const</span> std::string&amp; inFilename, <span class="keyword">const</span> <span class="keywordtype">char</span> inSep)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> inArray.<a class="code" href="classnc_1_1_nd_array.html#a3533a4192c58304b6be7035098d8e263">tofile</a>(inFilename, inSep);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}  <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_aea0b5300f1a62b3fa51d0b18e5f0ce38"><div class="ttname"><a href="classnc_1_1_nd_array.html#aea0b5300f1a62b3fa51d0b18e5f0ce38">nc::NdArray::tofile</a></div><div class="ttdeci">void tofile(const std::string &amp;inFilename, const std::string &amp;inSep=&quot;&quot;) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4666</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a3533a4192c58304b6be7035098d8e263"><div class="ttname"><a href="classnc_1_1_nd_array.html#a3533a4192c58304b6be7035098d8e263">nc::NdArray::tofile</a></div><div class="ttdeci">void tofile(const std::string &amp;inFilename) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4666</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html_a4a3f6b571a0b4761515a67f98957de2a"><div class="ttname"><a href="namespacenc.html#a4a3f6b571a0b4761515a67f98957de2a">nc::tofile</a></div><div class="ttdeci">void tofile(const NdArray&lt; dtype &gt; &amp;inArray, const std::string &amp;inFilename, const std::string &amp;inSep=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> tofile.hpp:49</div></div>
+<div class="ttc" id="anamespacenc_html_adf3cdf51801e83c58bc58c606781467d"><div class="ttname"><a href="namespacenc.html#adf3cdf51801e83c58bc58c606781467d">nc::tofile</a></div><div class="ttdeci">void tofile(const NdArray&lt; dtype &gt; &amp;inArray, const std::string &amp;inFilename)</div><div class="ttdef"><b>Definition:</b> tofile.hpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.6.0</span>
+   &#160;<span id="projectnumber">2.6.1</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -214,8 +214,8 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line"> </div>
 <div class="line">    <span class="keyword">auto</span> tempDir = boost::filesystem::temp_directory_path();</div>
 <div class="line">    <span class="keyword">auto</span> tempTxt = (tempDir / <span class="stringliteral">&quot;temp.txt&quot;</span>).<span class="keywordtype">string</span>();</div>
-<div class="line">    a.tofile(tempTxt, <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line">    <span class="keyword">auto</span> a50 = nc::fromfile&lt;int&gt;(tempTxt, <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    a.tofile(tempTxt, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">    <span class="keyword">auto</span> a50 = nc::fromfile&lt;int&gt;(tempTxt, <span class="charliteral">&#39;\n&#39;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">auto</span> tempBin = (tempDir / <span class="stringliteral">&quot;temp.bin&quot;</span>).<span class="keywordtype">string</span>();</div>
 <div class="line">    <a name="a41"></a><a class="code" href="namespacenc.html#af6e71bd96dbc78f9ca018d2da0a7e653">nc::dump</a>(a, tempBin);</div>

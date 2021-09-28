@@ -145,7 +145,7 @@ namespace nc
             std::string str() const
             {
                 std::string out = "RA hms: " + utils::num2str(hours_) + " hours, " + utils::num2str(minutes_) + " minutes, ";
-                out += utils::num2str(seconds_) + " seconds\nRA degrees: " + utils::num2str(degrees_) + "\n";
+                out += utils::num2str(seconds_) + " seconds\nRA degrees: " + utils::num2str(degrees_) + '\n';
                 return out;
             }
 

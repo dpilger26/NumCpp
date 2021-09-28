@@ -267,7 +267,7 @@ namespace nc
                     {
                         printf("\t%f", operator()(index1, index2));
                     }
-                    printf("\n");
+                    printf('\n');
                 }
             }
 

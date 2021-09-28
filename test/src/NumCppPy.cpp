@@ -1260,6 +1260,22 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    void tofileBinary(const NdArray<dtype>& self, const std::string& filename)
+    {
+        return self.tofile(filename);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void tofileTxt(const NdArray<dtype>& self, const std::string& filename, const char sep)
+    {
+        return self.tofile(filename, sep);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric transpose(const NdArray<dtype>& self)
     {
         return nc2pybind(self.transpose());
@@ -3187,6 +3203,22 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric fromfileBinary(const std::string& inFilename)
+    {
+        return nc2pybind(nc::fromfile<dtype>(inFilename));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fromfileTxt(const std::string& inFilename, const char inSep)
+    {
+        return nc2pybind(nc::fromfile<dtype>(inFilename, inSep));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric fromiter(const NdArray<dtype>& inArray)
     {
         std::vector<dtype> vec(inArray.begin(), inArray.end());
@@ -4064,6 +4096,22 @@ namespace FunctionsInterface
     pbArrayGeneric tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return nc2pybind(tile(inArray, { inNumRows, inNumCols }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void tofileBinary(const NdArray<dtype>& inArray, const std::string& filename)
+    {
+        tofile(inArray, filename);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void tofileTxt(const NdArray<dtype>& inArray, const std::string& filename, const char sep)
+    {
+        tofile(inArray, filename, sep);
     }
 
     //================================================================================
@@ -6615,7 +6663,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("sort", &NdArrayInterface::sort<double>)
         .def("sum", &NdArrayInterface::sum<double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
-        .def("tofile", &NdArrayDouble::tofile)
+        .def("tofile", &NdArrayInterface::tofileBinary<double>)
+        .def("tofile", &NdArrayInterface::tofileTxt<double>)
         .def("toIndices", &NdArrayDouble::toIndices)
         .def("toStlVector", &NdArrayDouble::toStlVector)
         .def("trace", &NdArrayDouble::trace)
@@ -7101,7 +7150,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("sort", &NdArrayInterface::sort<ComplexDouble>)
         .def("sum", &NdArrayInterface::sum<ComplexDouble>)
         .def("swapaxes", &NdArrayInterface::swapaxes<ComplexDouble>)
-        .def("tofile", &NdArrayComplexDouble::tofile)
+        .def("tofile", &NdArrayInterface::tofileBinary<ComplexDouble>)
+        .def("tofile", &NdArrayInterface::tofileTxt<ComplexDouble>)
         .def("toStlVector", &NdArrayComplexDouble::toStlVector)
         .def("trace", &NdArrayComplexDouble::trace)
         .def("transpose", &NdArrayInterface::transpose<ComplexDouble>)
@@ -7371,7 +7421,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
-    m.def("fromfile", &fromfile<double>);
+    m.def("fromfile", &FunctionsInterface::fromfileBinary<double>);
+    m.def("fromfile", &FunctionsInterface::fromfileTxt<double>);
     m.def("fromiter", &FunctionsInterface::fromiter<double>);
     m.def("fromiter", &FunctionsInterface::fromiter<ComplexDouble>);
     m.def("fullSquare", &FunctionsInterface::fullSquare<double>);
@@ -7651,7 +7702,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
     m.def("tileShape", &FunctionsInterface::tileShape<double>);
     m.def("tileList", &FunctionsInterface::tileList<double>);
-    m.def("tofile", &tofile<double>);
+    m.def("tofile", &FunctionsInterface::tofileBinary<double>);
+    m.def("tofile", &FunctionsInterface::tofileTxt<double>);
     m.def("toStlVector", &toStlVector<double>);
     m.def("trace", &trace<double>);
     m.def("trace", &trace<ComplexDouble>);
