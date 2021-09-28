@@ -127,7 +127,7 @@ namespace nc
             }
             catch (const std::invalid_argument& ia)
             {
-                std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
+                std::cout << "Warning: fromfile: line " << lineNumber << '\n' << ia.what() << std::endl;
             }
             catch (...)
             {

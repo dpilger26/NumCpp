@@ -167,7 +167,7 @@ namespace nc
             {
                 std::string strSign = sign_ == Sign::NEGATIVE ? "-" : "+";
                 std::string out = "Dec dms: " + strSign + utils::num2str(degreesWhole_) + " degrees, " + utils::num2str(minutes_) + " minutes, ";
-                out += utils::num2str(seconds_) + " seconds\nDec degrees = " + utils::num2str(degrees_) + "\n";
+                out += utils::num2str(seconds_) + " seconds\nDec degrees = " + utils::num2str(degrees_) + '\n';
                 return out;
             }
 

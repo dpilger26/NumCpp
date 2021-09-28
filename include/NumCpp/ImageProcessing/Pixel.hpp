@@ -142,7 +142,7 @@ namespace nc
             std::string str() const
             {
                 std::string out = "row = " + utils::num2str(row) + " col = " + utils::num2str(col);
-                out += " intensity = " + utils::num2str(intensity) + "\n";
+                out += " intensity = " + utils::num2str(intensity) + '\n';
                 return out;
             }
 
