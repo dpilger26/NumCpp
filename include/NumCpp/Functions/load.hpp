@@ -49,6 +49,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> load(const std::string& inFilename)
     {
-        return fromfile<dtype>(inFilename, "");
+        return fromfile<dtype>(inFilename);
     }
 }  // namespace nc

@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19":[4,0,0,8,1],
+"namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055":[4,0,0,8,14],
+"namespacenc_1_1linalg.html#ad27c1996e4e27a6f8ba5d2aed0743bba":[4,0,0,8,10],
+"namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc":[4,0,0,8,7],
 "namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517":[4,0,0,8,4],
 "namespacenc_1_1linalg.html#ae9cdb091717a1c74dc659519d77e0048":[4,0,0,8,5],
 "namespacenc_1_1linalg.html#afe2a5221f8e22e671e9e6eb231516205":[4,0,0,8,13],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "nancumsum_8hpp_source.html":[6,0,257],
 "nanmax_8hpp.html":[6,0,258],
 "nanmax_8hpp.html#a00ab1c4ed4358cba5e87a3d107720474":[6,0,258,0],
-"nanmax_8hpp_source.html":[6,0,258],
-"nanmean_8hpp.html":[6,0,259],
-"nanmean_8hpp.html#acac66186b7fff8d8cdc1dd3f37b98297":[6,0,259,0],
-"nanmean_8hpp_source.html":[6,0,259],
-"nanmedian_8hpp.html":[6,0,260]
+"nanmax_8hpp_source.html":[6,0,258]
 };

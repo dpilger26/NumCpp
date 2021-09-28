@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"nanmean_8hpp.html":[6,0,259],
+"nanmean_8hpp.html#acac66186b7fff8d8cdc1dd3f37b98297":[6,0,259,0],
+"nanmean_8hpp_source.html":[6,0,259],
+"nanmedian_8hpp.html":[6,0,260],
 "nanmedian_8hpp.html#a60fd6cc6607d10bf8fe4913a5daa7f3a":[6,0,260,0],
 "nanmedian_8hpp_source.html":[6,0,260],
 "nanmin_8hpp.html":[6,0,261],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "roll_8hpp_source.html":[6,0,346],
 "romberg_8hpp.html":[6,0,347],
 "romberg_8hpp.html#a5406412619aa59539dd19f62f0be8caf":[6,0,347,0],
-"romberg_8hpp_source.html":[6,0,347],
-"rot90_8hpp.html":[6,0,349],
-"rot90_8hpp.html#a2f52b32644f8f4da903e9c096d283da6":[6,0,349,0],
-"rot90_8hpp_source.html":[6,0,349],
-"round_8hpp.html":[6,0,351]
+"romberg_8hpp_source.html":[6,0,347]
 };

@@ -99,7 +99,7 @@ def test_quaternion():
             np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
             np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10))
 
-    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcm = cQuat.toDCM()
     cArray = NumCpp.NdArray(3)
@@ -124,8 +124,8 @@ def test_quaternion():
             np.round(conjQuat.k(), 10) == np.round(-unitQuat[2].item(), 10) and
             np.round(conjQuat.s(), 10) == np.round(unitQuat[3].item(), 10))
 
-    myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    myQuat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
     cQuat2 = NumCpp.Quaternion(myQuat2[0].item(), myQuat2[1].item(), myQuat2[2].item(), myQuat2[3].item())
     t = np.random.rand(1).item()
@@ -134,7 +134,7 @@ def test_quaternion():
 
     cQuat1.print()
 
-    myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumCpp.NdArray(3, 1)
@@ -143,7 +143,7 @@ def test_quaternion():
     newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
     assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
-    myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumCpp.NdArray(3, 1)
@@ -152,8 +152,8 @@ def test_quaternion():
     newVecPy = np.array(cQuat.toDCM()).dot(np.array(vec))
     assert np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10))
 
-    myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    myQuat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
     cQuat2 = NumCpp.Quaternion(myQuat2[0].item(), myQuat2[1].item(), myQuat2[2].item(), myQuat2[3].item())
     t = np.random.rand(1).item()
@@ -161,7 +161,7 @@ def test_quaternion():
     interpQuatNlerp = cQuat1.nlerp(cQuat2, t).flatten()
     assert np.array_equal(np.round(interpQuatSlerp, 1), np.round(interpQuatNlerp, 1))
 
-    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat = np.random.randint(1, 5, [4, ]).astype(float)
     unitQuat = quat / quatNorm(quat)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcmPy = quat2dcm(unitQuat)
@@ -180,51 +180,51 @@ def test_quaternion():
     quat = NumCpp.Quaternion.zRotation(radians.item()).toNdArray().getNumpyArray().flatten()
     assert np.array_equal(np.round(quat, 10), np.round(quatRotateZ(radians.item()), 10))
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     assert cQuat1 == cQuat2
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     assert cQuat1 != cQuat2
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatAdd(quat1, quat2)
     res = cQuat1 + cQuat2
     assert np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10))
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatSub(quat1, quat2)
     res = cQuat1 - cQuat2
     assert np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10))
 
-    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     assert np.array_equal(np.round((-cQuat).flatten(), 10), np.round(-quat/np.linalg.norm(quat), 10))
 
-    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     res = cQuat * -1
     assert np.array_equal(np.round(res.flatten(), 10), np.round(-quat / quatNorm(quat), 10))
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatMult(quat1, quat2)
     res = cQuat1 * cQuat2
     assert np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10))
 
-    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     array = np.random.randint(1, 5, [3, 1])
     cArray = NumCpp.NdArray(3, 1)
@@ -232,8 +232,8 @@ def test_quaternion():
     res = cQuat * cArray
     assert np.array_equal(np.round(res.flatten(), 10), np.round(np.dot(cQuat.toDCM(), array).flatten(), 10))
 
-    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
-    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat1 = np.random.randint(1, 5, [4, ]).astype(float)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(float)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatDiv(quat1, quat2)
@@ -278,8 +278,8 @@ def test_dcm():
 
 ####################################################################################
 def test_functions():
-    k = np.random.randint(1, 5, [3, ]).astype(np.double)
-    v = np.random.randint(1, 5, [3, ]).astype(np.double)
+    k = np.random.randint(1, 5, [3, ]).astype(float)
+    v = np.random.randint(1, 5, [3, ]).astype(float)
     theta = np.random.rand(1).item() * np.pi * 2
     vec = NumCpp.rodriguesRotation(k, theta, v).flatten()
 

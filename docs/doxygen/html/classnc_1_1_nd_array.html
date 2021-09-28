@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NumCpp
-   &#160;<span id="projectnumber">2.6.0</span>
+   &#160;<span id="projectnumber">2.6.1</span>
    </div>
    <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
   </td>
@@ -532,8 +532,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a467700098b002b5631c756ca0fd50cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7995ba04b64061dfd931ac58c05826f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a7995ba04b64061dfd931ac58c05826f2">swapaxes</a> () const</td></tr>
 <tr class="separator:a7995ba04b64061dfd931ac58c05826f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea0b5300f1a62b3fa51d0b18e5f0ce38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#aea0b5300f1a62b3fa51d0b18e5f0ce38">tofile</a> (const std::string &amp;inFilename, const std::string &amp;inSep=&quot;&quot;) const</td></tr>
-<tr class="separator:aea0b5300f1a62b3fa51d0b18e5f0ce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3533a4192c58304b6be7035098d8e263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a3533a4192c58304b6be7035098d8e263">tofile</a> (const std::string &amp;inFilename) const</td></tr>
+<tr class="separator:a3533a4192c58304b6be7035098d8e263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25390a2e453495e50219103d389a62d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a25390a2e453495e50219103d389a62d1">tofile</a> (const std::string &amp;inFilename, const char inSep) const</td></tr>
+<tr class="separator:a25390a2e453495e50219103d389a62d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a151940b3a151f2d15354bb4a9cbb0852"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a151940b3a151f2d15354bb4a9cbb0852">toIndices</a> (<a class="el" href="classnc_1_1_slice.html">Slice</a> inSlice, <a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis=<a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>) const</td></tr>
 <tr class="separator:a151940b3a151f2d15354bb4a9cbb0852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fb3a21ab9c10a2684098df919b5b440"><td class="memItemLeft" align="right" valign="top">std::vector&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a1fb3a21ab9c10a2684098df919b5b440">toStlVector</a> () const</td></tr>
@@ -7830,8 +7832,45 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
 
 </div>
 </div>
-<a id="aea0b5300f1a62b3fa51d0b18e5f0ce38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea0b5300f1a62b3fa51d0b18e5f0ce38">&#9670;&nbsp;</a></span>tofile()</h2>
+<a id="a3533a4192c58304b6be7035098d8e263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3533a4192c58304b6be7035098d8e263">&#9670;&nbsp;</a></span>tofile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype, Allocator &gt;::tofile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inFilename</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p class="">Write array to a file as binary. The data produced by this method can be recovered using the function <a class="el" href="namespacenc.html#a1f10b3d839d24d71df9c92e3f9794a14">fromfile()</a>.</p>
+<p class="">Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inFilename</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+</div>
+</div>
+<a id="a25390a2e453495e50219103d389a62d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25390a2e453495e50219103d389a62d1">&#9670;&nbsp;</a></span>tofile() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7850,8 +7889,8 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>inSep</em> = <code>&quot;&quot;</code>&#160;</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>inSep</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -7865,12 +7904,12 @@ template&lt;typename dtype , class Allocator  = std::allocator&lt;dtype&gt;&gt; 
   </tr>
 </table>
 </div><div class="memdoc">
-<p class="">Write array to a file as text or binary (default).. The data produced by this method can be recovered using the function <a class="el" href="namespacenc.html#ae299ba41f67aeade5634e93fd8b417c9">fromfile()</a>.</p>
+<p class="">Write array to a file as text. The data produced by this method can be recovered using the function <a class="el" href="namespacenc.html#a1f10b3d839d24d71df9c92e3f9794a14">fromfile()</a>.</p>
 <p class="">Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inFilename</td><td></td></tr>
-    <tr><td class="paramname">inSep</td><td>Separator between array items for text output. If "" (empty), a binary file is written </td></tr>
+    <tr><td class="paramname">inSep</td><td>Separator between array items for text output. </td></tr>
   </table>
   </dd>
 </dl>

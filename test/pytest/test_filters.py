@@ -45,7 +45,7 @@ def test_convolve1d():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, [size, ]).astype(np.double)
+        data = np.random.randint(100, 1000, [size, ]).astype(float)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -65,7 +65,7 @@ def test_gaussianFilter1d():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, [size, ]).astype(np.double)
+        data = np.random.randint(100, 1000, [size, ]).astype(float)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -137,7 +137,7 @@ def test_percentileFilter1d():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, [size, ]).astype(np.double)
+        data = np.random.randint(100, 1000, [size, ]).astype(float)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -160,7 +160,7 @@ def test_rankFilter1d():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, [size, ]).astype(np.double)
+        data = np.random.randint(100, 1000, [size, ]).astype(float)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -178,7 +178,7 @@ def test_uniformFilter1d():
         size = np.random.randint(1000, 2000, [1, ]).item()
         cShape = NumCpp.Shape(1, size)
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, [size, ]).astype(np.double)
+        data = np.random.randint(100, 1000, [size, ]).astype(float)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
@@ -213,13 +213,13 @@ def test_convolve():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(10, 20, shape).astype(np.double)  # noqa
+        data = np.random.randint(10, 20, shape).astype(float)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1, ]).item()  # only actaully needed for constant boundary condition
-        weights = np.random.randint(-2, 3, [kernalSize, kernalSize]).astype(np.double)
+        weights = np.random.randint(-2, 3, [kernalSize, kernalSize]).astype(float)
         cWeights = NumCpp.NdArray(kernalSize)
         cWeights.setArray(weights)
         dataOutC = NumCpp.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
@@ -233,7 +233,7 @@ def test_gaussianFilter():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
+        data = np.random.randint(100, 1000, shape).astype(float)  # noqa
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1, ]).item()  # only actaully needed for constant boundary condition
         sigma = np.random.rand(1).item() * 2
@@ -248,7 +248,7 @@ def test_laplaceFilter():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
+        data = np.random.randint(100, 1000, shape).astype(float)  # noqa
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1, ]).item()  # only actaully needed for constant boundary condition
         dataOutC = NumCpp.laplaceFilter(cArray, modes[mode], constantValue).getNumpyArray()
@@ -349,7 +349,7 @@ def test_uniform_filter():
         shape = np.random.randint(100, 200, [2, ]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])  # noqa
         cArray = NumCpp.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)  # noqa
+        data = np.random.randint(100, 1000, shape).astype(float)  # noqa
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:

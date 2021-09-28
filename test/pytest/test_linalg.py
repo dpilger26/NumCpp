@@ -24,21 +24,21 @@ def test_det():
     order = 2
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
 
     order = 3
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
 
     order = np.random.randint(4, 8, [1, ]).item()
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
 
@@ -115,7 +115,7 @@ def test_matrix_power():
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(np.double)
+    data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     power = np.random.randint(2, 9, [1, ]).item()
     assert np.array_equal(NumCpp.matrix_power(cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power))

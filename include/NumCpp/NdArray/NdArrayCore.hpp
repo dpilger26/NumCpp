@@ -4652,50 +4652,63 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Write array to a file as text or binary (default)..
+        ///						Write array to a file as binary.
         ///						The data produced by this method can be recovered
         ///						using the function fromfile().
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
         /// @param				inFilename
-        /// @param				inSep: Separator between array items for text output. If "" (empty), a binary file is written
+
         /// @return
         ///				None
         ///
-        void tofile(const std::string& inFilename, const std::string& inSep = "") const
+        void tofile(const std::string& inFilename) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            if (inSep.empty())
-            {
-                dump(inFilename);
-            }
-            else
-            {
-                filesystem::File f(inFilename);
-                if (!f.hasExt())
-                {
-                    f.withExt("txt");
-                }
+            dump(inFilename);
+        }
 
-                std::ofstream ofile(f.fullName().c_str());
-                if (!ofile.good())
-                {
-                    THROW_RUNTIME_ERROR("Input file could not be opened:\n\t" + inFilename);
-                }
+        //============================================================================
+        // Method Description:
+        ///						Write array to a file as text.
+        ///						The data produced by this method can be recovered
+        ///						using the function fromfile().
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
+        ///
+        /// @param				inFilename
+        /// @param				inSep: Separator between array items for text output.
+        /// @return
+        ///				None
+        ///
+        void tofile(const std::string& inFilename, const char inSep) const
+        {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-                uint32 counter = 0;
-                for (auto value : *this)
-                {
-                    ofile << value;
-                    if (counter++ != size_ - 1)
-                    {
-                        ofile << inSep;
-                    }
-                }
-                ofile.close();
+            filesystem::File f(inFilename);
+            if (!f.hasExt())
+            {
+                f.withExt("txt");
             }
+
+            std::ofstream ofile(f.fullName().c_str());
+            if (!ofile.good())
+            {
+                THROW_RUNTIME_ERROR("Input file could not be opened:\n\t" + inFilename);
+            }
+
+            uint32 counter = 0;
+            for (auto value : *this)
+            {
+                ofile << value;
+                if (counter++ != size_ - 1)
+                {
+                    ofile << inSep;
+                }
+            }
+            ofile.close();
         }
 
         //============================================================================
