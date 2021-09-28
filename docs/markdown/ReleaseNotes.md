@@ -2,7 +2,7 @@
 
 ## Version 2.6.1
 
-* Added more delimeter support to `fromfile` method
+* Added more delimiter support to `fromfile` method
 
 ## Version 2.6.0
 
