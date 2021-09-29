@@ -4665,8 +4665,6 @@ namespace nc
         ///
         void tofile(const std::string& inFilename) const
         {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
-
             dump(inFilename);
         }
 

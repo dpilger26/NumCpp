@@ -1,5 +1,10 @@
 # Release Notes
 
+
+## Version 2.6.2
+
+* `tofile` and `fromfile` will now work for generic struct dtypes
+
 ## Version 2.6.1
 
 * Added more delimiter support to `fromfile` method
