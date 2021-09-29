@@ -53,8 +53,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         if (!filesystem::File(inFilename).exists())
         {
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
