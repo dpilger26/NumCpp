@@ -1,6 +1,5 @@
 # Release Notes
 
-
 ## Version 2.6.2
 
 * `tofile` and `fromfile` will now work for generic struct dtypes
