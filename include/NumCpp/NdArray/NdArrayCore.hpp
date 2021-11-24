@@ -2158,9 +2158,10 @@ namespace nc
                 case Axis::COL:
                 {
                     NdArray<uint32> returnArray(shape_);
+                    std::vector<uint32> idx(shape_.cols);
+
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
@@ -2181,9 +2182,10 @@ namespace nc
                 {
                     NdArray<dtype> arrayTransposed = transpose();
                     NdArray<uint32> returnArray(shape_.cols, shape_.rows);
+                    std::vector<uint32> idx(arrayTransposed.shape_.cols);
+
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
