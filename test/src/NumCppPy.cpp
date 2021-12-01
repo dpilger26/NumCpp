@@ -7417,8 +7417,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("fminScaler", &FunctionsInterface::fminScaler<ComplexDouble>);
     m.def("fminArray", &FunctionsInterface::fminArray<double>);
     m.def("fminArray", &FunctionsInterface::fminArray<ComplexDouble>);
-    m.def("fmodScaler", &FunctionsInterface::fmodScaler<uint32>);
-    m.def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
+    m.def("fmodScalerInt", &FunctionsInterface::fmodScaler<uint32>);
+    m.def("fmodArrayInt", &FunctionsInterface::fmodArray<uint32>);
+    m.def("fmodScalerFloat", &FunctionsInterface::fmodScaler<double>);
+    m.def("fmodArrayFloat", &FunctionsInterface::fmodArray<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
     m.def("fromfile", &FunctionsInterface::fromfileBinary<double>);

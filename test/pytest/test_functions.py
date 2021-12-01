@@ -2872,7 +2872,7 @@ def test_fmin():
 def test_fmod():
     value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
-    assert NumCpp.fmodScaler(value1, value2) == np.fmod(value1, value2)
+    assert NumCpp.fmodScalerInt(value1, value2) == np.fmod(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2882,7 +2882,21 @@ def test_fmod():
     data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32) * 100 + 1000
     cArray1.setArray(data1)
     cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.fmodArray(cArray1, cArray2), np.fmod(data1, data2))
+    assert np.array_equal(NumCpp.fmodArrayInt(cArray1, cArray2), np.fmod(data1, data2))
+
+    value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
+    value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
+    assert NumCpp.fmodScalerFloat(value1, value2) == np.fmod(value1, value2)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.fmodArrayFloat(cArray1, cArray2), np.fmod(data1, data2))
 
 
 ####################################################################################

@@ -28,10 +28,11 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <cmath>
 #include <string>
 
 namespace nc
@@ -48,12 +49,30 @@ namespace nc
     /// @return
     ///				value
     ///
-    template<typename dtype>
+    template<typename dtype, 
+        enable_if_t<is_integral_v<dtype>, int> = 0>
     dtype fmod(dtype inValue1, dtype inValue2) noexcept 
     {
-        STATIC_ASSERT_INTEGER(dtype);
-
         return inValue1 % inValue2;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the remainder of division.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    ///
+    ///
+    /// @param				inValue1
+    /// @param				inValue2
+    /// @return
+    ///				value
+    ///
+    template<typename dtype, 
+        enable_if_t<is_floating_point_v<dtype>, int> = 0>
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept 
+    {
+        return std::fmod(inValue1, inValue2);
     }
 
     //============================================================================
