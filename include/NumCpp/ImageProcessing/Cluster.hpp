@@ -335,7 +335,7 @@ namespace nc
             {
                 std::string out;
                 uint32 counter = 0;
-                stl_algorithms::for_each(begin(), end(),
+                std::for_each(begin(), end(),
                     [&](const Pixel<dtype>& pixel)
                     {
                         out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str();
