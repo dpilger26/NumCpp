@@ -70,7 +70,7 @@ namespace nc
     {
         NdArray<decltype(nc::real(std::complex<dtype>{0}))> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](auto& inValue)  -> auto
+            [](auto& inValue) -> auto
             {
                 return nc::real(inValue);
             });

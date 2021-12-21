@@ -2063,7 +2063,7 @@ namespace NdArrayInterface
 namespace FunctionsInterface
 {
     template<typename dtype>
-    auto absScaler(dtype inValue)  -> decltype(abs(inValue)) // trailing return type to help gcc
+    auto absScaler(dtype inValue) -> decltype(abs(inValue)) // trailing return type to help gcc
     {
         return abs(inValue);
     }
@@ -2207,7 +2207,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinScaler(dtype inValue)  -> decltype(arcsin(inValue)) // trailing return type to help gcc
+    auto arcsinScaler(dtype inValue) -> decltype(arcsin(inValue)) // trailing return type to help gcc
     {
         return arcsin(inValue);
     }
@@ -2223,7 +2223,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinhScaler(dtype inValue)  -> decltype(arcsinh(inValue)) // trailing return type to help gcc
+    auto arcsinhScaler(dtype inValue) -> decltype(arcsinh(inValue)) // trailing return type to help gcc
     {
         return arcsinh(inValue);
     }
@@ -2239,7 +2239,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanScaler(dtype inValue)  -> decltype(arctan(inValue)) // trailing return type to help gcc
+    auto arctanScaler(dtype inValue) -> decltype(arctan(inValue)) // trailing return type to help gcc
     {
         return arctan(inValue);
     }
@@ -2271,7 +2271,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanhScaler(dtype inValue)  -> decltype(arctanh(inValue)) // trailing return type to help gcc
+    auto arctanhScaler(dtype inValue) -> decltype(arctanh(inValue)) // trailing return type to help gcc
     {
         return arctanh(inValue);
     }
@@ -2830,7 +2830,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto cosScaler(dtype inValue)  -> decltype(cos(inValue)) // trailing return type to help gcc
+    auto cosScaler(dtype inValue) -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
     }
@@ -2846,7 +2846,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto coshScaler(dtype inValue)  -> decltype(cosh(inValue)) // trailing return type to help gcc
+    auto coshScaler(dtype inValue) -> decltype(cosh(inValue)) // trailing return type to help gcc
     {
         return cosh(inValue);
     }
@@ -3014,7 +3014,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto expScaler(dtype inValue)  -> decltype(exp(inValue)) // trailing return type to help gcc
+    auto expScaler(dtype inValue) -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
     }
@@ -3467,7 +3467,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto logScaler(dtype inValue)  -> decltype(log(inValue)) // trailing return type to help gcc
+    auto logScaler(dtype inValue) -> decltype(log(inValue)) // trailing return type to help gcc
     {
         return log(inValue);
     }
@@ -3483,7 +3483,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto log10Scaler(dtype inValue)  -> decltype(log10(inValue)) // trailing return type to help gcc
+    auto log10Scaler(dtype inValue) -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
     }
@@ -3957,7 +3957,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinScaler(dtype inValue)  -> decltype(sin(inValue)) // trailing return type to help gcc
+    auto sinScaler(dtype inValue) -> decltype(sin(inValue)) // trailing return type to help gcc
     {
         return sin(inValue);
     }
@@ -3989,7 +3989,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinhScaler(dtype inValue)  -> decltype(sinh(inValue)) // trailing return type to help gcc
+    auto sinhScaler(dtype inValue) -> decltype(sinh(inValue)) // trailing return type to help gcc
     {
         return sinh(inValue);
     }
@@ -4005,7 +4005,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sqrtScaler(dtype inValue)  -> decltype(sqrt(inValue)) // trailing return type to help gcc
+    auto sqrtScaler(dtype inValue) -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
     }
@@ -4045,7 +4045,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanScaler(dtype inValue)  -> decltype(tan(inValue)) // trailing return type to help gcc
+    auto tanScaler(dtype inValue) -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
     }
@@ -4061,7 +4061,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanhScaler(dtype inValue)  -> decltype(tanh(inValue)) // trailing return type to help gcc
+    auto tanhScaler(dtype inValue) -> decltype(tanh(inValue)) // trailing return type to help gcc
     {
         return tanh(inValue);
     }
@@ -6805,6 +6805,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>);
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>);
+
+    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<double>);
+    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<double>);
+    m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<double>);
 
     m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScaler<uint32>);
     m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScalerReversed<uint32>);

@@ -54,7 +54,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double squareSum = 0.0;
-        const auto function = [&squareSum](dtype value)  -> void
+        const auto function = [&squareSum](dtype value) -> void
         {
             squareSum += utils::sqr(static_cast<double>(value));
         };
@@ -116,7 +116,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> squareSum = 0.0;
-        const auto function = [&squareSum](std::complex<dtype> value)  -> void
+        const auto function = [&squareSum](std::complex<dtype> value) -> void
         {
             squareSum += utils::sqr(complex_cast<double>(value));
         };

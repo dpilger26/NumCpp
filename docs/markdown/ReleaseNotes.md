@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 2.6.3
+
+* added `select` function
+* `fmod` and the modulus `%` operator now work with float dtypes
+* minor performance improvements
+
 ## Version 2.6.2
 
 * `tofile` and `fromfile` will now work for generic struct dtypes

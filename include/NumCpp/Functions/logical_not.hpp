@@ -52,7 +52,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> bool
+            [](dtype inValue) -> bool
             { 
                 return inValue == dtype{ 0 };
             });

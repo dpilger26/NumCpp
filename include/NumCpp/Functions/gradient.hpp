@@ -126,7 +126,7 @@ namespace nc
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
                 stl_algorithms::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](dtype value1, dtype value2)  -> double
+                    [](dtype value1, dtype value2) -> double
                     { 
                         return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; 
                     });
@@ -224,7 +224,7 @@ namespace nc
                 returnArray[-1] = complex_cast<double>(inArray[-1]) - complex_cast<double>(inArray[-2]);
 
                 stl_algorithms::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](const std::complex<dtype>& value1, const std::complex<dtype>& value2)  -> std::complex<double>
+                    [](const std::complex<dtype>& value1, const std::complex<dtype>& value2) -> std::complex<double>
                     { 
                         return (complex_cast<double>(value1) - complex_cast<double>(value2)) / 2.0; 
                     });

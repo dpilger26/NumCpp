@@ -91,7 +91,7 @@ namespace nc
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
-            [&returnArray, &counter](std::complex<dtype> value)  -> void
+            [&returnArray, &counter](std::complex<dtype> value) -> void
             { 
                 returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value);
             });

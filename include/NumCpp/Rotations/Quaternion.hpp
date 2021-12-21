@@ -311,7 +311,7 @@ namespace nc
 
                 stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
-                    [inPercent, oneMinus](double component1, double component2)  -> double
+                    [inPercent, oneMinus](double component1, double component2) -> double
                     {
                         return oneMinus * component1 + inPercent * component2;
                     });

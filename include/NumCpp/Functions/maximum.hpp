@@ -68,7 +68,7 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray1.shape());
         stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [comparitor](dtype inValue1, dtype inValue2)  -> dtype
+            [comparitor](dtype inValue1, dtype inValue2) -> dtype
             { 
                 return std::max(inValue1, inValue2, comparitor);
             });

@@ -31,11 +31,13 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <algorithm>
+#include <cmath>
 #include <complex>
 #include <functional>
 
@@ -108,7 +110,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value += rhs;
         };
@@ -132,7 +134,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype>& value)  -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) -> std::complex<dtype>
         {
             return value += rhs;
         };
@@ -226,7 +228,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype value)  -> dtype 
+        const auto function = [rhs](dtype value) -> dtype 
         {
             return value + rhs;
         };
@@ -265,7 +267,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) -> std::complex<dtype> 
         {
             return value + rhs;
         };
@@ -304,7 +306,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return value + rhs;
         };
@@ -397,7 +399,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value -= rhs;
         };
@@ -421,7 +423,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype>& value)  -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) -> std::complex<dtype>
         {
             return value -= rhs;
         };
@@ -532,7 +534,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype value)  -> dtype 
+        const auto function = [rhs](dtype value) -> dtype 
         {
             return value - rhs;
         };
@@ -557,7 +559,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [lhs](dtype value)  -> dtype 
+        const auto function = [lhs](dtype value) -> dtype 
         {
             return lhs - value;
         };
@@ -582,7 +584,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) -> std::complex<dtype> 
         {
             return value - rhs;
         };
@@ -607,7 +609,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [lhs](dtype value) -> std::complex<dtype> 
         {
             return lhs - value;
         };
@@ -632,7 +634,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return value - rhs;
         };
@@ -657,7 +659,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [lhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return lhs - value;
         };
@@ -678,7 +680,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) 
     {
-        const auto function = [](dtype value)  -> dtype
+        const auto function = [](dtype value) -> dtype
         {
             return -value;
         };
@@ -755,7 +757,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value *= rhs;
         };
@@ -779,7 +781,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype>& value)  -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) -> std::complex<dtype>
         {
             return value *= rhs;
         };
@@ -873,7 +875,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype value)  -> dtype 
+        const auto function = [rhs](dtype value) -> dtype 
         {
             return value * rhs;
         };
@@ -912,7 +914,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) -> std::complex<dtype> 
         {
             return value * rhs;
         };
@@ -951,7 +953,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return value * rhs;
         };
@@ -1044,7 +1046,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value /= rhs;
         };
@@ -1068,7 +1070,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype>& value)  -> std::complex<dtype>
+        const auto function = [rhs](std::complex<dtype>& value) -> std::complex<dtype>
         {
             return value /= rhs;
         };
@@ -1179,7 +1181,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [rhs](dtype value)  -> dtype 
+        const auto function = [rhs](dtype value) -> dtype 
         {
             return value / rhs;
         };
@@ -1204,7 +1206,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto function = [lhs](dtype value)  -> dtype 
+        const auto function = [lhs](dtype value) -> dtype 
         {
             return lhs / value;
         };
@@ -1229,7 +1231,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [rhs](dtype value) -> std::complex<dtype> 
         {
             return value / rhs;
         };
@@ -1254,7 +1256,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](dtype value)  -> std::complex<dtype> 
+        const auto function = [lhs](dtype value) -> std::complex<dtype> 
         {
             return lhs / value;
         };
@@ -1279,7 +1281,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [rhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [rhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return value / rhs;
         };
@@ -1304,7 +1306,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [lhs](std::complex<dtype> value)  -> std::complex<dtype> 
+        const auto function = [lhs](std::complex<dtype> value) -> std::complex<dtype> 
         {
             return lhs / value;
         };
@@ -1324,18 +1326,43 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype>
+    template<typename dtype,
+        enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
         if (lhs.shape() != rhs.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        stl_algorithms::transform(lhs.begin(), lhs.end(), 
-            rhs.cbegin(), lhs.begin(), std::modulus<dtype>());
+        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::modulus<dtype>());
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Modulus the elements of two arrays
+    ///
+    /// @param      lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype,
+        enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
+    {
+        if (lhs.shape() != rhs.shape())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+        }
+
+        const auto function = [](const dtype value1, const dtype value2) -> dtype
+        {
+            return std::fmod(value1, value2);
+        };
+
+        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
 
         return lhs;
     }
@@ -1349,14 +1376,36 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
+    template<typename dtype,
+        enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs) 
     {
-        STATIC_ASSERT_ARITHMETIC(dtype);
-
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value %= rhs;
+        };
+
+        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+
+        return lhs;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Modulus the scaler to the array
+    ///
+    /// @param      lhs
+    ///	@param      rhs
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype,
+        enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs) 
+    {
+        const auto function = [rhs](dtype& value) -> void
+        {
+            value = std::fmod(value, rhs);
         };
 
         stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
@@ -1404,14 +1453,37 @@ namespace nc
     /// @param      rhs
     /// @return     NdArray
     ///
-    template<typename dtype>
+    template<typename dtype,
+        enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs) 
     {
         NdArray<dtype> returnArray(rhs.shape());
         stl_algorithms::transform(rhs.begin(), rhs.end(), returnArray.begin(),
-            [lhs](dtype value)  -> dtype
+            [lhs](dtype value) -> dtype
             {
                 return lhs % value;
+            });
+
+        return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Modulus of the scaler and the array
+    ///
+    ///	@param  	lhs
+    /// @param      rhs
+    /// @return     NdArray
+    ///
+    template<typename dtype,
+        enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs) 
+    {
+        NdArray<dtype> returnArray(rhs.shape());
+        stl_algorithms::transform(rhs.begin(), rhs.end(), returnArray.begin(),
+            [lhs](dtype value) -> dtype
+            {
+                return std::fmod(lhs, value);
             });
 
         return returnArray;
@@ -1455,7 +1527,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value |= rhs;
         };
@@ -1549,7 +1621,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value &= rhs;
         };
@@ -1643,7 +1715,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [rhs](dtype& value)  -> dtype
+        const auto function = [rhs](dtype& value) -> dtype
         {
             return value ^= rhs;
         };
@@ -1711,7 +1783,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [](dtype value)  -> dtype
+        const auto function = [](dtype value) -> dtype
         {
             return ~value;
         };
@@ -1742,7 +1814,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto function = [](dtype value1, dtype value2)  -> bool
+        const auto function = [](dtype value1, dtype value2) -> bool
         {
             return value1 && value2;
         };
@@ -1769,7 +1841,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [rhs](dtype value)  -> bool
+        const auto function = [rhs](dtype value) -> bool
         {
             return value && rhs;
         };
@@ -1812,7 +1884,7 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto function = [](dtype value1, dtype value2)  -> bool
+        const auto function = [](dtype value1, dtype value2) -> bool
         {
             return value1 || value2;
         };
@@ -1839,7 +1911,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [rhs](dtype value)  -> bool
+        const auto function = [rhs](dtype value) -> bool
         {
             return value || rhs;
         };
@@ -1878,7 +1950,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
 
-        const auto function = [](dtype value)  -> dtype
+        const auto function = [](dtype value) -> dtype
         {
             return !value;
         };
@@ -2390,7 +2462,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [inNumBits](dtype& value)  -> void
+        const auto function = [inNumBits](dtype& value) -> void
         {
             value <<= inNumBits;
         };
@@ -2433,7 +2505,7 @@ namespace nc
     {
         STATIC_ASSERT_INTEGER(dtype);
 
-        const auto function = [inNumBits](dtype& value)  -> void
+        const auto function = [inNumBits](dtype& value) -> void
         {
             value >>= inNumBits;
         };
@@ -2474,7 +2546,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [](dtype& value)  -> void
+        const auto function = [](dtype& value) -> void
         {
             ++value;
         };
@@ -2512,7 +2584,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto function = [](dtype& value)  -> void
+        const auto function = [](dtype& value) -> void
         {
             --value;
         };

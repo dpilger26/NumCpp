@@ -1908,7 +1908,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -1964,7 +1964,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -2234,7 +2234,7 @@ namespace nc
             }
             else
             {
-                const auto function = [](dtype value)  -> dtypeOut
+                const auto function = [](dtype value) -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
                 };
@@ -2263,7 +2263,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const_reference value)  -> dtypeOut
+            const auto function = [](const_reference value) -> dtypeOut
             {
                 return std::complex<typename dtypeOut::value_type>(value);
             };
@@ -2326,7 +2326,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const_reference value)  -> dtypeOut
+            const auto function = [](const_reference value) -> dtypeOut
             {
                 return static_cast<dtypeOut>(value.real());
             };
@@ -3539,7 +3539,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };

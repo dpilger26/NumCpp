@@ -55,7 +55,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::remainder(static_cast<double>(inValue1), static_cast<double>(inValue2));
+        return static_cast<double>(std::remainder(inValue1, inValue2));
     }
 
     //============================================================================

@@ -100,7 +100,7 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, uint8 inExponent)  -> dtype
+            [](dtype inValue, uint8 inExponent) -> dtype
             {
                 return nc::power(inValue, inExponent);
             });

@@ -130,7 +130,7 @@ namespace nc
             {
                 auto newCoefficients = NdArray<dtypeOut>(1, static_cast<uint32>(coefficients_.size()));
 
-                const auto function = [](dtype value)  -> dtypeOut
+                const auto function = [](dtype value) -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
                 };

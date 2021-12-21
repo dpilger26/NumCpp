@@ -61,13 +61,13 @@ namespace nc
             case Axis::NONE:
             {
                 auto sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2)  -> dtype
+                    [](dtype inValue1, dtype inValue2) -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                     }));
 
                 const auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2)  -> dtype
+                    [](dtype inValue1, dtype inValue2) -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                     }));
@@ -83,13 +83,13 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     auto sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         {
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                         }));
 
                     auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));
@@ -107,13 +107,13 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     auto sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; 
                         }));
 
                     auto numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));
