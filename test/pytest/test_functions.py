@@ -3215,6 +3215,13 @@ def test_hamming():
 
 
 ####################################################################################
+def test_hanning():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.hanning(m), 9).flatten(),
+                          np.round(np.hanning(m), 9))
+
+
+####################################################################################
 def test_histogram():
     shape = NumCpp.Shape(1024, 1024)
     cArray = NumCpp.NdArray(shape)

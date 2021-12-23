@@ -5,9 +5,7 @@
  * `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
  * `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
  * `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
- * `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
  * `hammingEncode`, my stuff
- * `hanning`, https://numpy.org/doc/stable/reference/generated/numpy.hanning.html
  * `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
  * `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
  * `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html

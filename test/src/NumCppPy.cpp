@@ -3300,6 +3300,13 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    pbArrayGeneric hanning(nc::int32 m)
+    {
+        return nc2pybind(nc::hanning(m));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric histogramWithEdges(const NdArray<dtype>& inArray, const NdArray<dtype>& inBinEdges)
     {
@@ -7546,6 +7553,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("gradient", &FunctionsInterface::gradient<ComplexDouble>);
 
     m.def("hamming", &FunctionsInterface::hamming);
+    m.def("hanning", &FunctionsInterface::hanning);
     m.def("histogram", &FunctionsInterface::histogram<double>);
     m.def("histogram", &FunctionsInterface::histogramWithEdges<double>);
     m.def("hstack", &FunctionsInterface::hstack<double>);
