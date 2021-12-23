@@ -27,7 +27,10 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Functions/linspace.hpp"
 
 namespace nc
 {
@@ -39,11 +42,27 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
     ///
-    /// @param	M: Number of points in the output window. If zero or less, an empty array is returned.
+    /// @param	m: Number of points in the output window. If zero or less, an empty array is returned.
     /// @return NdArray
     ///
-    // inline NdArray<double> bartlett(int M)
-    // {
+    inline NdArray<double> bartlett(int32 m)
+    {
+        if (m < 1)
+        {
+            return {};
+        }
 
-    // }
+        const auto mDouble = static_cast<double>(m);
+        const auto mMinus1Over2 = (mDouble - 1.0) / 2.0;
+        const auto mMinus1Over2Inv = 1.0 / mMinus1Over2;
+
+        NdArray<double> result(1, m);
+        int32 i = 0; 
+        for (auto n : linspace(0.0, mDouble - 1.0, m, true))
+        {
+            result[i++] = mMinus1Over2Inv * (mMinus1Over2 - std::abs(n - mMinus1Over2));
+        }   
+
+        return result;
+    }
 }  // namespace nc

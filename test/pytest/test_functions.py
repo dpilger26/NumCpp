@@ -1286,6 +1286,13 @@ def test_averageWeighted():
 
 
 ####################################################################################
+def test_bartlett():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.bartlett(m), 9).flatten(),
+                          np.round(np.bartlett(m), 9))
+
+
+####################################################################################
 def test_binaryRepr():
     value = np.random.randint(0, np.iinfo(np.uint64).max, [1, ], dtype=np.uint64).item()
     assert NumCpp.binaryRepr(np.uint64(value)) == np.binary_repr(value, np.iinfo(np.uint64).bits)

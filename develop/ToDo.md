@@ -1,7 +1,5 @@
  ## Functions to add:
 
- * `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
- * `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
  * `choose`, https://numpy.org/doc/stable/reference/generated/numpy.choose.html
  * `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
  * `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html

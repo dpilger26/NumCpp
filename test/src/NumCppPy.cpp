@@ -2643,6 +2643,13 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    pbArrayGeneric bartlett(nc::int32 m)
+    {
+        return nc2pybind(nc::bartlett(m));
+    }
+
+    //================================================================================
+
     pbArrayGeneric blackman(nc::int32 m)
     {
         return nc2pybind(nc::blackman(m));
@@ -7364,6 +7371,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
     m.def("averageWeighted", &FunctionsInterface::averageWeightedComplex<double>);
 
+    m.def("bartlett", &FunctionsInterface::bartlett);
     m.def("binaryRepr", &binaryRepr<uint64>);
     m.def("bincount", &FunctionsInterface::bincount<uint32>);
     m.def("bincountWeighted", &FunctionsInterface::bincountWeighted<uint32>);
