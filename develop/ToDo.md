@@ -9,6 +9,5 @@
  * `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
  * `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
  * `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
- * `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
  * `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
  * `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html

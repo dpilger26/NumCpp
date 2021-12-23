@@ -3418,6 +3418,14 @@ def test_isnan():
 
 
 ####################################################################################
+def test_kaiser():
+    m = np.random.randint(2, 100)
+    beta = np.random.rand(1).item()
+    assert np.array_equal(np.round(NumCpp.kaiser(m, beta), 9).flatten(),
+                          np.round(np.kaiser(m, beta), 9))
+
+
+####################################################################################
 def test_lcm():
     if not NumCpp.NUMCPP_NO_USE_BOOST or NumCpp.STL_GCD_LCM:
         value1 = np.random.randint(1, 1000, [1, ]).item()

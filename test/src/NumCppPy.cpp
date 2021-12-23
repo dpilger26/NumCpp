@@ -3414,6 +3414,13 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    pbArrayGeneric kaiser(nc::int32 m, double beta)
+    {
+        return nc2pybind(nc::kaiser(m, beta));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype ldexpScaler(dtype inValue1, uint8 inValue2) 
     {
@@ -7573,6 +7580,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("isinfArray", &FunctionsInterface::isinfArray<double>);
     m.def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
     m.def("isnanArray", &FunctionsInterface::isnanArray<double>);
+
+    m.def("kaiser", &FunctionsInterface::kaiser);
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     m.def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
