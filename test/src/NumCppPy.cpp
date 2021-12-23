@@ -3643,6 +3643,75 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric select(std::vector<pbArray<bool>> condlist, 
+        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    {
+        std::vector<NdArray<bool>> condVec{};
+        std::vector<const NdArray<bool>*> condVecPtr{};
+        condVec.reserve(condlist.size());
+        condVecPtr.reserve(condlist.size());
+        for (auto& cond : condlist)
+        {
+            condVec.push_back(pybind2nc(cond));
+            condVecPtr.push_back(&condVec.back());
+        }
+
+        std::vector<NdArray<dtype>> choiceVec{};
+        std::vector<const NdArray<dtype>*> choiceVecPtr{};
+        choiceVec.reserve(choicelist.size());
+        choiceVecPtr.reserve(choicelist.size());
+        for (auto& choice : choicelist)
+        {
+            choiceVec.push_back(pybind2nc(choice));
+            choiceVecPtr.push_back(&choiceVec.back());
+        }
+
+        return nc2pybind(nc::select(condVecPtr, choiceVecPtr, defaultValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric selectVector(std::vector<pbArray<bool>> condlist, 
+        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    {
+        std::vector<NdArray<bool>> condVec{};
+        condVec.reserve(condlist.size());
+        for (auto& cond : condlist)
+        {
+            condVec.push_back(pybind2nc(cond));
+        }
+
+        std::vector<NdArray<dtype>> choiceVec{};
+        choiceVec.reserve(choicelist.size());
+        for (auto& choice : choicelist)
+        {
+            choiceVec.push_back(pybind2nc(choice));
+
+        }
+
+        return nc2pybind(nc::select(condVec, choiceVec, defaultValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric selectInitializerList(pbArray<bool> cond1, 
+        pbArray<bool> cond2, 
+        pbArray<bool> cond3,
+        pbArray<dtype> choice1,
+        pbArray<dtype> choice2,
+        pbArray<dtype> choice3,
+        dtype defaultValue)
+    {
+        return nc2pybind(nc::select({pybind2nc(cond1), pybind2nc(cond2), pybind2nc(cond3)},
+            {pybind2nc(choice1), pybind2nc(choice2), pybind2nc(choice3)}, 
+            defaultValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric sqrArray(const NdArray<dtype>& inArray)
     {
         return nc2pybind(sqr(inArray));
@@ -7646,6 +7715,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("roundArray", &FunctionsInterface::roundArray<double>);
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
 
+    m.def("select", &FunctionsInterface::select<double>);
+    m.def("selectVector", &FunctionsInterface::selectVector<double>);
+    m.def("select", &FunctionsInterface::selectInitializerList<double>);
     m.def("setdiff1d", &setdiff1d<uint32>);
     m.def("setdiff1d", &setdiff1d<std::complex<double>>);
     m.def("signScaler", &FunctionsInterface::signScaler<double>);

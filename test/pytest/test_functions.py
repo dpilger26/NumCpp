@@ -11,6 +11,7 @@ import NumCppPy as NumCpp  # noqa E402
 
 ####################################################################################
 def factors(n):
+    """docstring"""
     return set(reduce(list.__add__,
                       ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
 
@@ -2741,7 +2742,7 @@ def test_findN():
 
 
 ####################################################################################
-def fix():
+def test_fix():
     value = np.random.randn(1).item() * 100
     assert NumCpp.fixScaler(value) == np.fix(value)
 
@@ -5935,6 +5936,54 @@ def test_row_stack():
 
 
 ####################################################################################
+def test_select():
+    # vector of pointers
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = np.random.randint(1, 10)
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.select(condlist, choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+    # vector of arrays
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = np.random.randint(1, 10)
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.selectVector(condlist, choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+    # initializer list
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = 3
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.select(*condlist, *choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+
+####################################################################################
 def test_setdiff1d():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6403,7 +6452,7 @@ def test_subtract():
 
 
 ####################################################################################
-def test_sumo():
+def test_sum():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

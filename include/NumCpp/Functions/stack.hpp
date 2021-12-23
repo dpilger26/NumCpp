@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> stack(std::initializer_list<NdArray<dtype> > inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {

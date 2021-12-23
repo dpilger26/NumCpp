@@ -152,7 +152,7 @@ namespace nc
         /// @param
         ///				inList
         ///
-        NdArray(const std::initializer_list<dtype>& inList) :
+        NdArray(std::initializer_list<dtype> inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {

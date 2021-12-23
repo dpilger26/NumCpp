@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
+    NdArray<dtype> vstack(std::initializer_list<NdArray<dtype> > inArrayList)
     {
         return row_stack(inArrayList);
     }
