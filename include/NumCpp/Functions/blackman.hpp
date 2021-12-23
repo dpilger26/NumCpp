@@ -27,7 +27,11 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Functions/linspace.hpp"
 
 namespace nc
 {
@@ -39,11 +43,27 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
     ///
-    /// @param	M: Number of points in the output window. If zero or less, an empty array is returned.
+    /// @param	m: Number of points in the output window. If zero or less, an empty array is returned.
     /// @return NdArray
     ///
-    // inline NdArray<double> blackman(int M)
-    // {
-        
-    // }
+    inline NdArray<double> blackman(int32 m)
+    {
+        if (m < 1)
+        {
+            return {};
+        }
+
+        const auto mDouble = static_cast<double>(m);
+
+        NdArray<double> result(1, m);
+        int32 i = 0; 
+        for (auto n : linspace(0.0, mDouble, m, true))
+        {
+            const auto nOverM = n / mDouble;
+            result[i++] = 0.42 - 0.5 * std::cos(2.0 * constants::pi * nOverM)
+                + 0.08 * std::cos(4.0 * constants::pi * nOverM);
+        }   
+
+        return result;
+    }
 }  // namespace nc

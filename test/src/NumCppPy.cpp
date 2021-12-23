@@ -2643,6 +2643,13 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    pbArrayGeneric blackman(nc::int32 m)
+    {
+        return nc2pybind(nc::blackman(m));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric andOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
@@ -7364,6 +7371,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("bitwise_not", &FunctionsInterface::bitwise_not<uint64>);
     m.def("bitwise_or", &FunctionsInterface::bitwise_or<uint64>);
     m.def("bitwise_xor", &FunctionsInterface::bitwise_xor<uint64>);
+    m.def("blackman", &FunctionsInterface::blackman);
     m.def("andOperatorArray", &FunctionsInterface::andOperatorArray<uint64>);
     m.def("andOperatorScaler", &FunctionsInterface::andOperatorScaler<uint64>);
     m.def("orOperatorArray", &FunctionsInterface::orOperatorArray<uint64>);

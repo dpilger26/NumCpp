@@ -1383,6 +1383,13 @@ def test_bitwise_xor():
 
 
 ####################################################################################
+def test_blackman():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.blackman(m), 9).flatten(),
+                          np.round(np.blackman(m), 9))
+
+
+####################################################################################
 def test_byteswap():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
