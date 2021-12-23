@@ -1,8 +1,24 @@
 # Release Notes
 
-## Version 2.6.3
+## Version 2.7.0
 
-* added `select` function
+* added `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
+* added `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
+* added `choose`, https://numpy.org/doc/stable/reference/generated/numpy.choose.html
+* added `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
+* added `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+* added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
+* added `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
+* added `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
+* added `hammingEncode`, https://en.wikipedia.org/wiki/Hamming_code
+* added `hanning`, https://numpy.org/doc/stable/reference/generated/numpy.hanning.html
+* added `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
+* added `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
+* added `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
+* added `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
+* added `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
+* added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
+* added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
 * `fmod` and the modulus `%` operator now work with float dtypes
 * minor performance improvements
 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -58,17 +58,20 @@
 #include "NumCpp/Functions/astype.hpp"
 #include "NumCpp/Functions/average.hpp"
 
+#include "NumCpp/Functions/bartlett.hpp"
 #include "NumCpp/Functions/binaryRepr.hpp"
 #include "NumCpp/Functions/bincount.hpp"
 #include "NumCpp/Functions/bitwise_and.hpp"
 #include "NumCpp/Functions/bitwise_not.hpp"
 #include "NumCpp/Functions/bitwise_or.hpp"
 #include "NumCpp/Functions/bitwise_xor.hpp"
+#include "NumCpp/Functions/blackman.hpp"
 #include "NumCpp/Functions/byteswap.hpp"
 
 #include "NumCpp/Functions/cbrt.hpp"
 #include "NumCpp/Functions/ceil.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
+#include "NumCpp/Functions/choose.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/complex.hpp"
@@ -80,7 +83,9 @@
 #include "NumCpp/Functions/copyto.hpp"
 #include "NumCpp/Functions/cos.hpp"
 #include "NumCpp/Functions/cosh.hpp"
+#include "NumCpp/Functions/corrcoef.hpp"
 #include "NumCpp/Functions/count_nonzero.hpp"
+#include "NumCpp/Functions/cov.hpp"
 #include "NumCpp/Functions/cross.hpp"
 #include "NumCpp/Functions/cube.hpp"
 #include "NumCpp/Functions/cumprod.hpp"
@@ -104,6 +109,7 @@
 #include "NumCpp/Functions/exp.hpp"
 #include "NumCpp/Functions/exp2.hpp"
 #include "NumCpp/Functions/expm1.hpp"
+#include "NumCpp/Functions/extract.hpp"
 #include "NumCpp/Functions/eye.hpp"
 
 #include "NumCpp/Functions/fillDiagnol.hpp"
@@ -126,22 +132,31 @@
 #include "NumCpp/Functions/full_like.hpp"
 
 #include "NumCpp/Functions/gcd.hpp"
+#include "NumCpp/Functions/geomspace.hpp"
 #include "NumCpp/Functions/gradient.hpp"
 #include "NumCpp/Functions/greater.hpp"
 #include "NumCpp/Functions/greater_equal.hpp"
 
+#include "NumCpp/Functions/hamming.hpp"
+#include "NumCpp/Functions/hammingEncode.hpp"
+#include "NumCpp/Functions/hanning.hpp"
 #include "NumCpp/Functions/histogram.hpp"
 #include "NumCpp/Functions/hstack.hpp"
 #include "NumCpp/Functions/hypot.hpp"
 
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/Functions/imag.hpp"
+#include "NumCpp/Functions/inner.hpp"
 #include "NumCpp/Functions/interp.hpp"
 #include "NumCpp/Functions/intersect1d.hpp"
 #include "NumCpp/Functions/invert.hpp"
 #include "NumCpp/Functions/isclose.hpp"
 #include "NumCpp/Functions/isinf.hpp"
+#include "NumCpp/Functions/isneginf.hpp"
+#include "NumCpp/Functions/isposinf.hpp"
 #include "NumCpp/Functions/isnan.hpp"
+
+#include "NumCpp/Functions/kaiser.hpp"
 
 #include "NumCpp/Functions/lcm.hpp"
 #include "NumCpp/Functions/ldexp.hpp"
@@ -158,6 +173,7 @@
 #include "NumCpp/Functions/logical_not.hpp"
 #include "NumCpp/Functions/logical_or.hpp"
 #include "NumCpp/Functions/logical_xor.hpp"
+#include "NumCpp/Functions/logspace.hpp"
 
 #include "NumCpp/Functions/matmul.hpp"
 #include "NumCpp/Functions/max.hpp"
@@ -201,6 +217,7 @@
 #include "NumCpp/Functions/pad.hpp"
 #include "NumCpp/Functions/partition.hpp"
 #include "NumCpp/Functions/percentile.hpp"
+#include "NumCpp/Functions/place.hpp"
 #include "NumCpp/Functions/polar.hpp"
 #include "NumCpp/Functions/power.hpp"
 #include "NumCpp/Functions/powerf.hpp"
