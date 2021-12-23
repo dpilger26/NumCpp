@@ -3208,6 +3208,13 @@ def test_greater_equal():
 
 
 ####################################################################################
+def test_hamming():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.hamming(m), 9).flatten(),
+                          np.round(np.hamming(m), 9))
+
+
+####################################################################################
 def test_histogram():
     shape = NumCpp.Shape(1024, 1024)
     cArray = NumCpp.NdArray(shape)

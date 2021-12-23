@@ -27,7 +27,10 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Constants.hpp"
 
 namespace nc
 {
@@ -39,11 +42,26 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
     ///
-    /// @param	M: Number of points in the output window. If zero or less, an empty array is returned.
+    /// @param	m: Number of points in the output window. If zero or less, an empty array is returned.
     /// @return NdArray
     ///
-    // inline NdArray<double> hamming(int M)
-    // {
-        
-    // }
+    inline NdArray<double> hamming(int32 m)
+    {
+        if (m < 1)
+        {
+            return {};
+        }
+
+        const auto mDouble = static_cast<double>(m);
+        const auto twoPiDivMMinus1 = (2.0 * constants::pi) / (mDouble - 1.0);
+
+        NdArray<double> result(1, m);
+        int32 i = 0; 
+        for (auto n : linspace(0.0, mDouble - 1.0, m, true))
+        {
+            result[i++] = 0.54 - 0.46 * std::cos(twoPiDivMMinus1 * n);
+        }   
+
+        return result;
+    }
 }  // namespace nc
