@@ -58,7 +58,7 @@ namespace nc
         }
 
         auto valIdx = 0;
-        for (auto i = 0; i < arr.size(); ++i)
+        for (decltype(arr.size()) i = 0; i < arr.size(); ++i)
         {
             if (mask[i])
             {

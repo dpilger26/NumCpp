@@ -2617,6 +2617,16 @@ def test_equal():
 
 
 ####################################################################################
+def test_extract():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    mask = np.random.randint(0, 2, [shape.rows, shape.cols]).astype(bool)
+    assert np.array_equal(NumCpp.extract(mask, data).flatten(),
+                          np.extract(mask, data))
+
+
+####################################################################################
 def test_exp2():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9)

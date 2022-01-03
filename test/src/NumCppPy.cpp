@@ -3028,6 +3028,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric extract(pbArray<bool> condition, pbArray<dtype> arr)
+    {
+        return nc2pybind(nc::extract(pybind2nc(condition), pybind2nc(arr)));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     auto expScaler(dtype inValue) -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
@@ -7519,6 +7527,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("endianess", &endianess<double>);
     m.def("equal", &FunctionsInterface::equal<double>);
     m.def("equal", &FunctionsInterface::equal<ComplexDouble>);
+    m.def("extract", &FunctionsInterface::extract<double>);
     m.def("expScaler", &FunctionsInterface::expScaler<double>);
     m.def("expScaler", &FunctionsInterface::expScaler<ComplexDouble>);
     m.def("expArray", &FunctionsInterface::expArray<double>);
