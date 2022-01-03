@@ -28,12 +28,14 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 
+#include <algorithm>
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Inner product of two arrays.
+    ///	Inner product of two 1-D arrays.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.inner.html
     ///
@@ -41,9 +43,14 @@ namespace nc
     /// @param	b: array 2
     /// @return NdArray
     ///
-    // template<typename dtype>
-    // NdArray<dtype> inner(const NdArray<dtype>& a, const NdArray<dtype>& b)
-    // {
-        
-    // }
+    template<typename dtype>
+    dtype inner(const NdArray<dtype>& a, const NdArray<dtype>& b)
+    {
+        if (a.size() != b.size())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Inputs 'a' and 'b' must have the same size");
+        }
+
+        return std::inner_product(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
+    }
 }  // namespace nc

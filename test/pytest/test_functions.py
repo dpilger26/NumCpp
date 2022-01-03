@@ -3327,6 +3327,14 @@ def test_imag():
 
 
 ####################################################################################
+def test_inner():
+    arraySize = np.random.randint(10, 100)
+    a = np.random.randint(0, 100, [arraySize, ])
+    b = np.random.randint(0, 100, [arraySize, ])
+    assert NumCpp.inner(a, b) == np.inner(a, b)
+
+
+####################################################################################
 def test_interp():
     endPoint = np.random.randint(10, 20, [1, ]).item()
     numPoints = np.random.randint(50, 100, [1, ]).item()

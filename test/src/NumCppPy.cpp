@@ -3383,6 +3383,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype inner(pbArray<dtype> a, pbArray<dtype> b)
+    {
+        return nc::inner(pybind2nc(a), pybind2nc(b));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
         return nc2pybind(nc::interp(inX, inXp, inFp));
@@ -3404,7 +3412,7 @@ namespace FunctionsInterface
         return nc2pybind(nc::isinf(inArray));
     }
 
-        //================================================================================
+    //================================================================================
 
     template<typename dtype>
     bool isposinfScaler(dtype inValue) 
@@ -3420,7 +3428,7 @@ namespace FunctionsInterface
         return nc2pybind(nc::isposinf(inArray));
     }
 
-        //================================================================================
+    //================================================================================
 
     template<typename dtype>
     bool isneginfScaler(dtype inValue) 
@@ -7613,6 +7621,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("identityComplex", &identity<ComplexDouble>);
     m.def("imagScaler", &FunctionsInterface::imagScaler<double>);
     m.def("imagArray", &FunctionsInterface::imagArray<double>);
+    m.def("inner", &FunctionsInterface::inner<double>);
     m.def("interp", &FunctionsInterface::interp<double>);
     m.def("intersect1d", &intersect1d<uint32>);
     m.def("invert", &invert<uint32>);
