@@ -28,6 +28,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Functions/linspace.hpp"
+#include "NumCpp/Utils/powerf.hpp"
 
 namespace nc
 {
@@ -45,8 +48,19 @@ namespace nc
     ///              In that case, num + 1 values are spaced over the interval 
     ///              in log-space, of which all but the last (a sequence of length num) are returned.
     /// @param num: Number of samples to generate. Default 50.
-    /// @param enpoint: If true, stop is the last sample. Otherwide,it is not included. Default is true.
+    /// @param enpoint: If true, stop is the last sample. Otherwise,it is not included. Default is true.
     /// @return NdArray
     ///
+    template<typename dtype>
+    NdArray<double> logspace(dtype start, dtype stop, uint32 num = 50, bool endPoint = true, double base = 10.0)
+    {
+        auto spacedValues = linspace(static_cast<double>(start), static_cast<double>(stop), num, endPoint);
+        stl_algorithms::for_each(spacedValues.begin(), spacedValues.end(),
+            [base](auto& value) -> void
+            {
+                value = utils::powerf(base, value);
+            });
 
+        return spacedValues;
+    }
 }  // namespace nc

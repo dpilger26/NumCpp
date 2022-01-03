@@ -3640,6 +3640,18 @@ def test_log():
 
 
 ####################################################################################
+def test_logspace():
+    start = np.random.randint(0, 100)
+    stop = np.random.randint(start + 1, 3 * start)
+    num = np.random.randint(1, 100)
+    base = np.random.rand(1) * 10
+    assert np.array_equal(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 9),
+                          np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 9))
+    assert np.array_equal(np.round(NumCpp.logspace(start, stop, num, False, base).flatten(), 9),
+                          np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 9))
+
+
+####################################################################################
 def test_log10():
     value = np.random.randn(1).item() * 100 + 1000
     assert np.round(NumCpp.log10Scaler(value), 9) == np.round(np.log10(value), 9)

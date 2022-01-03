@@ -3566,6 +3566,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric logspace(dtype start, dtype stop, uint32 num, bool endPoint, double base)
+    {
+        return nc2pybind(nc::logspace(start, stop, num, endPoint, base));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     auto log10Scaler(dtype inValue) -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
@@ -7656,6 +7664,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("logArray", &FunctionsInterface::logArray<double>);
     m.def("logScaler", &FunctionsInterface::logScaler<ComplexDouble>);
     m.def("logArray", &FunctionsInterface::logArray<ComplexDouble>);
+    m.def("logspace", &FunctionsInterface::logspace<double>);
     m.def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
     m.def("log10Array", &FunctionsInterface::log10Array<ComplexDouble>);
     m.def("log10Scaler", &FunctionsInterface::log10Scaler<ComplexDouble>);
