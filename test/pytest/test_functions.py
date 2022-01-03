@@ -3640,6 +3640,20 @@ def test_log():
 
 
 ####################################################################################
+def test_logb():
+    value = np.random.randn(1).item() * 100 + 1000
+    base = np.random.randn(1).item() * 2 + 10
+    assert np.round(NumCpp.logbScaler(value, base), 9) == np.round(np.log(value) / np.log(base), 9)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.logbArray(cArray, base), 9), np.round(np.log(data) / np.log(base), 9))
+
+
+####################################################################################
 def test_logspace():
     start = np.random.randint(0, 100)
     stop = np.random.randint(start + 1, 3 * start)

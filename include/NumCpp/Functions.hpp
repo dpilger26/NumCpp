@@ -165,6 +165,7 @@
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Functions/load.hpp"
 #include "NumCpp/Functions/log.hpp"
+#include "NumCpp/Functions/logb.hpp"
 #include "NumCpp/Functions/log10.hpp"
 #include "NumCpp/Functions/log1p.hpp"
 #include "NumCpp/Functions/log2.hpp"

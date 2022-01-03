@@ -4,7 +4,6 @@
 
 * added `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
 * added `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
-* added `choose`, https://numpy.org/doc/stable/reference/generated/numpy.choose.html
 * added `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
 * added `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
 * added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
@@ -16,6 +15,7 @@
 * added `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
 * added `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
 * added `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
+* added `logb`, logarithm of with an arbitrary base b
 * added `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
 * added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
 * added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
