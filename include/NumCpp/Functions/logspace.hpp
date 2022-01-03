@@ -28,6 +28,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Utils/powerf.hpp"
@@ -54,6 +55,8 @@ namespace nc
     template<typename dtype>
     NdArray<double> logspace(dtype start, dtype stop, uint32 num = 50, bool endPoint = true, double base = 10.0)
     {
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
         auto spacedValues = linspace(static_cast<double>(start), static_cast<double>(stop), num, endPoint);
         stl_algorithms::for_each(spacedValues.begin(), spacedValues.end(),
             [base](auto& value) -> void

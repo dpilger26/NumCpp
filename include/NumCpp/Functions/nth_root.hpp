@@ -28,32 +28,47 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Utils/powerf.hpp"
 
-#include <algorithm>
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Inner product of two 1-D arrays.
+    ///	Return the nth-root of an value.
     ///
-    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.inner.html
+    /// @param inValue
+    /// @param inRoot
+    /// @return value
     ///
-    /// @param	a: array 1
-    /// @param	b: array 2
+    template<typename dtype1, typename dtype2>
+    double nth_root(dtype1 inValue, dtype2 inRoot) noexcept 
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype1);
+        STATIC_ASSERT_ARITHMETIC(dtype2);
+
+        return utils::powerf(static_cast<double>(inValue), 1.0 / static_cast<double>(inRoot));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///	Return the nth-root of an array.
+    ///
+    /// @param inArray
+    /// @param inRoot
     /// @return NdArray
     ///
-    template<typename dtype>
-    dtype inner(const NdArray<dtype>& a, const NdArray<dtype>& b)
+    template<typename dtype1, typename dtype2>
+    NdArray<double> nth_root(const NdArray<dtype1>& inArray, dtype2 inRoot) 
     {
-        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        NdArray<double> returnArray(inArray.shape());
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [inRoot](dtype1 inValue) noexcept -> double
+            {
+                return nth_root(inValue, inRoot); 
+            });
 
-        if (a.size() != b.size())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Inputs 'a' and 'b' must have the same size");
-        }
-
-        return std::inner_product(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
+        return returnArray;
     }
 }  // namespace nc

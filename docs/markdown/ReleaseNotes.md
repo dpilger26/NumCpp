@@ -17,6 +17,7 @@
 * added `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
 * added `logb`, logarithm of with an arbitrary base b
 * added `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
+* added `nth_root`, the nth root of a value
 * added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
 * added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
 * `fmod` and the modulus `%` operator now work with float dtypes

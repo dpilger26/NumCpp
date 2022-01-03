@@ -3294,6 +3294,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric geomspace(dtype start, dtype stop, uint32 num, bool endPoint)
+    {
+        return nc2pybind(nc::geomspace(start, stop, num, endPoint));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(nc::gradient(inArray, inAxis));
@@ -3713,6 +3721,22 @@ namespace FunctionsInterface
     pbArrayGeneric newbyteorderArray(const NdArray<dtype>& inArray, Endian inEndianess)
     {
         return nc2pybind(newbyteorder(inArray, inEndianess));
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    double nth_rootScaler(dtype1 inValue, dtype2 inRoot) 
+    {
+        return nth_root(inValue, inRoot);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    pbArrayGeneric nth_rootArray(const NdArray<dtype1>& inArray, dtype2 inRoot)
+    {
+        return nc2pybind(nth_root(inArray, inRoot));
     }
 
     //================================================================================
@@ -7625,6 +7649,7 @@ PYBIND11_MODULE(NumCppPy, m)
 #ifndef NUMCPP_NO_USE_BOOST
     m.def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
 #endif
+    m.def("geomspace", &FunctionsInterface::geomspace<double>);
     m.def("greater", &greater<double>);
     m.def("greater", &greater<ComplexDouble>);
     m.def("greater_equal", &greater_equal<double>);
@@ -7753,6 +7778,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("negative", &negative<ComplexDouble>);
     m.def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
     m.def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
+    m.def("nth_rootScaler", &FunctionsInterface::nth_rootScaler<double, double>);
+    m.def("nth_rootArray", &FunctionsInterface::nth_rootArray<double, double>);
     m.def("none", &FunctionsInterface::noneArray<double>);
     m.def("none", &FunctionsInterface::noneArray<ComplexDouble>);
     m.def("nonzero", &nonzero<double>);

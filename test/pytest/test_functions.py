@@ -3107,6 +3107,17 @@ def test_gcd():
 
 
 ####################################################################################
+def test_geomspace():
+    start = np.random.randint(0, 100)
+    stop = np.random.randint(start + 1, 3 * start)
+    num = np.random.randint(1, 100)
+    assert np.array_equal(np.round(NumCpp.geomspace(start, stop, num, True).flatten(), 9),
+                          np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=True), 9))
+    assert np.array_equal(np.round(NumCpp.geomspace(start, stop, num, False).flatten(), 9),
+                          np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=False), 9))
+
+
+####################################################################################
 def test_gradient():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4959,6 +4970,18 @@ def test_newbyteorderArray():
     cArray.setArray(data)
     assert np.array_equal(NumCpp.newbyteorderArray(cArray, NumCpp.Endian.BIG),
                           data.newbyteorder())
+
+
+####################################################################################
+def test_nth_root():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    cArray.setArray(data)
+    root = np.random.rand(1).item() * 10
+    assert np.array_equal(np.round(NumCpp.nth_rootArray(cArray, root), 9),
+                          np.round(np.power(data, 1 / root), 9))
 
 
 ####################################################################################

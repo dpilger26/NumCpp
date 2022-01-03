@@ -27,33 +27,51 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
+#include <cmath>
+#include <complex>
+
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Inner product of two 1-D arrays.
+    ///	Logarithm of an arbitrary base
     ///
-    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.inner.html
+    /// @param inValue
+    /// @param inBase: the logorithm base
     ///
-    /// @param	a: array 1
-    /// @param	b: array 2
-    /// @return NdArray
+    /// @return value
     ///
     template<typename dtype>
-    dtype inner(const NdArray<dtype>& a, const NdArray<dtype>& b)
+    auto logb(dtype inValue, dtype inBase) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        if (a.size() != b.size())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("Inputs 'a' and 'b' must have the same size");
-        }
+        return std::log(inValue) / std::log(inBase);
+    }
 
-        return std::inner_product(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
+    //============================================================================
+    // Method Description:
+    ///	Logarithm of an arbitrary base
+    ///
+    /// @param inValue
+    /// @param inBase: the logorithm base
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    auto logb(const NdArray<dtype>& inArray, dtype inBase) 
+    {
+        NdArray<decltype(logb(dtype{0}, dtype{0}))> returnArray(inArray.shape());
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [inBase](dtype inValue) noexcept -> auto
+            { 
+                return logb(inValue, inBase);
+            });
+
+        return returnArray;
     }
 }  // namespace nc
