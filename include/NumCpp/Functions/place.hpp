@@ -28,6 +28,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/Error.hpp"
 
 namespace nc
 {
@@ -40,13 +41,29 @@ namespace nc
     /// @param arr: Array to put data into.
     /// @param mask: Boolean mask array. Must have the same size as arr
     /// @param vals: Values to put into a. Only the first N elements are used, where N is the 
-    ///              number of True values in mask. If vals is smaller than N, it will be repeated, 
-    ///              and if elements of a are to be masked, this sequence must be non-empty.
+    ///              number of True values in mask. If vals is smaller than N, it will be repeated.
     /// @return NdArray
     ///
-    // template<typename dtype>
-    // NdArray<dtype> place(const NdArray<dtype>& arr, const NdArray<bool>& mask, const NdArray<dtype&> vals)
-    // {
-        
-    // }
+    template<typename dtype>
+    void place(NdArray<dtype>& arr, const NdArray<bool>& mask, const NdArray<dtype>& vals)
+    {
+        if (mask.size() != arr.size())
+        {
+            THROW_INVALID_ARGUMENT_ERROR("Input arguments 'arr' and 'mask' must have the same size.");
+        }
+
+        if (vals.isempty())
+        {
+            return;
+        }
+
+        auto valIdx = 0;
+        for (auto i = 0; i < arr.size(); ++i)
+        {
+            if (mask[i])
+            {
+                arr[i] = vals[valIdx++ % vals.size()];
+            }
+        }
+    }
 }  // namespace nc

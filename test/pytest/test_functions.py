@@ -5423,6 +5423,29 @@ def test_percentile():
 
 
 ####################################################################################
+def test_place():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    cMask = NumCpp.NdArrayBool(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    mask = np.random.randint(0, 2, [shape.rows, shape.cols]).astype(bool)
+    cArray.setArray(data)
+    cMask.setArray(mask)
+    replaceValues = np.random.randint(0, 100, [shape.size() // 2, ])
+    cReplaceValues = NumCpp.NdArray(1, replaceValues.size)
+    cReplaceValues.setArray(replaceValues)
+
+    assert np.array_equal(cArray.getNumpyArray(), data)
+
+    NumCpp.place(cArray, cMask, cReplaceValues)
+    assert not np.array_equal(cArray.getNumpyArray(), data)
+
+    np.place(data, mask, replaceValues)
+    assert np.array_equal(cArray.getNumpyArray(), data)
+
+
+####################################################################################
 def test_polar():
     components = np.random.rand(2).astype(float)
     assert NumCpp.polarScaler(components[0], components[1])

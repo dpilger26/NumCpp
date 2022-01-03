@@ -71,7 +71,6 @@
 #include "NumCpp/Functions/cbrt.hpp"
 #include "NumCpp/Functions/ceil.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
-#include "NumCpp/Functions/choose.hpp"
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/complex.hpp"

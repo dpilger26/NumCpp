@@ -7735,6 +7735,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("partition", &partition<double>);
     m.def("partition", &partition<ComplexDouble>);
     m.def("percentile", &percentile<double>);
+    m.def("place", &place<double>);
     m.def("polarScaler", &FunctionsInterface::polarScaler<double>);
     m.def("polarArray", &FunctionsInterface::polarArray<double>);
     m.def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
