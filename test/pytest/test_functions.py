@@ -3392,7 +3392,10 @@ def test_isclose():
 ####################################################################################
 def test_isinf():
     value = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.isinfScaler(value) == np.isinf(value)
+    assert not NumCpp.isinfScaler(value)
+
+    assert NumCpp.isinfScaler(np.inf)
+    assert NumCpp.isinfScaler(-np.inf)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3401,6 +3404,42 @@ def test_isinf():
     data[data > 1000] = np.inf
     cArray.setArray(data)
     assert np.array_equal(NumCpp.isinfArray(cArray), np.isinf(data))
+
+
+####################################################################################
+def test_isposinf():
+    value = np.random.randn(1).item() * 100 + 1000
+    assert not NumCpp.isposinfScaler(value)
+
+    assert NumCpp.isposinfScaler(np.inf)
+    assert not NumCpp.isposinfScaler(-np.inf)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > np.percentile(data, 75)] = np.inf
+    data[data < np.percentile(data, 25)] = -np.inf
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.isposinfArray(cArray), np.isposinf(data))
+
+
+####################################################################################
+def test_isneginf():
+    value = np.random.randn(1).item() * 100 + 1000
+    assert not NumCpp.isneginfScaler(value)
+
+    assert not NumCpp.isneginfScaler(np.inf)
+    assert NumCpp.isneginfScaler(-np.inf)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > np.percentile(data, 75)] = np.inf
+    data[data < np.percentile(data, 25)] = -np.inf
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.isneginfArray(cArray), np.isneginf(data))
 
 
 ####################################################################################

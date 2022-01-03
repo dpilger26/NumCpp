@@ -7,7 +7,7 @@
  * `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
  * `hammingEncode`, my stuff
  * `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
- * `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
- * `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
  * `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
  * `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
+
+ * should the indices operator() and [] sort and take unique of the indices? This is not inline with NumPy

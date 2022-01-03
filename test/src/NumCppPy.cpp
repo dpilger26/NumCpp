@@ -3396,6 +3396,38 @@ namespace FunctionsInterface
         return nc2pybind(nc::isinf(inArray));
     }
 
+        //================================================================================
+
+    template<typename dtype>
+    bool isposinfScaler(dtype inValue) 
+    {
+        return nc::isposinf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric isposinfArray(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::isposinf(inArray));
+    }
+
+        //================================================================================
+
+    template<typename dtype>
+    bool isneginfScaler(dtype inValue) 
+    {
+        return nc::isneginf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric isneginfArray(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::isneginf(inArray));
+    }
+
     //================================================================================
 
     template<typename dtype>
@@ -7578,6 +7610,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("isclose", &isclose<double>);
     m.def("isinfScaler", &FunctionsInterface::isinfScaler<double>);
     m.def("isinfArray", &FunctionsInterface::isinfArray<double>);
+    m.def("isposinfScaler", &FunctionsInterface::isposinfScaler<double>);
+    m.def("isposinfArray", &FunctionsInterface::isposinfArray<double>);
+    m.def("isneginfScaler", &FunctionsInterface::isneginfScaler<double>);
+    m.def("isneginfArray", &FunctionsInterface::isneginfArray<double>);
     m.def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
     m.def("isnanArray", &FunctionsInterface::isnanArray<double>);
 
