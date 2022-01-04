@@ -2227,20 +2227,12 @@ namespace nc
         NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
-
-            if (is_same_v<dtypeOut, dtype>)
-            {
-                std::copy(cbegin(), cend(), outArray.begin());
-            }
-            else
-            {
-                const auto function = [](dtype value) -> dtypeOut
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
+                [](dtype value) -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
-                };
-
-                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
-            }
+                }
+            );
 
             return outArray;
         }
