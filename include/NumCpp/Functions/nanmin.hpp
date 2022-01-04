@@ -40,15 +40,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the minimum of an array or maximum along an axis ignoring NaNs.
+    /// Return the minimum of an array or maximum along an axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

@@ -33,14 +33,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Copies values from one array to another
+    /// Copies values from one array to another
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
     ///
     /// @param				inDestArray
     /// @param				inSrcArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray) 

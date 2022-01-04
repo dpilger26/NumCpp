@@ -35,9 +35,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
@@ -46,7 +46,7 @@ namespace nc
     /// @param				inSize
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inSize)
@@ -57,9 +57,9 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
@@ -69,7 +69,7 @@ namespace nc
     /// @param				inNumCols
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, int32 inNumRows, int32 inNumCols)
@@ -80,9 +80,9 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
@@ -91,7 +91,7 @@ namespace nc
     /// @param				inNewShape
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)

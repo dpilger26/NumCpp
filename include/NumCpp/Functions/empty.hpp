@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, without initializing entries.
+    /// Return a new array of given shape and type, without initializing entries.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
     ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols) 
@@ -52,14 +52,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, without initializing entries.
+    /// Return a new array of given shape and type, without initializing entries.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
     ///
     /// @param
-    ///				inShape
+    /// inShape
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> empty(const Shape& inShape) 

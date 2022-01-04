@@ -40,12 +40,12 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Wrap boundary1d
+            /// Wrap boundary1d
             ///
             /// @param				inImage
             /// @param              inBoundarySize
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> wrap1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

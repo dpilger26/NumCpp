@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cumulative product of elements along a given axis.
+    /// Return the cumulative product of elements along a given axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

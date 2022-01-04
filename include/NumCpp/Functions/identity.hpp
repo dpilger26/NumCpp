@@ -33,17 +33,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the identity array.
+    /// Return the identity array.
     ///
-    ///						The identity array is a square array with ones on the main diagonal.
+    /// The identity array is a square array with ones on the main diagonal.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
     ///
     /// @param
-    ///				inSquareSize
+    /// inSquareSize
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> identity(uint32 inSquareSize) 

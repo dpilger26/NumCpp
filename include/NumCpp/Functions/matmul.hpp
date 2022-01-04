@@ -36,15 +36,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Matrix product of two arrays.
+    /// Matrix product of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
@@ -54,15 +54,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Matrix product of two arrays.
+    /// Matrix product of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> matmul(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
@@ -72,15 +72,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Matrix product of two arrays.
+    /// Matrix product of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> matmul(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)

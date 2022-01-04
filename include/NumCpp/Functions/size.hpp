@@ -34,12 +34,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the number of elements.
+    /// Return the number of elements.
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				uint32 size
+    /// uint32 size
     ///
     template<typename dtype>
     uint32 size(const NdArray<dtype>& inArray) noexcept 

@@ -41,12 +41,12 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						trims the boundary off to make the image back to the original size
+            /// trims the boundary off to make the image back to the original size
             ///
             /// @param				inImageWithBoundary
             /// @param              inSize
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> trimBoundary2d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)

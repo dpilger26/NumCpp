@@ -35,7 +35,7 @@ namespace nc
     namespace coordinates
     {
         //============================================================================
-        ///						Returns the radian seperation between the two Coordinates
+        /// Returns the radian seperation between the two Coordinates
         ///
         /// @param				inCoordinate1
         /// @param              inCoordinate2
@@ -48,8 +48,8 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the radian seperation between the Coordinate
-        ///                     and the input vector
+        /// Returns the radian seperation between the Coordinate
+        /// and the input vector
         ///
         /// @param				inVector1
         /// @param              inVector2

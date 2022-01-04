@@ -37,7 +37,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Raises the input value to an integer power
+        /// Raises the input value to an integer power
         ///
         /// @param      inValue
         /// @param      inPower

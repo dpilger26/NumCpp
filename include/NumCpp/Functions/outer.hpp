@@ -37,7 +37,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	The outer product of two vectors.  Inputs are flattened if not already 1-dimensional.
+    /// The outer product of two vectors.  Inputs are flattened if not already 1-dimensional.
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.outer.html
     ///

@@ -35,15 +35,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Test for negative inf and return result as a boolean.
+    /// Test for negative inf and return result as a boolean.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isneginf.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool isneginf(dtype inValue) noexcept 
@@ -55,15 +55,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Test element-wise for negative inf and return result as a boolean array.
+    /// Test element-wise for negative inf and return result as a boolean array.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isneginf.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> isneginf(const NdArray<dtype>& inArray) 

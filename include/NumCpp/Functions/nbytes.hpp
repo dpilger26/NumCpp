@@ -33,12 +33,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the number of bytes held by the array
+    /// Returns the number of bytes held by the array
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				number of bytes
+    /// number of bytes
     ///
     template<typename dtype>
     uint64 nbytes(const NdArray<dtype>& inArray) noexcept 

@@ -41,7 +41,7 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Reflects the boundaries
+            /// Reflects the boundaries
             ///
             /// @param			inImage
             /// @param          inBoundarySize

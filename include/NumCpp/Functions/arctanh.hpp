@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    /// Trigonometric inverse hyperbolic tangent.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto arctanh(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    /// Trigonometric inverse hyperbolic tangent, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto arctanh(const NdArray<dtype>& inArray) 

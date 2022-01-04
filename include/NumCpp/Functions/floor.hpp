@@ -37,9 +37,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the floor of the input.
+    /// Return the floor of the input.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
     /// @param  inValue
     /// @return value
@@ -54,9 +54,9 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the floor of the input, element-wise.
+    /// Return the floor of the input, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
     /// @param  inArray
     /// @return NdArray

@@ -36,7 +36,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return the elements of an array that satisfy some condition.
+    /// Return the elements of an array that satisfy some condition.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.extract.html
     ///

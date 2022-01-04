@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Test for NaN and return result as a boolean.
+    /// Test for NaN and return result as a boolean.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool isnan(dtype inValue) noexcept
@@ -62,15 +62,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Test element-wise for NaN and return result as a boolean array.
+    /// Test element-wise for NaN and return result as a boolean array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray) 

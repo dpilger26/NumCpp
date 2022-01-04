@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the truncated value of the input.
+    /// Return the truncated value of the input.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype trunc(dtype inValue) noexcept 
@@ -57,15 +57,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the truncated value of the input, element-wise.
+    /// Return the truncated value of the input, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> trunc(const NdArray<dtype>& inArray) 

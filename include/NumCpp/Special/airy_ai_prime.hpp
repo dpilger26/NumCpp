@@ -41,14 +41,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
+        /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
         /// http://mathworld.wolfram.com/AiryFunctions.html
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype>
         auto airy_ai_prime(dtype inValue)
@@ -60,14 +60,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
+        /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
         /// http://mathworld.wolfram.com/AiryFunctions.html
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto airy_ai_prime(const NdArray<dtype>& inArray)

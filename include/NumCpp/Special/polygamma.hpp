@@ -48,7 +48,7 @@ namespace nc
         /// @param n: the nth derivative
         /// @param inValue
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype>
         auto polygamma(uint32 n, dtype inValue)
@@ -67,7 +67,7 @@ namespace nc
         /// @param n: the nth derivative
         /// @param inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto polygamma(uint32 n, const NdArray<dtype>& inArray) 

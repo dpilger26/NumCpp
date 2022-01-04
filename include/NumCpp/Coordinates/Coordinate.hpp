@@ -46,17 +46,17 @@ namespace nc
     namespace coordinates
     {
         //================================================================================
-        ///						Holds a full coordinate object
+        /// Holds a full coordinate object
         class Coordinate
         {
         public:
             //============================================================================
-            ///						Default Constructor
+            /// Default Constructor
             ///
             Coordinate() = default;
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inRaDegrees
             /// @param      inDecDegrees
@@ -69,7 +69,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				inRaHours
             /// @param              inRaMinutes
@@ -88,7 +88,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				inRA
             /// @param              inDec
@@ -101,7 +101,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				inX
             /// @param              inY
@@ -116,7 +116,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				inCartesianVector
             ///
@@ -135,7 +135,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the Dec object
+            /// Returns the Dec object
             ///
             /// @return             Dec
             ///
@@ -145,7 +145,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the RA object
+            /// Returns the RA object
             ///
             /// @return     RA
             ///
@@ -155,7 +155,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the cartesian x value
+            /// Returns the cartesian x value
             ///
             /// @return     x
             ///
@@ -165,7 +165,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the cartesian y value
+            /// Returns the cartesian y value
             ///
             /// @return     y
             ///
@@ -175,7 +175,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the cartesian z value
+            /// Returns the cartesian z value
             ///
             /// @return     z
             ///
@@ -185,7 +185,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the cartesian xyz triplet as an NdArray
+            /// Returns the cartesian xyz triplet as an NdArray
             ///
             /// @return     NdArray
             ///
@@ -196,7 +196,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the degree seperation between the two Coordinates
+            /// Returns the degree seperation between the two Coordinates
             ///
             /// @param      inOtherCoordinate
             ///
@@ -208,8 +208,8 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the degree seperation between the Coordinate
-            ///                     and the input vector
+            /// Returns the degree seperation between the Coordinate
+            /// and the input vector
             ///
             /// @param      inVector
             ///
@@ -221,7 +221,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the radian seperation between the two Coordinates
+            /// Returns the radian seperation between the two Coordinates
             ///
             /// @param      inOtherCoordinate
             ///
@@ -233,8 +233,8 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the radian seperation between the Coordinate
-            ///                     and the input vector
+            /// Returns the radian seperation between the Coordinate
+            /// and the input vector
             ///
             /// @param      inVector
             ///
@@ -251,7 +251,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns coordinate as a string representation
+            /// Returns coordinate as a string representation
             ///
             /// @return     string
             ///
@@ -265,7 +265,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints the Coordinate object to the console
+            /// Prints the Coordinate object to the console
             ///
             void print() const
             {
@@ -273,7 +273,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Equality operator
+            /// Equality operator
             ///
             /// @param      inRhs
             ///
@@ -285,7 +285,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Not equality operator
+            /// Not equality operator
             ///
             /// @param      inRhs
             ///
@@ -297,7 +297,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Ostream operator
+            /// Ostream operator
             ///
             /// @param      inStream
             /// @param      inCoord
@@ -319,7 +319,7 @@ namespace nc
             double  z_{ 0.0 };
 
             //============================================================================
-            ///						Converts polar coordinates to cartesian coordinates
+            /// Converts polar coordinates to cartesian coordinates
             ///
             void cartesianToPolar() noexcept
             {
@@ -336,7 +336,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Converts polar coordinates to cartesian coordinates
+            /// Converts polar coordinates to cartesian coordinates
             ///
             void polarToCartesian() noexcept
             {

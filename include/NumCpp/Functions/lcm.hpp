@@ -45,16 +45,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the least common multiple of |x1| and |x2|.
-    ///                     NOTE: Use of this function requires either using the Boost
-    ///                     includes or a C++17 compliant compiler.
+    /// Returns the least common multiple of |x1| and |x2|.
+    /// NOTE: Use of this function requires either using the Boost
+    /// includes or a C++17 compliant compiler.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
     /// @param      inValue1
     /// @param      inValue2
     /// @return
-    ///				dtype
+    /// dtype
     ///
     template<typename dtype>
     dtype lcm(dtype inValue1, dtype inValue2) noexcept 
@@ -71,14 +71,14 @@ namespace nc
 #ifndef NUMCPP_NO_USE_BOOST
     //============================================================================
     // Method Description:
-    ///						Returns the least common multiple of the values of the input array.
-    ///                     NOTE: Use of this function requires using the Boost includes.
+    /// Returns the least common multiple of the values of the input array.
+    /// NOTE: Use of this function requires using the Boost includes.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
     /// @param      inArray
     /// @return
-    ///				NdArray<double>
+    /// NdArray<double>
     ///
     template<typename dtype>
     dtype lcm(const NdArray<dtype>& inArray)

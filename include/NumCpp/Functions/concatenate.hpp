@@ -39,14 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Join a sequence of arrays along an existing axis.
+    /// Join a sequence of arrays along an existing axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
     ///
     /// @param				inArrayList
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)

@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Cosine
+    /// Cosine
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto cos(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Cosine element-wise.
+    /// Cosine element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto cos(const NdArray<dtype>& inArray) 

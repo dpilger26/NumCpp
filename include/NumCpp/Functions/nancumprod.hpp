@@ -39,14 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cumulative product of elements along a given axis ignoring NaNs.
+    /// Return the cumulative product of elements along a given axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

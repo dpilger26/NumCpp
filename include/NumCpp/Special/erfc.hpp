@@ -41,13 +41,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Returns the complement of the error function of inValue.
+        /// Returns the complement of the error function of inValue.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype>
         auto erfc(dtype inValue)
@@ -59,14 +59,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the element-wise complement of the error
-        ///                     function of inValue.
+        /// Returns the element-wise complement of the error
+        /// function of inValue.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto erfc(const NdArray<dtype>& inArray)

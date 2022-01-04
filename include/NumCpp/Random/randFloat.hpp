@@ -24,7 +24,7 @@
 ///
 /// Description
 /// Return random floats from low (inclusive) to high (exclusive),
-///	with the given shape
+/// with the given shape
 ///
 #pragma once
 
@@ -45,16 +45,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Return a single random float from low (inclusive) to high (exclusive),
-        ///						with the given shape. If no high value is input then the range will 
-        ///                     go from [0, low).
+        /// Return a single random float from low (inclusive) to high (exclusive),
+        /// with the given shape. If no high value is input then the range will 
+        /// go from [0, low).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///
         /// @param  			inLow
         /// @param				inHigh default 0.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype randFloat(dtype inLow, dtype inHigh = 0.0)
@@ -76,17 +76,17 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return random floats from low (inclusive) to high (exclusive),
-        ///						with the given shape. If no high value is input then the range will 
-        ///                     go from [0, low).
+        /// Return random floats from low (inclusive) to high (exclusive),
+        /// with the given shape. If no high value is input then the range will 
+        /// go from [0, low).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///
         /// @param				inShape
         /// @param  			inLow
         /// @param				inHigh default 0.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)

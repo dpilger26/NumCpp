@@ -37,13 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return Pearson product-moment correlation coefficients.
+    /// Return Pearson product-moment correlation coefficients.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
     ///
     /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
-    ///            Each row of x represents a variable, and each column a single observation 
-    ///            of all those variables.
+    /// Each row of x represents a variable, and each column a single observation 
+    /// of all those variables.
     /// @return NdArray
     ///
     template<typename dtype>

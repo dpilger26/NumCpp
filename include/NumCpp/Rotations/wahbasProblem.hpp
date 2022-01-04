@@ -48,7 +48,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers
@@ -112,7 +112,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers

@@ -39,15 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cross product of two (arrays of) vectors.
+    /// Return the cross product of two (arrays of) vectors.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @param  			inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)

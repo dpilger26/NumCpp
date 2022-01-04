@@ -39,16 +39,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Integrate along the given axis using the composite trapezoidal rule.
+    /// Integrate along the given axis using the composite trapezoidal rule.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
     ///
     /// @param				inArray
     /// @param              dx: (Optional defaults to 1.0)
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) 
@@ -115,16 +115,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Integrate along the given axis using the composite trapezoidal rule.
+    /// Integrate along the given axis using the composite trapezoidal rule.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
     ///
     /// @param				inArrayY
     /// @param				inArrayX
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)

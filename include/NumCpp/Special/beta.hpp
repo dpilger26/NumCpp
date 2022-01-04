@@ -47,14 +47,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The beta function.
+        /// The beta function.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      a
         /// @param      b
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto beta(dtype1 a, dtype2 b)
@@ -71,14 +71,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The beta function.
+        /// The beta function.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      inArrayA
         /// @param      inArrayB
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB)

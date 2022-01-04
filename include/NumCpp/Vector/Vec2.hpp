@@ -44,7 +44,7 @@ namespace nc
 {
     //================================================================================
     // Class Description:
-    ///						Holds a 2D vector
+    /// Holds a 2D vector
     class Vec2
     {
     public:
@@ -54,13 +54,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Default Constructor
+        /// Default Constructor
         ///
         constexpr Vec2() = default;
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
         /// @param  inX: the x component
         /// @param  inY: the y component
@@ -72,7 +72,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
         /// @param  inList
         ///
@@ -89,7 +89,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
         /// @param  ndArray
         ///
@@ -106,7 +106,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the angle between the two vectors
+        /// Returns the angle between the two vectors
         ///
         /// @param      otherVec
         /// @return     the angle in radians
@@ -125,8 +125,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the vector with its magnitude clamped
-        ///                     to maxLength
+        /// Returns a copy of the vector with its magnitude clamped
+        /// to maxLength
         ///
         /// @param      maxLength
         /// @return     Vec2
@@ -146,7 +146,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the distance between the two vectors
+        /// Returns the distance between the two vectors
         ///
         /// @param      otherVec
         /// @return     the distance (equivalent to (a - b).norm()
@@ -158,7 +158,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the dot product of the two vectors
+        /// Returns the dot product of the two vectors
         ///
         /// @param      otherVec
         /// @return     the dot product
@@ -170,7 +170,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the unit vector [0, -1]
+        /// Returns the unit vector [0, -1]
         ///
         /// @return Vec2
         ///
@@ -181,7 +181,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the unit vector [-1, 0]
+        /// Returns the unit vector [-1, 0]
         ///
         /// @return Vec2
         ///
@@ -192,7 +192,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Linearly interpolates between two vectors
+        /// Linearly interpolates between two vectors
         ///
         /// @param otherVec
         /// @param t the amount to interpolate by (clamped from [0, 1]);
@@ -212,7 +212,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the magnitude of the vector
+        /// Returns the magnitude of the vector
         ///
         /// @return     magnitude of the vector
         ///
@@ -223,7 +223,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a new normalized Vec2
+        /// Returns a new normalized Vec2
         ///
         /// @return     Vec2
         ///
@@ -234,7 +234,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Projects the vector onto the input vector
+        /// Projects the vector onto the input vector
         ///
         /// @param      otherVec
         /// @return     Vec2
@@ -247,7 +247,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the unit vector [1, 0]
+        /// Returns the unit vector [1, 0]
         ///
         /// @return Vec2
         ///
@@ -258,7 +258,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the Vec2 as a string
+        /// Returns the Vec2 as a string
         ///
         /// @return     std::string
         ///
@@ -271,7 +271,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the Vec2 as an NdArray
+        /// Returns the Vec2 as an NdArray
         ///
         /// @return     NdArray
         ///
@@ -283,7 +283,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the unit vector [0, 1]
+        /// Returns the unit vector [0, 1]
         ///
         /// @return Vec2
         ///
@@ -294,7 +294,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Equality operator
+        /// Equality operator
         ///
         /// @param  rhs
         /// @return bool
@@ -306,7 +306,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Not Equality operator
+        /// Not Equality operator
         ///
         /// @param  rhs
         /// @return bool
@@ -318,7 +318,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Adds the scaler to the vector
+        /// Adds the scaler to the vector
         ///
         /// @param  scaler
         /// @return Vec2
@@ -332,7 +332,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Adds the two vectors
+        /// Adds the two vectors
         ///
         /// @param  rhs
         /// @return Vec2
@@ -346,7 +346,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Subtracts the scaler from the vector
+        /// Subtracts the scaler from the vector
         ///
         /// @param  scaler
         /// @return Vec2
@@ -360,7 +360,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Subtracts the two vectors
+        /// Subtracts the two vectors
         ///
         /// @param  rhs
         /// @return Vec2
@@ -374,7 +374,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Scalar mulitplication
+        /// Scalar mulitplication
         ///
         /// @param  scaler
         /// @return Vec2
@@ -388,7 +388,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Scalar division
+        /// Scalar division
         ///
         /// @param  scaler
         /// @return Vec2
@@ -403,7 +403,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scaler to the vector
+    /// Adds the scaler to the vector
     ///
     /// @param      lhs
     /// @param      rhs
@@ -416,7 +416,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the scaler to the vector
+    /// Adds the scaler to the vector
     ///
     /// @param      lhs
     /// @param      rhs
@@ -429,7 +429,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Adds the two vectors
+    /// Adds the two vectors
     ///
     /// @param      lhs
     /// @param      rhs
@@ -442,7 +442,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns the negative vector
+    /// Returns the negative vector
     ///
     /// @return     Vec2
     ///
@@ -453,7 +453,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scaler from the vector
+    /// Subtracts the scaler from the vector
     ///
     /// @param      lhs
     /// @param      rhs
@@ -466,7 +466,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the scaler from the vector
+    /// Subtracts the scaler from the vector
     ///
     /// @param      lhs
     /// @param      rhs
@@ -479,7 +479,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Subtracts the two vectors
+    /// Subtracts the two vectors
     ///
     /// @param      lhs
     /// @param      rhs
@@ -492,7 +492,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Scalar mulitplication
+    /// Scalar mulitplication
     ///
     /// @param      lhs
     /// @param      rhs
@@ -505,7 +505,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Scalar mulitplication
+    /// Scalar mulitplication
     ///
     /// @param      lhs
     /// @param      rhs
@@ -518,12 +518,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Vector mulitplication (dot product)
+    /// Vector mulitplication (dot product)
     ///
     /// @param      lhs
     /// @param      rhs
     /// @return     dot product
-    ///				
+    /// 
     ///
     inline double operator*(const Vec2& lhs, const Vec2& rhs) noexcept 
     {
@@ -532,7 +532,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Scalar division
+    /// Scalar division
     ///
     /// @param      lhs
     /// @param      rhs
@@ -545,7 +545,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						stream output operator
+    /// stream output operator
     ///
     /// @param      stream
     /// @param      vec

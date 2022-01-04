@@ -42,12 +42,12 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Nearest boundary
+            /// Nearest boundary
             ///
             /// @param				inImage
             /// @param              inBoundarySize
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> nearest2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

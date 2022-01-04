@@ -38,17 +38,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return evenly spaced numbers over a specified interval.
+    /// Return evenly spaced numbers over a specified interval.
     ///
-    ///						Returns num evenly spaced samples, calculated over the
-    ///						interval[start, stop].
+    /// Returns num evenly spaced samples, calculated over the
+    /// interval[start, stop].
     ///
-    ///						The endpoint of the interval can optionally be excluded.
+    /// The endpoint of the interval can optionally be excluded.
     ///
-    ///						Mostly only usefull if called with a floating point type
-    ///						for the template argument.
+    /// Mostly only usefull if called with a floating point type
+    /// for the template argument.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
     ///
     /// @param				inStart
     /// @param				inStop
@@ -56,7 +56,7 @@ namespace nc
     /// @param				endPoint: include endPoint (default = true)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)

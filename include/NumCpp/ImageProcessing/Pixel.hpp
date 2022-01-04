@@ -41,7 +41,7 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///						Holds the information for a single pixel
+        /// Holds the information for a single pixel
         template<typename dtype>
         class Pixel
         {
@@ -57,13 +57,13 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              defualt constructor needed by containers
+            /// defualt constructor needed by containers
             ///
             constexpr Pixel() = default;
 
             //=============================================================================
             // Description:
-            ///              constructor
+            /// constructor
             ///
             /// @param              inRow: pixel row
             /// @param              inCol: pixel column
@@ -77,13 +77,13 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              equality operator
+            /// equality operator
             ///
             /// @param
-            ///              rhs
+            /// rhs
             ///
             /// @return
-            ///              bool
+            /// bool
             ///
             constexpr bool operator==(const Pixel<dtype>& rhs) const noexcept
             {
@@ -92,13 +92,13 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              not equality operator
+            /// not equality operator
             ///
             /// @param
-            ///              rhs
+            /// rhs
             ///
             /// @return
-            ///              bool
+            /// bool
             ///
             constexpr bool operator!=(const Pixel<dtype>& rhs) const noexcept
             {
@@ -107,16 +107,16 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              less than operator for std::sort algorithm and std::set<>;
-            ///              NOTE: std::sort sorts in ascending order. Since I want to sort
-            ///              the centroids in descensing order, I am purposefully defining
-            ///              this operator backwards!
+            /// less than operator for std::sort algorithm and std::set<>;
+            /// NOTE: std::sort sorts in ascending order. Since I want to sort
+            /// the centroids in descensing order, I am purposefully defining
+            /// this operator backwards!
             ///
             /// @param
-            ///              rhs
+            /// rhs
             ///
             /// @return
-            ///              bool
+            /// bool
             ///
             bool operator<(const Pixel<dtype>& rhs) const noexcept 
             {
@@ -134,10 +134,10 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the pixel information as a string
+            /// returns the pixel information as a string
             ///
             /// @return
-            ///              std::string
+            /// std::string
             ///
             std::string str() const
             {
@@ -148,7 +148,7 @@ namespace nc
 
             //============================================================================
             /// Method Description:
-            ///						prints the Pixel object to the console
+            /// prints the Pixel object to the console
             ///
             void print() const
             {
@@ -157,12 +157,12 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              osstream operator
+            /// osstream operator
             ///
             /// @param              inStream
             /// @param              inPixel
             /// @return
-            ///              std::ostream
+            /// std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Pixel<dtype>& inPixel)
             {

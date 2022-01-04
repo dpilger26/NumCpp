@@ -33,13 +33,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the maximum of an array or maximum along an axis.
+    /// Return the maximum of an array or maximum along an axis.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

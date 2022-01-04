@@ -42,13 +42,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Construct an array from data in a binary file.
+    /// Construct an array from data in a binary file.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
     /// @param				inFilename
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename)
@@ -87,14 +87,14 @@ namespace nc
         
     //============================================================================
     // Method Description:
-    ///						Construct an array from data in a text file.
+    /// Construct an array from data in a text file.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
     /// @param				inFilename
     /// @param				inSep: Delimiter separator between values in the file
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const char inSep)

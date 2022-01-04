@@ -39,7 +39,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return numbers spaced evenly on a log scale (a geometric progression).
+    /// Return numbers spaced evenly on a log scale (a geometric progression).
     ///
     /// This is similar to logspace, but with endpoints specified directly. 
     /// Each output sample is a constant multiple of the previous.
@@ -48,8 +48,8 @@ namespace nc
     ///
     /// @param start: the starting value of a sequence
     /// @param stop: The final value of the sequence, unless endpoint is False. 
-    ///              In that case, num + 1 values are spaced over the interval 
-    ///              in log-space, of which all but the last (a sequence of length num) are returned.
+    /// In that case, num + 1 values are spaced over the interval 
+    /// in log-space, of which all but the last (a sequence of length num) are returned.
     /// @param num: Number of samples to generate. Default 50.
     /// @param enpoint: If true, stop is the last sample. Otherwide,it is not included. Default is true.
     /// @return NdArray

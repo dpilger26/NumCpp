@@ -36,7 +36,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return the Hamming window.
+    /// Return the Hamming window.
     ///
     /// The Hanning window is a taper formed by using a weighted cosine.
     ///

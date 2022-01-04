@@ -46,7 +46,7 @@ namespace nc
         /// @param  n: the total number of items
         /// @param  r: the number of items taken
         /// @return
-        ///				double
+        /// double
         ///
         inline double cnr(uint32 n, uint32 r)
         {

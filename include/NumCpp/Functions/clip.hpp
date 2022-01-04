@@ -39,15 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Clip (limit) the value.
+    /// Clip (limit) the value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
     /// @param				inValue
     /// @param				inMinValue
     /// @param				inMaxValue
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
@@ -77,15 +77,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Clip (limit) the values in an array.
+    /// Clip (limit) the values in an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
     /// @param				inArray
     /// @param				inMinValue
     /// @param				inMaxValue
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 

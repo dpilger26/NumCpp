@@ -48,16 +48,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
+    /// Compute the qth percentile of the data along the specified axis, while ignoring nan values.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
     ///
     /// @param				inArray
     /// @param              inPercentile
     /// @param				inAxis (Optional, default NONE)
     /// @param              inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,

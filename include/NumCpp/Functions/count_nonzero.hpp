@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Counts the number of non-zero values in the array.
+    /// Counts the number of non-zero values in the array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

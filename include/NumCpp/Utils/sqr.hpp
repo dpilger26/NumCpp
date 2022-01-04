@@ -34,7 +34,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Squares in input value
+        /// Squares in input value
         ///
         /// @param      inValue
         ///

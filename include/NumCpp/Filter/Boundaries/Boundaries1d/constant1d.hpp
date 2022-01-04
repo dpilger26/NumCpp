@@ -40,13 +40,13 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Constant boundary1d
+            /// Constant boundary1d
             ///
             /// @param				inImage
             /// @param              inBoundarySize
             /// @param              inConstantValue
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> constant1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)

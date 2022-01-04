@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Hyperbolic sine.
+    /// Hyperbolic sine.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto sinh(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Hyperbolic sine, element-wise.
+    /// Hyperbolic sine, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto sinh(const NdArray<dtype>& inArray) 

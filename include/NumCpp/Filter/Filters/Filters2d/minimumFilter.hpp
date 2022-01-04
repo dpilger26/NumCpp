@@ -39,16 +39,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a multidimensional minimum filter.
+        /// Calculates a multidimensional minimum filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter
         ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,

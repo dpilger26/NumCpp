@@ -33,14 +33,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Interchange two axes of an array.
+    /// Interchange two axes of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.swapaxes.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.swapaxes.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> swapaxes(const NdArray<dtype>& inArray) 

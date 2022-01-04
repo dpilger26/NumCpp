@@ -33,7 +33,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Swaps the contents of two arrays
+    /// Swaps the contents of two arrays
     ///
     /// @param				inArray1
     /// @param				inArray2

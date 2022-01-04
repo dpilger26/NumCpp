@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Hyperbolic Cosine.
+    /// Hyperbolic Cosine.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto cosh(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Hyperbolic Cosine element-wise.
+    /// Hyperbolic Cosine element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto cosh(const NdArray<dtype>& inArray) 

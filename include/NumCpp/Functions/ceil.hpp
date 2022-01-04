@@ -37,9 +37,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the ceiling of the input.
+    /// Return the ceiling of the input.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
     /// @param  inValue
     /// @return value
@@ -54,9 +54,9 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the ceiling of the input, element-wise.
+    /// Return the ceiling of the input, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
     /// @param  inArray
     /// @return NdArray

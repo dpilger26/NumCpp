@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Calculate exp(x) - 1 for the input value.
+    /// Calculate exp(x) - 1 for the input value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto expm1(dtype inValue) noexcept 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Calculate exp(x) - 1 for all elements in the array.
+    /// Calculate exp(x) - 1 for all elements in the array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto expm1(const NdArray<dtype>& inArray) 

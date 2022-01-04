@@ -37,13 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Create a two-dimensional array with the flattened input as a diagonal.
+    /// Create a two-dimensional array with the flattened input as a diagonal.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
     ///
     /// @param      inArray
     /// @param      k Diagonal to set; 0, the default, corresponds to the �main� diagonal, 
-    ///             a positive (negative) k giving the number of the diagonal above (below) the main.
+    /// a positive (negative) k giving the number of the diagonal above (below) the main.
     ///
     /// @return     NdArray
     ///

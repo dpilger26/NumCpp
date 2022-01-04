@@ -45,14 +45,14 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Brent root finding method
+        /// Brent root finding method
         ///
         class Brent : public Iteration
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
@@ -65,7 +65,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -80,13 +80,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             ~Brent() override = default;
 
             //============================================================================
             // Method Description:
-            ///	Solves for the root in the range [a, b]
+            /// Solves for the root in the range [a, b]
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -158,7 +158,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the bisection point
+            /// Calculates the bisection point
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -171,7 +171,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the secant point
+            /// Calculates the secant point
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -187,7 +187,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the inverse quadratic interpolation
+            /// Calculates the inverse quadratic interpolation
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -207,7 +207,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Uses the inverse quadratic interpolation
+            /// Uses the inverse quadratic interpolation
             ///
             /// @param fa: the function evaluated at a
             /// @param fb: the function evaluated at b
@@ -221,7 +221,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Checks the algorithm criteria
+            /// Checks the algorithm criteria
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -240,7 +240,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Uses the bisection
+            /// Uses the bisection
             ///
             /// @param bisection: the bisection point
             /// @param b: the upper bound

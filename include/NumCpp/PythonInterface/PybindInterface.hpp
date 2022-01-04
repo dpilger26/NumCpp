@@ -55,8 +55,8 @@ namespace nc
         using pbArrayGeneric = pybind11::array;
 
         //============================================================================
-        ///						converts a numpy array to a numcpp NdArray using pybind bindings
-        ///                     Python will still own the underlying data.
+        /// converts a numpy array to a numcpp NdArray using pybind bindings
+        /// Python will still own the underlying data.
         ///
         /// @param      numpyArray
         ///
@@ -92,8 +92,8 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a numpy array to a numcpp NdArray using pybind bindings
-        ///                     Python will still own the underlying data.
+        /// converts a numpy array to a numcpp NdArray using pybind bindings
+        /// Python will still own the underlying data.
         ///
         /// @param      numpyArray
         ///
@@ -129,7 +129,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a numcpp NdArray to numpy array using pybind bindings
+        /// converts a numcpp NdArray to numpy array using pybind bindings
         ///
         /// @param     inArray: the input array
         ///
@@ -147,7 +147,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a numcpp NdArray to numpy array using pybind bindings
+        /// converts a numcpp NdArray to numpy array using pybind bindings
         ///
         /// @param     inArray: the input array
         /// @param     returnPolicy: the return policy

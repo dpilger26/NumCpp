@@ -40,13 +40,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Matrix or vector norm.
+    /// Matrix or vector norm.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -103,13 +103,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Matrix or vector norm.
+    /// Matrix or vector norm.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 

@@ -40,16 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Element-wise maximum of array elements.
+    /// Element-wise maximum of array elements.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html
     ///
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -39,14 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Change the sign of x1 to that of x2, element-wise.
+    /// Change the sign of x1 to that of x2, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -40,15 +40,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return an array drawn from elements in choiceVec, depending on conditions.
+    /// Return an array drawn from elements in choiceVec, depending on conditions.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.select.html?highlight=select#numpy.select
     ///
     /// @param condVec The vector of conditions which determine from which array in choiceVec
-    ///                the output elements are taken. When multiple conditions are satisfied, 
-    ///                the first one encountered in choiceVec is used.
+    /// the output elements are taken. When multiple conditions are satisfied, 
+    /// the first one encountered in choiceVec is used.
     /// @param choiceVec The vector of array pointers from which the output elements are taken. 
-    ///                  It has to be of the same length as condVec.
+    /// It has to be of the same length as condVec.
     /// @param defaultValue The element inserted in output when all conditions evaluate to False
     /// @return NdArray
     ///
@@ -119,15 +119,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Return an array drawn from elements in choiceList, depending on conditions.
+    /// Return an array drawn from elements in choiceList, depending on conditions.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.select.html?highlight=select#numpy.select
     ///
     /// @param condList The list of conditions which determine from which array in choiceList
-    ///                the output elements are taken. When multiple conditions are satisfied, 
-    ///                the first one encountered in choiceList is used.
+    /// the output elements are taken. When multiple conditions are satisfied, 
+    /// the first one encountered in choiceList is used.
     /// @param choiceList The list of array pointers from which the output elements are taken. 
-    ///                  It has to be of the same length as condVec.
+    /// It has to be of the same length as condVec.
     /// @param defaultValue The element inserted in output when all conditions evaluate to False
     /// @return NdArray
     ///

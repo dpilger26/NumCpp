@@ -33,15 +33,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Numerical negative, element-wise.
+    /// Numerical negative, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> negative(const NdArray<dtype>& inArray)

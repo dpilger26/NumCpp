@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic cosine.
+    /// Trigonometric inverse hyperbolic cosine.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto arccosh(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic cosine, element-wise.
+    /// Trigonometric inverse hyperbolic cosine, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto arccosh(const NdArray<dtype>& inArray) 

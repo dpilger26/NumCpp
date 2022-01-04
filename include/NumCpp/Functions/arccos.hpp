@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse cosine
+    /// Trigonometric inverse cosine
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto arccos(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse cosine, element-wise.
+    /// Trigonometric inverse cosine, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto arccos(const NdArray<dtype>& inArray) 

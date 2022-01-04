@@ -23,7 +23,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-///	Generates a list of centroids givin an input exceedance rate
+/// Generates a list of centroids givin an input exceedance rate
 ///
 
 #pragma once
@@ -47,15 +47,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Generates a list of centroids givin an input exceedance
-        ///						rate
+        /// Generates a list of centroids givin an input exceedance
+        /// rate
         ///
         /// @param				inImageArray
         /// @param				inRate: exceedance rate
         /// @param              inWindowType: (string "pre", or "post" for where to apply the exceedance windowing)
         /// @param				inBorderWidth: border to apply (default 0)
         /// @return
-        ///				std::vector<Centroid>
+        /// std::vector<Centroid>
         ///
         template<typename dtype>
         std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string& inWindowType, uint8 inBorderWidth = 0)

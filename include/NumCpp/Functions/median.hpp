@@ -34,15 +34,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the median along the specified axis.
+    /// Compute the median along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.median.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.median.html
     ///
     /// @param				inArray
     /// @param  			inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

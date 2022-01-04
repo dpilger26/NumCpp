@@ -37,17 +37,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the natural logarithm of one plus the input array.
+    /// Return the natural logarithm of one plus the input array.
     ///
-    ///						Calculates log(1 + x).
+    /// Calculates log(1 + x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto log1p(dtype inValue) noexcept 
@@ -59,17 +59,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the natural logarithm of one plus the input array, element-wise.
+    /// Return the natural logarithm of one plus the input array, element-wise.
     ///
-    ///						Calculates log(1 + x).
+    /// Calculates log(1 + x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto log1p(const NdArray<dtype>& inArray) 

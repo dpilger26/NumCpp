@@ -45,9 +45,9 @@ namespace nc
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype>
         auto gamma1pm1(dtype inValue)
@@ -63,9 +63,9 @@ namespace nc
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto gamma1pm1(const NdArray<dtype>& inArray)

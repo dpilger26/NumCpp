@@ -38,7 +38,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Logarithm of an arbitrary base
+    /// Logarithm of an arbitrary base
     ///
     /// @param inValue
     /// @param inBase: the logorithm base
@@ -55,7 +55,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Logarithm of an arbitrary base
+    /// Logarithm of an arbitrary base
     ///
     /// @param inValue
     /// @param inBase: the logorithm base

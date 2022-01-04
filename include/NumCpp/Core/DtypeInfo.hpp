@@ -35,14 +35,14 @@
 namespace nc
 {
     //================================================================================
-    ///						Holds info about the dtype
+    /// Holds info about the dtype
     template<typename dtype>
     class DtypeInfo
     {
     public:
         //============================================================================
-        ///						For integer types: number of non-sign bits in the representation.
-        ///						For floating types : number of digits(in radix base) in the mantissa
+        /// For integer types: number of non-sign bits in the representation.
+        /// For floating types : number of digits(in radix base) in the mantissa
         ///
         /// @return     number of bits
         ///
@@ -54,8 +54,8 @@ namespace nc
         }
 
         //============================================================================
-        ///						Machine epsilon (the difference between 1 and the least
-        ///						value greater than 1 that is representable).
+        /// Machine epsilon (the difference between 1 and the least
+        /// value greater than 1 that is representable).
         ///
         /// @return     dtype
         ///
@@ -67,7 +67,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is integer.
+        /// True if type is integer.
         ///
         /// @return     bool
         ///
@@ -79,7 +79,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is signed.
+        /// True if type is signed.
         ///
         /// @return     bool
         ///
@@ -91,7 +91,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the minimum value of the dtype
+        /// Returns the minimum value of the dtype
         ///
         /// @return     min value
         ///
@@ -103,7 +103,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the maximum value of the dtype
+        /// Returns the maximum value of the dtype
         ///
         /// @return     max value
         ///
@@ -116,14 +116,14 @@ namespace nc
     };
 
     //================================================================================
-    ///						Holds info about the std::complex
+    /// Holds info about the std::complex
     template<typename dtype>
     class DtypeInfo<std::complex<dtype>>
     {
     public:
         //============================================================================
-        ///						For integer types: number of non-sign bits in the representation.
-        ///						For floating types : number of digits(in radix base) in the mantissa
+        /// For integer types: number of non-sign bits in the representation.
+        /// For floating types : number of digits(in radix base) in the mantissa
         ///
         /// @return     number of bits
         ///
@@ -135,8 +135,8 @@ namespace nc
         }
 
         //============================================================================
-        ///						Machine epsilon (the difference between 1 and the least
-        ///						value greater than 1 that is representable).
+        /// Machine epsilon (the difference between 1 and the least
+        /// value greater than 1 that is representable).
         ///
         /// @return     dtype
         ///
@@ -148,7 +148,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is integer.
+        /// True if type is integer.
         ///
         /// @return     bool
         ///
@@ -160,7 +160,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is signed.
+        /// True if type is signed.
         ///
         /// @return     bool
         ///
@@ -172,7 +172,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the minimum value of the dtype
+        /// Returns the minimum value of the dtype
         ///
         /// @return     min value
         ///
@@ -184,7 +184,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the maximum value of the dtype
+        /// Returns the maximum value of the dtype
         ///
         /// @return     max value
         ///

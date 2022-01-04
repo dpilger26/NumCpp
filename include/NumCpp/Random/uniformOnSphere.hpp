@@ -24,7 +24,7 @@
 ///
 /// Description
 /// Such a distribution produces random numbers uniformly
-///	distributed on the unit sphere of arbitrary dimension dim.
+/// distributed on the unit sphere of arbitrary dimension dim.
 ///
 #pragma once
 
@@ -47,14 +47,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Such a distribution produces random numbers uniformly
-        ///	distributed on the unit sphere of arbitrary dimension dim.
+        /// Such a distribution produces random numbers uniformly
+        /// distributed on the unit sphere of arbitrary dimension dim.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param				inNumPoints
         /// @param				inDims: dimension of the sphere (default 2)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)

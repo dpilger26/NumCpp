@@ -36,7 +36,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Converts the number into a string
+        /// Converts the number into a string
         ///
         /// @param      inNumber
         ///

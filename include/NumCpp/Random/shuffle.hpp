@@ -39,10 +39,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Modify a sequence in-place by shuffling its contents.
+        /// Modify a sequence in-place by shuffling its contents.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         ///
         template<typename dtype>
         void shuffle(NdArray<dtype>& inArray) 

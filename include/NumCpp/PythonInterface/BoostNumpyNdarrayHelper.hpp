@@ -47,17 +47,17 @@ namespace nc
     namespace boostPythonInterface
     {
         //================================================================================
-        ///						Helper class for ndarray
+        /// Helper class for ndarray
         template<typename dtype>
         class BoostNdarrayHelper
         {
         public:
             //================================================================================
-            ///						C or Fortran ordering from python
+            /// C or Fortran ordering from python
             enum class Order { F, C };
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inArray:  ndarray
             ///
@@ -83,7 +83,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inShape
             ///
@@ -110,7 +110,7 @@ namespace nc
 
 
             //============================================================================
-            ///						Returns the internaly held ndarray
+            /// Returns the internaly held ndarray
             ///
             /// @return     reference to the held ndarray
             ///
@@ -120,7 +120,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the internaly held ndarray as a numpy matrix
+            /// Returns the internaly held ndarray as a numpy matrix
             ///
             /// @return     matrix
             ///
@@ -130,7 +130,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the number of dimensions of the array
+            /// Returns the number of dimensions of the array
             ///
             /// @return     num dimensions
             ///
@@ -140,7 +140,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the shape of the array
+            /// Returns the shape of the array
             ///
             /// @return     vector
             ///
@@ -150,7 +150,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the size of the array
+            /// Returns the size of the array
             ///
             /// @return     size
             ///
@@ -166,7 +166,7 @@ namespace nc
 
 
             //============================================================================
-            ///						Returns the strides of the array
+            /// Returns the strides of the array
             ///
             /// @return     vector
             ///
@@ -176,7 +176,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the memory order of the array (C or Fortran)
+            /// Returns the memory order of the array (C or Fortran)
             ///
             /// @return     Order
             ///
@@ -186,7 +186,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns if the shapes of the two array helpers are equal
+            /// Returns if the shapes of the two array helpers are equal
             ///
             /// @param      otherNdarrayHelper
             ///
@@ -203,7 +203,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						1D access operator
+            /// 1D access operator
             ///
             /// @param      index
             ///
@@ -217,7 +217,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						2D access operator
+            /// 2D access operator
             ///
             /// @param      index1
             /// @param      index2
@@ -232,7 +232,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints a 1D array
+            /// Prints a 1D array
             ///
             void printArray1D()
             {
@@ -250,7 +250,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints a 2D array
+            /// Prints a 2D array
             ///
             void printArray2D()
             {
@@ -280,7 +280,7 @@ namespace nc
             Order   						order_;
 
             //============================================================================
-            ///						Generic check of input indices
+            /// Generic check of input indices
             ///
             /// @param      indices
             ///
@@ -306,7 +306,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Checks 1D input indices
+            /// Checks 1D input indices
             ///
             /// @param      index
             ///
@@ -317,7 +317,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Checks 2D input indices
+            /// Checks 2D input indices
             ///
             /// @param      index1
             /// @param		index2

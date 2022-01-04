@@ -41,14 +41,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Returns the inverse error function of z, that is a value x such that:
+        /// Returns the inverse error function of z, that is a value x such that:
         /// z = erf(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype>
         auto erf_inv(dtype inValue)
@@ -60,14 +60,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the inverse error function of z, that is a value x such that:
+        /// Returns the inverse error function of z, that is a value x such that:
         /// z = erf(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto erf_inv(const NdArray<dtype>& inArray)

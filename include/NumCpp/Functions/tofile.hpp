@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Write array to a file as binary.
-    ///						The data produced by this method can be recovered
-    ///						using the function fromfile().
+    /// Write array to a file as binary.
+    /// The data produced by this method can be recovered
+    /// using the function fromfile().
     ///
     /// @param				inArray
     /// @param				inFilename
     /// @return
-    ///				None
+    /// None
     ///
     template<typename dtype>
     void tofile(const NdArray<dtype>& inArray, const std::string& inFilename)
@@ -52,15 +52,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Write array to a file as text.
-    ///						The data produced by this method can be recovered
-    ///						using the function fromfile().
+    /// Write array to a file as text.
+    /// The data produced by this method can be recovered
+    /// using the function fromfile().
     ///
     /// @param				inArray
     /// @param				inFilename
     /// @param				inSep: Separator between array items for text output.
     /// @return
-    ///				None
+    /// None
     ///
     template<typename dtype>
     void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const char inSep)

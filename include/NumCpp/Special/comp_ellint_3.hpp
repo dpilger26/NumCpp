@@ -55,7 +55,7 @@ namespace nc
         /// @param      inK: elliptic modulus or eccentricity
         /// @param      inV: elliptic characteristic
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto comp_ellint_3(dtype1 inK, dtype2 inV)
@@ -79,7 +79,7 @@ namespace nc
         /// @param      inArrayK: the order of the bessel function
         /// @param      inArrayV: elliptic characteristic
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto comp_ellint_3(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayV)

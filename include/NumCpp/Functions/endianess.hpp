@@ -33,12 +33,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the endianess of the array values.
+    /// Return the endianess of the array values.
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				Endian
+    /// Endian
     ///
     template<typename dtype>
     Endian endianess(const NdArray<dtype>& inArray) noexcept 

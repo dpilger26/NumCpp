@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Test whether no array elements along a given axis evaluate to True.
+    /// Test whether no array elements along a given axis evaluate to True.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     NdArray<bool> none(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

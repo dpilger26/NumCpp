@@ -38,14 +38,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a multidimensional complemenatry median filter.
+        /// Calculates a multidimensional complemenatry median filter.
         ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,

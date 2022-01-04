@@ -45,15 +45,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The Riemann Zeta function
+        /// The Riemann Zeta function
         /// https://en.wikipedia.org/wiki/Riemann_zeta_function
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype>
         auto riemann_zeta(dtype inValue)
@@ -69,15 +69,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The Riemann Zeta function
+        /// The Riemann Zeta function
         /// https://en.wikipedia.org/wiki/Riemann_zeta_function
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto riemann_zeta(const NdArray<dtype>& inArray) 

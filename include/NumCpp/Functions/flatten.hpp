@@ -33,13 +33,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a copy of the array collapsed into one dimension.
+    /// Return a copy of the array collapsed into one dimension.
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> flatten(const NdArray<dtype>& inArray) 

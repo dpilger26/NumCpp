@@ -40,17 +40,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						minimum of inputs.
+    /// minimum of inputs.
     ///
-    ///						Compare two value and returns a value containing the
-    ///						minima
+    /// Compare two value and returns a value containing the
+    /// minima
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
     ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype fmin(dtype inValue1, dtype inValue2) noexcept 
@@ -66,17 +66,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Element-wise minimum of array elements.
+    /// Element-wise minimum of array elements.
     ///
-    ///						Compare two arrays and returns a new array containing the
-    ///						element - wise minima
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise minima
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

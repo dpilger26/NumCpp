@@ -40,16 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Find the set difference of two arrays.
+    /// Find the set difference of two arrays.
     ///
-    ///						Return the sorted, unique values in ar1 that are not in ar2.
+    /// Return the sorted, unique values in ar1 that are not in ar2.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -55,7 +55,7 @@ namespace nc
         /// @param      inK: elliptic modulus or eccentricity
         /// @param      inP: Jacobi amplitude (measured in radians)
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto ellint_1(dtype1 inK, dtype2 inP)
@@ -79,7 +79,7 @@ namespace nc
         /// @param      inArrayK: elliptic modulus or eccentricity
         /// @param      inArrayP: Jacobi amplitude (measured in radians)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto ellint_1(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayP)

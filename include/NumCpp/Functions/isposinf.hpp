@@ -35,15 +35,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Test for positive inf and return result as a boolean.
+    /// Test for positive inf and return result as a boolean.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isposinf.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool isposinf(dtype inValue) noexcept 
@@ -55,15 +55,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Test element-wise for positive inf and return result as a boolean array.
+    /// Test element-wise for positive inf and return result as a boolean array.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isposinf.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> isposinf(const NdArray<dtype>& inArray) 

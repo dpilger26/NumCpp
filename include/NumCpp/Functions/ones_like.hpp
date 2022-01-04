@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with ones.
+    /// Return a new array of given shape and type, filled with ones.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray) 

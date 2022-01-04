@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a sorted copy of an array.
+    /// Return a sorted copy of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

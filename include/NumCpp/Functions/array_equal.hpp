@@ -34,15 +34,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						True if two arrays have the same shape and elements, False otherwise.
+    /// True if two arrays have the same shape and elements, False otherwise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) noexcept

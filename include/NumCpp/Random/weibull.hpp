@@ -43,14 +43,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the  "weibull" distribution.
+        /// Single random value sampled from the  "weibull" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
         /// @param				inA (default 1)
         /// @param				inB (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype weibull(dtype inA = 1, dtype inB = 1)
@@ -73,16 +73,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "weibull" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "weibull" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
         /// @param				inShape
         /// @param				inA (default 1)
         /// @param				inB (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)

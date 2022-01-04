@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Round value to the nearest integer.
+    /// Round value to the nearest integer.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype rint(dtype inValue) noexcept 
@@ -57,15 +57,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Round elements of the array to the nearest integer.
+    /// Round elements of the array to the nearest integer.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> rint(const NdArray<dtype>& inArray) 

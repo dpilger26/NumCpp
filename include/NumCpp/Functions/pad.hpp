@@ -36,15 +36,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Pads an array.
+    /// Pads an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
     ///
     /// @param				inArray
     /// @param				inPadWidth
     /// @param				inPadValue
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)

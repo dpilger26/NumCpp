@@ -35,12 +35,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Apply polynomial elemnt wise to the input values.
+    /// Apply polynomial elemnt wise to the input values.
     ///
     /// @param				inArray
     /// @param				inPoly
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     void applyPoly1d(NdArray<dtype>& inArray, const polynomial::Poly1d<dtype>& inPoly) 

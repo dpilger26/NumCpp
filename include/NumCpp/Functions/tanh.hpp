@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute hyperbolic tangent.
+    /// Compute hyperbolic tangent.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto tanh(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute hyperbolic tangent element-wise.
+    /// Compute hyperbolic tangent element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto tanh(const NdArray<dtype>& inArray) 

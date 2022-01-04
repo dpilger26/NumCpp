@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the product of array elements over a given axis.
+    /// Return the product of array elements over a given axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

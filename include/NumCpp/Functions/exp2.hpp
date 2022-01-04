@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Calculate 2**p for all p in the input value.
+    /// Calculate 2**p for all p in the input value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto exp2(dtype inValue) noexcept 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Calculate 2**p for all p in the input array.
+    /// Calculate 2**p for all p in the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto exp2(const NdArray<dtype>& inArray) 

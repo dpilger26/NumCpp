@@ -36,12 +36,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Cubes the input
+    /// Cubes the input
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				cubed value
+    /// cubed value
     ///
     template<typename dtype>
     constexpr dtype cube(dtype inValue) noexcept
@@ -53,12 +53,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Cubes the elements of the array
+    /// Cubes the elements of the array
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> cube(const NdArray<dtype>& inArray) 

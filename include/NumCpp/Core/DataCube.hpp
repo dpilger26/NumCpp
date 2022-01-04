@@ -51,12 +51,12 @@ namespace nc
         using const_iterator = typename std::deque<NdArray<dtype> >::const_iterator;
 
         //============================================================================
-        ///	Default Constructor
+        /// Default Constructor
         ///
         DataCube() = default;
 
         //============================================================================
-        ///	Constructor, preallocates to the input size
+        /// Constructor, preallocates to the input size
         ///
         /// @param      inSize
         ///
@@ -66,7 +66,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Access method, with bounds checking. Returns the 2d z "slice" element of the cube.
+        /// Access method, with bounds checking. Returns the 2d z "slice" element of the cube.
         ///
         /// @param      inIndex
         ///
@@ -78,7 +78,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Const access method, with bounds checking. Returns the 2d z "slice" element of the cube.
+        /// Const access method, with bounds checking. Returns the 2d z "slice" element of the cube.
         ///
         /// @param      inIndex
         ///
@@ -90,7 +90,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns a reference to the last 2d "slice" of the cube in the z-axis
+        /// Returns a reference to the last 2d "slice" of the cube in the z-axis
         ///
         /// @return     NdArray&
         ///
@@ -100,7 +100,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns an iterator to the first 2d z "slice" of the cube.
+        /// Returns an iterator to the first 2d z "slice" of the cube.
         ///
         /// @return     iterator
         ///
@@ -110,7 +110,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns an const_iterator to the first 2d z "slice" of the cube.
+        /// Returns an const_iterator to the first 2d z "slice" of the cube.
         ///
         /// @return     const_iterator
         ///
@@ -120,7 +120,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Outputs the DataCube as a .bin file
+        /// Outputs the DataCube as a .bin file
         ///
         /// @param      inFilename
         ///
@@ -147,7 +147,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Tests whether or not the container is empty
+        /// Tests whether or not the container is empty
         ///
         /// @return     bool
         ///
@@ -157,7 +157,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns an iterator to 1 past the last 2d z "slice" of the cube.
+        /// Returns an iterator to 1 past the last 2d z "slice" of the cube.
         ///
         /// @return     iterator
         ///
@@ -167,7 +167,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns an const_iterator to 1 past the last 2d z "slice" of the cube.
+        /// Returns an const_iterator to 1 past the last 2d z "slice" of the cube.
         ///
         /// @return     const_iterator
         ///
@@ -177,7 +177,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns a reference to the front 2d "slice" of the cube in the z-axis
+        /// Returns a reference to the front 2d "slice" of the cube in the z-axis
         ///
         /// @return     NdArray&
         ///
@@ -187,7 +187,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns the x/y shape of the cube
+        /// Returns the x/y shape of the cube
         ///
         /// @return     Shape
         ///
@@ -197,7 +197,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Returns the size of the z-axis of the cube
+        /// Returns the size of the z-axis of the cube
         ///
         /// @return     size
         ///
@@ -207,7 +207,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Removes the last z "slice" of the cube
+        /// Removes the last z "slice" of the cube
         ///
         void pop_back() noexcept 
         {
@@ -215,7 +215,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Adds a new z "slice" to the end of the cube
+        /// Adds a new z "slice" to the end of the cube
         ///
         /// @param      inArray
         ///
@@ -239,7 +239,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube
+        /// Slices the z dimension of the cube
         ///
         /// @param       inIndex: the flattend 2d index (row, col) to slice
         /// @return      NdArray
@@ -262,7 +262,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube
+        /// Slices the z dimension of the cube
         ///
         /// @param       inIndex: the flattend 2d index (row, col) to slice
         /// @param       inSliceZ: the slice dimensions of the z-axis
@@ -287,7 +287,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -316,7 +316,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -347,7 +347,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -370,7 +370,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -395,7 +395,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -418,7 +418,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -443,7 +443,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -461,7 +461,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with NO bounds checking
+        /// Slices the z dimension of the cube with NO bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -480,7 +480,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inIndex: the flattend 2d index (row, col) to slice
         /// @return      NdArray
@@ -501,7 +501,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inIndex: the flattend 2d index (row, col) to slice
         /// @param       inSliceZ: the slice dimensions of the z-axis
@@ -529,7 +529,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -561,7 +561,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -599,7 +599,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -627,7 +627,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -662,7 +662,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -690,7 +690,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -725,7 +725,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -747,7 +747,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Slices the z dimension of the cube with bounds checking
+        /// Slices the z dimension of the cube with bounds checking
         ///
         /// @param       inRow
         /// @param       inCol
@@ -776,7 +776,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Access operator, no bounds checking.  Returns the 2d z "slice" element of the cube.
+        /// Access operator, no bounds checking.  Returns the 2d z "slice" element of the cube.
         ///
         /// @param      inIndex
         ///
@@ -788,7 +788,7 @@ namespace nc
         }
 
         //============================================================================
-        ///	Const access operator, no bounds checking. Returns the 2d z "slice" element of the cube.
+        /// Const access operator, no bounds checking. Returns the 2d z "slice" element of the cube.
         ///
         /// @param      inIndex
         ///

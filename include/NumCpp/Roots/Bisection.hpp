@@ -44,14 +44,14 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Bisection root finding method
+        /// Bisection root finding method
         ///
         class Bisection : public Iteration
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
@@ -64,7 +64,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -79,13 +79,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             ~Bisection() override = default;
 
             //============================================================================
             // Method Description:
-            ///	Solves for the root in the range [a, b]
+            /// Solves for the root in the range [a, b]
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -116,7 +116,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Checks the bounds criteria
+            /// Checks the bounds criteria
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -132,7 +132,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the bisection point
+            /// Calculates the bisection point
             ///
             /// @param x: the evaluation point
             /// @param a: the lower bound

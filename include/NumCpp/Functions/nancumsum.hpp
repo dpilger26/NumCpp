@@ -39,14 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cumulative sum of the elements along a given axis ignoring NaNs.
+    /// Return the cumulative sum of the elements along a given axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

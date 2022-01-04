@@ -36,13 +36,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Apply the input function element wise to the input
-    ///                     array in place.
+    /// Apply the input function element wise to the input
+    /// array in place.
     ///
     /// @param				inArray
     /// @param				inFunc
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)

@@ -37,16 +37,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Unwrap by changing deltas between values to 2*pi complement.
-    ///                     Unwraps to [-pi, pi].
+    /// Unwrap by changing deltas between values to 2*pi complement.
+    /// Unwraps to [-pi, pi].
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype unwrap(dtype inValue) noexcept 
@@ -58,16 +58,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Unwrap by changing deltas between values to 2*pi complement.
-    ///                     Unwraps to [-pi, pi].
+    /// Unwrap by changing deltas between values to 2*pi complement.
+    /// Unwraps to [-pi, pi].
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> unwrap(const NdArray<dtype>& inArray) 

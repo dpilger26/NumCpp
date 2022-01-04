@@ -36,14 +36,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the square of an array.
+    /// Return the square of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     constexpr dtype square(dtype inValue) noexcept
@@ -55,14 +55,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the square of an array, element-wise.
+    /// Return the square of an array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> square(const NdArray<dtype>& inArray) 

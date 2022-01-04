@@ -41,15 +41,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the standard deviation along the specified axis, while ignoring NaNs.
+    /// Compute the standard deviation along the specified axis, while ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

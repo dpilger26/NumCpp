@@ -46,14 +46,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind.
+        /// Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the degree of the legendre polynomial
         /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype>
         double legendre_p(uint32 n, dtype x)
@@ -74,7 +74,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind.
+        /// Associated Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
@@ -82,7 +82,7 @@ namespace nc
         /// @param      n: the degree of the legendre polynomial
         /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype>
         double legendre_p(uint32 m, uint32 n, dtype x)
@@ -133,14 +133,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind.
+        /// Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      n: the degree of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				NdArray<double>
+        /// NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX) 
@@ -159,7 +159,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind.
+        /// Associated Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
@@ -167,7 +167,7 @@ namespace nc
         /// @param      n: the degree of the legendre polynomial
         /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
-        ///				NdArray<double>
+        /// NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX) 

@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Calculate the exponential of the input value.
+    /// Calculate the exponential of the input value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto exp(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Calculate the exponential of all elements in the input array.
+    /// Calculate the exponential of all elements in the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto exp(const NdArray<dtype>& inArray) 

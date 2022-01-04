@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Flip array in the left/right direction.
+    /// Flip array in the left/right direction.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fliplr.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fliplr.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fliplr(const NdArray<dtype>& inArray) 

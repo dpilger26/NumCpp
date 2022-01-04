@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the indices that would sort an array.
+    /// Returns the indices that would sort an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

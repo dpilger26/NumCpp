@@ -42,15 +42,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the median along the specified axis ignoring NaNs.
+    /// Compute the median along the specified axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

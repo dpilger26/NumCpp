@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Reverse the order of elements in an array along the given axis.
+    /// Reverse the order of elements in an array along the given axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
     ///
     /// @param				inArray
     /// @param				inAxis
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

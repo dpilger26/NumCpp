@@ -33,14 +33,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return indices that are non-zero in the flattened version of a.
+    /// Return indices that are non-zero in the flattened version of a.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray) 

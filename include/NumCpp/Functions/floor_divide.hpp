@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the largest integer smaller or equal to the division of the inputs.
+    /// Return the largest integer smaller or equal to the division of the inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
     ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype floor_divide(dtype inValue1, dtype inValue2) noexcept
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the largest integer smaller or equal to the division of the inputs.
+    /// Return the largest integer smaller or equal to the division of the inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

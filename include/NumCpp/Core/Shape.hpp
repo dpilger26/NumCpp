@@ -36,7 +36,7 @@
 namespace nc
 {
     //================================================================================
-    ///						A Shape Class for NdArrays
+    /// A Shape Class for NdArrays
     class Shape
     {
     public:
@@ -45,12 +45,12 @@ namespace nc
         uint32	cols{ 0 };
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         constexpr Shape() = default;
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         /// @param      inSquareSize
         ///
@@ -60,7 +60,7 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         /// @param      inRows
         /// @param      inCols
@@ -71,7 +71,7 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Equality operator
+        /// Equality operator
         ///
         /// @param      inOtherShape
         ///
@@ -83,7 +83,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Not equality operator
+        /// Not equality operator
         ///
         /// @param      inOtherShape
         ///
@@ -95,7 +95,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the size of the shape
+        /// Returns the size of the shape
         ///
         /// @return     size
         ///
@@ -105,8 +105,8 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns whether the shape is null (constructed with the
-        ///						default constructor).
+        /// Returns whether the shape is null (constructed with the
+        /// default constructor).
         ///
         /// @return     bool
         ///
@@ -116,7 +116,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns whether the shape is square or not.
+        /// Returns whether the shape is square or not.
         ///
         /// @return     bool
         ///
@@ -126,7 +126,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the shape as a string representation
+        /// Returns the shape as a string representation
         ///
         /// @return     std::string
         ///
@@ -137,7 +137,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
         void print() const 
         {
@@ -145,7 +145,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						IO operator for the Shape class
+        /// IO operator for the Shape class
         ///
         /// @param      inOStream
         /// @param      inShape

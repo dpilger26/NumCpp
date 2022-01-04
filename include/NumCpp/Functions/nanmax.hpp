@@ -40,15 +40,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the maximum of an array or maximum along an axis ignoring NaNs.
+    /// Return the maximum of an array or maximum along an axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

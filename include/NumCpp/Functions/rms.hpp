@@ -40,13 +40,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the root mean square (RMS) along the specified axis.
+    /// Compute the root mean square (RMS) along the specified axis.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -102,13 +102,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the root mean square (RMS) along the specified axis.
+    /// Compute the root mean square (RMS) along the specified axis.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 

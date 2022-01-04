@@ -40,9 +40,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix svd
+        /// matrix svd
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
         ///
         /// @param				inArray: NdArray to be SVDed
         /// @param				outU: NdArray output U

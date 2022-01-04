@@ -35,16 +35,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Repeat elements of an array.
+    /// Repeat elements of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
     ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -54,15 +54,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Repeat elements of an array.
+    /// Repeat elements of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
     ///
     /// @param				inArray
     /// @param				inRepeatShape
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape) 

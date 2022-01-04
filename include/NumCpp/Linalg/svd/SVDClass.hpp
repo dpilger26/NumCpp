@@ -42,17 +42,17 @@ namespace nc
     {
         // =============================================================================
         // Class Description:
-        ///              performs the singular value decomposition of a general matrix,
-        ///              taken and adapted from Numerical Recipes Third Edition svd.h
+        /// performs the singular value decomposition of a general matrix,
+        /// taken and adapted from Numerical Recipes Third Edition svd.h
         class SVD
         {
         public:
             // =============================================================================
             // Description:
-            ///              Constructor
+            /// Constructor
             ///
             /// @param
-            ///              inMatrix: matrix to perform SVD on
+            /// inMatrix: matrix to perform SVD on
             ///
             explicit SVD(const NdArray<double>& inMatrix) :
                 m_(inMatrix.shape().rows),
@@ -69,10 +69,10 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              the resultant u matrix
+            /// the resultant u matrix
             ///
             /// @return
-            ///              u matrix
+            /// u matrix
             ///
             const NdArray<double>& u() noexcept 
             {
@@ -81,10 +81,10 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              the resultant v matrix
+            /// the resultant v matrix
             ///
             /// @return
-            ///              v matrix
+            /// v matrix
             ///
             const NdArray<double>& v() noexcept 
             {
@@ -93,10 +93,10 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              the resultant w matrix
+            /// the resultant w matrix
             ///
             /// @return
-            ///              s matrix
+            /// s matrix
             ///
             const NdArray<double>& s() noexcept 
             {
@@ -105,13 +105,13 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              solves the linear least squares problem
+            /// solves the linear least squares problem
             ///
             /// @param      inInput
             /// @param      inThresh (default -1.0)
             ///
             /// @return
-            ///              NdArray
+            /// NdArray
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
@@ -159,13 +159,13 @@ namespace nc
         private:
             // =============================================================================
             // Description:
-            ///              returns the SIGN of two values
+            /// returns the SIGN of two values
             ///
             /// @param              inA
             /// @param              inB
             ///
             /// @return
-            ///              value
+            /// value
             ///
             static double SIGN(double inA, double inB) noexcept 
             {
@@ -174,7 +174,7 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              decomposes the input matrix
+            /// decomposes the input matrix
             ///
             void decompose()
             {
@@ -515,7 +515,7 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              reorders the input matrix
+            /// reorders the input matrix
             ///
             void reorder() 
             {
@@ -626,13 +626,13 @@ namespace nc
 
             // =============================================================================
             // Description:
-            ///              performs pythag of input values
+            /// performs pythag of input values
             ///
             /// @param              inA
             /// @param              inB
             ///
             /// @return
-            ///              resultant value
+            /// resultant value
             ///
             static double pythag(double inA, double inB) noexcept
             {

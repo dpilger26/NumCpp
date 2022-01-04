@@ -40,12 +40,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Seeds the random number generator
+        /// Seeds the random number generator
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///
         /// @param
-        ///				inSeed
+        /// inSeed
         ///
         inline void seed(uint32 inSeed) 
         {

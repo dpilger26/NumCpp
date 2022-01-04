@@ -36,14 +36,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Create a new 1-dimensional array from an iterable object.
+    /// Create a new 1-dimensional array from an iterable object.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html
     ///
     /// @param				inBegin
     /// @param				inEnd
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype, typename Iter>
     NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) 

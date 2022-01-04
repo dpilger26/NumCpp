@@ -37,11 +37,11 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
     /// @param      inMask
     /// @param      inA
@@ -84,11 +84,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
     /// @param      inMask
     /// @param      inA
@@ -126,11 +126,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
     /// @param      inMask
     /// @param      inA
@@ -168,11 +168,11 @@ namespace nc
 
         //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
     /// @param      inMask
     /// @param      inA

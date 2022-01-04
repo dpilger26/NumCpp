@@ -39,16 +39,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a one-dimensional median filter.
+        /// Calculates a one-dimensional median filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,

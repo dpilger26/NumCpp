@@ -41,7 +41,7 @@ namespace nc
     namespace error
     {
         //============================================================================
-        ///	Makes the full error message string
+        /// Makes the full error message string
         ///
         /// @param      file: the file
         /// @param      function: the function

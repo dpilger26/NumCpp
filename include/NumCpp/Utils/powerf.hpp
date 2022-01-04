@@ -38,7 +38,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Raises the input value to a floating point power
+        /// Raises the input value to a floating point power
         ///
         /// @param      inValue
         /// @param      inPower

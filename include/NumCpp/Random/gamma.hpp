@@ -43,14 +43,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "gamma" distrubution.
+        /// Single random value sampled from the "gamma" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
         /// @param			    inGammaShape
         /// @param				inScaleValue (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype gamma(dtype inGammaShape, dtype inScaleValue = 1)
@@ -73,16 +73,16 @@ namespace nc
         }
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "gamma" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "gamma" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
         /// @param				inShape
         /// @param			    inGammaShape
         /// @param				inScaleValue (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)

@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Range of values (maximum - minimum) along an axis.
+    /// Range of values (maximum - minimum) along an axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

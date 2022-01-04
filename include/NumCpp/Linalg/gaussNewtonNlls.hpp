@@ -55,17 +55,17 @@ namespace nc
         ///
         /// @param      numIterations: the number of iterations to perform
         /// @param      coordinates: the coordinate values.  The shape needs to be [n x d], where d is 
-        ///                     the number of diminsions of the fit function (f(x) is one dimensional, 
-        ///                     f(x, y) is two dimensions, etc), and n is the number of observations
-        ///                     that are being fit to.
+        /// the number of diminsions of the fit function (f(x) is one dimensional, 
+        /// f(x, y) is two dimensions, etc), and n is the number of observations
+        /// that are being fit to.
         /// @param      measurements: the measured values that are being fit
         /// @param      function: a std::function of the function that is being fit. The function takes as 
-        ///                       inputs an NdArray of a single set of the coordinate values, and an NdArray 
-        ///                       of the current values of the fit parameters
+        /// inputs an NdArray of a single set of the coordinate values, and an NdArray 
+        /// of the current values of the fit parameters
         /// @param      derivatives: array of std::functions to calculate the function 
-        ///                          derivatives. The function that is being fit. The function takes as 
-        ///                          inputs an NdArray of a single set of the coordinate values, and an NdArray 
-        ///                          of the current values of the fit parameters
+        /// derivatives. The function that is being fit. The function takes as 
+        /// inputs an NdArray of a single set of the coordinate values, and an NdArray 
+        /// of the current values of the fit parameters
         /// @param      initialGuess: the initial guess of the parameters to be solved for
         ///
         /// @return     std::pair of NdArray of solved parameter values, and rms of the residuals value

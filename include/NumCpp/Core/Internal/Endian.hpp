@@ -37,7 +37,7 @@ namespace nc
     {
         //============================================================================
         // Function Description:
-        ///	Determines the endianess of the system
+        /// Determines the endianess of the system
         ///
         /// @return bool true if the system is little endian
         ///
@@ -54,7 +54,7 @@ namespace nc
 
         //============================================================================
         // Function Description:
-        ///	Swaps the bytes of the input value
+        /// Swaps the bytes of the input value
         ///
         /// @param	value
         /// @return byte swapped value

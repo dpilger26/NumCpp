@@ -47,7 +47,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix LU decomposition A = LU
+        /// matrix LU decomposition A = LU
         ///
         /// @param				inMatrix: NdArray to be decomposed
         ///

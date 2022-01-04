@@ -41,16 +41,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Compute the dot product of two or more arrays in a single
-        ///						function call.
+        /// Compute the dot product of two or more arrays in a single
+        /// function call.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
         ///
         /// @param
-        ///				inList: list of arrays
+        /// inList: list of arrays
         ///
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)

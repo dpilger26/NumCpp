@@ -44,7 +44,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Performs Newton-Cotes Romberg integration of the input function
+        /// Performs Newton-Cotes Romberg integration of the input function
         ///
         /// @param				low: the lower bound of the integration
         /// @param              high: the upper bound of the integration

@@ -43,16 +43,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculate a one-dimensional gaussian filter.
+        /// Calculate a one-dimensional gaussian filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d
         ///
         /// @param				inImageArray
         /// @param				inSigma: Standard deviation for Gaussian kernel
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,

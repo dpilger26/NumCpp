@@ -41,14 +41,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix inverse
+        /// matrix inverse
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<double> inv(const NdArray<dtype>& inArray)

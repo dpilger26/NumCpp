@@ -66,9 +66,9 @@ namespace nc
         // Method Description:
         /// Calculates the next power of two after n
         /// >>> _next_power_of_two(768)
-        ///     1024
+        /// 1024
         /// >>> _next_power_of_two(4)
-        ///     8
+        /// 8
         ///
         /// @param n integer value
         /// @return next power of two
@@ -289,7 +289,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the Hamming SECDED decoded bits from the endoded bits. Assumes that the 
-        ///                DataBits and EncodedBits have been checks for consistancy already
+        /// DataBits and EncodedBits have been checks for consistancy already
         ///
         /// @param encodedBits the Hamming SECDED encoded word
         /// @return data bits from the encoded word
@@ -363,7 +363,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the Hamming SECDED decoded bits for the enocoded bits
+        /// Returns the Hamming SECDED decoded bits for the enocoded bits
         /// https://en.wikipedia.org/wiki/Hamming_code
         ///
         /// @param encodedBits the encoded bits to decode

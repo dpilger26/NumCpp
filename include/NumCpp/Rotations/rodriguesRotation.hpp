@@ -39,7 +39,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Performs Rodriques' rotation formula
+        /// Performs Rodriques' rotation formula
         /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
         /// @param  k: the axis to rotate around
@@ -69,7 +69,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Performs Rodriques' rotation formula
+        /// Performs Rodriques' rotation formula
         /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
         /// @param  k: the axis to rotate around

@@ -35,9 +35,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
     ///
     /// @param			inArray1
     /// @param			inArray2
@@ -51,12 +51,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///						For 2-D arrays it is equivalent to matrix multiplication,
-    ///						and for 1-D arrays to inner product of vectors.
+    /// For 2-D arrays it is equivalent to matrix multiplication,
+    /// and for 1-D arrays to inner product of vectors.
     ///
-    ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
+    /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
     ///
     /// @param			inArray1
     /// @param			inArray2
@@ -105,12 +105,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///						For 2-D arrays it is equivalent to matrix multiplication,
-    ///						and for 1-D arrays to inner product of vectors.
+    /// For 2-D arrays it is equivalent to matrix multiplication,
+    /// and for 1-D arrays to inner product of vectors.
     ///
-    ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
+    /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
     ///
     /// @param			inArray1
     /// @param			inArray2

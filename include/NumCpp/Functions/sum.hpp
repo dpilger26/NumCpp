@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Sum of array elements over a given axis.
+    /// Sum of array elements over a given axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

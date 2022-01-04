@@ -35,15 +35,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the truth value of NOT x element-wise.
+    /// Compute the truth value of NOT x element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> logical_not(const NdArray<dtype>& inArray) 

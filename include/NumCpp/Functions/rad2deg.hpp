@@ -36,15 +36,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Convert angles from radians to degrees.
+    /// Convert angles from radians to degrees.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     constexpr auto rad2deg(dtype inValue) noexcept
@@ -56,15 +56,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert angles from radians to degrees.
+    /// Convert angles from radians to degrees.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto rad2deg(const NdArray<dtype>& inArray)

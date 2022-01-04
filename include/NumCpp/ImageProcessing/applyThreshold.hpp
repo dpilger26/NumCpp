@@ -36,12 +36,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Applies a threshold to an image
+        /// Applies a threshold to an image
         ///
         /// @param      inImageArray
-        ///	@param  	inThreshold
+        /// @param  	inThreshold
         /// @return
-        ///				NdArray of booleans of pixels that exceeded the threshold
+        /// NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
         NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) 

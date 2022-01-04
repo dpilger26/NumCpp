@@ -39,13 +39,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Stack arrays in sequence vertically (row wise).
+    /// Stack arrays in sequence vertically (row wise).
     ///
     /// @param
-    ///				inArrayList: {list} of arrays to stack
+    /// inArrayList: {list} of arrays to stack
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)

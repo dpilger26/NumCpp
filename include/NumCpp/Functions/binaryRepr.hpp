@@ -37,13 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the binary representation of the input number as a string.
+    /// Return the binary representation of the input number as a string.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html
     ///
     /// @param				inValue
     /// @return
-    ///				std::string
+    /// std::string
     ///
     template<typename dtype>
     std::string binaryRepr(dtype inValue) 

@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis, while ignoring NaNs.
+    /// Compute the variance along the specified axis, while ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
     ///
     /// @param			inArray
     /// @param			inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

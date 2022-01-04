@@ -45,14 +45,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Spherical Bessel function of the second kind.
+        /// Spherical Bessel function of the second kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype>
         auto spherical_bessel_yn(uint32 inV, dtype inX)
@@ -68,14 +68,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Spherical Bessel function of the second kind.
+        /// Spherical Bessel function of the second kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX) 

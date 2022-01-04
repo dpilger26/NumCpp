@@ -38,17 +38,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns an element-wise indication of the sign of a number.
+    /// Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
-    ///						nan is returned for nan inputs.
+    /// The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
+    /// nan is returned for nan inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     int8 sign(dtype inValue) noexcept 
@@ -70,17 +70,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns an element-wise indication of the sign of a number.
+    /// Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
-    ///						nan is returned for nan inputs.
+    /// The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
+    /// nan is returned for nan inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<int8> sign(const NdArray<dtype>& inArray) 

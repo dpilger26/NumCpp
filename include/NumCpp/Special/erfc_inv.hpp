@@ -41,14 +41,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Returns the inverse complentary error function of z, that is a value x such that:
+        /// Returns the inverse complentary error function of z, that is a value x such that:
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype>
         auto erfc_inv(dtype inValue)
@@ -60,14 +60,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the inverse complementary error function of z, that is a value x such that:
+        /// Returns the inverse complementary error function of z, that is a value x such that:
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         auto erfc_inv(const NdArray<dtype>& inArray)

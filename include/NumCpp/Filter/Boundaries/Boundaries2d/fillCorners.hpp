@@ -41,7 +41,7 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						extends the corner values
+            /// extends the corner values
             ///
             /// @param				inArray
             /// @param              inBorderWidth
@@ -74,7 +74,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						extends the corner values
+            /// extends the corner values
             ///
             /// @param				inArray
             /// @param              inBorderWidth

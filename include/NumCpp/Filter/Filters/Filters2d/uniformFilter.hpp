@@ -40,16 +40,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a multidimensional uniform filter.
+        /// Calculates a multidimensional uniform filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter
         ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,

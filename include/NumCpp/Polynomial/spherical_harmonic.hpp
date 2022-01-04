@@ -42,7 +42,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Returns the value of the Spherical Harmonic Ynm(theta, phi).
+        /// Returns the value of the Spherical Harmonic Ynm(theta, phi).
         /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
@@ -53,7 +53,7 @@ namespace nc
         /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
         /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype1, typename dtype2>
         std::complex<double> spherical_harmonic(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
@@ -66,7 +66,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the real part of the Spherical Harmonic Ynm(theta, phi).
+        /// Returns the real part of the Spherical Harmonic Ynm(theta, phi).
         /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
@@ -77,7 +77,7 @@ namespace nc
         /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
         /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype1, typename dtype2>
         double spherical_harmonic_r(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
@@ -90,7 +90,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the imaginary part of the Spherical Harmonic Ynm(theta, phi).
+        /// Returns the imaginary part of the Spherical Harmonic Ynm(theta, phi).
         /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
@@ -101,7 +101,7 @@ namespace nc
         /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
         /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype1, typename dtype2>
         double spherical_harmonic_i(uint32 n, int32 m,  dtype1 theta, dtype2 phi)

@@ -36,7 +36,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Inner product of two 1-D arrays.
+    /// Inner product of two 1-D arrays.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.inner.html
     ///

@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Test for inf and return result as a boolean.
+    /// Test for inf and return result as a boolean.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool isinf(dtype inValue) noexcept 
@@ -57,15 +57,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Test element-wise for inf and return result as a boolean array.
+    /// Test element-wise for inf and return result as a boolean array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> isinf(const NdArray<dtype>& inArray) 

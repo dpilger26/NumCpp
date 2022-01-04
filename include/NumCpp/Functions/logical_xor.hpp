@@ -38,15 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the truth value of x1 XOR x2 element-wise.
+    /// Compute the truth value of x1 XOR x2 element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

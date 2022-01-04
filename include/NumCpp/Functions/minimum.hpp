@@ -39,15 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Element-wise minimum of array elements.
+    /// Element-wise minimum of array elements.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

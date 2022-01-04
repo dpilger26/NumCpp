@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the truth value of x1 AND x2 element-wise.
+    /// Compute the truth value of x1 AND x2 element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> logical_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

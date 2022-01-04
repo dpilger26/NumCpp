@@ -46,14 +46,14 @@ namespace nc
         public:
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates according
-            ///                     to the input euler angles
+            /// returns a direction cosine matrix that rotates according
+            /// to the input euler angles
             ///
             /// @param				roll: euler roll angle in radians
             /// @param				pitch: euler pitch angle in radians
             /// @param				yaw: euler yaw angle in radians
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             static NdArray<double> eulerAngles(double roll, double pitch, double yaw) 
             {
@@ -62,12 +62,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates according
-            ///                     to the input euler angles
+            /// returns a direction cosine matrix that rotates according
+            /// to the input euler angles
             ///
             /// @param				angles: euler roll, pitch, angles
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             static NdArray<double> eulerAngles(const NdArray<double>& angles)
             {
@@ -76,13 +76,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the input axis by the input angle
+            /// returns a direction cosine matrix that rotates about
+            /// the input axis by the input angle
             ///
             /// @param				inAxis: euler axis cartesian vector with x,y,z components
             /// @param				inAngle: euler angle in radians
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             static NdArray<double> eulerAxisAngle(const NdArray<double>& inAxis, double inAngle)
             {
@@ -91,13 +91,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the input axis by the input angle
+            /// returns a direction cosine matrix that rotates about
+            /// the input axis by the input angle
             ///
             /// @param				inAxis: euler axis cartesian vector with x,y,z components
             /// @param				inAngle: euler angle in radians
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) 
             {
@@ -106,13 +106,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns whether the input array is a direction cosine
-            ///						matrix
+            /// returns whether the input array is a direction cosine
+            /// matrix
             ///
             /// @param
-            ///				inArray
+            /// inArray
             /// @return
-            ///				bool
+            /// bool
             ///
             static bool isValid(const NdArray<double>& inArray)
             {
@@ -124,7 +124,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler roll angle in radians
+            /// The euler roll angle in radians
             ///
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler roll angle in radians
@@ -136,7 +136,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler pitch angle in radians
+            /// The euler pitch angle in radians
             ///
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler pitch angle in radians
@@ -148,7 +148,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler yaw angle in radians
+            /// The euler yaw angle in radians
             ///
             /// @param      dcm: a valid direction cosine matrix
             /// @return     euler yaw angle in radians
@@ -160,13 +160,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the x axis by the input angle
+            /// returns a direction cosine matrix that rotates about
+            /// the x axis by the input angle
             ///
             /// @param
-            ///				inAngle (in radians)
+            /// inAngle (in radians)
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             static NdArray<double> xRotation(double inAngle) 
             {
@@ -175,13 +175,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the x axis by the input angle
+            /// returns a direction cosine matrix that rotates about
+            /// the x axis by the input angle
             ///
             /// @param
-            ///				inAngle (in radians)
+            /// inAngle (in radians)
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             static NdArray<double> yRotation(double inAngle) 
             {
@@ -190,13 +190,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the x axis by the input angle
+            /// returns a direction cosine matrix that rotates about
+            /// the x axis by the input angle
             ///
             /// @param
-            ///				inAngle (in radians)
+            /// inAngle (in radians)
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             static NdArray<double> zRotation(double inAngle) 
             {

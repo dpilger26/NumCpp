@@ -34,12 +34,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the length of the first dimension of the input array.
+    /// Return the length of the first dimension of the input array.
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				length uint16
+    /// length uint16
     ///
     template<typename dtype>
     uint32 alen(const NdArray<dtype>& inArray) noexcept 

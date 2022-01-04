@@ -38,15 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis.
+    /// Compute the variance along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -65,15 +65,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis.
+    /// Compute the variance along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> var(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 

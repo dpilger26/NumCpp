@@ -45,7 +45,7 @@ namespace nc
     namespace boostPythonInterface
     {
         //============================================================================
-        ///						Converts from a boost ndarray to a NumCpp NdArray<T>
+        /// Converts from a boost ndarray to a NumCpp NdArray<T>
         ///
         /// @param      inArray
         ///
@@ -91,7 +91,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Converts from a NumCpp NdArray<T> to a boost ndarray
+        /// Converts from a NumCpp NdArray<T> to a boost ndarray
         ///
         /// @param      inArray
         ///
@@ -115,7 +115,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a boost python list to a std::vector
+        /// converts a boost python list to a std::vector
         ///
         /// @param      inList
         ///
@@ -128,7 +128,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a std::vector to a boost python list
+        /// converts a std::vector to a boost python list
         ///
         /// @param      inVector
         ///
@@ -147,7 +147,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						converts a std::map in to a boost python dictionary
+        /// converts a std::map in to a boost python dictionary
         ///
         /// @param      inMap
         ///

@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the complex conjugate of the complex argument.
+    /// Return the complex conjugate of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto conj(const std::complex<dtype>& inValue) 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the complex conjugate of the complex argument.
+    /// Return the complex conjugate of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto conj(const NdArray<std::complex<dtype>>& inArray) 

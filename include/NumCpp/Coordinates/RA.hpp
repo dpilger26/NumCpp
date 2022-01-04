@@ -42,17 +42,17 @@ namespace nc
     namespace coordinates
     {
         //================================================================================
-        ///						Holds a right ascension object
+        /// Holds a right ascension object
         class RA
         {
         public:
             //============================================================================
-            ///						Default Constructor
+            /// Default Constructor
             ///
             RA() = default;
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inDegrees
             ///
@@ -72,9 +72,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            ///	@param			inHours
+            /// @param			inHours
             /// @param          inMinutes
             /// @param          inSeconds
             ///
@@ -88,7 +88,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the radians value
+            /// Get the radians value
             ///
             /// @return     radians
             ///
@@ -98,7 +98,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the degrees value
+            /// Get the degrees value
             ///
             /// @return     degrees
             ///
@@ -108,7 +108,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the hour value
+            /// Get the hour value
             ///
             /// @return     hours
             ///
@@ -118,7 +118,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the minute value
+            /// Get the minute value
             ///
             /// @return     minutes
             ///
@@ -128,7 +128,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the seconds value
+            /// Get the seconds value
             ///
             /// @return     seconds
             ///
@@ -138,7 +138,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Return the RA object as a string representation
+            /// Return the RA object as a string representation
             ///
             /// @return     std::string
             ///
@@ -150,7 +150,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints the RA object to the console
+            /// Prints the RA object to the console
             ///
             void print() const
             {
@@ -158,7 +158,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Equality operator
+            /// Equality operator
             ///
             /// @param      inRhs
             ///
@@ -170,7 +170,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Not equality operator
+            /// Not equality operator
             ///
             /// @param      inRhs
             ///
@@ -182,7 +182,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Ostream operator
+            /// Ostream operator
             ///
             /// @param      inStream
             /// @param      inRa

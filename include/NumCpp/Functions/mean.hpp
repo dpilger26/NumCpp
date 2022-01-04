@@ -39,15 +39,15 @@ namespace nc
 {
     //===========================================================================
     // Method Description:
-    ///						Compute the mean along the specified axis.
+    /// Compute the mean along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -96,15 +96,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the mean along the specified axis.
+    /// Compute the mean along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> mean(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 

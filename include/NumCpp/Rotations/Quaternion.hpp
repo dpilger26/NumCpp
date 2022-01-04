@@ -53,19 +53,19 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///						Holds a unit quaternion
+        /// Holds a unit quaternion
         class Quaternion
         {
         public:
             //============================================================================
             // Method Description:
-            ///						Default Constructor
+            /// Default Constructor
             ///
             Quaternion() = default;
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				roll: euler roll angle in radians
             /// @param				pitch: euler pitch angle in radians
@@ -78,7 +78,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
             /// @param				inI
             /// @param				inJ
@@ -93,11 +93,11 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
             /// @param  inArray: if size = 3 the roll, pitch, yaw euler angles
-            ///                  if size = 4 the i, j, k, s components
-            ///                  if shape = [3, 3] then direction cosine matrix
+            /// if size = 4 the i, j, k, s components
+            /// if shape = [3, 3] then direction cosine matrix
             ///
             Quaternion(const NdArray<double>& inArray) :
                 components_{ 0.0, 0.0, 0.0, 0.0 }
@@ -126,7 +126,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
             /// @param			inAxis: Euler axis
             /// @param			inAngle: Euler angle in radians
@@ -147,7 +147,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
             /// @param			inAxis: Euler axis x,y,z vector components
             /// @param			inAngle: Euler angle in radians
@@ -158,14 +158,14 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						angular velocity vector between the two quaternions. The norm
-            ///						of the array is the magnitude
+            /// angular velocity vector between the two quaternions. The norm
+            /// of the array is the magnitude
             ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inTime (seperation time)
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) 
             {
@@ -194,13 +194,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						angular velocity vector between the two quaternions. The norm
-            ///						of the array is the magnitude
+            /// angular velocity vector between the two quaternions. The norm
+            /// of the array is the magnitude
             ///
             /// @param				inQuat2
             /// @param				inTime (seperation time)
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const 
             {
@@ -209,10 +209,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						quaternion conjugate
+            /// quaternion conjugate
             ///
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion conjugate() const noexcept
             {
@@ -221,10 +221,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the i component
+            /// returns the i component
             ///
             /// @return
-            ///				double
+            /// double
             ///
             double i() const noexcept 
             {
@@ -233,10 +233,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						quaternion identity (0,0,0,1)
+            /// quaternion identity (0,0,0,1)
             ///
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion identity() noexcept
             {
@@ -245,10 +245,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						quaternion inverse
+            /// quaternion inverse
             ///
             /// @return
-            ///				Quaterion
+            /// Quaterion
             ///
             Quaternion inverse() const noexcept
             {
@@ -258,10 +258,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the j component
+            /// returns the j component
             ///
             /// @return
-            ///				double
+            /// double
             ///
             double j() const noexcept 
             {
@@ -270,10 +270,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the k component
+            /// returns the k component
             ///
             /// @return
-            ///				double
+            /// double
             ///
             double k() const noexcept 
             {
@@ -282,13 +282,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						linearly interpolates between the two quaternions
+            /// linearly interpolates between the two quaternions
             ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inPercent [0, 1]
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion nlerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
@@ -321,12 +321,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						linearly interpolates between the two quaternions
+            /// linearly interpolates between the two quaternions
             ///
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion nlerp(const Quaternion& inQuat2, double inPercent) const
             {
@@ -335,7 +335,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler pitch angle in radians
+            /// The euler pitch angle in radians
             ///
             /// @return     euler pitch angle in radians
             ///
@@ -346,7 +346,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						prints the Quaternion to the console
+            /// prints the Quaternion to the console
             ///
             void print() const 
             {
@@ -355,7 +355,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler roll angle in radians
+            /// The euler roll angle in radians
             ///
             /// @return     euler roll angle in radians
             ///
@@ -367,12 +367,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						rotate a vector using the quaternion
+            /// rotate a vector using the quaternion
             ///
             /// @param
-            ///				inVector (cartesian vector with x,y,z components)
+            /// inVector (cartesian vector with x,y,z components)
             /// @return
-            ///				NdArray<double> (cartesian vector with x,y,z components)
+            /// NdArray<double> (cartesian vector with x,y,z components)
             ///
             NdArray<double> rotate(const NdArray<double>& inVector) const
             {
@@ -386,12 +386,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						rotate a vector using the quaternion
+            /// rotate a vector using the quaternion
             ///
             /// @param
-            ///				inVec3
+            /// inVec3
             /// @return
-            ///				Vec3
+            /// Vec3
             ///
             Vec3 rotate(const Vec3& inVec3) const 
             {
@@ -400,10 +400,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the s component
+            /// returns the s component
             ///
             /// @return
-            ///				double
+            /// double
             ///
             double s() const noexcept
             {
@@ -412,13 +412,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						spherical linear interpolates between the two quaternions
+            /// spherical linear interpolates between the two quaternions
             ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion slerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
@@ -468,12 +468,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						spherical linear interpolates between the two quaternions
+            /// spherical linear interpolates between the two quaternions
             ///
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion slerp(const Quaternion& inQuat2, double inPercent) const
             {
@@ -482,10 +482,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the quaternion as a string representation
+            /// returns the quaternion as a string representation
             ///
             /// @return
-            ///				std::string
+            /// std::string
             ///
             std::string str() const 
             {
@@ -497,10 +497,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the direction cosine matrix
+            /// returns the direction cosine matrix
             ///
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             NdArray<double> toDCM() const 
             {
@@ -531,10 +531,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns the quaternion as an NdArray
+            /// returns the quaternion as an NdArray
             ///
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             NdArray<double> toNdArray() const 
             {
@@ -544,12 +544,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the x-axis by the input angle
+            /// returns a quaternion to rotate about the x-axis by the input angle
             ///
             /// @param
-            ///				inAngle (radians)
+            /// inAngle (radians)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion xRotation(double inAngle) noexcept
             {
@@ -559,7 +559,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	The euler yaw angle in radians
+            /// The euler yaw angle in radians
             ///
             /// @return     euler yaw angle in radians
             ///
@@ -571,12 +571,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the y-axis by the input angle
+            /// returns a quaternion to rotate about the y-axis by the input angle
             ///
             /// @param
-            ///				inAngle (radians)
+            /// inAngle (radians)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion yRotation(double inAngle) noexcept
             {
@@ -586,12 +586,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the y-axis by the input angle
+            /// returns a quaternion to rotate about the y-axis by the input angle
             ///
             /// @param
-            ///				inAngle (radians)
+            /// inAngle (radians)
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             static Quaternion zRotation(double inAngle) noexcept
             {
@@ -601,12 +601,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						equality operator
+            /// equality operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				bool
+            /// bool
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
@@ -621,12 +621,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						equality operator
+            /// equality operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				bool
+            /// bool
             ///
             bool operator!=(const Quaternion& inRhs) const noexcept
             {
@@ -635,12 +635,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						addition assignment operator
+            /// addition assignment operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
@@ -654,12 +654,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						addition operator
+            /// addition operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator+(const Quaternion& inRhs) const noexcept 
             {
@@ -668,12 +668,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						subtraction assignment operator
+            /// subtraction assignment operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
@@ -687,12 +687,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						subtraction operator
+            /// subtraction operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator-(const Quaternion& inRhs) const noexcept 
             {
@@ -701,10 +701,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						negative operator
+            /// negative operator
             ///
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator-() const noexcept
             {
@@ -713,12 +713,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication assignment operator
+            /// multiplication assignment operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion& operator*=(const Quaternion& inRhs) noexcept
             {
@@ -754,13 +754,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication operator, only useful for multiplying
-            ///						by negative 1, all others will be renormalized back out
+            /// multiplication operator, only useful for multiplying
+            /// by negative 1, all others will be renormalized back out
             ///
             /// @param
-            ///				inScalar
+            /// inScalar
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion& operator*=(double inScalar) noexcept
             {
@@ -777,12 +777,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication operator
+            /// multiplication operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator*(const Quaternion& inRhs) const noexcept
             {
@@ -791,13 +791,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication operator, only useful for multiplying
-            ///						by negative 1, all others will be renormalized back out
+            /// multiplication operator, only useful for multiplying
+            /// by negative 1, all others will be renormalized back out
             ///
             /// @param
-            ///				inScalar
+            /// inScalar
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator*(double inScalar) const noexcept  
             {
@@ -806,12 +806,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication operator
+            /// multiplication operator
             ///
             /// @param
-            ///				inVec
+            /// inVec
             /// @return
-            ///				NdArray<double>
+            /// NdArray<double>
             ///
             NdArray<double> operator*(const NdArray<double>& inVec) const
             {
@@ -830,12 +830,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						multiplication operator
+            /// multiplication operator
             ///
             /// @param
-            ///				inVec3
+            /// inVec3
             /// @return
-            ///				Vec3
+            /// Vec3
             ///
             Vec3 operator*(const Vec3& inVec3) const 
             {
@@ -844,12 +844,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						division assignment operator
+            /// division assignment operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion& operator/=(const Quaternion& inRhs) noexcept
             {
@@ -858,12 +858,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						division operator
+            /// division operator
             ///
             /// @param
-            ///				inRhs
+            /// inRhs
             /// @return
-            ///				Quaternion
+            /// Quaternion
             ///
             Quaternion operator/(const Quaternion& inRhs) const noexcept
             {
@@ -872,12 +872,12 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						IO operator for the Quaternion class
+            /// IO operator for the Quaternion class
             ///
             /// @param      inOStream
             /// @param 		inQuat
             /// @return
-            ///				std::ostream&
+            /// std::ostream&
             ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat) 
             {
@@ -891,7 +891,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						renormalizes the quaternion
+            /// renormalizes the quaternion
             ///
             void normalize() noexcept
             {
@@ -912,7 +912,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Converts the euler roll, pitch, yaw angles to quaternion components
+            /// Converts the euler roll, pitch, yaw angles to quaternion components
             ///
             /// @ param roll: the euler roll angle in radians
             /// @ param pitch: the euler pitch angle in radians
@@ -939,7 +939,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Converts the direction cosine matrix to quaternion components
+            /// Converts the direction cosine matrix to quaternion components
             ///
             /// @ param dcm: the direction cosine matrix
             ///

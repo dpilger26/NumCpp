@@ -40,17 +40,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Find the unique elements of an array.
+    /// Find the unique elements of an array.
     ///
-    ///						Returns the sorted unique elements of an array.
+    /// Returns the sorted unique elements of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> unique(const NdArray<dtype>& inArray) 

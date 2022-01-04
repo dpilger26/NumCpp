@@ -38,15 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the base 10 logarithm of the input array.
+    /// Return the base 10 logarithm of the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto log10(dtype inValue) noexcept 
@@ -58,15 +58,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the base 10 logarithm of the input array, element-wise.
+    /// Return the base 10 logarithm of the input array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto log10(const NdArray<dtype>& inArray) 

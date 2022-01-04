@@ -36,14 +36,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the imaginar  part of the complex argument.
+    /// Return the imaginar  part of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto imag(const std::complex<dtype>& inValue) 
@@ -55,14 +55,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the imaginary part of the complex argument.
+    /// Return the imaginary part of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto imag(const NdArray<std::complex<dtype>>& inArray) 

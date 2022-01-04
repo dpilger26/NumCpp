@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Stack 1-D arrays as columns into a 2-D array.
+    /// Stack 1-D arrays as columns into a 2-D array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
     ///
     /// @param
-    ///				inArrayList: {list} of arrays to stack
+    /// inArrayList: {list} of arrays to stack
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)

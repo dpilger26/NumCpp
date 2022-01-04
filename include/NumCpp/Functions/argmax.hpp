@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the indices of the maximum values along an axis.
+    /// Returns the indices of the maximum values along an axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

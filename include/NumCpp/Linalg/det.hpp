@@ -42,15 +42,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix determinant.
-        ///						NOTE: can get verrrrry slow for large matrices (order > 10)
+        /// matrix determinant.
+        /// NOTE: can get verrrrry slow for large matrices (order > 10)
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				matrix determinant
+        /// matrix determinant
         ///
         template<typename dtype>
         dtype det(const NdArray<dtype>& inArray)

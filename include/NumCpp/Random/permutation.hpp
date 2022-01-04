@@ -39,14 +39,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Randomly permute a sequence, or return a permuted range.
-        ///						If x is an integer, randomly permute np.arange(x).
-        ///						If x is an array, make a copy and shuffle the elements randomly.
+        /// Randomly permute a sequence, or return a permuted range.
+        /// If x is an integer, randomly permute np.arange(x).
+        /// If x is an array, make a copy and shuffle the elements randomly.
         ///
         /// @param
-        ///				inValue
+        /// inValue
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> permutation(dtype inValue) 
@@ -60,14 +60,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Randomly permute a sequence, or return a permuted range.
-        ///						If x is an integer, randomly permute np.arange(x).
-        ///						If x is an array, make a copy and shuffle the elements randomly.
+        /// Randomly permute a sequence, or return a permuted range.
+        /// If x is an integer, randomly permute np.arange(x).
+        /// If x is an array, make a copy and shuffle the elements randomly.
         ///
         /// @param
-        ///				inArray
+        /// inArray
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> permutation(const NdArray<dtype>& inArray) 

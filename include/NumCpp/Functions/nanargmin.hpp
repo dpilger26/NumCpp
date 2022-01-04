@@ -40,14 +40,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the indices of the minimum values along an axis ignoring NaNs.
+    /// Returns the indices of the minimum values along an axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

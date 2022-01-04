@@ -33,15 +33,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the truth value of (x1 < x2) element-wise.
+    /// Return the truth value of (x1 < x2) element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> less(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Interpret a buffer as a 1-dimensional array.
+    /// Interpret a buffer as a 1-dimensional array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html
     ///
     /// @param				inBufferPtr
     /// @param				inNumBytes
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> frombuffer(const char* inBufferPtr, uint32 inNumBytes)

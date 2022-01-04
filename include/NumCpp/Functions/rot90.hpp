@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Rotate an array by 90 degrees counter clockwise in the plane.
+    /// Rotate an array by 90 degrees counter clockwise in the plane.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rot90.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rot90.html
     ///
     /// @param				inArray
     /// @param				inK: the number of times to rotate 90 degrees
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) 

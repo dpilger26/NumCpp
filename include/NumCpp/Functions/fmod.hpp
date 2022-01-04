@@ -39,15 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the remainder of division.
+    /// Return the remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype, 
         enable_if_t<is_integral_v<dtype>, int> = 0>
@@ -58,15 +58,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the remainder of division.
+    /// Return the remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype, 
         enable_if_t<is_floating_point_v<dtype>, int> = 0>
@@ -77,15 +77,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the element-wise remainder of division.
+    /// Return the element-wise remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

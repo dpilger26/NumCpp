@@ -37,13 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cube-root of an array.
+    /// Return the cube-root of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
     /// @param				inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     double cbrt(dtype inValue) noexcept 
@@ -55,13 +55,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the cube-root of an array, element-wise.
+    /// Return the cube-root of an array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
     /// @param				inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> cbrt(const NdArray<dtype>& inArray) 

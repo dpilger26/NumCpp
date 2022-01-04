@@ -37,7 +37,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the center of mass of the array values along an axis.
+    /// Returns the center of mass of the array values along an axis.
     ///
     /// @param      inArray
     /// @param      inAxis (Optional, default NONE which is a 2d center of mass)

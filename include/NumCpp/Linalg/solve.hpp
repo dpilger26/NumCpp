@@ -39,7 +39,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Solve a linear matrix equation, or system of linear scalar equations.
+        /// Solve a linear matrix equation, or system of linear scalar equations.
         /// Computes the “exact” solution, x, of the well-determined, i.e., full rank, 
         /// linear matrix equation ax = b.
         ///

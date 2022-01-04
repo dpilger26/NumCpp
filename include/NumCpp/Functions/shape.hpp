@@ -33,12 +33,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the shape of the array
+    /// Return the shape of the array
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				Shape
+    /// Shape
     ///
     template<typename dtype>
     Shape shape(const NdArray<dtype>& inArray) noexcept

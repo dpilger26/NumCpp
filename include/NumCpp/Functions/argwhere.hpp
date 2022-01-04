@@ -34,13 +34,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Find the indices of array elements that are non-zero, grouped by element.
+    /// Find the indices of array elements that are non-zero, grouped by element.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
     ///
     /// @param				inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<uint32> argwhere(const NdArray<dtype>& inArray) 

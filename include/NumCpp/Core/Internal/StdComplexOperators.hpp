@@ -35,7 +35,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Less than operator for std::complex<T>
+    /// Less than operator for std::complex<T>
     ///
     /// @param      lhs
     /// @param      rhs
@@ -54,7 +54,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Less than or equal operator for std::complex<T>
+    /// Less than or equal operator for std::complex<T>
     ///
     /// @param      lhs
     /// @param      rhs
@@ -73,7 +73,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than operator for std::complex<T>
+    /// Greater than operator for std::complex<T>
     ///
     /// @param      lhs
     /// @param      rhs
@@ -87,7 +87,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than or equal operator for std::complex<T>
+    /// Greater than or equal operator for std::complex<T>
     ///
     /// @param      lhs
     /// @param      rhs
@@ -101,7 +101,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than or equal operator for std::complex<T>
+    /// Greater than or equal operator for std::complex<T>
     ///
     /// @param      value
     /// @return     std::complex<Out>

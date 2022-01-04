@@ -37,7 +37,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						samples a 1D gaussian of input mean and sigma
+        /// samples a 1D gaussian of input mean and sigma
         ///
         /// @param				inX
         /// @param              inMu

@@ -36,15 +36,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						loads a .bin file from the dump() method into an NdArray
+    /// loads a .bin file from the dump() method into an NdArray
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
     ///
     /// @param
-    ///				inFilename
+    /// inFilename
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> load(const std::string& inFilename)

@@ -38,17 +38,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Find the intersection of two arrays.
+    /// Find the intersection of two arrays.
     ///
-    ///						Return the sorted, unique values that are in both of the input arrays.
+    /// Return the sorted, unique values that are in both of the input arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

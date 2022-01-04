@@ -41,13 +41,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "exponential" distrubution.
+        /// Single random value sampled from the "exponential" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///
         /// @param				inScaleValue (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype exponential(dtype inScaleValue = 1) 
@@ -60,15 +60,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "exponential" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "exponential" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///
         /// @param				inShape
         /// @param				inScaleValue (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) 

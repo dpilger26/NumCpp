@@ -42,21 +42,21 @@ namespace nc
     namespace coordinates
     {
         //================================================================================
-        ///						Struct Enum for positive or negative Dec angle
+        /// Struct Enum for positive or negative Dec angle
         enum class Sign { NEGATIVE = 0, POSITIVE };
 
         //================================================================================
-        ///						Holds a Declination object
+        /// Holds a Declination object
         class Dec
         {
         public:
             //============================================================================
-            ///						Default Constructor
+            /// Default Constructor
             ///
             Dec() = default;
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inDegrees
             ///
@@ -79,10 +79,10 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
             /// @param      inSign
-            ///	@param      inDegrees
+            /// @param      inDegrees
             /// @param      inMinutes
             /// @param      inSeconds
             ///
@@ -99,7 +99,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the sign of the degrees (positive or negative)
+            /// Get the sign of the degrees (positive or negative)
             ///
             /// @return     Sign
             ///
@@ -109,7 +109,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the degrees value
+            /// Get the degrees value
             ///
             /// @return     degrees
             ///
@@ -119,7 +119,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the radians value
+            /// Get the radians value
             ///
             /// @return     minutes
             ///
@@ -129,7 +129,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the whole degrees value
+            /// Get the whole degrees value
             ///
             /// @return     whole degrees
             ///
@@ -139,7 +139,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the minute value
+            /// Get the minute value
             ///
             /// @return     minutes
             ///
@@ -149,7 +149,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the seconds value
+            /// Get the seconds value
             ///
             /// @return     seconds
             ///
@@ -159,7 +159,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Return the dec object as a string representation
+            /// Return the dec object as a string representation
             ///
             /// @return     std::string
             ///
@@ -172,7 +172,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints the Dec object to the console
+            /// Prints the Dec object to the console
             ///
             void print() const
             {
@@ -180,7 +180,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Equality operator
+            /// Equality operator
             ///
             /// @param      inRhs
             ///
@@ -192,7 +192,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Not equality operator
+            /// Not equality operator
             ///
             /// @param      inRhs
             ///
@@ -204,7 +204,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Ostream operator
+            /// Ostream operator
             ///
             /// @param      inStream
             /// @param      inDec

@@ -33,15 +33,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute bit-wise inversion, or bit-wise NOT, element-wise.
+    /// Compute bit-wise inversion, or bit-wise NOT, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> invert(const NdArray<dtype>& inArray) 

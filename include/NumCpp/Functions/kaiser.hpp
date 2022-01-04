@@ -37,7 +37,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	The Kaiser window is a taper formed by using a Bessel function.
+    /// The Kaiser window is a taper formed by using a Bessel function.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
     ///

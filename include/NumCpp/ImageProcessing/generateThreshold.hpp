@@ -44,14 +44,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a threshold such that the input rate of pixels
-        ///						exceeds the threshold. Really should only be used for integer
-        ///                      input array values. If using floating point data, user beware...
+        /// Calculates a threshold such that the input rate of pixels
+        /// exceeds the threshold. Really should only be used for integer
+        /// input array values. If using floating point data, user beware...
         ///
         /// @param				inImageArray
         /// @param				inRate
         /// @return
-        ///				dtype
+        /// dtype
         ///
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)

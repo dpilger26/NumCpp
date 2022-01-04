@@ -43,12 +43,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "cauchy" distrubution.
+        /// Single random value sampled from the from the "cauchy" distrubution.
         ///
         /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
         /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype cauchy(dtype inMean = 0, dtype inSigma = 1)
@@ -66,14 +66,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "cauchy" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "cauchy" distrubution.
         ///
         /// @param              inShape
         /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
         /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)

@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "chi square" distribution.
+        /// Single random value sampled from the from the "chi square" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
         /// @param				inDof (independent random variables)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype chiSquare(dtype inDof)
@@ -67,15 +67,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "chi square" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "chi square" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
         /// @param				inShape
         /// @param				inDof (independent random variables)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)

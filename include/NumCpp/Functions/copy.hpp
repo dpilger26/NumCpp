@@ -33,14 +33,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return an array copy of the given object.
+    /// Return an array copy of the given object.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copy.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copy.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> copy(const NdArray<dtype>& inArray) 

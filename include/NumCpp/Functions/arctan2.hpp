@@ -39,14 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse tangent.
+    /// Trigonometric inverse tangent.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
     /// @param				inY
     /// @param				inX
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto arctan2(dtype inY, dtype inX) noexcept 
@@ -58,14 +58,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse tangent, element-wise.
+    /// Trigonometric inverse tangent, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
     /// @param				inY
     /// @param				inX
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)

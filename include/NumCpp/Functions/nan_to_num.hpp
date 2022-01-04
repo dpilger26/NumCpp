@@ -40,7 +40,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Replace NaN with zero and infinity with large finite numbers (default behaviour)
+    /// Replace NaN with zero and infinity with large finite numbers (default behaviour)
     /// or with the numbers defined by the user using the nan, posinf and/or neginf keywords.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html
@@ -50,7 +50,7 @@ namespace nc
     /// @param          posInf: value to be used to fill positive infinity values, default a very large number
     /// @param          negInf: value to be used to fill negative infinity values, default a very large negative number
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nan_to_num(NdArray<dtype> inArray, 

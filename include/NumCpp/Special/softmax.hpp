@@ -39,7 +39,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The softmax function transforms each element of a collection by computing 
+        /// The softmax function transforms each element of a collection by computing 
         /// the exponential of each element divided by the sum of the exponentials of all
         /// the elements. That is, if x is a one-dimensional numpy array:
         /// softmax(x) = np.exp(x)/sum(np.exp(x))

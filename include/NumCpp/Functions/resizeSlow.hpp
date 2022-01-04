@@ -35,19 +35,19 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array with the specified shape. If new shape
-    ///						is larger than old shape then array will be padded with zeros.
-    ///						If new shape is smaller than the old shape then the data will
-    ///						be discarded.
+    /// Return a new array with the specified shape. If new shape
+    /// is larger than old shape then array will be padded with zeros.
+    /// If new shape is smaller than the old shape then the data will
+    /// be discarded.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -58,18 +58,18 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array with the specified shape. If new shape
-    ///						is larger than old shape then array will be padded with zeros.
-    ///						If new shape is smaller than the old shape then the data will
-    ///						be discarded.
+    /// Return a new array with the specified shape. If new shape
+    /// is larger than old shape then array will be padded with zeros.
+    /// If new shape is smaller than the old shape then the data will
+    /// be discarded.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
     /// @param				inArray
     /// @param				inNewShape
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape) 

@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Round to nearest integer towards zero.
+    /// Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     dtype fix(dtype inValue) noexcept 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Round to nearest integer towards zero.
+    /// Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fix(const NdArray<dtype>& inArray) 

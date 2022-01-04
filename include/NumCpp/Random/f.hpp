@@ -43,14 +43,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "F" distrubution.
+        /// Single random value sampled from the "F" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
         /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
         /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype f(dtype inDofN, dtype inDofD)
@@ -73,16 +73,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "F" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "F" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
         /// @param				inShape
         /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
         /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)

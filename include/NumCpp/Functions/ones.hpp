@@ -37,13 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with ones.
+    /// Return a new array of given shape and type, filled with ones.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
     ///
     /// @param			inSquareSize
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ones(uint32 inSquareSize) 
@@ -55,14 +55,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with ones.
+    /// Return a new array of given shape and type, filled with ones.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
     ///
     /// @param			inNumRows
     /// @param			inNumCols
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols) 
@@ -74,14 +74,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with ones.
+    /// Return a new array of given shape and type, filled with ones.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
     ///
     /// @param
-    ///				inShape
+    /// inShape
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ones(const Shape& inShape) 

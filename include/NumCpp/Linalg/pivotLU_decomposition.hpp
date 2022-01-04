@@ -48,7 +48,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix pivot LU decomposition PA = LU
+        /// matrix pivot LU decomposition PA = LU
         ///
         /// @param				inMatrix: NdArray to be decomposed
         ///

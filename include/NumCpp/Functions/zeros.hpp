@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with zeros.
+    /// Return a new array of given shape and type, filled with zeros.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
     /// @param
-    ///				inSquareSize
+    /// inSquareSize
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inSquareSize) 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with zeros.
+    /// Return a new array of given shape and type, filled with zeros.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols) 
@@ -75,14 +75,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with zeros.
+    /// Return a new array of given shape and type, filled with zeros.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
     /// @param
-    ///				inShape
+    /// inShape
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(const Shape& inShape) 

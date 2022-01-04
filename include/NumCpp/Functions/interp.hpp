@@ -36,7 +36,7 @@
 namespace nc
 {
     //============================================================================
-    ///						Returns the linear interpolation between two points
+    /// Returns the linear interpolation between two points
     ///
     /// @param      inValue1
     /// @param      inValue2
@@ -52,21 +52,21 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						One-dimensional linear interpolation.
+    /// One-dimensional linear interpolation.
     ///
-    ///                     Returns the one - dimensional piecewise linear interpolant
-    ///                     to a function with given values at discrete data - points.
-    ///                     If input arrays are not one dimensional they will be
-    ///                     internally flattened.
+    /// Returns the one - dimensional piecewise linear interpolant
+    /// to a function with given values at discrete data - points.
+    /// If input arrays are not one dimensional they will be
+    /// internally flattened.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
     ///
     /// @param				inX: The x-coordinates at which to evaluate the interpolated values.
     /// @param              inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
     /// @param				inFp: The y-coordinates of the data points, same length as inXp.
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)

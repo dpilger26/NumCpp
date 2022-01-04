@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the angle of the complex argument.
+    /// Return the angle of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.angle.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.angle.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto angle(const std::complex<dtype>& inValue) 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the angle of the complex argument.
+    /// Return the angle of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.angle.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.angle.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto angle(const NdArray<std::complex<dtype>>& inArray) 

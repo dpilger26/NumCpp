@@ -38,15 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Natural logarithm.
+    /// Natural logarithm.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto log(dtype inValue) noexcept 
@@ -58,15 +58,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Natural logarithm, element-wise.
+    /// Natural logarithm, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto log(const NdArray<dtype>& inArray) 

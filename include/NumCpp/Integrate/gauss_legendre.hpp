@@ -45,14 +45,14 @@ namespace nc
     {
         //============================================================================
         // Class Description:
-        ///	Legendre Polynomial class
+        /// Legendre Polynomial class
         ///
         class LegendrePolynomial
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param				numIterations: the number of iterations to perform
             ///
@@ -66,7 +66,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the weights vector
+            /// Returns the weights vector
             ///
             /// @return	weights vector
             ///
@@ -77,7 +77,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the roots vector
+            /// Returns the roots vector
             ///
             /// @return	roots vector
             ///
@@ -89,7 +89,7 @@ namespace nc
         private:
             //============================================================================
             // Class Description:
-            ///	Simple class to hold the results
+            /// Simple class to hold the results
             ///
             struct Result
             {
@@ -98,7 +98,7 @@ namespace nc
 
                 //============================================================================
                 // Method Description:
-                ///	Constructor
+                /// Constructor
                 ///
                 /// @param val: the value
                 /// @param deriv: the derivative
@@ -111,7 +111,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the weights and roots vectors
+            /// Calculates the weights and roots vectors
             ///
             void calculateWeightAndRoot() noexcept
             {
@@ -136,7 +136,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the weights and roots vectors
+            /// Calculates the weights and roots vectors
             ///
             /// @param x
             /// @return Result
@@ -170,7 +170,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Performs Gauss-Legendre integration of the input function
+        /// Performs Gauss-Legendre integration of the input function
         ///
         /// @param				low: the lower bound of the integration
         /// @param              high: the upper bound of the integration

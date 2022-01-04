@@ -42,12 +42,12 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Mirror boundary
+            /// Mirror boundary
             ///
             /// @param				inImage
             /// @param              inBoundarySize
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> mirror2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

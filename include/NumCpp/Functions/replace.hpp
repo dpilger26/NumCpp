@@ -33,7 +33,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Replaces the matching elements of an array with the new value
+    /// Replaces the matching elements of an array with the new value
     ///
     /// @param	inArray
     /// @param  oldValue: the value to replace

@@ -33,15 +33,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Permute the dimensions of an array.
+    /// Permute the dimensions of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.transpose.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.transpose.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> transpose(const NdArray<dtype>& inArray) 

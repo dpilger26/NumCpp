@@ -40,7 +40,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2
@@ -55,7 +55,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2
@@ -72,7 +72,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2
@@ -87,7 +87,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2
@@ -105,7 +105,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2
@@ -120,7 +120,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
         /// @param      inValue1
         /// @param      inValue2

@@ -45,16 +45,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the greatest common divisor of |x1| and |x2|.
-    ///                     NOTE: Use of this function requires either using the Boost
-    ///                     includes or a C++17 compliant compiler.
+    /// Returns the greatest common divisor of |x1| and |x2|.
+    /// NOTE: Use of this function requires either using the Boost
+    /// includes or a C++17 compliant compiler.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
     /// @param      inValue1
     /// @param      inValue2
     /// @return
-    ///				dtype
+    /// dtype
     ///
     template<typename dtype>
     dtype gcd(dtype inValue1, dtype inValue2) noexcept 
@@ -71,15 +71,15 @@ namespace nc
 #ifndef NUMCPP_NO_USE_BOOST
     //============================================================================
     // Method Description:
-    ///						Returns the greatest common divisor of the values in the
-    ///                     input array.
-    ///                     NOTE: Use of this function requires using the Boost includes.
+    /// Returns the greatest common divisor of the values in the
+    /// input array.
+    /// NOTE: Use of this function requires using the Boost includes.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
     /// @param      inArray
     /// @return
-    ///				NdArray<double>
+    /// NdArray<double>
     ///
     template<typename dtype>
     dtype gcd(const NdArray<dtype>& inArray)

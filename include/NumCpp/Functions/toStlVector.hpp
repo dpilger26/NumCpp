@@ -33,12 +33,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Write flattened array to an STL vector
+    /// Write flattened array to an STL vector
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				std::vector
+    /// std::vector
     ///
     template<typename dtype>
     std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) 

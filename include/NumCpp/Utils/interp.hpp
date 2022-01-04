@@ -32,7 +32,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Returns the linear interpolation between two points
+        /// Returns the linear interpolation between two points
         ///
         /// @param      inValue1
         /// @param      inValue2

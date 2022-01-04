@@ -34,13 +34,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						returns whether or not a value is included the array
+    /// returns whether or not a value is included the array
     ///
     /// @param				inArray
     /// @param				inValue
     /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE) 

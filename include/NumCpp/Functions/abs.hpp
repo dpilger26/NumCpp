@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Calculate the absolute value.
+    /// Calculate the absolute value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto abs(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Calculate the absolute value element-wise.
+    /// Calculate the absolute value element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto abs(const NdArray<dtype>& inArray) 

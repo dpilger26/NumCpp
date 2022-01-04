@@ -47,14 +47,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Cylindrical Bessel function of the first kind.
+        /// Cylindrical Bessel function of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_jn(dtype1 inV, dtype2 inX)
@@ -71,14 +71,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Cylindrical Bessel function of the first kind.
+        /// Cylindrical Bessel function of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_jn(dtype1 inV, const NdArray<dtype2>& inArrayX)

@@ -34,15 +34,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Construct an array by repeating A the number of times given by reps.
+    /// Construct an array by repeating A the number of times given by reps.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -52,14 +52,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Construct an array by repeating A the number of times given by reps.
+    /// Construct an array by repeating A the number of times given by reps.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
     /// @param				inArray
     /// @param				inReps
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps) 

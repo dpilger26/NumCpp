@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Base-2 logarithm of x.
+    /// Base-2 logarithm of x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     ///
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto log2(dtype inValue) noexcept 
@@ -57,15 +57,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Base-2 logarithm of x.
+    /// Base-2 logarithm of x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto log2(const NdArray<dtype>& inArray) 

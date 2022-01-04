@@ -43,14 +43,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "binomial" distribution.
+        /// Single random value sampled from the from the "binomial" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
         ///
         /// @param				inN (number of trials)
         /// @param				inP (probablity of success [0, 1])
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype binomial(dtype inN, double inP = 0.5)
@@ -73,16 +73,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "binomial" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "binomial" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
         ///
         /// @param				inShape
         /// @param				inN (number of trials)
         /// @param				inP (probablity of success [0, 1])
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)

@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns element-wise True where signbit is set (less than zero).
+    /// Returns element-wise True where signbit is set (less than zero).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     bool signbit(dtype inValue) noexcept 
@@ -54,14 +54,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns element-wise True where signbit is set (less than zero).
+    /// Returns element-wise True where signbit is set (less than zero).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<bool> signbit(const NdArray<dtype>& inArray) 

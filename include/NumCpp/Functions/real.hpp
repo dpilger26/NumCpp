@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the real part of the complex argument.
+    /// Return the real part of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.real.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.real.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto real(const std::complex<dtype>& inValue) 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the real part of the complex argument.
+    /// Return the real part of the complex argument.
     ///
-    ///                     NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.real.html
+    /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.real.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto real(const NdArray<std::complex<dtype>>& inArray) 

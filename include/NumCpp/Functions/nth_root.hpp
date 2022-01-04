@@ -36,7 +36,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Return the nth-root of an value.
+    /// Return the nth-root of an value.
     ///
     /// @param inValue
     /// @param inRoot
@@ -53,7 +53,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Return the nth-root of an array.
+    /// Return the nth-root of an array.
     ///
     /// @param inArray
     /// @param inRoot

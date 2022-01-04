@@ -33,11 +33,11 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the bit-wise NOT the input array element-wise.
+    /// Compute the bit-wise NOT the input array element-wise.
     ///
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray) 

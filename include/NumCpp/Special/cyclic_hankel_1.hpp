@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Hankel funcion of the first kind.
+        /// Hankel funcion of the first kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				std::complex<double>
+        /// std::complex<double>
         ///
         template<typename dtype1, typename dtype2>
         auto cyclic_hankel_1(dtype1 inV, dtype2 inX)
@@ -62,13 +62,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Hankel funcion of the first kind.
+        /// Hankel funcion of the first kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input array
         /// @return
-        ///				NdArray<std::complex>
+        /// NdArray<std::complex>
         ///
         template<typename dtype1, typename dtype2>
         auto cyclic_hankel_1(dtype1 inV, const NdArray<dtype2>& inX)

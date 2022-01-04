@@ -35,17 +35,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Change shape and size of array in-place. All previous
-    ///						data of the array is lost.
+    /// Change shape and size of array in-place. All previous
+    /// data of the array is lost.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -56,16 +56,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Change shape and size of array in-place. All previous
-    ///						data of the array is lost.
+    /// Change shape and size of array in-place. All previous
+    /// data of the array is lost.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
     /// @param				inArray
     /// @param				inNewShape
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape) 

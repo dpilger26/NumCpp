@@ -23,7 +23,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-///	samples a 2D gaussian of mean zero and input STD sigma
+/// samples a 2D gaussian of mean zero and input STD sigma
 ///
 #pragma once
 
@@ -37,7 +37,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						samples a 2D gaussian of mean zero and input STD sigma
+        /// samples a 2D gaussian of mean zero and input STD sigma
         ///
         /// @param				inX
         /// @param              inY

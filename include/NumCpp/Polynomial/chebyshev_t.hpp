@@ -41,13 +41,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the first kind.
+        /// Chebyshev Polynomial of the first kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      n: the order of the chebyshev polynomial
         /// @param      x: the input value
         /// @return
-        ///				double
+        /// double
         ///
         template<typename dtype>
         double chebyshev_t(uint32 n, dtype x)
@@ -59,13 +59,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the first kind.
+        /// Chebyshev Polynomial of the first kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      n: the order of the chebyshev polynomial
         /// @param      inArrayX: the input value
         /// @return
-        ///				NdArray<double>
+        /// NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> chebyshev_t(uint32 n, const NdArray<dtype>& inArrayX)

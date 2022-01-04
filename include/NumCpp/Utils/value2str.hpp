@@ -38,7 +38,7 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Converts the value into a string
+        /// Converts the value into a string
         ///
         /// @param      inValue
         ///

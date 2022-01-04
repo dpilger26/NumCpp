@@ -37,16 +37,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the sinc function.
+    /// Return the sinc function.
     ///
-    ///						The sinc function is sin(pi*x) / (pi*x).
+    /// The sinc function is sin(pi*x) / (pi*x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto sinc(dtype inValue) noexcept 
@@ -58,16 +58,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the sinc function.
+    /// Return the sinc function.
     ///
-    ///						The sinc function is sin(pi*x) / (pi*x).
+    /// The sinc function is sin(pi*x) / (pi*x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto sinc(const NdArray<dtype>& inArray) 

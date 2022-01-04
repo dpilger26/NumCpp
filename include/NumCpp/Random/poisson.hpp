@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "poisson" distribution.
+        /// Single random value sampled from the "poisson" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
         /// @param				inMean (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype poisson(double inMean = 1)
@@ -67,15 +67,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "poisson" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "poisson" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
         /// @param				inShape
         /// @param				inMean (default 1)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)

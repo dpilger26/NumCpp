@@ -45,14 +45,14 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Secant root finding method
+        /// Secant root finding method
         ///
         class Secant : public Iteration
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
@@ -65,7 +65,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -80,13 +80,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             ~Secant() override = default;
 
             //============================================================================
             // Method Description:
-            ///	Solves for the root in the range [a, b]
+            /// Solves for the root in the range [a, b]
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -128,7 +128,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates x
+            /// Calculates x
             ///
             /// @param x: the current x value
             /// @param lastX: the previous x value

@@ -56,7 +56,7 @@ namespace nc
         /// @param      inV: elliptic characteristic
         /// @param      inP: Jacobi amplitude (measured in radians)
         /// @return
-        ///				calculated-result-type 
+        /// calculated-result-type 
         ///
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(dtype1 inK, dtype2 inV, dtype3 inP)
@@ -82,7 +82,7 @@ namespace nc
         /// @param      inArrayV: elliptic characteristic
         /// @param      inArrayP: Jacobi amplitude (measured in radians)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayV, const NdArray<dtype3>& inArrayP)

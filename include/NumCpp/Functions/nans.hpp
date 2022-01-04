@@ -36,13 +36,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with nans.
-    ///                     Only really works for dtype = float/double
+    /// Return a new array of given shape and type, filled with nans.
+    /// Only really works for dtype = float/double
     ///
     /// @param
-    ///				inSquareSize
+    /// inSquareSize
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     inline NdArray<double> nans(uint32 inSquareSize) 
     {
@@ -51,13 +51,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with nans.
-    ///                     Only really works for dtype = float/double
+    /// Return a new array of given shape and type, filled with nans.
+    /// Only really works for dtype = float/double
     ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) 
     {
@@ -66,13 +66,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array of given shape and type, filled with nans.
-    ///                     Only really works for dtype = float/double
+    /// Return a new array of given shape and type, filled with nans.
+    /// Only really works for dtype = float/double
     ///
     /// @param
-    ///				inShape
+    /// inShape
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     inline NdArray<double> nans(const Shape& inShape) 
     {

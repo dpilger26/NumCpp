@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Change elements of an array based on conditional and input values.
+    /// Change elements of an array based on conditional and input values.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.place.html
     ///
     /// @param arr: Array to put data into.
     /// @param mask: Boolean mask array. Must have the same size as arr
     /// @param vals: Values to put into a. Only the first N elements are used, where N is the 
-    ///              number of True values in mask. If vals is smaller than N, it will be repeated.
+    /// number of True values in mask. If vals is smaller than N, it will be repeated.
     /// @return NdArray
     ///
     template<typename dtype>

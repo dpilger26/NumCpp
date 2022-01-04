@@ -40,16 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns True if two arrays are element-wise equal within a tolerance.
-    ///						inTolerance must be a positive number
+    /// Returns True if two arrays are element-wise equal within a tolerance.
+    /// inTolerance must be a positive number
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
     ///
     /// @param				inArray1
     /// @param				inArray2
     /// @param				inTolerance: (Optional, default 1e-5)
     /// @return
-    ///				bool
+    /// bool
     ///
     template<typename dtype>
     bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)

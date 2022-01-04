@@ -36,7 +36,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	The Bartlett window is very similar to a triangular window, except that the end 
+    /// The Bartlett window is very similar to a triangular window, except that the end 
     /// points are at zero. It is often used in signal processing for tapering a signal, 
     /// without generating too much ripple in the frequency domain.
     ///

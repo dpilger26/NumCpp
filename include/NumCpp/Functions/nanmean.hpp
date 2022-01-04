@@ -41,15 +41,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the mean along the specified axis ignoring NaNs.
+    /// Compute the mean along the specified axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the positive square-root of a value.
+    /// Return the positive square-root of a value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto sqrt(dtype inValue) noexcept 
@@ -56,14 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the positive square-root of an array, element-wise.
+    /// Return the positive square-root of an array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto sqrt(const NdArray<dtype>& inArray) 

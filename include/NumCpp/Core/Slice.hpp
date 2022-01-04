@@ -39,7 +39,7 @@
 namespace nc
 {
     //================================================================================
-    ///						A Class for slicing into NdArrays
+    /// A Class for slicing into NdArrays
     class Slice
     {
     public:
@@ -49,12 +49,12 @@ namespace nc
         int32	step{ 1 };
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         constexpr Slice() = default;
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         /// @param      inStop (index not included)
         ///
@@ -63,7 +63,7 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         /// @param          inStart
         /// @param			inStop (index not included)
@@ -74,7 +74,7 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         /// @param      inStart
         /// @param      inStop (not included)
@@ -87,7 +87,7 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Equality operator
+        /// Equality operator
         ///
         /// @param      inOtherSlice
         ///
@@ -99,7 +99,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Not equality operator
+        /// Not equality operator
         ///
         /// @param      inOtherSlice
         ///
@@ -111,7 +111,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
         /// @return     std::string
         ///
@@ -122,7 +122,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
         void print() const
         {
@@ -130,7 +130,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Make the slice all positive and does some error checking
+        /// Make the slice all positive and does some error checking
         ///
         /// @param      inArraySize
         ///
@@ -179,9 +179,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the number of elements that the slice contains.
-        ///						be aware that this method will also make the slice all 
-        ///						positive! 
+        /// Returns the number of elements that the slice contains.
+        /// be aware that this method will also make the slice all 
+        /// positive! 
         ///
         /// @param      inArraySize
         ///
@@ -198,7 +198,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						IO operator for the Slice class
+        /// IO operator for the Slice class
         ///
         /// @param      inOStream
         /// @param      inSlice

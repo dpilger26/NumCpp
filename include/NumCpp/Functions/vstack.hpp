@@ -36,15 +36,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis.
+    /// Compute the variance along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
     ///
     /// @param
-    ///				inArrayList: {list} of arrays to stack
+    /// inArrayList: {list} of arrays to stack
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> vstack(std::initializer_list<NdArray<dtype> > inArrayList)

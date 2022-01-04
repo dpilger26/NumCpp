@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "student-T" distribution.
+        /// Single random value sampled from the "student-T" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
         /// @param				inDof independent random variables
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype studentT(dtype inDof)
@@ -67,15 +67,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "student-T" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "student-T" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
         /// @param				inShape
         /// @param				inDof independent random variables
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> studentT(const Shape& inShape, dtype inDof)

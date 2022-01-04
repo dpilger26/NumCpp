@@ -39,15 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
+    /// Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

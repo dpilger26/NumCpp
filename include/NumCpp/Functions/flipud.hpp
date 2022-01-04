@@ -35,14 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Flip array in the up/down direction.
+    /// Flip array in the up/down direction.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flipud.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flipud.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<dtype> flipud(const NdArray<dtype>& inArray) 

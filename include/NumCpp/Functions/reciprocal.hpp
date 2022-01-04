@@ -39,17 +39,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the reciprocal of the argument, element-wise.
+    /// Return the reciprocal of the argument, element-wise.
     ///
-    ///						Calculates 1 / x.
+    /// Calculates 1 / x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<double> reciprocal(const NdArray<dtype>& inArray) 
@@ -70,17 +70,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the reciprocal of the argument, element-wise.
+    /// Return the reciprocal of the argument, element-wise.
     ///
-    ///						Calculates 1 / x.
+    /// Calculates 1 / x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     ///
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) 

@@ -40,9 +40,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a one-dimensional percentile filter.
+        /// Calculates a one-dimensional percentile filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
         ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
@@ -50,7 +50,7 @@ namespace nc
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, double inPercentile,

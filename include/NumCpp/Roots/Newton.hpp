@@ -44,14 +44,14 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Newton root finding method
+        /// Newton root finding method
         ///
         class Newton : public Iteration
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
@@ -67,7 +67,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -85,13 +85,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             ~Newton()noexcept  override = default;
 
             //============================================================================
             // Method Description:
-            ///	Solves for the root in the range [a, b]
+            /// Solves for the root in the range [a, b]
             ///
             /// @param x: the starting point
             /// @return root nearest the starting point
@@ -123,7 +123,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates x
+            /// Calculates x
             ///
             /// @param x: the current x value
             /// @param fx: the function evaluated at the current x value

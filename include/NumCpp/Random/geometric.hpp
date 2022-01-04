@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "geometric" distrubution.
+        /// Single random value sampled from the "geometric" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
         /// @param				inP (probablity of success [0, 1])
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         dtype geometric(double inP = 0.5)
@@ -67,15 +67,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "geometric" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "geometric" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
         /// @param				inShape
         /// @param				inP (probablity of success [0, 1])
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)

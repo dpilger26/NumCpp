@@ -43,20 +43,20 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Raise a square matrix to the (integer) power n.
+        /// Raise a square matrix to the (integer) power n.
         ///
-        ///						For positive integers n, the power is computed by repeated
-        ///						matrix squarings and matrix multiplications.  If n == 0,
-        ///						the identity matrix of the same shape as M is returned.
-        ///						If n < 0, the inverse is computed and then raised to the abs(n).
+        /// For positive integers n, the power is computed by repeated
+        /// matrix squarings and matrix multiplications.  If n == 0,
+        /// the identity matrix of the same shape as M is returned.
+        /// If n < 0, the inverse is computed and then raised to the abs(n).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
         ///
         /// @param				inArray
         /// @param				inPower
         ///
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype>
         NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)

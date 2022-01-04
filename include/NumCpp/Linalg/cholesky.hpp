@@ -42,9 +42,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix cholesky decomposition A = L * L.transpose()
+        /// matrix cholesky decomposition A = L * L.transpose()
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
         ///
         /// @param				inMatrix: NdArray to be decomposed
         ///

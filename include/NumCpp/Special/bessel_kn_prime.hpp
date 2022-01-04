@@ -43,13 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind.
+        /// Derivcative of the Modified Cylindrical Bessel function of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inX: the input value
         /// @return
-        ///				calculated-result-type
+        /// calculated-result-type
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_kn_prime(dtype1 inV, dtype2 inX)
@@ -62,13 +62,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Derivcative of the Modified Cylindrical Bessel function of the second kind
+        /// Derivcative of the Modified Cylindrical Bessel function of the second kind
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param      inV: the order of the bessel function
         /// @param      inArrayX: the input values
         /// @return
-        ///				NdArray
+        /// NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_kn_prime(dtype1 inV, const NdArray<dtype2>& inArrayX)

@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute tangent.
+    /// Compute tangent.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto tan(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute tangent element-wise.
+    /// Compute tangent element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto tan(const NdArray<dtype>& inArray) 

@@ -38,14 +38,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse sine.
+    /// Trigonometric inverse sine.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     auto arcsin(dtype inValue) noexcept 
@@ -57,14 +57,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse sine, element-wise.
+    /// Trigonometric inverse sine, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto arcsin(const NdArray<dtype>& inArray) 

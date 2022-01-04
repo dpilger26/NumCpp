@@ -42,13 +42,13 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Reflects the boundaries
+            /// Reflects the boundaries
             ///
             /// @param				inImage
             /// @param              inBoundarySize
             ///
             /// @return
-            ///				NdArray
+            /// NdArray
             ///
             template<typename dtype>
             NdArray<dtype> reflect2d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

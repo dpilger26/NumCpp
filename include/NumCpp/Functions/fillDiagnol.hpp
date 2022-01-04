@@ -35,9 +35,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Fill the main diagonal of the given array.
+    /// Fill the main diagonal of the given array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
     ///
     /// @param      inArray
     /// @param      inValue

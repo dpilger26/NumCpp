@@ -34,14 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Convert angles from degrees to radians.
+    /// Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
     ///
     /// @param
-    ///				inValue
+    /// inValue
     /// @return
-    ///				value
+    /// value
     ///
     template<typename dtype>
     constexpr auto degrees(dtype inValue) noexcept
@@ -51,14 +51,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert angles from degrees to radians.
+    /// Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
     ///
     /// @param
-    ///				inArray
+    /// inArray
     /// @return
-    ///				NdArray
+    /// NdArray
     ///
     template<typename dtype>
     auto degrees(const NdArray<dtype>& inArray) 

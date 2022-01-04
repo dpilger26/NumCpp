@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Estimate a covariance matrix.
+    /// Estimate a covariance matrix.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.cov.html
     ///
     /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
-    ///            Each row of x represents a variable, and each column a single observation 
-    ///            of all those variables.
+    /// Each row of x represents a variable, and each column a single observation 
+    /// of all those variables.
     /// @param bias: Default normalization (false) is by (N - 1), where N is the number of observations 
-    ///              given (unbiased estimate). If bias is True, then normalization is by N.
+    /// given (unbiased estimate). If bias is True, then normalization is by N.
     /// @return NdArray
     ///
     template<typename dtype>
