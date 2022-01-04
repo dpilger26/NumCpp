@@ -2892,9 +2892,9 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric cov(pbArray<dtype> x)
+    pbArrayGeneric cov(pbArray<dtype> x, bool bias)
     {
-        return nc2pybind(nc::cov(pybind2nc(x)));
+        return nc2pybind(nc::cov(pybind2nc(x), bias));
     }
 
     //================================================================================

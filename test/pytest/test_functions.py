@@ -1836,8 +1836,10 @@ def test_count_nonzero():
 def test_cov():
     shape = np.random.randint(10, 50, [2, ])
     a = np.random.randint(0, 100, shape)
-    assert np.array_equal(np.round(NumCpp.cov(a), 9),
-                          np.round(np.cov(a), 9))
+    assert np.array_equal(np.round(NumCpp.cov(a, False), 9),
+                          np.round(np.cov(a, bias=False), 9))
+    assert np.array_equal(np.round(NumCpp.cov(a, True), 9),
+                          np.round(np.cov(a, bias=True), 9))
 
 
 ####################################################################################

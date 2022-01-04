@@ -44,16 +44,19 @@ namespace nc
     /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
     ///            Each row of x represents a variable, and each column a single observation 
     ///            of all those variables.
+    /// @param bias: Default normalization (false) is by (N - 1), where N is the number of observations 
+    ///              given (unbiased estimate). If bias is True, then normalization is by N.
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov(const NdArray<dtype>& x)
+    NdArray<double> cov(const NdArray<dtype>& x, bool bias = false)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         const auto varMeans = mean(x, Axis::COL);
         const auto numVars = x.numRows();
         const auto numObs = x.numCols();
+        const auto normilizationFactor = bias ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
         using IndexType = std::remove_const<decltype(numVars)>::type;
 
         // upper triangle
@@ -72,7 +75,7 @@ namespace nc
                     sum += (x(i, iObs) - var1Mean) * (x(j, iObs) - var2Mean);
                 }
 
-                covariance(i, j) = sum / static_cast<double>(numObs - 1);
+                covariance(i, j) = sum / normilizationFactor;
             }
         }
 
