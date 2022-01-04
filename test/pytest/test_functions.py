@@ -1726,6 +1726,14 @@ def test_copyto():
 
 
 ####################################################################################
+def test_corrcoef():
+    shape = np.random.randint(10, 50, [2, ])
+    a = np.random.randint(0, 100, shape)
+    assert np.array_equal(np.round(NumCpp.corrcoef(a), 9),
+                          np.round(np.corrcoef(a), 9))
+
+
+####################################################################################
 def test_cos():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9)
@@ -1822,6 +1830,14 @@ def test_count_nonzero():
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.count_nonzero(cArray, NumCpp.Axis.COL).flatten(), np.count_nonzero(data, axis=1))
+
+
+####################################################################################
+def test_cov():
+    shape = np.random.randint(10, 50, [2, ])
+    a = np.random.randint(0, 100, shape)
+    assert np.array_equal(np.round(NumCpp.cov(a), 9),
+                          np.round(np.cov(a), 9))
 
 
 ####################################################################################

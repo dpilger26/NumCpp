@@ -28,6 +28,10 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/mean.hpp"
+
+#include <type_traits>
 
 namespace nc
 {
@@ -42,9 +46,45 @@ namespace nc
     ///            of all those variables.
     /// @return NdArray
     ///
-    // template<typename dtype>
-    // NdArray<double> cov(const NdArray<dtype>& x)
-    // {
-        
-    // }
+    template<typename dtype>
+    NdArray<double> cov(const NdArray<dtype>& x)
+    {
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        const auto varMeans = mean(x, Axis::COL);
+        const auto numVars = x.numRows();
+        const auto numObs = x.numCols();
+        using IndexType = std::remove_const<decltype(numVars)>::type;
+
+        // upper triangle
+        auto covariance = NdArray<double>(numVars);
+        for (IndexType i = 0; i < numVars; ++i)
+        {
+            const auto var1Mean = varMeans[i];
+
+            for (IndexType j = i; j < numVars; ++j)
+            {
+                const auto var2Mean = varMeans[j];
+
+                double sum = 0.0;
+                for (IndexType iObs = 0; iObs < numObs; ++iObs)
+                {
+                    sum += (x(i, iObs) - var1Mean) * (x(j, iObs) - var2Mean);
+                }
+
+                covariance(i, j) = sum / static_cast<double>(numObs - 1);
+            }
+        }
+
+        // fill in the rest of the symmetric matrix
+        for (IndexType j = 0; j < numVars; ++j)
+        {
+            for (IndexType i = j + 1; i < numVars; ++i)
+            {
+                covariance(i, j) = covariance(j, i);
+            }
+        }
+
+        return covariance;
+    }
 }  // namespace nc

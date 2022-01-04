@@ -2844,6 +2844,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric corrcoef(pbArray<dtype> x)
+    {
+        return nc2pybind(nc::corrcoef(pybind2nc(x)));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     auto cosScaler(dtype inValue) -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
@@ -2879,6 +2887,14 @@ namespace FunctionsInterface
     pbArrayGeneric count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
         return nc2pybind(nc::count_nonzero(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric cov(pbArray<dtype> x)
+    {
+        return nc2pybind(nc::cov(pybind2nc(x)));
     }
 
     //================================================================================
@@ -7525,6 +7541,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("copy", &FunctionsInterface::copy<double>);
     m.def("copysign", &FunctionsInterface::copySign<double>);
     m.def("copyto", &FunctionsInterface::copyto<double>);
+    m.def("corrcoef", &FunctionsInterface::corrcoef<double>);
     m.def("cosScaler", &FunctionsInterface::cosScaler<double>);
     m.def("cosScaler", &FunctionsInterface::cosScaler<ComplexDouble>);
     m.def("cosArray", &FunctionsInterface::cosArray<double>);
@@ -7535,6 +7552,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("coshArray", &FunctionsInterface::coshArray<ComplexDouble>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<ComplexDouble>);
+    m.def("cov", &FunctionsInterface::cov<double>);
     m.def("cross", &cross<double>);
     m.def("cross", &cross<ComplexDouble>);
     m.def("cube", &FunctionsInterface::cubeArray<double>);
