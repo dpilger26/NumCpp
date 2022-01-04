@@ -60,13 +60,18 @@ namespace nc
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            boost::random::uniform_on_sphere<dtype> dist(inDims);
+            if (inNumPoints == 0)
+            {
+                return {};
+            }
+
+            boost::random::uniform_on_sphere<dtype> dist(static_cast<int>(inDims));
 
             NdArray<dtype> returnArray(inNumPoints, inDims);
             for (uint32 row = 0; row < inNumPoints; ++row)
             {
-                std::vector<dtype> point = dist(generator_);
-                std::copy(returnArray.begin(row), returnArray.end(row), point.begin());
+                const auto& point = dist(generator_);
+                std::copy(point.begin(), point.end(), returnArray.begin(row));
             }
 
             return returnArray;

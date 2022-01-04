@@ -22,7 +22,7 @@
 * added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
 * `fmod` and the modulus `%` operator now work with float dtypes
 * added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, https://en.wikipedia.org/wiki/Hamming_code
-* minor performance improvements
+* various minor performance improvements and bug fixes
 
 ## Version 2.6.2
 
