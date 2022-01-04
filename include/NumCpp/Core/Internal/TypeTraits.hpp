@@ -185,8 +185,25 @@ namespace nc
 
     //============================================================================
     // Class Description:
-    ///	std::is_complex helper
+    ///	is_complex helper
     ///
     template<class T>
     constexpr bool is_complex_v = is_complex<T>::value;
+
+    //============================================================================
+    // Class Description:
+    ///	type trait to test if one value is larger than another at compile time
+    ///
+    template<std::size_t Value1, std::size_t Value2>
+    struct greaterThan
+    {
+        static constexpr bool value = Value1 > Value2;
+    };
+
+    //============================================================================
+    // Class Description:
+    ///	greaterThan helper
+    ///
+    template<std::size_t Value1, std::size_t Value2>
+    constexpr bool greaterThan_v = greaterThan<Value1, Value2>::value;
 } // namespace nc

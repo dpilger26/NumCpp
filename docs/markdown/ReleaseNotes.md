@@ -10,7 +10,6 @@
 * added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
 * added `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
 * added `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
-* added `hammingEncode`, https://en.wikipedia.org/wiki/Hamming_code
 * added `hanning`, https://numpy.org/doc/stable/reference/generated/numpy.hanning.html
 * added `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
 * added `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
@@ -22,6 +21,7 @@
 * added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
 * added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
 * `fmod` and the modulus `%` operator now work with float dtypes
+* added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, https://en.wikipedia.org/wiki/Hamming_code
 * minor performance improvements
 
 ## Version 2.6.2
