@@ -2900,6 +2900,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric cov_inv(pbArray<dtype> x, bool bias)
+    {
+        return nc2pybind(nc::cov_inv(pybind2nc(x), bias));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric cubeArray(const NdArray<dtype>& inArray)
     {
         return nc2pybind(cube(inArray));
@@ -7553,6 +7561,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<ComplexDouble>);
     m.def("cov", &FunctionsInterface::cov<double>);
+    m.def("cov_inv", &FunctionsInterface::cov_inv<double>);
     m.def("cross", &cross<double>);
     m.def("cross", &cross<ComplexDouble>);
     m.def("cube", &FunctionsInterface::cubeArray<double>);

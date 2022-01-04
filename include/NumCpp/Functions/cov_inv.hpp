@@ -29,17 +29,14 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Functions/mean.hpp"
-
-#include <type_traits>
+#include "NumCpp/Functions/cov.hpp"
+#include "NumCpp/Linalg/inv.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Estimate a covariance matrix.
-    ///
-    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+    ///	Estimate an inverse covariance matrix, aka the concentration matrix
     ///
     /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
     ///            Each row of x represents a variable, and each column a single observation 
@@ -49,45 +46,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> cov(const NdArray<dtype>& x, bool bias = false)
+    NdArray<double> cov_inv(const NdArray<dtype>& x, bool bias = false)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto varMeans = mean(x, Axis::COL);
-        const auto numVars = x.numRows();
-        const auto numObs = x.numCols();
-        const auto normilizationFactor = bias ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
-        using IndexType = std::remove_const<decltype(numVars)>::type;
-
-        // upper triangle
-        auto covariance = NdArray<double>(numVars);
-        for (IndexType i = 0; i < numVars; ++i)
-        {
-            const auto var1Mean = varMeans[i];
-
-            for (IndexType j = i; j < numVars; ++j)
-            {
-                const auto var2Mean = varMeans[j];
-
-                double sum = 0.0;
-                for (IndexType iObs = 0; iObs < numObs; ++iObs)
-                {
-                    sum += (x(i, iObs) - var1Mean) * (x(j, iObs) - var2Mean);
-                }
-
-                covariance(i, j) = sum / normilizationFactor;
-            }
-        }
-
-        // fill in the rest of the symmetric matrix
-        for (IndexType j = 0; j < numVars; ++j)
-        {
-            for (IndexType i = j + 1; i < numVars; ++i)
-            {
-                covariance(i, j) = covariance(j, i);
-            }
-        }
-
-        return covariance;
+        return linalg::inv(cov(x, bias));
     }
 }  // namespace nc

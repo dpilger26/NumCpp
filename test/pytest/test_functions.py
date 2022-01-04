@@ -18,7 +18,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(1)
+    np.random.seed(777)
 
 
 ####################################################################################
@@ -1840,6 +1840,15 @@ def test_cov():
                           np.round(np.cov(a, bias=False), 9))
     assert np.array_equal(np.round(NumCpp.cov(a, True), 9),
                           np.round(np.cov(a, bias=True), 9))
+
+
+####################################################################################
+def test_cov_inv():
+    a = np.random.randint(0, 100, [5, 8])
+    assert np.array_equal(np.round(NumCpp.cov_inv(a, False), 9),
+                          np.round(np.linalg.inv(np.cov(a, bias=False)), 9))
+    assert np.array_equal(np.round(NumCpp.cov_inv(a, True), 9),
+                          np.round(np.linalg.inv(np.cov(a, bias=True)), 9))
 
 
 ####################################################################################

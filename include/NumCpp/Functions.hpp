@@ -85,6 +85,7 @@
 #include "NumCpp/Functions/corrcoef.hpp"
 #include "NumCpp/Functions/count_nonzero.hpp"
 #include "NumCpp/Functions/cov.hpp"
+#include "NumCpp/Functions/cov_inv.hpp"
 #include "NumCpp/Functions/cross.hpp"
 #include "NumCpp/Functions/cube.hpp"
 #include "NumCpp/Functions/cumprod.hpp"

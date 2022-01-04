@@ -6,6 +6,7 @@
 * added `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
 * added `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
 * added `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+* added `cov_inv`, the inverse covariance matrix, aka the concentration matrix
 * added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
 * added `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
 * added `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
