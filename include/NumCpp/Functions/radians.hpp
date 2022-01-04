@@ -38,10 +38,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     constexpr auto radians(dtype inValue) noexcept
@@ -55,10 +53,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto radians(const NdArray<dtype>& inArray) 

@@ -37,11 +37,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> invert(const NdArray<dtype>& inArray) 

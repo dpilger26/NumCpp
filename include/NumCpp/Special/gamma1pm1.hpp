@@ -44,10 +44,8 @@ namespace nc
         /// Returns the true gamma(dz + 1) - 1 of value z.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type
+        /// @param inValue
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto gamma1pm1(dtype inValue)
@@ -62,10 +60,8 @@ namespace nc
         /// Returns the true gamma(dz + 1) - 1 of values in array.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto gamma1pm1(const NdArray<dtype>& inArray)

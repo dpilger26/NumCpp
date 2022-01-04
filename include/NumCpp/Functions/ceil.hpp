@@ -41,7 +41,7 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param  inValue
+    /// @param inValue
     /// @return value
     ///
     template<typename dtype>
@@ -58,7 +58,7 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param  inArray
+    /// @param inArray
     /// @return NdArray
     ///
     template<typename dtype>

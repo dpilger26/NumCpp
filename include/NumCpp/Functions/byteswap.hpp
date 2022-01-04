@@ -36,10 +36,9 @@ namespace nc
     /// Return a new array with the bytes of the array elements
     /// swapped.
     ///
-    /// @param				inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> byteswap(const NdArray<dtype>& inArray) 

@@ -38,10 +38,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full_like.html
     ///
-    /// @param				inArray
-    /// @param				inFillValue
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inFillValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> full_like(const NdArray<dtype>& inArray, dtype inFillValue) 

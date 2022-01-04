@@ -50,10 +50,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type 
+        /// @param inValue
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto riemann_zeta(dtype inValue)
@@ -74,10 +72,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto riemann_zeta(const NdArray<dtype>& inArray) 

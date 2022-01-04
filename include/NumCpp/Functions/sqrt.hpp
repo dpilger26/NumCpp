@@ -41,10 +41,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     auto sqrt(dtype inValue) noexcept 
@@ -60,10 +58,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto sqrt(const NdArray<dtype>& inArray) 

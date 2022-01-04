@@ -50,17 +50,16 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.percentile.html
     ///
-    /// @param				inArray
-    /// @param				inPercentile: percentile must be in the range [0, 100]
-    /// @param				inAxis (Optional, default NONE)
-    /// @param				inInterpMethod (Optional) interpolation method
+    /// @param inArray
+    /// @param inPercentile: percentile must be in the range [0, 100]
+    /// @param inAxis (Optional, default NONE)
+    /// @param inInterpMethod (Optional) interpolation method
     /// linear: i + (j - i) * fraction, where fraction is the fractional part of the index surrounded by i and j.
     /// lower : i.
     /// higher : j.
     /// nearest : i or j, whichever is nearest.
     /// midpoint : (i + j) / 2.
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile,

@@ -51,9 +51,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inX: value
-        /// @return
-        /// calculated-result-type 
+        /// @param inX: value
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto expint(dtype inX)
@@ -73,9 +72,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayX: value
-        /// @return
-        /// NdArray
+        /// @param inArrayX: value
+        /// @return NdArray
         ///
         template<typename dtype>
         auto expint(const NdArray<dtype>& inArrayX)

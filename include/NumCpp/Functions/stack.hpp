@@ -44,10 +44,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
     ///
-    /// @param      inArrayList: {list} of arrays to stack
-    /// @param      inAxis: axis to stack the input NdArrays
-    /// @return
-    /// NdArray
+    /// @param inArrayList: {list} of arrays to stack
+    /// @param inAxis: axis to stack the input NdArrays
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> stack(std::initializer_list<NdArray<dtype> > inArrayList, Axis inAxis = Axis::NONE)

@@ -45,10 +45,8 @@ namespace nc
         // Method Description:
         /// Returns the factorial of the input value
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// double
+        /// @param inValue
+        /// @return double
         ///
         inline double factorial(uint32 inValue)
         {
@@ -74,10 +72,8 @@ namespace nc
         // Method Description:
         /// Returns the factorial of the input value
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray<double>
+        /// @param inArray
+        /// @return NdArray<double>
         ///
         inline NdArray<double> factorial(const NdArray<uint32>& inArray)
         {

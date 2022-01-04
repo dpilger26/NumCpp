@@ -39,10 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html
     ///
-    /// @param				inBufferPtr
-    /// @param				inNumBytes
-    /// @return
-    /// NdArray
+    /// @param inBufferPtr
+    /// @param inNumBytes
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> frombuffer(const char* inBufferPtr, uint32 inNumBytes)

@@ -39,11 +39,11 @@ namespace nc
         // Method Description:
         /// samples a 2D gaussian of mean zero and input STD sigma
         ///
-        /// @param				inX
-        /// @param              inY
-        /// @param              inSigma
+        /// @param inX
+        /// @param inY
+        /// @param inSigma
         ///
-        /// @return             dtype
+        /// @return dtype
         ///
         inline double gaussian(double inX, double inY, double inSigma) noexcept
         {

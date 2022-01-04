@@ -37,10 +37,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray) 

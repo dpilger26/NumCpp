@@ -40,10 +40,8 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     auto imag(const std::complex<dtype>& inValue) 
@@ -59,10 +57,8 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.imag.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto imag(const NdArray<std::complex<dtype>>& inArray) 

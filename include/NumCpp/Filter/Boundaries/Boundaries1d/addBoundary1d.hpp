@@ -50,12 +50,11 @@ namespace nc
             // Method Description:
             /// Wrap boundary
             ///
-            /// @param				inImage
-            /// @param              inBoundaryType
-            /// @param              inKernalSize
-            /// @param              inConstantValue (default 0)
-            /// @return
-            /// NdArray
+            /// @param inImage
+            /// @param inBoundaryType
+            /// @param inKernalSize
+            /// @param inConstantValue (default 0)
+            /// @return NdArray
             ///
             template<typename dtype>
             NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)

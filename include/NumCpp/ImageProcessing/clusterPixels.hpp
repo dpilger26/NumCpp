@@ -44,11 +44,10 @@ namespace nc
         // Method Description:
         /// Clusters exceedance pixels from an image
         ///
-        /// @param				inImageArray
-        /// @param				inExceedances
-        /// @param				inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
-        /// @return
-        /// std::vector<Cluster>
+        /// @param inImageArray
+        /// @param inExceedances
+        /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
+        /// @return std::vector<Cluster>
         ///
         template<typename dtype>
         std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)

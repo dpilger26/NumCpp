@@ -48,10 +48,8 @@ namespace nc
         /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// n: the nth prime number to return
-        /// @return
-        /// uint32
+        /// @param n: the nth prime number to return
+        /// @return uint32
         ///
         inline uint32 prime(uint32 n)
         {
@@ -69,10 +67,8 @@ namespace nc
         /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray<uint32>
+        /// @param inArray
+        /// @return NdArray<uint32>
         ///
         inline NdArray<uint32> prime(const NdArray<uint32>& inArray)
         {

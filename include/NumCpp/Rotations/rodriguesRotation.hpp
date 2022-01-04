@@ -42,9 +42,9 @@ namespace nc
         /// Performs Rodriques' rotation formula
         /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
-        /// @param  k: the axis to rotate around
-        /// @param  theta: the angle in radians to rotate
-        /// @param  v: the vector to rotate
+        /// @param k: the axis to rotate around
+        /// @param theta: the angle in radians to rotate
+        /// @param v: the vector to rotate
         ///
         /// @return Vec3
         ///
@@ -72,9 +72,9 @@ namespace nc
         /// Performs Rodriques' rotation formula
         /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
-        /// @param  k: the axis to rotate around
-        /// @param  theta: the angle in radians to rotate
-        /// @param  v: the vector to rotate
+        /// @param k: the axis to rotate around
+        /// @param theta: the angle in radians to rotate
+        /// @param v: the vector to rotate
         ///
         /// @return NdArray<double>
         ///

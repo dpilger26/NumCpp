@@ -45,11 +45,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

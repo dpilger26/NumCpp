@@ -43,10 +43,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
     ///
-    /// @param				inArrayList
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArrayList
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)

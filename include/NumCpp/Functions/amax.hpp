@@ -38,10 +38,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amax.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// max value
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return max value
     ///
     template<typename dtype>
     NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

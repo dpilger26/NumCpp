@@ -50,10 +50,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
     ///
-    /// @param				inArray
-    /// @param				inMinLength
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inMinLength
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 1)
@@ -101,11 +100,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param				inMinLength
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inMinLength
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 1)

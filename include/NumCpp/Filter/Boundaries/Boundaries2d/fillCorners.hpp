@@ -43,8 +43,8 @@ namespace nc
             // Method Description:
             /// extends the corner values
             ///
-            /// @param				inArray
-            /// @param              inBorderWidth
+            /// @param inArray
+            /// @param inBorderWidth
             ///
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
@@ -76,9 +76,9 @@ namespace nc
             // Method Description:
             /// extends the corner values
             ///
-            /// @param				inArray
-            /// @param              inBorderWidth
-            /// @param				inFillValue
+            /// @param inArray
+            /// @param inBorderWidth
+            /// @param inFillValue
             ///
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)

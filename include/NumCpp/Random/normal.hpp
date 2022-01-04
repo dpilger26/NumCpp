@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal
         ///
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param  			inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        /// NdArray
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype normal(dtype inMean = 0, dtype inSigma = 1)
@@ -73,11 +72,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal
         ///
-        /// @param              inShape
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param  			inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)

@@ -45,11 +45,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equiv.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    /// bool
+    /// @return bool
     ///
     template<typename dtype>
     bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2) noexcept

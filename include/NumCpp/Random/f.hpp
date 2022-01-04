@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
-        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
-        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
-        /// @return
-        /// NdArray
+        /// @param inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param inDofD: Degrees of freedom in denominator. Should be greater than zero.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype f(dtype inDofN, dtype inDofD)
@@ -78,11 +77,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
-        /// @param				inShape
-        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
-        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param inDofD: Degrees of freedom in denominator. Should be greater than zero.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)

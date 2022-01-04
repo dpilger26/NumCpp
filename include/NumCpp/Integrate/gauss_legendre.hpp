@@ -54,7 +54,7 @@ namespace nc
             // Method Description:
             /// Constructor
             ///
-            /// @param				numIterations: the number of iterations to perform
+            /// @param numIterations: the number of iterations to perform
             ///
             explicit LegendrePolynomial(const uint32 numIterations) noexcept :
                 numIterations_(numIterations),
@@ -68,7 +68,7 @@ namespace nc
             // Method Description:
             /// Returns the weights vector
             ///
-            /// @return	weights vector
+            /// @return weights vector
             ///
             const std::vector<double>& getWeight() const noexcept 
             {
@@ -79,7 +79,7 @@ namespace nc
             // Method Description:
             /// Returns the roots vector
             ///
-            /// @return	roots vector
+            /// @return roots vector
             ///
             const std::vector<double>& getRoot() const noexcept 
             {
@@ -172,12 +172,12 @@ namespace nc
         // Method Description:
         /// Performs Gauss-Legendre integration of the input function
         ///
-        /// @param				low: the lower bound of the integration
-        /// @param              high: the upper bound of the integration
-        /// @param				n: the number of iterations to perform
-        /// @param              f: the function to integrate over
+        /// @param low: the lower bound of the integration
+        /// @param high: the upper bound of the integration
+        /// @param n: the number of iterations to perform
+        /// @param f: the function to integrate over
         ///
-        /// @return             double
+        /// @return double
         ///
         inline double gauss_legendre(const double low, const double high, const uint32 n,
             const std::function<double(double)>& f)

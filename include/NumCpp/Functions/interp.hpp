@@ -38,11 +38,11 @@ namespace nc
     //============================================================================
     /// Returns the linear interpolation between two points
     ///
-    /// @param      inValue1
-    /// @param      inValue2
-    /// @param      inPercent
+    /// @param inValue1
+    /// @param inValue2
+    /// @param inPercent
     ///
-    /// @return     linear interpolated point
+    /// @return linear interpolated point
     ///
     template<typename dtype>
     constexpr double interp(dtype inValue1, dtype inValue2, double inPercent) noexcept
@@ -61,12 +61,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
     ///
-    /// @param				inX: The x-coordinates at which to evaluate the interpolated values.
-    /// @param              inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
-    /// @param				inFp: The y-coordinates of the data points, same length as inXp.
+    /// @param inX: The x-coordinates at which to evaluate the interpolated values.
+    /// @param inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
+    /// @param inFp: The y-coordinates of the data points, same length as inXp.
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)

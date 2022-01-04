@@ -42,11 +42,10 @@ namespace nc
     // Method Description:
     /// Return a new array with sub-arrays along an axis deleted.
     ///
-    /// @param				inArray
-    /// @param				inArrayIdxs
-    /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inArrayIdxs
+    /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
@@ -140,11 +139,10 @@ namespace nc
     // Method Description:
     /// Return a new array with sub-arrays along an axis deleted.
     ///
-    /// @param				inArray
-    /// @param				inIndicesSlice
-    /// @param  			inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inIndicesSlice
+    /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
@@ -183,11 +181,10 @@ namespace nc
     // Method Description:
     /// Return a new array with sub-arrays along an axis deleted.
     ///
-    /// @param				inArray
-    /// @param				inIndex
-    /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inIndex
+    /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)

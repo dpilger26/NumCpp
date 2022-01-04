@@ -39,10 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    /// NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> subtract(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
@@ -56,10 +55,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> subtract(const NdArray<dtype>& inArray, dtype value) 
@@ -73,10 +71,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    /// NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> subtract(dtype value, const NdArray<dtype>& inArray) 
@@ -90,10 +87,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    /// NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
@@ -107,10 +103,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    /// NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)
@@ -124,10 +119,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray, const std::complex<dtype>& value) 
@@ -141,10 +135,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    /// NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(const std::complex<dtype>& value, const NdArray<dtype>& inArray) 
@@ -158,10 +151,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray, dtype value) 
@@ -175,10 +167,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    /// NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> subtract(dtype value, const NdArray<std::complex<dtype>>& inArray) 

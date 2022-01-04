@@ -41,11 +41,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// value
+    /// @return value
     ///
     template<typename dtype>
     dtype rint(dtype inValue) noexcept 
@@ -61,11 +59,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> rint(const NdArray<dtype>& inArray) 

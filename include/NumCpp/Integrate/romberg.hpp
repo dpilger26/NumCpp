@@ -46,12 +46,12 @@ namespace nc
         // Method Description:
         /// Performs Newton-Cotes Romberg integration of the input function
         ///
-        /// @param				low: the lower bound of the integration
-        /// @param              high: the upper bound of the integration
-        /// @param				n: the number of iterations
-        /// @param              f: the function to integrate over
+        /// @param low: the lower bound of the integration
+        /// @param high: the upper bound of the integration
+        /// @param n: the number of iterations
+        /// @param f: the function to integrate over
         ///
-        /// @return             double
+        /// @return double
         ///
         inline double romberg(const double low, const double high, const uint8 n,
             const std::function<double(double)>& f)

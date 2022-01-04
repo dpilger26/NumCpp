@@ -45,10 +45,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// NdArray
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     int8 sign(dtype inValue) noexcept 
@@ -77,10 +75,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<int8> sign(const NdArray<dtype>& inArray) 

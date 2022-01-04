@@ -51,10 +51,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      a
-        /// @param      b
-        /// @return
-        /// calculated-result-type 
+        /// @param a
+        /// @param b
+        /// @return calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto beta(dtype1 a, dtype2 b)
@@ -75,10 +74,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayA
-        /// @param      inArrayB
-        /// @return
-        /// NdArray
+        /// @param inArrayA
+        /// @param inArrayB
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB)

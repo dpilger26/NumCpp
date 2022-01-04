@@ -35,8 +35,8 @@ namespace nc
     // Method Description:
     /// Swaps the contents of two arrays
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
     template<typename dtype>
     void swap(NdArray<dtype>& inArray1, NdArray<dtype>& inArray2) noexcept 

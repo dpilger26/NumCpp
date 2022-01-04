@@ -43,10 +43,9 @@ namespace nc
         // Method Description:
         /// Returns the number of combinations of n choose r. C(n, r)
         ///
-        /// @param  n: the total number of items
-        /// @param  r: the number of items taken
-        /// @return
-        /// double
+        /// @param n: the total number of items
+        /// @param r: the number of items taken
+        /// @return double
         ///
         inline double cnr(uint32 n, uint32 r)
         {

@@ -36,8 +36,7 @@ namespace nc
     /// Compute the bit-wise NOT the input array element-wise.
     ///
     /// inArray
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray) 

@@ -39,10 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
     ///
-    /// @param				inSquareSize
-    /// @param				inFillValue
-    /// @return
-    /// NdArray
+    /// @param inSquareSize
+    /// @param inFillValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue) 
@@ -58,11 +57,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
     ///
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @param				inFillValue
-    /// @return
-    /// NdArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @param inFillValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) 
@@ -78,10 +76,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
     ///
-    /// @param				inShape
-    /// @param				inFillValue
-    /// @return
-    /// NdArray
+    /// @param inShape
+    /// @param inFillValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> full(const Shape& inShape, dtype inFillValue) 

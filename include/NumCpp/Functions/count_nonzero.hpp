@@ -41,10 +41,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

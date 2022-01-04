@@ -46,9 +46,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
         ///
-        /// @param				inMatrix: NdArray to be decomposed
+        /// @param inMatrix: NdArray to be decomposed
         ///
-        /// @return             NdArray of the decomposed L matrix
+        /// @return NdArray of the decomposed L matrix
         ///
         template<typename dtype>
         NdArray<double> cholesky(const NdArray<dtype>& inMatrix)

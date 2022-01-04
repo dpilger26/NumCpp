@@ -52,11 +52,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inK: elliptic modulus or eccentricity
-        /// @param      inV: elliptic characteristic
-        /// @param      inP: Jacobi amplitude (measured in radians)
-        /// @return
-        /// calculated-result-type 
+        /// @param inK: elliptic modulus or eccentricity
+        /// @param inV: elliptic characteristic
+        /// @param inP: Jacobi amplitude (measured in radians)
+        /// @return calculated-result-type 
         ///
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(dtype1 inK, dtype2 inV, dtype3 inP)
@@ -78,11 +77,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayK: the order of the bessel function
-        /// @param      inArrayV: elliptic characteristic
-        /// @param      inArrayP: Jacobi amplitude (measured in radians)
-        /// @return
-        /// NdArray
+        /// @param inArrayK: the order of the bessel function
+        /// @param inArrayV: elliptic characteristic
+        /// @param inArrayP: Jacobi amplitude (measured in radians)
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayV, const NdArray<dtype3>& inArrayP)

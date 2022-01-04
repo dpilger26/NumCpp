@@ -48,12 +48,11 @@ namespace nc
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: order of the harmonic
-        /// @param      m: degree of the harmonic
-        /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-        /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
-        /// @return
-        /// double
+        /// @param n: order of the harmonic
+        /// @param m: degree of the harmonic
+        /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
+        /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+        /// @return double
         ///
         template<typename dtype1, typename dtype2>
         std::complex<double> spherical_harmonic(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
@@ -72,12 +71,11 @@ namespace nc
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: order of the harmonic
-        /// @param      m: degree of the harmonic
-        /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-        /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
-        /// @return
-        /// double
+        /// @param n: order of the harmonic
+        /// @param m: degree of the harmonic
+        /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
+        /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+        /// @return double
         ///
         template<typename dtype1, typename dtype2>
         double spherical_harmonic_r(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
@@ -96,12 +94,11 @@ namespace nc
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: order of the harmonic
-        /// @param      m: degree of the harmonic
-        /// @param      theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
-        /// @param      phi: Polar (colatitudinal) coordinate; must be in [0, pi].
-        /// @return
-        /// double
+        /// @param n: order of the harmonic
+        /// @param m: degree of the harmonic
+        /// @param theta: Azimuthal (longitudinal) coordinate; must be in [0, 2*pi].
+        /// @param phi: Polar (colatitudinal) coordinate; must be in [0, pi].
+        /// @return double
         ///
         template<typename dtype1, typename dtype2>
         double spherical_harmonic_i(uint32 n, int32 m,  dtype1 theta, dtype2 phi)

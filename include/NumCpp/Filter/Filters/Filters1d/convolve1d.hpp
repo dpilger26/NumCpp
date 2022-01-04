@@ -45,12 +45,11 @@ namespace nc
         ///
         /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
         ///
-        /// @param				inImageArray
-        /// @param              inWeights
-        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return
-        /// NdArray
+        /// @param inImageArray
+        /// @param inWeights
+        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,

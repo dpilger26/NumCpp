@@ -47,10 +47,8 @@ namespace nc
         ///
         /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// matrix determinant
+        /// @param inArray
+        /// @return matrix determinant
         ///
         template<typename dtype>
         dtype det(const NdArray<dtype>& inArray)

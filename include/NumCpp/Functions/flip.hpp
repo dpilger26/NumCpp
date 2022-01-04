@@ -39,10 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
     ///
-    /// @param				inArray
-    /// @param				inAxis
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

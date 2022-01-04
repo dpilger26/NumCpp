@@ -44,11 +44,10 @@ namespace nc
             // Method Description:
             /// Constant boundary
             ///
-            /// @param				inImage
-            /// @param              inBoundarySize
-            /// @param              inConstantValue
-            /// @return
-            /// NdArray
+            /// @param inImage
+            /// @param inBoundarySize
+            /// @param inConstantValue
+            /// @return NdArray
             ///
             template<typename dtype>
             NdArray<dtype> constant2d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)

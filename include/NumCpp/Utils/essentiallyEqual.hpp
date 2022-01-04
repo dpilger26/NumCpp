@@ -42,10 +42,10 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -57,11 +57,11 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inEpsilon
+        /// @param inValue1
+        /// @param inValue2
+        /// @param inEpsilon
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -74,10 +74,10 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -89,11 +89,11 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inEpsilon
+        /// @param inValue1
+        /// @param inValue2
+        /// @param inEpsilon
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -107,10 +107,10 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -122,10 +122,10 @@ namespace nc
         //============================================================================
         /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>

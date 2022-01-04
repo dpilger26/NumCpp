@@ -56,7 +56,7 @@ namespace nc
         // Function Description:
         /// Swaps the bytes of the input value
         ///
-        /// @param	value
+        /// @param value
         /// @return byte swapped value
         ///
         template <typename dtype>

@@ -65,7 +65,7 @@ namespace nc
             // Method Description:
             /// Tests whether or not the file exists
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool exists() const noexcept
             {
@@ -76,7 +76,7 @@ namespace nc
             // Method Description:
             /// Returns the file extension without the dot
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             const std::string& ext() const noexcept
             {
@@ -87,7 +87,7 @@ namespace nc
             // Method Description:
             /// Returns the input full filename
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string fullName() const 
             {
@@ -98,7 +98,7 @@ namespace nc
             // Method Description:
             /// Returns true if the file has an extension
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool hasExt() const
             {
@@ -109,7 +109,7 @@ namespace nc
             // Method Description:
             /// Returns the filename
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             const std::string& name() const noexcept
             {
@@ -121,7 +121,7 @@ namespace nc
             /// Sets the extension to the input extension.  Do not input the dot.
             /// E.g. input "txt", not ".txt" 
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string withExt(const std::string& ext) 
             {

@@ -50,10 +50,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      x: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// double
+        /// @param n: the degree of the legendre polynomial
+        /// @param x: the input value. Requires -1 <= x <= 1
+        /// @return double
         ///
         template<typename dtype>
         double legendre_p(uint32 n, dtype x)
@@ -78,11 +77,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      m: the order of the legendre polynomial
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      x: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// double
+        /// @param m: the order of the legendre polynomial
+        /// @param n: the degree of the legendre polynomial
+        /// @param x: the input value. Requires -1 <= x <= 1
+        /// @return double
         ///
         template<typename dtype>
         double legendre_p(uint32 m, uint32 n, dtype x)
@@ -137,10 +135,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// NdArray<double>
+        /// @param n: the degree of the legendre polynomial
+        /// @param inArrayX: the input value. Requires -1 <= x <= 1
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX) 
@@ -163,11 +160,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      m: the order of the legendre polynomial
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// NdArray<double>
+        /// @param m: the order of the legendre polynomial
+        /// @param n: the degree of the legendre polynomial
+        /// @param inArrayX: the input value. Requires -1 <= x <= 1
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX) 

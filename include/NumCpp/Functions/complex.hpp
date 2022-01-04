@@ -40,9 +40,8 @@ namespace nc
     // Method Description:
     /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @return
-    /// value
+    /// @param inReal: the real component of the complex number
+    /// @return value
     ///
     template<typename dtype>
     auto complex(dtype inReal) 
@@ -56,10 +55,9 @@ namespace nc
     // Method Description:
     /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @param      inImag: the imaginary component of the complex number
-    /// @return
-    /// value
+    /// @param inReal: the real component of the complex number
+    /// @param inImag: the imaginary component of the complex number
+    /// @return value
     ///
     template<typename dtype>
     auto complex(dtype inReal, dtype inImag) 
@@ -73,9 +71,8 @@ namespace nc
     // Method Description:
     /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @return
-    /// NdArray
+    /// @param inReal: the real component of the complex number
+    /// @return NdArray
     ///
     template<typename dtype>
     auto complex(const NdArray<dtype>& inReal) 
@@ -94,10 +91,9 @@ namespace nc
     // Method Description:
     /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @param      inImag: the imaginary component of the complex number
-    /// @return
-    /// NdArray
+    /// @param inReal: the real component of the complex number
+    /// @param inImag: the imaginary component of the complex number
+    /// @return NdArray
     ///
     template<typename dtype>
     auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)

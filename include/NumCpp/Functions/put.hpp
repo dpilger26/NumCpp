@@ -39,11 +39,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
     ///
-    /// @param				inArray
-    /// @param				inIndices
-    /// @param				inValue
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inIndices
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, dtype inValue)
@@ -59,11 +58,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
     ///
-    /// @param				inArray
-    /// @param				inIndices
-    /// @param				inValues
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inIndices
+    /// @param inValues
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)

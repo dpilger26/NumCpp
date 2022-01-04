@@ -41,10 +41,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
-    /// @param
-    /// inSquareSize
-    /// @return
-    /// NdArray
+    /// @param inSquareSize
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inSquareSize) 
@@ -60,10 +58,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @return
-    /// NdArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols) 
@@ -79,10 +76,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
     ///
-    /// @param
-    /// inShape
-    /// @return
-    /// NdArray
+    /// @param inShape
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> zeros(const Shape& inShape) 

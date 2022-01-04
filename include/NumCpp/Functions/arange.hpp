@@ -50,11 +50,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param				inStart
-    /// @param				inStop
-    /// @param				inStep: (Optional, defaults to 1)
-    /// @return
-    /// NdArray
+    /// @param inStart
+    /// @param inStop
+    /// @param inStep: (Optional, defaults to 1)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
@@ -110,10 +109,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param
-    /// inStop: start is 0 and step is 1
-    /// @return
-    /// NdArray
+    /// @param inStop: start is 0 and step is 1
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(dtype inStop)
@@ -140,10 +137,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param
-    /// inSlice
-    /// @return
-    /// NdArray
+    /// @param inSlice
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(const Slice& inSlice)

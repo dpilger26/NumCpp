@@ -38,10 +38,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// bool
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return bool
     ///
     template<typename dtype>
     NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

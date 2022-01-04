@@ -58,7 +58,7 @@ namespace nc
         //============================================================================
         /// Constructor, preallocates to the input size
         ///
-        /// @param      inSize
+        /// @param inSize
         ///
         explicit DataCube(uint32 inSize)
         {
@@ -68,9 +68,9 @@ namespace nc
         //============================================================================
         /// Access method, with bounds checking. Returns the 2d z "slice" element of the cube.
         ///
-        /// @param      inIndex
+        /// @param inIndex
         ///
-        /// @return     NdArray
+        /// @return NdArray
         ///
         NdArray<dtype>& at(uint32 inIndex)
         {
@@ -80,9 +80,9 @@ namespace nc
         //============================================================================
         /// Const access method, with bounds checking. Returns the 2d z "slice" element of the cube.
         ///
-        /// @param      inIndex
+        /// @param inIndex
         ///
-        /// @return     NdArray
+        /// @return NdArray
         ///
         const NdArray<dtype>& at(uint32 inIndex) const
         {
@@ -92,7 +92,7 @@ namespace nc
         //============================================================================
         /// Returns a reference to the last 2d "slice" of the cube in the z-axis
         ///
-        /// @return     NdArray&
+        /// @return NdArray&
         ///
         NdArray<dtype>& back() noexcept 
         {
@@ -102,7 +102,7 @@ namespace nc
         //============================================================================
         /// Returns an iterator to the first 2d z "slice" of the cube.
         ///
-        /// @return     iterator
+        /// @return iterator
         ///
         iterator begin() noexcept
         {
@@ -112,7 +112,7 @@ namespace nc
         //============================================================================
         /// Returns an const_iterator to the first 2d z "slice" of the cube.
         ///
-        /// @return     const_iterator
+        /// @return const_iterator
         ///
         const_iterator cbegin() const noexcept
         {
@@ -122,7 +122,7 @@ namespace nc
         //============================================================================
         /// Outputs the DataCube as a .bin file
         ///
-        /// @param      inFilename
+        /// @param inFilename
         ///
         void dump(const std::string& inFilename) const
         {
@@ -149,7 +149,7 @@ namespace nc
         //============================================================================
         /// Tests whether or not the container is empty
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool isempty() noexcept 
         {
@@ -159,7 +159,7 @@ namespace nc
         //============================================================================
         /// Returns an iterator to 1 past the last 2d z "slice" of the cube.
         ///
-        /// @return     iterator
+        /// @return iterator
         ///
         iterator end() noexcept
         {
@@ -169,7 +169,7 @@ namespace nc
         //============================================================================
         /// Returns an const_iterator to 1 past the last 2d z "slice" of the cube.
         ///
-        /// @return     const_iterator
+        /// @return const_iterator
         ///
         const_iterator cend() const noexcept
         {
@@ -179,7 +179,7 @@ namespace nc
         //============================================================================
         /// Returns a reference to the front 2d "slice" of the cube in the z-axis
         ///
-        /// @return     NdArray&
+        /// @return NdArray&
         ///
         NdArray<dtype>& front() noexcept 
         {
@@ -189,7 +189,7 @@ namespace nc
         //============================================================================
         /// Returns the x/y shape of the cube
         ///
-        /// @return     Shape
+        /// @return Shape
         ///
         const Shape& shape() const noexcept 
         {
@@ -199,7 +199,7 @@ namespace nc
         //============================================================================
         /// Returns the size of the z-axis of the cube
         ///
-        /// @return     size
+        /// @return size
         ///
         uint32 sizeZ() const noexcept 
         {
@@ -217,7 +217,7 @@ namespace nc
         //============================================================================
         /// Adds a new z "slice" to the end of the cube
         ///
-        /// @param      inArray
+        /// @param inArray
         ///
         void push_back(const NdArray<dtype>& inArray)
         {
@@ -241,8 +241,8 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube
         ///
-        /// @param       inIndex: the flattend 2d index (row, col) to slice
-        /// @return      NdArray
+        /// @param inIndex: the flattend 2d index (row, col) to slice
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAll(int32 inIndex) const
         {
@@ -264,9 +264,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube
         ///
-        /// @param       inIndex: the flattend 2d index (row, col) to slice
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inIndex: the flattend 2d index (row, col) to slice
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZ(int32 inIndex, Slice inSliceZ) const
         {
@@ -289,9 +289,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAll(int32 inRow, int32 inCol) const
         {
@@ -318,10 +318,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZ(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
@@ -349,9 +349,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAll(Slice inRow, int32 inCol) const
         {
@@ -372,10 +372,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZ(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
@@ -397,9 +397,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAll(int32 inRow, Slice inCol) const
         {
@@ -420,10 +420,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZ(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
@@ -445,9 +445,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      DataCube
+        /// @param inRow
+        /// @param inCol
+        /// @return DataCube
         ///
         DataCube<dtype> sliceZAll(Slice inRow, Slice inCol) const
         {
@@ -463,10 +463,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with NO bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      DataCube
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return DataCube
         ///
         DataCube<dtype> sliceZ(Slice inRow, Slice inCol, Slice inSliceZ) const
         {
@@ -482,8 +482,8 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inIndex: the flattend 2d index (row, col) to slice
-        /// @return      NdArray
+        /// @param inIndex: the flattend 2d index (row, col) to slice
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAllat(int32 inIndex) const
         {
@@ -503,9 +503,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inIndex: the flattend 2d index (row, col) to slice
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inIndex: the flattend 2d index (row, col) to slice
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZat(int32 inIndex, Slice inSliceZ) const
         {
@@ -531,9 +531,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const
         {
@@ -563,10 +563,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZat(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
@@ -601,9 +601,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAllat(Slice inRow, int32 inCol) const
         {
@@ -629,10 +629,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZat(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
@@ -664,9 +664,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZAllat(int32 inRow, Slice inCol) const
         {
@@ -692,10 +692,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      NdArray
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return NdArray
         ///
         NdArray<dtype> sliceZat(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
@@ -727,9 +727,9 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @return      DataCube
+        /// @param inRow
+        /// @param inCol
+        /// @return DataCube
         ///
         DataCube<dtype> sliceZAllat(Slice inRow, Slice inCol) const
         {
@@ -749,10 +749,10 @@ namespace nc
         //============================================================================
         /// Slices the z dimension of the cube with bounds checking
         ///
-        /// @param       inRow
-        /// @param       inCol
-        /// @param       inSliceZ: the slice dimensions of the z-axis
-        /// @return      DataCube
+        /// @param inRow
+        /// @param inCol
+        /// @param inSliceZ: the slice dimensions of the z-axis
+        /// @return DataCube
         ///
         DataCube<dtype> sliceZat(Slice inRow, Slice inCol, Slice inSliceZ) const
         {
@@ -778,9 +778,9 @@ namespace nc
         //============================================================================
         /// Access operator, no bounds checking.  Returns the 2d z "slice" element of the cube.
         ///
-        /// @param      inIndex
+        /// @param inIndex
         ///
-        /// @return     NdArray
+        /// @return NdArray
         ///
         NdArray<dtype>& operator[](uint32 inIndex) noexcept 
         {
@@ -790,9 +790,9 @@ namespace nc
         //============================================================================
         /// Const access operator, no bounds checking. Returns the 2d z "slice" element of the cube.
         ///
-        /// @param      inIndex
+        /// @param inIndex
         ///
-        /// @return     NdArray
+        /// @return NdArray
         ///
         const NdArray<dtype>& operator[](uint32 inIndex) const noexcept
         {

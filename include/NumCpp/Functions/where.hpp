@@ -43,10 +43,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
@@ -90,10 +90,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, dtype inB)
@@ -132,10 +132,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, dtype inA, const NdArray<dtype>& inB)
@@ -174,10 +174,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, dtype inA, dtype inB)

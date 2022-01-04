@@ -44,10 +44,8 @@ namespace nc
         /// Returns natural log of the true gamma of value z.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type
+        /// @param inValue
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto log_gamma(dtype inValue)
@@ -62,10 +60,8 @@ namespace nc
         /// Returns natural log of the true gamma of values in array.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto log_gamma(const NdArray<dtype>& inArray)

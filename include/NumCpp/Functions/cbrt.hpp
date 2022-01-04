@@ -41,9 +41,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
-    /// @param				inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     double cbrt(dtype inValue) noexcept 
@@ -59,9 +58,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
-    /// @param				inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> cbrt(const NdArray<dtype>& inArray) 

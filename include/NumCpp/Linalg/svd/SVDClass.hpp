@@ -51,8 +51,7 @@ namespace nc
             // Description:
             /// Constructor
             ///
-            /// @param
-            /// inMatrix: matrix to perform SVD on
+            /// @param inMatrix: matrix to perform SVD on
             ///
             explicit SVD(const NdArray<double>& inMatrix) :
                 m_(inMatrix.shape().rows),
@@ -71,8 +70,7 @@ namespace nc
             // Description:
             /// the resultant u matrix
             ///
-            /// @return
-            /// u matrix
+            /// @return u matrix
             ///
             const NdArray<double>& u() noexcept 
             {
@@ -83,8 +81,7 @@ namespace nc
             // Description:
             /// the resultant v matrix
             ///
-            /// @return
-            /// v matrix
+            /// @return v matrix
             ///
             const NdArray<double>& v() noexcept 
             {
@@ -95,8 +92,7 @@ namespace nc
             // Description:
             /// the resultant w matrix
             ///
-            /// @return
-            /// s matrix
+            /// @return s matrix
             ///
             const NdArray<double>& s() noexcept 
             {
@@ -107,11 +103,10 @@ namespace nc
             // Description:
             /// solves the linear least squares problem
             ///
-            /// @param      inInput
-            /// @param      inThresh (default -1.0)
+            /// @param inInput
+            /// @param inThresh (default -1.0)
             ///
-            /// @return
-            /// NdArray
+            /// @return NdArray
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
@@ -161,11 +156,10 @@ namespace nc
             // Description:
             /// returns the SIGN of two values
             ///
-            /// @param              inA
-            /// @param              inB
+            /// @param inA
+            /// @param inB
             ///
-            /// @return
-            /// value
+            /// @return value
             ///
             static double SIGN(double inA, double inB) noexcept 
             {
@@ -628,11 +622,10 @@ namespace nc
             // Description:
             /// performs pythag of input values
             ///
-            /// @param              inA
-            /// @param              inB
+            /// @param inA
+            /// @param inB
             ///
-            /// @return
-            /// resultant value
+            /// @return resultant value
             ///
             static double pythag(double inA, double inB) noexcept
             {

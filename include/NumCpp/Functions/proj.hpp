@@ -39,10 +39,8 @@ namespace nc
     // Method Description:
     /// Returns the projection of the complex number z onto the Riemann sphere.
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     auto proj(const std::complex<dtype>& inValue) 
@@ -56,10 +54,8 @@ namespace nc
     // Method Description:
     /// Returns the projection of the complex number z onto the Riemann sphere.
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto proj(const NdArray<std::complex<dtype>>& inArray) 

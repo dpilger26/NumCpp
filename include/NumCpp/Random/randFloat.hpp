@@ -51,10 +51,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///
-        /// @param  			inLow
-        /// @param				inHigh default 0.
-        /// @return
-        /// NdArray
+        /// @param inLow
+        /// @param inHigh default 0.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype randFloat(dtype inLow, dtype inHigh = 0.0)
@@ -82,11 +81,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///
-        /// @param				inShape
-        /// @param  			inLow
-        /// @param				inHigh default 0.
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inLow
+        /// @param inHigh default 0.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)

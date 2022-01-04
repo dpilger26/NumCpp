@@ -54,7 +54,7 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param      inDegrees
+            /// @param inDegrees
             ///
             explicit RA(double inDegrees) :
                 degrees_(inDegrees),
@@ -74,9 +74,9 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param			inHours
-            /// @param          inMinutes
-            /// @param          inSeconds
+            /// @param inHours
+            /// @param inMinutes
+            /// @param inSeconds
             ///
             RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
                 hours_(inHours),
@@ -90,7 +90,7 @@ namespace nc
             //============================================================================
             /// Get the radians value
             ///
-            /// @return     radians
+            /// @return radians
             ///
             double radians() const noexcept 
             {
@@ -100,7 +100,7 @@ namespace nc
             //============================================================================
             /// Get the degrees value
             ///
-            /// @return     degrees
+            /// @return degrees
             ///
             double degrees() const noexcept 
             {
@@ -110,7 +110,7 @@ namespace nc
             //============================================================================
             /// Get the hour value
             ///
-            /// @return     hours
+            /// @return hours
             ///
             uint8 hours() const noexcept 
             {
@@ -120,7 +120,7 @@ namespace nc
             //============================================================================
             /// Get the minute value
             ///
-            /// @return     minutes
+            /// @return minutes
             ///
             uint8 minutes() const noexcept 
             {
@@ -130,7 +130,7 @@ namespace nc
             //============================================================================
             /// Get the seconds value
             ///
-            /// @return     seconds
+            /// @return seconds
             ///
             double seconds() const noexcept 
             {
@@ -140,7 +140,7 @@ namespace nc
             //============================================================================
             /// Return the RA object as a string representation
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string str() const
             {
@@ -160,9 +160,9 @@ namespace nc
             //============================================================================
             /// Equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator==(const RA& inRhs) const noexcept
             {
@@ -172,9 +172,9 @@ namespace nc
             //============================================================================
             /// Not equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator!=(const RA& inRhs) const noexcept
             {
@@ -184,8 +184,8 @@ namespace nc
             //============================================================================
             /// Ostream operator
             ///
-            /// @param      inStream
-            /// @param      inRa
+            /// @param inStream
+            /// @param inRa
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const RA& inRa)
             {

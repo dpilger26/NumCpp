@@ -49,9 +49,9 @@ namespace nc
         // Method Description:
         /// matrix LU decomposition A = LU
         ///
-        /// @param				inMatrix: NdArray to be decomposed
+        /// @param inMatrix: NdArray to be decomposed
         ///
-        /// @return             std::pair<NdArray, NdArray> of the decomposed L and U matrices
+        /// @return std::pair<NdArray, NdArray> of the decomposed L and U matrices
         ///
         template<typename dtype>
         std::pair<NdArray<double>, NdArray<double> > lu_decomposition(const NdArray<dtype>& inMatrix)

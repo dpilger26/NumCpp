@@ -47,9 +47,9 @@ namespace nc
         //============================================================================
         /// Converts from a boost ndarray to a NumCpp NdArray<T>
         ///
-        /// @param      inArray
+        /// @param inArray
         ///
-        /// @return     NdArray<T>
+        /// @return NdArray<T>
         ///
         template<typename dtype>
         inline NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
@@ -93,9 +93,9 @@ namespace nc
         //============================================================================
         /// Converts from a NumCpp NdArray<T> to a boost ndarray
         ///
-        /// @param      inArray
+        /// @param inArray
         ///
-        /// @return     ndarray
+        /// @return ndarray
         ///
         template<typename dtype>
         inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) 
@@ -117,9 +117,9 @@ namespace nc
         //============================================================================
         /// converts a boost python list to a std::vector
         ///
-        /// @param      inList
+        /// @param inList
         ///
-        /// @return     std::vector<T>
+        /// @return std::vector<T>
         ///
         template<typename T>
         inline std::vector<T> list2vector(const boost::python::list& inList) 
@@ -130,9 +130,9 @@ namespace nc
         //============================================================================
         /// converts a std::vector to a boost python list
         ///
-        /// @param      inVector
+        /// @param inVector
         ///
-        /// @return     boost::python::list
+        /// @return boost::python::list
         ///
         template <typename T>
         inline boost::python::list vector2list(std::vector<T>& inVector) 
@@ -149,9 +149,9 @@ namespace nc
         //============================================================================
         /// converts a std::map in to a boost python dictionary
         ///
-        /// @param      inMap
+        /// @param inMap
         ///
-        /// @return     boost::python::dict
+        /// @return boost::python::dict
         ///
         template <class Key, class Value>
         inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) 

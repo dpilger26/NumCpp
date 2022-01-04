@@ -43,7 +43,7 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
     ///
-    /// @param	m: Number of points in the output window. If zero or less, an empty array is returned.
+    /// @param m: Number of points in the output window. If zero or less, an empty array is returned.
     /// @return NdArray
     ///
     inline NdArray<double> blackman(int32 m)

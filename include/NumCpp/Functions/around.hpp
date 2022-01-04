@@ -37,10 +37,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
     ///
-    /// @param			inValue
-    /// @param			inNumDecimals: (Optional, default = 0)
-    /// @return
-    /// value
+    /// @param inValue
+    /// @param inNumDecimals: (Optional, default = 0)
+    /// @return value
     ///
     template<typename dtype>
     dtype around(dtype inValue, uint8 inNumDecimals = 0) 
@@ -55,10 +54,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
     ///
-    /// @param			inArray
-    /// @param			inNumDecimals: (Optional, default = 0)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inNumDecimals: (Optional, default = 0)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0) 

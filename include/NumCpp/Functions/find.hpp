@@ -38,11 +38,10 @@ namespace nc
     // Method Description:
     /// Find flat indices of nonzero elements.
     ///
-    /// @param      mask: the mask to apply to the array
-    /// @param      n: the first n indices to return (optional, default all)
+    /// @param mask: the mask to apply to the array
+    /// @param n: the first n indices to return (optional, default all)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max()) 
     {

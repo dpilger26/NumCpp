@@ -44,8 +44,7 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///
-        /// @param
-        /// inSeed
+        /// @param inSeed
         ///
         inline void seed(uint32 inSeed) 
         {

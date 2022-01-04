@@ -37,10 +37,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
     ///
-    /// @param				inDestArray
-    /// @param				inSrcArray
-    /// @return
-    /// NdArray
+    /// @param inDestArray
+    /// @param inSrcArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray) 

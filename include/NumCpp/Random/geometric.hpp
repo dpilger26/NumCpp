@@ -47,9 +47,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
-        /// @param				inP (probablity of success [0, 1])
-        /// @return
-        /// NdArray
+        /// @param inP (probablity of success [0, 1])
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype geometric(double inP = 0.5)
@@ -72,10 +71,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
-        /// @param				inShape
-        /// @param				inP (probablity of success [0, 1])
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inP (probablity of success [0, 1])
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)

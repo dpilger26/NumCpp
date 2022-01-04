@@ -41,11 +41,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// value
+    /// @return value
     ///
     template<typename dtype>
     auto log2(dtype inValue) noexcept 
@@ -61,11 +59,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto log2(const NdArray<dtype>& inArray) 

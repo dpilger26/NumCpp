@@ -42,11 +42,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// value
+    /// @return value
     ///
     template<typename dtype>
     auto log10(dtype inValue) noexcept 
@@ -62,11 +60,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto log10(const NdArray<dtype>& inArray) 

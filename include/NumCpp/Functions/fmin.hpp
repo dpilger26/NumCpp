@@ -47,10 +47,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
     ///
-    /// @param				inValue1
-    /// @param				inValue2
-    /// @return
-    /// value
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
     ///
     template<typename dtype>
     dtype fmin(dtype inValue1, dtype inValue2) noexcept 
@@ -73,10 +72,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    /// NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -43,11 +43,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
-    /// @param				inValue
-    /// @param				inMinValue
-    /// @param				inMaxValue
-    /// @return
-    /// NdArray
+    /// @param inValue
+    /// @param inMinValue
+    /// @param inMaxValue
+    /// @return NdArray
     ///
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
@@ -81,11 +80,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
-    /// @param				inArray
-    /// @param				inMinValue
-    /// @param				inMaxValue
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inMinValue
+    /// @param inMaxValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 

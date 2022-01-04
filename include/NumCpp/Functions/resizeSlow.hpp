@@ -42,12 +42,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -65,11 +64,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
-    /// @param				inArray
-    /// @param				inNewShape
+    /// @param inArray
+    /// @param inNewShape
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape) 

@@ -39,11 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isposinf.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// bool
+    /// @return bool
     ///
     template<typename dtype>
     bool isposinf(dtype inValue) noexcept 
@@ -59,11 +57,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isposinf.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> isposinf(const NdArray<dtype>& inArray) 

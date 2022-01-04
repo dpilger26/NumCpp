@@ -41,9 +41,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html
     ///
-    /// @param				inValue
-    /// @return
-    /// std::string
+    /// @param inValue
+    /// @return std::string
     ///
     template<typename dtype>
     std::string binaryRepr(dtype inValue) 

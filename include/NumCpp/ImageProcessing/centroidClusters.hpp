@@ -43,9 +43,8 @@ namespace nc
         // Method Description:
         /// Center of Mass centroids clusters
         ///
-        /// @param				inClusters
-        /// @return
-        /// std::vector<Centroid>
+        /// @param inClusters
+        /// @return std::vector<Centroid>
         ///
         template<typename dtype>
         std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) 

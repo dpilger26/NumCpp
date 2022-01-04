@@ -51,10 +51,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inX: the input value
-        /// @return
-        /// calculated-result-type 
+        /// @param inV: the order of the bessel function
+        /// @param inX: the input value
+        /// @return calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_in(dtype1 inV, dtype2 inX)
@@ -75,10 +74,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inArrayX: the input values
-        /// @return
-        /// NdArray
+        /// @param inV: the order of the bessel function
+        /// @param inArrayX: the input values
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_in(dtype1 inV, const NdArray<dtype2>& inArrayX)

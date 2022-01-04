@@ -47,9 +47,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
-        /// @param				inDof (independent random variables)
-        /// @return
-        /// NdArray
+        /// @param inDof (independent random variables)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype chiSquare(dtype inDof)
@@ -72,10 +71,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
-        /// @param				inShape
-        /// @param				inDof (independent random variables)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inDof (independent random variables)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)

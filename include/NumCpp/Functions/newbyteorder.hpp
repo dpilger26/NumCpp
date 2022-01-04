@@ -40,11 +40,10 @@ namespace nc
     /// be confused as to why...
     ///
     ///
-    /// @param				inValue
-    /// @param				inEndianess
+    /// @param inValue
+    /// @param inEndianess
     ///
-    /// @return
-    /// inValue
+    /// @return inValue
     ///
     template<typename dtype>
     dtype newbyteorder(dtype inValue, Endian inEndianess) 
@@ -61,11 +60,10 @@ namespace nc
     /// be confused as to why...
     ///
     ///
-    /// @param				inArray
-    /// @param				inEndianess
+    /// @param inArray
+    /// @param inEndianess
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) 

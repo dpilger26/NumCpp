@@ -38,10 +38,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

@@ -41,11 +41,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// bool
+    /// @return bool
     ///
     template<typename dtype>
     bool isnan(dtype inValue) noexcept
@@ -66,11 +64,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray) 

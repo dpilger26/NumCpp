@@ -39,11 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
     ///
-    /// @param
-    /// inSquareSize
+    /// @param inSquareSize
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> identity(uint32 inSquareSize) 

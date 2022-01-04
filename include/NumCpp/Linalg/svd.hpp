@@ -44,10 +44,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
         ///
-        /// @param				inArray: NdArray to be SVDed
-        /// @param				outU: NdArray output U
-        /// @param				outS: NdArray output S
-        /// @param				outVt: NdArray output V transpose
+        /// @param inArray: NdArray to be SVDed
+        /// @param outU: NdArray output U
+        /// @param outS: NdArray output S
+        /// @param outVt: NdArray output V transpose
         ///
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)

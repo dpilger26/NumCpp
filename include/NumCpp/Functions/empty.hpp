@@ -39,10 +39,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
     ///
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @return
-    /// NdArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols) 
@@ -56,10 +55,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
     ///
-    /// @param
-    /// inShape
-    /// @return
-    /// NdArray
+    /// @param inShape
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> empty(const Shape& inShape) 

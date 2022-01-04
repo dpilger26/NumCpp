@@ -47,12 +47,11 @@ namespace nc
         ///
         /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
         ///
-        /// @param				inImageArray
-        /// @param				inSigma: Standard deviation for Gaussian kernel
-        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return
-        /// NdArray
+        /// @param inImageArray
+        /// @param inSigma: Standard deviation for Gaussian kernel
+        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,

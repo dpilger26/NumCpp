@@ -61,7 +61,7 @@ namespace nc
         // Method Description:
         /// Constructor
         ///
-        /// @param      inName
+        /// @param inName
         ///
         explicit Timer(const std::string& inName)  :
             name_(inName + " "),
@@ -74,7 +74,7 @@ namespace nc
         // Method Description:
         /// Sets/changes the timer name
         ///
-        /// @param      inName
+        /// @param inName
         ///
         void setName(const std::string& inName) 
         {
@@ -105,9 +105,9 @@ namespace nc
         // Method Description:
         /// Stops the timer
         ///
-        /// @param      printElapsedTime: bool whether or not to print the elapsed time to 
+        /// @param printElapsedTime: bool whether or not to print the elapsed time to 
         /// the console
-        /// @return     ellapsed time in specified time units
+        /// @return ellapsed time in specified time units
         ///
         uint64 toc(bool printElapsedTime = true) 
         {

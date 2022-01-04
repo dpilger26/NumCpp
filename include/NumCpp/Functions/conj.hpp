@@ -41,10 +41,8 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     auto conj(const std::complex<dtype>& inValue) 
@@ -60,10 +58,8 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.conj.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto conj(const NdArray<std::complex<dtype>>& inArray) 

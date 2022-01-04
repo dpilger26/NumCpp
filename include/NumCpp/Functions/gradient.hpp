@@ -47,10 +47,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inAxis (default ROW)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis (default ROW)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
@@ -143,10 +142,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inAxis (default ROW)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis (default ROW)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> gradient(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::ROW)

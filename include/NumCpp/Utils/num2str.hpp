@@ -38,9 +38,9 @@ namespace nc
         //============================================================================
         /// Converts the number into a string
         ///
-        /// @param      inNumber
+        /// @param inNumber
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         template<typename dtype>
         std::string num2str(dtype inNumber) 

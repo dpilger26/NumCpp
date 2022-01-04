@@ -53,22 +53,22 @@ namespace nc
         /// It is a modification of Newton's method for finding a minimum of a function.
         /// https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm
         ///
-        /// @param      numIterations: the number of iterations to perform
-        /// @param      coordinates: the coordinate values.  The shape needs to be [n x d], where d is 
+        /// @param numIterations: the number of iterations to perform
+        /// @param coordinates: the coordinate values.  The shape needs to be [n x d], where d is 
         /// the number of diminsions of the fit function (f(x) is one dimensional, 
         /// f(x, y) is two dimensions, etc), and n is the number of observations
         /// that are being fit to.
-        /// @param      measurements: the measured values that are being fit
-        /// @param      function: a std::function of the function that is being fit. The function takes as 
+        /// @param measurements: the measured values that are being fit
+        /// @param function: a std::function of the function that is being fit. The function takes as 
         /// inputs an NdArray of a single set of the coordinate values, and an NdArray 
         /// of the current values of the fit parameters
-        /// @param      derivatives: array of std::functions to calculate the function 
+        /// @param derivatives: array of std::functions to calculate the function 
         /// derivatives. The function that is being fit. The function takes as 
         /// inputs an NdArray of a single set of the coordinate values, and an NdArray 
         /// of the current values of the fit parameters
-        /// @param      initialGuess: the initial guess of the parameters to be solved for
+        /// @param initialGuess: the initial guess of the parameters to be solved for
         ///
-        /// @return     std::pair of NdArray of solved parameter values, and rms of the residuals value
+        /// @return std::pair of NdArray of solved parameter values, and rms of the residuals value
         ///
         template<typename dtype, typename ...Params,
             nc::enable_if_t<is_arithmetic_v<dtype>, int> = 0,

@@ -43,10 +43,9 @@ namespace nc
         // Method Description:
         /// Returns the number of permutaions of n choose r. P(n, r)
         ///
-        /// @param  n: the total number of items
-        /// @param  r: the number of items taken
-        /// @return
-        /// double
+        /// @param n: the total number of items
+        /// @param r: the number of items taken
+        /// @return double
         ///
         inline double pnr(uint32 n, uint32 r)
         {

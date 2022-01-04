@@ -44,10 +44,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inValue
-    /// @param				inExponent
-    /// @return
-    /// value raised to the power
+    /// @param inValue
+    /// @param inExponent
+    /// @return value raised to the power
     ///
     template<typename dtype>
     constexpr dtype power(dtype inValue, uint8 inExponent) noexcept
@@ -61,10 +60,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponent
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inExponent
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> power(const NdArray<dtype>& inArray, uint8 inExponent) 
@@ -85,10 +83,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponents
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inExponents
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)

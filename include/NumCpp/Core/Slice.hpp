@@ -56,7 +56,7 @@ namespace nc
         //============================================================================
         /// Constructor
         ///
-        /// @param      inStop (index not included)
+        /// @param inStop (index not included)
         ///
         constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
@@ -65,8 +65,8 @@ namespace nc
         //============================================================================
         /// Constructor
         ///
-        /// @param          inStart
-        /// @param			inStop (index not included)
+        /// @param inStart
+        /// @param inStop (index not included)
         ///
         constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
@@ -76,9 +76,9 @@ namespace nc
         //============================================================================
         /// Constructor
         ///
-        /// @param      inStart
-        /// @param      inStop (not included)
-        /// @param      inStep
+        /// @param inStart
+        /// @param inStop (not included)
+        /// @param inStep
         ///
         constexpr Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
             start(inStart),
@@ -89,9 +89,9 @@ namespace nc
         //============================================================================
         /// Equality operator
         ///
-        /// @param      inOtherSlice
+        /// @param inOtherSlice
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator==(const Slice& inOtherSlice) const noexcept
         {
@@ -101,9 +101,9 @@ namespace nc
         //============================================================================
         /// Not equality operator
         ///
-        /// @param      inOtherSlice
+        /// @param inOtherSlice
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator!=(const Slice& inOtherSlice) const noexcept
         {
@@ -113,7 +113,7 @@ namespace nc
         //============================================================================
         /// Prints the shape to the console
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         std::string str() const
         {
@@ -132,7 +132,7 @@ namespace nc
         //============================================================================
         /// Make the slice all positive and does some error checking
         ///
-        /// @param      inArraySize
+        /// @param inArraySize
         ///
         void makePositiveAndValidate(uint32 inArraySize)
         {
@@ -183,7 +183,7 @@ namespace nc
         /// be aware that this method will also make the slice all 
         /// positive! 
         ///
-        /// @param      inArraySize
+        /// @param inArraySize
         ///
         uint32 numElements(uint32 inArraySize)
         {
@@ -200,10 +200,10 @@ namespace nc
         //============================================================================
         /// IO operator for the Slice class
         ///
-        /// @param      inOStream
-        /// @param      inSlice
+        /// @param inOStream
+        /// @param inSlice
         ///
-        /// @return     std::ostream
+        /// @return std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {

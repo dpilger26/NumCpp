@@ -61,7 +61,7 @@ namespace nc
             // Description:
             /// constructor
             ///
-            /// @param               inCluster
+            /// @param inCluster
             ///
             explicit Centroid(const Cluster<dtype>& inCluster) :
                 intensity_(inCluster.intensity()),
@@ -74,8 +74,7 @@ namespace nc
             // Description:
             /// gets the centroid row
             ///
-            /// @return
-            /// centroid row
+            /// @return centroid row
             ///
             double row() const noexcept 
             {
@@ -86,8 +85,7 @@ namespace nc
             // Description:
             /// gets the centroid col
             ///
-            /// @return
-            /// centroid col
+            /// @return centroid col
             ///
             double col() const noexcept 
             {
@@ -98,8 +96,7 @@ namespace nc
             // Description:
             /// gets the centroid intensity
             ///
-            /// @return
-            /// centroid intensity
+            /// @return centroid intensity
             ///
             dtype intensity() const noexcept 
             {
@@ -110,8 +107,7 @@ namespace nc
             // Description:
             /// returns the estimated eod of the centroid
             ///
-            /// @return
-            /// star id
+            /// @return star id
             ///
             double eod() const noexcept 
             {
@@ -122,8 +118,7 @@ namespace nc
             // Description:
             /// returns the centroid as a string representation
             ///
-            /// @return
-            /// std::string
+            /// @return std::string
             ///
             std::string str() const
             {
@@ -147,11 +142,9 @@ namespace nc
             // Description:
             /// equality operator
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             bool operator==(const Centroid<dtype>& rhs) const noexcept 
             {
@@ -162,11 +155,9 @@ namespace nc
             // Description:
             /// not equality operator
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             bool operator!=(const Centroid<dtype>& rhs) const noexcept 
             {
@@ -180,11 +171,9 @@ namespace nc
             /// the centroids in descensing order, I am purposefully defining
             /// this operator backwards!
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             bool operator<(const Centroid<dtype>& rhs) const noexcept 
             {
@@ -195,10 +184,9 @@ namespace nc
             // Description:
             /// ostream operator
             ///
-            /// @param              inStream
-            /// @param              inCentriod
-            /// @return
-            /// std::ostream
+            /// @param inStream
+            /// @param inCentriod
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Centroid<dtype>& inCentriod)
             {
@@ -219,8 +207,7 @@ namespace nc
             /// WARNING: if both positive and negative values are present in the cluster,
             /// it can lead to an undefined COM.
             ///
-            /// @param
-            /// inCluster
+            /// @param inCluster
             ///
             void centerOfMass(const Cluster<dtype>& inCluster) 
             {

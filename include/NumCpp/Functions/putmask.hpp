@@ -41,11 +41,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
     ///
-    /// @param				inArray
-    /// @param				inMask
-    /// @param				inValue
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inMask
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
@@ -64,11 +63,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
     ///
-    /// @param				inArray
-    /// @param				inMask
-    /// @param				inValues
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inMask
+    /// @param inValues
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)

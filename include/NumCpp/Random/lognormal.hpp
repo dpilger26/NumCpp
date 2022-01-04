@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        /// NdArray
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype lognormal(dtype inMean = 0, dtype inSigma = 1)
@@ -73,11 +72,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///
-        /// @param              inShape
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)

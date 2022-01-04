@@ -39,8 +39,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
     ///
-    /// @param      inArray
-    /// @param      inValue
+    /// @param inArray
+    /// @param inValue
     ///
     template<typename dtype>
     void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept 

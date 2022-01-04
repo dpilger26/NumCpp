@@ -50,9 +50,9 @@ namespace nc
         // Method Description:
         /// matrix pivot LU decomposition PA = LU
         ///
-        /// @param				inMatrix: NdArray to be decomposed
+        /// @param inMatrix: NdArray to be decomposed
         ///
-        /// @return             std::tuple<NdArray, NdArray, NdArray> of the decomposed L, U, and P matrices
+        /// @return std::tuple<NdArray, NdArray, NdArray> of the decomposed L, U, and P matrices
         ///
         template<typename dtype>
         std::tuple<NdArray<double>, NdArray<double>, NdArray<double> > pivotLU_decomposition(const NdArray<dtype>& inMatrix)

@@ -46,10 +46,9 @@ namespace nc
         /// Spherical Hankel funcion of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inX: the input value
-        /// @return
-        /// double
+        /// @param inV: the order of the bessel function
+        /// @param inX: the input value
+        /// @return double
         ///
         template<typename dtype1, typename dtype2>
         std::complex<double> spherical_hankel_2(dtype1 inV, dtype2 inX)
@@ -65,10 +64,9 @@ namespace nc
         /// Spherical Hankel funcion of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inArray: the input value
-        /// @return
-        /// NdArray
+        /// @param inV: the order of the bessel function
+        /// @param inArray: the input value
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto spherical_hankel_2(dtype1 inV, const NdArray<dtype2>& inArray) 

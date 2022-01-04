@@ -62,8 +62,8 @@ namespace nc
         // Method Description:
         /// Constructor
         ///
-        /// @param  inX: the x component
-        /// @param  inY: the y component
+        /// @param inX: the x component
+        /// @param inY: the y component
         ///
         constexpr Vec2(double inX, double inY) noexcept :
             x(inX),
@@ -74,7 +74,7 @@ namespace nc
         // Method Description:
         /// Constructor
         ///
-        /// @param  inList
+        /// @param inList
         ///
         Vec2(const std::initializer_list<double>& inList)
         {
@@ -91,7 +91,7 @@ namespace nc
         // Method Description:
         /// Constructor
         ///
-        /// @param  ndArray
+        /// @param ndArray
         ///
         Vec2(const NdArray<double>& ndArray)
         {
@@ -108,8 +108,8 @@ namespace nc
         // Method Description:
         /// Returns the angle between the two vectors
         ///
-        /// @param      otherVec
-        /// @return     the angle in radians
+        /// @param otherVec
+        /// @return the angle in radians
         ///
         double angle(const Vec2& otherVec) const noexcept 
         {
@@ -128,8 +128,8 @@ namespace nc
         /// Returns a copy of the vector with its magnitude clamped
         /// to maxLength
         ///
-        /// @param      maxLength
-        /// @return     Vec2
+        /// @param maxLength
+        /// @return Vec2
         ///
         Vec2 clampMagnitude(double maxLength) const noexcept 
         {
@@ -148,8 +148,8 @@ namespace nc
         // Method Description:
         /// Returns the distance between the two vectors
         ///
-        /// @param      otherVec
-        /// @return     the distance (equivalent to (a - b).norm()
+        /// @param otherVec
+        /// @return the distance (equivalent to (a - b).norm()
         ///
         double distance(const Vec2& otherVec) const noexcept 
         {
@@ -160,8 +160,8 @@ namespace nc
         // Method Description:
         /// Returns the dot product of the two vectors
         ///
-        /// @param      otherVec
-        /// @return     the dot product
+        /// @param otherVec
+        /// @return the dot product
         ///
         double dot(const Vec2& otherVec) const noexcept 
         {
@@ -214,7 +214,7 @@ namespace nc
         // Method Description:
         /// Returns the magnitude of the vector
         ///
-        /// @return     magnitude of the vector
+        /// @return magnitude of the vector
         ///
         double norm() const noexcept 
         {
@@ -225,7 +225,7 @@ namespace nc
         // Method Description:
         /// Returns a new normalized Vec2
         ///
-        /// @return     Vec2
+        /// @return Vec2
         ///
         Vec2 normalize() const noexcept 
         {
@@ -236,8 +236,8 @@ namespace nc
         // Method Description:
         /// Projects the vector onto the input vector
         ///
-        /// @param      otherVec
-        /// @return     Vec2
+        /// @param otherVec
+        /// @return Vec2
         ///
         Vec2 project(const Vec2& otherVec) const noexcept 
         {
@@ -260,7 +260,7 @@ namespace nc
         // Method Description:
         /// Returns the Vec2 as a string
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         std::string toString() const 
         {
@@ -273,7 +273,7 @@ namespace nc
         // Method Description:
         /// Returns the Vec2 as an NdArray
         ///
-        /// @return     NdArray
+        /// @return NdArray
         ///
         NdArray<double> toNdArray() const 
         {
@@ -296,7 +296,7 @@ namespace nc
         // Method Description:
         /// Equality operator
         ///
-        /// @param  rhs
+        /// @param rhs
         /// @return bool
         ///
         bool operator==(const Vec2& rhs) const noexcept 
@@ -308,7 +308,7 @@ namespace nc
         // Method Description:
         /// Not Equality operator
         ///
-        /// @param  rhs
+        /// @param rhs
         /// @return bool
         ///
         bool operator!=(const Vec2& rhs) const noexcept 
@@ -320,7 +320,7 @@ namespace nc
         // Method Description:
         /// Adds the scaler to the vector
         ///
-        /// @param  scaler
+        /// @param scaler
         /// @return Vec2
         ///
         Vec2& operator+=(double scaler) noexcept 
@@ -334,7 +334,7 @@ namespace nc
         // Method Description:
         /// Adds the two vectors
         ///
-        /// @param  rhs
+        /// @param rhs
         /// @return Vec2
         ///
         Vec2& operator+=(const Vec2& rhs) noexcept 
@@ -348,7 +348,7 @@ namespace nc
         // Method Description:
         /// Subtracts the scaler from the vector
         ///
-        /// @param  scaler
+        /// @param scaler
         /// @return Vec2
         ///
         Vec2& operator-=(double scaler) noexcept 
@@ -362,7 +362,7 @@ namespace nc
         // Method Description:
         /// Subtracts the two vectors
         ///
-        /// @param  rhs
+        /// @param rhs
         /// @return Vec2
         ///
         Vec2& operator-=(const Vec2& rhs) noexcept 
@@ -376,7 +376,7 @@ namespace nc
         // Method Description:
         /// Scalar mulitplication
         ///
-        /// @param  scaler
+        /// @param scaler
         /// @return Vec2
         ///
         Vec2& operator*=(double scaler) noexcept 
@@ -390,7 +390,7 @@ namespace nc
         // Method Description:
         /// Scalar division
         ///
-        /// @param  scaler
+        /// @param scaler
         /// @return Vec2
         ///
         Vec2& operator/=(double scaler) noexcept 
@@ -405,9 +405,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the vector
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator+(const Vec2& lhs, double rhs) noexcept 
     {
@@ -418,9 +418,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the vector
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator+(double lhs, const Vec2& rhs) noexcept 
     {
@@ -431,9 +431,9 @@ namespace nc
     // Method Description:
     /// Adds the two vectors
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator+(const Vec2& lhs, const Vec2& rhs) noexcept 
     {
@@ -444,7 +444,7 @@ namespace nc
     // Method Description:
     /// Returns the negative vector
     ///
-    /// @return     Vec2
+    /// @return Vec2
     ///
     inline Vec2 operator-(const Vec2& vec) noexcept 
     {
@@ -455,9 +455,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the vector
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator-(const Vec2& lhs, double rhs) noexcept 
     {
@@ -468,9 +468,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the vector
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator-(double lhs, const Vec2& rhs) noexcept 
     {
@@ -481,9 +481,9 @@ namespace nc
     // Method Description:
     /// Subtracts the two vectors
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator-(const Vec2& lhs, const Vec2& rhs) noexcept 
     {
@@ -494,9 +494,9 @@ namespace nc
     // Method Description:
     /// Scalar mulitplication
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator*(const Vec2& lhs, double rhs) noexcept 
     {
@@ -507,9 +507,9 @@ namespace nc
     // Method Description:
     /// Scalar mulitplication
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator*(double lhs, const Vec2& rhs) noexcept 
     {
@@ -520,9 +520,9 @@ namespace nc
     // Method Description:
     /// Vector mulitplication (dot product)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     dot product
+    /// @param lhs
+    /// @param rhs
+    /// @return dot product
     /// 
     ///
     inline double operator*(const Vec2& lhs, const Vec2& rhs) noexcept 
@@ -534,9 +534,9 @@ namespace nc
     // Method Description:
     /// Scalar division
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     Vec2
+    /// @param lhs
+    /// @param rhs
+    /// @return Vec2
     ///
     inline Vec2 operator/(const Vec2& lhs, double rhs) noexcept 
     {
@@ -547,9 +547,9 @@ namespace nc
     // Method Description:
     /// stream output operator
     ///
-    /// @param      stream
-    /// @param      vec
-    /// @return     std::ostream
+    /// @param stream
+    /// @param vec
+    /// @return std::ostream
     ///
     inline std::ostream& operator<<(std::ostream& stream, const Vec2& vec) 
     {

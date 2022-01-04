@@ -52,11 +52,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
         ///
-        /// @param				inArray
-        /// @param				inPower
+        /// @param inArray
+        /// @param inPower
         ///
-        /// @return
-        /// NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)

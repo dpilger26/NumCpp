@@ -54,9 +54,9 @@ namespace nc
         /// such as magnetometers and multi-antenna GPS receivers
         /// https://en.wikipedia.org/wiki/Wahba%27s_problem
         ///
-        /// @param  wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
-        /// @param  vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
-        /// @param  ak: set of weights for each observation (1 x n or n x 1 matrix)
+        /// @param wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
+        /// @param vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
+        /// @param ak: set of weights for each observation (1 x n or n x 1 matrix)
         ///
         /// @return NdArray rotation matrix
         ///
@@ -118,8 +118,8 @@ namespace nc
         /// such as magnetometers and multi-antenna GPS receivers
         /// https://en.wikipedia.org/wiki/Wahba%27s_problem
         ///
-        /// @param  wk: k-th 3-vector measurement in the reference frame
-        /// @param  vk: corresponding k-th 3-vector measurement in the body frame
+        /// @param wk: k-th 3-vector measurement in the reference frame
+        /// @param vk: corresponding k-th 3-vector measurement in the body frame
         ///
         /// @return NdArray rotation matrix
         ///

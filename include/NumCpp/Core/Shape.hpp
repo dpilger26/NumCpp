@@ -52,7 +52,7 @@ namespace nc
         //============================================================================
         /// Constructor
         ///
-        /// @param      inSquareSize
+        /// @param inSquareSize
         ///
         constexpr explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
@@ -62,8 +62,8 @@ namespace nc
         //============================================================================
         /// Constructor
         ///
-        /// @param      inRows
-        /// @param      inCols
+        /// @param inRows
+        /// @param inCols
         ///
         constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
@@ -73,9 +73,9 @@ namespace nc
         //============================================================================
         /// Equality operator
         ///
-        /// @param      inOtherShape
+        /// @param inOtherShape
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator==(const Shape& inOtherShape) const noexcept
         {
@@ -85,9 +85,9 @@ namespace nc
         //============================================================================
         /// Not equality operator
         ///
-        /// @param      inOtherShape
+        /// @param inOtherShape
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator!=(const Shape& inOtherShape) const noexcept
         {
@@ -97,7 +97,7 @@ namespace nc
         //============================================================================
         /// Returns the size of the shape
         ///
-        /// @return     size
+        /// @return size
         ///
         uint32 size() const noexcept
         {
@@ -108,7 +108,7 @@ namespace nc
         /// Returns whether the shape is null (constructed with the
         /// default constructor).
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool isnull() const noexcept
         {
@@ -118,7 +118,7 @@ namespace nc
         //============================================================================
         /// Returns whether the shape is square or not.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool issquare() const noexcept
         {
@@ -128,7 +128,7 @@ namespace nc
         //============================================================================
         /// Returns the shape as a string representation
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         std::string str() const 
         {
@@ -147,10 +147,10 @@ namespace nc
         //============================================================================
         /// IO operator for the Shape class
         ///
-        /// @param      inOStream
-        /// @param      inShape
+        /// @param inOStream
+        /// @param inShape
         ///
-        /// @return     std::ostream
+        /// @return std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) 
         {

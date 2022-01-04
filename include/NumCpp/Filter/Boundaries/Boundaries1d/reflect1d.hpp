@@ -43,10 +43,10 @@ namespace nc
             // Method Description:
             /// Reflects the boundaries
             ///
-            /// @param			inImage
-            /// @param          inBoundarySize
+            /// @param inImage
+            /// @param inBoundarySize
             ///
-            /// @return         NdArray
+            /// @return NdArray
             ///
             template<typename dtype>
             NdArray<dtype> reflect1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

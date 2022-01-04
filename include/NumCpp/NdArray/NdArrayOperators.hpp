@@ -47,9 +47,9 @@ namespace nc
     // Method Description:
     /// Adds the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator+=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -71,9 +71,9 @@ namespace nc
     // Method Description:
     /// Adds the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator+=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -100,10 +100,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator+=(NdArray<dtype>& lhs, dtype rhs) 
@@ -124,10 +123,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (4)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator+=(NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -148,9 +146,9 @@ namespace nc
     // Method Description:
     /// Adds the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator+(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -174,9 +172,9 @@ namespace nc
     // Method Description:
     /// Adds the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
@@ -205,9 +203,9 @@ namespace nc
     // Method Description:
     /// Adds the elements of two arrays (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -219,9 +217,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (4)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator+(const NdArray<dtype>& lhs, dtype rhs) 
@@ -244,9 +242,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (5)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator+(dtype lhs, const NdArray<dtype>& rhs) 
@@ -258,9 +256,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (6)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) 
@@ -283,9 +281,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (7)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) 
@@ -297,9 +295,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (8)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(const NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -322,9 +320,9 @@ namespace nc
     // Method Description:
     /// Adds the scaler to the array (9)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator+(dtype lhs, const NdArray<std::complex<dtype>>& rhs) 
@@ -336,9 +334,9 @@ namespace nc
     // Method Description:
     /// Subtracts the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator-=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -360,9 +358,9 @@ namespace nc
     // Method Description:
     /// Subtracts the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator-=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -389,10 +387,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator-=(NdArray<dtype>& lhs, dtype rhs) 
@@ -413,10 +410,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (4)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator-=(NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -437,9 +433,9 @@ namespace nc
     // Method Description:
     /// Subtracts the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -463,9 +459,9 @@ namespace nc
     // Method Description:
     /// Subtracts the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
@@ -494,9 +490,9 @@ namespace nc
     // Method Description:
     /// Subtracts the elements of two arrays (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -525,9 +521,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (4)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& lhs, dtype rhs) 
@@ -550,9 +546,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (5)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator-(dtype lhs, const NdArray<dtype>& rhs) 
@@ -575,9 +571,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (6)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) 
@@ -600,9 +596,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (7)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) 
@@ -625,9 +621,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (8)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(const NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -650,9 +646,9 @@ namespace nc
     // Method Description:
     /// Subtracts the scaler from the array (9)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator-(dtype lhs, const NdArray<std::complex<dtype>>& rhs) 
@@ -675,7 +671,7 @@ namespace nc
     // Method Description:
     /// Negative Operator
     ///
-    /// @return     NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator-(const NdArray<dtype>& inArray) 
@@ -694,9 +690,9 @@ namespace nc
     // Method Description:
     /// Multiplies the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator*=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -718,9 +714,9 @@ namespace nc
     // Method Description:
     /// Multiplies the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator*=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -747,10 +743,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator*=(NdArray<dtype>& lhs, dtype rhs) 
@@ -771,10 +766,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (4)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator*=(NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -795,9 +789,9 @@ namespace nc
     // Method Description:
     /// Multiplies the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator*(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -821,9 +815,9 @@ namespace nc
     // Method Description:
     /// Multiplies the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
@@ -852,9 +846,9 @@ namespace nc
     // Method Description:
     /// Multiplies the elements of two arrays (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -866,9 +860,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (4)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator*(const NdArray<dtype>& lhs, dtype rhs) 
@@ -891,9 +885,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (5)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator*(dtype lhs, const NdArray<dtype>& rhs) 
@@ -905,9 +899,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (6)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) 
@@ -930,9 +924,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (7)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) 
@@ -944,9 +938,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (8)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(const NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -969,9 +963,9 @@ namespace nc
     // Method Description:
     /// Multiplies the scaler to the array (9)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator*(dtype lhs, const NdArray<std::complex<dtype>>& rhs) 
@@ -983,9 +977,9 @@ namespace nc
     // Method Description:
     /// Divides the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator/=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1007,9 +1001,9 @@ namespace nc
     // Method Description:
     /// Divides the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator/=(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -1036,10 +1030,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator/=(NdArray<dtype>& lhs, dtype rhs) 
@@ -1060,10 +1053,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (4)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>>& operator/=(NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -1084,9 +1076,9 @@ namespace nc
     // Method Description:
     /// Divides the elements of two arrays (1)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator/(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1110,9 +1102,9 @@ namespace nc
     // Method Description:
     /// Divides the elements of two arrays (2)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
@@ -1141,9 +1133,9 @@ namespace nc
     // Method Description:
     /// Divides the elements of two arrays (3)
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
@@ -1172,9 +1164,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (4)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator/(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1197,9 +1189,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (5)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator/(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1222,9 +1214,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (6)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs) 
@@ -1247,9 +1239,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (7)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs) 
@@ -1272,9 +1264,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (8)
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(const NdArray<std::complex<dtype>>& lhs, dtype rhs) 
@@ -1297,9 +1289,9 @@ namespace nc
     // Method Description:
     /// Divides the scaler from the array (9)
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> operator/(dtype lhs, const NdArray<std::complex<dtype>>& rhs) 
@@ -1322,9 +1314,9 @@ namespace nc
     // Method Description:
     /// Modulus the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -1344,9 +1336,9 @@ namespace nc
     // Method Description:
     /// Modulus the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -1371,10 +1363,9 @@ namespace nc
     // Method Description:
     /// Modulus the scaler to the array
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -1394,10 +1385,9 @@ namespace nc
     // Method Description:
     /// Modulus the scaler to the array
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -1417,9 +1407,9 @@ namespace nc
     // Method Description:
     /// Takes the modulus of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator%(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1433,9 +1423,9 @@ namespace nc
     // Method Description:
     /// Modulus of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator%(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1449,9 +1439,9 @@ namespace nc
     // Method Description:
     /// Modulus of the scaler and the array
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -1471,9 +1461,9 @@ namespace nc
     // Method Description:
     /// Modulus of the scaler and the array
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype,
         enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -1493,9 +1483,9 @@ namespace nc
     // Method Description:
     /// Bitwise or the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator|=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1517,10 +1507,9 @@ namespace nc
     // Method Description:
     /// Bitwise or the scaler to the array
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator|=(NdArray<dtype>& lhs, dtype rhs) 
@@ -1541,9 +1530,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise or of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator|(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1557,9 +1546,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise or of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator|(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1573,9 +1562,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise or of the sclar and the array
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator|(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1587,9 +1576,9 @@ namespace nc
     // Method Description:
     /// Bitwise and the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator&=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1611,10 +1600,9 @@ namespace nc
     // Method Description:
     /// Bitwise and the scaler to the array
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator&=(NdArray<dtype>& lhs, dtype rhs) 
@@ -1635,9 +1623,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise and of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator&(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1651,9 +1639,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise and of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator&(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1667,9 +1655,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise and of the sclar and the array
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator&(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1681,9 +1669,9 @@ namespace nc
     // Method Description:
     /// Bitwise xor the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator^=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1705,10 +1693,9 @@ namespace nc
     // Method Description:
     /// Bitwise xor the scaler to the array
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator^=(NdArray<dtype>& lhs, dtype rhs) 
@@ -1729,9 +1716,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise xor of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator^(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1745,9 +1732,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise xor of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator^(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1761,9 +1748,9 @@ namespace nc
     // Method Description:
     /// Takes the bitwise xor of the sclar and the array
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator^(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1775,8 +1762,8 @@ namespace nc
     // Method Description:
     /// Takes the bitwise not of the array
     ///
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator~(const NdArray<dtype>& inArray) 
@@ -1800,9 +1787,9 @@ namespace nc
     // Method Description:
     /// Takes the and of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator&&(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1830,9 +1817,9 @@ namespace nc
     // Method Description:
     /// Takes the and of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator&&(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1856,9 +1843,9 @@ namespace nc
     // Method Description:
     /// Takes the and of the array and the scaler
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator&&(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1870,9 +1857,9 @@ namespace nc
     // Method Description:
     /// Takes the or of the elements of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator||(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1900,9 +1887,9 @@ namespace nc
     // Method Description:
     /// Takes the or of the array and the scaler
     ///
-    /// @param      lhs
-    /// @param  	rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator||(const NdArray<dtype>& lhs, dtype rhs) 
@@ -1926,9 +1913,9 @@ namespace nc
     // Method Description:
     /// Takes the or of the array and the scaler
     ///
-    /// @param  	lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator||(dtype lhs, const NdArray<dtype>& rhs) 
@@ -1940,8 +1927,8 @@ namespace nc
     // Method Description:
     /// Takes the not of the array
     ///
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator!(const NdArray<dtype>& inArray) 
@@ -1966,9 +1953,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator==(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -1996,9 +1983,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// an array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator==(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2021,9 +2008,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// an array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator==(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2036,9 +2023,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator!=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -2066,9 +2053,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// an array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator!=(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2091,9 +2078,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// an array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator!=(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2106,9 +2093,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -2138,9 +2125,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2165,9 +2152,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2192,9 +2179,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -2227,9 +2214,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2254,9 +2241,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2281,9 +2268,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -2313,9 +2300,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<=(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2340,9 +2327,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator<=(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2367,9 +2354,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// of two arrays
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     NdArray
+    /// @param lhs
+    /// @param rhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>=(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
@@ -2399,9 +2386,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param      lhs
-    /// @param  	inValue
-    /// @return     NdArray
+    /// @param lhs
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>=(const NdArray<dtype>& lhs, dtype inValue) 
@@ -2426,9 +2413,9 @@ namespace nc
     /// Returns an array of booleans of element wise comparison
     /// the array and a scaler
     ///
-    /// @param  	inValue
-    /// @param      inArray
-    /// @return     NdArray
+    /// @param inValue
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> operator>=(dtype inValue, const NdArray<dtype>& inArray) 
@@ -2452,10 +2439,9 @@ namespace nc
     // Method Description:
     /// Bitshifts left the elements of the array
     ///
-    /// @param      lhs
-    /// @param      inNumBits
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param inNumBits
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits) 
@@ -2476,10 +2462,9 @@ namespace nc
     // Method Description:
     /// Bitshifts left the elements of the array
     ///
-    /// @param      lhs
-    /// @param      inNumBits
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param inNumBits
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator<<(const NdArray<dtype>& lhs, uint8 inNumBits) 
@@ -2495,10 +2480,9 @@ namespace nc
     // Method Description:
     /// Bitshifts right the elements of the array
     ///
-    /// @param      lhs
-    /// @param      inNumBits
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param inNumBits
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits) 
@@ -2519,10 +2503,9 @@ namespace nc
     // Method Description:
     /// Bitshifts right the elements of the array
     /// 
-    /// @param      lhs
-    /// @param      inNumBits
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @param inNumBits
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator>>(const NdArray<dtype>& lhs, uint8 inNumBits) 
@@ -2538,8 +2521,7 @@ namespace nc
     // Method Description:
     /// prefix incraments the elements of an array
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator++(NdArray<dtype>& rhs) 
@@ -2560,9 +2542,8 @@ namespace nc
     // Method Description:
     /// postfix increments the elements of an array
     ///
-    /// @param      lhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator++(NdArray<dtype>& lhs, int) 
@@ -2576,8 +2557,7 @@ namespace nc
     // Method Description:
     /// prefix decrements the elements of an array
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& operator--(NdArray<dtype>& rhs) 
@@ -2598,9 +2578,8 @@ namespace nc
     // Method Description:
     /// postfix decrements the elements of an array
     ///
-    /// @param      lhs
-    /// @return
-    /// NdArray
+    /// @param lhs
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> operator--(NdArray<dtype>& lhs, int) 
@@ -2614,10 +2593,9 @@ namespace nc
     // Method Description:
     /// io operator for the NdArray class
     ///
-    /// @param      inOStream
-    /// @param      inArray
-    /// @return
-    /// std::ostream
+    /// @param inOStream
+    /// @param inArray
+    /// @return std::ostream
     ///
     template<typename dtype>
     std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray) 

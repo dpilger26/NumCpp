@@ -38,10 +38,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amin.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// min value
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return min value
     ///
     template<typename dtype>
     NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

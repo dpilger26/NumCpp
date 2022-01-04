@@ -42,10 +42,9 @@ namespace nc
         // Method Description:
         /// Window expand around exceedance pixels
         ///
-        /// @param				inExceedances
-        /// @param				inBorderWidth
-        /// @return
-        /// NdArray<bool>
+        /// @param inExceedances
+        /// @param inBorderWidth
+        /// @return NdArray<bool>
         ///
         inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
         {

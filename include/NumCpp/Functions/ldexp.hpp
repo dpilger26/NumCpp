@@ -44,11 +44,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param				inValue1
-    /// @param				inValue2
+    /// @param inValue1
+    /// @param inValue2
     ///
-    /// @return
-    /// value
+    /// @return value
     ///
     template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2) noexcept 
@@ -64,11 +63,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)

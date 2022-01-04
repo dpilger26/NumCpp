@@ -42,13 +42,12 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
     ///
-    /// @param				inArray
-    /// @param				inAppendValues
-    /// @param				inAxis (Optional, default NONE): The axis along which values are appended.
+    /// @param inArray
+    /// @param inAppendValues
+    /// @param inAxis (Optional, default NONE): The axis along which values are appended.
     /// If axis is not given, both inArray and inAppendValues
     /// are flattened before use.
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)

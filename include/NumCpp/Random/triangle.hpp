@@ -52,11 +52,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
-        /// @param				inA
-        /// @param				inB
-        /// @param				inC
-        /// @return
-        /// NdArray
+        /// @param inA
+        /// @param inB
+        /// @param inC
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype triangle(dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
@@ -97,12 +96,11 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
-        /// @param				inShape
-        /// @param				inA
-        /// @param				inB
-        /// @param				inC
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inA
+        /// @param inB
+        /// @param inC
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)

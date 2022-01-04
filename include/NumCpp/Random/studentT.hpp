@@ -47,9 +47,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
-        /// @param				inDof independent random variables
-        /// @return
-        /// NdArray
+        /// @param inDof independent random variables
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype studentT(dtype inDof)
@@ -72,10 +71,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
-        /// @param				inShape
-        /// @param				inDof independent random variables
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inDof independent random variables
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> studentT(const Shape& inShape, dtype inDof)

@@ -36,9 +36,9 @@ namespace nc
         //============================================================================
         /// Squares in input value
         ///
-        /// @param      inValue
+        /// @param inValue
         ///
-        /// @return     squared value
+        /// @return squared value
         ///
         template<typename dtype>
         constexpr dtype sqr(dtype inValue) noexcept

@@ -43,10 +43,8 @@ namespace nc
         /// If x is an integer, randomly permute np.arange(x).
         /// If x is an array, make a copy and shuffle the elements randomly.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// NdArray
+        /// @param inValue
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> permutation(dtype inValue) 
@@ -64,10 +62,8 @@ namespace nc
         /// If x is an integer, randomly permute np.arange(x).
         /// If x is an array, make a copy and shuffle the elements randomly.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> permutation(const NdArray<dtype>& inArray) 

@@ -46,11 +46,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
         ///
-        /// @param
-        /// inList: list of arrays
+        /// @param inList: list of arrays
         ///
-        /// @return
-        /// NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)

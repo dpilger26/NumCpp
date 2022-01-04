@@ -45,12 +45,11 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html
     ///
-    /// @param			inArray
-    /// @param          nan: value to be used to fill NaN values, default 0
-    /// @param          posInf: value to be used to fill positive infinity values, default a very large number
-    /// @param          negInf: value to be used to fill negative infinity values, default a very large negative number
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param nan: value to be used to fill NaN values, default 0
+    /// @param posInf: value to be used to fill positive infinity values, default a very large number
+    /// @param negInf: value to be used to fill negative infinity values, default a very large negative number
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nan_to_num(NdArray<dtype> inArray, 

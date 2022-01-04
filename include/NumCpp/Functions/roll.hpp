@@ -42,12 +42,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
     ///
-    /// @param				inArray
-    /// @param				inShift: (elements to shift, positive means forward, negative means backwards)
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inShift: (elements to shift, positive means forward, negative means backwards)
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE) 

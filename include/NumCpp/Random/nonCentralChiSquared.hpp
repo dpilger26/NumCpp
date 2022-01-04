@@ -51,10 +51,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
-        /// @param				inK (default 1)
-        /// @param				inLambda (default 1)
-        /// @return
-        /// NdArray
+        /// @param inK (default 1)
+        /// @param inLambda (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype nonCentralChiSquared(dtype inK = 1, dtype inLambda = 1)
@@ -83,11 +82,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
-        /// @param				inShape
-        /// @param				inK (default 1)
-        /// @param				inLambda (default 1)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inK (default 1)
+        /// @param inLambda (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)

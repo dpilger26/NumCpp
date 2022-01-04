@@ -45,10 +45,8 @@ namespace nc
         /// Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type
+        /// @param inValue
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto erf(dtype inValue)
@@ -64,10 +62,8 @@ namespace nc
         /// Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto erf(const NdArray<dtype>& inArray)

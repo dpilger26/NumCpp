@@ -44,9 +44,9 @@ namespace nc
         /// the elements. That is, if x is a one-dimensional numpy array:
         /// softmax(x) = np.exp(x)/sum(np.exp(x))
         ///
-        /// @param      inArray
-        /// @param      inAxis (Optional, default NONE)
-        /// @return     NdArray<double>
+        /// @param inArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

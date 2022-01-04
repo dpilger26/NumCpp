@@ -39,10 +39,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
-    /// @param
-    /// inValue
-    /// @return
-    /// NdArray
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     bool signbit(dtype inValue) noexcept 
@@ -58,10 +56,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> signbit(const NdArray<dtype>& inArray) 

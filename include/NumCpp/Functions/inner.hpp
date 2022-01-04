@@ -40,8 +40,8 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.inner.html
     ///
-    /// @param	a: array 1
-    /// @param	b: array 2
+    /// @param a: array 1
+    /// @param b: array 2
     /// @return NdArray
     ///
     template<typename dtype>

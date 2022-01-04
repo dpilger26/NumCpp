@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        /// NdArray
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype weibull(dtype inA = 1, dtype inB = 1)
@@ -78,11 +77,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
-        /// @param				inShape
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)

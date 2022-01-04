@@ -46,8 +46,7 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
-        /// @return
-        /// NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype rand() 
@@ -66,10 +65,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
-        /// @param
-        /// inShape
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> rand(const Shape& inShape) 

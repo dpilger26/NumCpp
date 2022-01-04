@@ -43,8 +43,7 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
-        /// @return
-        /// NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype standardNormal()
@@ -62,10 +61,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
-        /// @param
-        /// inShape
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> standardNormal(const Shape& inShape)

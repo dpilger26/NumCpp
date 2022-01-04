@@ -35,10 +35,8 @@ namespace nc
     // Method Description:
     /// Return a new array of given shape and type, filled with nans.
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nans_like(const NdArray<dtype>& inArray) 

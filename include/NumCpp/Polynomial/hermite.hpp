@@ -49,10 +49,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the hermite polynomial
-        /// @param      x: the input value
-        /// @return
-        /// double
+        /// @param n: the order of the hermite polynomial
+        /// @param x: the input value
+        /// @return double
         ///
         template<typename dtype>
         double hermite(uint32 n, dtype x)
@@ -72,10 +71,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the hermite polynomial
-        /// @param      inArrayX: the input value
-        /// @return
-        /// NdArray<double>
+        /// @param n: the order of the hermite polynomial
+        /// @param inArrayX: the input value
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> hermite(uint32 n, const NdArray<dtype>& inArrayX)

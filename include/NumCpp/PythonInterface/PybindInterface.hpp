@@ -58,9 +58,9 @@ namespace nc
         /// converts a numpy array to a numcpp NdArray using pybind bindings
         /// Python will still own the underlying data.
         ///
-        /// @param      numpyArray
+        /// @param numpyArray
         ///
-        /// @return     NdArray<dtype>
+        /// @return NdArray<dtype>
         ///
         template<typename dtype>
         NdArray<dtype> pybind2nc(pbArray<dtype>& numpyArray)
@@ -95,9 +95,9 @@ namespace nc
         /// converts a numpy array to a numcpp NdArray using pybind bindings
         /// Python will still own the underlying data.
         ///
-        /// @param      numpyArray
+        /// @param numpyArray
         ///
-        /// @return     NdArray<dtype>
+        /// @return NdArray<dtype>
         ///
         template<typename dtype>
         NdArray<dtype> pybind2nc_copy(const pbArray<dtype>& numpyArray)
@@ -131,9 +131,9 @@ namespace nc
         //============================================================================
         /// converts a numcpp NdArray to numpy array using pybind bindings
         ///
-        /// @param     inArray: the input array
+        /// @param inArray: the input array
         ///
-        /// @return    pybind11::array_t
+        /// @return pybind11::array_t
         ///
         template<typename dtype>
         pbArrayGeneric nc2pybind(const NdArray<dtype>& inArray) 
@@ -149,10 +149,10 @@ namespace nc
         //============================================================================
         /// converts a numcpp NdArray to numpy array using pybind bindings
         ///
-        /// @param     inArray: the input array
-        /// @param     returnPolicy: the return policy
+        /// @param inArray: the input array
+        /// @param returnPolicy: the return policy
         ///
-        /// @return    pybind11::array_t
+        /// @return pybind11::array_t
         ///
         template<typename dtype>
         pbArrayGeneric nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy) 

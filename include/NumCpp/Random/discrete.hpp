@@ -47,9 +47,8 @@ namespace nc
         /// range [0, n) with the probability of producing each value
         /// is specified by the parameters of the distribution.
         ///
-        /// @param		inWeights
-        /// @return
-        /// NdArray
+        /// @param inWeights
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype discrete(const NdArray<double>& inWeights)
@@ -68,10 +67,9 @@ namespace nc
         /// producing each value is specified by the parameters
         /// of the distribution.
         ///
-        /// @param      inShape
-        /// @param		inWeights
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inWeights
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)

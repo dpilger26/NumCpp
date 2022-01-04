@@ -38,11 +38,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -56,10 +55,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
-    /// @param				inArray
-    /// @param				inReps
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inReps
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps) 

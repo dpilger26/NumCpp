@@ -42,10 +42,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
     ///
-    /// @param
-    /// inArrayList: {list} of arrays to stack
-    /// @return
-    /// NdArray
+    /// @param inArrayList: {list} of arrays to stack
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)

@@ -52,10 +52,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inK: elliptic modulus or eccentricity
-        /// @param      inP: Jacobi amplitude (measured in radians)
-        /// @return
-        /// calculated-result-type 
+        /// @param inK: elliptic modulus or eccentricity
+        /// @param inP: Jacobi amplitude (measured in radians)
+        /// @return calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto ellint_2(dtype1 inK, dtype2 inP)
@@ -76,10 +75,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayK: elliptic modulus or eccentricity
-        /// @param      inArrayP: Jacobi amplitude (measured in radians)
-        /// @return
-        /// NdArray
+        /// @param inArrayK: elliptic modulus or eccentricity
+        /// @param inArrayP: Jacobi amplitude (measured in radians)
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto ellint_2(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayP)

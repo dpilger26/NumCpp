@@ -39,12 +39,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -58,11 +57,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
     ///
-    /// @param				inArray
-    /// @param				inRepeatShape
+    /// @param inArray
+    /// @param inRepeatShape
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape) 

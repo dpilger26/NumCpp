@@ -48,12 +48,11 @@ namespace nc
         ///
         /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
         ///
-        /// @param				inA: coefficient matrix
-        /// @param  			inB: Ordinate or "dependent variable" values
-        /// @param				inTolerance (default 1e-12)
+        /// @param inA: coefficient matrix
+        /// @param inB: Ordinate or "dependent variable" values
+        /// @param inTolerance (default 1e-12)
         ///
-        /// @return
-        /// NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)

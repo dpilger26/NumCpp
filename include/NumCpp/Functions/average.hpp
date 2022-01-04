@@ -48,10 +48,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     auto average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -65,11 +64,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param  			inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
@@ -154,11 +152,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param  			inAxis (Optional, default NONE)
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> average(const NdArray<std::complex<dtype>>& inArray, 

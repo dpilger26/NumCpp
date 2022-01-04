@@ -39,10 +39,8 @@ namespace nc
     /// Return a new array of given shape and type, filled with nans.
     /// Only really works for dtype = float/double
     ///
-    /// @param
-    /// inSquareSize
-    /// @return
-    /// NdArray
+    /// @param inSquareSize
+    /// @return NdArray
     ///
     inline NdArray<double> nans(uint32 inSquareSize) 
     {
@@ -54,10 +52,9 @@ namespace nc
     /// Return a new array of given shape and type, filled with nans.
     /// Only really works for dtype = float/double
     ///
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @return
-    /// NdArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @return NdArray
     ///
     inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) 
     {
@@ -69,10 +66,8 @@ namespace nc
     /// Return a new array of given shape and type, filled with nans.
     /// Only really works for dtype = float/double
     ///
-    /// @param
-    /// inShape
-    /// @return
-    /// NdArray
+    /// @param inShape
+    /// @return NdArray
     ///
     inline NdArray<double> nans(const Shape& inShape) 
     {

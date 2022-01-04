@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
-        /// @param			    inGammaShape
-        /// @param				inScaleValue (default 1)
-        /// @return
-        /// NdArray
+        /// @param inGammaShape
+        /// @param inScaleValue (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype gamma(dtype inGammaShape, dtype inScaleValue = 1)
@@ -78,11 +77,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
-        /// @param				inShape
-        /// @param			    inGammaShape
-        /// @param				inScaleValue (default 1)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inGammaShape
+        /// @param inScaleValue (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)

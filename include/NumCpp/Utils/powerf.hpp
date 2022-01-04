@@ -40,10 +40,10 @@ namespace nc
         //============================================================================
         /// Raises the input value to a floating point power
         ///
-        /// @param      inValue
-        /// @param      inPower
+        /// @param inValue
+        /// @param inPower
         ///
-        /// @return     inValue raised to inPower
+        /// @return inValue raised to inPower
         ///
         template<typename dtype1, typename dtype2>
         auto powerf(dtype1 inValue, const dtype2 inPower) noexcept 

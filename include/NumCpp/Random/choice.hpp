@@ -44,9 +44,8 @@ namespace nc
         // Method Description:
         /// Chooses a random sample from an input array.
         ///
-        /// @param      inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype choice(const NdArray<dtype>& inArray)
@@ -59,11 +58,10 @@ namespace nc
         // Method Description:
         /// Chooses inNum random samples from an input array.
         ///
-        /// @param      inArray
-        /// @param      inNum
-        /// @param      replace: Whether the sample is with or without replacement
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @param inNum
+        /// @param replace: Whether the sample is with or without replacement
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)

@@ -71,9 +71,9 @@ namespace nc
             // Method Description:
             /// Constructor
             ///
-            /// @param      inValues: (polynomial coefficients in ascending order of power if second input is false,
+            /// @param inValues: (polynomial coefficients in ascending order of power if second input is false,
             /// polynomial roots if second input is true)
-            /// @param      isRoots
+            /// @param isRoots
             ///
             Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
             {
@@ -144,8 +144,7 @@ namespace nc
             // Method Description:
             /// Returns the Poly1d coefficients
             ///
-            /// @return
-            /// NdArray
+            /// @return NdArray
             ///
             NdArray<dtype> coefficients() const 
             {
@@ -343,8 +342,7 @@ namespace nc
             // Method Description:
             /// Returns the order of the Poly1d
             ///
-            /// @return
-            /// NdArray
+            /// @return NdArray
             ///
             uint32 order() const noexcept 
             {
@@ -365,8 +363,7 @@ namespace nc
             // Method Description:
             /// Converts the polynomial to a string representation
             ///
-            /// @return
-            /// Poly1d
+            /// @return Poly1d
             ///
             std::string str() const 
             {
@@ -419,10 +416,8 @@ namespace nc
             // Method Description:
             /// Evaluates the Poly1D object for the input value
             ///
-            /// @param
-            /// inValue
-            /// @return
-            /// Poly1d
+            /// @param inValue
+            /// @return Poly1d
             ///
             dtype operator()(dtype inValue) const noexcept 
             {
@@ -440,10 +435,8 @@ namespace nc
             // Method Description:
             /// Adds the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -454,10 +447,8 @@ namespace nc
             // Method Description:
             /// Adds the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -487,10 +478,8 @@ namespace nc
             // Method Description:
             /// Subtracts the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -501,10 +490,8 @@ namespace nc
             // Method Description:
             /// Subtracts the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -534,10 +521,8 @@ namespace nc
             // Method Description:
             /// Multiplies the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -548,10 +533,8 @@ namespace nc
             // Method Description:
             /// Multiplies the two Poly1d objects
             ///
-            /// @param
-            /// inOtherPoly
-            /// @return
-            /// Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -579,10 +562,8 @@ namespace nc
             // Method Description:
             /// Raise the Poly1d to an integer power
             ///
-            /// @param
-            /// inPower
-            /// @return
-            /// Poly1d
+            /// @param inPower
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator^(uint32 inPower) const 
             {
@@ -593,10 +574,8 @@ namespace nc
             // Method Description:
             /// Raise the Poly1d to an integer power
             ///
-            /// @param
-            /// inPower
-            /// @return
-            /// Poly1d
+            /// @param inPower
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator^=(uint32 inPower) 
             {
@@ -624,10 +603,9 @@ namespace nc
             // Method Description:
             /// io operator for the Poly1d class
             ///
-            /// @param      inOStream
-            /// @param      inPoly
-            /// @return
-            /// std::ostream
+            /// @param inOStream
+            /// @param inPoly
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly) 
             {

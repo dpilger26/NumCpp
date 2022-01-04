@@ -63,10 +63,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///
-        /// @param
-        /// inShape
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> randN(const Shape& inShape) 

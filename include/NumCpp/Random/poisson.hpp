@@ -47,9 +47,8 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
-        /// @param				inMean (default 1)
-        /// @return
-        /// NdArray
+        /// @param inMean (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype poisson(double inMean = 1)
@@ -72,10 +71,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
-        /// @param				inShape
-        /// @param				inMean (default 1)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inMean (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)

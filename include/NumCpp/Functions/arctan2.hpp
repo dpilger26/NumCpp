@@ -43,10 +43,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
-    /// @param				inY
-    /// @param				inX
-    /// @return
-    /// value
+    /// @param inY
+    /// @param inX
+    /// @return value
     ///
     template<typename dtype>
     auto arctan2(dtype inY, dtype inX) noexcept 
@@ -62,10 +61,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
-    /// @param				inY
-    /// @param				inX
-    /// @return
-    /// NdArray
+    /// @param inY
+    /// @param inX
+    /// @return NdArray
     ///
     template<typename dtype>
     auto arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)

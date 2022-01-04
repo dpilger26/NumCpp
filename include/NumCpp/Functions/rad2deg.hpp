@@ -40,11 +40,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
     ///
-    /// @param
-    /// inValue
+    /// @param inValue
     ///
-    /// @return
-    /// value
+    /// @return value
     ///
     template<typename dtype>
     constexpr auto rad2deg(dtype inValue) noexcept
@@ -60,11 +58,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto rad2deg(const NdArray<dtype>& inArray)

@@ -41,7 +41,7 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
     ///
-    /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
+    /// @param x: A 1-D or 2-D array containing multiple variables and observations.
     /// Each row of x represents a variable, and each column a single observation 
     /// of all those variables.
     /// @return NdArray

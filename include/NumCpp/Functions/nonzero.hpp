@@ -40,11 +40,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
     ///
-    /// @param
-    /// inArray
+    /// @param inArray
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) 

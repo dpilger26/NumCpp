@@ -36,9 +36,9 @@ namespace nc
         //============================================================================
         /// Cubes in input value
         ///
-        /// @param      inValue
+        /// @param inValue
         ///
-        /// @return     cubed value
+        /// @return cubed value
         ///
         template<typename dtype>
         constexpr dtype cube(dtype inValue) noexcept

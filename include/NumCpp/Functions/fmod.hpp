@@ -44,10 +44,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
-    /// @param				inValue1
-    /// @param				inValue2
-    /// @return
-    /// value
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
     ///
     template<typename dtype, 
         enable_if_t<is_integral_v<dtype>, int> = 0>
@@ -63,10 +62,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
-    /// @param				inValue1
-    /// @param				inValue2
-    /// @return
-    /// value
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
     ///
     template<typename dtype, 
         enable_if_t<is_floating_point_v<dtype>, int> = 0>
@@ -82,10 +80,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    /// NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

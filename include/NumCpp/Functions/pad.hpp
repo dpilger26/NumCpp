@@ -40,11 +40,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
     ///
-    /// @param				inArray
-    /// @param				inPadWidth
-    /// @param				inPadValue
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inPadWidth
+    /// @param inPadValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)

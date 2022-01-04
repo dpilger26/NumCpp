@@ -37,7 +37,7 @@ namespace nc
     ///
     /// Numpy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html
     ///
-    /// @param	inArray
+    /// @param inArray
     ///
     /// @return NdArray
     ///

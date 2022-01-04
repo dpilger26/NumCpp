@@ -46,9 +46,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
-    /// @param				inFilename
-    /// @return
-    /// NdArray
+    /// @param inFilename
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename)
@@ -91,10 +90,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
-    /// @param				inFilename
-    /// @param				inSep: Delimiter separator between values in the file
-    /// @return
-    /// NdArray
+    /// @param inFilename
+    /// @param inSep: Delimiter separator between values in the file
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const char inSep)

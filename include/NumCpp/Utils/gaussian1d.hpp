@@ -39,11 +39,11 @@ namespace nc
         // Method Description:
         /// samples a 1D gaussian of input mean and sigma
         ///
-        /// @param				inX
-        /// @param              inMu
-        /// @param              inSigma
+        /// @param inX
+        /// @param inMu
+        /// @param inSigma
         ///
-        /// @return             dtype
+        /// @return dtype
         ///
         inline double gaussian1d(double inX, double inMu, double inSigma) noexcept
         {

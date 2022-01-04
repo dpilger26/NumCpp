@@ -39,10 +39,9 @@ namespace nc
     /// Apply the input function element wise to the input
     /// array in place.
     ///
-    /// @param				inArray
-    /// @param				inFunc
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inFunc
+    /// @return NdArray
     ///
     template<typename dtype>
     void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)

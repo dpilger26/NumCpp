@@ -42,11 +42,10 @@ namespace nc
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inSize
+    /// @param inArray
+    /// @param inSize
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inSize)
@@ -64,12 +63,11 @@ namespace nc
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, int32 inNumRows, int32 inNumCols)
@@ -87,11 +85,10 @@ namespace nc
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inNewShape
+    /// @param inArray
+    /// @param inNewShape
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)

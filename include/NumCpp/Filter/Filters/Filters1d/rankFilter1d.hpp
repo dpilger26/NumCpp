@@ -44,13 +44,12 @@ namespace nc
         ///
         /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///
-        /// @param				inImageArray
-        /// @param				inSize: linear size of the kernel to apply
-        /// @param              inRank: ([0, inSize^2 - 1])
-        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return
-        /// NdArray
+        /// @param inImageArray
+        /// @param inSize: linear size of the kernel to apply
+        /// @param inRank: ([0, inSize^2 - 1])
+        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,

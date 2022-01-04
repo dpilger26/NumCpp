@@ -38,11 +38,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.right_shift.html
     ///
-    /// @param				inArray
-    /// @param				inNumBits
+    /// @param inArray
+    /// @param inNumBits
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits) 

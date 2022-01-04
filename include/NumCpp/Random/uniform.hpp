@@ -44,10 +44,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
-        /// @param				inLow
-        /// @param				inHigh
-        /// @return
-        /// NdArray
+        /// @param inLow
+        /// @param inHigh
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype uniform(dtype inLow, dtype inHigh)
@@ -66,11 +65,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
-        /// @param				inShape
-        /// @param				inLow
-        /// @param				inHigh
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inLow
+        /// @param inHigh
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)

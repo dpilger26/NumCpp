@@ -48,10 +48,9 @@ namespace nc
         /// exceeds the threshold. Really should only be used for integer
         /// input array values. If using floating point data, user beware...
         ///
-        /// @param				inImageArray
-        /// @param				inRate
-        /// @return
-        /// dtype
+        /// @param inImageArray
+        /// @param inRate
+        /// @return dtype
         ///
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)

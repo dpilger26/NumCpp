@@ -44,7 +44,7 @@ namespace nc
         /// For integer types: number of non-sign bits in the representation.
         /// For floating types : number of digits(in radix base) in the mantissa
         ///
-        /// @return     number of bits
+        /// @return number of bits
         ///
         static constexpr int bits() noexcept
         {
@@ -57,7 +57,7 @@ namespace nc
         /// Machine epsilon (the difference between 1 and the least
         /// value greater than 1 that is representable).
         ///
-        /// @return     dtype
+        /// @return dtype
         ///
         static constexpr dtype epsilon() noexcept
         {
@@ -69,7 +69,7 @@ namespace nc
         //============================================================================
         /// True if type is integer.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isInteger() noexcept
         {
@@ -81,7 +81,7 @@ namespace nc
         //============================================================================
         /// True if type is signed.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isSigned() noexcept
         {
@@ -93,7 +93,7 @@ namespace nc
         //============================================================================
         /// Returns the minimum value of the dtype
         ///
-        /// @return     min value
+        /// @return min value
         ///
         static constexpr dtype min() noexcept
         {
@@ -105,7 +105,7 @@ namespace nc
         //============================================================================
         /// Returns the maximum value of the dtype
         ///
-        /// @return     max value
+        /// @return max value
         ///
         static constexpr dtype max() noexcept
         {
@@ -125,7 +125,7 @@ namespace nc
         /// For integer types: number of non-sign bits in the representation.
         /// For floating types : number of digits(in radix base) in the mantissa
         ///
-        /// @return     number of bits
+        /// @return number of bits
         ///
         static constexpr int bits() noexcept
         {
@@ -138,7 +138,7 @@ namespace nc
         /// Machine epsilon (the difference between 1 and the least
         /// value greater than 1 that is representable).
         ///
-        /// @return     dtype
+        /// @return dtype
         ///
         static constexpr std::complex<dtype> epsilon() noexcept
         {
@@ -150,7 +150,7 @@ namespace nc
         //============================================================================
         /// True if type is integer.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isInteger() noexcept
         {
@@ -162,7 +162,7 @@ namespace nc
         //============================================================================
         /// True if type is signed.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isSigned() noexcept
         {
@@ -174,7 +174,7 @@ namespace nc
         //============================================================================
         /// Returns the minimum value of the dtype
         ///
-        /// @return     min value
+        /// @return min value
         ///
         static constexpr std::complex<dtype> min() noexcept
         {
@@ -186,7 +186,7 @@ namespace nc
         //============================================================================
         /// Returns the maximum value of the dtype
         ///
-        /// @return     max value
+        /// @return max value
         ///
         static constexpr std::complex<dtype> max() noexcept
         {

@@ -47,10 +47,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///
-        /// @param				inN: number of trials
-        /// @param				inP: probablity of success [0, 1]
-        /// @return
-        /// NdArray
+        /// @param inN: number of trials
+        /// @param inP: probablity of success [0, 1]
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype negativeBinomial(dtype inN, double inP = 0.5)
@@ -78,11 +77,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///
-        /// @param				inShape
-        /// @param				inN: number of trials
-        /// @param				inP: probablity of success [0, 1]
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inN: number of trials
+        /// @param inP: probablity of success [0, 1]
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)

@@ -52,12 +52,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
     ///
-    /// @param				inArray
-    /// @param              inPercentile
-    /// @param				inAxis (Optional, default NONE)
-    /// @param              inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inPercentile
+    /// @param inAxis (Optional, default NONE)
+    /// @param inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,

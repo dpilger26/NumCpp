@@ -39,10 +39,9 @@ namespace nc
     /// The data produced by this method can be recovered
     /// using the function fromfile().
     ///
-    /// @param				inArray
-    /// @param				inFilename
-    /// @return
-    /// None
+    /// @param inArray
+    /// @param inFilename
+    /// @return None
     ///
     template<typename dtype>
     void tofile(const NdArray<dtype>& inArray, const std::string& inFilename)
@@ -56,11 +55,10 @@ namespace nc
     /// The data produced by this method can be recovered
     /// using the function fromfile().
     ///
-    /// @param				inArray
-    /// @param				inFilename
-    /// @param				inSep: Separator between array items for text output.
-    /// @return
-    /// None
+    /// @param inArray
+    /// @param inFilename
+    /// @param inSep: Separator between array items for text output.
+    /// @return None
     ///
     template<typename dtype>
     void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const char inSep)

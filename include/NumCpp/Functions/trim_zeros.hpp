@@ -43,11 +43,10 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
     ///
-    /// @param				inArray
-    /// @param				inTrim: ("f" = front, "b" = back, "fb" = front and back)
+    /// @param inArray
+    /// @param inTrim: ("f" = front, "b" = back, "fb" = front and back)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string& inTrim = "fb")

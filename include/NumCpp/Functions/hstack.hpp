@@ -41,11 +41,9 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hstack.html
     ///
     ///
-    /// @param
-    /// inArrayList: {list} of arrays to stack
+    /// @param inArrayList: {list} of arrays to stack
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> hstack(std::initializer_list<NdArray<dtype> > inArrayList)

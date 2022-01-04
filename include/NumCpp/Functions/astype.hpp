@@ -38,10 +38,8 @@ namespace nc
     // Method Description:
     /// Returns a copy of the array, cast to a specified type.
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> astype(const NdArray<dtype> inArray) 

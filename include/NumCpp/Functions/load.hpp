@@ -40,11 +40,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
     ///
-    /// @param
-    /// inFilename
+    /// @param inFilename
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> load(const std::string& inFilename)

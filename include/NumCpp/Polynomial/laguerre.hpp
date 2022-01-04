@@ -49,10 +49,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the leguerre polynomial
-        /// @param      x: the input value
-        /// @return
-        /// double
+        /// @param n: the order of the leguerre polynomial
+        /// @param x: the input value
+        /// @return double
         ///
         template<typename dtype>
         double laguerre(uint32 n, dtype x)
@@ -72,11 +71,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the leguerre polynomial
-        /// @param      m: the degree of the legendre polynomial
-        /// @param      x: the input value
-        /// @return
-        /// double
+        /// @param n: the order of the leguerre polynomial
+        /// @param m: the degree of the legendre polynomial
+        /// @param x: the input value
+        /// @return double
         ///
         template<typename dtype>
         double laguerre(uint32 n, uint32 m, dtype x)
@@ -96,10 +94,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the leguerre polynomial
-        /// @param      inArrayX: the input value
-        /// @return
-        /// NdArray<double>
+        /// @param n: the order of the leguerre polynomial
+        /// @param inArrayX: the input value
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> laguerre(uint32 n, const NdArray<dtype>& inArrayX)
@@ -122,11 +119,10 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the leguerre polynomial
-        /// @param      m: the degree of the legendre polynomial
-        /// @param      inArrayX: the input value
-        /// @return
-        /// NdArray<double>
+        /// @param n: the order of the leguerre polynomial
+        /// @param m: the degree of the legendre polynomial
+        /// @param inArrayX: the input value
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> laguerre(uint32 n, uint32 m, const NdArray<dtype>& inArrayX)

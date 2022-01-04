@@ -45,9 +45,8 @@ namespace nc
         // Method Description:
         /// Single random value sampled from the "bernoulli" distribution.
         ///
-        /// @param				inP (probability of success [0, 1]). Default 0.5
-        /// @return
-        /// NdArray
+        /// @param inP (probability of success [0, 1]). Default 0.5
+        /// @return NdArray
         ///
         inline bool bernoulli(double inP = 0.5)
         {
@@ -65,10 +64,9 @@ namespace nc
         /// Create an array of the given shape and populate it with
         /// random samples from the "bernoulli" distribution.
         ///
-        /// @param				inShape
-        /// @param				inP (probability of success [0, 1]). Default 0.5
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inP (probability of success [0, 1]). Default 0.5
+        /// @return NdArray
         ///
         inline NdArray<bool> bernoulli(const Shape& inShape, double inP = 0.5)
         {

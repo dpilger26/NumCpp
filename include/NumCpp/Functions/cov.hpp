@@ -41,7 +41,7 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.cov.html
     ///
-    /// @param	x: A 1-D or 2-D array containing multiple variables and observations.
+    /// @param x: A 1-D or 2-D array containing multiple variables and observations.
     /// Each row of x represents a variable, and each column a single observation 
     /// of all those variables.
     /// @param bias: Default normalization (false) is by (N - 1), where N is the number of observations 

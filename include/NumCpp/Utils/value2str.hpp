@@ -40,9 +40,9 @@ namespace nc
         //============================================================================
         /// Converts the value into a string
         ///
-        /// @param      inValue
+        /// @param inValue
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         template<typename dtype>
         std::string value2str(dtype inValue) 

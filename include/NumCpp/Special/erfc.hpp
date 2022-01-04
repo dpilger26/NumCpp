@@ -44,10 +44,8 @@ namespace nc
         /// Returns the complement of the error function of inValue.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type 
+        /// @param inValue
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto erfc(dtype inValue)
@@ -63,10 +61,8 @@ namespace nc
         /// function of inValue.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto erfc(const NdArray<dtype>& inArray)

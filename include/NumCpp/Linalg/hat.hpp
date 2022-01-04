@@ -42,11 +42,10 @@ namespace nc
         // Method Description:
         /// vector hat operator
         ///
-        /// @param			inX
-        /// @param			inY
-        /// @param			inZ
-        /// @return
-        /// 3x3 NdArray
+        /// @param inX
+        /// @param inY
+        /// @param inZ
+        /// @return 3x3 NdArray
         ///
         template<typename dtype>
         NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) 
@@ -71,10 +70,8 @@ namespace nc
         // Method Description:
         /// vector hat operator
         ///
-        /// @param
-        /// inVec (3x1, or 1x3 cartesian vector)
-        /// @return
-        /// 3x3 NdArray
+        /// @param inVec (3x1, or 1x3 cartesian vector)
+        /// @return 3x3 NdArray
         ///
         template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec)
@@ -93,10 +90,8 @@ namespace nc
         // Method Description:
         /// vector hat operator
         ///
-        /// @param
-        /// inVec
-        /// @return
-        /// 3x3 NdArray
+        /// @param inVec
+        /// @return 3x3 NdArray
         ///
         inline NdArray<double> hat(const Vec3& inVec) 
         {

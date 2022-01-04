@@ -51,10 +51,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
-    /// @param      inValue1
-    /// @param      inValue2
-    /// @return
-    /// dtype
+    /// @param inValue1
+    /// @param inValue2
+    /// @return dtype
     ///
     template<typename dtype>
     dtype lcm(dtype inValue1, dtype inValue2) noexcept 
@@ -76,9 +75,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
-    /// @param      inArray
-    /// @return
-    /// NdArray<double>
+    /// @param inArray
+    /// @return NdArray<double>
     ///
     template<typename dtype>
     dtype lcm(const NdArray<dtype>& inArray)

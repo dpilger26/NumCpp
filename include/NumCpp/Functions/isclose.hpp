@@ -47,13 +47,12 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isclose.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @param				inRtol: relative tolerance (default 1e-5)
-    /// @param				inAtol: absolute tolerance (default 1e-9)
+    /// @param inArray1
+    /// @param inArray2
+    /// @param inRtol: relative tolerance (default 1e-5)
+    /// @param inAtol: absolute tolerance (default 1e-9)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)

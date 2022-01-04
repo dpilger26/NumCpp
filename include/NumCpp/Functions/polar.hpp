@@ -40,11 +40,10 @@ namespace nc
     // Method Description:
     /// Returns a complex number with magnitude r and phase angle theta.
     ///
-    /// @param  magnitude
-    /// @param  phaseAngle
+    /// @param magnitude
+    /// @param phaseAngle
     /// 
-    /// @return
-    /// std::complex
+    /// @return std::complex
     ///
     template<typename dtype>
     auto polar(dtype magnitude, dtype phaseAngle) 
@@ -58,10 +57,9 @@ namespace nc
     // Method Description:
     /// Returns a complex number with magnitude r and phase angle theta.
     ///
-    /// @param  magnitude
-    /// @param  phaseAngle
-    /// @return
-    /// NdArray<std::complex>
+    /// @param magnitude
+    /// @param phaseAngle
+    /// @return NdArray<std::complex>
     ///
     template<typename dtype>
     auto polar(const NdArray<dtype>& magnitude, const NdArray<dtype>& phaseAngle)

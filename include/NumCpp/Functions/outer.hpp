@@ -41,10 +41,10 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.outer.html
     ///
-    /// @param			inArray1
-    /// @param			inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return         NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -62,12 +62,11 @@ namespace nc
             // Description:
             /// constructor
             ///
-            /// @param              inXcdArrayPtr: pointer to exceedance array
-            /// @param              inIntensityArrayPtr: pointer to intensity array
-            /// @param				inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
+            /// @param inXcdArrayPtr: pointer to exceedance array
+            /// @param inIntensityArrayPtr: pointer to intensity array
+            /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
             ///
-            /// @return
-            /// None
+            /// @return None
             ///
             ClusterMaker(const NdArray<bool>* const inXcdArrayPtr, const NdArray<dtype>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
                 xcds_(inXcdArrayPtr),
@@ -105,8 +104,7 @@ namespace nc
             // Description:
             /// returns the number of clusters in the frame
             ///
-            /// @return
-            /// number of clusters
+            /// @return number of clusters
             ///
             uint32 size() noexcept
             {
@@ -117,11 +115,9 @@ namespace nc
             // Description:
             /// access operator, no bounds checking
             ///
-            /// @param
-            /// inIndex
+            /// @param inIndex
             ///
-            /// @return
-            /// Cluster
+            /// @return Cluster
             ///
             const Cluster<dtype>& operator[](uint32 inIndex) const noexcept
             {
@@ -132,11 +128,9 @@ namespace nc
             // Description:
             /// access method with bounds checking
             ///
-            /// @param
-            /// inIndex
+            /// @param inIndex
             ///
-            /// @return
-            /// Cluster
+            /// @return Cluster
             ///
             const Cluster<dtype>& at(uint32 inIndex) const
             {
@@ -151,8 +145,7 @@ namespace nc
             // Description:
             /// returns in iterator to the beginning cluster of the container
             ///
-            /// @return
-            /// const_iterator
+            /// @return const_iterator
             ///
             const_iterator begin() const noexcept 
             {
@@ -163,8 +156,7 @@ namespace nc
             // Description:
             /// returns in iterator to the 1 past the end cluster of the container
             ///
-            /// @return
-            /// const_iterator
+            /// @return const_iterator
             ///
             const_iterator end() const noexcept 
             {
@@ -185,11 +177,10 @@ namespace nc
             // Description:
             /// checks that the input row and column have not fallen off of the edge
             ///
-            /// @param              inRow
-            /// @param              inCol
+            /// @param inRow
+            /// @param inCol
             ///
-            /// @return
-            /// returns a pixel object clipped to the image boundaries
+            /// @return returns a pixel object clipped to the image boundaries
             ///
             Pixel<dtype> makePixel(int32 inRow, int32 inCol) noexcept
             {
@@ -206,10 +197,9 @@ namespace nc
             // Description:
             /// finds all of the neighboring pixels to the input pixel
             ///
-            /// @param               inPixel
-            /// @param               outNeighbors
-            /// @return
-            /// None
+            /// @param inPixel
+            /// @param outNeighbors
+            /// @return None
             ///
             void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
             {
@@ -233,11 +223,10 @@ namespace nc
             // Description:
             /// finds all of the neighboring pixels to the input pixel that are NOT exceedances
             ///
-            /// @param       inPixel
-            /// @param       outNeighbors
+            /// @param inPixel
+            /// @param outNeighbors
             ///
-            /// @return
-            /// vector of non exceedance neighboring pixels
+            /// @return vector of non exceedance neighboring pixels
             ///
             void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
             {
@@ -258,11 +247,10 @@ namespace nc
             // Description:
             /// finds the pixel index of neighboring pixels
             ///
-            /// @param       inPixel
-            /// @param       outNeighbors
+            /// @param inPixel
+            /// @param outNeighbors
             ///
-            /// @return
-            /// vector of neighboring pixel indices
+            /// @return vector of neighboring pixel indices
             ///
             void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
             {

@@ -65,9 +65,9 @@ namespace nc
             // Description:
             /// constructor
             ///
-            /// @param              inRow: pixel row
-            /// @param              inCol: pixel column
-            /// @param              inIntensity: pixel intensity
+            /// @param inRow: pixel row
+            /// @param inCol: pixel column
+            /// @param inIntensity: pixel intensity
             ///
             constexpr Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept :
                 row(inRow),
@@ -79,11 +79,9 @@ namespace nc
             // Description:
             /// equality operator
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             constexpr bool operator==(const Pixel<dtype>& rhs) const noexcept
             {
@@ -94,11 +92,9 @@ namespace nc
             // Description:
             /// not equality operator
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             constexpr bool operator!=(const Pixel<dtype>& rhs) const noexcept
             {
@@ -112,11 +108,9 @@ namespace nc
             /// the centroids in descensing order, I am purposefully defining
             /// this operator backwards!
             ///
-            /// @param
-            /// rhs
+            /// @param rhs
             ///
-            /// @return
-            /// bool
+            /// @return bool
             ///
             bool operator<(const Pixel<dtype>& rhs) const noexcept 
             {
@@ -136,8 +130,7 @@ namespace nc
             // Description:
             /// returns the pixel information as a string
             ///
-            /// @return
-            /// std::string
+            /// @return std::string
             ///
             std::string str() const
             {
@@ -159,10 +152,9 @@ namespace nc
             // Description:
             /// osstream operator
             ///
-            /// @param              inStream
-            /// @param              inPixel
-            /// @return
-            /// std::ostream
+            /// @param inStream
+            /// @param inPixel
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Pixel<dtype>& inPixel)
             {

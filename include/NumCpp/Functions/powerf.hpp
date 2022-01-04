@@ -44,10 +44,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inValue
-    /// @param				inExponent
-    /// @return
-    /// value raised to the power
+    /// @param inValue
+    /// @param inExponent
+    /// @return value raised to the power
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(dtype1 inValue, dtype2 inExponent) noexcept 
@@ -61,10 +60,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponent
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inExponent
+    /// @return NdArray
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1>& inArray, dtype2 inExponent) 
@@ -85,10 +83,9 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponents
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @param inExponents
+    /// @return NdArray
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1>& inArray, const NdArray<dtype2>& inExponents)

@@ -38,10 +38,8 @@ namespace nc
     // Method Description:
     /// Prints the array to the console.
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// None
+    /// @param inArray
+    /// @return None
     ///
     template<typename dtype>
     void print(const NdArray<dtype>& inArray) 

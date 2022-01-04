@@ -44,10 +44,9 @@ namespace nc
         /// Legendre Polynomial of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      x: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// double
+        /// @param n: the order of the legendre polynomial
+        /// @param x: the input value. Requires -1 <= x <= 1
+        /// @return double
         ///
         template<typename dtype>
         double legendre_q(int32 n, dtype x)
@@ -67,10 +66,9 @@ namespace nc
         /// Legendre Polynomial of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
-        /// @return
-        /// NdArray<double>
+        /// @param n: the order of the legendre polynomial
+        /// @param inArrayX: the input value. Requires -1 <= x <= 1
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_q(int32 n, const NdArray<dtype>& inArrayX)

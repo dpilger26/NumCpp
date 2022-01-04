@@ -49,10 +49,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
-        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
-        /// @param				inScale: (float optional the exponential decay. Default is 1)
-        /// @return
-        /// NdArray
+        /// @param inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param inScale: (float optional the exponential decay. Default is 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype laplace(dtype inLoc = 0, dtype inScale = 1) 
@@ -71,11 +70,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
-        /// @param              inShape
-        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
-        /// @param				inScale: (float optional the exponential decay. Default is 1)
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param inScale: (float optional the exponential decay. Default is 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) 

@@ -42,7 +42,7 @@ namespace nc
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
     ///
-    /// @param	m: Number of points in the output window. If zero or less, an empty array is returned.
+    /// @param m: Number of points in the output window. If zero or less, an empty array is returned.
     /// @return NdArray
     ///
     inline NdArray<double> hamming(int32 m)

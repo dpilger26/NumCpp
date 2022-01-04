@@ -43,10 +43,10 @@ namespace nc
         //============================================================================
         /// Makes the full error message string
         ///
-        /// @param      file: the file
-        /// @param      function: the function
-        /// @param      line: the line of the file
-        /// @param      msg: the message to throw (default "")
+        /// @param file: the file
+        /// @param function: the function
+        /// @param line: the line of the file
+        /// @param msg: the message to throw (default "")
         ///
         template<typename ErrorType>
         void throwError(const std::string& file,

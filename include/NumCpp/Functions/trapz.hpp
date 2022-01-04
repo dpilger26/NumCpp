@@ -43,12 +43,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
     ///
-    /// @param				inArray
-    /// @param              dx: (Optional defaults to 1.0)
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param dx: (Optional defaults to 1.0)
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) 
@@ -119,12 +118,11 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
     ///
-    /// @param				inArrayY
-    /// @param				inArrayX
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArrayY
+    /// @param inArrayX
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)

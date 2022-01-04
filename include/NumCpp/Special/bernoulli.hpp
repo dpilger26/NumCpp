@@ -44,10 +44,8 @@ namespace nc
         /// Both return the nth Bernoulli number B2n.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// n
-        /// @return
-        /// double
+        /// @param n
+        /// @return double
         ///
         inline double bernoilli(uint32 n)
         {
@@ -68,10 +66,8 @@ namespace nc
         /// Both return the nth Bernoulli number B2n.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray<double>
+        /// @param inArray
+        /// @return NdArray<double>
         ///
         inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
         {

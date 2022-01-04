@@ -49,10 +49,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inX: the input value
-        /// @return
-        /// calculated-result-type 
+        /// @param inV: the order of the bessel function
+        /// @param inX: the input value
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto spherical_bessel_jn(uint32 inV, dtype inX)
@@ -72,10 +71,9 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inArrayX: the input values
-        /// @return
-        /// NdArray
+        /// @param inV: the order of the bessel function
+        /// @param inArrayX: the input values
+        /// @return NdArray
         ///
         template<typename dtype>
         auto spherical_bessel_jn(uint32 inV, const NdArray<dtype>& inArrayX) 

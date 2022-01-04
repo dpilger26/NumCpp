@@ -51,10 +51,9 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
-        /// @param				inAlpha
-        /// @param				inBeta
-        /// @return
-        /// NdArray
+        /// @param inAlpha
+        /// @param inBeta
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype beta(dtype inAlpha, dtype inBeta)
@@ -83,11 +82,10 @@ namespace nc
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
-        /// @param				inShape
-        /// @param				inAlpha
-        /// @param				inBeta
-        /// @return
-        /// NdArray
+        /// @param inShape
+        /// @param inAlpha
+        /// @param inBeta
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)

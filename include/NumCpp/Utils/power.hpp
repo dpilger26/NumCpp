@@ -39,10 +39,10 @@ namespace nc
         //============================================================================
         /// Raises the input value to an integer power
         ///
-        /// @param      inValue
-        /// @param      inPower
+        /// @param inValue
+        /// @param inPower
         ///
-        /// @return     inValue raised to inPower
+        /// @return inValue raised to inPower
         ///
         template<typename dtype>
         dtype power(dtype inValue, uint8 inPower) noexcept 

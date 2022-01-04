@@ -58,8 +58,8 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param      inRaDegrees
-            /// @param      inDecDegrees
+            /// @param inRaDegrees
+            /// @param inDecDegrees
             ///
             Coordinate(double inRaDegrees, double inDecDegrees) :
                 ra_(inRaDegrees),
@@ -71,13 +71,13 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param				inRaHours
-            /// @param              inRaMinutes
-            /// @param              inRaSeconds
-            /// @param              inSign
-            /// @param              inDecDegreesWhole
-            /// @param              inDecMinutes
-            /// @param              inDecSeconds
+            /// @param inRaHours
+            /// @param inRaMinutes
+            /// @param inRaSeconds
+            /// @param inSign
+            /// @param inDecDegreesWhole
+            /// @param inDecMinutes
+            /// @param inDecSeconds
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, double inRaSeconds, Sign inSign,
                 uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)   :
@@ -90,8 +90,8 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param				inRA
-            /// @param              inDec
+            /// @param inRA
+            /// @param inDec
             ///
             Coordinate(const RA& inRA, const Dec& inDec) noexcept :
                 ra_(inRA),
@@ -103,9 +103,9 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param				inX
-            /// @param              inY
-            /// @param              inZ
+            /// @param inX
+            /// @param inY
+            /// @param inZ
             ///
             Coordinate(double inX, double inY, double inZ) noexcept :
                 x_(inX),
@@ -118,7 +118,7 @@ namespace nc
             //============================================================================
             /// Constructor
             ///
-            /// @param				inCartesianVector
+            /// @param inCartesianVector
             ///
             Coordinate(const NdArray<double>& inCartesianVector)
             {
@@ -137,7 +137,7 @@ namespace nc
             //============================================================================
             /// Returns the Dec object
             ///
-            /// @return             Dec
+            /// @return Dec
             ///
             const Dec& dec() const noexcept 
             {
@@ -147,7 +147,7 @@ namespace nc
             //============================================================================
             /// Returns the RA object
             ///
-            /// @return     RA
+            /// @return RA
             ///
             const RA& ra() const noexcept 
             {
@@ -157,7 +157,7 @@ namespace nc
             //============================================================================
             /// Returns the cartesian x value
             ///
-            /// @return     x
+            /// @return x
             ///
             double x() const noexcept 
             {
@@ -167,7 +167,7 @@ namespace nc
             //============================================================================
             /// Returns the cartesian y value
             ///
-            /// @return     y
+            /// @return y
             ///
             double y() const noexcept 
             {
@@ -177,7 +177,7 @@ namespace nc
             //============================================================================
             /// Returns the cartesian z value
             ///
-            /// @return     z
+            /// @return z
             ///
             double z() const noexcept 
             {
@@ -187,7 +187,7 @@ namespace nc
             //============================================================================
             /// Returns the cartesian xyz triplet as an NdArray
             ///
-            /// @return     NdArray
+            /// @return NdArray
             ///
             NdArray<double> xyz() const 
             {
@@ -198,9 +198,9 @@ namespace nc
             //============================================================================
             /// Returns the degree seperation between the two Coordinates
             ///
-            /// @param      inOtherCoordinate
+            /// @param inOtherCoordinate
             ///
-            /// @return     degrees
+            /// @return degrees
             ///
             double degreeSeperation(const Coordinate& inOtherCoordinate) const 
             {
@@ -211,9 +211,9 @@ namespace nc
             /// Returns the degree seperation between the Coordinate
             /// and the input vector
             ///
-            /// @param      inVector
+            /// @param inVector
             ///
-            /// @return     degrees
+            /// @return degrees
             ///
             double degreeSeperation(const NdArray<double>& inVector) const
             {
@@ -223,9 +223,9 @@ namespace nc
             //============================================================================
             /// Returns the radian seperation between the two Coordinates
             ///
-            /// @param      inOtherCoordinate
+            /// @param inOtherCoordinate
             ///
-            /// @return     radians
+            /// @return radians
             ///
             double radianSeperation(const Coordinate& inOtherCoordinate) const 
             {
@@ -236,9 +236,9 @@ namespace nc
             /// Returns the radian seperation between the Coordinate
             /// and the input vector
             ///
-            /// @param      inVector
+            /// @param inVector
             ///
-            /// @return     radians
+            /// @return radians
             ///
             double radianSeperation(const NdArray<double>& inVector) const
             {
@@ -253,7 +253,7 @@ namespace nc
             //============================================================================
             /// Returns coordinate as a string representation
             ///
-            /// @return     string
+            /// @return string
             ///
             std::string str() const
             {
@@ -275,9 +275,9 @@ namespace nc
             //============================================================================
             /// Equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator==(const Coordinate& inRhs) const noexcept
             {
@@ -287,9 +287,9 @@ namespace nc
             //============================================================================
             /// Not equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator!=(const Coordinate& inRhs) const noexcept
             {
@@ -299,10 +299,10 @@ namespace nc
             //============================================================================
             /// Ostream operator
             ///
-            /// @param      inStream
-            /// @param      inCoord
+            /// @param inStream
+            /// @param inCoord
             ///
-            /// @return     std::ostream
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Coordinate& inCoord)
             {

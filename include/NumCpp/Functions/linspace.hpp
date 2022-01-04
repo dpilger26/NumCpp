@@ -50,13 +50,12 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
     ///
-    /// @param				inStart
-    /// @param				inStop
-    /// @param				inNum: number of points (default = 50)
-    /// @param				endPoint: include endPoint (default = true)
+    /// @param inStart
+    /// @param inStop
+    /// @param inNum: number of points (default = 50)
+    /// @param endPoint: include endPoint (default = true)
     ///
-    /// @return
-    /// NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)

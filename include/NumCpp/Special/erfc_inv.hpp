@@ -45,10 +45,8 @@ namespace nc
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inValue
-        /// @return
-        /// calculated-result-type
+        /// @param inValue
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto erfc_inv(dtype inValue)
@@ -64,10 +62,8 @@ namespace nc
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        /// inArray
-        /// @return
-        /// NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto erfc_inv(const NdArray<dtype>& inArray)

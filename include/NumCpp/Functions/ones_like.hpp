@@ -38,10 +38,8 @@ namespace nc
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
     ///
-    /// @param
-    /// inArray
-    /// @return
-    /// NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray) 

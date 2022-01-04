@@ -51,9 +51,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inK: elliptic modulus or eccentricity
-        /// @return
-        /// calculated-result-type 
+        /// @param inK: elliptic modulus or eccentricity
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto comp_ellint_2(dtype inK)
@@ -73,9 +72,8 @@ namespace nc
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayK: elliptic modulus or eccentricity
-        /// @return
-        /// NdArray
+        /// @param inArrayK: elliptic modulus or eccentricity
+        /// @return NdArray
         ///
         template<typename dtype>
         auto comp_ellint_2(const NdArray<dtype>& inArrayK)

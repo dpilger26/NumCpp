@@ -43,10 +43,9 @@ namespace nc
             // Method Description:
             /// Mirror boundary1d
             ///
-            /// @param				inImage
-            /// @param              inBoundarySize
-            /// @return
-            /// NdArray
+            /// @param inImage
+            /// @param inBoundarySize
+            /// @return NdArray
             ///
             template<typename dtype>
             NdArray<dtype> mirror1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)

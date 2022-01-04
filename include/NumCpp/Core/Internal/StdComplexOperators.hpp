@@ -37,9 +37,9 @@ namespace nc
     // Method Description:
     /// Less than operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs < rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs < rhs
     ///
     template<typename T>
     bool operator<(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -56,9 +56,9 @@ namespace nc
     // Method Description:
     /// Less than or equal operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs <= rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs <= rhs
     ///
     template<typename T>
     bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -75,9 +75,9 @@ namespace nc
     // Method Description:
     /// Greater than operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs > rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs > rhs
     ///
     template<typename T>
     bool operator>(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -89,9 +89,9 @@ namespace nc
     // Method Description:
     /// Greater than or equal operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs >= rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs >= rhs
     ///
     template<typename T>
     bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -103,8 +103,8 @@ namespace nc
     // Method Description:
     /// Greater than or equal operator for std::complex<T>
     ///
-    /// @param      value
-    /// @return     std::complex<Out>
+    /// @param value
+    /// @return std::complex<Out>
     ///
     template<typename Out, typename In>
     std::complex<Out> complex_cast(const std::complex<In>& value)  noexcept

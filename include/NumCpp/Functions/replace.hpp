@@ -35,9 +35,9 @@ namespace nc
     // Method Description:
     /// Replaces the matching elements of an array with the new value
     ///
-    /// @param	inArray
-    /// @param  oldValue: the value to replace
-    /// @param  newValue: the value to replace with
+    /// @param inArray
+    /// @param oldValue: the value to replace
+    /// @param newValue: the value to replace with
     ///
     /// @return NdArray
     ///

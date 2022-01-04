@@ -40,12 +40,11 @@ namespace nc
         // Method Description:
         /// Calculate a one-dimensional complemenatry median filter.
         ///
-        /// @param				inImageArray
-        /// @param				inSize: square size of the kernel to apply
-        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return
-        /// NdArray
+        /// @param inImageArray
+        /// @param inSize: square size of the kernel to apply
+        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,

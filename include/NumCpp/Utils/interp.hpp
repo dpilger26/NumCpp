@@ -34,11 +34,11 @@ namespace nc
         //============================================================================
         /// Returns the linear interpolation between two points
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inPercent
+        /// @param inValue1
+        /// @param inValue2
+        /// @param inPercent
         ///
-        /// @return     linear interpolated point
+        /// @return linear interpolated point
         ///
         constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept
         {
