@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,13 +42,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Clusters exceedance pixels from an image
+        /// Clusters exceedance pixels from an image
         ///
-        /// @param				inImageArray
-        /// @param				inExceedances
-        /// @param				inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
-        /// @return
-        ///				std::vector<Cluster>
+        /// @param inImageArray
+        /// @param inExceedances
+        /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
+        /// @return std::vector<Cluster>
         ///
         template<typename dtype>
         std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)

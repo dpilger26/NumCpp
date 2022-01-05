@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,14 +33,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return indices that are non-zero in the flattened version of a.
+    /// Return indices that are non-zero in the flattened version of a.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray) 

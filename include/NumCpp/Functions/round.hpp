@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -34,13 +34,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Round value to the given number of decimals.
+    /// Round value to the given number of decimals.
     ///
-    /// @param				inValue
-    /// @param				inDecimals
+    /// @param inValue
+    /// @param inDecimals
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     dtype round(dtype inValue, uint8 inDecimals = 0) 
@@ -51,13 +50,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Round an array to the given number of decimals.
+    /// Round an array to the given number of decimals.
     ///
-    /// @param				inArray
-    /// @param				inDecimals
+    /// @param inArray
+    /// @param inDecimals
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0) 

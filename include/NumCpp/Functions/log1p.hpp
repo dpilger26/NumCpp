@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,17 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the natural logarithm of one plus the input array.
+    /// Return the natural logarithm of one plus the input array.
     ///
-    ///						Calculates log(1 + x).
+    /// Calculates log(1 + x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
     ///
-    /// @param
-    ///				inValue
+    /// @param inValue
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     auto log1p(dtype inValue) noexcept 
@@ -59,17 +57,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the natural logarithm of one plus the input array, element-wise.
+    /// Return the natural logarithm of one plus the input array, element-wise.
     ///
-    ///						Calculates log(1 + x).
+    /// Calculates log(1 + x).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto log1p(const NdArray<dtype>& inArray) 

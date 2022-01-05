@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,17 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						maximum of inputs.
+    /// maximum of inputs.
     ///
-    ///						Compare two value and returns a value containing the
-    ///						maxima
+    /// Compare two value and returns a value containing the
+    /// maxima
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
     ///
-    /// @param				inValue1
-    /// @param				inValue2
-    /// @return
-    ///				value
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
     ///
     template<typename dtype>
     dtype fmax(dtype inValue1, dtype inValue2) noexcept 
@@ -66,17 +65,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Element-wise maximum of array elements.
+    /// Element-wise maximum of array elements.
     ///
-    ///						Compare two arrays and returns a new array containing the
-    ///						element - wise maxima
+    /// Compare two arrays and returns a new array containing the
+    /// element - wise maxima
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    ///				NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,14 +40,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input integer power
+    /// Raises the elements of the array to the input integer power
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inValue
-    /// @param				inExponent
-    /// @return
-    ///				value raised to the power
+    /// @param inValue
+    /// @param inExponent
+    /// @return value raised to the power
     ///
     template<typename dtype>
     constexpr dtype power(dtype inValue, uint8 inExponent) noexcept
@@ -57,14 +56,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input integer power
+    /// Raises the elements of the array to the input integer power
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponent
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inExponent
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> power(const NdArray<dtype>& inArray, uint8 inExponent) 
@@ -81,14 +79,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input integer powers
+    /// Raises the elements of the array to the input integer powers
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponents
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inExponents
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
@@ -100,7 +97,7 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, uint8 inExponent)  -> dtype
+            [](dtype inValue, uint8 inExponent) -> dtype
             {
                 return nc::power(inValue, inExponent);
             });

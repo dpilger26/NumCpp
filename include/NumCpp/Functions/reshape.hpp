@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,18 +35,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inSize
+    /// @param inArray
+    /// @param inSize
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inSize)
@@ -57,19 +56,18 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, int32 inNumRows, int32 inNumCols)
@@ -80,18 +78,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Gives a new shape to an array without changing its data.
+    /// Gives a new shape to an array without changing its data.
     ///
-    ///	The new shape should be compatible with the original shape. If an single integer,
+    /// The new shape should be compatible with the original shape. If an single integer,
     /// then the result will be a 1-D array of that length. One shape dimension 
     /// can be -1. In this case, the value is inferred from the length of the 
     /// array and remaining dimensions. 
     ///
-    /// @param				inArray
-    /// @param				inNewShape
+    /// @param inArray
+    /// @param inNewShape
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)

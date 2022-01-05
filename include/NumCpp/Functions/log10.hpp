@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,15 +38,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the base 10 logarithm of the input array.
+    /// Return the base 10 logarithm of the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
-    /// @param
-    ///				inValue
+    /// @param inValue
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     auto log10(dtype inValue) noexcept 
@@ -58,15 +56,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the base 10 logarithm of the input array, element-wise.
+    /// Return the base 10 logarithm of the input array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto log10(const NdArray<dtype>& inArray) 

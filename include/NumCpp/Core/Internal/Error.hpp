@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,12 +41,12 @@ namespace nc
     namespace error
     {
         //============================================================================
-        ///	Makes the full error message string
+        /// Makes the full error message string
         ///
-        /// @param      file: the file
-        /// @param      function: the function
-        /// @param      line: the line of the file
-        /// @param      msg: the message to throw (default "")
+        /// @param file: the file
+        /// @param function: the function
+        /// @param line: the line of the file
+        /// @param msg: the message to throw (default "")
         ///
         template<typename ErrorType>
         void throwError(const std::string& file,

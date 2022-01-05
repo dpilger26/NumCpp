@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,16 +36,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Extract a diagonal or construct a diagonal array.
+    /// Extract a diagonal or construct a diagonal array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diag.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diag.html
     ///
-    /// @param				inArray
-    /// @param				k Diagonal in question. The default is 0. 
-    ///                     Use k>0 for diagonals above the main diagonal, and k<0 
-    ///                     for diagonals below the main diagonal.
+    /// @param inArray
+    /// @param k Diagonal in question. The default is 0. 
+    /// Use k>0 for diagonals above the main diagonal, and k<0 
+    /// for diagonals below the main diagonal.
     ///
-    /// @return             NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0) 

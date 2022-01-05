@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,13 +40,12 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						Constant boundary1d
+            /// Constant boundary1d
             ///
-            /// @param				inImage
-            /// @param              inBoundarySize
-            /// @param              inConstantValue
-            /// @return
-            ///				NdArray
+            /// @param inImage
+            /// @param inBoundarySize
+            /// @param inConstantValue
+            /// @return NdArray
             ///
             template<typename dtype>
             NdArray<dtype> constant1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,17 +36,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+    /// Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
     ///
-    /// @param				inN: number of rows (N)
-    /// @param				inM: number of columns (M)
-    /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
-    ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+    /// @param inN: number of rows (N)
+    /// @param inM: number of columns (M)
+    /// @param inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
+    /// a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) 
@@ -88,16 +87,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+    /// Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
     ///
-    /// @param				inN: number of rows and columns (N)
-    /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
-    ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+    /// @param inN: number of rows and columns (N)
+    /// @param inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
+    /// a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> eye(uint32 inN, int32 inK = 0) 
@@ -107,16 +105,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+    /// Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
     ///
-    /// @param				inShape
-    /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
-    ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+    /// @param inShape
+    /// @param inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
+    /// a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> eye(const Shape& inShape, int32 inK = 0) 

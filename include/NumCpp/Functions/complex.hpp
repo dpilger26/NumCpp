@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,11 +38,10 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Returns a std::complex from the input real and imag components
+    /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @return
-    ///				value
+    /// @param inReal: the real component of the complex number
+    /// @return value
     ///
     template<typename dtype>
     auto complex(dtype inReal) 
@@ -54,12 +53,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Returns a std::complex from the input real and imag components
+    /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @param      inImag: the imaginary component of the complex number
-    /// @return
-    ///				value
+    /// @param inReal: the real component of the complex number
+    /// @param inImag: the imaginary component of the complex number
+    /// @return value
     ///
     template<typename dtype>
     auto complex(dtype inReal, dtype inImag) 
@@ -71,11 +69,10 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Returns a std::complex from the input real and imag components
+    /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @return
-    ///				NdArray
+    /// @param inReal: the real component of the complex number
+    /// @return NdArray
     ///
     template<typename dtype>
     auto complex(const NdArray<dtype>& inReal) 
@@ -92,12 +89,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Returns a std::complex from the input real and imag components
+    /// Returns a std::complex from the input real and imag components
     ///
-    /// @param      inReal: the real component of the complex number
-    /// @param      inImag: the imaginary component of the complex number
-    /// @return
-    ///				NdArray
+    /// @param inReal: the real component of the complex number
+    /// @param inImag: the imaginary component of the complex number
+    /// @return NdArray
     ///
     template<typename dtype>
     auto complex(const NdArray<dtype>& inReal, const NdArray<dtype>& inImag)

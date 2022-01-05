@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,17 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns an element-wise indication of the sign of a number.
+    /// Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
-    ///						nan is returned for nan inputs.
+    /// The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
+    /// nan is returned for nan inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				NdArray
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     int8 sign(dtype inValue) noexcept 
@@ -70,17 +68,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns an element-wise indication of the sign of a number.
+    /// Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
-    ///						nan is returned for nan inputs.
+    /// The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
+    /// nan is returned for nan inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<int8> sign(const NdArray<dtype>& inArray) 

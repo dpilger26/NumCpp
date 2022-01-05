@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,14 +33,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Evenly round to the given number of decimals.
+    /// Evenly round to the given number of decimals.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
     ///
-    /// @param			inValue
-    /// @param			inNumDecimals: (Optional, default = 0)
-    /// @return
-    ///				value
+    /// @param inValue
+    /// @param inNumDecimals: (Optional, default = 0)
+    /// @return value
     ///
     template<typename dtype>
     dtype around(dtype inValue, uint8 inNumDecimals = 0) 
@@ -51,14 +50,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Evenly round to the given number of decimals.
+    /// Evenly round to the given number of decimals.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
     ///
-    /// @param			inArray
-    /// @param			inNumDecimals: (Optional, default = 0)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inNumDecimals: (Optional, default = 0)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0) 

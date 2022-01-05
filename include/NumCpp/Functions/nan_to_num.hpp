@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,17 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Replace NaN with zero and infinity with large finite numbers (default behaviour)
+    /// Replace NaN with zero and infinity with large finite numbers (default behaviour)
     /// or with the numbers defined by the user using the nan, posinf and/or neginf keywords.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html
     ///
-    /// @param			inArray
-    /// @param          nan: value to be used to fill NaN values, default 0
-    /// @param          posInf: value to be used to fill positive infinity values, default a very large number
-    /// @param          negInf: value to be used to fill negative infinity values, default a very large negative number
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param nan: value to be used to fill NaN values, default 0
+    /// @param posInf: value to be used to fill positive infinity values, default a very large number
+    /// @param negInf: value to be used to fill negative infinity values, default a very large negative number
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nan_to_num(NdArray<dtype> inArray, 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,18 +37,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return coordinate matrices from coordinate vectors.
-    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
-    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
-    ///                     If input arrays are not one dimensional they will be flattened.
+    /// Return coordinate matrices from coordinate vectors.
+    /// Make 2D coordinate arrays for vectorized evaluations of 2D scaler
+    /// vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    /// If input arrays are not one dimensional they will be flattened.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
     ///
-    /// @param				inICoords
-    /// @param  			inJCoords
+    /// @param inICoords
+    /// @param inJCoords
     ///
-    /// @return
-    ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    /// @return std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
     ///
     template<typename dtype>
     std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords) 
@@ -82,19 +81,18 @@ namespace nc
     }
 
     //============================================================================
-// Method Description:
-///						Return coordinate matrices from coordinate vectors.
-///                     Make 2D coordinate arrays for vectorized evaluations of 2D scaler
-///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
-///
-///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
-///
-/// @param				inSlice1
-/// @param  			inSlice2
-///
-/// @return
-///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
-///
+    // Method Description:
+    /// Return coordinate matrices from coordinate vectors.
+    /// Make 2D coordinate arrays for vectorized evaluations of 2D scaler
+    /// vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    ///
+    /// @param inSlice1
+    /// @param inSlice2
+    ///
+    /// @return std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    ///
     template<typename dtype>
     std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
     {

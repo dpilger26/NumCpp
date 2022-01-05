@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,14 +47,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the first kind.
+        /// Modified Cylindrical Bessel function of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inX: the input value
-        /// @return
-        ///				calculated-result-type 
+        /// @param inV: the order of the bessel function
+        /// @param inX: the input value
+        /// @return calculated-result-type 
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_in(dtype1 inV, dtype2 inX)
@@ -71,14 +70,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the first kind.
+        /// Modified Cylindrical Bessel function of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inArrayX: the input values
-        /// @return
-        ///				NdArray
+        /// @param inV: the order of the bessel function
+        /// @param inArrayX: the input values
+        /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_in(dtype1 inV, const NdArray<dtype2>& inArrayX)

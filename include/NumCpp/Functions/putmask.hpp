@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,19 +33,18 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Changes elements of an array based on conditional and input values.
+    /// Changes elements of an array based on conditional and input values.
     ///
-    ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
+    /// Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
     ///
-    ///						If values is not the same size as a and mask then it will repeat.
+    /// If values is not the same size as a and mask then it will repeat.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
     ///
-    /// @param				inArray
-    /// @param				inMask
-    /// @param				inValue
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inMask
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
@@ -56,19 +55,18 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Changes elements of an array based on conditional and input values.
+    /// Changes elements of an array based on conditional and input values.
     ///
-    ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
+    /// Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
     ///
-    ///						If values is not the same size as a and mask then it will repeat.
+    /// If values is not the same size as a and mask then it will repeat.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
     ///
-    /// @param				inArray
-    /// @param				inMask
-    /// @param				inValues
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inMask
+    /// @param inValues
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)

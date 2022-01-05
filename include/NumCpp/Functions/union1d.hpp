@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,18 +35,17 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Find the union of two arrays.
+    /// Find the union of two arrays.
     ///
-    ///						Return the unique, sorted array of values that are in
-    ///						either of the two input arrays.
+    /// Return the unique, sorted array of values that are in
+    /// either of the two input arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

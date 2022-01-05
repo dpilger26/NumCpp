@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,11 +37,11 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns the center of mass of the array values along an axis.
+    /// Returns the center of mass of the array values along an axis.
     ///
-    /// @param      inArray
-    /// @param      inAxis (Optional, default NONE which is a 2d center of mass)
-    /// @return     NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE which is a 2d center of mass)
+    /// @return NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
     ///
     template<typename dtype>
     NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

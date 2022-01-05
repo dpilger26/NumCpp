@@ -2063,7 +2063,7 @@ namespace NdArrayInterface
 namespace FunctionsInterface
 {
     template<typename dtype>
-    auto absScaler(dtype inValue)  -> decltype(abs(inValue)) // trailing return type to help gcc
+    auto absScaler(dtype inValue) -> decltype(abs(inValue)) // trailing return type to help gcc
     {
         return abs(inValue);
     }
@@ -2207,7 +2207,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinScaler(dtype inValue)  -> decltype(arcsin(inValue)) // trailing return type to help gcc
+    auto arcsinScaler(dtype inValue) -> decltype(arcsin(inValue)) // trailing return type to help gcc
     {
         return arcsin(inValue);
     }
@@ -2223,7 +2223,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinhScaler(dtype inValue)  -> decltype(arcsinh(inValue)) // trailing return type to help gcc
+    auto arcsinhScaler(dtype inValue) -> decltype(arcsinh(inValue)) // trailing return type to help gcc
     {
         return arcsinh(inValue);
     }
@@ -2239,7 +2239,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanScaler(dtype inValue)  -> decltype(arctan(inValue)) // trailing return type to help gcc
+    auto arctanScaler(dtype inValue) -> decltype(arctan(inValue)) // trailing return type to help gcc
     {
         return arctan(inValue);
     }
@@ -2271,7 +2271,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanhScaler(dtype inValue)  -> decltype(arctanh(inValue)) // trailing return type to help gcc
+    auto arctanhScaler(dtype inValue) -> decltype(arctanh(inValue)) // trailing return type to help gcc
     {
         return arctanh(inValue);
     }
@@ -2643,6 +2643,20 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    pbArrayGeneric bartlett(nc::int32 m)
+    {
+        return nc2pybind(nc::bartlett(m));
+    }
+
+    //================================================================================
+
+    pbArrayGeneric blackman(nc::int32 m)
+    {
+        return nc2pybind(nc::blackman(m));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric andOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
@@ -2830,7 +2844,15 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto cosScaler(dtype inValue)  -> decltype(cos(inValue)) // trailing return type to help gcc
+    pbArrayGeneric corrcoef(pbArray<dtype> x)
+    {
+        return nc2pybind(nc::corrcoef(pybind2nc(x)));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    auto cosScaler(dtype inValue) -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
     }
@@ -2846,7 +2868,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto coshScaler(dtype inValue)  -> decltype(cosh(inValue)) // trailing return type to help gcc
+    auto coshScaler(dtype inValue) -> decltype(cosh(inValue)) // trailing return type to help gcc
     {
         return cosh(inValue);
     }
@@ -2865,6 +2887,22 @@ namespace FunctionsInterface
     pbArrayGeneric count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
         return nc2pybind(nc::count_nonzero(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric cov(pbArray<dtype> x, bool bias)
+    {
+        return nc2pybind(nc::cov(pybind2nc(x), bias));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric cov_inv(pbArray<dtype> x, bool bias)
+    {
+        return nc2pybind(nc::cov_inv(pybind2nc(x), bias));
     }
 
     //================================================================================
@@ -3014,7 +3052,15 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto expScaler(dtype inValue)  -> decltype(exp(inValue)) // trailing return type to help gcc
+    pbArrayGeneric extract(pbArray<bool> condition, pbArray<dtype> arr)
+    {
+        return nc2pybind(nc::extract(pybind2nc(condition), pybind2nc(arr)));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    auto expScaler(dtype inValue) -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
     }
@@ -3272,9 +3318,31 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric geomspace(dtype start, dtype stop, uint32 num, bool endPoint)
+    {
+        return nc2pybind(nc::geomspace(start, stop, num, endPoint));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(nc::gradient(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    pbArrayGeneric hamming(nc::int32 m)
+    {
+        return nc2pybind(nc::hamming(m));
+    }
+
+    //================================================================================
+
+    pbArrayGeneric hanning(nc::int32 m)
+    {
+        return nc2pybind(nc::hanning(m));
     }
 
     //================================================================================
@@ -3347,6 +3415,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype inner(pbArray<dtype> a, pbArray<dtype> b)
+    {
+        return nc::inner(pybind2nc(a), pybind2nc(b));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
         return nc2pybind(nc::interp(inX, inXp, inFp));
@@ -3371,6 +3447,38 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    bool isposinfScaler(dtype inValue) 
+    {
+        return nc::isposinf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric isposinfArray(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::isposinf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bool isneginfScaler(dtype inValue) 
+    {
+        return nc::isneginf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric isneginfArray(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::isneginf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     bool isnanScaler(dtype inValue) 
     {
         return nc::isnan(inValue);
@@ -3383,6 +3491,15 @@ namespace FunctionsInterface
     {
         return nc2pybind(nc::isnan(inArray));
     }
+
+    //================================================================================
+
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
+    pbArrayGeneric kaiser(nc::int32 m, double beta)
+    {
+        return nc2pybind(nc::kaiser(m, beta));
+    }
+#endif
 
     //================================================================================
 
@@ -3467,7 +3584,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto logScaler(dtype inValue)  -> decltype(log(inValue)) // trailing return type to help gcc
+    auto logScaler(dtype inValue) -> decltype(log(inValue)) // trailing return type to help gcc
     {
         return log(inValue);
     }
@@ -3483,7 +3600,31 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto log10Scaler(dtype inValue)  -> decltype(log10(inValue)) // trailing return type to help gcc
+    auto logbScaler(dtype inValue, dtype base) -> decltype(logb(inValue)) // trailing return type to help gcc
+    {
+        return logb(inValue, base);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric logbArray(const NdArray<dtype>& inArray, dtype base)
+    {
+        return nc2pybind(logb(inArray, base));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric logspace(dtype start, dtype stop, uint32 num, bool endPoint, double base)
+    {
+        return nc2pybind(nc::logspace(start, stop, num, endPoint, base));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    auto log10Scaler(dtype inValue) -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
     }
@@ -3610,6 +3751,22 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    template<typename dtype1, typename dtype2>
+    double nth_rootScaler(dtype1 inValue, dtype2 inRoot) 
+    {
+        return nth_root(inValue, inRoot);
+    }
+
+    //================================================================================
+
+    template<typename dtype1, typename dtype2>
+    pbArrayGeneric nth_rootArray(const NdArray<dtype1>& inArray, dtype2 inRoot)
+    {
+        return nc2pybind(nth_root(inArray, inRoot));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric onesSquare(uint32 inSquareSize)
     {
@@ -3638,6 +3795,75 @@ namespace FunctionsInterface
     pbArrayGeneric outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(nc::outer(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric select(std::vector<pbArray<bool>> condlist, 
+        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    {
+        std::vector<NdArray<bool>> condVec{};
+        std::vector<const NdArray<bool>*> condVecPtr{};
+        condVec.reserve(condlist.size());
+        condVecPtr.reserve(condlist.size());
+        for (auto& cond : condlist)
+        {
+            condVec.push_back(pybind2nc(cond));
+            condVecPtr.push_back(&condVec.back());
+        }
+
+        std::vector<NdArray<dtype>> choiceVec{};
+        std::vector<const NdArray<dtype>*> choiceVecPtr{};
+        choiceVec.reserve(choicelist.size());
+        choiceVecPtr.reserve(choicelist.size());
+        for (auto& choice : choicelist)
+        {
+            choiceVec.push_back(pybind2nc(choice));
+            choiceVecPtr.push_back(&choiceVec.back());
+        }
+
+        return nc2pybind(nc::select(condVecPtr, choiceVecPtr, defaultValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric selectVector(std::vector<pbArray<bool>> condlist, 
+        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    {
+        std::vector<NdArray<bool>> condVec{};
+        condVec.reserve(condlist.size());
+        for (auto& cond : condlist)
+        {
+            condVec.push_back(pybind2nc(cond));
+        }
+
+        std::vector<NdArray<dtype>> choiceVec{};
+        choiceVec.reserve(choicelist.size());
+        for (auto& choice : choicelist)
+        {
+            choiceVec.push_back(pybind2nc(choice));
+
+        }
+
+        return nc2pybind(nc::select(condVec, choiceVec, defaultValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric selectInitializerList(pbArray<bool> cond1, 
+        pbArray<bool> cond2, 
+        pbArray<bool> cond3,
+        pbArray<dtype> choice1,
+        pbArray<dtype> choice2,
+        pbArray<dtype> choice3,
+        dtype defaultValue)
+    {
+        return nc2pybind(nc::select({pybind2nc(cond1), pybind2nc(cond2), pybind2nc(cond3)},
+            {pybind2nc(choice1), pybind2nc(choice2), pybind2nc(choice3)}, 
+            defaultValue));
     }
 
     //================================================================================
@@ -3957,7 +4183,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinScaler(dtype inValue)  -> decltype(sin(inValue)) // trailing return type to help gcc
+    auto sinScaler(dtype inValue) -> decltype(sin(inValue)) // trailing return type to help gcc
     {
         return sin(inValue);
     }
@@ -3989,7 +4215,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinhScaler(dtype inValue)  -> decltype(sinh(inValue)) // trailing return type to help gcc
+    auto sinhScaler(dtype inValue) -> decltype(sinh(inValue)) // trailing return type to help gcc
     {
         return sinh(inValue);
     }
@@ -4005,7 +4231,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sqrtScaler(dtype inValue)  -> decltype(sqrt(inValue)) // trailing return type to help gcc
+    auto sqrtScaler(dtype inValue) -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
     }
@@ -4045,7 +4271,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanScaler(dtype inValue)  -> decltype(tan(inValue)) // trailing return type to help gcc
+    auto tanScaler(dtype inValue) -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
     }
@@ -4061,7 +4287,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanhScaler(dtype inValue)  -> decltype(tanh(inValue)) // trailing return type to help gcc
+    auto tanhScaler(dtype inValue) -> decltype(tanh(inValue)) // trailing return type to help gcc
     {
         return tanh(inValue);
     }
@@ -6806,6 +7032,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>);
 
+    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<double>);
+    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<double>);
+    m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<double>);
+
     m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScaler<uint32>);
     m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScalerReversed<uint32>);
     m.def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>);
@@ -7284,6 +7514,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("averageWeighted", &FunctionsInterface::averageWeighted<double>);
     m.def("averageWeighted", &FunctionsInterface::averageWeightedComplex<double>);
 
+    m.def("bartlett", &FunctionsInterface::bartlett);
     m.def("binaryRepr", &binaryRepr<uint64>);
     m.def("bincount", &FunctionsInterface::bincount<uint32>);
     m.def("bincountWeighted", &FunctionsInterface::bincountWeighted<uint32>);
@@ -7291,6 +7522,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("bitwise_not", &FunctionsInterface::bitwise_not<uint64>);
     m.def("bitwise_or", &FunctionsInterface::bitwise_or<uint64>);
     m.def("bitwise_xor", &FunctionsInterface::bitwise_xor<uint64>);
+    m.def("blackman", &FunctionsInterface::blackman);
     m.def("andOperatorArray", &FunctionsInterface::andOperatorArray<uint64>);
     m.def("andOperatorScaler", &FunctionsInterface::andOperatorScaler<uint64>);
     m.def("orOperatorArray", &FunctionsInterface::orOperatorArray<uint64>);
@@ -7319,6 +7551,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("copy", &FunctionsInterface::copy<double>);
     m.def("copysign", &FunctionsInterface::copySign<double>);
     m.def("copyto", &FunctionsInterface::copyto<double>);
+    m.def("corrcoef", &FunctionsInterface::corrcoef<double>);
     m.def("cosScaler", &FunctionsInterface::cosScaler<double>);
     m.def("cosScaler", &FunctionsInterface::cosScaler<ComplexDouble>);
     m.def("cosArray", &FunctionsInterface::cosArray<double>);
@@ -7329,6 +7562,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("coshArray", &FunctionsInterface::coshArray<ComplexDouble>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<ComplexDouble>);
+    m.def("cov", &FunctionsInterface::cov<double>);
+    m.def("cov_inv", &FunctionsInterface::cov_inv<double>);
     m.def("cross", &cross<double>);
     m.def("cross", &cross<ComplexDouble>);
     m.def("cube", &FunctionsInterface::cubeArray<double>);
@@ -7377,6 +7612,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("endianess", &endianess<double>);
     m.def("equal", &FunctionsInterface::equal<double>);
     m.def("equal", &FunctionsInterface::equal<ComplexDouble>);
+    m.def("extract", &FunctionsInterface::extract<double>);
     m.def("expScaler", &FunctionsInterface::expScaler<double>);
     m.def("expScaler", &FunctionsInterface::expScaler<ComplexDouble>);
     m.def("expArray", &FunctionsInterface::expArray<double>);
@@ -7417,8 +7653,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("fminScaler", &FunctionsInterface::fminScaler<ComplexDouble>);
     m.def("fminArray", &FunctionsInterface::fminArray<double>);
     m.def("fminArray", &FunctionsInterface::fminArray<ComplexDouble>);
-    m.def("fmodScaler", &FunctionsInterface::fmodScaler<uint32>);
-    m.def("fmodArray", &FunctionsInterface::fmodArray<uint32>);
+    m.def("fmodScalerInt", &FunctionsInterface::fmodScaler<uint32>);
+    m.def("fmodArrayInt", &FunctionsInterface::fmodArray<uint32>);
+    m.def("fmodScalerFloat", &FunctionsInterface::fmodScaler<double>);
+    m.def("fmodArrayFloat", &FunctionsInterface::fmodArray<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
     m.def("fromfile", &FunctionsInterface::fromfileBinary<double>);
@@ -7440,6 +7678,7 @@ PYBIND11_MODULE(NumCppPy, m)
 #ifndef NUMCPP_NO_USE_BOOST
     m.def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
 #endif
+    m.def("geomspace", &FunctionsInterface::geomspace<double>);
     m.def("greater", &greater<double>);
     m.def("greater", &greater<ComplexDouble>);
     m.def("greater_equal", &greater_equal<double>);
@@ -7447,6 +7686,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("gradient", &FunctionsInterface::gradient<double>);
     m.def("gradient", &FunctionsInterface::gradient<ComplexDouble>);
 
+    m.def("hamming", &FunctionsInterface::hamming);
+    m.def("hanning", &FunctionsInterface::hanning);
     m.def("histogram", &FunctionsInterface::histogram<double>);
     m.def("histogram", &FunctionsInterface::histogramWithEdges<double>);
     m.def("hstack", &FunctionsInterface::hstack<double>);
@@ -7458,14 +7699,23 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("identityComplex", &identity<ComplexDouble>);
     m.def("imagScaler", &FunctionsInterface::imagScaler<double>);
     m.def("imagArray", &FunctionsInterface::imagArray<double>);
+    m.def("inner", &FunctionsInterface::inner<double>);
     m.def("interp", &FunctionsInterface::interp<double>);
     m.def("intersect1d", &intersect1d<uint32>);
     m.def("invert", &invert<uint32>);
     m.def("isclose", &isclose<double>);
     m.def("isinfScaler", &FunctionsInterface::isinfScaler<double>);
     m.def("isinfArray", &FunctionsInterface::isinfArray<double>);
+    m.def("isposinfScaler", &FunctionsInterface::isposinfScaler<double>);
+    m.def("isposinfArray", &FunctionsInterface::isposinfArray<double>);
+    m.def("isneginfScaler", &FunctionsInterface::isneginfScaler<double>);
+    m.def("isneginfArray", &FunctionsInterface::isneginfArray<double>);
     m.def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
     m.def("isnanArray", &FunctionsInterface::isnanArray<double>);
+
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
+    m.def("kaiser", &FunctionsInterface::kaiser);
+#endif
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     m.def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
@@ -7486,6 +7736,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("logArray", &FunctionsInterface::logArray<double>);
     m.def("logScaler", &FunctionsInterface::logScaler<ComplexDouble>);
     m.def("logArray", &FunctionsInterface::logArray<ComplexDouble>);
+    m.def("logbScaler", &FunctionsInterface::logbScaler<double>);
+    m.def("logbArray", &FunctionsInterface::logbArray<double>);
+    m.def("logspace", &FunctionsInterface::logspace<double>);
     m.def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
     m.def("log10Array", &FunctionsInterface::log10Array<ComplexDouble>);
     m.def("log10Scaler", &FunctionsInterface::log10Scaler<ComplexDouble>);
@@ -7556,6 +7809,8 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("negative", &negative<ComplexDouble>);
     m.def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
     m.def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
+    m.def("nth_rootScaler", &FunctionsInterface::nth_rootScaler<double, double>);
+    m.def("nth_rootArray", &FunctionsInterface::nth_rootArray<double, double>);
     m.def("none", &FunctionsInterface::noneArray<double>);
     m.def("none", &FunctionsInterface::noneArray<ComplexDouble>);
     m.def("nonzero", &nonzero<double>);
@@ -7583,6 +7838,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("partition", &partition<double>);
     m.def("partition", &partition<ComplexDouble>);
     m.def("percentile", &percentile<double>);
+    m.def("place", &place<double>);
     m.def("polarScaler", &FunctionsInterface::polarScaler<double>);
     m.def("polarArray", &FunctionsInterface::polarArray<double>);
     m.def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
@@ -7640,6 +7896,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("roundArray", &FunctionsInterface::roundArray<double>);
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
 
+    m.def("select", &FunctionsInterface::select<double>);
+    m.def("selectVector", &FunctionsInterface::selectVector<double>);
+    m.def("select", &FunctionsInterface::selectInitializerList<double>);
     m.def("setdiff1d", &setdiff1d<uint32>);
     m.def("setdiff1d", &setdiff1d<std::complex<double>>);
     m.def("signScaler", &FunctionsInterface::signScaler<double>);

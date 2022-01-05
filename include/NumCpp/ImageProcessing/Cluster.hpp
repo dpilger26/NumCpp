@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -48,7 +48,7 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///						Holds the information for a cluster of pixels
+        /// Holds the information for a cluster of pixels
         template<typename dtype>
         class Cluster
         {
@@ -61,16 +61,15 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              default constructor needed by containers
+            /// default constructor needed by containers
             ///
             Cluster() = default;
 
             //=============================================================================
             // Description:
-            ///              constructor
+            /// constructor
             ///
-            /// @param
-            ///              inClusterId
+            /// @param inClusterId
             ///
             explicit Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
@@ -78,13 +77,11 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              equality operator
+            /// equality operator
             ///
-            /// @param
-            ///              rhs
+            /// @param rhs
             ///
-            /// @return
-            ///              bool
+            /// @return bool
             ///
             bool operator==(const Cluster<dtype>& rhs) const noexcept
             {
@@ -98,13 +95,11 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              not equality operator
+            /// not equality operator
             ///
-            /// @param
-            ///              rhs
+            /// @param rhs
             ///
-            /// @return
-            ///              bool
+            /// @return bool
             ///
             bool operator!=(const Cluster<dtype>& rhs) const noexcept
             {
@@ -113,13 +108,11 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              access operator, no bounds checking
+            /// access operator, no bounds checking
             ///
-            /// @param
-            ///              inIndex
+            /// @param inIndex
             ///
-            /// @return
-            ///              Pixel
+            /// @return Pixel
             ///
             const Pixel<dtype>& operator[](uint32 inIndex) const noexcept
             {
@@ -128,13 +121,11 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              access method with bounds checking
+            /// access method with bounds checking
             ///
-            /// @param
-            ///              inIndex
+            /// @param inIndex
             ///
-            /// @return
-            ///              Pixel
+            /// @return Pixel
             ///
             const Pixel<dtype>& at(uint32 inIndex) const
             {
@@ -147,10 +138,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns in iterator to the beginning pixel of the cluster
+            /// returns in iterator to the beginning pixel of the cluster
             ///
-            /// @return
-            ///              const_iterator
+            /// @return const_iterator
             ///
             const_iterator begin() const noexcept  
             {
@@ -159,10 +149,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns in iterator to the 1 past the end pixel of the cluster
+            /// returns in iterator to the 1 past the end pixel of the cluster
             ///
-            /// @return
-            ///              const_iterator
+            /// @return const_iterator
             ///
             const_iterator end() const noexcept 
             {
@@ -171,10 +160,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the number of pixels in the cluster
+            /// returns the number of pixels in the cluster
             ///
-            /// @return
-            ///              number of pixels in the cluster
+            /// @return number of pixels in the cluster
             ///
             uint32 size() const noexcept 
             {
@@ -183,10 +171,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the minimum row number of the cluster
+            /// returns the minimum row number of the cluster
             ///
-            /// @return
-            ///              minimum row number of the cluster
+            /// @return minimum row number of the cluster
             ///
             uint32 clusterId() const noexcept 
             {
@@ -195,10 +182,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the minimum row number of the cluster
+            /// returns the minimum row number of the cluster
             ///
-            /// @return
-            ///              minimum row number of the cluster
+            /// @return minimum row number of the cluster
             ///
             uint32 rowMin() const noexcept 
             {
@@ -207,10 +193,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the maximum row number of the cluster
+            /// returns the maximum row number of the cluster
             ///
-            /// @return
-            ///              maximum row number of the cluster
+            /// @return maximum row number of the cluster
             ///
             uint32 rowMax() const noexcept 
             {
@@ -219,10 +204,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the minimum column number of the cluster
+            /// returns the minimum column number of the cluster
             ///
-            /// @return
-            ///              minimum column number of the cluster
+            /// @return minimum column number of the cluster
             ///
             uint32 colMin() const noexcept 
             {
@@ -231,10 +215,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the maximum column number of the cluster
+            /// returns the maximum column number of the cluster
             ///
-            /// @return
-            ///              maximum column number of the cluster
+            /// @return maximum column number of the cluster
             ///
             uint32 colMax() const noexcept 
             {
@@ -243,10 +226,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the number of rows the cluster spans
+            /// returns the number of rows the cluster spans
             ///
-            /// @return
-            ///              number of rows
+            /// @return number of rows
             ///
             uint32 height() const noexcept 
             {
@@ -255,10 +237,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the number of columns the cluster spans
+            /// returns the number of columns the cluster spans
             ///
-            /// @return
-            ///              number of columns
+            /// @return number of columns
             ///
             uint32 width() const noexcept 
             {
@@ -267,10 +248,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the summed intensity of the cluster
+            /// returns the summed intensity of the cluster
             ///
-            /// @return
-            ///              summed cluster intensity
+            /// @return summed cluster intensity
             ///
             dtype intensity() const noexcept 
             {
@@ -279,10 +259,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the intensity of the peak pixel in the cluster
+            /// returns the intensity of the peak pixel in the cluster
             ///
-            /// @return
-            ///              peak pixel intensity
+            /// @return peak pixel intensity
             ///
             dtype peakPixelIntensity() const noexcept 
             {
@@ -291,10 +270,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns the cluster estimated energy on detector (EOD)
+            /// returns the cluster estimated energy on detector (EOD)
             ///
-            /// @return
-            ///              eod
+            /// @return eod
             ///
             double eod() const noexcept 
             {
@@ -303,10 +281,9 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              adds a pixel to the cluster
+            /// adds a pixel to the cluster
             ///
-            /// @param
-            ///              inPixel
+            /// @param inPixel
             ///
             void addPixel(const Pixel<dtype>& inPixel)
             {
@@ -326,16 +303,15 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              returns a string representation of the cluster
+            /// returns a string representation of the cluster
             ///
-            /// @return
-            ///              string
+            /// @return string
             ///
             std::string str() const
             {
                 std::string out;
                 uint32 counter = 0;
-                stl_algorithms::for_each(begin(), end(),
+                std::for_each(begin(), end(),
                     [&](const Pixel<dtype>& pixel)
                     {
                         out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str();
@@ -346,7 +322,7 @@ namespace nc
 
             //============================================================================
             /// Method Description:
-            ///						prints the Cluster object to the console
+            /// prints the Cluster object to the console
             ///
             void print() const
             {
@@ -355,12 +331,11 @@ namespace nc
 
             //=============================================================================
             // Description:
-            ///              osstream operator
+            /// osstream operator
             ///
-            /// @param               inStream
-            /// @param               inCluster
-            /// @return
-            ///              std::ostream
+            /// @param inStream
+            /// @param inCluster
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Cluster<dtype>& inCluster)
             {

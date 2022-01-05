@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -50,9 +50,9 @@ namespace nc
     namespace polynomial
     {
         //================================================================================
-        ///						A one-dimensional polynomial class.
-        ///                     A convenience class, used to encapsulate "natural"
-        ///                     operations on polynomials
+        /// A one-dimensional polynomial class.
+        /// A convenience class, used to encapsulate "natural"
+        /// operations on polynomials
         template<typename dtype>
         class Poly1d
         {
@@ -62,18 +62,18 @@ namespace nc
         public:
             //============================================================================
             // Method Description:
-            ///						Default Constructor (not very usefull, but needed for other
-            ///                     containers.
+            /// Default Constructor (not very usefull, but needed for other
+            /// containers.
             ///
             Poly1d() = default;
 
             //============================================================================
             // Method Description:
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inValues: (polynomial coefficients in ascending order of power if second input is false,
-            ///                        polynomial roots if second input is true)
-            /// @param      isRoots
+            /// @param inValues: (polynomial coefficients in ascending order of power if second input is false,
+            /// polynomial roots if second input is true)
+            /// @param isRoots
             ///
             Poly1d(const NdArray<dtype>& inValues, bool isRoots = false)
             {
@@ -102,7 +102,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Returns the area under the curve between the two bounds
+            /// Returns the area under the curve between the two bounds
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -121,7 +121,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Returns a copy of the polynomial of the new type
+            /// Returns a copy of the polynomial of the new type
             ///
             /// @return Poly1d
             ///
@@ -130,7 +130,7 @@ namespace nc
             {
                 auto newCoefficients = NdArray<dtypeOut>(1, static_cast<uint32>(coefficients_.size()));
 
-                const auto function = [](dtype value)  -> dtypeOut
+                const auto function = [](dtype value) -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
                 };
@@ -142,10 +142,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Returns the Poly1d coefficients
+            /// Returns the Poly1d coefficients
             ///
-            /// @return
-            ///				NdArray
+            /// @return NdArray
             ///
             NdArray<dtype> coefficients() const 
             {
@@ -155,7 +154,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Takes the derivative of the polynomial
+            /// Takes the derivative of the polynomial
             ///
             /// @return Poly1d
             Poly1d<dtype> deriv() const 
@@ -183,7 +182,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Polynomial linear least squares regression: Ax = b
+            /// Polynomial linear least squares regression: Ax = b
             ///
             /// @param xValues: the x measurements [1, n] or [n, 1] array
             /// @param yValues: the y measurements [n, 1] array
@@ -237,7 +236,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Polynomial linear least squares regression: Ax = b
+            /// Polynomial linear least squares regression: Ax = b
             ///
             /// @param xValues: the x measurements [1, n] or [n, 1] array
             /// @param yValues: the y measurements [n, 1] array
@@ -317,7 +316,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Calculates the integral of the polynomial
+            /// Calculates the integral of the polynomial
             ///
             /// @return Poly1d
             Poly1d<double> integ() const 
@@ -341,10 +340,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Returns the order of the Poly1d
+            /// Returns the order of the Poly1d
             ///
-            /// @return
-            ///				NdArray
+            /// @return NdArray
             ///
             uint32 order() const noexcept 
             {
@@ -353,8 +351,8 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Prints the string representation of the Poly1d object
-            ///                     to the console
+            /// Prints the string representation of the Poly1d object
+            /// to the console
             ///
             void print() const 
             {
@@ -363,10 +361,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Converts the polynomial to a string representation
+            /// Converts the polynomial to a string representation
             ///
-            /// @return
-            ///				Poly1d
+            /// @return Poly1d
             ///
             std::string str() const 
             {
@@ -417,12 +414,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Evaluates the Poly1D object for the input value
+            /// Evaluates the Poly1D object for the input value
             ///
-            /// @param
-            ///				inValue
-            /// @return
-            ///				Poly1d
+            /// @param inValue
+            /// @return Poly1d
             ///
             dtype operator()(dtype inValue) const noexcept 
             {
@@ -438,12 +433,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Adds the two Poly1d objects
+            /// Adds the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -452,12 +445,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Adds the two Poly1d objects
+            /// Adds the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -485,12 +476,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Subtracts the two Poly1d objects
+            /// Subtracts the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -499,12 +488,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Subtracts the two Poly1d objects
+            /// Subtracts the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -532,12 +519,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Multiplies the two Poly1d objects
+            /// Multiplies the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const 
             {
@@ -546,12 +531,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Multiplies the two Poly1d objects
+            /// Multiplies the two Poly1d objects
             ///
-            /// @param
-            ///				inOtherPoly
-            /// @return
-            ///				Poly1d
+            /// @param inOtherPoly
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly) 
             {
@@ -577,12 +560,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Raise the Poly1d to an integer power
+            /// Raise the Poly1d to an integer power
             ///
-            /// @param
-            ///				inPower
-            /// @return
-            ///				Poly1d
+            /// @param inPower
+            /// @return Poly1d
             ///
             Poly1d<dtype> operator^(uint32 inPower) const 
             {
@@ -591,12 +572,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						Raise the Poly1d to an integer power
+            /// Raise the Poly1d to an integer power
             ///
-            /// @param
-            ///				inPower
-            /// @return
-            ///				Poly1d
+            /// @param inPower
+            /// @return Poly1d
             ///
             Poly1d<dtype>& operator^=(uint32 inPower) 
             {
@@ -622,12 +601,11 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						io operator for the Poly1d class
+            /// io operator for the Poly1d class
             ///
-            /// @param      inOStream
-            /// @param      inPoly
-            /// @return
-            ///				std::ostream
+            /// @param inOStream
+            /// @param inPoly
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly) 
             {

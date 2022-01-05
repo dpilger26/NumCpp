@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,15 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis, while ignoring NaNs.
+    /// Compute the variance along the specified axis, while ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
     ///
-    /// @param			inArray
-    /// @param			inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

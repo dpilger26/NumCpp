@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,12 +43,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "extreme value" distrubution.
+        /// Single random value sampled from the "extreme value" distrubution.
         ///
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype extremeValue(dtype inA = 1, dtype inB = 1)
@@ -71,14 +70,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "extreme value" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "extreme value" distrubution.
         ///
-        /// @param				inShape
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)

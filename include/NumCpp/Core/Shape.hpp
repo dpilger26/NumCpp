@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,7 +36,7 @@
 namespace nc
 {
     //================================================================================
-    ///						A Shape Class for NdArrays
+    /// A Shape Class for NdArrays
     class Shape
     {
     public:
@@ -45,14 +45,14 @@ namespace nc
         uint32	cols{ 0 };
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         constexpr Shape() = default;
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inSquareSize
+        /// @param inSquareSize
         ///
         constexpr explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
@@ -60,10 +60,10 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inRows
-        /// @param      inCols
+        /// @param inRows
+        /// @param inCols
         ///
         constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
@@ -71,11 +71,11 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Equality operator
+        /// Equality operator
         ///
-        /// @param      inOtherShape
+        /// @param inOtherShape
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator==(const Shape& inOtherShape) const noexcept
         {
@@ -83,11 +83,11 @@ namespace nc
         }
 
         //============================================================================
-        ///						Not equality operator
+        /// Not equality operator
         ///
-        /// @param      inOtherShape
+        /// @param inOtherShape
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator!=(const Shape& inOtherShape) const noexcept
         {
@@ -95,9 +95,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the size of the shape
+        /// Returns the size of the shape
         ///
-        /// @return     size
+        /// @return size
         ///
         uint32 size() const noexcept
         {
@@ -105,10 +105,10 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns whether the shape is null (constructed with the
-        ///						default constructor).
+        /// Returns whether the shape is null (constructed with the
+        /// default constructor).
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool isnull() const noexcept
         {
@@ -116,9 +116,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns whether the shape is square or not.
+        /// Returns whether the shape is square or not.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool issquare() const noexcept
         {
@@ -126,9 +126,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the shape as a string representation
+        /// Returns the shape as a string representation
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         std::string str() const 
         {
@@ -137,7 +137,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
         void print() const 
         {
@@ -145,12 +145,12 @@ namespace nc
         }
 
         //============================================================================
-        ///						IO operator for the Shape class
+        /// IO operator for the Shape class
         ///
-        /// @param      inOStream
-        /// @param      inShape
+        /// @param inOStream
+        /// @param inShape
         ///
-        /// @return     std::ostream
+        /// @return std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) 
         {

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,13 +35,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
     ///
-    /// @param			inArray1
-    /// @param			inArray2
-    /// @return         NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
@@ -51,16 +51,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///						For 2-D arrays it is equivalent to matrix multiplication,
-    ///						and for 1-D arrays to inner product of vectors.
+    /// For 2-D arrays it is equivalent to matrix multiplication,
+    /// and for 1-D arrays to inner product of vectors.
     ///
-    ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
+    /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
     ///
-    /// @param			inArray1
-    /// @param			inArray2
-    /// @return         NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> dot(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
@@ -105,16 +105,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Dot product of two arrays.
+    /// Dot product of two arrays.
     ///
-    ///						For 2-D arrays it is equivalent to matrix multiplication,
-    ///						and for 1-D arrays to inner product of vectors.
+    /// For 2-D arrays it is equivalent to matrix multiplication,
+    /// and for 1-D arrays to inner product of vectors.
     ///
-    ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
+    /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
     ///
-    /// @param			inArray1
-    /// @param			inArray2
-    /// @return         NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> dot(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)

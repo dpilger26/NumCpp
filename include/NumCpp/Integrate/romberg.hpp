@@ -4,7 +4,7 @@
 ///
 /// License
 /// Copyright 2019 Benjamin Mahr
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,14 +44,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Performs Newton-Cotes Romberg integration of the input function
+        /// Performs Newton-Cotes Romberg integration of the input function
         ///
-        /// @param				low: the lower bound of the integration
-        /// @param              high: the upper bound of the integration
-        /// @param				n: the number of iterations
-        /// @param              f: the function to integrate over
+        /// @param low: the lower bound of the integration
+        /// @param high: the upper bound of the integration
+        /// @param n: the number of iterations
+        /// @param f: the function to integrate over
         ///
-        /// @return             double
+        /// @return double
         ///
         inline double romberg(const double low, const double high, const uint8 n,
             const std::function<double(double)>& f)

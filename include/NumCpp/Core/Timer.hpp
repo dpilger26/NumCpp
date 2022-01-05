@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,7 +38,7 @@
 namespace nc
 {
     //================================================================================
-    ///						A timer class for timing code execution
+    /// A timer class for timing code execution
     template<typename TimeUnit = std::chrono::milliseconds>
     class Timer
     {
@@ -49,7 +49,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
         Timer() :
             start_(ChronoClock::now())
@@ -59,9 +59,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inName
+        /// @param inName
         ///
         explicit Timer(const std::string& inName)  :
             name_(inName + " "),
@@ -72,9 +72,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sets/changes the timer name
+        /// Sets/changes the timer name
         ///
-        /// @param      inName
+        /// @param inName
         ///
         void setName(const std::string& inName) 
         {
@@ -83,7 +83,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sleeps the current thread
+        /// Sleeps the current thread
         ///
         /// @param length: the length of time to sleep
         ///
@@ -94,7 +94,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Starts the timer
+        /// Starts the timer
         ///
         void tic() noexcept 
         {
@@ -103,11 +103,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Stops the timer
+        /// Stops the timer
         ///
-        /// @param      printElapsedTime: bool whether or not to print the elapsed time to 
-        ///             the console
-        /// @return     ellapsed time in specified time units
+        /// @param printElapsedTime: bool whether or not to print the elapsed time to 
+        /// the console
+        /// @return ellapsed time in specified time units
         ///
         uint64 toc(bool printElapsedTime = true) 
         {

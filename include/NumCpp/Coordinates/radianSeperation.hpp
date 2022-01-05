@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,12 +35,12 @@ namespace nc
     namespace coordinates
     {
         //============================================================================
-        ///						Returns the radian seperation between the two Coordinates
+        /// Returns the radian seperation between the two Coordinates
         ///
-        /// @param				inCoordinate1
-        /// @param              inCoordinate2
+        /// @param inCoordinate1
+        /// @param inCoordinate2
         ///
-        /// @return             radians
+        /// @return radians
         ///
         inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) 
         {
@@ -48,13 +48,13 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the radian seperation between the Coordinate
-        ///                     and the input vector
+        /// Returns the radian seperation between the Coordinate
+        /// and the input vector
         ///
-        /// @param				inVector1
-        /// @param              inVector2
+        /// @param inVector1
+        /// @param inVector2
         ///
-        /// @return             radians
+        /// @return radians
         ///
         inline double radianSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
         {

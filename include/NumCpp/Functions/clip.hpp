@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,15 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Clip (limit) the value.
+    /// Clip (limit) the value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
-    /// @param				inValue
-    /// @param				inMinValue
-    /// @param				inMaxValue
-    /// @return
-    ///				NdArray
+    /// @param inValue
+    /// @param inMinValue
+    /// @param inMaxValue
+    /// @return NdArray
     ///
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
@@ -77,15 +76,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Clip (limit) the values in an array.
+    /// Clip (limit) the values in an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
-    /// @param				inArray
-    /// @param				inMinValue
-    /// @param				inMaxValue
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inMinValue
+    /// @param inMaxValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 

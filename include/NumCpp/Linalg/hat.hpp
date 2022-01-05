@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,13 +40,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						vector hat operator
+        /// vector hat operator
         ///
-        /// @param			inX
-        /// @param			inY
-        /// @param			inZ
-        /// @return
-        ///				3x3 NdArray
+        /// @param inX
+        /// @param inY
+        /// @param inZ
+        /// @return 3x3 NdArray
         ///
         template<typename dtype>
         NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) 
@@ -69,12 +68,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						vector hat operator
+        /// vector hat operator
         ///
-        /// @param
-        ///				inVec (3x1, or 1x3 cartesian vector)
-        /// @return
-        ///				3x3 NdArray
+        /// @param inVec (3x1, or 1x3 cartesian vector)
+        /// @return 3x3 NdArray
         ///
         template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec)
@@ -91,12 +88,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						vector hat operator
+        /// vector hat operator
         ///
-        /// @param
-        ///				inVec
-        /// @return
-        ///				3x3 NdArray
+        /// @param inVec
+        /// @return 3x3 NdArray
         ///
         inline NdArray<double> hat(const Vec3& inVec) 
         {

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,21 +39,20 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Count number of occurrences of each value in array of non-negative ints.
-    ///						Negative values will be counted in the zero bin.
+    /// Count number of occurrences of each value in array of non-negative ints.
+    /// Negative values will be counted in the zero bin.
     ///
-    ///						The number of bins(of size 1) is one larger than the largest value in x.
-    ///						If minlength is specified, there will be at least this number of bins in
-    ///						the output array(though it will be longer if necessary, depending on the
-    ///						contents of x).Each bin gives the number of occurrences of its index value
-    ///						in x.
+    /// The number of bins(of size 1) is one larger than the largest value in x.
+    /// If minlength is specified, there will be at least this number of bins in
+    /// the output array(though it will be longer if necessary, depending on the
+    /// contents of x).Each bin gives the number of occurrences of its index value
+    /// in x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
     ///
-    /// @param				inArray
-    /// @param				inMinLength
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inMinLength
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 1)
@@ -88,24 +87,23 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Count number of occurrences of each value in array of non-negative ints.
-    ///						Negative values will be counted in the zero bin.
+    /// Count number of occurrences of each value in array of non-negative ints.
+    /// Negative values will be counted in the zero bin.
     ///
-    ///						The number of bins(of size 1) is one larger than the largest value in x.
-    ///						If minlength is specified, there will be at least this number of bins in
-    ///						the output array(though it will be longer if necessary, depending on the
-    ///						contents of x).Each bin gives the number of occurrences of its index value
-    ///						in x.If weights is specified the input array is weighted by it, i.e. if a
-    ///						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
-    ///						Weights array shall be of the same shape as inArray.
+    /// The number of bins(of size 1) is one larger than the largest value in x.
+    /// If minlength is specified, there will be at least this number of bins in
+    /// the output array(though it will be longer if necessary, depending on the
+    /// contents of x).Each bin gives the number of occurrences of its index value
+    /// in x.If weights is specified the input array is weighted by it, i.e. if a
+    /// value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
+    /// Weights array shall be of the same shape as inArray.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param				inMinLength
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inMinLength
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 1)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,14 +44,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the average along the specified axis.
+    /// Compute the average along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     auto average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -61,15 +60,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the weighted average along the specified axis.
+    /// Compute the weighted average along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param  			inAxis (Optional, default NONE)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
@@ -150,15 +148,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the weighted average along the specified axis.
+    /// Compute the weighted average along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
     ///
-    /// @param				inArray
-    /// @param				inWeights
-    /// @param  			inAxis (Optional, default NONE)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inWeights
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> average(const NdArray<std::complex<dtype>>& inArray, 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,15 +33,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute bit-wise inversion, or bit-wise NOT, element-wise.
+    /// Compute bit-wise inversion, or bit-wise NOT, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> invert(const NdArray<dtype>& inArray) 

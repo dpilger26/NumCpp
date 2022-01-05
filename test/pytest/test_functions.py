@@ -11,13 +11,14 @@ import NumCppPy as NumCpp  # noqa E402
 
 ####################################################################################
 def factors(n):
+    """docstring"""
     return set(reduce(list.__add__,
                       ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
 
 
 ####################################################################################
 def test_seed():
-    np.random.seed(1)
+    np.random.seed(777)
 
 
 ####################################################################################
@@ -1285,6 +1286,13 @@ def test_averageWeighted():
 
 
 ####################################################################################
+def test_bartlett():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.bartlett(m), 9).flatten(),
+                          np.round(np.bartlett(m), 9))
+
+
+####################################################################################
 def test_binaryRepr():
     value = np.random.randint(0, np.iinfo(np.uint64).max, [1, ], dtype=np.uint64).item()
     assert NumCpp.binaryRepr(np.uint64(value)) == np.binary_repr(value, np.iinfo(np.uint64).bits)
@@ -1379,6 +1387,13 @@ def test_bitwise_xor():
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     assert np.array_equal(NumCpp.bitwise_xor(cArray1, cArray2), np.bitwise_xor(data1, data2))
+
+
+####################################################################################
+def test_blackman():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.blackman(m), 9).flatten(),
+                          np.round(np.blackman(m), 9))
 
 
 ####################################################################################
@@ -1711,6 +1726,14 @@ def test_copyto():
 
 
 ####################################################################################
+def test_corrcoef():
+    shape = np.random.randint(10, 50, [2, ])
+    a = np.random.randint(0, 100, shape)
+    assert np.array_equal(np.round(NumCpp.corrcoef(a), 9),
+                          np.round(np.corrcoef(a), 9))
+
+
+####################################################################################
 def test_cos():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9)
@@ -1807,6 +1830,25 @@ def test_count_nonzero():
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.count_nonzero(cArray, NumCpp.Axis.COL).flatten(), np.count_nonzero(data, axis=1))
+
+
+####################################################################################
+def test_cov():
+    shape = np.random.randint(10, 50, [2, ])
+    a = np.random.randint(0, 100, shape)
+    assert np.array_equal(np.round(NumCpp.cov(a, False), 9),
+                          np.round(np.cov(a, bias=False), 9))
+    assert np.array_equal(np.round(NumCpp.cov(a, True), 9),
+                          np.round(np.cov(a, bias=True), 9))
+
+
+####################################################################################
+def test_cov_inv():
+    a = np.random.randint(0, 100, [5, 8])
+    assert np.array_equal(np.round(NumCpp.cov_inv(a, False), 9),
+                          np.round(np.linalg.inv(np.cov(a, bias=False)), 9))
+    assert np.array_equal(np.round(NumCpp.cov_inv(a, True), 9),
+                          np.round(np.linalg.inv(np.cov(a, bias=True)), 9))
 
 
 ####################################################################################
@@ -2602,6 +2644,16 @@ def test_equal():
 
 
 ####################################################################################
+def test_extract():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    mask = np.random.randint(0, 2, [shape.rows, shape.cols]).astype(bool)
+    assert np.array_equal(NumCpp.extract(mask, data).flatten(),
+                          np.extract(mask, data))
+
+
+####################################################################################
 def test_exp2():
     value = np.abs(np.random.rand(1).item())
     assert np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9)
@@ -2741,7 +2793,7 @@ def test_findN():
 
 
 ####################################################################################
-def fix():
+def test_fix():
     value = np.random.randn(1).item() * 100
     assert NumCpp.fixScaler(value) == np.fix(value)
 
@@ -2872,7 +2924,7 @@ def test_fmin():
 def test_fmod():
     value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
-    assert NumCpp.fmodScaler(value1, value2) == np.fmod(value1, value2)
+    assert NumCpp.fmodScalerInt(value1, value2) == np.fmod(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2882,7 +2934,21 @@ def test_fmod():
     data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32) * 100 + 1000
     cArray1.setArray(data1)
     cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.fmodArray(cArray1, cArray2), np.fmod(data1, data2))
+    assert np.array_equal(NumCpp.fmodArrayInt(cArray1, cArray2), np.fmod(data1, data2))
+
+    value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
+    value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
+    assert NumCpp.fmodScalerFloat(value1, value2) == np.fmod(value1, value2)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    assert np.array_equal(NumCpp.fmodArrayFloat(cArray1, cArray2), np.fmod(data1, data2))
 
 
 ####################################################################################
@@ -3068,6 +3134,17 @@ def test_gcd():
 
 
 ####################################################################################
+def test_geomspace():
+    start = np.random.randint(0, 100)
+    stop = np.random.randint(start + 1, 3 * start)
+    num = np.random.randint(1, 100)
+    assert np.array_equal(np.round(NumCpp.geomspace(start, stop, num, True).flatten(), 9),
+                          np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=True), 9))
+    assert np.array_equal(np.round(NumCpp.geomspace(start, stop, num, False).flatten(), 9),
+                          np.round(np.geomspace(start=start, stop=stop, num=num, endpoint=False), 9))
+
+
+####################################################################################
 def test_gradient():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3179,6 +3256,20 @@ def test_greater_equal():
 
 
 ####################################################################################
+def test_hamming():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.hamming(m), 9).flatten(),
+                          np.round(np.hamming(m), 9))
+
+
+####################################################################################
+def test_hanning():
+    m = np.random.randint(2, 100)
+    assert np.array_equal(np.round(NumCpp.hanning(m), 9).flatten(),
+                          np.round(np.hanning(m), 9))
+
+
+####################################################################################
 def test_histogram():
     shape = NumCpp.Shape(1024, 1024)
     cArray = NumCpp.NdArray(shape)
@@ -3274,6 +3365,14 @@ def test_imag():
 
 
 ####################################################################################
+def test_inner():
+    arraySize = np.random.randint(10, 100)
+    a = np.random.randint(0, 100, [arraySize, ])
+    b = np.random.randint(0, 100, [arraySize, ])
+    assert NumCpp.inner(a, b) == np.inner(a, b)
+
+
+####################################################################################
 def test_interp():
     endPoint = np.random.randint(10, 20, [1, ]).item()
     numPoints = np.random.randint(50, 100, [1, ]).item()
@@ -3349,7 +3448,10 @@ def test_isclose():
 ####################################################################################
 def test_isinf():
     value = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.isinfScaler(value) == np.isinf(value)
+    assert not NumCpp.isinfScaler(value)
+
+    assert NumCpp.isinfScaler(np.inf)
+    assert NumCpp.isinfScaler(-np.inf)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3358,6 +3460,42 @@ def test_isinf():
     data[data > 1000] = np.inf
     cArray.setArray(data)
     assert np.array_equal(NumCpp.isinfArray(cArray), np.isinf(data))
+
+
+####################################################################################
+def test_isposinf():
+    value = np.random.randn(1).item() * 100 + 1000
+    assert not NumCpp.isposinfScaler(value)
+
+    assert NumCpp.isposinfScaler(np.inf)
+    assert not NumCpp.isposinfScaler(-np.inf)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > np.percentile(data, 75)] = np.inf
+    data[data < np.percentile(data, 25)] = -np.inf
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.isposinfArray(cArray), np.isposinf(data))
+
+
+####################################################################################
+def test_isneginf():
+    value = np.random.randn(1).item() * 100 + 1000
+    assert not NumCpp.isneginfScaler(value)
+
+    assert not NumCpp.isneginfScaler(np.inf)
+    assert NumCpp.isneginfScaler(-np.inf)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > np.percentile(data, 75)] = np.inf
+    data[data < np.percentile(data, 25)] = -np.inf
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.isneginfArray(cArray), np.isneginf(data))
 
 
 ####################################################################################
@@ -3372,6 +3510,15 @@ def test_isnan():
     data[data > 1000] = np.nan
     cArray.setArray(data)
     assert np.array_equal(NumCpp.isnanArray(cArray), np.isnan(data))
+
+
+####################################################################################
+def test_kaiser():
+    if NumCpp.STL_SPECIAL_FUNCTIONS or not NumCpp.NUMCPP_NO_USE_BOOST:
+        m = np.random.randint(2, 100)
+        beta = np.random.rand(1).item()
+        assert np.array_equal(np.round(NumCpp.kaiser(m, beta), 9).flatten(),
+                            np.round(np.kaiser(m, beta), 9))
 
 
 ####################################################################################
@@ -3529,6 +3676,32 @@ def test_log():
     data = np.random.rand(shape.rows, shape.cols) + 1j * np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     assert np.array_equal(np.round(NumCpp.logArray(cArray), 9), np.round(np.log(data), 9))
+
+
+####################################################################################
+def test_logb():
+    value = np.random.randn(1).item() * 100 + 1000
+    base = np.random.randn(1).item() * 2 + 10
+    assert np.round(NumCpp.logbScaler(value, base), 9) == np.round(np.log(value) / np.log(base), 9)
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray.setArray(data)
+    assert np.array_equal(np.round(NumCpp.logbArray(cArray, base), 9), np.round(np.log(data) / np.log(base), 9))
+
+
+####################################################################################
+def test_logspace():
+    start = np.random.randint(0, 10)
+    stop = np.random.randint(start + 1, 3 * start + 2)
+    num = np.random.randint(1, 100)
+    base = np.random.rand(1) * 10
+    assert np.array_equal(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 9),
+                          np.round(np.logspace(start=start, stop=stop, num=num, endpoint=True, base=base), 9))
+    assert np.array_equal(np.round(NumCpp.logspace(start, stop, num, False, base).flatten(), 9),
+                          np.round(np.logspace(start=start, stop=stop, num=num, endpoint=False, base=base), 9))
 
 
 ####################################################################################
@@ -4828,6 +5001,18 @@ def test_newbyteorderArray():
 
 
 ####################################################################################
+def test_nth_root():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    cArray.setArray(data)
+    root = np.random.rand(1).item() * 10
+    assert np.array_equal(np.round(NumCpp.nth_rootArray(cArray, root), 9),
+                          np.round(np.power(data, 1 / root), 9))
+
+
+####################################################################################
 def test_none():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -5330,6 +5515,29 @@ def test_percentile():
                                                      NumCpp.Axis.COL,
                                                      'linear').getNumpyArray().flatten(), 9),
                           np.round(np.percentile(data, percentile, axis=1, interpolation='linear'), 9))
+
+
+####################################################################################
+def test_place():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    cMask = NumCpp.NdArrayBool(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    mask = np.random.randint(0, 2, [shape.rows, shape.cols]).astype(bool)
+    cArray.setArray(data)
+    cMask.setArray(mask)
+    replaceValues = np.random.randint(0, 100, [shape.size() // 2, ])
+    cReplaceValues = NumCpp.NdArray(1, replaceValues.size)
+    cReplaceValues.setArray(replaceValues)
+
+    assert np.array_equal(cArray.getNumpyArray(), data)
+
+    NumCpp.place(cArray, cMask, cReplaceValues)
+    assert not np.array_equal(cArray.getNumpyArray(), data)
+
+    np.place(data, mask, replaceValues)
+    assert np.array_equal(cArray.getNumpyArray(), data)
 
 
 ####################################################################################
@@ -5921,6 +6129,54 @@ def test_row_stack():
 
 
 ####################################################################################
+def test_select():
+    # vector of pointers
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = np.random.randint(1, 10)
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.select(condlist, choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+    # vector of arrays
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = np.random.randint(1, 10)
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.selectVector(condlist, choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+    # initializer list
+    shape = np.random.randint(10, 100, [2, ])
+    numChoices = 3
+    default = np.random.randint(100)
+
+    condlist = []
+    choicelist = []
+    for i in range(numChoices):
+        values = np.random.rand(*shape)
+        condlist.append(values > np.percentile(values, 75))
+        choicelist.append(np.random.randint(0, 100, shape).astype(float))
+
+    assert np.array_equal(NumCpp.select(*condlist, *choicelist, default),
+                          np.select(condlist, choicelist, default))
+
+
+####################################################################################
 def test_setdiff1d():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6389,7 +6645,7 @@ def test_subtract():
 
 
 ####################################################################################
-def test_sumo():
+def test_sum():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,15 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Test for NaN and return result as a boolean.
+    /// Test for NaN and return result as a boolean.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
-    /// @param
-    ///				inValue
+    /// @param inValue
     ///
-    /// @return
-    ///				bool
+    /// @return bool
     ///
     template<typename dtype>
     bool isnan(dtype inValue) noexcept
@@ -62,15 +60,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Test element-wise for NaN and return result as a boolean array.
+    /// Test element-wise for NaN and return result as a boolean array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray) 

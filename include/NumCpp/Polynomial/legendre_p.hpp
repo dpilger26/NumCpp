@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -46,14 +46,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind.
+        /// Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      x: the input value. Requires -1 <= x <= 1
-        /// @return
-        ///				double
+        /// @param n: the degree of the legendre polynomial
+        /// @param x: the input value. Requires -1 <= x <= 1
+        /// @return double
         ///
         template<typename dtype>
         double legendre_p(uint32 n, dtype x)
@@ -74,15 +73,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind.
+        /// Associated Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      m: the order of the legendre polynomial
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      x: the input value. Requires -1 <= x <= 1
-        /// @return
-        ///				double
+        /// @param m: the order of the legendre polynomial
+        /// @param n: the degree of the legendre polynomial
+        /// @param x: the input value. Requires -1 <= x <= 1
+        /// @return double
         ///
         template<typename dtype>
         double legendre_p(uint32 m, uint32 n, dtype x)
@@ -133,14 +131,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Legendre Polynomial of the first kind.
+        /// Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
-        /// @return
-        ///				NdArray<double>
+        /// @param n: the degree of the legendre polynomial
+        /// @param inArrayX: the input value. Requires -1 <= x <= 1
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX) 
@@ -159,15 +156,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the first kind.
+        /// Associated Legendre Polynomial of the first kind.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      m: the order of the legendre polynomial
-        /// @param      n: the degree of the legendre polynomial
-        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
-        /// @return
-        ///				NdArray<double>
+        /// @param m: the order of the legendre polynomial
+        /// @param n: the degree of the legendre polynomial
+        /// @param inArrayX: the input value. Requires -1 <= x <= 1
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX) 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,10 +43,9 @@ namespace nc
         // Method Description:
         /// Returns the number of permutaions of n choose r. P(n, r)
         ///
-        /// @param  n: the total number of items
-        /// @param  r: the number of items taken
-        /// @return
-        ///				double
+        /// @param n: the total number of items
+        /// @param r: the number of items taken
+        /// @return double
         ///
         inline double pnr(uint32 n, uint32 r)
         {

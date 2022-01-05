@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,14 +41,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	The second linearly independent solution to the differential equation y'' - yz = 0.
+        /// The second linearly independent solution to the differential equation y'' - yz = 0.
         /// http://mathworld.wolfram.com/AiryFunctions.html
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inValue
-        /// @return
-        ///				calculated-result-type 
+        /// @param inValue
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto airy_bi(dtype inValue)
@@ -60,14 +58,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The second linearly independent solution to the differential equation y'' - yz = 0.
+        /// The second linearly independent solution to the differential equation y'' - yz = 0.
         /// http://mathworld.wolfram.com/AiryFunctions.html
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto airy_bi(const NdArray<dtype>& inArray)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,7 +37,7 @@ namespace nc
     {
         //============================================================================
         // Function Description:
-        ///	Determines the endianess of the system
+        /// Determines the endianess of the system
         ///
         /// @return bool true if the system is little endian
         ///
@@ -54,9 +54,9 @@ namespace nc
 
         //============================================================================
         // Function Description:
-        ///	Swaps the bytes of the input value
+        /// Swaps the bytes of the input value
         ///
-        /// @param	value
+        /// @param value
         /// @return byte swapped value
         ///
         template <typename dtype>

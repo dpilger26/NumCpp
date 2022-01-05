@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,11 +35,11 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	Less than operator for std::complex<T>
+    /// Less than operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs < rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs < rhs
     ///
     template<typename T>
     bool operator<(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -54,11 +54,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Less than or equal operator for std::complex<T>
+    /// Less than or equal operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs <= rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs <= rhs
     ///
     template<typename T>
     bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -73,11 +73,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than operator for std::complex<T>
+    /// Greater than operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs > rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs > rhs
     ///
     template<typename T>
     bool operator>(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -87,11 +87,11 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than or equal operator for std::complex<T>
+    /// Greater than or equal operator for std::complex<T>
     ///
-    /// @param      lhs
-    /// @param      rhs
-    /// @return     bool true if lhs >= rhs
+    /// @param lhs
+    /// @param rhs
+    /// @return bool true if lhs >= rhs
     ///
     template<typename T>
     bool operator>=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
@@ -101,10 +101,10 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Greater than or equal operator for std::complex<T>
+    /// Greater than or equal operator for std::complex<T>
     ///
-    /// @param      value
-    /// @return     std::complex<Out>
+    /// @param value
+    /// @return std::complex<Out>
     ///
     template<typename Out, typename In>
     std::complex<Out> complex_cast(const std::complex<In>& value)  noexcept

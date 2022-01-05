@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,17 +38,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Append values to the end of an array.
+    /// Append values to the end of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
     ///
-    /// @param				inArray
-    /// @param				inAppendValues
-    /// @param				inAxis (Optional, default NONE): The axis along which values are appended.
-    ///									If axis is not given, both inArray and inAppendValues
-    ///									are flattened before use.
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inAppendValues
+    /// @param inAxis (Optional, default NONE): The axis along which values are appended.
+    /// If axis is not given, both inArray and inAppendValues
+    /// are flattened before use.
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)

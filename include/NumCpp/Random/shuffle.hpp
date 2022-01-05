@@ -4,7 +4,7 @@
 /// @version 1.1
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,10 +39,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Modify a sequence in-place by shuffling its contents.
+        /// Modify a sequence in-place by shuffling its contents.
         ///
-        /// @param
-        ///				inArray
+        /// @param inArray
         ///
         template<typename dtype>
         void shuffle(NdArray<dtype>& inArray) 

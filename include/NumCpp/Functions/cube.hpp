@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,12 +36,10 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Cubes the input
+    /// Cubes the input
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				cubed value
+    /// @param inValue
+    /// @return cubed value
     ///
     template<typename dtype>
     constexpr dtype cube(dtype inValue) noexcept
@@ -53,12 +51,10 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Cubes the elements of the array
+    /// Cubes the elements of the array
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> cube(const NdArray<dtype>& inArray) 

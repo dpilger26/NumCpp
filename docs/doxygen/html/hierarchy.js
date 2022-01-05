@@ -13,6 +13,7 @@ var hierarchy =
     [ "nc::DtypeInfo< dtype >", "classnc_1_1_dtype_info.html", null ],
     [ "nc::DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", null ],
     [ "nc::filesystem::File", "classnc_1_1filesystem_1_1_file.html", null ],
+    [ "nc::greaterThan< Value1, Value2 >", "structnc_1_1greater_than.html", null ],
     [ "nc::imageProcessing::Centroid< dtype >", "classnc_1_1image_processing_1_1_centroid.html", null ],
     [ "nc::imageProcessing::Cluster< dtype >", "classnc_1_1image_processing_1_1_cluster.html", null ],
     [ "nc::imageProcessing::ClusterMaker< dtype >", "classnc_1_1image_processing_1_1_cluster_maker.html", null ],
@@ -43,5 +44,7 @@ var hierarchy =
     [ "nc::Slice", "classnc_1_1_slice.html", null ],
     [ "nc::Timer< TimeUnit >", "classnc_1_1_timer.html", null ],
     [ "nc::Vec2", "classnc_1_1_vec2.html", null ],
-    [ "nc::Vec3", "classnc_1_1_vec3.html", null ]
+    [ "nc::Vec3", "classnc_1_1_vec3.html", null ],
+    [ "nc::NdArray< bool >", "classnc_1_1_nd_array.html", null ],
+    [ "nc::NdArray< double >", "classnc_1_1_nd_array.html", null ]
 ];

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,11 +42,10 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Chooses a random sample from an input array.
+        /// Chooses a random sample from an input array.
         ///
-        /// @param      inArray
-        /// @return
-        ///				NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype choice(const NdArray<dtype>& inArray)
@@ -57,13 +56,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Chooses inNum random samples from an input array.
+        /// Chooses inNum random samples from an input array.
         ///
-        /// @param      inArray
-        /// @param      inNum
-        /// @param      replace: Whether the sample is with or without replacement
-        /// @return
-        ///				NdArray
+        /// @param inArray
+        /// @param inNum
+        /// @param replace: Whether the sample is with or without replacement
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)

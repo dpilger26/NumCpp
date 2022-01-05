@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,17 +42,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the histogram of a set of data.
+    /// Compute the histogram of a set of data.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inBinEdges: monotonically increasing array of bin edges, including the
-    ///                                 rightmost edge, allowing for non-uniform bin widths.
+    /// @param inArray
+    /// @param inBinEdges: monotonically increasing array of bin edges, including the
+    /// rightmost edge, allowing for non-uniform bin widths.
     ///
-    /// @return
-    ///				array of histogram counts
+    /// @return array of histogram counts
     ///
     template<typename dtype>
     NdArray<uint32> histogram(const NdArray<dtype>& inArray, const NdArray<double>& inBinEdges)
@@ -111,16 +110,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the histogram of a set of data.
+    /// Compute the histogram of a set of data.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inNumBins( default 10)
+    /// @param inArray
+    /// @param inNumBins( default 10)
     ///
-    /// @return
-    ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
+    /// @return std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)

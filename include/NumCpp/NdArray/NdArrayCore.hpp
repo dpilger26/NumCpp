@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -66,7 +66,7 @@ namespace nc
 {
     //================================================================================
     // Class Description:
-    ///	Holds 1D and 2D arrays, the main work horse of the NumCpp library
+    /// Holds 1D and 2D arrays, the main work horse of the NumCpp library
     template<typename dtype, class Allocator = std::allocator<dtype>>
     class NdArray
     {
@@ -99,16 +99,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Defualt Constructor, not very usefull...
+        /// Defualt Constructor, not very usefull...
         ///
         NdArray() = default;
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param
-        ///				inSquareSize: square number of rows and columns
+        /// @param inSquareSize: square number of rows and columns
         ///
         explicit NdArray(size_type inSquareSize) :
             shape_(inSquareSize, inSquareSize),
@@ -119,10 +118,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param				inNumRows
-        /// @param				inNumCols
+        /// @param inNumRows
+        /// @param inNumCols
         ///
         NdArray(size_type inNumRows, size_type inNumCols) :
             shape_(inNumRows, inNumCols),
@@ -133,10 +132,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param
-        ///				inShape
+        /// @param inShape
         ///
         explicit NdArray(const Shape& inShape) :
             shape_(inShape),
@@ -147,12 +145,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param
-        ///				inList
+        /// @param inList
         ///
-        NdArray(const std::initializer_list<dtype>& inList) :
+        NdArray(std::initializer_list<dtype> inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size())
         {
@@ -165,10 +162,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param
-        ///				inList: 2D initializer list
+        /// @param inList: 2D initializer list
         ///
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
@@ -198,11 +194,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inArray
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
+        /// @param inArray
+        /// @param copy: (optional) boolean for whether to make a copy and own the data, or 
+        /// act as a non-owning shell. Default true.
         ///
         template<size_t ArraySize, 
             std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
@@ -227,11 +223,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      in2dArray
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
+        /// @param in2dArray
+        /// @param copy: (optional) boolean for whether to make a copy and own the data, or 
+        /// act as a non-owning shell. Default true.
         ///
         template<size_t Dim0Size, size_t Dim1Size>
         NdArray(std::array<std::array<dtype, Dim1Size>, Dim0Size>& in2dArray, bool copy = true) :
@@ -256,11 +252,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inVector
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
+        /// @param inVector
+        /// @param copy: (optional) boolean for whether to make a copy and own the data, or 
+        /// act as a non-owning shell. Default true.
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
         NdArray(std::vector<dtype>& inVector, bool copy = true) :
@@ -284,9 +280,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      in2dVector
+        /// @param in2dVector
         ///
         explicit NdArray(const std::vector<std::vector<dtype>>& in2dVector) :
             shape_(static_cast<uint32>(in2dVector.size()), 0)
@@ -316,11 +312,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      in2dArray
-        ///	@param      copy: (optional) boolean for whether to make a copy and own the data, or 
-        ///                   act as a non-owning shell. Default true.
+        /// @param in2dArray
+        /// @param copy: (optional) boolean for whether to make a copy and own the data, or 
+        /// act as a non-owning shell. Default true.
         ///
         template<size_t Dim1Size>
         NdArray(std::vector<std::array<dtype, Dim1Size>>& in2dArray, bool copy = true) :
@@ -345,9 +341,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inDeque
+        /// @param inDeque
         ///
         template<std::enable_if_t<is_valid_dtype_v<dtype>, int> = 0>
         explicit NdArray(const std::deque<dtype>& inDeque) :
@@ -363,9 +359,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      in2dDeque
+        /// @param in2dDeque
         ///
         explicit NdArray(const std::deque<std::deque<dtype>>& in2dDeque) :
             shape_(static_cast<uint32>(in2dDeque.size()), 0)
@@ -395,10 +391,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param
-        ///				inList
+        /// @param inList
         ///
         explicit NdArray(const std::list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
@@ -413,10 +408,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param				inFirst
-        /// @param				inLast
+        /// @param inFirst
+        /// @param inLast
         ///
         template<typename Iterator,
             std::enable_if_t<is_same_v<typename std::iterator_traits<Iterator>::value_type, dtype>, int> = 0>
@@ -433,11 +428,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor.  Copies the contents of the buffer into 
-        ///                     the array.
+        /// Constructor.  Copies the contents of the buffer into 
+        /// the array.
         ///
-        /// @param				inPtr: const_pointer to beginning of buffer
-        /// @param				size: number of elements in buffer
+        /// @param inPtr: const_pointer to beginning of buffer
+        /// @param size: number of elements in buffer
         ///
         NdArray(const_pointer inPtr, size_type size) :
             shape_(1, size),
@@ -452,12 +447,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor.  Copies the contents of the buffer into 
-        ///                     the array.
+        /// Constructor.  Copies the contents of the buffer into 
+        /// the array.
         ///
-        /// @param				inPtr: const_pointer to beginning of buffer
-        /// @param				numRows: number of rows of the buffer
-        /// @param				numCols: number of cols of the buffer
+        /// @param inPtr: const_pointer to beginning of buffer
+        /// @param numRows: number of rows of the buffer
+        /// @param numCols: number of cols of the buffer
         ///
         template<typename UIntType1, typename UIntType2,
             std::enable_if_t<!is_same_v<UIntType1, bool>, int> = 0,
@@ -475,13 +470,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor. Operates as a shell around an already existing
-        ///                     array of data.
+        /// Constructor. Operates as a shell around an already existing
+        /// array of data.
         ///
-        /// @param				inPtr: pointer to beginning of the array
-        /// @param				size: the number of elements in the array
-        /// @param              takeOwnership: whether or not to take ownership of the data
-        ///                     and call delete[] in the destructor.
+        /// @param inPtr: pointer to beginning of the array
+        /// @param size: the number of elements in the array
+        /// @param takeOwnership: whether or not to take ownership of the data
+        /// and call delete[] in the destructor.
         ///
         template<typename Bool,
             std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
@@ -494,14 +489,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor. Operates as a shell around an already existing
-        ///                     array of data.
+        /// Constructor. Operates as a shell around an already existing
+        /// array of data.
         ///
-        /// @param				inPtr: pointer to beginning of the array
-        /// @param				numRows: the number of rows in the array
-        /// @param              numCols: the nubmer of column in the array
-        /// @param              takeOwnership: whether or not to take ownership of the data
-        ///                     and call delete[] in the destructor.
+        /// @param inPtr: pointer to beginning of the array
+        /// @param numRows: the number of rows in the array
+        /// @param numCols: the nubmer of column in the array
+        /// @param takeOwnership: whether or not to take ownership of the data
+        /// and call delete[] in the destructor.
         ///
         template<typename Bool,
             std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
@@ -514,10 +509,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copy Constructor
+        /// Copy Constructor
         ///
-        /// @param
-        ///				inOtherArray
+        /// @param inOtherArray
         ///
         NdArray(const NdArray<dtype>& inOtherArray) :
             shape_(inOtherArray.shape_),
@@ -533,10 +527,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Move Constructor
+        /// Move Constructor
         ///
-        /// @param
-        ///				inOtherArray
+        /// @param inOtherArray
         ///
         NdArray(NdArray<dtype>&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
@@ -553,7 +546,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Destructor
+        /// Destructor
         ///
         ~NdArray() noexcept
         {
@@ -562,12 +555,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Assignment operator, performs a deep copy
+        /// Assignment operator, performs a deep copy
         ///
-        /// @param
-        ///				rhs
-        /// @return
-        ///				NdArray<dtype>
+        /// @param rhs
+        /// @return NdArray<dtype>
         ///
         NdArray<dtype>& operator=(const NdArray<dtype>& rhs)
         {
@@ -587,13 +578,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Assignment operator, sets the entire array to a single
-        ///                     scaler value.
+        /// Assignment operator, sets the entire array to a single
+        /// scaler value.
         ///
-        /// @param
-        ///				inValue
-        /// @return
-        ///				NdArray<dtype>
+        /// @param inValue
+        /// @return NdArray<dtype>
         ///
         NdArray<dtype>& operator=(value_type inValue) noexcept
         {
@@ -607,12 +596,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Move operator, performs a deep move
+        /// Move operator, performs a deep move
         ///
-        /// @param
-        ///				rhs
-        /// @return
-        ///				NdArray<dtype>
+        /// @param rhs
+        /// @return NdArray<dtype>
         ///
         NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept 
         {
@@ -635,12 +622,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						1D access operator with no bounds checking
+        /// 1D access operator with no bounds checking
         ///
-        /// @param
-        ///				inIndex
-        /// @return
-        ///				value
+        /// @param inIndex
+        /// @return value
         ///
         reference operator[](int32 inIndex) noexcept 
         {
@@ -654,12 +639,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 1D access operator with no bounds checking
+        /// const 1D access operator with no bounds checking
         ///
-        /// @param
-        ///				inIndex
-        /// @return
-        ///				value
+        /// @param inIndex
+        /// @return value
         ///
         const_reference operator[](int32 inIndex) const noexcept 
         {
@@ -673,12 +656,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D access operator with no bounds checking
+        /// 2D access operator with no bounds checking
         ///
-        /// @param				inRowIndex
-        /// @param				inColIndex
-        /// @return
-        ///				value
+        /// @param inRowIndex
+        /// @param inColIndex
+        /// @return value
         ///
         reference operator()(int32 inRowIndex, int32 inColIndex) noexcept 
         {
@@ -697,12 +679,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access operator with no bounds checking
+        /// const 2D access operator with no bounds checking
         ///
-        /// @param				inRowIndex
-        /// @param				inColIndex
-        /// @return
-        ///				value
+        /// @param inRowIndex
+        /// @param inColIndex
+        /// @return value
         ///
         const_reference operator()(int32 inRowIndex, int32 inColIndex) const noexcept 
         {
@@ -721,13 +702,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						1D Slicing access operator with bounds checking.
-        ///						returned array is of the range [start, stop).
+        /// 1D Slicing access operator with bounds checking.
+        /// returned array is of the range [start, stop).
         ///
-        /// @param
-        ///				inSlice
-        /// @return
-        ///				NdArray
+        /// @param inSlice
+        /// @return NdArray
         ///
         NdArray<dtype> operator[](const Slice& inSlice) const
         {
@@ -745,12 +724,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the values from the input mask
+        /// Returns the values from the input mask
         ///
-        /// @param
-        ///				inMask
-        /// @return
-        ///				NdArray
+        /// @param inMask
+        /// @return NdArray
         ///
         NdArray<dtype> operator[](const NdArray<bool>& inMask) const
         {
@@ -771,12 +748,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the values from the input indices
+        /// Returns the values from the input indices
         ///
-        /// @param
-        ///				inIndices
-        /// @return
-        ///				NdArray
+        /// @param inIndices
+        /// @return NdArray
         ///
         ///
         template<typename Indices,
@@ -800,13 +775,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D Slicing access operator with bounds checking.
-        ///						returned array is of the range [start, stop).
+        /// 2D Slicing access operator with bounds checking.
+        /// returned array is of the range [start, stop).
         ///
-        /// @param				inRowSlice
-        /// @param				inColSlice
-        /// @return
-        ///				NdArray
+        /// @param inRowSlice
+        /// @param inColSlice
+        /// @return NdArray
         ///
         NdArray<dtype> operator()(Slice inRowSlice, Slice inColSlice) const
         {
@@ -829,13 +803,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D Slicing access operator with bounds checking.
-        ///						returned array is of the range [start, stop).
+        /// 2D Slicing access operator with bounds checking.
+        /// returned array is of the range [start, stop).
         ///
-        /// @param				inRowSlice
-        /// @param				inColIndex
-        /// @return
-        ///				NdArray
+        /// @param inRowSlice
+        /// @param inColIndex
+        /// @return NdArray
         ///
         NdArray<dtype> operator()(Slice inRowSlice, int32 inColIndex) const
         {
@@ -852,13 +825,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D Slicing access operator with bounds checking.
-        ///						returned array is of the range [start, stop).
+        /// 2D Slicing access operator with bounds checking.
+        /// returned array is of the range [start, stop).
         ///
-        /// @param				inRowIndex
-        /// @param				inColSlice
-        /// @return
-        ///				NdArray
+        /// @param inRowIndex
+        /// @param inColSlice
+        /// @return NdArray
         ///
         NdArray<dtype> operator()(int32 inRowIndex, Slice inColSlice) const
         {
@@ -875,13 +847,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D index access operator with bounds checking.
-        ///						returned array is of the range.
+        /// 2D index access operator with bounds checking.
+        /// returned array is of the range.
         ///
-        /// @param				rowIndices
-        /// @param				colIndex
-        /// @return
-        ///				NdArray
+        /// @param rowIndices
+        /// @param colIndex
+        /// @return NdArray
         ///
         template<typename Indices,
             enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
@@ -893,13 +864,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D index access operator with bounds checking.
-        ///						returned array is of the range.
+        /// 2D index access operator with bounds checking.
+        /// returned array is of the range.
         ///
-        /// @param				rowIndices
-        /// @param				colSlice
-        /// @return
-        ///				NdArray
+        /// @param rowIndices
+        /// @param colSlice
+        /// @return NdArray
         ///
         template<typename Indices,
             enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
@@ -910,13 +880,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D index access operator with bounds checking.
-        ///						returned array is of the range.
+        /// 2D index access operator with bounds checking.
+        /// returned array is of the range.
         ///
-        /// @param				rowIndex
-        /// @param				colIndices
-        /// @return
-        ///				NdArray
+        /// @param rowIndex
+        /// @param colIndices
+        /// @return NdArray
         ///
         template<typename Indices,
             enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
@@ -928,13 +897,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D index access operator with bounds checking.
-        ///						returned array is of the range.
+        /// 2D index access operator with bounds checking.
+        /// returned array is of the range.
         ///
-        /// @param				rowSlice
-        /// @param				colIndices
-        /// @return
-        ///				NdArray
+        /// @param rowSlice
+        /// @param colIndices
+        /// @return NdArray
         ///
         template<typename Indices,
             enable_if_t<is_same_v<Indices, NdArray<int32>> || is_same_v<Indices, NdArray<uint32>>, int> = 0>
@@ -945,13 +913,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D index access operator with bounds checking.
-        ///						returned array is of the range.
+        /// 2D index access operator with bounds checking.
+        /// returned array is of the range.
         ///
-        /// @param				rowIndices
-        /// @param				colIndices
-        /// @return
-        ///				NdArray
+        /// @param rowIndices
+        /// @param colIndices
+        /// @return NdArray
         ///
         template<typename RowIndices, typename ColIndices,
             enable_if_t<is_same_v<RowIndices, NdArray<int32>> || is_same_v<RowIndices, NdArray<uint32>>, int> = 0,
@@ -987,13 +954,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a Slice object for slicing a row to the end of
-        ///                     array.
+        /// Returns a Slice object for slicing a row to the end of
+        /// array.
         ///
-        /// @param      inStartIdx (default 0)
-        /// @param      inStepSize (default 1)
-        /// @return
-        ///				Slice
+        /// @param inStartIdx (default 0)
+        /// @param inStepSize (default 1)
+        /// @return Slice
         ///
         Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
@@ -1002,13 +968,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a Slice object for slicing a column to the end
-        ///                     of the array.
+        /// Returns a Slice object for slicing a column to the end
+        /// of the array.
         ///
-        /// @param      inStartIdx (default 0)
-        /// @param      inStepSize (default 1)
-        /// @return
-        ///				Slice
+        /// @param inStartIdx (default 0)
+        /// @param inStepSize (default 1)
+        /// @return Slice
         ///
         Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
@@ -1017,12 +982,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						1D access method with bounds checking
+        /// 1D access method with bounds checking
         ///
-        /// @param
-        ///				inIndex
-        /// @return
-        ///				value
+        /// @param inIndex
+        /// @return value
         ///
         reference at(int32 inIndex)
         {
@@ -1040,12 +1003,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 1D access method with bounds checking
+        /// const 1D access method with bounds checking
         ///
-        /// @param
-        ///				inIndex
-        /// @return
-        ///				value
+        /// @param inIndex
+        /// @return value
         ///
         const_reference at(int32 inIndex) const
         {
@@ -1063,12 +1024,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						2D access method with bounds checking
+        /// 2D access method with bounds checking
         ///
-        /// @param				inRowIndex
-        /// @param				inColIndex
-        /// @return
-        ///				value
+        /// @param inRowIndex
+        /// @param inColIndex
+        /// @return value
         ///
         reference at(int32 inRowIndex, int32 inColIndex)
         {
@@ -1095,12 +1055,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access method with bounds checking
+        /// const 2D access method with bounds checking
         ///
-        /// @param				inRowIndex
-        /// @param				inColIndex
-        /// @return
-        ///				value
+        /// @param inRowIndex
+        /// @param inColIndex
+        /// @return value
         ///
         const_reference at(int32 inRowIndex, int32 inColIndex) const
         {
@@ -1127,12 +1086,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 1D access method with bounds checking
+        /// const 1D access method with bounds checking
         ///
-        /// @param
-        ///				inSlice
-        /// @return
-        ///				Ndarray
+        /// @param inSlice
+        /// @return Ndarray
         ///
         NdArray<dtype> at(const Slice& inSlice) const
         {
@@ -1143,12 +1100,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access method with bounds checking
+        /// const 2D access method with bounds checking
         ///
-        /// @param				inRowSlice
-        /// @param				inColSlice
-        /// @return
-        ///				Ndarray
+        /// @param inRowSlice
+        /// @param inColSlice
+        /// @return Ndarray
         ///
         NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
         {
@@ -1159,12 +1115,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access method with bounds checking
+        /// const 2D access method with bounds checking
         ///
-        /// @param				inRowSlice
-        /// @param				inColIndex
-        /// @return
-        ///				Ndarray
+        /// @param inRowSlice
+        /// @param inColIndex
+        /// @return Ndarray
         ///
         NdArray<dtype> at(const Slice& inRowSlice, int32 inColIndex) const
         {
@@ -1175,12 +1130,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access method with bounds checking
+        /// const 2D access method with bounds checking
         ///
-        /// @param				inRowIndex
-        /// @param				inColSlice
-        /// @return
-        ///				Ndarray
+        /// @param inRowIndex
+        /// @param inColSlice
+        /// @return Ndarray
         ///
         NdArray<dtype> at(int32 inRowIndex, const Slice& inColSlice) const
         {
@@ -1191,12 +1145,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const 2D access method with bounds checking
+        /// const 2D access method with bounds checking
         ///
-        /// @param				rowIndices
-        /// @param				colIndices
-        /// @return
-        ///				Ndarray
+        /// @param rowIndices
+        /// @param colIndices
+        /// @return Ndarray
         ///
         NdArray<dtype> at(const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices) const
         {
@@ -1207,9 +1160,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to the beginning of the flattened array
-        /// @return
-        ///				iterator
+        /// iterator to the beginning of the flattened array
+        /// @return iterator
         ///
         iterator begin() noexcept 
         {
@@ -1218,12 +1170,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to the beginning of the input row
+        /// iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				iterator
+        /// @param inRow
+        /// @return iterator
         ///
         iterator begin(size_type inRow)
         {
@@ -1237,9 +1187,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array
-        /// @return
-        ///				const_iterator
+        /// const iterator to the beginning of the flattened array
+        /// @return const_iterator
         ///
         const_iterator begin() const noexcept 
         {
@@ -1248,12 +1197,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the input row
+        /// const iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
+        /// @param inRow
+        /// @return const_iterator
         ///
         const_iterator begin(size_type inRow) const
         {
@@ -1262,10 +1209,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array
+        /// const iterator to the beginning of the flattened array
         ///
-        /// @return
-        ///				const_iterator
+        /// @return const_iterator
         ///
         const_iterator cbegin() const noexcept 
         {
@@ -1274,12 +1220,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the input row
+        /// const iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
+        /// @param inRow
+        /// @return const_iterator
         ///
         const_iterator cbegin(size_type inRow) const
         {
@@ -1293,9 +1237,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to the beginning of the flattened array
-        /// @return
-        ///				column_iterator
+        /// column_iterator to the beginning of the flattened array
+        /// @return column_iterator
         ///
         column_iterator colbegin() noexcept 
         {
@@ -1304,12 +1247,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to the beginning of the input column
+        /// column_iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				column_iterator
+        /// @param inCol
+        /// @return column_iterator
         ///
         column_iterator colbegin(size_type inCol)
         {
@@ -1323,9 +1264,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const column_iterator to the beginning of the flattened array
-        /// @return
-        ///				const_column_iterator
+        /// const column_iterator to the beginning of the flattened array
+        /// @return const_column_iterator
         ///
         const_column_iterator colbegin() const noexcept 
         {
@@ -1334,12 +1274,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const column_iterator to the beginning of the input column
+        /// const column_iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
+        /// @param inCol
+        /// @return const_column_iterator
         ///
         const_column_iterator colbegin(size_type inCol) const
         {
@@ -1348,10 +1286,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_column_iterator to the beginning of the flattened array
+        /// const_column_iterator to the beginning of the flattened array
         ///
-        /// @return
-        ///				const_column_iterator
+        /// @return const_column_iterator
         ///
         const_column_iterator ccolbegin() const noexcept 
         {
@@ -1360,12 +1297,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_column_iterator to the beginning of the input column
+        /// const_column_iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
+        /// @param inCol
+        /// @return const_column_iterator
         ///
         const_column_iterator ccolbegin(size_type inCol) const
         {
@@ -1379,9 +1314,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_iterator to the beginning of the flattened array
-        /// @return
-        ///				reverse_iterator
+        /// reverse_iterator to the beginning of the flattened array
+        /// @return reverse_iterator
         ///
         reverse_iterator rbegin() noexcept
         {
@@ -1390,12 +1324,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_iterator to the beginning of the input row
+        /// reverse_iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				reverse_iterator
+        /// @param inRow
+        /// @return reverse_iterator
         ///
         reverse_iterator rbegin(size_type inRow)
         {
@@ -1409,9 +1341,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array
-        /// @return
-        ///				const_iterator
+        /// const iterator to the beginning of the flattened array
+        /// @return const_iterator
         ///
         const_reverse_iterator rbegin() const noexcept
         {
@@ -1420,12 +1351,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the input row
+        /// const iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
+        /// @param inRow
+        /// @return const_iterator
         ///
         const_reverse_iterator rbegin(size_type inRow) const
         {
@@ -1434,10 +1363,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to the beginning of the flattened array
+        /// const_reverse_iterator to the beginning of the flattened array
         ///
-        /// @return
-        ///				const_reverse_iterator
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator crbegin() const noexcept
         {
@@ -1446,12 +1374,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to the beginning of the input row
+        /// const_reverse_iterator to the beginning of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_reverse_iterator
+        /// @param inRow
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator crbegin(size_type inRow) const
         {
@@ -1465,9 +1391,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_column_iterator to the beginning of the flattened array
-        /// @return
-        ///				reverse_column_iterator
+        /// reverse_column_iterator to the beginning of the flattened array
+        /// @return reverse_column_iterator
         ///
         reverse_column_iterator rcolbegin() noexcept
         {
@@ -1476,12 +1401,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_column_iterator to the beginning of the input column
+        /// reverse_column_iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				reverse_column_iterator
+        /// @param inCol
+        /// @return reverse_column_iterator
         ///
         reverse_column_iterator rcolbegin(size_type inCol)
         {
@@ -1495,9 +1418,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the flattened array
-        /// @return
-        ///				const_iterator
+        /// const iterator to the beginning of the flattened array
+        /// @return const_iterator
         ///
         const_reverse_column_iterator rcolbegin() const noexcept
         {
@@ -1506,12 +1428,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the beginning of the input column
+        /// const iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_iterator
+        /// @param inCol
+        /// @return const_iterator
         ///
         const_reverse_column_iterator rcolbegin(size_type inCol) const
         {
@@ -1520,10 +1440,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to the beginning of the flattened array
+        /// const_reverse_column_iterator to the beginning of the flattened array
         ///
-        /// @return
-        ///				const_reverse_column_iterator
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator crcolbegin() const noexcept
         {
@@ -1532,12 +1451,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to the beginning of the input column
+        /// const_reverse_column_iterator to the beginning of the input column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_reverse_column_iterator
+        /// @param inCol
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator crcolbegin(size_type inCol) const
         {
@@ -1551,9 +1468,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to 1 past the end of the flattened array
-        /// @return
-        ///				iterator
+        /// iterator to 1 past the end of the flattened array
+        /// @return iterator
         ///
         iterator end() noexcept 
         {
@@ -1562,12 +1478,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						iterator to the 1 past end of the row
+        /// iterator to the 1 past end of the row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				iterator
+        /// @param inRow
+        /// @return iterator
         ///
         iterator end(size_type inRow)
         {
@@ -1581,9 +1495,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to 1 past the end of the flattened array
-        /// @return
-        ///				const_iterator
+        /// const iterator to 1 past the end of the flattened array
+        /// @return const_iterator
         ///
         const_iterator end() const noexcept 
         {
@@ -1592,12 +1505,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to the 1 past end of the row
+        /// const iterator to the 1 past end of the row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
+        /// @param inRow
+        /// @return const_iterator
         ///
         const_iterator end(size_type inRow) const
         {
@@ -1606,10 +1517,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to 1 past the end of the flattened array
+        /// const iterator to 1 past the end of the flattened array
         ///
-        /// @return
-        ///				const_iterator
+        /// @return const_iterator
         ///
         const_iterator cend() const noexcept 
         {
@@ -1618,12 +1528,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const iterator to 1 past the end of the input row
+        /// const iterator to 1 past the end of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_iterator
+        /// @param inRow
+        /// @return const_iterator
         ///
         const_iterator cend(size_type inRow) const
         {
@@ -1637,9 +1545,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				reverse_iterator
+        /// reverse_iterator to 1 past the end of the flattened array
+        /// @return reverse_iterator
         ///
         reverse_iterator rend() noexcept
         {
@@ -1648,12 +1555,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_iterator to the 1 past end of the row
+        /// reverse_iterator to the 1 past end of the row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				reverse_iterator
+        /// @param inRow
+        /// @return reverse_iterator
         ///
         reverse_iterator rend(size_type inRow)
         {
@@ -1667,9 +1572,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				const_reverse_iterator
+        /// const_reverse_iterator to 1 past the end of the flattened array
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator rend() const noexcept
         {
@@ -1678,12 +1582,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to the 1 past end of the row
+        /// const_reverse_iterator to the 1 past end of the row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_reverse_iterator
+        /// @param inRow
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator rend(size_type inRow) const
         {
@@ -1692,10 +1594,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to 1 past the end of the flattened array
+        /// const_reverse_iterator to 1 past the end of the flattened array
         ///
-        /// @return
-        ///				const_reverse_iterator
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator crend() const noexcept
         {
@@ -1704,12 +1605,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_iterator to 1 past the end of the input row
+        /// const_reverse_iterator to 1 past the end of the input row
         ///
-        /// @param
-        ///				inRow
-        /// @return
-        ///				const_reverse_iterator
+        /// @param inRow
+        /// @return const_reverse_iterator
         ///
         const_reverse_iterator crend(size_type inRow) const
         {
@@ -1723,9 +1622,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				column_iterator
+        /// column_iterator to 1 past the end of the flattened array
+        /// @return column_iterator
         ///
         column_iterator colend() noexcept 
         {
@@ -1734,12 +1632,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						column_iterator to the 1 past end of the column
+        /// column_iterator to the 1 past end of the column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				column_iterator
+        /// @param inCol
+        /// @return column_iterator
         ///
         column_iterator colend(size_type inCol)
         {
@@ -1753,9 +1649,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				const_column_iterator
+        /// const column_iterator to 1 past the end of the flattened array
+        /// @return const_column_iterator
         ///
         const_column_iterator colend() const noexcept 
         {
@@ -1764,12 +1659,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const column_iterator to the 1 past end of the column
+        /// const column_iterator to the 1 past end of the column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
+        /// @param inCol
+        /// @return const_column_iterator
         ///
         const_column_iterator colend(size_type inCol) const
         {
@@ -1778,10 +1671,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_column_iterator to 1 past the end of the flattened array
+        /// const_column_iterator to 1 past the end of the flattened array
         ///
-        /// @return
-        ///				const_column_iterator
+        /// @return const_column_iterator
         ///
         const_column_iterator ccolend() const noexcept 
         {
@@ -1790,12 +1682,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_column_iterator to 1 past the end of the input col
+        /// const_column_iterator to 1 past the end of the input col
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_column_iterator
+        /// @param inCol
+        /// @return const_column_iterator
         ///
         const_column_iterator ccolend(size_type inCol) const
         {
@@ -1809,9 +1699,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				reverse_column_iterator
+        /// reverse_column_iterator to 1 past the end of the flattened array
+        /// @return reverse_column_iterator
         ///
         reverse_column_iterator rcolend() noexcept
         {
@@ -1820,12 +1709,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverse_column_iterator to the 1 past end of the column
+        /// reverse_column_iterator to the 1 past end of the column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				reverse_column_iterator
+        /// @param inCol
+        /// @return reverse_column_iterator
         ///
         reverse_column_iterator rcolend(size_type inCol)
         {
@@ -1839,9 +1726,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to 1 past the end of the flattened array
-        /// @return
-        ///				const_reverse_column_iterator
+        /// const_reverse_column_iterator to 1 past the end of the flattened array
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator rcolend() const noexcept
         {
@@ -1850,12 +1736,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to the 1 past end of the column
+        /// const_reverse_column_iterator to the 1 past end of the column
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_reverse_column_iterator
+        /// @param inCol
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator rcolend(size_type inCol) const
         {
@@ -1864,10 +1748,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to 1 past the end of the flattened array
+        /// const_reverse_column_iterator to 1 past the end of the flattened array
         ///
-        /// @return
-        ///				const_reverse_column_iterator
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator crcolend() const noexcept
         {
@@ -1876,12 +1759,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						const_reverse_column_iterator to 1 past the end of the input col
+        /// const_reverse_column_iterator to 1 past the end of the input col
         ///
-        /// @param
-        ///				inCol
-        /// @return
-        ///				const_reverse_column_iterator
+        /// @param inCol
+        /// @return const_reverse_column_iterator
         ///
         const_reverse_column_iterator crcolend(size_type inCol) const
         {
@@ -1895,20 +1776,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns True if all elements evaluate to True or non zero
+        /// Returns True if all elements evaluate to True or non zero
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<bool> all(Axis inAxis = Axis::NONE) const 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -1951,20 +1830,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns True if any elements evaluate to True or non zero
+        /// Returns True if any elements evaluate to True or non zero
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<bool> any(Axis inAxis = Axis::NONE) const 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -2007,15 +1884,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return indices of the maximum values along the given axis.
-        ///						Only the first index is returned.
+        /// Return indices of the maximum values along the given axis.
+        /// Only the first index is returned.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const 
         {
@@ -2067,15 +1942,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return indices of the minimum values along the given axis.
-        ///						Only the first index is returned.
+        /// Return indices of the minimum values along the given axis.
+        /// Only the first index is returned.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const 
         {
@@ -2127,14 +2000,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the indices that would sort this array.
+        /// Returns the indices that would sort this array.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const 
         {
@@ -2158,9 +2029,10 @@ namespace nc
                 case Axis::COL:
                 {
                     NdArray<uint32> returnArray(shape_);
+                    std::vector<uint32> idx(shape_.cols);
+
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
@@ -2181,9 +2053,10 @@ namespace nc
                 {
                     NdArray<dtype> arrayTransposed = transpose();
                     NdArray<uint32> returnArray(shape_.cols, shape_.rows);
+                    std::vector<uint32> idx(arrayTransposed.shape_.cols);
+
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
 
                         const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
@@ -2210,13 +2083,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the array, cast to a specified type.
-        ///                     Arithmetic to Arithmetic
+        /// Returns a copy of the array, cast to a specified type.
+        /// Arithmetic to Arithmetic
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype,
             enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
@@ -2225,33 +2097,24 @@ namespace nc
         NdArray<dtypeOut> astype() const 
         {
             NdArray<dtypeOut> outArray(shape_);
-
-            if (is_same_v<dtypeOut, dtype>)
-            {
-                std::copy(cbegin(), cend(), outArray.begin());
-            }
-            else
-            {
-                const auto function = [](dtype value)  -> dtypeOut
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
+                [](dtype value) -> dtypeOut
                 {
                     return static_cast<dtypeOut>(value);
-                };
-
-                stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
-            }
+                }
+            );
 
             return outArray;
         }
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the array, cast to a specified type.
-        ///                     Arithmetic to Complex
+        /// Returns a copy of the array, cast to a specified type.
+        /// Arithmetic to Complex
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
             enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
@@ -2261,7 +2124,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const_reference value)  -> dtypeOut
+            const auto function = [](const_reference value) -> dtypeOut
             {
                 return std::complex<typename dtypeOut::value_type>(value);
             };
@@ -2273,13 +2136,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the array, cast to a specified type.
-        ///                     Complex to Complex
+        /// Returns a copy of the array, cast to a specified type.
+        /// Complex to Complex
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
             enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
@@ -2308,13 +2170,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the array, cast to a specified type.
-        ///                     Complex to Arithmetic
+        /// Returns a copy of the array, cast to a specified type.
+        /// Complex to Arithmetic
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtypeOut, typename dtype_ = dtype, 
             enable_if_t<is_same_v<dtype_, dtype>, int> = 0,
@@ -2324,7 +2185,7 @@ namespace nc
         {
             NdArray<dtypeOut> outArray(shape_);
 
-            const auto function = [](const_reference value)  -> dtypeOut
+            const auto function = [](const_reference value) -> dtypeOut
             {
                 return static_cast<dtypeOut>(value.real());
             };
@@ -2336,10 +2197,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the last element of the flattened array.
+        /// Returns a copy of the last element of the flattened array.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         const_reference back() const noexcept 
         {
@@ -2348,10 +2208,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a reference the last element of the flattened array.
+        /// Returns a reference the last element of the flattened array.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         reference back() noexcept 
         {
@@ -2360,10 +2219,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the last element of the input row.
+        /// Returns a copy of the last element of the input row.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         const_reference back(size_type row) const 
         {
@@ -2372,10 +2230,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a reference the last element of the input row.
+        /// Returns a reference the last element of the input row.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         reference back(size_type row) 
         {
@@ -2384,12 +2241,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Swap the bytes of the array elements in place
+        /// Swap the bytes of the array elements in place
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<dtype>& byteswap() noexcept
         {
@@ -2426,14 +2282,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns an array whose values are limited to [min, max].
+        /// Returns an array whose values are limited to [min, max].
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html
         ///
-        /// @param				inMin: min value to clip to
-        /// @param				inMax: max value to clip to
-        /// @return
-        ///				clipped value
+        /// @param inMin: min value to clip to
+        /// @param inMax: max value to clip to
+        /// @return clipped value
         ///
         NdArray<dtype> clip(value_type inMin, value_type inMax) const 
         {
@@ -2469,11 +2324,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the full column of the array
+        /// Returns the full column of the array
         ///
         ///
-        /// @return
-        ///				Shape
+        /// @return Shape
         ///
         NdArray<dtype> column(uint32 inColumn)
         {
@@ -2482,12 +2336,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						returns whether or not a value is included the array
+        /// returns whether or not a value is included the array
         ///
-        /// @param				inValue
-        /// @param				inAxis (Optional, default NONE)
-        /// @return
-        ///				bool
+        /// @param inValue
+        /// @param inAxis (Optional, default NONE)
+        /// @return bool
         ///
         NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const 
         {
@@ -2531,12 +2384,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return a copy of the array
+        /// Return a copy of the array
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<dtype> copy() const 
         {
@@ -2545,14 +2397,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the cumulative product of the elements along the given axis.
+        /// Return the cumulative product of the elements along the given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const 
         {
@@ -2609,14 +2459,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the cumulative sum of the elements along the given axis.
+        /// Return the cumulative sum of the elements along the given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const 
         {
@@ -2673,7 +2521,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the raw pointer to the underlying data
+        /// Returns the raw pointer to the underlying data
         /// @return pointer
         ///
         pointer data() noexcept 
@@ -2683,7 +2531,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the raw pointer to the underlying data
+        /// Returns the raw pointer to the underlying data
         /// @return const_pointer
         ///
         const_pointer data() const noexcept 
@@ -2693,9 +2541,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Releases the internal data pointer so that the destructor
-        ///                     will not call delete on it, and returns the raw pointer
-        ///                     to the underlying data.
+        /// Releases the internal data pointer so that the destructor
+        /// will not call delete on it, and returns the raw pointer
+        /// to the underlying data.
         /// @return pointer
         ///
         pointer dataRelease() noexcept
@@ -2706,14 +2554,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return specified diagonals.
+        /// Return specified diagonals.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
         ///
-        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
-        /// @param				inAxis: (Optional, default ROW) axis the offset is applied to
-        /// @return
-        ///				NdArray
+        /// @param inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
+        /// @param inAxis: (Optional, default ROW) axis the offset is applied to
+        /// @return NdArray
         ///
         NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const 
         {
@@ -2773,17 +2620,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Dot product of two arrays.
+        /// Dot product of two arrays.
         ///
-        ///						For 2-D arrays it is equivalent to matrix multiplication,
-        ///						and for 1-D arrays to inner product of vectors.
+        /// For 2-D arrays it is equivalent to matrix multiplication,
+        /// and for 1-D arrays to inner product of vectors.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
         ///
-        /// @param
-        ///				inOtherArray
-        /// @return
-        ///				dot product
+        /// @param inOtherArray
+        /// @return dot product
         ///
         NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
         {
@@ -2822,12 +2667,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Dump a binary file of the array to the specified file.
-        ///						The array can be read back with nc::load.
+        /// Dump a binary file of the array to the specified file.
+        /// The array can be read back with nc::load.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///
-        /// @param  inFilename
+        /// @param inFilename
         ///
         void dump(const std::string& inFilename) const
         {
@@ -2852,10 +2697,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the NdArrays endianess
+        /// Return the NdArrays endianess
         ///
-        /// @return
-        ///				Endian
+        /// @return Endian
         ///
         Endian endianess() const noexcept 
         {
@@ -2866,14 +2710,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fill the array with a scaler value.
+        /// Fill the array with a scaler value.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
         ///
-        /// @param
-        ///				inFillValue
-        /// @return
-        ///				None
+        /// @param inFillValue
+        /// @return None
         ///
         NdArray<dtype>& fill(value_type inFillValue) noexcept
         {
@@ -2883,11 +2725,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the indices of the flattened array of the
-        ///						elements that are non-zero.
+        /// Return the indices of the flattened array of the
+        /// elements that are non-zero.
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<uint32> flatnonzero() const 
         {
@@ -2909,12 +2750,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return a copy of the array collapsed into one dimension.
+        /// Return a copy of the array collapsed into one dimension.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<dtype> flatten() const 
         {
@@ -2925,10 +2765,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the first element of the flattened array.
+        /// Returns a copy of the first element of the flattened array.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         const_reference front() const noexcept 
         {
@@ -2937,10 +2776,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a reference to the first element of the flattened array.
+        /// Returns a reference to the first element of the flattened array.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         reference front() noexcept 
         {
@@ -2949,10 +2787,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a copy of the first element of the input row.
+        /// Returns a copy of the first element of the input row.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         const_reference front(size_type row) const 
         {
@@ -2961,10 +2798,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns a reference to the first element of the input row.
+        /// Returns a reference to the first element of the input row.
         ///
-        /// @return
-        ///				dtype
+        /// @return dtype
         ///
         reference front(size_type row) 
         {
@@ -2973,12 +2809,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///                     Returns a new flat array with the givin flat input indices.
+        /// Returns a new flat array with the givin flat input indices.
         ///
-        /// @param
-        ///				inIndices
-        /// @return
-        ///				values
+        /// @param inIndices
+        /// @return values
         ///
         NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
         {
@@ -2987,14 +2821,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///                     Takes in a boolean mask the same size as the array
-        ///                     and returns a flattened array with the values cooresponding
-        ///                     to the input mask.
+        /// Takes in a boolean mask the same size as the array
+        /// and returns a flattened array with the values cooresponding
+        /// to the input mask.
         ///
-        /// @param
-        ///				inMask
-        /// @return
-        ///				values
+        /// @param inMask
+        /// @return values
         ///
         NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
@@ -3003,11 +2835,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return if the NdArray is empty. ie the default construtor
-        ///						was used.
+        /// Return if the NdArray is empty. ie the default construtor
+        /// was used.
         ///
-        /// @return
-        ///				boolean
+        /// @return boolean
         ///
         bool isempty() const noexcept 
         {
@@ -3016,11 +2847,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return if the NdArray is empty. ie the default construtor
-        ///						was used.
+        /// Return if the NdArray is empty. ie the default construtor
+        /// was used.
         ///
-        /// @return
-        ///				boolean
+        /// @return boolean
         ///
         bool isflat() const noexcept 
         {
@@ -3029,7 +2859,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return if the NdArray is sorted.
+        /// Return if the NdArray is sorted.
         ///
         /// @param inAxis
         /// @return boolean
@@ -3081,7 +2911,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return if the NdArray is sorted.
+        /// Return if the NdArray is sorted.
         ///
         /// @return boolean
         ///
@@ -3092,12 +2922,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copy an element of an array to a standard C++ scaler and return it.
+        /// Copy an element of an array to a standard C++ scaler and return it.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
         ///
-        /// @return
-        ///				array element
+        /// @return array element
         ///
         value_type item() const
         {
@@ -3111,14 +2940,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the maximum along a given axis.
+        /// Return the maximum along a given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> max(Axis inAxis = Axis::NONE) const 
         {
@@ -3168,14 +2995,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the minimum along a given axis.
+        /// Return the minimum along a given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> min(Axis inAxis = Axis::NONE) const 
         {
@@ -3225,16 +3050,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the median along a given axis. 
-        ///                     If the dtype is floating point then the middle elements will be
-        ///                     averaged for arrays of even number of elements. 
-        ///                     If the dtype is integral then the middle elements will be intager
-        ///                     averaged (rounded down to integer) for arrays of even number of elements. 
+        /// Return the median along a given axis. 
+        /// If the dtype is floating point then the middle elements will be
+        /// averaged for arrays of even number of elements. 
+        /// If the dtype is integral then the middle elements will be intager
+        /// averaged (rounded down to integer) for arrays of even number of elements. 
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> median(Axis inAxis = Axis::NONE) const
         {
@@ -3331,7 +3154,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fills the array with nans.
+        /// Fills the array with nans.
         ///
         ///
         NdArray<dtype>& nans() noexcept
@@ -3344,12 +3167,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the number of bytes held by the array
+        /// Returns the number of bytes held by the array
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html
         ///
-        /// @return
-        ///				number of bytes
+        /// @return number of bytes
         ///
         uint64 nbytes() const noexcept 
         {
@@ -3358,15 +3180,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the array with the same data viewed with a
-        ///						different byte order. only works for integer types.
+        /// Return the array with the same data viewed with a
+        /// different byte order. only works for integer types.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
         ///
-        /// @param
-        ///				inEndianess
-        /// @return
-        ///				NdArray
+        /// @param inEndianess
+        /// @return NdArray
         ///
         NdArray<dtype> newbyteorder(Endian inEndianess) const 
         {
@@ -3524,20 +3344,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns True if none elements evaluate to True or non zero
+        /// Returns True if none elements evaluate to True or non zero
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<bool> none(Axis inAxis = Axis::NONE) const 
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i)  -> bool
+            const auto function = [](dtype i) -> bool
             {
                 return i != dtype{ 0 };
             };
@@ -3580,24 +3398,22 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the row/col indices of the array of the
-        ///						elements that are non-zero.
+        /// Return the row/col indices of the array of the
+        /// elements that are non-zero.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
         ///
-        /// @return
-        ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
-        ///             column indices
+        /// @return std::pair<NdArray, NdArray> where first is the row indices and second is the
+        /// column indices
         ///
         std::pair<NdArray<uint32>, NdArray<uint32>> nonzero() const;
 
         //============================================================================
         // Method Description:
-        ///						Returns the number of columns in the array
+        /// Returns the number of columns in the array
         ///
         ///
-        /// @return
-        ///				uint32
+        /// @return uint32
         ///
         uint32 numCols() const noexcept 
         {
@@ -3606,11 +3422,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the number of rows in the array
+        /// Returns the number of rows in the array
         ///
         ///
-        /// @return
-        ///				uint32
+        /// @return uint32
         ///
         uint32 numRows() const noexcept 
         {
@@ -3619,7 +3434,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fills the array with ones
+        /// Fills the array with ones
         ///
         ///
         NdArray<dtype>& ones() noexcept
@@ -3632,7 +3447,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns whether or not the array object owns the underlying data
+        /// Returns whether or not the array object owns the underlying data
         ///
         /// @return bool
         ///
@@ -3643,19 +3458,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Rearranges the elements in the array in such a way that
-        ///						value of the element in kth position is in the position it
-        ///						would be in a sorted array. All elements smaller than the kth
-        ///						element are moved before this element and all equal or greater
-        ///						are moved behind it. The ordering of the elements in the two
-        ///						partitions is undefined.
+        /// Rearranges the elements in the array in such a way that
+        /// value of the element in kth position is in the position it
+        /// would be in a sorted array. All elements smaller than the kth
+        /// element are moved before this element and all equal or greater
+        /// are moved behind it. The ordering of the elements in the two
+        /// partitions is undefined.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html
         ///
-        /// @param				inKth: kth element
-        /// @param				inAxis (Optional, default NONE)
-        /// @return
-        ///				None
+        /// @param inKth: kth element
+        /// @param inAxis (Optional, default NONE)
+        /// @return None
         ///
         NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
@@ -3720,7 +3534,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Prints the array to the console.
+        /// Prints the array to the console.
         ///
         ///
         void print() const 
@@ -3732,14 +3546,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the product of the array elements over the given axis
+        /// Return the product of the array elements over the given axis
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> prod(Axis inAxis = Axis::NONE) const 
         {
@@ -3787,14 +3599,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Peak to peak (maximum - minimum) value along a given axis.
+        /// Peak to peak (maximum - minimum) value along a given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const 
         {
@@ -3846,12 +3656,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						set the flat index element to the value
+        /// set the flat index element to the value
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inIndex
-        /// @param				inValue
+        /// @param inIndex
+        /// @param inValue
         ///
         NdArray<dtype>& put(int32 inIndex, value_type inValue)
         {
@@ -3862,13 +3672,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						set the 2D row/col index element to the value
+        /// set the 2D row/col index element to the value
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRow
-        /// @param				inCol
-        /// @param				inValue
+        /// @param inRow
+        /// @param inCol
+        /// @param inValue
         ///
         NdArray<dtype>& put(int32 inRow, int32 inCol, value_type inValue)
         {
@@ -3879,12 +3689,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set a.flat[n] = values for all n in indices.
+        /// Set a.flat[n] = values for all n in indices.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inIndices
-        /// @param				inValue
+        /// @param inIndices
+        /// @param inValue
         ///
         NdArray<dtype>& put(const NdArray<uint32>& inIndices, value_type inValue)
         {
@@ -3898,12 +3708,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set a.flat[n] = values[n] for all n in indices.
+        /// Set a.flat[n] = values[n] for all n in indices.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inIndices
-        /// @param				inValues
+        /// @param inIndices
+        /// @param inValues
         ///
         NdArray<dtype>& put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
@@ -3923,12 +3733,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input value.
+        /// Set the slice indices to the input value.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inSlice
-        /// @param				inValue
+        /// @param inSlice
+        /// @param inValue
         ///
         NdArray<dtype>& put(const Slice& inSlice, value_type inValue)
         {
@@ -3945,12 +3755,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input values.
+        /// Set the slice indices to the input values.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inSlice
-        /// @param  			inValues
+        /// @param inSlice
+        /// @param inValues
         ///
         NdArray<dtype>& put(const Slice& inSlice, const NdArray<dtype>& inValues)
         {
@@ -3968,13 +3778,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input value.
+        /// Set the slice indices to the input value.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowSlice
-        /// @param				inColSlice
-        /// @param				inValue
+        /// @param inRowSlice
+        /// @param inColSlice
+        /// @param inValue
         ///
         NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
         {
@@ -3998,13 +3808,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input value.
+        /// Set the slice indices to the input value.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowSlice
-        /// @param				inColIndex
-        /// @param				inValue
+        /// @param inRowSlice
+        /// @param inColIndex
+        /// @param inValue
         ///
         NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, value_type inValue)
         {
@@ -4022,13 +3832,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input value.
+        /// Set the slice indices to the input value.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowIndex
-        /// @param				inColSlice
-        /// @param				inValue
+        /// @param inRowIndex
+        /// @param inColSlice
+        /// @param inValue
         ///
         NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, value_type inValue)
         {
@@ -4046,13 +3856,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input values.
+        /// Set the slice indices to the input values.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowSlice
-        /// @param				inColSlice
-        /// @param				inValues
+        /// @param inRowSlice
+        /// @param inColSlice
+        /// @param inValues
         ///
         NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
@@ -4077,13 +3887,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input values.
+        /// Set the slice indices to the input values.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowSlice
-        /// @param				inColIndex
-        /// @param				inValues
+        /// @param inRowSlice
+        /// @param inColIndex
+        /// @param inValues
         ///
         NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
         {
@@ -4102,13 +3912,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the slice indices to the input values.
+        /// Set the slice indices to the input values.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param				inRowIndex
-        /// @param				inColSlice
-        /// @param				inValues
+        /// @param inRowIndex
+        /// @param inColSlice
+        /// @param inValues
         ///
         NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
@@ -4127,10 +3937,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the mask indices to the input value.
+        /// Set the mask indices to the input value.
         ///
-        /// @param				inMask
-        /// @param				inValue
+        /// @param inMask
+        /// @param inValue
         ///
         NdArray<dtype>& putMask(const NdArray<bool>& inMask, value_type inValue)
         {
@@ -4144,10 +3954,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Set the mask indices to the input values.
+        /// Set the mask indices to the input values.
         ///
-        /// @param				inMask
-        /// @param				inValues
+        /// @param inMask
+        /// @param inValues
         ///
         NdArray<dtype>& putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
@@ -4161,7 +3971,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Flattens the array but does not make a copy.
+        /// Flattens the array but does not make a copy.
         ///
         /// Numpy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html
         ///
@@ -4175,14 +3985,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Repeat elements of an array.
+        /// Repeat elements of an array.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///
-        /// @param				inNumRows
-        /// @param				inNumCols
-        /// @return
-        ///				NdArray
+        /// @param inNumRows
+        /// @param inNumCols
+        /// @return NdArray
         ///
         NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const 
         {
@@ -4218,14 +4027,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Repeat elements of an array.
+        /// Repeat elements of an array.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///
-        /// @param
-        ///				inRepeatShape
-        /// @return
-        ///				NdArray
+        /// @param inRepeatShape
+        /// @return NdArray
         ///
         NdArray<dtype> repeat(const Shape& inRepeatShape) const 
         {
@@ -4234,10 +4041,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Replaces a value of the array with another value
+        /// Replaces a value of the array with another value
         ///
-        /// @param  oldValue: the value to replace
-        /// @param  newValue: the value to replace with
+        /// @param oldValue: the value to replace
+        /// @param newValue: the value to replace with
         ///
         void replace(value_type oldValue, value_type newValue) 
         {
@@ -4248,14 +4055,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// The new shape should be compatible with the original shape. If an single integer,
         /// then the result will be a 1-D array of that length. One shape dimension 
         /// can be -1. In this case, the value is inferred from the length of the 
         /// array and remaining dimensions. 
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
-        /// @param      inSize
+        /// @param inSize
         ///
         NdArray<dtype>& reshape(size_type inSize)
         {
@@ -4274,15 +4081,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// The new shape should be compatible with the original shape. If an single integer,
         /// then the result will be a 1-D array of that length. One shape dimension 
         /// can be -1. In this case, the value is inferred from the length of the 
         /// array and remaining dimensions. 
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
-        /// @param      inNumRows
-        /// @param      inNumCols
+        /// @param inNumRows
+        /// @param inNumCols
         ///
         NdArray<dtype>& reshape(int32 inNumRows, int32 inNumCols)
         {
@@ -4327,15 +4134,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// The new shape should be compatible with the original shape. If an single integer,
         /// then the result will be a 1-D array of that length. One shape dimension 
         /// can be -1. In this case, the value is inferred from the length of the 
         /// array and remaining dimensions. 
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
-        /// @param
-        ///				inShape
+        /// @param inShape
         ///
         NdArray<dtype>& reshape(const Shape& inShape)
         {
@@ -4344,13 +4150,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Change shape and size of array in-place. All previous
-        ///						data of the array is lost.
+        /// Change shape and size of array in-place. All previous
+        /// data of the array is lost.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///
-        /// @param      inNumRows
-        /// @param      inNumCols
+        /// @param inNumRows
+        /// @param inNumCols
         ///
         NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) 
         {
@@ -4360,13 +4166,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Change shape and size of array in-place. All previous
-        ///						data of the array is lost.
+        /// Change shape and size of array in-place. All previous
+        /// data of the array is lost.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///
-        /// @param
-        ///				inShape
+        /// @param inShape
         ///
         NdArray<dtype>& resizeFast(const Shape& inShape) 
         {
@@ -4375,15 +4180,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return a new array with the specified shape. If new shape
-        ///						is larger than old shape then array will be padded with zeros.
-        ///						If new shape is smaller than the old shape then the data will
-        ///						be discarded.
+        /// Return a new array with the specified shape. If new shape
+        /// is larger than old shape then array will be padded with zeros.
+        /// If new shape is smaller than the old shape then the data will
+        /// be discarded.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///
-        /// @param				inNumRows
-        /// @param				inNumCols
+        /// @param inNumRows
+        /// @param inNumCols
         ///
         NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) 
         {
@@ -4415,15 +4220,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return a new array with the specified shape. If new shape
-        ///						is larger than old shape then array will be padded with zeros.
-        ///						If new shape is smaller than the old shape then the data will
-        ///						be discarded.
+        /// Return a new array with the specified shape. If new shape
+        /// is larger than old shape then array will be padded with zeros.
+        /// If new shape is smaller than the old shape then the data will
+        /// be discarded.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///
-        /// @param
-        ///				inShape
+        /// @param inShape
         ///
         NdArray<dtype>& resizeSlow(const Shape& inShape) 
         {
@@ -4432,15 +4236,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return a with each element rounded to the given number
-        ///						of decimals.
+        /// Return a with each element rounded to the given number
+        /// of decimals.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html
         ///
-        /// @param
-        ///				inNumDecimals (default 0)
-        /// @return
-        ///				NdArray
+        /// @param inNumDecimals (default 0)
+        /// @return NdArray
         ///
         NdArray<dtype> round(uint8 inNumDecimals = 0) const 
         {
@@ -4460,11 +4262,10 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the full row of the array
+        /// Returns the full row of the array
         ///
         ///
-        /// @return
-        ///				Shape
+        /// @return Shape
         ///
         NdArray<dtype> row(uint32 inRow)
         {
@@ -4473,12 +4274,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the shape of the array
+        /// Return the shape of the array
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
         ///
-        /// @return
-        ///				Shape
+        /// @return Shape
         ///
         Shape shape() const noexcept 
         {
@@ -4487,12 +4287,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the size of the array
+        /// Return the size of the array
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html
         ///
-        /// @return
-        ///				size
+        /// @return size
         ///
         size_type size() const noexcept 
         {
@@ -4501,14 +4300,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sort an array, in-place.
+        /// Sort an array, in-place.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				size
+        /// @param inAxis (Optional, default NONE)
+        /// @return size
         ///
         NdArray<dtype>& sort(Axis inAxis = Axis::NONE) 
         {
@@ -4552,10 +4349,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						returns the NdArray as a string representation
+        /// returns the NdArray as a string representation
         ///
-        /// @return
-        ///				string
+        /// @return string
         ///
         std::string str() const 
         {
@@ -4586,14 +4382,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the sum of the array elements over the given axis.
+        /// Return the sum of the array elements over the given axis.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html
         ///
-        /// @param
-        ///				inAxis (Optional, default NONE)
-        /// @return
-        ///				NdArray
+        /// @param inAxis (Optional, default NONE)
+        /// @return NdArray
         ///
         NdArray<dtype> sum(Axis inAxis = Axis::NONE) const 
         {
@@ -4638,12 +4432,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Interchange two axes of an array. Equivalent to transpose...
+        /// Interchange two axes of an array. Equivalent to transpose...
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<dtype> swapaxes() const 
         {
@@ -4652,16 +4445,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Write array to a file as binary.
-        ///						The data produced by this method can be recovered
-        ///						using the function fromfile().
+        /// Write array to a file as binary.
+        /// The data produced by this method can be recovered
+        /// using the function fromfile().
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
-        /// @param				inFilename
+        /// @param inFilename
 
-        /// @return
-        ///				None
+        /// @return None
         ///
         void tofile(const std::string& inFilename) const
         {
@@ -4670,16 +4462,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Write array to a file as text.
-        ///						The data produced by this method can be recovered
-        ///						using the function fromfile().
+        /// Write array to a file as text.
+        /// The data produced by this method can be recovered
+        /// using the function fromfile().
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
-        /// @param				inFilename
-        /// @param				inSep: Separator between array items for text output.
-        /// @return
-        ///				None
+        /// @param inFilename
+        /// @param inSep: Separator between array items for text output.
+        /// @return None
         ///
         void tofile(const std::string& inFilename, const char inSep) const
         {
@@ -4711,7 +4502,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Converts the slice object to an NdArray of indices for this array
+        /// Converts the slice object to an NdArray of indices for this array
         /// 
         /// @param inSlice: the slice object
         /// @param inAxis: the array axis
@@ -4762,10 +4553,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Write flattened array to an STL vector
+        /// Write flattened array to an STL vector
         ///
-        /// @return
-        ///				std::vector
+        /// @return std::vector
         ///
         std::vector<dtype> toStlVector() const 
         {
@@ -4774,15 +4564,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the sum along diagonals of the array.
+        /// Return the sum along diagonals of the array.
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html
         ///
-        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
-        /// @param				inAxis: (Optional, default ROW) Axis to offset from
+        /// @param inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
+        /// @param inAxis: (Optional, default ROW) Axis to offset from
         ///
-        /// @return
-        ///				value
+        /// @return value
         ///
         value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept 
         {
@@ -4831,12 +4620,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Tranpose the rows and columns of an array
+        /// Tranpose the rows and columns of an array
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         NdArray<dtype> transpose() const 
         {
@@ -4853,7 +4641,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fills the array with zeros
+        /// Fills the array with zeros
         ///
         ///
         NdArray<dtype>& zeros() noexcept
@@ -4875,7 +4663,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Deletes the internal array
+        /// Deletes the internal array
         ///
         void deleteArray() noexcept
         {
@@ -4893,7 +4681,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Creates a new internal array
+        /// Creates a new internal array
         ///
         void newArray() 
         {
@@ -4906,10 +4694,9 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Creates a new internal array
+        /// Creates a new internal array
         ///
-        /// @param
-        ///				inShape
+        /// @param inShape
         ///
         void newArray(const Shape& inShape) 
         {

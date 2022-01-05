@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,23 +37,22 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Solves the equation a x = b by computing a vector x
-        ///						that minimizes the Euclidean 2-norm || b - a x ||^2.
-        ///						The equation may be under-, well-, or over- determined
-        ///						(i.e., the number of linearly independent rows of a can
-        ///						be less than, equal to, or greater than its number of
-        ///						linearly independent columns). If a is square and of
-        ///						full rank, then x (but for round-off error) is the
-        ///						"exact" solution of the equation.
+        /// Solves the equation a x = b by computing a vector x
+        /// that minimizes the Euclidean 2-norm || b - a x ||^2.
+        /// The equation may be under-, well-, or over- determined
+        /// (i.e., the number of linearly independent rows of a can
+        /// be less than, equal to, or greater than its number of
+        /// linearly independent columns). If a is square and of
+        /// full rank, then x (but for round-off error) is the
+        /// "exact" solution of the equation.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
         ///
-        /// @param				inA: coefficient matrix
-        /// @param  			inB: Ordinate or "dependent variable" values
-        /// @param				inTolerance (default 1e-12)
+        /// @param inA: coefficient matrix
+        /// @param inB: Ordinate or "dependent variable" values
+        /// @param inTolerance (default 1e-12)
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12)

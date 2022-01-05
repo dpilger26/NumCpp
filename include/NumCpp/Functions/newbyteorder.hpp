@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -34,17 +34,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the array with the same data viewed with a
-    ///						different byte order. only works for integer types,
-    ///						floating point types will not compile and you will
-    ///						be confused as to why...
+    /// Return the array with the same data viewed with a
+    /// different byte order. only works for integer types,
+    /// floating point types will not compile and you will
+    /// be confused as to why...
     ///
     ///
-    /// @param				inValue
-    /// @param				inEndianess
+    /// @param inValue
+    /// @param inEndianess
     ///
-    /// @return
-    ///				inValue
+    /// @return inValue
     ///
     template<typename dtype>
     dtype newbyteorder(dtype inValue, Endian inEndianess) 
@@ -55,17 +54,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the array with the same data viewed with a
-    ///						different byte order. only works for integer types,
-    ///						floating point types will not compile and you will
-    ///						be confused as to why...
+    /// Return the array with the same data viewed with a
+    /// different byte order. only works for integer types,
+    /// floating point types will not compile and you will
+    /// be confused as to why...
     ///
     ///
-    /// @param				inArray
-    /// @param				inEndianess
+    /// @param inArray
+    /// @param inEndianess
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) 

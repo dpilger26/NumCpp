@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,23 +38,22 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return evenly spaced values within a given interval.
+    /// Return evenly spaced values within a given interval.
     ///
-    ///						Values are generated within the half - open interval[start, stop)
-    ///						(in other words, the interval including start but excluding stop).
-    ///						For integer arguments the function is equivalent to the Python built - in
-    ///						range function, but returns an ndarray rather than a list.
+    /// Values are generated within the half - open interval[start, stop)
+    /// (in other words, the interval including start but excluding stop).
+    /// For integer arguments the function is equivalent to the Python built - in
+    /// range function, but returns an ndarray rather than a list.
     ///
-    ///						When using a non - integer step, such as 0.1, the results will often
-    ///						not be consistent.It is better to use linspace for these cases.
+    /// When using a non - integer step, such as 0.1, the results will often
+    /// not be consistent.It is better to use linspace for these cases.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param				inStart
-    /// @param				inStop
-    /// @param				inStep: (Optional, defaults to 1)
-    /// @return
-    ///				NdArray
+    /// @param inStart
+    /// @param inStop
+    /// @param inStep: (Optional, defaults to 1)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
@@ -98,22 +97,20 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return evenly spaced values within a given interval.
+    /// Return evenly spaced values within a given interval.
     ///
-    ///						Values are generated within the half - open interval[start, stop)
-    ///						(in other words, the interval including start but excluding stop).
-    ///						For integer arguments the function is equivalent to the Python built - in
-    ///						range function, but returns an ndarray rather than a list.
+    /// Values are generated within the half - open interval[start, stop)
+    /// (in other words, the interval including start but excluding stop).
+    /// For integer arguments the function is equivalent to the Python built - in
+    /// range function, but returns an ndarray rather than a list.
     ///
-    ///						When using a non - integer step, such as 0.1, the results will often
-    ///						not be consistent.It is better to use linspace for these cases.
+    /// When using a non - integer step, such as 0.1, the results will often
+    /// not be consistent.It is better to use linspace for these cases.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param
-    ///				inStop: start is 0 and step is 1
-    /// @return
-    ///				NdArray
+    /// @param inStop: start is 0 and step is 1
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(dtype inStop)
@@ -128,22 +125,20 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return evenly spaced values within a given interval.
+    /// Return evenly spaced values within a given interval.
     ///
-    ///						Values are generated within the half - open interval[start, stop)
-    ///						(in other words, the interval including start but excluding stop).
-    ///						For integer arguments the function is equivalent to the Python built - in
-    ///						range function, but returns an ndarray rather than a list.
+    /// Values are generated within the half - open interval[start, stop)
+    /// (in other words, the interval including start but excluding stop).
+    /// For integer arguments the function is equivalent to the Python built - in
+    /// range function, but returns an ndarray rather than a list.
     ///
-    ///						When using a non - integer step, such as 0.1, the results will often
-    ///						not be consistent.It is better to use linspace for these cases.
+    /// When using a non - integer step, such as 0.1, the results will often
+    /// not be consistent.It is better to use linspace for these cases.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
     ///
-    /// @param
-    ///				inSlice
-    /// @return
-    ///				NdArray
+    /// @param inSlice
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> arange(const Slice& inSlice)

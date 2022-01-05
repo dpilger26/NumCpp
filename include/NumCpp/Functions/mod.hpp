@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,15 +33,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return element-wise remainder of division.
+    /// Return element-wise remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> mod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

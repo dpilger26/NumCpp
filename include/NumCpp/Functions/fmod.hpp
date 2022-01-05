@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -28,45 +28,61 @@
 #pragma once
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
 
+#include <cmath>
 #include <string>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the remainder of division.
+    /// Return the remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
-    /// @param				inValue1
-    /// @param				inValue2
-    /// @return
-    ///				value
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
     ///
-    template<typename dtype>
+    template<typename dtype, 
+        enable_if_t<is_integral_v<dtype>, int> = 0>
     dtype fmod(dtype inValue1, dtype inValue2) noexcept 
     {
-        STATIC_ASSERT_INTEGER(dtype);
-
         return inValue1 % inValue2;
     }
 
     //============================================================================
     // Method Description:
-    ///						Return the element-wise remainder of division.
+    /// Return the remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    ///				NdArray
+    /// @param inValue1
+    /// @param inValue2
+    /// @return value
+    ///
+    template<typename dtype, 
+        enable_if_t<is_floating_point_v<dtype>, int> = 0>
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept 
+    {
+        return std::fmod(inValue1, inValue2);
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Return the element-wise remainder of division.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+    ///
+    ///
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

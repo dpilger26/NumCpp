@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,14 +35,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns element-wise True where signbit is set (less than zero).
+    /// Returns element-wise True where signbit is set (less than zero).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				NdArray
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     bool signbit(dtype inValue) noexcept 
@@ -54,14 +52,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns element-wise True where signbit is set (less than zero).
+    /// Returns element-wise True where signbit is set (less than zero).
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> signbit(const NdArray<dtype>& inArray) 

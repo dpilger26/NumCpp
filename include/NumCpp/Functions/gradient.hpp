@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,15 +42,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the gradient of the array.
+    /// Return the gradient of the array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inAxis (default ROW)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inAxis (default ROW)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
@@ -126,7 +125,7 @@ namespace nc
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
                 stl_algorithms::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](dtype value1, dtype value2)  -> double
+                    [](dtype value1, dtype value2) -> double
                     { 
                         return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; 
                     });
@@ -138,15 +137,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the gradient of the array.
+    /// Return the gradient of the array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
     ///
     ///
-    /// @param				inArray
-    /// @param				inAxis (default ROW)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inAxis (default ROW)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> gradient(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::ROW)
@@ -224,7 +222,7 @@ namespace nc
                 returnArray[-1] = complex_cast<double>(inArray[-1]) - complex_cast<double>(inArray[-2]);
 
                 stl_algorithms::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](const std::complex<dtype>& value1, const std::complex<dtype>& value2)  -> std::complex<double>
+                    [](const std::complex<dtype>& value1, const std::complex<dtype>& value2) -> std::complex<double>
                     { 
                         return (complex_cast<double>(value1) - complex_cast<double>(value2)) / 2.0; 
                     });

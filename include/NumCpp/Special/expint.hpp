@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,13 +47,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Exponential integral Ei.
+        /// Exponential integral Ei.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inX: value
-        /// @return
-        ///				calculated-result-type 
+        /// @param inX: value
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto expint(dtype inX)
@@ -69,13 +68,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Exponential integral Ei.
+        /// Exponential integral Ei.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayX: value
-        /// @return
-        ///				NdArray
+        /// @param inArrayX: value
+        /// @return NdArray
         ///
         template<typename dtype>
         auto expint(const NdArray<dtype>& inArrayX)

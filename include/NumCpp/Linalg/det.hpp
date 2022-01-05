@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,15 +42,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix determinant.
-        ///						NOTE: can get verrrrry slow for large matrices (order > 10)
+        /// matrix determinant.
+        /// NOTE: can get verrrrry slow for large matrices (order > 10)
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				matrix determinant
+        /// @param inArray
+        /// @return matrix determinant
         ///
         template<typename dtype>
         dtype det(const NdArray<dtype>& inArray)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,14 +44,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a threshold such that the input rate of pixels
-        ///						exceeds the threshold. Really should only be used for integer
-        ///                      input array values. If using floating point data, user beware...
+        /// Calculates a threshold such that the input rate of pixels
+        /// exceeds the threshold. Really should only be used for integer
+        /// input array values. If using floating point data, user beware...
         ///
-        /// @param				inImageArray
-        /// @param				inRate
-        /// @return
-        ///				dtype
+        /// @param inImageArray
+        /// @param inRate
+        /// @return dtype
         ///
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,14 +41,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Returns the inverse complentary error function of z, that is a value x such that:
+        /// Returns the inverse complentary error function of z, that is a value x such that:
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inValue
-        /// @return
-        ///				calculated-result-type
+        /// @param inValue
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto erfc_inv(dtype inValue)
@@ -60,14 +58,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Returns the inverse complementary error function of z, that is a value x such that:
+        /// Returns the inverse complementary error function of z, that is a value x such that:
         /// z = erfc(x).
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto erfc_inv(const NdArray<dtype>& inArray)

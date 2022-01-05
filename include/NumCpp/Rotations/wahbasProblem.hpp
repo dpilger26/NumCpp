@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -48,15 +48,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers
         /// https://en.wikipedia.org/wiki/Wahba%27s_problem
         ///
-        /// @param  wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
-        /// @param  vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
-        /// @param  ak: set of weights for each observation (1 x n or n x 1 matrix)
+        /// @param wk: k-th 3-vector measurement in the reference frame (n x 3 matrix)
+        /// @param vk: corresponding k-th 3-vector measurement in the body frame (n x 3 matrix)
+        /// @param ak: set of weights for each observation (1 x n or n x 1 matrix)
         ///
         /// @return NdArray rotation matrix
         ///
@@ -112,14 +112,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers
         /// https://en.wikipedia.org/wiki/Wahba%27s_problem
         ///
-        /// @param  wk: k-th 3-vector measurement in the reference frame
-        /// @param  vk: corresponding k-th 3-vector measurement in the body frame
+        /// @param wk: k-th 3-vector measurement in the reference frame
+        /// @param vk: corresponding k-th 3-vector measurement in the body frame
         ///
         /// @return NdArray rotation matrix
         ///

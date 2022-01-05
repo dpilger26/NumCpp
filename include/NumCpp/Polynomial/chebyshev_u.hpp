@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,13 +41,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the second kind.
+        /// Chebyshev Polynomial of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: the order of the chebyshev polynomial
-        /// @param      x: the input value
-        /// @return
-        ///				double
+        /// @param n: the order of the chebyshev polynomial
+        /// @param x: the input value
+        /// @return double
         ///
         template<typename dtype>
         double chebyshev_u(uint32 n, dtype x)
@@ -59,13 +58,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Chebyshev Polynomial of the second kind.
+        /// Chebyshev Polynomial of the second kind.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param      n: the order of the chebyshev polynomial
-        /// @param      inArrayX: the input value
-        /// @return
-        ///				NdArray<double>
+        /// @param n: the order of the chebyshev polynomial
+        /// @param inArrayX: the input value
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> chebyshev_u(uint32 n, const NdArray<dtype>& inArrayX)

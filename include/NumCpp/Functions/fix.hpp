@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,14 +37,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Round to nearest integer towards zero.
+    /// Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     dtype fix(dtype inValue) noexcept 
@@ -56,14 +54,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Round to nearest integer towards zero.
+    /// Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fix(const NdArray<dtype>& inArray) 

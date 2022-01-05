@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -48,16 +48,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
+    /// Compute the qth percentile of the data along the specified axis, while ignoring nan values.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
     ///
-    /// @param				inArray
-    /// @param              inPercentile
-    /// @param				inAxis (Optional, default NONE)
-    /// @param              inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inPercentile
+    /// @param inAxis (Optional, default NONE)
+    /// @param inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
@@ -85,7 +84,8 @@ namespace nc
                     return returnArray;
                 }
 
-                return percentile(NdArray<double>(arrayCopy.data(), arrayCopy.size(), false), 
+                return percentile(NdArray<double>(arrayCopy.data(), 
+                    static_cast<typename NdArray<dtype>::size_type>(arrayCopy.size()), false), 
                     inPercentile, Axis::NONE, inInterpMethod);
             }
             case Axis::COL:

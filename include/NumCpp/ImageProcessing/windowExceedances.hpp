@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,12 +40,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Window expand around exceedance pixels
+        /// Window expand around exceedance pixels
         ///
-        /// @param				inExceedances
-        /// @param				inBorderWidth
-        /// @return
-        ///				NdArray<bool>
+        /// @param inExceedances
+        /// @param inBorderWidth
+        /// @return NdArray<bool>
         ///
         inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
         {

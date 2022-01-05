@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,14 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "negative Binomial" distribution.
+        /// Single random value sampled from the "negative Binomial" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///
-        /// @param				inN: number of trials
-        /// @param				inP: probablity of success [0, 1]
-        /// @return
-        ///				NdArray
+        /// @param inN: number of trials
+        /// @param inP: probablity of success [0, 1]
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype negativeBinomial(dtype inN, double inP = 0.5)
@@ -73,16 +72,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "negative Binomial" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "negative Binomial" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///
-        /// @param				inShape
-        /// @param				inN: number of trials
-        /// @param				inP: probablity of success [0, 1]
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inN: number of trials
+        /// @param inP: probablity of success [0, 1]
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)

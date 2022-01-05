@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,19 +47,19 @@ namespace nc
     namespace boostPythonInterface
     {
         //================================================================================
-        ///						Helper class for ndarray
+        /// Helper class for ndarray
         template<typename dtype>
         class BoostNdarrayHelper
         {
         public:
             //================================================================================
-            ///						C or Fortran ordering from python
+            /// C or Fortran ordering from python
             enum class Order { F, C };
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inArray:  ndarray
+            /// @param inArray:  ndarray
             ///
             explicit BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
                 theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<dtype>())),
@@ -83,9 +83,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inShape
+            /// @param inShape
             ///
             explicit BoostNdarrayHelper(boost::python::tuple inShape) :
                 theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<dtype>())),
@@ -110,9 +110,9 @@ namespace nc
 
 
             //============================================================================
-            ///						Returns the internaly held ndarray
+            /// Returns the internaly held ndarray
             ///
-            /// @return     reference to the held ndarray
+            /// @return reference to the held ndarray
             ///
             const boost::python::numpy::ndarray& getArray() noexcept 
             {
@@ -120,9 +120,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the internaly held ndarray as a numpy matrix
+            /// Returns the internaly held ndarray as a numpy matrix
             ///
-            /// @return     matrix
+            /// @return matrix
             ///
             boost::python::numpy::matrix getArrayAsMatrix()
             {
@@ -130,9 +130,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the number of dimensions of the array
+            /// Returns the number of dimensions of the array
             ///
-            /// @return     num dimensions
+            /// @return num dimensions
             ///
             uint8 numDimensions() noexcept 
             {
@@ -140,9 +140,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the shape of the array
+            /// Returns the shape of the array
             ///
-            /// @return     vector
+            /// @return vector
             ///
             const std::vector<Py_intptr_t>& shape() noexcept 
             {
@@ -150,9 +150,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the size of the array
+            /// Returns the size of the array
             ///
-            /// @return     size
+            /// @return size
             ///
             uint32 size()
             {
@@ -166,9 +166,9 @@ namespace nc
 
 
             //============================================================================
-            ///						Returns the strides of the array
+            /// Returns the strides of the array
             ///
-            /// @return     vector
+            /// @return vector
             ///
             const std::vector<uint32>& strides() 
             {
@@ -176,9 +176,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns the memory order of the array (C or Fortran)
+            /// Returns the memory order of the array (C or Fortran)
             ///
-            /// @return     Order
+            /// @return Order
             ///
             Order order() 
             {
@@ -186,11 +186,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns if the shapes of the two array helpers are equal
+            /// Returns if the shapes of the two array helpers are equal
             ///
-            /// @param      otherNdarrayHelper
+            /// @param otherNdarrayHelper
             ///
-            /// @return     boolean
+            /// @return boolean
             ///
             bool shapeEqual(BoostNdarrayHelper& otherNdarrayHelper)
             {
@@ -203,11 +203,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						1D access operator
+            /// 1D access operator
             ///
-            /// @param      index
+            /// @param index
             ///
-            /// @return     dtype
+            /// @return dtype
             ///
             dtype& operator()(uint32 index)
             {
@@ -217,12 +217,12 @@ namespace nc
             }
 
             //============================================================================
-            ///						2D access operator
+            /// 2D access operator
             ///
-            /// @param      index1
-            /// @param      index2
+            /// @param index1
+            /// @param index2
             ///
-            /// @return     dtype
+            /// @return dtype
             ///
             dtype& operator()(uint32 index1, uint32 index2)
             {
@@ -232,7 +232,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints a 1D array
+            /// Prints a 1D array
             ///
             void printArray1D()
             {
@@ -250,7 +250,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints a 2D array
+            /// Prints a 2D array
             ///
             void printArray2D()
             {
@@ -280,9 +280,9 @@ namespace nc
             Order   						order_;
 
             //============================================================================
-            ///						Generic check of input indices
+            /// Generic check of input indices
             ///
-            /// @param      indices
+            /// @param indices
             ///
             void checkIndicesGeneric(boost::python::tuple indices)
             {
@@ -306,9 +306,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Checks 1D input indices
+            /// Checks 1D input indices
             ///
-            /// @param      index
+            /// @param index
             ///
             void checkIndices1D(uint32 index)
             {
@@ -317,10 +317,10 @@ namespace nc
             }
 
             //============================================================================
-            ///						Checks 2D input indices
+            /// Checks 2D input indices
             ///
-            /// @param      index1
-            /// @param		index2
+            /// @param index1
+            /// @param index2
             ///
             void checkIndices2D(uint32 index1, uint32 index2)
             {

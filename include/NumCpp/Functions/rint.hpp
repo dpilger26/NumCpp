@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,15 +37,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Round value to the nearest integer.
+    /// Round value to the nearest integer.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
-    /// @param
-    ///				inValue
+    /// @param inValue
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     dtype rint(dtype inValue) noexcept 
@@ -57,15 +55,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Round elements of the array to the nearest integer.
+    /// Round elements of the array to the nearest integer.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> rint(const NdArray<dtype>& inArray) 

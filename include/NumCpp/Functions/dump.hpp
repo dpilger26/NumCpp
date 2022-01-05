@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,13 +35,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Dump a binary file of the array to the specified file.
-    ///						The array can be read back with or NC::load.
+    /// Dump a binary file of the array to the specified file.
+    /// The array can be read back with or NC::load.
     ///
-    /// @param				inArray
-    /// @param				inFilename
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inFilename
+    /// @return NdArray
     ///
     template<typename dtype>
     void dump(const NdArray<dtype>& inArray, const std::string& inFilename)

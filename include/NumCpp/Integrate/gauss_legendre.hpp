@@ -4,7 +4,7 @@
 ///
 /// License
 /// Copyright 2019 Benjamin Mahr
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -45,16 +45,16 @@ namespace nc
     {
         //============================================================================
         // Class Description:
-        ///	Legendre Polynomial class
+        /// Legendre Polynomial class
         ///
         class LegendrePolynomial
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
-            /// @param				numIterations: the number of iterations to perform
+            /// @param numIterations: the number of iterations to perform
             ///
             explicit LegendrePolynomial(const uint32 numIterations) noexcept :
                 numIterations_(numIterations),
@@ -66,9 +66,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the weights vector
+            /// Returns the weights vector
             ///
-            /// @return	weights vector
+            /// @return weights vector
             ///
             const std::vector<double>& getWeight() const noexcept 
             {
@@ -77,9 +77,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the roots vector
+            /// Returns the roots vector
             ///
-            /// @return	roots vector
+            /// @return roots vector
             ///
             const std::vector<double>& getRoot() const noexcept 
             {
@@ -89,7 +89,7 @@ namespace nc
         private:
             //============================================================================
             // Class Description:
-            ///	Simple class to hold the results
+            /// Simple class to hold the results
             ///
             struct Result
             {
@@ -98,7 +98,7 @@ namespace nc
 
                 //============================================================================
                 // Method Description:
-                ///	Constructor
+                /// Constructor
                 ///
                 /// @param val: the value
                 /// @param deriv: the derivative
@@ -111,7 +111,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the weights and roots vectors
+            /// Calculates the weights and roots vectors
             ///
             void calculateWeightAndRoot() noexcept
             {
@@ -136,7 +136,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates the weights and roots vectors
+            /// Calculates the weights and roots vectors
             ///
             /// @param x
             /// @return Result
@@ -170,14 +170,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Performs Gauss-Legendre integration of the input function
+        /// Performs Gauss-Legendre integration of the input function
         ///
-        /// @param				low: the lower bound of the integration
-        /// @param              high: the upper bound of the integration
-        /// @param				n: the number of iterations to perform
-        /// @param              f: the function to integrate over
+        /// @param low: the lower bound of the integration
+        /// @param high: the upper bound of the integration
+        /// @param n: the number of iterations to perform
+        /// @param f: the function to integrate over
         ///
-        /// @return             double
+        /// @return double
         ///
         inline double gauss_legendre(const double low, const double high, const uint32 n,
             const std::function<double(double)>& f)

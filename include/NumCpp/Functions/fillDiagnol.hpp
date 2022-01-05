@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,12 +35,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Fill the main diagonal of the given array.
+    /// Fill the main diagonal of the given array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
     ///
-    /// @param      inArray
-    /// @param      inValue
+    /// @param inArray
+    /// @param inValue
     ///
     template<typename dtype>
     void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept 

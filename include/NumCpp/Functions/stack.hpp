@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,17 +40,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the variance along the specified axis.
+    /// Compute the variance along the specified axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
     ///
-    /// @param      inArrayList: {list} of arrays to stack
-    /// @param      inAxis: axis to stack the input NdArrays
-    /// @return
-    ///				NdArray
+    /// @param inArrayList: {list} of arrays to stack
+    /// @param inAxis: axis to stack the input NdArrays
+    /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> stack(std::initializer_list<NdArray<dtype> > inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {

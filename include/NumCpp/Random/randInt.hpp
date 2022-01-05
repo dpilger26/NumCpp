@@ -4,7 +4,7 @@
 /// @version 1.1
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -25,7 +25,7 @@
 ///
 /// Description
 /// Return random integers from low (inclusive) to high (exclusive),
-///	with the given shape
+/// with the given shape
 ///
 #pragma once
 
@@ -45,16 +45,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Return random integer from low (inclusive) to high (exclusive),
-        ///						with the given shape. If no high value is input then the range will 
-        ///                     go from [0, low).
+        /// Return random integer from low (inclusive) to high (exclusive),
+        /// with the given shape. If no high value is input then the range will 
+        /// go from [0, low).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///
-        /// @param				inLow
-        /// @param				inHigh default 0.
-        /// @return
-        ///				NdArray
+        /// @param inLow
+        /// @param inHigh default 0.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype randInt(dtype inLow, dtype inHigh = 0)
@@ -76,17 +75,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return random integers from low (inclusive) to high (exclusive),
-        ///						with the given shape. If no high value is input then the range will 
-        ///                     go from [0, low).
+        /// Return random integers from low (inclusive) to high (exclusive),
+        /// with the given shape. If no high value is input then the range will 
+        /// go from [0, low).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///
-        /// @param				inShape
-        /// @param				inLow
-        /// @param				inHigh default 0.
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inLow
+        /// @param inHigh default 0.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)

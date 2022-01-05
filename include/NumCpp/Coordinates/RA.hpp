@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,19 +42,19 @@ namespace nc
     namespace coordinates
     {
         //================================================================================
-        ///						Holds a right ascension object
+        /// Holds a right ascension object
         class RA
         {
         public:
             //============================================================================
-            ///						Default Constructor
+            /// Default Constructor
             ///
             RA() = default;
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inDegrees
+            /// @param inDegrees
             ///
             explicit RA(double inDegrees) :
                 degrees_(inDegrees),
@@ -72,11 +72,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            ///	@param			inHours
-            /// @param          inMinutes
-            /// @param          inSeconds
+            /// @param inHours
+            /// @param inMinutes
+            /// @param inSeconds
             ///
             RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
                 hours_(inHours),
@@ -88,9 +88,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the radians value
+            /// Get the radians value
             ///
-            /// @return     radians
+            /// @return radians
             ///
             double radians() const noexcept 
             {
@@ -98,9 +98,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the degrees value
+            /// Get the degrees value
             ///
-            /// @return     degrees
+            /// @return degrees
             ///
             double degrees() const noexcept 
             {
@@ -108,9 +108,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the hour value
+            /// Get the hour value
             ///
-            /// @return     hours
+            /// @return hours
             ///
             uint8 hours() const noexcept 
             {
@@ -118,9 +118,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the minute value
+            /// Get the minute value
             ///
-            /// @return     minutes
+            /// @return minutes
             ///
             uint8 minutes() const noexcept 
             {
@@ -128,9 +128,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the seconds value
+            /// Get the seconds value
             ///
-            /// @return     seconds
+            /// @return seconds
             ///
             double seconds() const noexcept 
             {
@@ -138,9 +138,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Return the RA object as a string representation
+            /// Return the RA object as a string representation
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string str() const
             {
@@ -150,7 +150,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints the RA object to the console
+            /// Prints the RA object to the console
             ///
             void print() const
             {
@@ -158,11 +158,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Equality operator
+            /// Equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator==(const RA& inRhs) const noexcept
             {
@@ -170,11 +170,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Not equality operator
+            /// Not equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator!=(const RA& inRhs) const noexcept
             {
@@ -182,10 +182,10 @@ namespace nc
             }
 
             //============================================================================
-            ///						Ostream operator
+            /// Ostream operator
             ///
-            /// @param      inStream
-            /// @param      inRa
+            /// @param inStream
+            /// @param inRa
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const RA& inRa)
             {

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,14 +40,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix svd
+        /// matrix svd
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
         ///
-        /// @param				inArray: NdArray to be SVDed
-        /// @param				outU: NdArray output U
-        /// @param				outS: NdArray output S
-        /// @param				outVt: NdArray output V transpose
+        /// @param inArray: NdArray to be SVDed
+        /// @param outU: NdArray output U
+        /// @param outS: NdArray output S
+        /// @param outVt: NdArray output V transpose
         ///
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,15 +44,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Single random value sampled from the "laplace" distrubution.
+        /// Single random value sampled from the "laplace" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
-        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
-        /// @param				inScale: (float optional the exponential decay. Default is 1)
-        /// @return
-        ///				NdArray
+        /// @param inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param inScale: (float optional the exponential decay. Default is 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype laplace(dtype inLoc = 0, dtype inScale = 1) 
@@ -65,17 +64,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Create an array of the given shape and populate it with
-        ///	random samples from a "laplace" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "laplace" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///
-        /// @param              inShape
-        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
-        /// @param				inScale: (float optional the exponential decay. Default is 1)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param inScale: (float optional the exponential decay. Default is 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,12 +40,12 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -55,13 +55,13 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inEpsilon
+        /// @param inValue1
+        /// @param inValue2
+        /// @param inEpsilon
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -72,12 +72,12 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_integral<dtype>::value, int> = 0>
@@ -87,13 +87,13 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inEpsilon
+        /// @param inValue1
+        /// @param inValue2
+        /// @param inEpsilon
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -105,12 +105,12 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
@@ -120,12 +120,12 @@ namespace nc
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        /// tests that 2 floating point values are "essentially equal"
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param inValue1
+        /// @param inValue2
         ///
-        /// @return     bool
+        /// @return bool
         ///
         template<typename dtype, 
             enable_if_t<std::is_floating_point<dtype>::value, int> = 0>

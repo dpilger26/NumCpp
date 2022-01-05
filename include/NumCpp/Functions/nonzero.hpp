@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,16 +35,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the indices of the flattened array of the
-    ///						elements that are non-zero.
+    /// Return the indices of the flattened array of the
+    /// elements that are non-zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) 

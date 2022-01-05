@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,16 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Unwrap by changing deltas between values to 2*pi complement.
-    ///                     Unwraps to [-pi, pi].
+    /// Unwrap by changing deltas between values to 2*pi complement.
+    /// Unwraps to [-pi, pi].
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///
-    /// @param
-    ///				inValue
+    /// @param inValue
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     dtype unwrap(dtype inValue) noexcept 
@@ -58,16 +56,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Unwrap by changing deltas between values to 2*pi complement.
-    ///                     Unwraps to [-pi, pi].
+    /// Unwrap by changing deltas between values to 2*pi complement.
+    /// Unwraps to [-pi, pi].
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> unwrap(const NdArray<dtype>& inArray) 

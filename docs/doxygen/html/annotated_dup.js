@@ -45,6 +45,7 @@ var annotated_dup =
       [ "DataCube", "classnc_1_1_data_cube.html", "classnc_1_1_data_cube" ],
       [ "DtypeInfo", "classnc_1_1_dtype_info.html", "classnc_1_1_dtype_info" ],
       [ "DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ],
+      [ "greaterThan", "structnc_1_1greater_than.html", "structnc_1_1greater_than" ],
       [ "is_complex", "structnc_1_1is__complex.html", "structnc_1_1is__complex" ],
       [ "is_complex< std::complex< T > >", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html", "structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4" ],
       [ "is_valid_dtype", "structnc_1_1is__valid__dtype.html", "structnc_1_1is__valid__dtype" ],

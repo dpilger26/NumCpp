@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,17 +39,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the reciprocal of the argument, element-wise.
+    /// Return the reciprocal of the argument, element-wise.
     ///
-    ///						Calculates 1 / x.
+    /// Calculates 1 / x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> reciprocal(const NdArray<dtype>& inArray) 
@@ -70,17 +68,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return the reciprocal of the argument, element-wise.
+    /// Return the reciprocal of the argument, element-wise.
     ///
-    ///						Calculates 1 / x.
+    /// Calculates 1 / x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> reciprocal(const NdArray<std::complex<dtype>>& inArray) 
@@ -91,7 +87,7 @@ namespace nc
 
         uint32 counter = 0;
         std::for_each(inArray.cbegin(), inArray.cend(),
-            [&returnArray, &counter](std::complex<dtype> value)  -> void
+            [&returnArray, &counter](std::complex<dtype> value) -> void
             { 
                 returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value);
             });

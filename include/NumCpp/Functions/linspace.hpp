@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,25 +38,24 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return evenly spaced numbers over a specified interval.
+    /// Return evenly spaced numbers over a specified interval.
     ///
-    ///						Returns num evenly spaced samples, calculated over the
-    ///						interval[start, stop].
+    /// Returns num evenly spaced samples, calculated over the
+    /// interval[start, stop].
     ///
-    ///						The endpoint of the interval can optionally be excluded.
+    /// The endpoint of the interval can optionally be excluded.
     ///
-    ///						Mostly only usefull if called with a floating point type
-    ///						for the template argument.
+    /// Mostly only usefull if called with a floating point type
+    /// for the template argument.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
     ///
-    /// @param				inStart
-    /// @param				inStop
-    /// @param				inNum: number of points (default = 50)
-    /// @param				endPoint: include endPoint (default = true)
+    /// @param inStart
+    /// @param inStop
+    /// @param inNum: number of points (default = 50)
+    /// @param endPoint: include endPoint (default = true)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)

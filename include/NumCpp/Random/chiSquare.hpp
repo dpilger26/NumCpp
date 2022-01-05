@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,13 +43,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the from the "chi square" distribution.
+        /// Single random value sampled from the from the "chi square" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
-        /// @param				inDof (independent random variables)
-        /// @return
-        ///				NdArray
+        /// @param inDof (independent random variables)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype chiSquare(dtype inDof)
@@ -67,15 +66,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "chi square" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "chi square" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///
-        /// @param				inShape
-        /// @param				inDof (independent random variables)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inDof (independent random variables)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)

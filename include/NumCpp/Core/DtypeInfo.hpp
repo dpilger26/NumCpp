@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,16 +35,16 @@
 namespace nc
 {
     //================================================================================
-    ///						Holds info about the dtype
+    /// Holds info about the dtype
     template<typename dtype>
     class DtypeInfo
     {
     public:
         //============================================================================
-        ///						For integer types: number of non-sign bits in the representation.
-        ///						For floating types : number of digits(in radix base) in the mantissa
+        /// For integer types: number of non-sign bits in the representation.
+        /// For floating types : number of digits(in radix base) in the mantissa
         ///
-        /// @return     number of bits
+        /// @return number of bits
         ///
         static constexpr int bits() noexcept
         {
@@ -54,10 +54,10 @@ namespace nc
         }
 
         //============================================================================
-        ///						Machine epsilon (the difference between 1 and the least
-        ///						value greater than 1 that is representable).
+        /// Machine epsilon (the difference between 1 and the least
+        /// value greater than 1 that is representable).
         ///
-        /// @return     dtype
+        /// @return dtype
         ///
         static constexpr dtype epsilon() noexcept
         {
@@ -67,9 +67,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is integer.
+        /// True if type is integer.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isInteger() noexcept
         {
@@ -79,9 +79,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is signed.
+        /// True if type is signed.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isSigned() noexcept
         {
@@ -91,9 +91,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the minimum value of the dtype
+        /// Returns the minimum value of the dtype
         ///
-        /// @return     min value
+        /// @return min value
         ///
         static constexpr dtype min() noexcept
         {
@@ -103,9 +103,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the maximum value of the dtype
+        /// Returns the maximum value of the dtype
         ///
-        /// @return     max value
+        /// @return max value
         ///
         static constexpr dtype max() noexcept
         {
@@ -116,16 +116,16 @@ namespace nc
     };
 
     //================================================================================
-    ///						Holds info about the std::complex
+    /// Holds info about the std::complex
     template<typename dtype>
     class DtypeInfo<std::complex<dtype>>
     {
     public:
         //============================================================================
-        ///						For integer types: number of non-sign bits in the representation.
-        ///						For floating types : number of digits(in radix base) in the mantissa
+        /// For integer types: number of non-sign bits in the representation.
+        /// For floating types : number of digits(in radix base) in the mantissa
         ///
-        /// @return     number of bits
+        /// @return number of bits
         ///
         static constexpr int bits() noexcept
         {
@@ -135,10 +135,10 @@ namespace nc
         }
 
         //============================================================================
-        ///						Machine epsilon (the difference between 1 and the least
-        ///						value greater than 1 that is representable).
+        /// Machine epsilon (the difference between 1 and the least
+        /// value greater than 1 that is representable).
         ///
-        /// @return     dtype
+        /// @return dtype
         ///
         static constexpr std::complex<dtype> epsilon() noexcept
         {
@@ -148,9 +148,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is integer.
+        /// True if type is integer.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isInteger() noexcept
         {
@@ -160,9 +160,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						True if type is signed.
+        /// True if type is signed.
         ///
-        /// @return     bool
+        /// @return bool
         ///
         static constexpr bool isSigned() noexcept
         {
@@ -172,9 +172,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the minimum value of the dtype
+        /// Returns the minimum value of the dtype
         ///
-        /// @return     min value
+        /// @return min value
         ///
         static constexpr std::complex<dtype> min() noexcept
         {
@@ -184,9 +184,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the maximum value of the dtype
+        /// Returns the maximum value of the dtype
         ///
-        /// @return     max value
+        /// @return max value
         ///
         static constexpr std::complex<dtype> max() noexcept
         {

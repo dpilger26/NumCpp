@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,12 +35,12 @@ namespace nc
     namespace coordinates
     {
         //============================================================================
-        ///						Returns the degree seperation between the two Coordinates
+        /// Returns the degree seperation between the two Coordinates
         ///
-        /// @param				inCoordinate1
-        /// @param              inCoordinate2
+        /// @param inCoordinate1
+        /// @param inCoordinate2
         ///
-        /// @return             degrees
+        /// @return degrees
         ///
         inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) 
         {
@@ -48,13 +48,13 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the degree seperation between the Coordinate
-        ///                     and the input vector
+        /// Returns the degree seperation between the Coordinate
+        /// and the input vector
         ///
-        /// @param				inVector1
-        /// @param              inVector2
+        /// @param inVector1
+        /// @param inVector2
         ///
-        /// @return             degrees
+        /// @return degrees
         ///
         inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2)
         {

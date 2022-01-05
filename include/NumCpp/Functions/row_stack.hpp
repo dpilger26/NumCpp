@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,13 +39,11 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Stack arrays in sequence vertically (row wise).
+    /// Stack arrays in sequence vertically (row wise).
     ///
-    /// @param
-    ///				inArrayList: {list} of arrays to stack
+    /// @param inArrayList: {list} of arrays to stack
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)

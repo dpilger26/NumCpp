@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,13 +35,13 @@ namespace nc
     namespace filesystem
     {
         //================================================================================
-        ///	Provides simple filesystem functions
+        /// Provides simple filesystem functions
         class File
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param filename: the full filename
             ///
@@ -63,9 +63,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Tests whether or not the file exists
+            /// Tests whether or not the file exists
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool exists() const noexcept
             {
@@ -74,9 +74,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the file extension without the dot
+            /// Returns the file extension without the dot
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             const std::string& ext() const noexcept
             {
@@ -85,9 +85,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the input full filename
+            /// Returns the input full filename
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string fullName() const 
             {
@@ -96,9 +96,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns true if the file has an extension
+            /// Returns true if the file has an extension
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool hasExt() const
             {
@@ -107,9 +107,9 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Returns the filename
+            /// Returns the filename
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             const std::string& name() const noexcept
             {
@@ -118,10 +118,10 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Sets the extension to the input extension.  Do not input the dot.
+            /// Sets the extension to the input extension.  Do not input the dot.
             /// E.g. input "txt", not ".txt" 
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string withExt(const std::string& ext) 
             {

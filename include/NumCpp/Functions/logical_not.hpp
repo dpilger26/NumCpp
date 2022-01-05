@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,15 +35,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the truth value of NOT x element-wise.
+    /// Compute the truth value of NOT x element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
     ///
-    /// @param
-    ///				inArray
+    /// @param inArray
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<bool> logical_not(const NdArray<dtype>& inArray) 
@@ -52,7 +50,7 @@ namespace nc
 
         NdArray<bool> returnArray(inArray.shape());
         stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> bool
+            [](dtype inValue) -> bool
             { 
                 return inValue == dtype{ 0 };
             });

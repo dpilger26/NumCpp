@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,13 +41,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Both return the nth Bernoulli number B2n.
+        /// Both return the nth Bernoulli number B2n.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				n
-        /// @return
-        ///				double
+        /// @param n
+        /// @return double
         ///
         inline double bernoilli(uint32 n)
         {
@@ -65,13 +63,11 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Both return the nth Bernoulli number B2n.
+        /// Both return the nth Bernoulli number B2n.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray<double>
+        /// @param inArray
+        /// @return NdArray<double>
         ///
         inline NdArray<double> bernoilli(const NdArray<uint32>& inArray)
         {

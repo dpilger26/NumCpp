@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,12 +37,12 @@ namespace nc
     namespace utils
     {
         //============================================================================
-        ///						Raises the input value to an integer power
+        /// Raises the input value to an integer power
         ///
-        /// @param      inValue
-        /// @param      inPower
+        /// @param inValue
+        /// @param inPower
         ///
-        /// @return     inValue raised to inPower
+        /// @return inValue raised to inPower
         ///
         template<typename dtype>
         dtype power(dtype inValue, uint8 inPower) noexcept 

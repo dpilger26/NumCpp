@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,14 +40,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input floating point power
+    /// Raises the elements of the array to the input floating point power
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inValue
-    /// @param				inExponent
-    /// @return
-    ///				value raised to the power
+    /// @param inValue
+    /// @param inExponent
+    /// @return value raised to the power
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(dtype1 inValue, dtype2 inExponent) noexcept 
@@ -57,14 +56,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input floating point power
+    /// Raises the elements of the array to the input floating point power
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponent
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inExponent
+    /// @return NdArray
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1>& inArray, dtype2 inExponent) 
@@ -81,14 +79,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input floating point powers
+    /// Raises the elements of the array to the input floating point powers
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
-    /// @param				inArray
-    /// @param				inExponents
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inExponents
+    /// @return NdArray
     ///
     template<typename dtype1, typename dtype2>
     auto powerf(const NdArray<dtype1>& inArray, const NdArray<dtype2>& inExponents)

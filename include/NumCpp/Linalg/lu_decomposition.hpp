@@ -4,7 +4,7 @@
 ///
 /// License
 /// Copyright 2019 Benjamin Mahr
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,11 +47,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						matrix LU decomposition A = LU
+        /// matrix LU decomposition A = LU
         ///
-        /// @param				inMatrix: NdArray to be decomposed
+        /// @param inMatrix: NdArray to be decomposed
         ///
-        /// @return             std::pair<NdArray, NdArray> of the decomposed L and U matrices
+        /// @return std::pair<NdArray, NdArray> of the decomposed L and U matrices
         ///
         template<typename dtype>
         std::pair<NdArray<double>, NdArray<double> > lu_decomposition(const NdArray<dtype>& inMatrix)

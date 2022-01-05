@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -34,16 +34,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Replaces specified elements of an array with given values.
-    ///						The indexing works on the flattened target array
+    /// Replaces specified elements of an array with given values.
+    /// The indexing works on the flattened target array
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
     ///
-    /// @param				inArray
-    /// @param				inIndices
-    /// @param				inValue
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inIndices
+    /// @param inValue
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, dtype inValue)
@@ -54,16 +53,15 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Replaces specified elements of an array with given values.
-    ///						The indexing works on the flattened target array
+    /// Replaces specified elements of an array with given values.
+    /// The indexing works on the flattened target array
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
     ///
-    /// @param				inArray
-    /// @param				inIndices
-    /// @param				inValues
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inIndices
+    /// @param inValues
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)

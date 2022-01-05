@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,13 +40,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Matrix or vector norm.
+    /// Matrix or vector norm.
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -54,7 +53,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double sumOfSquares = 0.0;
-        const auto function = [&sumOfSquares](dtype value)  -> void
+        const auto function = [&sumOfSquares](dtype value) -> void
         {
             sumOfSquares += utils::sqr(static_cast<double>(value));
         };
@@ -103,13 +102,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Matrix or vector norm.
+    /// Matrix or vector norm.
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
@@ -117,7 +115,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> sumOfSquares(0.0, 0.0);
-        const auto function = [&sumOfSquares](const std::complex<dtype>& value)  -> void
+        const auto function = [&sumOfSquares](const std::complex<dtype>& value) -> void
         {
             sumOfSquares += utils::sqr(complex_cast<double>(value));
         };

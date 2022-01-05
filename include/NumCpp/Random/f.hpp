@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,14 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "F" distrubution.
+        /// Single random value sampled from the "F" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
-        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
-        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
-        /// @return
-        ///				NdArray
+        /// @param inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param inDofD: Degrees of freedom in denominator. Should be greater than zero.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype f(dtype inDofN, dtype inDofD)
@@ -73,16 +72,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "F" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "F" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///
-        /// @param				inShape
-        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
-        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param inDofD: Degrees of freedom in denominator. Should be greater than zero.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)

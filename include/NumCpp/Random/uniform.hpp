@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,17 +37,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Draw sample from a uniform distribution.
+        /// Draw sample from a uniform distribution.
         ///
-        ///						Samples are uniformly distributed over the half -
-        ///						open interval[low, high) (includes low, but excludes high)
+        /// Samples are uniformly distributed over the half -
+        /// open interval[low, high) (includes low, but excludes high)
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
-        /// @param				inLow
-        /// @param				inHigh
-        /// @return
-        ///				NdArray
+        /// @param inLow
+        /// @param inHigh
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype uniform(dtype inLow, dtype inHigh)
@@ -59,18 +58,17 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Draw samples from a uniform distribution.
+        /// Draw samples from a uniform distribution.
         ///
-        ///						Samples are uniformly distributed over the half -
-        ///						open interval[low, high) (includes low, but excludes high)
+        /// Samples are uniformly distributed over the half -
+        /// open interval[low, high) (includes low, but excludes high)
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
-        /// @param				inShape
-        /// @param				inLow
-        /// @param				inHigh
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inLow
+        /// @param inHigh
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)

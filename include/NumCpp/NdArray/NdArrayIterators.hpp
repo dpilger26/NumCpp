@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,7 +36,7 @@ namespace nc
 {
     //================================================================================
     // Class Description:
-    ///	Custom const_iterator for NdArray
+    /// Custom const_iterator for NdArray
     template<typename dtype, 
         typename PointerType, 
         typename DifferenceType>
@@ -54,13 +54,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Default Constructor
+        /// Default Constructor
         ///
         NdArrayConstIterator() = default;
 
         //============================================================================
         // Method Description:
-        ///	Constructor
+        /// Constructor
         ///
         /// @param ptr: the iterator pointer
         ///
@@ -75,7 +75,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator dereference
+        /// Iterator dereference
         ///
         /// @return reference
         ///
@@ -86,7 +86,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator pointer operator
+        /// Iterator pointer operator
         ///
         /// @return pointer
         ///
@@ -97,7 +97,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix incrament operator
+        /// Iterator prefix incrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -109,7 +109,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix incrament operator
+        /// Iterator postfix incrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -122,7 +122,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix decrament operator
+        /// Iterator prefix decrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -134,7 +134,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix decrament operator
+        /// Iterator postfix decrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -147,7 +147,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition assignement operator
+        /// Iterator addition assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -160,7 +160,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition operator
+        /// Iterator addition operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -173,7 +173,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction assignement operator
+        /// Iterator subtraction assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -185,7 +185,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction operator
+        /// Iterator subtraction operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -198,7 +198,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator difference operator
+        /// Iterator difference operator
         ///
         /// @param rhs
         /// @return difference_type
@@ -210,7 +210,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator access operator
+        /// Iterator access operator
         ///
         /// @param offset
         /// @return reference
@@ -222,7 +222,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator equality operator
+        /// Iterator equality operator
         ///
         /// @param rhs
         /// @return bool
@@ -234,7 +234,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator not-equality operator
+        /// Iterator not-equality operator
         ///
         /// @param rhs
         /// @return bool
@@ -246,7 +246,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator less than operator
+        /// Iterator less than operator
         ///
         /// @param rhs
         /// @return bool
@@ -258,7 +258,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator greater than operator
+        /// Iterator greater than operator
         ///
         /// @param rhs
         /// @return bool
@@ -270,7 +270,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator less than equal operator
+        /// Iterator less than equal operator
         ///
         /// @param rhs
         /// @return bool
@@ -282,7 +282,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator greater than equal operator
+        /// Iterator greater than equal operator
         ///
         /// @param rhs
         /// @return bool
@@ -298,7 +298,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Iterator addition operator
+    /// Iterator addition operator
     ///
     /// @param offset
     /// @param next
@@ -316,7 +316,7 @@ namespace nc
 
     //================================================================================
     // Class Description:
-    ///	Custom iterator for NdArray
+    /// Custom iterator for NdArray
     template<typename dtype,
         typename PointerType, 
         typename DifferenceType>
@@ -337,7 +337,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator dereference
+        /// Iterator dereference
         ///
         /// @return reference
         ///
@@ -348,7 +348,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator pointer operator
+        /// Iterator pointer operator
         ///
         /// @return pointer
         ///
@@ -359,7 +359,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix incrament operator
+        /// Iterator prefix incrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -371,7 +371,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix incrament operator
+        /// Iterator postfix incrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -384,7 +384,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix decrament operator
+        /// Iterator prefix decrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -396,7 +396,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix decrament operator
+        /// Iterator postfix decrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -409,7 +409,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition assignement operator
+        /// Iterator addition assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -422,7 +422,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition operator
+        /// Iterator addition operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -435,7 +435,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction assignement operator
+        /// Iterator subtraction assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -450,7 +450,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator difference operator
+        /// Iterator difference operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -463,7 +463,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator access operator
+        /// Iterator access operator
         ///
         /// @param offset
         /// @return reference
@@ -476,7 +476,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Iterator addition operator
+    /// Iterator addition operator
     ///
     /// @param offset
     /// @param next
@@ -494,7 +494,7 @@ namespace nc
 
     //================================================================================
     // Class Description:
-    ///	Custom column const_iterator for NdArray
+    /// Custom column const_iterator for NdArray
     template<typename dtype, 
         typename SizeType,
         typename PointerType, 
@@ -514,13 +514,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Default Constructor
+        /// Default Constructor
         ///
         NdArrayConstColumnIterator() = default;
 
         //============================================================================
         // Method Description:
-        ///	Constructor
+        /// Constructor
         ///
         /// @param ptr: the iterator pointer
         /// @param numRows: the number of rows in the array
@@ -536,7 +536,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator dereference
+        /// Iterator dereference
         ///
         /// @return reference
         ///
@@ -547,7 +547,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator pointer operator
+        /// Iterator pointer operator
         ///
         /// @return pointer
         ///
@@ -558,7 +558,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix incrament operator
+        /// Iterator prefix incrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -569,7 +569,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix incrament operator
+        /// Iterator postfix incrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -582,7 +582,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix decrament operator
+        /// Iterator prefix decrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -593,7 +593,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix decrament operator
+        /// Iterator postfix decrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -606,7 +606,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition assignement operator
+        /// Iterator addition assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -619,7 +619,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition operator
+        /// Iterator addition operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -632,7 +632,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction assignement operator
+        /// Iterator subtraction assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -644,7 +644,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction operator
+        /// Iterator subtraction operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -657,7 +657,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator difference operator
+        /// Iterator difference operator
         ///
         /// @param rhs
         /// @return difference_type
@@ -669,7 +669,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator access operator
+        /// Iterator access operator
         ///
         /// @param offset
         /// @return reference
@@ -681,7 +681,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator equality operator
+        /// Iterator equality operator
         ///
         /// @param rhs
         /// @return bool
@@ -693,7 +693,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator not-equality operator
+        /// Iterator not-equality operator
         ///
         /// @param rhs
         /// @return bool
@@ -705,7 +705,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator less than operator
+        /// Iterator less than operator
         ///
         /// @param rhs
         /// @return bool
@@ -717,7 +717,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator greater than operator
+        /// Iterator greater than operator
         ///
         /// @param rhs
         /// @return bool
@@ -729,7 +729,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator less than equal operator
+        /// Iterator less than equal operator
         ///
         /// @param rhs
         /// @return bool
@@ -741,7 +741,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator greater than equal operator
+        /// Iterator greater than equal operator
         ///
         /// @param rhs
         /// @return bool
@@ -760,7 +760,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Converts a pointer to column order index
+        /// Converts a pointer to column order index
         ///
         /// @param ptr
         /// @return difference_type
@@ -785,7 +785,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Converts column order index to a pointer
+        /// Converts column order index to a pointer
         ///
         /// @param colIdx
         /// @return pointer
@@ -806,7 +806,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Iterator addition operator
+    /// Iterator addition operator
     ///
     /// @param offset
     /// @param next
@@ -825,7 +825,7 @@ namespace nc
 
     //================================================================================
     // Class Description:
-    ///	Custom column iterator for NdArray
+    /// Custom column iterator for NdArray
     template<typename dtype,
         typename SizeType,
         typename PointerType, 
@@ -848,7 +848,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator dereference
+        /// Iterator dereference
         ///
         /// @return reference
         ///
@@ -859,7 +859,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator pointer operator
+        /// Iterator pointer operator
         ///
         /// @return pointer
         ///
@@ -870,7 +870,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix incrament operator
+        /// Iterator prefix incrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -882,7 +882,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix incrament operator
+        /// Iterator postfix incrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -895,7 +895,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator prefix decrament operator
+        /// Iterator prefix decrament operator
         ///
         /// @return NdArrayConstIterator&
         ///
@@ -907,7 +907,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator postfix decrament operator
+        /// Iterator postfix decrament operator
         ///
         /// @return NdArrayConstIterator
         ///
@@ -920,7 +920,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition assignement operator
+        /// Iterator addition assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -933,7 +933,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator addition operator
+        /// Iterator addition operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -946,7 +946,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator subtraction assignement operator
+        /// Iterator subtraction assignement operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator&
@@ -961,7 +961,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator difference operator
+        /// Iterator difference operator
         ///
         /// @param offset
         /// @return NdArrayConstIterator
@@ -974,7 +974,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Iterator access operator
+        /// Iterator access operator
         ///
         /// @param offset
         /// @return reference
@@ -987,7 +987,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///	Iterator addition operator
+    /// Iterator addition operator
     ///
     /// @param offset
     /// @param next

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -24,7 +24,7 @@
 ///
 /// Description
 /// Such a distribution produces random numbers uniformly
-///	distributed on the unit sphere of arbitrary dimension dim.
+/// distributed on the unit sphere of arbitrary dimension dim.
 ///
 #pragma once
 
@@ -47,27 +47,31 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Such a distribution produces random numbers uniformly
-        ///	distributed on the unit sphere of arbitrary dimension dim.
+        /// Such a distribution produces random numbers uniformly
+        /// distributed on the unit sphere of arbitrary dimension dim.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param				inNumPoints
-        /// @param				inDims: dimension of the sphere (default 2)
-        /// @return
-        ///				NdArray
+        /// @param inNumPoints
+        /// @param inDims: dimension of the sphere (default 2)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            boost::random::uniform_on_sphere<dtype> dist(inDims);
+            if (inNumPoints == 0)
+            {
+                return {};
+            }
+
+            boost::random::uniform_on_sphere<dtype> dist(static_cast<int>(inDims));
 
             NdArray<dtype> returnArray(inNumPoints, inDims);
             for (uint32 row = 0; row < inNumPoints; ++row)
             {
-                std::vector<dtype> point = dist(generator_);
-                std::copy(returnArray.begin(row), returnArray.end(row), point.begin());
+                const auto& point = dist(generator_);
+                std::copy(point.begin(), point.end(), returnArray.begin(row));
             }
 
             return returnArray;

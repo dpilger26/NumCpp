@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,10 +41,10 @@ namespace nc
         {
             //============================================================================
             // Method Description:
-            ///						extends the corner values
+            /// extends the corner values
             ///
-            /// @param				inArray
-            /// @param              inBorderWidth
+            /// @param inArray
+            /// @param inBorderWidth
             ///
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
@@ -74,11 +74,11 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						extends the corner values
+            /// extends the corner values
             ///
-            /// @param				inArray
-            /// @param              inBorderWidth
-            /// @param				inFillValue
+            /// @param inArray
+            /// @param inBorderWidth
+            /// @param inFillValue
             ///
             template<typename dtype>
             void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)

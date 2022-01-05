@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,13 +37,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						samples a 1D gaussian of input mean and sigma
+        /// samples a 1D gaussian of input mean and sigma
         ///
-        /// @param				inX
-        /// @param              inMu
-        /// @param              inSigma
+        /// @param inX
+        /// @param inMu
+        /// @param inSigma
         ///
-        /// @return             dtype
+        /// @return dtype
         ///
         inline double gaussian1d(double inX, double inMu, double inSigma) noexcept
         {

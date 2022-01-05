@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,13 +38,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "standard normal" distrubution with
-        ///						mean = 0 and std = 1
+        /// Single random value sampled from the "standard normal" distrubution with
+        /// mean = 0 and std = 1
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype standardNormal()
@@ -56,16 +55,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "standard normal" distrubution with
-        ///						mean = 0 and std = 1
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "standard normal" distrubution with
+        /// mean = 0 and std = 1
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
-        /// @param
-        ///				inShape
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> standardNormal(const Shape& inShape)

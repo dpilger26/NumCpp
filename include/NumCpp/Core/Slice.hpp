@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,7 +39,7 @@
 namespace nc
 {
     //================================================================================
-    ///						A Class for slicing into NdArrays
+    /// A Class for slicing into NdArrays
     class Slice
     {
     public:
@@ -49,24 +49,24 @@ namespace nc
         int32	step{ 1 };
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
         constexpr Slice() = default;
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inStop (index not included)
+        /// @param inStop (index not included)
         ///
         constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param          inStart
-        /// @param			inStop (index not included)
+        /// @param inStart
+        /// @param inStop (index not included)
         ///
         constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
@@ -74,11 +74,11 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Constructor
+        /// Constructor
         ///
-        /// @param      inStart
-        /// @param      inStop (not included)
-        /// @param      inStep
+        /// @param inStart
+        /// @param inStop (not included)
+        /// @param inStep
         ///
         constexpr Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
             start(inStart),
@@ -87,11 +87,11 @@ namespace nc
         {}
 
         //============================================================================
-        ///						Equality operator
+        /// Equality operator
         ///
-        /// @param      inOtherSlice
+        /// @param inOtherSlice
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator==(const Slice& inOtherSlice) const noexcept
         {
@@ -99,11 +99,11 @@ namespace nc
         }
 
         //============================================================================
-        ///						Not equality operator
+        /// Not equality operator
         ///
-        /// @param      inOtherSlice
+        /// @param inOtherSlice
         ///
-        /// @return     bool
+        /// @return bool
         ///
         bool operator!=(const Slice& inOtherSlice) const noexcept
         {
@@ -111,9 +111,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
-        /// @return     std::string
+        /// @return std::string
         ///
         std::string str() const
         {
@@ -122,7 +122,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Prints the shape to the console
+        /// Prints the shape to the console
         ///
         void print() const
         {
@@ -130,9 +130,9 @@ namespace nc
         }
 
         //============================================================================
-        ///						Make the slice all positive and does some error checking
+        /// Make the slice all positive and does some error checking
         ///
-        /// @param      inArraySize
+        /// @param inArraySize
         ///
         void makePositiveAndValidate(uint32 inArraySize)
         {
@@ -179,11 +179,11 @@ namespace nc
         }
 
         //============================================================================
-        ///						Returns the number of elements that the slice contains.
-        ///						be aware that this method will also make the slice all 
-        ///						positive! 
+        /// Returns the number of elements that the slice contains.
+        /// be aware that this method will also make the slice all 
+        /// positive! 
         ///
-        /// @param      inArraySize
+        /// @param inArraySize
         ///
         uint32 numElements(uint32 inArraySize)
         {
@@ -198,12 +198,12 @@ namespace nc
         }
 
         //============================================================================
-        ///						IO operator for the Slice class
+        /// IO operator for the Slice class
         ///
-        /// @param      inOStream
-        /// @param      inSlice
+        /// @param inOStream
+        /// @param inSlice
         ///
-        /// @return     std::ostream
+        /// @return std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {

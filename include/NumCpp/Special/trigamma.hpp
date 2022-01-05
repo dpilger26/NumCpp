@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -45,10 +45,8 @@ namespace nc
         /// of the digamma function.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inValue
-        /// @return
-        ///				calculated-result-type 
+        /// @param inValue
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto trigamma(dtype inValue)
@@ -64,10 +62,8 @@ namespace nc
         /// of the digamma function.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray
+        /// @param inArray
+        /// @return NdArray
         ///
         template<typename dtype>
         auto trigamma(const NdArray<dtype>& inArray)

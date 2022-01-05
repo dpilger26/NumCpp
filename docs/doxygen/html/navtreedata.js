@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "Release Notes", "md__mnt_c__github__num_cpp_docs_markdown__release_notes.html", null ],
-    [ "Installation", "md__mnt_c__github__num_cpp_docs_markdown__installation.html", null ],
-    [ "Building", "md__mnt_c__github__num_cpp_docs_markdown__building.html", null ],
-    [ "Compiler Flags", "md__mnt_c__github__num_cpp_docs_markdown__compiler_flags.html", null ],
+    [ "Release Notes", "md__c___github__num_cpp_docs_markdown__release_notes.html", null ],
+    [ "Installation", "md__c___github__num_cpp_docs_markdown__installation.html", null ],
+    [ "Building", "md__c___github__num_cpp_docs_markdown__building.html", null ],
+    [ "Compiler Flags", "md__c___github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -66,19 +66,19 @@ var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
 "_random_2beta_8hpp.html#a9cf5ddddc350278c76e077c67b5254ab",
-"arccosh_8hpp.html#a9063e7275b83f3201f74a0014a9b54d5",
-"classnc_1_1_nd_array.html#a13b0f7af99772cfbca83b6734fbef04d",
-"classnc_1_1_nd_array_const_iterator.html#a171276f9e90a1336d156c61c2b61bd23",
-"classnc_1_1image_processing_1_1_cluster_maker.html#a7d5ceccddb2db3b143c772ec9d66460a",
-"cosh_8hpp_source.html",
-"functions_func_j.html",
-"mean_8hpp.html#ac0b868e518c5b489ce25b8a84ebc618b",
-"namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53",
-"namespacenc.html#aafc4846f2f7956841d356060c9689cba",
-"namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19",
-"nanmean_8hpp.html",
-"rot90_8hpp.html",
-"wrap1d_8hpp_source.html"
+"arccosh_8hpp.html#a725eab730b946eca5d197933b9f955fa",
+"classnc_1_1_nd_array.html#a094424d8f368eaa3730102a5f75f0c2e",
+"classnc_1_1_nd_array_const_column_iterator.html#ad7a25b0cb28882ed45417dd3ed01e094",
+"classnc_1_1image_processing_1_1_cluster.html#ae89900f4557d6273fc49b330417e324e",
+"corrcoef_8hpp.html",
+"full__like_8hpp.html#ad7e958219ad5b01b015edaf725eb4b7a",
+"log2_8hpp_source.html",
+"namespacenc.html#a26bec2e52fdab966f0f3714d1e2ea8bb",
+"namespacenc.html#a8f5045ed0f0a08d87fd76d7a74ac128d",
+"namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221",
+"namespacenc_1_1special.html#a8f98455b0421ab89f4722377d9606091",
+"ptp_8hpp.html#ae336fd0ff89427cca931a05fd9a9697a",
+"swapaxes_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

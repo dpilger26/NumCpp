@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,13 +42,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Construct an array from data in a binary file.
+    /// Construct an array from data in a binary file.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
-    /// @param				inFilename
-    /// @return
-    ///				NdArray
+    /// @param inFilename
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename)
@@ -87,14 +86,13 @@ namespace nc
         
     //============================================================================
     // Method Description:
-    ///						Construct an array from data in a text file.
+    /// Construct an array from data in a text file.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
     ///
-    /// @param				inFilename
-    /// @param				inSep: Delimiter separator between values in the file
-    /// @return
-    ///				NdArray
+    /// @param inFilename
+    /// @param inSep: Delimiter separator between values in the file
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const char inSep)

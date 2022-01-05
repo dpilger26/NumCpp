@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,15 +41,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the mean along the specified axis ignoring NaNs.
+    /// Compute the mean along the specified axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -61,13 +60,13 @@ namespace nc
             case Axis::NONE:
             {
                 auto sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2)  -> dtype
+                    [](dtype inValue1, dtype inValue2) -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                     }));
 
                 const auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2)  -> dtype
+                    [](dtype inValue1, dtype inValue2) -> dtype
                     { 
                         return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                     }));
@@ -83,13 +82,13 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     auto sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         {
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2;
                         }));
 
                     auto numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));
@@ -107,13 +106,13 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     auto sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; 
                         }));
 
                     auto numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2)  -> dtype
+                        [](dtype inValue1, dtype inValue2) -> dtype
                         { 
                             return std::isnan(inValue2) ? inValue1 : inValue1 + 1;
                         }));

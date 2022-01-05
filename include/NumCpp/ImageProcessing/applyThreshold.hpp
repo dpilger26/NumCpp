@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,12 +36,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Applies a threshold to an image
+        /// Applies a threshold to an image
         ///
-        /// @param      inImageArray
-        ///	@param  	inThreshold
-        /// @return
-        ///				NdArray of booleans of pixels that exceeded the threshold
+        /// @param inImageArray
+        /// @param inThreshold
+        /// @return NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
         NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) 

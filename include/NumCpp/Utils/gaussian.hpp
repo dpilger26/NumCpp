@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -23,7 +23,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-///	samples a 2D gaussian of mean zero and input STD sigma
+/// samples a 2D gaussian of mean zero and input STD sigma
 ///
 #pragma once
 
@@ -37,13 +37,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						samples a 2D gaussian of mean zero and input STD sigma
+        /// samples a 2D gaussian of mean zero and input STD sigma
         ///
-        /// @param				inX
-        /// @param              inY
-        /// @param              inSigma
+        /// @param inX
+        /// @param inY
+        /// @param inSigma
         ///
-        /// @return             dtype
+        /// @return dtype
         ///
         inline double gaussian(double inX, double inY, double inSigma) noexcept
         {

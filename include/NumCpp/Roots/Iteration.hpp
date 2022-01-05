@@ -4,7 +4,7 @@
 ///
 /// License
 /// Copyright 2019 Benjamin Mahr
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,13 +42,13 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	ABC for iteration classes to derive from
+        /// ABC for iteration classes to derive from
         class Iteration 
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             ///
@@ -58,7 +58,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -70,13 +70,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             virtual ~Iteration() noexcept = default;
 
             //============================================================================
             // Method Description:
-            ///	Returns the number of iterations
+            /// Returns the number of iterations
             ///
             /// @return: number of iterations
             ///
@@ -88,7 +88,7 @@ namespace nc
         protected:
             //============================================================================
             // Method Description:
-            ///	Resets the number of iterations
+            /// Resets the number of iterations
             ///
             void resetNumberOfIterations() noexcept 
             { 
@@ -97,7 +97,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Incraments the number of iterations
+            /// Incraments the number of iterations
             ///
             /// @return the number of iterations prior to incramenting
             ///

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,14 +39,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cumulative sum of the elements along a given axis ignoring NaNs.
+    /// Return the cumulative sum of the elements along a given axis ignoring NaNs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

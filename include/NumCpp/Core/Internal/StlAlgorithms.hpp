@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -46,7 +46,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Tests if all of the elements of a range satisy a predicate
+        /// Tests if all of the elements of a range satisy a predicate
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -65,7 +65,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Tests if any of the elements of a range satisy a predicate
+        /// Tests if any of the elements of a range satisy a predicate
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -84,7 +84,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copies from one container to another
+        /// Copies from one container to another
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -103,7 +103,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Counts the values in the range
+        /// Counts the values in the range
         ///
         /// @param first: the first iterator of container
         /// @param last: the last iterator of container
@@ -124,7 +124,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Test if two ranges are equal
+        /// Test if two ranges are equal
         ///
         /// @param first1: the first iterator of first container
         /// @param last1: the last iterator of first container
@@ -143,7 +143,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Test if two ranges are equal
+        /// Test if two ranges are equal
         ///
         /// @param first1: the first iterator of first container
         /// @param last1: the last iterator of first container
@@ -164,7 +164,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Fills the range with the value
+        /// Fills the range with the value
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -183,8 +183,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the first element in the range [first, last) 
-        ///                     that satisfies specific criteria:
+        /// Returns the first element in the range [first, last) 
+        /// that satisfies specific criteria:
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -203,7 +203,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Runs the function on each element of the range
+        /// Runs the function on each element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -221,7 +221,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns true if the array is sorted
+        /// Returns true if the array is sorted
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -239,7 +239,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns true if the array is sorted
+        /// Returns true if the array is sorted
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -258,7 +258,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the maximum element of the range
+        /// Returns the maximum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -276,7 +276,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the maximum element of the range
+        /// Returns the maximum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -295,7 +295,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the minimum element of the range
+        /// Returns the minimum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -312,7 +312,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Returns the minimum element of the range
+        /// Returns the minimum element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -331,7 +331,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Runs the minimum and maximum elements of the range
+        /// Runs the minimum and maximum elements of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -349,7 +349,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Runs the minimum and maximum elements of the range
+        /// Runs the minimum and maximum elements of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -368,7 +368,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Tests if none of the elements of a range satisy a predicate
+        /// Tests if none of the elements of a range satisy a predicate
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -387,7 +387,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts up to the nth element
+        /// Sorts up to the nth element
         ///
         /// @param first: the first iterator of the range
         /// @param nth: the element that should be sorted
@@ -405,7 +405,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts up to the nth element
+        /// Sorts up to the nth element
         ///
         /// @param first: the first iterator of the range
         /// @param nth: the element that should be sorted
@@ -424,7 +424,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						replaces a value in the range with another value
+        /// replaces a value in the range with another value
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -444,7 +444,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						reverses the range
+        /// reverses the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -461,7 +461,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Rotates the elements of a range
+        /// Rotates the elements of a range
         ///
         /// @param first: the first iterator of the range
         /// @param firstN: the element that should appear at the beginning of the rotated range
@@ -479,7 +479,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the difference of two ranges
+        /// finds the difference of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -502,7 +502,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the difference of two ranges
+        /// finds the difference of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -526,7 +526,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the intersection of two ranges
+        /// finds the intersection of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -549,7 +549,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the intersection of two ranges
+        /// finds the intersection of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -573,7 +573,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the union of two ranges
+        /// finds the union of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -596,7 +596,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						finds the union of two ranges
+        /// finds the union of two ranges
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -620,7 +620,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts the range
+        /// Sorts the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -637,7 +637,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts the range
+        /// Sorts the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -655,7 +655,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts the range preserving order
+        /// Sorts the range preserving order
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -672,7 +672,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Sorts the range preserving order
+        /// Sorts the range preserving order
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -690,7 +690,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Transforms the elements of the range
+        /// Transforms the elements of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -711,7 +711,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Transforms the elements of the range
+        /// Transforms the elements of the range
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source
@@ -733,7 +733,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copies the unique elements of a range
+        /// Copies the unique elements of a range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -753,7 +753,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copies the unique elements of a range
+        /// Copies the unique elements of a range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source

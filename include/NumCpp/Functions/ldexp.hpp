@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,15 +40,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Returns x1 * 2^x2.
+    /// Returns x1 * 2^x2.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param				inValue1
-    /// @param				inValue2
+    /// @param inValue1
+    /// @param inValue2
     ///
-    /// @return
-    ///				value
+    /// @return value
     ///
     template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2) noexcept 
@@ -60,15 +59,14 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Returns x1 * 2^x2, element-wise.
+    /// Returns x1 * 2^x2, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)

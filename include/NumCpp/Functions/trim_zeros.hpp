@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,15 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trim the leading and/or trailing zeros from a 1-D array or sequence.
+    /// Trim the leading and/or trailing zeros from a 1-D array or sequence.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
     ///
-    /// @param				inArray
-    /// @param				inTrim: ("f" = front, "b" = back, "fb" = front and back)
+    /// @param inArray
+    /// @param inTrim: ("f" = front, "b" = back, "fb" = front and back)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string& inTrim = "fb")

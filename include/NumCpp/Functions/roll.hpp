@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,16 +38,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Roll array elements along a given axis.
+    /// Roll array elements along a given axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
     ///
-    /// @param				inArray
-    /// @param				inShift: (elements to shift, positive means forward, negative means backwards)
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inShift: (elements to shift, positive means forward, negative means backwards)
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE) 

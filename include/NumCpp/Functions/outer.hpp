@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,14 +37,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///	The outer product of two vectors.  Inputs are flattened if not already 1-dimensional.
+    /// The outer product of two vectors.  Inputs are flattened if not already 1-dimensional.
     ///
     /// NumPy Reference: https://numpy.org/devdocs/reference/generated/numpy.outer.html
     ///
-    /// @param			inArray1
-    /// @param			inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return         NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

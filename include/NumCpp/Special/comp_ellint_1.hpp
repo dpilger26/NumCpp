@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -47,13 +47,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Computes the complete elliptic integral of the first kind of k.
+        /// Computes the complete elliptic integral of the first kind of k.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inK: elliptic modulus or eccentricity
-        /// @return
-        ///				calculated-result-type 
+        /// @param inK: elliptic modulus or eccentricity
+        /// @return calculated-result-type 
         ///
         template<typename dtype>
         auto comp_ellint_1(dtype inK)
@@ -69,13 +68,12 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Computes the complete elliptic integral of the first kind of k.
+        /// Computes the complete elliptic integral of the first kind of k.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      inArrayK: elliptic modulus or eccentricity
-        /// @return
-        ///				NdArray
+        /// @param inArrayK: elliptic modulus or eccentricity
+        /// @return NdArray
         ///
         template<typename dtype>
         auto comp_ellint_1(const NdArray<dtype>& inArrayK)

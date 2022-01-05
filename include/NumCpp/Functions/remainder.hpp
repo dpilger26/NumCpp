@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,35 +40,33 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return remainder of division.
+    /// Return remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
     ///
-    /// @param				inValue1
-    /// @param				inValue2
+    /// @param inValue1
+    /// @param inValue2
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     double remainder(dtype inValue1, dtype inValue2) noexcept 
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return std::remainder(static_cast<double>(inValue1), static_cast<double>(inValue2));
+        return static_cast<double>(std::remainder(inValue1, inValue2));
     }
 
     //============================================================================
     // Method Description:
-    ///						Return element-wise remainder of division.
+    /// Return element-wise remainder of division.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
+    /// @param inArray1
+    /// @param inArray2
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)

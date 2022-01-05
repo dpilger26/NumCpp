@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,14 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the  "weibull" distribution.
+        /// Single random value sampled from the  "weibull" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype weibull(dtype inA = 1, dtype inB = 1)
@@ -73,16 +72,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "weibull" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "weibull" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///
-        /// @param				inShape
-        /// @param				inA (default 1)
-        /// @param				inB (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inA (default 1)
+        /// @param inB (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)

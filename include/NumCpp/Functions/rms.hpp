@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -40,13 +40,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Compute the root mean square (RMS) along the specified axis.
+    /// Compute the root mean square (RMS) along the specified axis.
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
@@ -54,7 +53,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double squareSum = 0.0;
-        const auto function = [&squareSum](dtype value)  -> void
+        const auto function = [&squareSum](dtype value) -> void
         {
             squareSum += utils::sqr(static_cast<double>(value));
         };
@@ -102,13 +101,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Compute the root mean square (RMS) along the specified axis.
+    /// Compute the root mean square (RMS) along the specified axis.
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
@@ -116,7 +114,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> squareSum = 0.0;
-        const auto function = [&squareSum](std::complex<dtype> value)  -> void
+        const auto function = [&squareSum](std::complex<dtype> value) -> void
         {
             squareSum += utils::sqr(complex_cast<double>(value));
         };

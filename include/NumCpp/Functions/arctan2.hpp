@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,14 +39,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse tangent.
+    /// Trigonometric inverse tangent.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
-    /// @param				inY
-    /// @param				inX
-    /// @return
-    ///				value
+    /// @param inY
+    /// @param inX
+    /// @return value
     ///
     template<typename dtype>
     auto arctan2(dtype inY, dtype inX) noexcept 
@@ -58,14 +57,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse tangent, element-wise.
+    /// Trigonometric inverse tangent, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
     ///
-    /// @param				inY
-    /// @param				inX
-    /// @return
-    ///				NdArray
+    /// @param inY
+    /// @param inX
+    /// @return NdArray
     ///
     template<typename dtype>
     auto arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)

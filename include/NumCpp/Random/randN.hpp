@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -41,9 +41,9 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Returns a single random value sampled from the "standard normal" distribution.
+        /// Returns a single random value sampled from the "standard normal" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///
         /// @return dtype
         ///
@@ -58,15 +58,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "standard normal" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "standard normal" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///
-        /// @param
-        ///				inShape
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> randN(const Shape& inShape) 

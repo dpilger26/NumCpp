@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -45,10 +45,8 @@ namespace nc
         // Method Description:
         /// Returns the factorial of the input value
         ///
-        /// @param
-        ///				inValue
-        /// @return
-        ///				double
+        /// @param inValue
+        /// @return double
         ///
         inline double factorial(uint32 inValue)
         {
@@ -74,10 +72,8 @@ namespace nc
         // Method Description:
         /// Returns the factorial of the input value
         ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray<double>
+        /// @param inArray
+        /// @return NdArray<double>
         ///
         inline NdArray<double> factorial(const NdArray<uint32>& inArray)
         {

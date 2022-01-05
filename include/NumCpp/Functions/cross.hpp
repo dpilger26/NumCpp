@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,15 +39,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the cross product of two (arrays of) vectors.
+    /// Return the cross product of two (arrays of) vectors.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @param  			inAxis (Optional, default NONE)
-    /// @return
-    ///				NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @param inAxis (Optional, default NONE)
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)

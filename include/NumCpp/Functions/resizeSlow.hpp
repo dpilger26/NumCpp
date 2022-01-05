@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,19 +35,18 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return a new array with the specified shape. If new shape
-    ///						is larger than old shape then array will be padded with zeros.
-    ///						If new shape is smaller than the old shape then the data will
-    ///						be discarded.
+    /// Return a new array with the specified shape. If new shape
+    /// is larger than old shape then array will be padded with zeros.
+    /// If new shape is smaller than the old shape then the data will
+    /// be discarded.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -58,18 +57,17 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return a new array with the specified shape. If new shape
-    ///						is larger than old shape then array will be padded with zeros.
-    ///						If new shape is smaller than the old shape then the data will
-    ///						be discarded.
+    /// Return a new array with the specified shape. If new shape
+    /// is larger than old shape then array will be padded with zeros.
+    /// If new shape is smaller than the old shape then the data will
+    /// be discarded.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
     ///
-    /// @param				inArray
-    /// @param				inNewShape
+    /// @param inArray
+    /// @param inNewShape
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape) 

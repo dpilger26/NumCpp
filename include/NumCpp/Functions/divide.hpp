@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -35,14 +35,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    ///				NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
@@ -52,14 +51,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> divide(const NdArray<dtype>& inArray, dtype value) 
@@ -69,14 +67,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    ///				NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> divide(dtype value, const NdArray<dtype>& inArray) 
@@ -86,14 +83,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    ///				NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(const NdArray<dtype>& inArray1, const NdArray<std::complex<dtype>>& inArray2)
@@ -103,14 +99,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray1
-    /// @param				inArray2
-    /// @return
-    ///				NdArray
+    /// @param inArray1
+    /// @param inArray2
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(const NdArray<std::complex<dtype>>& inArray1, const NdArray<dtype>& inArray2)
@@ -120,14 +115,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(const NdArray<dtype>& inArray, const std::complex<dtype>& value) 
@@ -137,14 +131,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    ///				NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(const std::complex<dtype>& value, const NdArray<dtype>& inArray) 
@@ -154,14 +147,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				inArray
-    /// @param				value
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param value
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(const NdArray<std::complex<dtype>>& inArray, dtype value) 
@@ -171,14 +163,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						divide arguments element-wise.
+    /// divide arguments element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
     ///
-    /// @param				value
-    /// @param				inArray
-    /// @return
-    ///				NdArray
+    /// @param value
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<std::complex<dtype>> divide(dtype value, const NdArray<std::complex<dtype>>& inArray) 

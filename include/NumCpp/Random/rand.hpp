@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -24,7 +24,7 @@
 ///
 /// Description
 /// Create an array of the given shape and populate it with
-///	random samples from a uniform distribution over [0, 1).
+/// random samples from a uniform distribution over [0, 1).
 ///
 #pragma once
 
@@ -42,12 +42,11 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the uniform distribution over [0, 1).
+        /// Single random value sampled from the uniform distribution over [0, 1).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
-        /// @return
-        ///				NdArray
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype rand() 
@@ -61,15 +60,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a uniform distribution over [0, 1).
+        /// Create an array of the given shape and populate it with
+        /// random samples from a uniform distribution over [0, 1).
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
-        /// @param
-        ///				inShape
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> rand(const Shape& inShape) 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -42,23 +42,23 @@ namespace nc
     namespace coordinates
     {
         //================================================================================
-        ///						Struct Enum for positive or negative Dec angle
+        /// Struct Enum for positive or negative Dec angle
         enum class Sign { NEGATIVE = 0, POSITIVE };
 
         //================================================================================
-        ///						Holds a Declination object
+        /// Holds a Declination object
         class Dec
         {
         public:
             //============================================================================
-            ///						Default Constructor
+            /// Default Constructor
             ///
             Dec() = default;
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inDegrees
+            /// @param inDegrees
             ///
             explicit Dec(double inDegrees) :
                 degrees_(inDegrees),
@@ -79,12 +79,12 @@ namespace nc
             }
 
             //============================================================================
-            ///						Constructor
+            /// Constructor
             ///
-            /// @param      inSign
-            ///	@param      inDegrees
-            /// @param      inMinutes
-            /// @param      inSeconds
+            /// @param inSign
+            /// @param inDegrees
+            /// @param inMinutes
+            /// @param inSeconds
             ///
             Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds) noexcept :
                 sign_(inSign),
@@ -99,9 +99,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the sign of the degrees (positive or negative)
+            /// Get the sign of the degrees (positive or negative)
             ///
-            /// @return     Sign
+            /// @return Sign
             ///
             Sign sign() const noexcept 
             {
@@ -109,9 +109,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the degrees value
+            /// Get the degrees value
             ///
-            /// @return     degrees
+            /// @return degrees
             ///
             double degrees() const noexcept 
             {
@@ -119,9 +119,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the radians value
+            /// Get the radians value
             ///
-            /// @return     minutes
+            /// @return minutes
             ///
             double radians() const noexcept 
             {
@@ -129,9 +129,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the whole degrees value
+            /// Get the whole degrees value
             ///
-            /// @return     whole degrees
+            /// @return whole degrees
             ///
             uint8 degreesWhole() const noexcept 
             {
@@ -139,9 +139,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the minute value
+            /// Get the minute value
             ///
-            /// @return     minutes
+            /// @return minutes
             ///
             uint8 minutes() const noexcept 
             {
@@ -149,9 +149,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Get the seconds value
+            /// Get the seconds value
             ///
-            /// @return     seconds
+            /// @return seconds
             ///
             double seconds() const noexcept 
             {
@@ -159,9 +159,9 @@ namespace nc
             }
 
             //============================================================================
-            ///						Return the dec object as a string representation
+            /// Return the dec object as a string representation
             ///
-            /// @return     std::string
+            /// @return std::string
             ///
             std::string str() const
             {
@@ -172,7 +172,7 @@ namespace nc
             }
 
             //============================================================================
-            ///						Prints the Dec object to the console
+            /// Prints the Dec object to the console
             ///
             void print() const
             {
@@ -180,11 +180,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Equality operator
+            /// Equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator==(const Dec& inRhs) const noexcept
             {
@@ -192,11 +192,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Not equality operator
+            /// Not equality operator
             ///
-            /// @param      inRhs
+            /// @param inRhs
             ///
-            /// @return     bool
+            /// @return bool
             ///
             bool operator!=(const Dec& inRhs) const noexcept
             {
@@ -204,12 +204,12 @@ namespace nc
             }
 
             //============================================================================
-            ///						Ostream operator
+            /// Ostream operator
             ///
-            /// @param      inStream
-            /// @param      inDec
+            /// @param inStream
+            /// @param inDec
             ///
-            /// @return     std::ostream
+            /// @return std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Dec& inDec)
             {

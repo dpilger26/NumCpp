@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,13 +43,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "geometric" distrubution.
+        /// Single random value sampled from the "geometric" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
-        /// @param				inP (probablity of success [0, 1])
-        /// @return
-        ///				NdArray
+        /// @param inP (probablity of success [0, 1])
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype geometric(double inP = 0.5)
@@ -67,15 +66,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "geometric" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "geometric" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///
-        /// @param				inShape
-        /// @param				inP (probablity of success [0, 1])
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inP (probablity of success [0, 1])
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)

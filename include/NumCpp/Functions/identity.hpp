@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -33,17 +33,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the identity array.
+    /// Return the identity array.
     ///
-    ///						The identity array is a square array with ones on the main diagonal.
+    /// The identity array is a square array with ones on the main diagonal.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
     ///
-    /// @param
-    ///				inSquareSize
+    /// @param inSquareSize
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> identity(uint32 inSquareSize) 

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,14 +43,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "lognormal" distrubution.
+        /// Single random value sampled from the "lognormal" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        ///				NdArray
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype lognormal(dtype inMean = 0, dtype inSigma = 1)
@@ -68,16 +67,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from a "lognormal" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "lognormal" distrubution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///
-        /// @param              inShape
-        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)

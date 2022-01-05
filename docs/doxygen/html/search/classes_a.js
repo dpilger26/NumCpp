@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ra_1192',['RA',['../classnc_1_1coordinates_1_1_r_a.html',1,'nc::coordinates']]]
+  ['quaternion_1245',['Quaternion',['../classnc_1_1rotations_1_1_quaternion.html',1,'nc::rotations']]]
 ];

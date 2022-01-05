@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,13 +36,13 @@
 namespace nc
 {
     //============================================================================
-    ///						Returns the linear interpolation between two points
+    /// Returns the linear interpolation between two points
     ///
-    /// @param      inValue1
-    /// @param      inValue2
-    /// @param      inPercent
+    /// @param inValue1
+    /// @param inValue2
+    /// @param inPercent
     ///
-    /// @return     linear interpolated point
+    /// @return linear interpolated point
     ///
     template<typename dtype>
     constexpr double interp(dtype inValue1, dtype inValue2, double inPercent) noexcept
@@ -52,21 +52,20 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						One-dimensional linear interpolation.
+    /// One-dimensional linear interpolation.
     ///
-    ///                     Returns the one - dimensional piecewise linear interpolant
-    ///                     to a function with given values at discrete data - points.
-    ///                     If input arrays are not one dimensional they will be
-    ///                     internally flattened.
+    /// Returns the one - dimensional piecewise linear interpolant
+    /// to a function with given values at discrete data - points.
+    /// If input arrays are not one dimensional they will be
+    /// internally flattened.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
     ///
-    /// @param				inX: The x-coordinates at which to evaluate the interpolated values.
-    /// @param              inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
-    /// @param				inFp: The y-coordinates of the data points, same length as inXp.
+    /// @param inX: The x-coordinates at which to evaluate the interpolated values.
+    /// @param inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
+    /// @param inFp: The y-coordinates of the data points, same length as inXp.
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)

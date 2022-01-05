@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -34,14 +34,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Test whether no array elements along a given axis evaluate to True.
+    /// Test whether no array elements along a given axis evaluate to True.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
     ///
-    /// @param				inArray
-    /// @param				inAxis (Optional, default NONE)
-    /// @return
-    ///				bool
+    /// @param inArray
+    /// @param inAxis (Optional, default NONE)
+    /// @return bool
     ///
     template<typename dtype>
     NdArray<bool> none(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 

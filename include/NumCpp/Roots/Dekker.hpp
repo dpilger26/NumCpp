@@ -4,7 +4,7 @@
 ///
 /// License
 /// Copyright 2019 Benjamin Mahr
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -44,14 +44,14 @@ namespace nc
     {
         //================================================================================
         // Class Description:
-        ///	Dekker root finding method
+        /// Dekker root finding method
         ///
         class Dekker : public Iteration
         {
         public:
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param f: the function 
@@ -64,7 +64,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Constructor
+            /// Constructor
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
@@ -79,13 +79,13 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Destructor
+            /// Destructor
             ///
             ~Dekker() override = default;
 
             //============================================================================
             // Method Description:
-            ///	Solves for the root in the range [a, b]
+            /// Solves for the root in the range [a, b]
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -135,7 +135,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Checks the bounds criteria
+            /// Checks the bounds criteria
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -154,7 +154,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculates secant
+            /// Calculates secant
             ///
             /// @param b: the upper bound
             /// @param fb: the function evalulated at the upper bound
@@ -170,7 +170,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Calculate the bisection point
+            /// Calculate the bisection point
             ///
             /// @param a: the lower bound
             /// @param b: the upper bound
@@ -183,7 +183,7 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///	Whether or not to use the secant method
+            /// Whether or not to use the secant method
             ///
             /// @param b: the upper bound
             /// @param s:

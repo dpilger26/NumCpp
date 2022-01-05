@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,15 +37,15 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Create a two-dimensional array with the flattened input as a diagonal.
+    /// Create a two-dimensional array with the flattened input as a diagonal.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
     ///
-    /// @param      inArray
-    /// @param      k Diagonal to set; 0, the default, corresponds to the �main� diagonal, 
-    ///             a positive (negative) k giving the number of the diagonal above (below) the main.
+    /// @param inArray
+    /// @param k Diagonal to set; 0, the default, corresponds to the �main� diagonal, 
+    /// a positive (negative) k giving the number of the diagonal above (below) the main.
     ///
-    /// @return     NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> diagflat(const NdArray<dtype>& inArray, int32 k = 0) 

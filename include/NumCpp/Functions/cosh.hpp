@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -38,14 +38,12 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Hyperbolic Cosine.
+    /// Hyperbolic Cosine.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param inValue
+    /// @return value
     ///
     template<typename dtype>
     auto cosh(dtype inValue) noexcept 
@@ -57,14 +55,12 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Hyperbolic Cosine element-wise.
+    /// Hyperbolic Cosine element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     auto cosh(const NdArray<dtype>& inArray) 

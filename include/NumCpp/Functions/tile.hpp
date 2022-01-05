@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -34,15 +34,14 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Construct an array by repeating A the number of times given by reps.
+    /// Construct an array by repeating A the number of times given by reps.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
-    /// @param				inArray
-    /// @param				inNumRows
-    /// @param				inNumCols
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inNumRows
+    /// @param inNumCols
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
@@ -52,14 +51,13 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Construct an array by repeating A the number of times given by reps.
+    /// Construct an array by repeating A the number of times given by reps.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
     ///
-    /// @param				inArray
-    /// @param				inReps
-    /// @return
-    ///				NdArray
+    /// @param inArray
+    /// @param inReps
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps) 

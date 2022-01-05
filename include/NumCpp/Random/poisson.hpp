@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -43,13 +43,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Single random value sampled from the "poisson" distribution.
+        /// Single random value sampled from the "poisson" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
-        /// @param				inMean (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inMean (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype poisson(double inMean = 1)
@@ -67,15 +66,14 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Create an array of the given shape and populate it with
-        ///						random samples from the "poisson" distribution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from the "poisson" distribution.
         ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
-        /// @param				inShape
-        /// @param				inMean (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inMean (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)

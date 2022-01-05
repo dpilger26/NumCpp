@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -36,15 +36,13 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						loads a .bin file from the dump() method into an NdArray
+    /// loads a .bin file from the dump() method into an NdArray
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
     ///
-    /// @param
-    ///				inFilename
+    /// @param inFilename
     ///
-    /// @return
-    ///				NdArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> load(const std::string& inFilename)

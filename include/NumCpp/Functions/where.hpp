@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -37,16 +37,16 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
@@ -84,16 +84,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, dtype inB)
@@ -126,16 +126,16 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, dtype inA, const NdArray<dtype>& inB)
@@ -168,16 +168,16 @@ namespace nc
 
         //============================================================================
     // Method Description:
-    ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and
-    ///                     elements from y elsewhere.
+    /// Return elements, either from x or y, depending on the input mask.
+    /// The output array contains elements of x where mask is True, and
+    /// elements from y elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
     ///
-    /// @param      inMask
-    /// @param      inA
-    /// @param      inB
-    /// @return     NdArray
+    /// @param inMask
+    /// @param inA
+    /// @param inB
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, dtype inA, dtype inB)

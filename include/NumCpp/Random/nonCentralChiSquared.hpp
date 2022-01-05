@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -46,15 +46,14 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Single random value sampled from the "non central chi squared" distrubution.
+        /// Single random value sampled from the "non central chi squared" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
-        /// @param				inK (default 1)
-        /// @param				inLambda (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inK (default 1)
+        /// @param inLambda (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         dtype nonCentralChiSquared(dtype inK = 1, dtype inLambda = 1)
@@ -77,17 +76,16 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Create an array of the given shape and populate it with
-        ///	random samples from a "non central chi squared" distrubution.
+        /// Create an array of the given shape and populate it with
+        /// random samples from a "non central chi squared" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
-        /// @param				inShape
-        /// @param				inK (default 1)
-        /// @param				inLambda (default 1)
-        /// @return
-        ///				NdArray
+        /// @param inShape
+        /// @param inK (default 1)
+        /// @param inLambda (default 1)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -45,14 +45,13 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///	Hermite Polynomial
+        /// Hermite Polynomial
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the hermite polynomial
-        /// @param      x: the input value
-        /// @return
-        ///				double
+        /// @param n: the order of the hermite polynomial
+        /// @param x: the input value
+        /// @return double
         ///
         template<typename dtype>
         double hermite(uint32 n, dtype x)
@@ -68,14 +67,13 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Hermite Polynomial.
+        /// Hermite Polynomial.
         /// NOTE: Use of this function requires either using the Boost
         /// includes or a C++17 compliant compiler.
         ///
-        /// @param      n: the order of the hermite polynomial
-        /// @param      inArrayX: the input value
-        /// @return
-        ///				NdArray<double>
+        /// @param n: the order of the hermite polynomial
+        /// @param inArrayX: the input value
+        /// @return NdArray<double>
         ///
         template<typename dtype>
         NdArray<double> hermite(uint32 n, const NdArray<dtype>& inArrayX)

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2021 David Pilger
+/// Copyright 2018-2022 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -39,16 +39,15 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Calculates a multidimensional median filter.
+        /// Calculates a multidimensional median filter.
         ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///
-        /// @param				inImageArray
-        /// @param				inSize: square size of the kernel to apply
-        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return
-        ///				NdArray
+        /// @param inImageArray
+        /// @param inSize: square size of the kernel to apply
+        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+        /// @return NdArray
         ///
         template<typename dtype>
         NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
