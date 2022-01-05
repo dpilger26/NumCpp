@@ -37,6 +37,7 @@ var files_dup =
     [ "asarray.hpp", "asarray_8hpp.html", "asarray_8hpp" ],
     [ "astype.hpp", "astype_8hpp.html", "astype_8hpp" ],
     [ "average.hpp", "average_8hpp.html", "average_8hpp" ],
+    [ "bartlett.hpp", "bartlett_8hpp.html", "bartlett_8hpp" ],
     [ "bernoilli.hpp", "bernoilli_8hpp.html", "bernoilli_8hpp" ],
     [ "bernoulli.hpp", "bernoulli_8hpp.html", "bernoulli_8hpp" ],
     [ "bessel_in.hpp", "bessel__in_8hpp.html", "bessel__in_8hpp" ],
@@ -53,17 +54,18 @@ var files_dup =
     [ "bincount.hpp", "bincount_8hpp.html", "bincount_8hpp" ],
     [ "binomial.hpp", "binomial_8hpp.html", "binomial_8hpp" ],
     [ "Bisection.hpp", "_bisection_8hpp.html", [
-      [ "nc::roots::Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ]
+      [ "Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ]
     ] ],
     [ "bitwise_and.hpp", "bitwise__and_8hpp.html", "bitwise__and_8hpp" ],
     [ "bitwise_not.hpp", "bitwise__not_8hpp.html", "bitwise__not_8hpp" ],
     [ "bitwise_or.hpp", "bitwise__or_8hpp.html", "bitwise__or_8hpp" ],
     [ "bitwise_xor.hpp", "bitwise__xor_8hpp.html", "bitwise__xor_8hpp" ],
+    [ "blackman.hpp", "blackman_8hpp.html", "blackman_8hpp" ],
     [ "BoostInterface.hpp", "_boost_interface_8hpp.html", null ],
     [ "BoostNumpyNdarrayHelper.hpp", "_boost_numpy_ndarray_helper_8hpp.html", null ],
     [ "Boundary.hpp", "_boundary_8hpp.html", "_boundary_8hpp" ],
     [ "Brent.hpp", "_brent_8hpp.html", [
-      [ "nc::roots::Brent", "classnc_1_1roots_1_1_brent.html", "classnc_1_1roots_1_1_brent" ]
+      [ "Brent", "classnc_1_1roots_1_1_brent.html", "classnc_1_1roots_1_1_brent" ]
     ] ],
     [ "byteswap.hpp", "byteswap_8hpp.html", "byteswap_8hpp" ],
     [ "cauchy.hpp", "cauchy_8hpp.html", "cauchy_8hpp" ],
@@ -71,7 +73,7 @@ var files_dup =
     [ "ceil.hpp", "ceil_8hpp.html", "ceil_8hpp" ],
     [ "centerOfMass.hpp", "center_of_mass_8hpp.html", "center_of_mass_8hpp" ],
     [ "Centroid.hpp", "_centroid_8hpp.html", [
-      [ "nc::imageProcessing::Centroid< dtype >", "classnc_1_1image_processing_1_1_centroid.html", "classnc_1_1image_processing_1_1_centroid" ]
+      [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html", "classnc_1_1image_processing_1_1_centroid" ]
     ] ],
     [ "centroidClusters.hpp", "centroid_clusters_8hpp.html", "centroid_clusters_8hpp" ],
     [ "chebyshev_t.hpp", "chebyshev__t_8hpp.html", "chebyshev__t_8hpp" ],
@@ -81,10 +83,10 @@ var files_dup =
     [ "cholesky.hpp", "cholesky_8hpp.html", "cholesky_8hpp" ],
     [ "clip.hpp", "clip_8hpp.html", "clip_8hpp" ],
     [ "Cluster.hpp", "_cluster_8hpp.html", [
-      [ "nc::imageProcessing::Cluster< dtype >", "classnc_1_1image_processing_1_1_cluster.html", "classnc_1_1image_processing_1_1_cluster" ]
+      [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html", "classnc_1_1image_processing_1_1_cluster" ]
     ] ],
     [ "ClusterMaker.hpp", "_cluster_maker_8hpp.html", [
-      [ "nc::imageProcessing::ClusterMaker< dtype >", "classnc_1_1image_processing_1_1_cluster_maker.html", "classnc_1_1image_processing_1_1_cluster_maker" ]
+      [ "ClusterMaker", "classnc_1_1image_processing_1_1_cluster_maker.html", "classnc_1_1image_processing_1_1_cluster_maker" ]
     ] ],
     [ "clusterPixels.hpp", "cluster_pixels_8hpp.html", "cluster_pixels_8hpp" ],
     [ "cnr.hpp", "cnr_8hpp.html", "cnr_8hpp" ],
@@ -104,16 +106,19 @@ var files_dup =
     [ "convolve.hpp", "convolve_8hpp.html", "convolve_8hpp" ],
     [ "convolve1d.hpp", "convolve1d_8hpp.html", "convolve1d_8hpp" ],
     [ "Coordinate.hpp", "_coordinate_8hpp.html", [
-      [ "nc::coordinates::Coordinate", "classnc_1_1coordinates_1_1_coordinate.html", "classnc_1_1coordinates_1_1_coordinate" ]
+      [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html", "classnc_1_1coordinates_1_1_coordinate" ]
     ] ],
     [ "Coordinates.hpp", "_coordinates_8hpp.html", null ],
     [ "copy.hpp", "copy_8hpp.html", "copy_8hpp" ],
     [ "copySign.hpp", "copy_sign_8hpp.html", "copy_sign_8hpp" ],
     [ "copyto.hpp", "copyto_8hpp.html", "copyto_8hpp" ],
     [ "Core.hpp", "_core_8hpp.html", null ],
+    [ "corrcoef.hpp", "corrcoef_8hpp.html", "corrcoef_8hpp" ],
     [ "cos.hpp", "cos_8hpp.html", "cos_8hpp" ],
     [ "cosh.hpp", "cosh_8hpp.html", "cosh_8hpp" ],
     [ "count_nonzero.hpp", "count__nonzero_8hpp.html", "count__nonzero_8hpp" ],
+    [ "cov.hpp", "cov_8hpp.html", "cov_8hpp" ],
+    [ "cov_inv.hpp", "cov__inv_8hpp.html", "cov__inv_8hpp" ],
     [ "cross.hpp", "cross_8hpp.html", "cross_8hpp" ],
     [ "Functions/cube.hpp", "_functions_2cube_8hpp.html", "_functions_2cube_8hpp" ],
     [ "Utils/cube.hpp", "_utils_2cube_8hpp.html", "_utils_2cube_8hpp" ],
@@ -122,17 +127,17 @@ var files_dup =
     [ "cyclic_hankel_1.hpp", "cyclic__hankel__1_8hpp.html", "cyclic__hankel__1_8hpp" ],
     [ "cyclic_hankel_2.hpp", "cyclic__hankel__2_8hpp.html", "cyclic__hankel__2_8hpp" ],
     [ "DataCube.hpp", "_data_cube_8hpp.html", [
-      [ "nc::DataCube< dtype >", "classnc_1_1_data_cube.html", "classnc_1_1_data_cube" ]
+      [ "DataCube", "classnc_1_1_data_cube.html", "classnc_1_1_data_cube" ]
     ] ],
     [ "DCM.hpp", "_d_c_m_8hpp.html", [
-      [ "nc::rotations::DCM", "classnc_1_1rotations_1_1_d_c_m.html", "classnc_1_1rotations_1_1_d_c_m" ]
+      [ "DCM", "classnc_1_1rotations_1_1_d_c_m.html", "classnc_1_1rotations_1_1_d_c_m" ]
     ] ],
     [ "Dec.hpp", "_dec_8hpp.html", "_dec_8hpp" ],
     [ "deg2rad.hpp", "deg2rad_8hpp.html", "deg2rad_8hpp" ],
     [ "degrees.hpp", "degrees_8hpp.html", "degrees_8hpp" ],
     [ "degreeSeperation.hpp", "degree_seperation_8hpp.html", "degree_seperation_8hpp" ],
     [ "Dekker.hpp", "_dekker_8hpp.html", [
-      [ "nc::roots::Dekker", "classnc_1_1roots_1_1_dekker.html", "classnc_1_1roots_1_1_dekker" ]
+      [ "Dekker", "classnc_1_1roots_1_1_dekker.html", "classnc_1_1roots_1_1_dekker" ]
     ] ],
     [ "deleteIndices.hpp", "delete_indices_8hpp.html", "delete_indices_8hpp" ],
     [ "det.hpp", "det_8hpp.html", "det_8hpp" ],
@@ -145,8 +150,8 @@ var files_dup =
     [ "divide.hpp", "divide_8hpp.html", "divide_8hpp" ],
     [ "dot.hpp", "dot_8hpp.html", "dot_8hpp" ],
     [ "DtypeInfo.hpp", "_dtype_info_8hpp.html", [
-      [ "nc::DtypeInfo< dtype >", "classnc_1_1_dtype_info.html", "classnc_1_1_dtype_info" ],
-      [ "nc::DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ]
+      [ "DtypeInfo", "classnc_1_1_dtype_info.html", "classnc_1_1_dtype_info" ],
+      [ "DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ]
     ] ],
     [ "dump.hpp", "dump_8hpp.html", "dump_8hpp" ],
     [ "ellint_1.hpp", "ellint__1_8hpp.html", "ellint__1_8hpp" ],
@@ -168,12 +173,13 @@ var files_dup =
     [ "expint.hpp", "expint_8hpp.html", "expint_8hpp" ],
     [ "expm1.hpp", "expm1_8hpp.html", "expm1_8hpp" ],
     [ "exponential.hpp", "exponential_8hpp.html", "exponential_8hpp" ],
+    [ "extract.hpp", "extract_8hpp.html", "extract_8hpp" ],
     [ "extremeValue.hpp", "extreme_value_8hpp.html", "extreme_value_8hpp" ],
     [ "eye.hpp", "eye_8hpp.html", "eye_8hpp" ],
     [ "f.hpp", "f_8hpp.html", "f_8hpp" ],
     [ "factorial.hpp", "factorial_8hpp.html", "factorial_8hpp" ],
     [ "Filesystem.hpp", "_filesystem_8hpp.html", [
-      [ "nc::filesystem::File", "classnc_1_1filesystem_1_1_file.html", "classnc_1_1filesystem_1_1_file" ]
+      [ "File", "classnc_1_1filesystem_1_1_file.html", "classnc_1_1filesystem_1_1_file" ]
     ] ],
     [ "fillCorners.hpp", "fill_corners_8hpp.html", "fill_corners_8hpp" ],
     [ "fillDiagnol.hpp", "fill_diagnol_8hpp.html", "fill_diagnol_8hpp" ],
@@ -210,9 +216,13 @@ var files_dup =
     [ "generateThreshold.hpp", "generate_threshold_8hpp.html", "generate_threshold_8hpp" ],
     [ "generator.hpp", "generator_8hpp.html", "generator_8hpp" ],
     [ "geometric.hpp", "geometric_8hpp.html", "geometric_8hpp" ],
+    [ "geomspace.hpp", "geomspace_8hpp.html", "geomspace_8hpp" ],
     [ "gradient.hpp", "gradient_8hpp.html", "gradient_8hpp" ],
     [ "greater.hpp", "greater_8hpp.html", "greater_8hpp" ],
     [ "greater_equal.hpp", "greater__equal_8hpp.html", "greater__equal_8hpp" ],
+    [ "hamming.hpp", "hamming_8hpp.html", "hamming_8hpp" ],
+    [ "hammingEncode.hpp", "hamming_encode_8hpp.html", "hamming_encode_8hpp" ],
+    [ "hanning.hpp", "hanning_8hpp.html", "hanning_8hpp" ],
     [ "hat.hpp", "hat_8hpp.html", "hat_8hpp" ],
     [ "hermite.hpp", "hermite_8hpp.html", "hermite_8hpp" ],
     [ "histogram.hpp", "histogram_8hpp.html", "histogram_8hpp" ],
@@ -221,6 +231,7 @@ var files_dup =
     [ "identity.hpp", "identity_8hpp.html", "identity_8hpp" ],
     [ "imag.hpp", "imag_8hpp.html", "imag_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", null ],
+    [ "inner.hpp", "inner_8hpp.html", "inner_8hpp" ],
     [ "Integrate.hpp", "_integrate_8hpp.html", null ],
     [ "Functions/interp.hpp", "_functions_2interp_8hpp.html", "_functions_2interp_8hpp" ],
     [ "Utils/interp.hpp", "_utils_2interp_8hpp.html", "_utils_2interp_8hpp" ],
@@ -230,9 +241,12 @@ var files_dup =
     [ "isclose.hpp", "isclose_8hpp.html", "isclose_8hpp" ],
     [ "isinf.hpp", "isinf_8hpp.html", "isinf_8hpp" ],
     [ "isnan.hpp", "isnan_8hpp.html", "isnan_8hpp" ],
+    [ "isneginf.hpp", "isneginf_8hpp.html", "isneginf_8hpp" ],
+    [ "isposinf.hpp", "isposinf_8hpp.html", "isposinf_8hpp" ],
     [ "Iteration.hpp", "_iteration_8hpp.html", [
-      [ "nc::roots::Iteration", "classnc_1_1roots_1_1_iteration.html", "classnc_1_1roots_1_1_iteration" ]
+      [ "Iteration", "classnc_1_1roots_1_1_iteration.html", "classnc_1_1roots_1_1_iteration" ]
     ] ],
+    [ "kaiser.hpp", "kaiser_8hpp.html", "kaiser_8hpp" ],
     [ "laguerre.hpp", "laguerre_8hpp.html", "laguerre_8hpp" ],
     [ "Filter/Filters/Filters2d/laplace.hpp", "_filter_2_filters_2_filters2d_2laplace_8hpp.html", "_filter_2_filters_2_filters2d_2laplace_8hpp" ],
     [ "Random/laplace.hpp", "_random_2laplace_8hpp.html", "_random_2laplace_8hpp" ],
@@ -251,11 +265,13 @@ var files_dup =
     [ "log1p.hpp", "log1p_8hpp.html", "log1p_8hpp" ],
     [ "log2.hpp", "log2_8hpp.html", "log2_8hpp" ],
     [ "log_gamma.hpp", "log__gamma_8hpp.html", "log__gamma_8hpp" ],
+    [ "logb.hpp", "logb_8hpp.html", "logb_8hpp" ],
     [ "logical_and.hpp", "logical__and_8hpp.html", "logical__and_8hpp" ],
     [ "logical_not.hpp", "logical__not_8hpp.html", "logical__not_8hpp" ],
     [ "logical_or.hpp", "logical__or_8hpp.html", "logical__or_8hpp" ],
     [ "logical_xor.hpp", "logical__xor_8hpp.html", "logical__xor_8hpp" ],
     [ "lognormal.hpp", "lognormal_8hpp.html", "lognormal_8hpp" ],
+    [ "logspace.hpp", "logspace_8hpp.html", "logspace_8hpp" ],
     [ "lstsq.hpp", "lstsq_8hpp.html", "lstsq_8hpp" ],
     [ "lu_decomposition.hpp", "lu__decomposition_8hpp.html", "lu__decomposition_8hpp" ],
     [ "matmul.hpp", "matmul_8hpp.html", "matmul_8hpp" ],
@@ -297,7 +313,7 @@ var files_dup =
     [ "nbytes.hpp", "nbytes_8hpp.html", "nbytes_8hpp" ],
     [ "NdArray.hpp", "_nd_array_8hpp.html", null ],
     [ "NdArrayCore.hpp", "_nd_array_core_8hpp.html", [
-      [ "nc::NdArray< dtype, Allocator >", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ]
+      [ "NdArray", "classnc_1_1_nd_array.html", "classnc_1_1_nd_array" ]
     ] ],
     [ "NdArrayIterators.hpp", "_nd_array_iterators_8hpp.html", "_nd_array_iterators_8hpp" ],
     [ "NdArrayOperators.hpp", "_nd_array_operators_8hpp.html", "_nd_array_operators_8hpp" ],
@@ -307,7 +323,7 @@ var files_dup =
     [ "negativeBinomial.hpp", "negative_binomial_8hpp.html", "negative_binomial_8hpp" ],
     [ "newbyteorder.hpp", "newbyteorder_8hpp.html", "newbyteorder_8hpp" ],
     [ "Newton.hpp", "_newton_8hpp.html", [
-      [ "nc::roots::Newton", "classnc_1_1roots_1_1_newton.html", "classnc_1_1roots_1_1_newton" ]
+      [ "Newton", "classnc_1_1roots_1_1_newton.html", "classnc_1_1roots_1_1_newton" ]
     ] ],
     [ "nonCentralChiSquared.hpp", "non_central_chi_squared_8hpp.html", "non_central_chi_squared_8hpp" ],
     [ "none.hpp", "none_8hpp.html", "none_8hpp" ],
@@ -315,6 +331,7 @@ var files_dup =
     [ "norm.hpp", "norm_8hpp.html", "norm_8hpp" ],
     [ "normal.hpp", "normal_8hpp.html", "normal_8hpp" ],
     [ "not_equal.hpp", "not__equal_8hpp.html", "not__equal_8hpp" ],
+    [ "nth_root.hpp", "nth__root_8hpp.html", "nth__root_8hpp" ],
     [ "num2str.hpp", "num2str_8hpp.html", "num2str_8hpp" ],
     [ "NumCpp.hpp", "_num_cpp_8hpp.html", null ],
     [ "ones.hpp", "ones_8hpp.html", "ones_8hpp" ],
@@ -328,13 +345,14 @@ var files_dup =
     [ "permutation.hpp", "permutation_8hpp.html", "permutation_8hpp" ],
     [ "pivotLU_decomposition.hpp", "pivot_l_u__decomposition_8hpp.html", "pivot_l_u__decomposition_8hpp" ],
     [ "Pixel.hpp", "_pixel_8hpp.html", [
-      [ "nc::imageProcessing::Pixel< dtype >", "classnc_1_1image_processing_1_1_pixel.html", "classnc_1_1image_processing_1_1_pixel" ]
+      [ "Pixel", "classnc_1_1image_processing_1_1_pixel.html", "classnc_1_1image_processing_1_1_pixel" ]
     ] ],
+    [ "place.hpp", "place_8hpp.html", "place_8hpp" ],
     [ "pnr.hpp", "pnr_8hpp.html", "pnr_8hpp" ],
     [ "poisson.hpp", "poisson_8hpp.html", "poisson_8hpp" ],
     [ "polar.hpp", "polar_8hpp.html", "polar_8hpp" ],
     [ "Poly1d.hpp", "_poly1d_8hpp.html", [
-      [ "nc::polynomial::Poly1d< dtype >", "classnc_1_1polynomial_1_1_poly1d.html", "classnc_1_1polynomial_1_1_poly1d" ]
+      [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html", "classnc_1_1polynomial_1_1_poly1d" ]
     ] ],
     [ "polygamma.hpp", "polygamma_8hpp.html", "polygamma_8hpp" ],
     [ "Polynomial.hpp", "_polynomial_8hpp.html", null ],
@@ -352,10 +370,10 @@ var files_dup =
     [ "PybindInterface.hpp", "_pybind_interface_8hpp.html", null ],
     [ "PythonInterface.hpp", "_python_interface_8hpp.html", null ],
     [ "Quaternion.hpp", "_quaternion_8hpp.html", [
-      [ "nc::rotations::Quaternion", "classnc_1_1rotations_1_1_quaternion.html", "classnc_1_1rotations_1_1_quaternion" ]
+      [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html", "classnc_1_1rotations_1_1_quaternion" ]
     ] ],
     [ "RA.hpp", "_r_a_8hpp.html", [
-      [ "nc::coordinates::RA", "classnc_1_1coordinates_1_1_r_a.html", "classnc_1_1coordinates_1_1_r_a" ]
+      [ "RA", "classnc_1_1coordinates_1_1_r_a.html", "classnc_1_1coordinates_1_1_r_a" ]
     ] ],
     [ "rad2deg.hpp", "rad2deg_8hpp.html", "rad2deg_8hpp" ],
     [ "radians.hpp", "radians_8hpp.html", "radians_8hpp" ],
@@ -391,11 +409,12 @@ var files_dup =
     [ "round.hpp", "round_8hpp.html", "round_8hpp" ],
     [ "row_stack.hpp", "row__stack_8hpp.html", "row__stack_8hpp" ],
     [ "Secant.hpp", "_secant_8hpp.html", [
-      [ "nc::roots::Secant", "classnc_1_1roots_1_1_secant.html", "classnc_1_1roots_1_1_secant" ]
+      [ "Secant", "classnc_1_1roots_1_1_secant.html", "classnc_1_1roots_1_1_secant" ]
     ] ],
+    [ "select.hpp", "select_8hpp.html", "select_8hpp" ],
     [ "setdiff1d.hpp", "setdiff1d_8hpp.html", "setdiff1d_8hpp" ],
     [ "Core/Shape.hpp", "_core_2_shape_8hpp.html", [
-      [ "nc::Shape", "classnc_1_1_shape.html", "classnc_1_1_shape" ]
+      [ "Shape", "classnc_1_1_shape.html", "classnc_1_1_shape" ]
     ] ],
     [ "Functions/Shape.hpp", "_functions_2_shape_8hpp.html", "_functions_2_shape_8hpp" ],
     [ "shuffle.hpp", "shuffle_8hpp.html", "shuffle_8hpp" ],
@@ -407,7 +426,7 @@ var files_dup =
     [ "sinh.hpp", "sinh_8hpp.html", "sinh_8hpp" ],
     [ "size.hpp", "size_8hpp.html", "size_8hpp" ],
     [ "Slice.hpp", "_slice_8hpp.html", [
-      [ "nc::Slice", "classnc_1_1_slice.html", "classnc_1_1_slice" ]
+      [ "Slice", "classnc_1_1_slice.html", "classnc_1_1_slice" ]
     ] ],
     [ "softmax.hpp", "softmax_8hpp.html", "softmax_8hpp" ],
     [ "solve.hpp", "solve_8hpp.html", "solve_8hpp" ],
@@ -432,7 +451,7 @@ var files_dup =
     [ "sum.hpp", "sum_8hpp.html", "sum_8hpp" ],
     [ "svd.hpp", "svd_8hpp.html", "svd_8hpp" ],
     [ "SVDClass.hpp", "_s_v_d_class_8hpp.html", [
-      [ "nc::linalg::SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ]
+      [ "SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ]
     ] ],
     [ "swap.hpp", "swap_8hpp.html", "swap_8hpp" ],
     [ "swapaxes.hpp", "swapaxes_8hpp.html", "swapaxes_8hpp" ],
@@ -440,7 +459,7 @@ var files_dup =
     [ "tanh.hpp", "tanh_8hpp.html", "tanh_8hpp" ],
     [ "tile.hpp", "tile_8hpp.html", "tile_8hpp" ],
     [ "Timer.hpp", "_timer_8hpp.html", [
-      [ "nc::Timer< TimeUnit >", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
+      [ "Timer", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
     ] ],
     [ "tofile.hpp", "tofile_8hpp.html", "tofile_8hpp" ],
     [ "toStlVector.hpp", "to_stl_vector_8hpp.html", "to_stl_vector_8hpp" ],

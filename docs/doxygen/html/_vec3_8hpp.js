@@ -1,6 +1,6 @@
 var _vec3_8hpp =
 [
-    [ "nc::Vec3", "classnc_1_1_vec3.html", "classnc_1_1_vec3" ],
+    [ "Vec3", "classnc_1_1_vec3.html", "classnc_1_1_vec3" ],
     [ "operator*", "_vec3_8hpp.html#a39b128708b2225a00de527c8ec83d72a", null ],
     [ "operator*", "_vec3_8hpp.html#af51c9efd8dbadbdc664972bd96583a72", null ],
     [ "operator*", "_vec3_8hpp.html#af4ecba4e059c6dcf672644a3c1bff75d", null ],

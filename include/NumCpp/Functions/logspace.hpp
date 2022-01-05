@@ -49,7 +49,8 @@ namespace nc
     /// In that case, num + 1 values are spaced over the interval 
     /// in log-space, of which all but the last (a sequence of length num) are returned.
     /// @param num: Number of samples to generate. Default 50.
-    /// @param enpoint: If true, stop is the last sample. Otherwise,it is not included. Default is true.
+    /// @param endPoint: If true, stop is the last sample. Otherwise,it is not included. Default is true.
+    /// @param base: The base of the log space. The step size between the elements in ln(samples) / ln(base)
     /// @return NdArray
     ///
     template<typename dtype>

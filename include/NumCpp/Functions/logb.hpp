@@ -57,7 +57,7 @@ namespace nc
     // Method Description:
     /// Logarithm of an arbitrary base
     ///
-    /// @param inValue
+    /// @param inArray
     /// @param inBase: the logorithm base
     ///
     /// @return NdArray

@@ -1,26 +1,6 @@
 var searchData=
 [
-  ['pad_2ehpp_1509',['pad.hpp',['../pad_8hpp.html',1,'']]],
-  ['partition_2ehpp_1510',['partition.hpp',['../partition_8hpp.html',1,'']]],
-  ['percentile_2ehpp_1511',['percentile.hpp',['../percentile_8hpp.html',1,'']]],
-  ['percentilefilter_2ehpp_1512',['percentileFilter.hpp',['../percentile_filter_8hpp.html',1,'']]],
-  ['percentilefilter1d_2ehpp_1513',['percentileFilter1d.hpp',['../percentile_filter1d_8hpp.html',1,'']]],
-  ['permutation_2ehpp_1514',['permutation.hpp',['../permutation_8hpp.html',1,'']]],
-  ['pivotlu_5fdecomposition_2ehpp_1515',['pivotLU_decomposition.hpp',['../pivot_l_u__decomposition_8hpp.html',1,'']]],
-  ['pixel_2ehpp_1516',['Pixel.hpp',['../_pixel_8hpp.html',1,'']]],
-  ['pnr_2ehpp_1517',['pnr.hpp',['../pnr_8hpp.html',1,'']]],
-  ['poisson_2ehpp_1518',['poisson.hpp',['../poisson_8hpp.html',1,'']]],
-  ['polar_2ehpp_1519',['polar.hpp',['../polar_8hpp.html',1,'']]],
-  ['poly1d_2ehpp_1520',['Poly1d.hpp',['../_poly1d_8hpp.html',1,'']]],
-  ['polygamma_2ehpp_1521',['polygamma.hpp',['../polygamma_8hpp.html',1,'']]],
-  ['polynomial_2ehpp_1522',['Polynomial.hpp',['../_polynomial_8hpp.html',1,'']]],
-  ['prime_2ehpp_1523',['prime.hpp',['../prime_8hpp.html',1,'']]],
-  ['print_2ehpp_1524',['print.hpp',['../print_8hpp.html',1,'']]],
-  ['prod_2ehpp_1525',['prod.hpp',['../prod_8hpp.html',1,'']]],
-  ['proj_2ehpp_1526',['proj.hpp',['../proj_8hpp.html',1,'']]],
-  ['ptp_2ehpp_1527',['ptp.hpp',['../ptp_8hpp.html',1,'']]],
-  ['put_2ehpp_1528',['put.hpp',['../put_8hpp.html',1,'']]],
-  ['putmask_2ehpp_1529',['putmask.hpp',['../putmask_8hpp.html',1,'']]],
-  ['pybindinterface_2ehpp_1530',['PybindInterface.hpp',['../_pybind_interface_8hpp.html',1,'']]],
-  ['pythoninterface_2ehpp_1531',['PythonInterface.hpp',['../_python_interface_8hpp.html',1,'']]]
+  ['ones_2ehpp_1579',['ones.hpp',['../ones_8hpp.html',1,'']]],
+  ['ones_5flike_2ehpp_1580',['ones_like.hpp',['../ones__like_8hpp.html',1,'']]],
+  ['outer_2ehpp_1581',['outer.hpp',['../outer_8hpp.html',1,'']]]
 ];
