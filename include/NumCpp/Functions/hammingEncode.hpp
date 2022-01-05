@@ -43,285 +43,285 @@
 
 namespace nc
 {
-    namespace edac::detail
-    {
-        //============================================================================
-        // Method Description:
-        /// @brief Tests if value is a power of two
-        ///
-        /// @param n integer value
-        /// @return bool true if value is a power of two, else false
-        ///
-        template<
-            typename IntType,
-            std::enable_if_t<std::is_integral_v<IntType>, int> = 0
-        >
-        constexpr bool isPowerOfTwo(IntType n) noexcept
-        {
-            // Returns true if the given non-negative integer n is a power of two.
-            return n != 0 && (n & (n - 1)) == 0;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the next power of two after n
-        /// >>> _next_power_of_two(768)
-        /// 1024
-        /// >>> _next_power_of_two(4)
-        /// 8
-        ///
-        /// @param n integer value
-        /// @return next power of two
-        /// @exception std::invalid_argument if input value is less than zero
-        ////
-        template<
-            typename IntType,
-            std::enable_if_t<std::is_integral_v<IntType>, int> = 0
-        >
-        std::size_t nextPowerOfTwo(IntType n)
-        {
-            if (n < 0)
-            {
-                throw std::invalid_argument("Input value must be greater than or equal to zero.");
-            }
-
-            if (isPowerOfTwo(n))
-            {
-                return static_cast<std::size_t>(n) << 1;
-            }
-
-            return static_cast<std::size_t>(std::pow(2, std::ceil(std::log2(n))));
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the first n powers of two
-        ///
-        /// @param n integer value
-        /// @return first n powers of two
-        /// @exception std::bad_alloc if unable to allocate for return vector
-        ///
-        template<
-            typename IntType,
-            std::enable_if_t<std::is_integral_v<IntType>, int> = 0
-        >
-        std::vector<std::size_t> powersOfTwo(IntType n)
-        {
-            auto i = std::size_t{ 0 };
-            auto power = std::size_t{ 1 };
-            auto powers = std::vector<std::size_t>();
-            powers.reserve(n);
-
-            while (i < static_cast<std::size_t>(n))
-            {
-                powers.push_back(power);
-                power <<= 1;
-                ++i;
-            }
-
-            return powers;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the number of needed Hamming SECDED parity bits to encode the data
-        ///
-        /// @param numDataBits the number of data bits to encode
-        /// @return number of Hamming SECDED parity bits
-        /// @exception std::invalid_argument if input value is less than zero
-        /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
-        ///
-        template<
-            typename IntType,
-            std::enable_if_t<std::is_integral_v<IntType>, int> = 0
-        >
-        std::size_t numSecdedParityBitsNeeded(IntType numDataBits)
-        {
-            const auto n = nextPowerOfTwo(numDataBits);
-            const auto lowerBin = static_cast<std::size_t>(std::floor(std::log2(n)));
-            const auto upperBin = lowerBin + 1;
-            const auto dataBitBoundary = n - lowerBin - 1;
-            const auto numParityBits = numDataBits <= dataBitBoundary ? lowerBin + 1 : upperBin + 1;
-
-            if (!isPowerOfTwo(numParityBits + numDataBits))
-            {
-                throw std::runtime_error("input number of data bits is not a valid Hamming SECDED code configuration.");
-            }
-
-            return numParityBits;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Returns the indices of all data bits covered by a specified parity bit in a bitstring
-        /// of length numDataBits. The indices are relative to DATA BITSTRING ITSELF, NOT including
-        /// parity bits.
-        ///
-        /// @param numDataBits the number of data bits to encode
-        /// @param parityBit the parity bit number
-        /// @return number of Hamming SECDED parity bits
-        /// @exception std::invalid_argument if parityBit is not a power of two
-        /// @exception std::bad_alloc if unable to allocate return vector
-        ///
-        template<
-            typename IntType1,
-            typename IntType2,
-            std::enable_if_t<std::is_integral_v<IntType1>, int> = 0,
-            std::enable_if_t<std::is_integral_v<IntType2>, int> = 0
-        >
-        std::vector<std::size_t> dataBitsCovered(IntType1 numDataBits, IntType2 parityBit)
-        {
-            if (!isPowerOfTwo(parityBit))
-            {
-                throw std::invalid_argument("All hamming parity bits are indexed by powers of two.");
-            }
-
-            std::size_t dataIndex = 1; // bit we're currently at in the DATA bitstring
-            std::size_t totalIndex = 3; // bit we're currently at in the OVERALL bitstring
-            auto parityBit_ = static_cast<std::size_t>(parityBit);
-
-            auto indices = std::vector<std::size_t>();
-            indices.reserve(numDataBits); // worst case
-
-            while (dataIndex <= static_cast<std::size_t>(numDataBits))
-            {
-                const auto currentBitIsData = !isPowerOfTwo(totalIndex);
-                if (currentBitIsData && (totalIndex % (parityBit_ << 1)) >= parityBit_)
-                {
-                    indices.push_back(dataIndex - 1); // adjust output to be zero indexed
-                }
-
-                dataIndex += currentBitIsData ? 1 : 0;
-                ++totalIndex;
-            }
-
-            return indices;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the overall parity of the data, assumes last bit is the parity bit itself
-        ///
-        /// @param data the data word
-        /// @return overall parity bit value
-        ///
-        template<std::size_t DataBits>
-        constexpr bool calculateParity(const std::bitset<DataBits>& data) noexcept
-        {
-            bool parity = false;
-            for (std::size_t i = 0; i < DataBits - 1; ++i)
-            {
-                parity ^= data[i];
-            }
-
-            return parity;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the overall parity of the data, assumes last bit is the parity bit itself
-        ///
-        /// @param data the data word
-        /// @return overall parity bit value
-        ///
-        inline bool calculateParity(const boost::dynamic_bitset<>& data) noexcept
-        {
-            bool parity = false;
-            for (std::size_t i = 0; i < data.size() - 1; ++i)
-            {
-                parity ^= data[i];
-            }
-
-            return parity;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Calculates the specified Hamming parity bit (1, 2, 4, 8, etc.) for the given data.
-        /// Assumes even parity to allow for easier computation of parity using XOR.
-        ///
-        /// @param data the data word
-        /// @param parityBit the parity bit number
-        /// @return parity bit value
-        /// @exception std::invalid_argument if parityBit is not a power of two
-        /// @exception std::bad_alloc if unable to allocate return vector
-        ///
-        template<
-            std::size_t DataBits,
-            typename IntType,
-            std::enable_if_t<std::is_integral_v<IntType>, int> = 0
-        >
-        bool calculateParity(const std::bitset<DataBits>& data, IntType parityBit)
-        {
-            bool parity = false;
-            for (const auto i : dataBitsCovered(DataBits, parityBit))
-            {
-                parity ^= data[i];
-            }
-
-            return parity;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Checks that the number of DataBits and EncodedBits are consistent
-        ///
-        /// @return the number of parity bits
-        /// @exception std::runtime_error if DataBits and EncodedBits are not consistent
-        /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
-        ///
-        template<
-            std::size_t DataBits,
-            std::size_t EncodedBits,
-            std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
-        >
-        std::size_t checkBitsConsistent()
-        {
-            const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
-            if (numParityBits + DataBits != EncodedBits)
-            {
-                throw std::runtime_error("DataBits and EncodedBits are not consistent");
-            }
-
-            return numParityBits;
-        }
-
-        //============================================================================
-        // Method Description:
-        /// Returns the Hamming SECDED decoded bits from the endoded bits. Assumes that the 
-        /// DataBits and EncodedBits have been checks for consistancy already
-        ///
-        /// @param encodedBits the Hamming SECDED encoded word
-        /// @return data bits from the encoded word
-        ///
-        template<
-            std::size_t DataBits,
-            std::size_t EncodedBits,
-            std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
-        >
-        std::bitset<DataBits> extractData(const std::bitset<EncodedBits>& encodedBits) noexcept
-        {
-            auto dataBits = std::bitset<DataBits>();
-
-            std::size_t dataIndex = 0;
-            for (std::size_t encodedIndex = 0; encodedIndex < EncodedBits; ++encodedIndex)
-            {
-                if (!isPowerOfTwo(encodedIndex + 1))
-                {
-                    dataBits[dataIndex++] = encodedBits[encodedIndex];
-                    if (dataIndex == DataBits)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            return dataBits;
-        }
-    } // namespace edac::detail
-
     namespace edac
     {
+        namespace detail
+        {
+            //============================================================================
+            // Method Description:
+            /// @brief Tests if value is a power of two
+            ///
+            /// @param n integer value
+            /// @return bool true if value is a power of two, else false
+            ///
+            template<
+                typename IntType,
+                enable_if_t<is_integral_v<IntType>, int> = 0
+            >
+            constexpr bool isPowerOfTwo(IntType n) noexcept
+            {
+                // Returns true if the given non-negative integer n is a power of two.
+                return n != 0 && (n & (n - 1)) == 0;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the next power of two after n
+            /// >>> _next_power_of_two(768)
+            /// 1024
+            /// >>> _next_power_of_two(4)
+            /// 8
+            ///
+            /// @param n integer value
+            /// @return next power of two
+            /// @exception std::invalid_argument if input value is less than zero
+            ////
+            template<
+                typename IntType,
+                enable_if_t<is_integral_v<IntType>, int> = 0
+            >
+            std::size_t nextPowerOfTwo(IntType n)
+            {
+                if (n < 0)
+                {
+                    throw std::invalid_argument("Input value must be greater than or equal to zero.");
+                }
+
+                if (isPowerOfTwo(n))
+                {
+                    return static_cast<std::size_t>(n) << 1;
+                }
+
+                return static_cast<std::size_t>(std::pow(2, std::ceil(std::log2(n))));
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the first n powers of two
+            ///
+            /// @param n integer value
+            /// @return first n powers of two
+            /// @exception std::bad_alloc if unable to allocate for return vector
+            ///
+            template<
+                typename IntType,
+                enable_if_t<is_integral_v<IntType>, int> = 0
+            >
+            std::vector<std::size_t> powersOfTwo(IntType n)
+            {
+                auto i = std::size_t{ 0 };
+                auto power = std::size_t{ 1 };
+                auto powers = std::vector<std::size_t>();
+                powers.reserve(n);
+
+                while (i < static_cast<std::size_t>(n))
+                {
+                    powers.push_back(power);
+                    power <<= 1;
+                    ++i;
+                }
+
+                return powers;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the number of needed Hamming SECDED parity bits to encode the data
+            ///
+            /// @param numDataBits the number of data bits to encode
+            /// @return number of Hamming SECDED parity bits
+            /// @exception std::invalid_argument if input value is less than zero
+            /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
+            ///
+            template<
+                typename IntType,
+                enable_if_t<is_integral_v<IntType>, int> = 0
+            >
+            std::size_t numSecdedParityBitsNeeded(IntType numDataBits)
+            {
+                const auto n = nextPowerOfTwo(numDataBits);
+                const auto lowerBin = static_cast<std::size_t>(std::floor(std::log2(n)));
+                const auto upperBin = lowerBin + 1;
+                const auto dataBitBoundary = n - lowerBin - 1;
+                const auto numParityBits = numDataBits <= dataBitBoundary ? lowerBin + 1 : upperBin + 1;
+
+                if (!isPowerOfTwo(numParityBits + numDataBits))
+                {
+                    throw std::runtime_error("input number of data bits is not a valid Hamming SECDED code configuration.");
+                }
+
+                return numParityBits;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Returns the indices of all data bits covered by a specified parity bit in a bitstring
+            /// of length numDataBits. The indices are relative to DATA BITSTRING ITSELF, NOT including
+            /// parity bits.
+            ///
+            /// @param numDataBits the number of data bits to encode
+            /// @param parityBit the parity bit number
+            /// @return number of Hamming SECDED parity bits
+            /// @exception std::invalid_argument if parityBit is not a power of two
+            /// @exception std::bad_alloc if unable to allocate return vector
+            ///
+            template<
+                typename IntType1,
+                typename IntType2,
+                enable_if_t<is_integral_v<IntType1>, int> = 0,
+                enable_if_t<is_integral_v<IntType2>, int> = 0
+            >
+            std::vector<std::size_t> dataBitsCovered(IntType1 numDataBits, IntType2 parityBit)
+            {
+                if (!isPowerOfTwo(parityBit))
+                {
+                    throw std::invalid_argument("All hamming parity bits are indexed by powers of two.");
+                }
+
+                std::size_t dataIndex = 1; // bit we're currently at in the DATA bitstring
+                std::size_t totalIndex = 3; // bit we're currently at in the OVERALL bitstring
+                auto parityBit_ = static_cast<std::size_t>(parityBit);
+
+                auto indices = std::vector<std::size_t>();
+                indices.reserve(numDataBits); // worst case
+
+                while (dataIndex <= static_cast<std::size_t>(numDataBits))
+                {
+                    const auto currentBitIsData = !isPowerOfTwo(totalIndex);
+                    if (currentBitIsData && (totalIndex % (parityBit_ << 1)) >= parityBit_)
+                    {
+                        indices.push_back(dataIndex - 1); // adjust output to be zero indexed
+                    }
+
+                    dataIndex += currentBitIsData ? 1 : 0;
+                    ++totalIndex;
+                }
+
+                return indices;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the overall parity of the data, assumes last bit is the parity bit itself
+            ///
+            /// @param data the data word
+            /// @return overall parity bit value
+            ///
+            template<std::size_t DataBits>
+            constexpr bool calculateParity(const std::bitset<DataBits>& data) noexcept
+            {
+                bool parity = false;
+                for (std::size_t i = 0; i < DataBits - 1; ++i)
+                {
+                    parity ^= data[i];
+                }
+
+                return parity;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the overall parity of the data, assumes last bit is the parity bit itself
+            ///
+            /// @param data the data word
+            /// @return overall parity bit value
+            ///
+            inline bool calculateParity(const boost::dynamic_bitset<>& data) noexcept
+            {
+                bool parity = false;
+                for (std::size_t i = 0; i < data.size() - 1; ++i)
+                {
+                    parity ^= data[i];
+                }
+
+                return parity;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Calculates the specified Hamming parity bit (1, 2, 4, 8, etc.) for the given data.
+            /// Assumes even parity to allow for easier computation of parity using XOR.
+            ///
+            /// @param data the data word
+            /// @param parityBit the parity bit number
+            /// @return parity bit value
+            /// @exception std::invalid_argument if parityBit is not a power of two
+            /// @exception std::bad_alloc if unable to allocate return vector
+            ///
+            template<
+                std::size_t DataBits,
+                typename IntType,
+                enable_if_t<is_integral_v<IntType>, int> = 0
+            >
+            bool calculateParity(const std::bitset<DataBits>& data, IntType parityBit)
+            {
+                bool parity = false;
+                for (const auto i : dataBitsCovered(DataBits, parityBit))
+                {
+                    parity ^= data[i];
+                }
+
+                return parity;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Checks that the number of DataBits and EncodedBits are consistent
+            ///
+            /// @return the number of parity bits
+            /// @exception std::runtime_error if DataBits and EncodedBits are not consistent
+            /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
+            ///
+            template<
+                std::size_t DataBits,
+                std::size_t EncodedBits,
+                enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
+            >
+            std::size_t checkBitsConsistent()
+            {
+                const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
+                if (numParityBits + DataBits != EncodedBits)
+                {
+                    throw std::runtime_error("DataBits and EncodedBits are not consistent");
+                }
+
+                return numParityBits;
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Returns the Hamming SECDED decoded bits from the endoded bits. Assumes that the 
+            /// DataBits and EncodedBits have been checks for consistancy already
+            ///
+            /// @param encodedBits the Hamming SECDED encoded word
+            /// @return data bits from the encoded word
+            ///
+            template<
+                std::size_t DataBits,
+                std::size_t EncodedBits,
+                enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
+            >
+            std::bitset<DataBits> extractData(const std::bitset<EncodedBits>& encodedBits) noexcept
+            {
+                auto dataBits = std::bitset<DataBits>();
+
+                std::size_t dataIndex = 0;
+                for (std::size_t encodedIndex = 0; encodedIndex < EncodedBits; ++encodedIndex)
+                {
+                    if (!isPowerOfTwo(encodedIndex + 1))
+                    {
+                        dataBits[dataIndex++] = encodedBits[encodedIndex];
+                        if (dataIndex == DataBits)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                return dataBits;
+            }
+        } // namespace detail
+
         //============================================================================
         // Method Description:
         /// Returns the Hamming SECDED encoded bits for the data bits
@@ -375,7 +375,7 @@ namespace nc
         template<
             std::size_t DataBits,
             std::size_t EncodedBits,
-            std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
+            enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
         >
         int decode(std::bitset<EncodedBits> encodedBits, std::bitset<DataBits>& decodedBits)
         {

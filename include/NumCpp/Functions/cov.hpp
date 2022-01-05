@@ -57,7 +57,7 @@ namespace nc
         const auto numVars = x.numRows();
         const auto numObs = x.numCols();
         const auto normilizationFactor = bias ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
-        using IndexType = std::remove_const<decltype(numVars)>::type;
+        using IndexType = typename std::remove_const<decltype(numVars)>::type;
 
         // upper triangle
         auto covariance = NdArray<double>(numVars);

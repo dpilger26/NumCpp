@@ -85,7 +85,7 @@ namespace nc
                 }
 
                 return percentile(NdArray<double>(arrayCopy.data(), 
-                    static_cast<NdArray<dtype>::size_type>(arrayCopy.size()), false), 
+                    static_cast<typename NdArray<dtype>::size_type>(arrayCopy.size()), false), 
                     inPercentile, Axis::NONE, inInterpMethod);
             }
             case Axis::COL:

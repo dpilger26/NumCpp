@@ -3514,10 +3514,11 @@ def test_isnan():
 
 ####################################################################################
 def test_kaiser():
-    m = np.random.randint(2, 100)
-    beta = np.random.rand(1).item()
-    assert np.array_equal(np.round(NumCpp.kaiser(m, beta), 9).flatten(),
-                          np.round(np.kaiser(m, beta), 9))
+    if NumCpp.STL_SPECIAL_FUNCTIONS or not NumCpp.NUMCPP_NO_USE_BOOST:
+        m = np.random.randint(2, 100)
+        beta = np.random.rand(1).item()
+        assert np.array_equal(np.round(NumCpp.kaiser(m, beta), 9).flatten(),
+                            np.round(np.kaiser(m, beta), 9))
 
 
 ####################################################################################
@@ -3693,8 +3694,8 @@ def test_logb():
 
 ####################################################################################
 def test_logspace():
-    start = np.random.randint(0, 100)
-    stop = np.random.randint(start + 1, 3 * start)
+    start = np.random.randint(0, 10)
+    stop = np.random.randint(start + 1, 3 * start + 2)
     num = np.random.randint(1, 100)
     base = np.random.rand(1) * 10
     assert np.array_equal(np.round(NumCpp.logspace(start, stop, num, True, base).flatten(), 9),

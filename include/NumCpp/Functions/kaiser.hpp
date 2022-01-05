@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
+
 #include <cmath>
 
 #include "NumCpp/NdArray.hpp"
@@ -69,3 +71,5 @@ namespace nc
         return result;
     }
 }  // namespace nc
+
+#endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

@@ -3494,10 +3494,12 @@ namespace FunctionsInterface
 
     //================================================================================
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     pbArrayGeneric kaiser(nc::int32 m, double beta)
     {
         return nc2pybind(nc::kaiser(m, beta));
     }
+#endif
 
     //================================================================================
 
@@ -7711,7 +7713,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
     m.def("isnanArray", &FunctionsInterface::isnanArray<double>);
 
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("kaiser", &FunctionsInterface::kaiser);
+#endif
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     m.def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
