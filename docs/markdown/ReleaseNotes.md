@@ -1,5 +1,10 @@
 # Release Notes
 
+## Version 2.8.0
+
+* added `bit_count`, Computes the number of 1-bits in the absolute value of the input
+* various minor performance improvements and bug fixes
+
 ## Version 2.7.0
 
 * added `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html

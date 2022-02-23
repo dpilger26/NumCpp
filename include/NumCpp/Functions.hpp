@@ -61,6 +61,7 @@
 #include "NumCpp/Functions/bartlett.hpp"
 #include "NumCpp/Functions/binaryRepr.hpp"
 #include "NumCpp/Functions/bincount.hpp"
+#include "NumCpp/Functions/bit_count.hpp"
 #include "NumCpp/Functions/bitwise_and.hpp"
 #include "NumCpp/Functions/bitwise_not.hpp"
 #include "NumCpp/Functions/bitwise_or.hpp"

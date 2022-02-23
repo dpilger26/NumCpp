@@ -1341,6 +1341,17 @@ def test_bincount():
 
 
 ####################################################################################
+def test_bit_count():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayUInt64(shape)
+    data = np.random.randint(0, np.iinfo(np.uint64).max, [shape.rows, shape.cols], dtype=np.uint64)
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.bit_count(cArray),
+                          np.array(list(map(lambda x: bin(x).count('1'), data.flatten()))).reshape(data.shape))
+
+
+####################################################################################
 def test_bitwise_and():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

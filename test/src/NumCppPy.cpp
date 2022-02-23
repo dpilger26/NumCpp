@@ -2612,6 +2612,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric bit_count(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::bit_count(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(nc::bitwise_and(inArray1, inArray2));
@@ -7518,6 +7526,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("binaryRepr", &binaryRepr<uint64>);
     m.def("bincount", &FunctionsInterface::bincount<uint32>);
     m.def("bincountWeighted", &FunctionsInterface::bincountWeighted<uint32>);
+    m.def("bit_count", &FunctionsInterface::bit_count<uint64>);
     m.def("bitwise_and", &FunctionsInterface::bitwise_and<uint64>);
     m.def("bitwise_not", &FunctionsInterface::bitwise_not<uint64>);
     m.def("bitwise_or", &FunctionsInterface::bitwise_or<uint64>);

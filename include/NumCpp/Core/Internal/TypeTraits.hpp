@@ -62,6 +62,13 @@ namespace nc
 
     //============================================================================
     // Class Description:
+    /// std::is_unsigned helper, for c++14 compatibility
+    ///
+    template<typename T>
+    constexpr bool is_unsigned_v = std::is_unsigned<T>::value;
+
+    //============================================================================
+    // Class Description:
     /// std::is_floating_point helper, for c++14 compatibility
     ///
     template<typename T>
