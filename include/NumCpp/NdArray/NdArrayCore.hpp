@@ -478,7 +478,7 @@ namespace nc
         /// @param takeOwnership: whether or not to take ownership of the data
         /// and call delete[] in the destructor.
         ///
-        template<typename Bool,
+        template<typename BoolType,
             std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
         NdArray(pointer inPtr, size_type size, Bool takeOwnership) noexcept :
             shape_(1, size),
@@ -498,7 +498,7 @@ namespace nc
         /// @param takeOwnership: whether or not to take ownership of the data
         /// and call delete[] in the destructor.
         ///
-        template<typename Bool,
+        template<typename BoolType,
             std::enable_if_t<is_same_v<Bool, bool>, int> = 0>
         NdArray(pointer inPtr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept :
             shape_(numRows, numCols),

@@ -297,7 +297,7 @@ namespace nc
     /// and call delete[] in the destructor.
     /// @return NdArray
     ///
-    template<typename dtype, typename Bool,
+    template<typename dtype, typename BoolType,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
     NdArray<dtype> asarray(dtype* ptr, uint32 size, Bool takeOwnership) noexcept
     {
@@ -317,7 +317,7 @@ namespace nc
     /// and call delete[] in the destructor.
     /// @return NdArray
     ///
-    template<typename dtype, typename Bool,
+    template<typename dtype, typename BoolType,
         std::enable_if_t<std::is_same<Bool, bool>::value, int> = 0>
     NdArray<dtype> asarray(dtype* ptr, uint32 numRows, uint32 numCols, Bool takeOwnership) noexcept
     {

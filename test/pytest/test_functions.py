@@ -3529,7 +3529,7 @@ def test_kaiser():
         m = np.random.randint(2, 100)
         beta = np.random.rand(1).item()
         assert np.array_equal(np.round(NumCpp.kaiser(m, beta), 9).flatten(),
-                            np.round(np.kaiser(m, beta), 9))
+                              np.round(np.kaiser(m, beta), 9))
 
 
 ####################################################################################
