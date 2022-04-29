@@ -25,8 +25,8 @@
 /// Description
 /// In applied mathematics, Wahba's problem, first posed by Grace Wahba in 1965, seeks to
 /// find a rotation matrix (special orthogonal matrix) between two coordinate systems from
-/// a set of (weighted) vector observations. Solutions to Wahba's problem are often used in 
-/// satellite attitude determination utilising sensors such as magnetometers and multi-antenna 
+/// a set of (weighted) vector observations. Solutions to Wahba's problem are often used in
+/// satellite attitude determination utilising sensors such as magnetometers and multi-antenna
 /// GPS receivers
 /// https://en.wikipedia.org/wiki/Wahba%27s_problem
 ///
@@ -48,7 +48,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers
@@ -87,7 +87,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("ak matrix must have the same number of elements as wk and vk rows");
             }
 
-            auto b = zeros<dtype>(3, 3);
+            auto       b      = zeros<dtype>(3, 3);
             const auto cSlice = wk.cSlice();
             for (uint32 row = 0; row < wkShape.rows; ++row)
             {
@@ -102,7 +102,7 @@ namespace nc
 
             linalg::svd(b, u, s, vt);
 
-            auto m = eye<double>(3, 3);
+            auto m  = eye<double>(3, 3);
             m(0, 0) = 1.0;
             m(1, 1) = 1.0;
             m(2, 2) = linalg::det(u) * linalg::det(vt.transpose());
@@ -112,7 +112,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate 
+        /// Finds a rotation matrix (special orthogonal matrix) between two coordinate
         /// systems from a set of (weighted) vector observations. Solutions to Wahba's
         /// problem are often used in satellite attitude determination utilising sensors
         /// such as magnetometers and multi-antenna GPS receivers
@@ -126,8 +126,8 @@ namespace nc
         template<typename dtype>
         NdArray<double> wahbasProblem(const NdArray<dtype>& wk, const NdArray<dtype>& vk)
         {
-            const auto ak = ones<dtype>({1, wk.shape().rows});
+            const auto ak = ones<dtype>({ 1, wk.shape().rows });
             return wahbasProblem(wk, vk, ak);
         }
     } // namespace rotations
-}  // namespace nc
+} // namespace nc

@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-
 #include <iterator>
 #include <vector>
+
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype, typename Iter>
-    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd) 
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd)
     {
         return NdArray<dtype>(inBegin, inEnd);
     }

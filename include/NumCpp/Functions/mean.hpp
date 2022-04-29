@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <complex>
+#include <numeric>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
-#include <numeric>
 
 namespace nc
 {
@@ -49,7 +49,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -57,7 +57,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), 0.0);
+                auto            sum         = std::accumulate(inArray.cbegin(), inArray.cend(), 0.0);
                 NdArray<double> returnArray = { sum /= static_cast<double>(inArray.size()) };
 
                 return returnArray;
@@ -67,7 +67,7 @@ namespace nc
                 NdArray<double> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0);
+                    auto sum            = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0);
                     returnArray(0, row) = sum / static_cast<double>(inArray.numCols());
                 }
 
@@ -75,11 +75,12 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<dtype>  transposedArray = inArray.transpose();
                 NdArray<double> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
-                    auto sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
+                    auto sum = static_cast<double>(
+                        std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
                     returnArray(0, row) = sum / static_cast<double>(transposedArray.numCols());
                 }
 
@@ -105,7 +106,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> mean(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<std::complex<double>> mean(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -135,8 +136,9 @@ namespace nc
                 NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
-                    auto sum = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 
-                        std::complex<double>(0.0));
+                    auto sum            = std::accumulate(transposedArray.cbegin(row),
+                                               transposedArray.cend(row),
+                                               std::complex<double>(0.0));
                     returnArray(0, row) = sum / std::complex<double>(transposedArray.numCols());
                 }
 
@@ -149,4 +151,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

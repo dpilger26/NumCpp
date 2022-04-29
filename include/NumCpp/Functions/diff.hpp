@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -49,7 +49,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -65,11 +65,12 @@ namespace nc
                 }
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
-                stl_algorithms::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                    {
-                        return inValue2 - inValue1; 
-                    });
+                stl_algorithms::transform(inArray.cbegin(),
+                                          inArray.cend() - 1,
+                                          inArray.cbegin() + 1,
+                                          returnArray.begin(),
+                                          [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                          { return inValue2 - inValue1; });
 
                 return returnArray;
             }
@@ -83,11 +84,12 @@ namespace nc
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols - 1);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    stl_algorithms::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                        {
-                            return inValue2 - inValue1;
-                        });
+                    stl_algorithms::transform(inArray.cbegin(row),
+                                              inArray.cend(row) - 1,
+                                              inArray.cbegin(row) + 1,
+                                              returnArray.begin(row),
+                                              [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                              { return inValue2 - inValue1; });
                 }
 
                 return returnArray;
@@ -100,15 +102,16 @@ namespace nc
                 }
 
                 NdArray<dtype> transArray = inArray.transpose();
-                const Shape transShape = transArray.shape();
+                const Shape    transShape = transArray.shape();
                 NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
-                    stl_algorithms::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                        { 
-                            return inValue2 - inValue1; 
-                        });
+                    stl_algorithms::transform(transArray.cbegin(row),
+                                              transArray.cend(row) - 1,
+                                              transArray.cbegin(row) + 1,
+                                              returnArray.begin(row),
+                                              [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                              { return inValue2 - inValue1; });
                 }
 
                 return returnArray.transpose();

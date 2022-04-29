@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Utils/num2str.hpp"
-
 #include <iostream>
 #include <string>
+
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
 namespace nc
 {
@@ -41,8 +41,8 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        uint32	rows{ 0 };
-        uint32	cols{ 0 };
+        uint32 rows{ 0 };
+        uint32 cols{ 0 };
 
         //============================================================================
         /// Constructor
@@ -57,7 +57,8 @@ namespace nc
         constexpr explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
             cols(inSquareSize)
-        {}
+        {
+        }
 
         //============================================================================
         /// Constructor
@@ -68,7 +69,8 @@ namespace nc
         constexpr Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
             cols(inCols)
-        {}
+        {
+        }
 
         //============================================================================
         /// Equality operator
@@ -130,7 +132,7 @@ namespace nc
         ///
         /// @return std::string
         ///
-        std::string str() const 
+        std::string str() const
         {
             std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;
@@ -139,7 +141,7 @@ namespace nc
         //============================================================================
         /// Prints the shape to the console
         ///
-        void print() const 
+        void print() const
         {
             std::cout << *this;
         }
@@ -152,7 +154,7 @@ namespace nc
         ///
         /// @return std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) 
+        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
         {
             inOStream << inShape.str();
             return inOStream;

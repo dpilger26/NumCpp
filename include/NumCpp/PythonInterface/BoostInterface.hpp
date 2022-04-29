@@ -29,16 +29,16 @@
 
 #if defined(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NUMCPP_NO_USE_BOOST)
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
+#include <map>
+#include <string>
 
 #include "boost/python.hpp"
 #include "boost/python/numpy.hpp"
 
-#include <map>
-#include <string>
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
 
 namespace nc
 {
@@ -74,7 +74,7 @@ namespace nc
 
                 return returnArray;
             }
-            
+
             arrayShape.rows = static_cast<uint32>(helper.shape().front());
             arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 
@@ -98,10 +98,10 @@ namespace nc
         /// @return ndarray
         ///
         template<typename dtype>
-        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) 
+        inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray)
         {
-            const Shape inShape = inArray.shape();
-            boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
+            const Shape               inShape = inArray.shape();
+            boost::python::tuple      shape   = boost::python::make_tuple(inShape.rows, inShape.cols);
             BoostNdarrayHelper<dtype> newNdArrayHelper(shape);
 
             for (uint32 row = 0; row < inShape.rows; ++row)
@@ -122,7 +122,7 @@ namespace nc
         /// @return std::vector<T>
         ///
         template<typename T>
-        inline std::vector<T> list2vector(const boost::python::list& inList) 
+        inline std::vector<T> list2vector(const boost::python::list& inList)
         {
             return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
         }
@@ -134,8 +134,8 @@ namespace nc
         ///
         /// @return boost::python::list
         ///
-        template <typename T>
-        inline boost::python::list vector2list(std::vector<T>& inVector) 
+        template<typename T>
+        inline boost::python::list vector2list(std::vector<T>& inVector)
         {
             boost::python::list outList;
             for (auto& value : inVector)
@@ -153,8 +153,8 @@ namespace nc
         ///
         /// @return boost::python::dict
         ///
-        template <class Key, class Value>
-        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) 
+        template<class Key, class Value>
+        inline boost::python::dict map2dict(const std::map<Key, Value>& inMap)
         {
             boost::python::dict dictionary;
             for (auto& keyValue : inMap)

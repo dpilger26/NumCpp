@@ -42,8 +42,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    void applyPoly1d(NdArray<dtype>& inArray, const polynomial::Poly1d<dtype>& inPoly) 
+    void applyPoly1d(NdArray<dtype>& inArray, const polynomial::Poly1d<dtype>& inPoly)
     {
         applyFunction<dtype>(inArray, inPoly);
     }
-}  // namespace nc
+} // namespace nc

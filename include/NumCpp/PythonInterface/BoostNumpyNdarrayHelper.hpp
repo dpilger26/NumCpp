@@ -29,10 +29,6 @@
 
 #if defined(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NUMCPP_NO_USE_BOOST)
 
-#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Utils/num2str.hpp"
-
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -41,6 +37,10 @@
 
 #include "boost/python.hpp"
 #include "boost/python/numpy.hpp"
+
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
 namespace nc
 {
@@ -54,7 +54,11 @@ namespace nc
         public:
             //================================================================================
             /// C or Fortran ordering from python
-            enum class Order { F, C };
+            enum class Order
+            {
+                F,
+                C
+            };
 
             //============================================================================
             /// Constructor
@@ -69,11 +73,11 @@ namespace nc
                 order_(Order::C)
 
             {
-                Py_intptr_t const * shapePtr = inArray.get_shape();
+                Py_intptr_t const* shapePtr = inArray.get_shape();
                 for (uint8 i = 0; i < numDimensions_; ++i)
                 {
                     strides_[i] = static_cast<uint32>(theArray_.strides(i));
-                    shape_[i] = shapePtr[i];
+                    shape_[i]   = shapePtr[i];
                 }
 
                 if (numDimensions_ > 1 && inArray.strides(0) < inArray.strides(1))
@@ -94,27 +98,25 @@ namespace nc
                 strides_(numDimensions_),
                 order_(Order::C)
             {
-                Py_intptr_t const * shapePtr = theArray_.get_shape();
+                Py_intptr_t const* shapePtr = theArray_.get_shape();
                 for (uint8 i = 0; i < numDimensions_; ++i)
                 {
                     strides_[i] = static_cast<uint32>(theArray_.strides(i));
-                    shape_[i] = shapePtr[i];
+                    shape_[i]   = shapePtr[i];
                 }
 
                 if (numDimensions_ > 1 && theArray_.strides(0) < theArray_.strides(1))
                 {
                     order_ = Order::F;
                 }
-
             }
-
 
             //============================================================================
             /// Returns the internaly held ndarray
             ///
             /// @return reference to the held ndarray
             ///
-            const boost::python::numpy::ndarray& getArray() noexcept 
+            const boost::python::numpy::ndarray& getArray() noexcept
             {
                 return theArray_;
             }
@@ -134,7 +136,7 @@ namespace nc
             ///
             /// @return num dimensions
             ///
-            uint8 numDimensions() noexcept 
+            uint8 numDimensions() noexcept
             {
                 return numDimensions_;
             }
@@ -144,7 +146,7 @@ namespace nc
             ///
             /// @return vector
             ///
-            const std::vector<Py_intptr_t>& shape() noexcept 
+            const std::vector<Py_intptr_t>& shape() noexcept
             {
                 return shape_;
             }
@@ -164,13 +166,12 @@ namespace nc
                 return theSize;
             }
 
-
             //============================================================================
             /// Returns the strides of the array
             ///
             /// @return vector
             ///
-            const std::vector<uint32>& strides() 
+            const std::vector<uint32>& strides()
             {
                 return strides_;
             }
@@ -180,7 +181,7 @@ namespace nc
             ///
             /// @return Order
             ///
-            Order order() 
+            Order order()
             {
                 return order_;
             }
@@ -228,7 +229,8 @@ namespace nc
             {
                 checkIndices2D(index1, index2);
 
-                return *reinterpret_cast<dtype*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2);
+                return *reinterpret_cast<dtype*>(theArray_.get_data() + strides_.front() * index1 +
+                                                 strides_[1] * index2);
             }
 
             //============================================================================
@@ -273,11 +275,11 @@ namespace nc
 
         private:
             //====================================Attributes==============================
-            boost::python::numpy::ndarray	theArray_;
-            uint8							numDimensions_;
-            std::vector<Py_intptr_t>		shape_;
-            std::vector<uint32>				strides_;
-            Order   						order_;
+            boost::python::numpy::ndarray theArray_;
+            uint8                         numDimensions_;
+            std::vector<Py_intptr_t>      shape_;
+            std::vector<uint32>           strides_;
+            Order                         order_;
 
             //============================================================================
             /// Generic check of input indices
@@ -288,8 +290,10 @@ namespace nc
             {
                 if (boost::python::len(indices) != numDimensions_)
                 {
-                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + utils::num2str(numDimensions_);
-                    errStr += " dimensions, you asked for " + utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
+                    std::string errStr =
+                        "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + utils::num2str(numDimensions_);
+                    errStr += " dimensions, you asked for " +
+                              utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
                     PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
                 }
 
@@ -298,7 +302,8 @@ namespace nc
                     int index = boost::python::extract<int>(indices[i]);
                     if (index > shape_[i])
                     {
-                        std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + utils::num2str(index);
+                        std::string errStr =
+                            "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + utils::num2str(index);
                         errStr += "] is larger than the size of the array [" + utils::num2str(shape_[i]) + "].";
                         PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
                     }
@@ -328,7 +333,7 @@ namespace nc
                 checkIndicesGeneric(indices);
             }
         };
-    }  // namespace boostPythonInterface
+    } // namespace boostPythonInterface
 } // namespace nc
 
 #endif // #if defined(NUMCPP_INCLUDE_BOOST_PYTHON_INTERFACE) && !defined(NUMCPP_NO_USE_BOOST)

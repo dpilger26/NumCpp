@@ -74,4 +74,4 @@ namespace nc
         inArray.putMask(inMask, inValues);
         return inArray;
     }
-}  // namespace nc
+} // namespace nc

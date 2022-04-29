@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
-#include <string>
 
 namespace nc
 {
@@ -46,7 +46,8 @@ namespace nc
         /// Single random value sampled from the from the "cauchy" distrubution.
         ///
         /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero.
+        /// Default is 1.
         /// @return NdArray
         ///
         template<typename dtype>
@@ -70,7 +71,8 @@ namespace nc
         ///
         /// @param inShape
         /// @param inMean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @param inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero.
+        /// Default is 1.
         /// @return NdArray
         ///
         template<typename dtype>
@@ -87,13 +89,11 @@ namespace nc
 
             std::cauchy_distribution<dtype> dist(inMean, inSigma);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_); 
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
+    } // namespace random
 } // namespace nc

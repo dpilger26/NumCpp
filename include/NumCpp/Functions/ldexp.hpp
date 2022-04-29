@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -50,7 +50,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept 
+    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -77,12 +77,13 @@ namespace nc
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, uint8 inValue2) noexcept -> dtype
-            {
-                return ldexp(inValue1, inValue2);
-            });
+        stl_algorithms::transform(inArray1.cbegin(),
+                                  inArray1.cend(),
+                                  inArray2.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype inValue1, uint8 inValue2) noexcept -> dtype
+                                  { return ldexp(inValue1, inValue2); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

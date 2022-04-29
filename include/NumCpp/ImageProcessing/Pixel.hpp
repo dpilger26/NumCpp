@@ -28,12 +28,12 @@
 
 #pragma once
 
+#include <iostream>
+#include <string>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
-
-#include <iostream>
-#include <string>
 
 namespace nc
 {
@@ -50,10 +50,10 @@ namespace nc
 
         public:
             //==================================Attributes================================
-            mutable int32	clusterId{ -1 };
-            uint32	        row{ 0 };
-            uint32	        col{ 0 };
-            dtype	        intensity{ 0 };
+            mutable int32 clusterId{ -1 };
+            uint32        row{ 0 };
+            uint32        col{ 0 };
+            dtype         intensity{ 0 };
 
             //=============================================================================
             // Description:
@@ -73,7 +73,8 @@ namespace nc
                 row(inRow),
                 col(inCol),
                 intensity(inIntensity)
-            {}
+            {
+            }
 
             //=============================================================================
             // Description:
@@ -112,7 +113,7 @@ namespace nc
             ///
             /// @return bool
             ///
-            bool operator<(const Pixel<dtype>& rhs) const noexcept 
+            bool operator<(const Pixel<dtype>& rhs) const noexcept
             {
                 if (row < rhs.row)
                 {
@@ -122,7 +123,7 @@ namespace nc
                 {
                     return static_cast<bool>(col < rhs.col);
                 }
-                
+
                 return false;
             }
 
@@ -162,5 +163,5 @@ namespace nc
                 return inStream;
             }
         };
-    }  // namespace imageProcessing
+    } // namespace imageProcessing
 } // namespace nc

@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Internal/Error.hpp"
-
 #include <vector>
+
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -63,4 +63,4 @@ namespace nc
 
         return NdArray<dtype>(values.begin(), values.end());
     }
-}  // namespace nc
+} // namespace nc

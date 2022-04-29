@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
 
 namespace nc
 {
@@ -43,18 +43,19 @@ namespace nc
         // Method Description:
         /// Single random value sampled from the "exponential" distrubution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///
         /// @param inScaleValue (default 1)
         /// @return NdArray
         ///
         template<typename dtype>
-        dtype exponential(dtype inScaleValue = 1) 
+        dtype exponential(dtype inScaleValue = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             std::exponential_distribution<dtype> dist(inScaleValue);
-            return dist(generator_); 
+            return dist(generator_);
         }
 
         //============================================================================
@@ -62,14 +63,15 @@ namespace nc
         /// Create an array of the given shape and populate it with
         /// random samples from a "exponential" distrubution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///
         /// @param inShape
         /// @param inScaleValue (default 1)
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) 
+        NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -77,13 +79,11 @@ namespace nc
 
             std::exponential_distribution<dtype> dist(inScaleValue);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_); 
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

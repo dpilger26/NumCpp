@@ -27,6 +27,11 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <string>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -38,11 +43,6 @@
 #include "NumCpp/Functions/percentile.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
-
-#include <algorithm>
-#include <cmath>
-#include <string>
-#include <vector>
 
 namespace nc
 {
@@ -59,8 +59,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
-        Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray,
+                                  double                inPercentile,
+                                  Axis                  inAxis         = Axis::NONE,
+                                  const std::string&    inInterpMethod = "linear")
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -84,9 +86,12 @@ namespace nc
                     return returnArray;
                 }
 
-                return percentile(NdArray<double>(arrayCopy.data(), 
-                    static_cast<typename NdArray<dtype>::size_type>(arrayCopy.size()), false), 
-                    inPercentile, Axis::NONE, inInterpMethod);
+                return percentile(NdArray<double>(arrayCopy.data(),
+                                                  static_cast<typename NdArray<dtype>::size_type>(arrayCopy.size()),
+                                                  false),
+                                  inPercentile,
+                                  Axis::NONE,
+                                  inInterpMethod);
             }
             case Axis::COL:
             {
@@ -96,7 +101,9 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     NdArray<double> outValue = nanpercentile(NdArray<dtype>(&inArray.front(row), inShape.cols),
-                        inPercentile, Axis::NONE, inInterpMethod);
+                                                             inPercentile,
+                                                             Axis::NONE,
+                                                             inInterpMethod);
 
                     if (outValue.size() == 1)
                     {
@@ -113,13 +120,16 @@ namespace nc
             case Axis::ROW:
             {
                 NdArray<dtype> arrayTrans = inArray.transpose();
-                const Shape inShape = arrayTrans.shape();
+                const Shape    inShape    = arrayTrans.shape();
 
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<double> outValue = nanpercentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
-                        inPercentile, Axis::NONE, inInterpMethod);
+                    NdArray<double> outValue =
+                        nanpercentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
+                                      inPercentile,
+                                      Axis::NONE,
+                                      inInterpMethod);
 
                     if (outValue.size() == 1)
                     {

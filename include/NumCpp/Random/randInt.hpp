@@ -29,15 +29,15 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
-#include <string>
 
 namespace nc
 {
@@ -46,10 +46,11 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Return random integer from low (inclusive) to high (exclusive),
-        /// with the given shape. If no high value is input then the range will 
+        /// with the given shape. If no high value is input then the range will
         /// go from [0, low).
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///
         /// @param inLow
         /// @param inHigh default 0.
@@ -76,10 +77,11 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Return random integers from low (inclusive) to high (exclusive),
-        /// with the given shape. If no high value is input then the range will 
+        /// with the given shape. If no high value is input then the range will
         /// go from [0, low).
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///
         /// @param inShape
         /// @param inLow
@@ -104,13 +106,11 @@ namespace nc
 
             std::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                { 
-                    value = dist(generator_); 
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

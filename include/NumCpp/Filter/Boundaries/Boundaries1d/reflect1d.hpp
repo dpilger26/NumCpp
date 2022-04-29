@@ -63,10 +63,10 @@ namespace nc
 
                 // right
                 outArray.put(Slice(inImage.size() + inBoundarySize, outSize),
-                    fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
+                             fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
 
                 return outArray;
             }
-        }  // namespace boundary
-    }  // namespace filter
-}  // namespace nc
+        } // namespace boundary
+    }     // namespace filter
+} // namespace nc

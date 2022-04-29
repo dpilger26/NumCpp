@@ -42,7 +42,8 @@ namespace nc
         /// Samples are uniformly distributed over the half -
         /// open interval[low, high) (includes low, but excludes high)
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
         /// @param inLow
         /// @param inHigh
@@ -63,7 +64,8 @@ namespace nc
         /// Samples are uniformly distributed over the half -
         /// open interval[low, high) (includes low, but excludes high)
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///
         /// @param inShape
         /// @param inLow

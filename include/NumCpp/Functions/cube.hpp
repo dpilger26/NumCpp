@@ -57,14 +57,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> cube(const NdArray<dtype>& inArray) 
+    NdArray<dtype> cube(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> dtype
-            { 
-                return cube(inValue);
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> dtype { return cube(inValue); });
 
         return returnArray;
     }

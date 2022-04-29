@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-
 #include <complex>
 #include <sstream>
 #include <string>
+
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
         /// @return std::string
         ///
         template<typename dtype>
-        std::string value2str(dtype inValue) 
+        std::string value2str(dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

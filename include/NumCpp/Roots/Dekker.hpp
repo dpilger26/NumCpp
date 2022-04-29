@@ -27,16 +27,17 @@
 /// Finds the roots of the polynomial
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/rootApproximation
-/// as posted in https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
+/// as posted in
+/// https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
 ///
 #pragma once
-
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Roots/Iteration.hpp"
 
 #include <cmath>
 #include <functional>
 #include <utility>
+
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Roots/Iteration.hpp"
 
 namespace nc
 {
@@ -54,13 +55,13 @@ namespace nc
             /// Constructor
             ///
             /// @param epsilon: the epsilon value
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Dekker(const double epsilon,
-                std::function<double(double)>  f) noexcept :
+            Dekker(const double epsilon, std::function<double(double)> f) noexcept :
                 Iteration(epsilon),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -68,14 +69,13 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Dekker(const double epsilon, 
-                const uint32 maxNumIterations, 
-                std::function<double(double)>  f) noexcept :
+            Dekker(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -100,10 +100,10 @@ namespace nc
 
                 checkAndFixAlgorithmCriteria(a, b, fa, fb);
 
-                double lastB = a;
+                double lastB  = a;
                 double lastFb = fa;
 
-                while (std::fabs(fb) > epsilon_ && std::fabs(b - a) > epsilon_) 
+                while (std::fabs(fb) > epsilon_ && std::fabs(b - a) > epsilon_)
                 {
                     const double s = calculateSecant(b, fb, lastB, lastFb);
                     const double m = calculateBisection(a, b);
@@ -113,9 +113,9 @@ namespace nc
                     b = useSecantMethod(b, s, m) ? s : m;
 
                     lastFb = fb;
-                    fb = f_(b);
+                    fb     = f_(b);
 
-                    if (fa * fb > 0 && fb * lastFb < 0) 
+                    if (fa * fb > 0 && fb * lastFb < 0)
                     {
                         a = lastB;
                     }
@@ -142,10 +142,10 @@ namespace nc
             /// @param fa: the function evalulated at the lower bound
             /// @param fb: the function evalulated at the upper bound
             ///
-            static void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept 
+            static void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept
             {
-                //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
-                if (std::fabs(fa) < std::fabs(fb)) 
+                // Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
+                if (std::fabs(fa) < std::fabs(fb))
                 {
                     std::swap(a, b);
                     std::swap(fa, fb);
@@ -162,9 +162,10 @@ namespace nc
             /// @param lastFb: the function evalulated at the last upper bound
             /// @ return secant value
             ///
-            static double calculateSecant(double b, double fb, double lastB, double lastFb) noexcept 
+            static double calculateSecant(double b, double fb, double lastB, double lastFb) noexcept
             {
-                //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
+                // No need to check division by 0, in this case the method returns NAN which is taken care by
+                // useSecantMethod method
                 return b - fb * (b - lastB) / (fb - lastFb);
             }
 
@@ -176,7 +177,7 @@ namespace nc
             /// @param b: the upper bound
             /// @return bisection point
             ///
-            static double calculateBisection(double a, double b) noexcept 
+            static double calculateBisection(double a, double b) noexcept
             {
                 return 0.5 * (a + b);
             }
@@ -190,12 +191,11 @@ namespace nc
             /// @param m:
             /// @ return bool
             ///
-            static bool useSecantMethod(double b, double s, double m) noexcept 
+            static bool useSecantMethod(double b, double s, double m) noexcept
             {
-                //Value s calculated by secant method has to be between m and b
-                return (b > m && s > m && s < b) ||
-                    (b < m && s > b && s < m);
+                // Value s calculated by secant method has to be between m and b
+                return (b > m && s > m && s < b) || (b < m && s > b && s < m);
             }
         };
-    }  // namespace roots
-}  // namespace nc
+    } // namespace roots
+} // namespace nc

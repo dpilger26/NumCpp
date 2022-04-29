@@ -39,7 +39,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// The softmax function transforms each element of a collection by computing 
+        /// The softmax function transforms each element of a collection by computing
         /// the exponential of each element divided by the sum of the exponentials of all
         /// the elements. That is, if x is a one-dimensional numpy array:
         /// softmax(x) = np.exp(x)/sum(np.exp(x))
@@ -49,7 +49,7 @@ namespace nc
         /// @return NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+        NdArray<double> softmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -64,13 +64,14 @@ namespace nc
                 case Axis::COL:
                 {
                     auto returnArray = exp(inArray).template astype<double>();
-                    auto expSums = returnArray.sum(inAxis);
+                    auto expSums     = returnArray.sum(inAxis);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
                         const auto rowExpSum = static_cast<double>(expSums[row]);
-                        stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
-                            [rowExpSum](double& value) { value /= rowExpSum; });
+                        stl_algorithms::for_each(returnArray.begin(row),
+                                                 returnArray.end(row),
+                                                 [rowExpSum](double& value) { value /= rowExpSum; });
                     }
 
                     return returnArray;
@@ -78,13 +79,14 @@ namespace nc
                 case Axis::ROW:
                 {
                     auto returnArray = exp(inArray.transpose()).template astype<double>();
-                    auto expSums = returnArray.sum(Axis::COL);
+                    auto expSums     = returnArray.sum(Axis::COL);
 
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
                         const auto rowExpSum = static_cast<double>(expSums[row]);
-                        stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
-                            [rowExpSum](double& value) { value /= rowExpSum; });
+                        stl_algorithms::for_each(returnArray.begin(row),
+                                                 returnArray.end(row),
+                                                 [rowExpSum](double& value) { value /= rowExpSum; });
                     }
 
                     return returnArray.transpose();
@@ -97,4 +99,4 @@ namespace nc
             }
         }
     } // namespace special
-}  // namespace nc
+} // namespace nc

@@ -42,7 +42,7 @@ namespace nc
         ///
         /// @return radians
         ///
-        inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) 
+        inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2)
         {
             return inCoordinate1.radianSeperation(inCoordinate2);
         }
@@ -61,5 +61,5 @@ namespace nc
             const Coordinate inCoord1(inVector1);
             return inCoord1.radianSeperation(inVector2);
         }
-    }  // namespace coordinates
-}  // namespace nc
+    } // namespace coordinates
+} // namespace nc

@@ -52,24 +52,26 @@ namespace nc
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
                 const Shape inShape = inArray.shape();
-                const auto numRows = static_cast<int32>(inShape.rows);
-                const auto numCols = static_cast<int32>(inShape.cols);
+                const auto  numRows = static_cast<int32>(inShape.rows);
+                const auto  numCols = static_cast<int32>(inShape.cols);
 
                 // top left
-                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth),
-                    inArray(inBorderWidth, inBorderWidth));
+                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inArray(inBorderWidth, inBorderWidth));
 
                 // top right
-                inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols),
-                    inArray(inBorderWidth, numCols - inBorderWidth - 1));
+                inArray.put(Slice(0, inBorderWidth),
+                            Slice(numCols - inBorderWidth, numCols),
+                            inArray(inBorderWidth, numCols - inBorderWidth - 1));
 
                 // bottom left
-                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth),
-                    inArray(numRows - inBorderWidth - 1, inBorderWidth));
+                inArray.put(Slice(numRows - inBorderWidth, numRows),
+                            Slice(0, inBorderWidth),
+                            inArray(numRows - inBorderWidth - 1, inBorderWidth));
 
                 // bottom right
-                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols),
-                    inArray(numRows - inBorderWidth - 1, numCols - inBorderWidth - 1));
+                inArray.put(Slice(numRows - inBorderWidth, numRows),
+                            Slice(numCols - inBorderWidth, numCols),
+                            inArray(numRows - inBorderWidth - 1, numCols - inBorderWidth - 1));
             }
 
             //============================================================================
@@ -86,8 +88,8 @@ namespace nc
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
                 const Shape inShape = inArray.shape();
-                const auto numRows = static_cast<int32>(inShape.rows);
-                const auto numCols = static_cast<int32>(inShape.cols);
+                const auto  numRows = static_cast<int32>(inShape.rows);
+                const auto  numCols = static_cast<int32>(inShape.cols);
 
                 // top left
                 inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inFillValue);
@@ -99,8 +101,10 @@ namespace nc
                 inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), inFillValue);
 
                 // bottom right
-                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), inFillValue);
+                inArray.put(Slice(numRows - inBorderWidth, numRows),
+                            Slice(numCols - inBorderWidth, numCols),
+                            inFillValue);
             }
         } // namespace boundary
-    } // namespace filter
+    }     // namespace filter
 } // namespace nc

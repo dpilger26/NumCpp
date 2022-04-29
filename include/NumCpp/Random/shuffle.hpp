@@ -28,10 +28,10 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -44,9 +44,9 @@ namespace nc
         /// @param inArray
         ///
         template<typename dtype>
-        void shuffle(NdArray<dtype>& inArray) 
+        void shuffle(NdArray<dtype>& inArray)
         {
             std::shuffle(inArray.begin(), inArray.end(), generator_);
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

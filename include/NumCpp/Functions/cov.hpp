@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include <type_traits>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/mean.hpp"
-
-#include <type_traits>
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -42,9 +42,9 @@ namespace nc
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.cov.html
     ///
     /// @param x: A 1-D or 2-D array containing multiple variables and observations.
-    /// Each row of x represents a variable, and each column a single observation 
+    /// Each row of x represents a variable, and each column a single observation
     /// of all those variables.
-    /// @param bias: Default normalization (false) is by (N - 1), where N is the number of observations 
+    /// @param bias: Default normalization (false) is by (N - 1), where N is the number of observations
     /// given (unbiased estimate). If bias is True, then normalization is by N.
     /// @return NdArray
     ///
@@ -53,11 +53,11 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const auto varMeans = mean(x, Axis::COL);
-        const auto numVars = x.numRows();
-        const auto numObs = x.numCols();
+        const auto varMeans            = mean(x, Axis::COL);
+        const auto numVars             = x.numRows();
+        const auto numObs              = x.numCols();
         const auto normilizationFactor = bias ? static_cast<double>(numObs) : static_cast<double>(numObs - 1);
-        using IndexType = typename std::remove_const<decltype(numVars)>::type;
+        using IndexType                = typename std::remove_const<decltype(numVars)>::type;
 
         // upper triangle
         auto covariance = NdArray<double>(numVars);
@@ -90,4 +90,4 @@ namespace nc
 
         return covariance;
     }
-}  // namespace nc
+} // namespace nc

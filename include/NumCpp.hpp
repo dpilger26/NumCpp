@@ -26,18 +26,18 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Testing
-/// **C++ Standards:**  
-/// C++14  
-/// C++17  
-/// C++2a  
+/// **C++ Standards:**
+/// C++14
+/// C++17
+/// C++2a
 ///
-/// **Compilers:**  
-/// Visual Studio: 2017, 2019  
-/// GNU: 6.5, 7.5, 8.4, 9.3, 10.1  
-/// Clang: 6, 7, 8, 9, 10  
-/// 
-/// **Boost Versions:**  
-/// 1.68, 1.70, 1.72, and 1.73  
+/// **Compilers:**
+/// Visual Studio: 2017, 2019
+/// GNU: 6.5, 7.5, 8.4, 9.3, 10.1
+/// Clang: 6, 7, 8, 9, 10
+///
+/// **Boost Versions:**
+/// 1.68, 1.70, 1.72, and 1.73
 ///
 #pragma once
 
@@ -70,4 +70,3 @@
 /// \example ReadMe.cpp
 /// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
-

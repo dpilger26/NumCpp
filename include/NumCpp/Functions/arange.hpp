@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <string>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
-#include <vector>
 
 namespace nc
 {
@@ -73,7 +73,7 @@ namespace nc
         std::vector<dtype> values;
 
         dtype theValue = inStart;
-        auto counter = dtype{ 1 };
+        auto  counter  = dtype{ 1 };
 
         if (inStep > 0)
         {
@@ -145,4 +145,4 @@ namespace nc
     {
         return arange<dtype>(inSlice.start, inSlice.stop, inSlice.step);
     }
-}  // namespace nc
+} // namespace nc

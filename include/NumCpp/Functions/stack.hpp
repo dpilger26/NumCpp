@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <initializer_list>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <initializer_list>
-#include <string>
 
 namespace nc
 {
@@ -49,7 +49,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> stack(std::initializer_list<NdArray<dtype> > inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> stack(std::initializer_list<NdArray<dtype>> inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
@@ -64,8 +64,8 @@ namespace nc
             default:
             {
                 THROW_INVALID_ARGUMENT_ERROR("inAxis must be either ROW or COL.");
-                return {};  // getting rid of compiler warning
+                return {}; // getting rid of compiler warning
             }
         }
     }
-}  // namespace nc
+} // namespace nc

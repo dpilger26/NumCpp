@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-
 #include <complex>
+
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -60,7 +60,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> subtract(const NdArray<dtype>& inArray, dtype value) 
+    NdArray<dtype> subtract(const NdArray<dtype>& inArray, dtype value)
     {
         return inArray - value;
     }
@@ -76,7 +76,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> subtract(dtype value, const NdArray<dtype>& inArray) 
+    NdArray<dtype> subtract(dtype value, const NdArray<dtype>& inArray)
     {
         return value - inArray;
     }
@@ -124,7 +124,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray, const std::complex<dtype>& value) 
+    NdArray<std::complex<dtype>> subtract(const NdArray<dtype>& inArray, const std::complex<dtype>& value)
     {
         return inArray - value;
     }
@@ -140,7 +140,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const std::complex<dtype>& value, const NdArray<dtype>& inArray) 
+    NdArray<std::complex<dtype>> subtract(const std::complex<dtype>& value, const NdArray<dtype>& inArray)
     {
         return value - inArray;
     }
@@ -156,7 +156,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray, dtype value) 
+    NdArray<std::complex<dtype>> subtract(const NdArray<std::complex<dtype>>& inArray, dtype value)
     {
         return inArray - value;
     }
@@ -172,8 +172,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<dtype>> subtract(dtype value, const NdArray<std::complex<dtype>>& inArray) 
+    NdArray<std::complex<dtype>> subtract(dtype value, const NdArray<std::complex<dtype>>& inArray)
     {
         return value - inArray;
     }
-}  // namespace nc
+} // namespace nc

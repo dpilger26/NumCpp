@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
-#include <string>
 
 namespace nc
 {
@@ -45,7 +45,8 @@ namespace nc
         // Method Description:
         /// Single random value sampled from the "student-T" distribution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
         /// @param inDof independent random variables
         /// @return NdArray
@@ -69,7 +70,8 @@ namespace nc
         /// Create an array of the given shape and populate it with
         /// random samples from the "student-T" distribution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
         /// @param inShape
         /// @param inDof independent random variables
@@ -89,13 +91,11 @@ namespace nc
 
             std::student_t_distribution<dtype> dist(inDof);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                { 
-                    value = dist(generator_);
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
+    } // namespace random
 } // namespace nc

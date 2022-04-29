@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.argmin(inAxis);
     }

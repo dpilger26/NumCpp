@@ -42,8 +42,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> transpose(const NdArray<dtype>& inArray) 
+    NdArray<dtype> transpose(const NdArray<dtype>& inArray)
     {
         return inArray.transpose();
     }
-}  // namespace nc
+} // namespace nc

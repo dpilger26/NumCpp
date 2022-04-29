@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
-#include <string>
 
 namespace nc
 {
@@ -45,7 +45,8 @@ namespace nc
         // Method Description:
         /// Single random value sampled from the "gamma" distrubution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
         /// @param inGammaShape
         /// @param inScaleValue (default 1)
@@ -67,15 +68,16 @@ namespace nc
             }
 
             std::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
-            return dist(generator_); 
-
+            return dist(generator_);
         }
+
         //============================================================================
         // Method Description:
         /// Create an array of the given shape and populate it with
         /// random samples from a "gamma" distrubution.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///
         /// @param inShape
         /// @param inGammaShape
@@ -101,13 +103,11 @@ namespace nc
 
             std::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_); 
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

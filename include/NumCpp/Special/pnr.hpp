@@ -63,7 +63,7 @@ namespace nc
 #ifndef NUMCPP_NO_USE_BOOST
             if (n <= boost::math::max_factorial<double>::value)
             {
-                const double nFactorial = factorial(n);
+                const double nFactorial      = factorial(n);
                 const double nMinusRFactoral = factorial(n - r);
 
                 combinations = nFactorial / nMinusRFactoral;
@@ -72,7 +72,7 @@ namespace nc
             {
 #endif
                 const uint32 lower = n - r + 1;
-                combinations = static_cast<double>(lower);
+                combinations       = static_cast<double>(lower);
                 for (uint32 i = lower + 1; i <= n; ++i)
                 {
                     combinations *= static_cast<double>(i);
@@ -83,5 +83,5 @@ namespace nc
 
             return combinations;
         }
-    }  // namespace special
+    } // namespace special
 } // namespace nc

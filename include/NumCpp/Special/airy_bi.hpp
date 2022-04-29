@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/airy.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/airy.hpp"
 
 namespace nc
 {
@@ -46,7 +46,7 @@ namespace nc
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param inValue
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto airy_bi(dtype inValue)
@@ -70,11 +70,11 @@ namespace nc
         {
             NdArray<decltype(airy_bi(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) -> auto
-                { 
-                    return airy_bi(inValue);
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [](dtype inValue) -> auto{ return airy_bi(inValue); });
 
             return returnArray;
         }

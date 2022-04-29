@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -63,11 +63,10 @@ namespace nc
         {
             const auto array1Value = inArray1[row];
 
-            std::transform(inArray2.begin(), inArray2.end(), returnArray.begin(row),
-                [array1Value](dtype value) -> dtype
-                {
-                    return array1Value * value;
-                });
+            std::transform(inArray2.begin(),
+                           inArray2.end(),
+                           returnArray.begin(row),
+                           [array1Value](dtype value) -> dtype { return array1Value * value; });
         }
 
         return returnArray;

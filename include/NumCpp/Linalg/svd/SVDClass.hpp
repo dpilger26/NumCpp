@@ -28,13 +28,13 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/NdArray.hpp"
-
 #include <cmath>
 #include <limits>
 #include <string>
+
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -72,7 +72,7 @@ namespace nc
             ///
             /// @return u matrix
             ///
-            const NdArray<double>& u() noexcept 
+            const NdArray<double>& u() noexcept
             {
                 return u_;
             }
@@ -83,7 +83,7 @@ namespace nc
             ///
             /// @return v matrix
             ///
-            const NdArray<double>& v() noexcept 
+            const NdArray<double>& v() noexcept
             {
                 return v_;
             }
@@ -94,7 +94,7 @@ namespace nc
             ///
             /// @return s matrix
             ///
-            const NdArray<double>& s() noexcept 
+            const NdArray<double>& s() noexcept
             {
                 return s_;
             }
@@ -161,7 +161,7 @@ namespace nc
             ///
             /// @return value
             ///
-            static double SIGN(double inA, double inB) noexcept 
+            static double SIGN(double inA, double inB) noexcept
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
@@ -172,31 +172,31 @@ namespace nc
             ///
             void decompose()
             {
-                bool    flag = true;
-                uint32  i = 0;
-                uint32  its = 0;
-                uint32  j = 0;
-                uint32  jj = 0;
-                uint32  k = 0;
-                uint32  l = 0;
-                uint32  nm = 0;
+                bool   flag = true;
+                uint32 i    = 0;
+                uint32 its  = 0;
+                uint32 j    = 0;
+                uint32 jj   = 0;
+                uint32 k    = 0;
+                uint32 l    = 0;
+                uint32 nm   = 0;
 
-                double  anorm = 0.0;
-                double  c = 0.0;
-                double  f = 0.0;
-                double  g = 0.0;
-                double  h = 0.0;
-                double  ss = 0.0;
-                double  scale = 0.0;
-                double  x = 0.0;
-                double  y = 0.0;
-                double  z = 0.0;
+                double anorm = 0.0;
+                double c     = 0.0;
+                double f     = 0.0;
+                double g     = 0.0;
+                double h     = 0.0;
+                double ss    = 0.0;
+                double scale = 0.0;
+                double x     = 0.0;
+                double y     = 0.0;
+                double z     = 0.0;
 
                 NdArray<double> rv1(n_, 1);
 
                 for (i = 0; i < n_; ++i)
                 {
-                    l = i + 2;
+                    l      = i + 2;
                     rv1[i] = scale * g;
                     g = ss = scale = 0.0;
 
@@ -215,9 +215,9 @@ namespace nc
                                 ss += u_(k, i) * u_(k, i);
                             }
 
-                            f = u_(i, i);
-                            g = -SIGN(std::sqrt(ss), f);
-                            h = f * g - ss;
+                            f        = u_(i, i);
+                            g        = -SIGN(std::sqrt(ss), f);
+                            h        = f * g - ss;
                             u_(i, i) = f - g;
 
                             for (j = l - 1; j < n_; ++j)
@@ -260,9 +260,9 @@ namespace nc
                                 ss += u_(i, k) * u_(i, k);
                             }
 
-                            f = u_(i, l - 1);
-                            g = -SIGN(std::sqrt(ss), f);
-                            h = f * g - ss;
+                            f            = u_(i, l - 1);
+                            g            = -SIGN(std::sqrt(ss), f);
+                            h            = f * g - ss;
                             u_(i, l - 1) = f - g;
 
                             for (k = l - 1; k < n_; ++k)
@@ -325,8 +325,8 @@ namespace nc
                     }
 
                     v_(i, i) = 1.0;
-                    g = rv1[i];
-                    l = i;
+                    g        = rv1[i];
+                    l        = i;
                 }
 
                 for (i = std::min(m_, n_) - 1; i != static_cast<uint32>(-1); --i)
@@ -362,7 +362,6 @@ namespace nc
                         {
                             u_(j, i) *= g;
                         }
-
                     }
                     else
                     {
@@ -397,11 +396,11 @@ namespace nc
 
                         if (flag)
                         {
-                            c = 0.0;
+                            c  = 0.0;
                             ss = 1.0;
                             for (i = l; i < k + 1; ++i)
                             {
-                                f = ss * rv1[i];
+                                f      = ss * rv1[i];
                                 rv1[i] = c * rv1[i];
 
                                 if (std::abs(f) <= eps_ * anorm)
@@ -409,19 +408,19 @@ namespace nc
                                     break;
                                 }
 
-                                g = s_[i];
-                                h = pythag(f, g);
+                                g     = s_[i];
+                                h     = pythag(f, g);
                                 s_[i] = h;
-                                h = 1.0 / h;
-                                c = g * h;
-                                ss = -f * h;
+                                h     = 1.0 / h;
+                                c     = g * h;
+                                ss    = -f * h;
 
                                 for (j = 0; j < m_; ++j)
                                 {
-                                    y = u_(j, nm);
-                                    z = u_(j, i);
+                                    y         = u_(j, nm);
+                                    z         = u_(j, i);
                                     u_(j, nm) = y * c + z * ss;
-                                    u_(j, i) = z * c - y * ss;
+                                    u_(j, i)  = z * c - y * ss;
                                 }
                             }
                         }
@@ -445,47 +444,47 @@ namespace nc
                             THROW_INVALID_ARGUMENT_ERROR("no convergence in 30 svdcmp iterations");
                         }
 
-                        x = s_[l];
+                        x  = s_[l];
                         nm = k - 1;
-                        y = s_[nm];
-                        g = rv1[nm];
-                        h = rv1[k];
-                        f = ((y - z) * (y + z) + (g - h) * (g + h)) / (2.0 * h * y);
-                        g = pythag(f, 1.0);
-                        f = ((x - z) * (x + z) + h * ((y / (f + SIGN(g, f))) - h)) / x;
+                        y  = s_[nm];
+                        g  = rv1[nm];
+                        h  = rv1[k];
+                        f  = ((y - z) * (y + z) + (g - h) * (g + h)) / (2.0 * h * y);
+                        g  = pythag(f, 1.0);
+                        f  = ((x - z) * (x + z) + h * ((y / (f + SIGN(g, f))) - h)) / x;
                         c = ss = 1.0;
 
                         for (j = l; j <= nm; j++)
                         {
-                            i = j + 1;
-                            g = rv1[i];
-                            y = s_[i];
-                            h = ss * g;
-                            g = c * g;
-                            z = pythag(f, h);
+                            i      = j + 1;
+                            g      = rv1[i];
+                            y      = s_[i];
+                            h      = ss * g;
+                            g      = c * g;
+                            z      = pythag(f, h);
                             rv1[j] = z;
-                            c = f / z;
-                            ss = h / z;
-                            f = x * c + g * ss;
-                            g = g * c - x * ss;
-                            h = y * ss;
+                            c      = f / z;
+                            ss     = h / z;
+                            f      = x * c + g * ss;
+                            g      = g * c - x * ss;
+                            h      = y * ss;
                             y *= c;
 
                             for (jj = 0; jj < n_; ++jj)
                             {
-                                x = v_(jj, j);
-                                z = v_(jj, i);
+                                x         = v_(jj, j);
+                                z         = v_(jj, i);
                                 v_(jj, j) = x * c + z * ss;
                                 v_(jj, i) = z * c - x * ss;
                             }
 
-                            z = pythag(f, h);
+                            z     = pythag(f, h);
                             s_[j] = z;
 
                             if (z != 0.0)
                             {
-                                z = 1.0 / z;
-                                c = f * z;
+                                z  = 1.0 / z;
+                                c  = f * z;
                                 ss = h * z;
                             }
 
@@ -494,15 +493,15 @@ namespace nc
 
                             for (jj = 0; jj < m_; ++jj)
                             {
-                                y = u_(jj, j);
-                                z = u_(jj, i);
+                                y         = u_(jj, j);
+                                z         = u_(jj, i);
                                 u_(jj, j) = y * c + z * ss;
                                 u_(jj, i) = z * c - y * ss;
                             }
                         }
                         rv1[l] = 0.0;
                         rv1[k] = f;
-                        s_[k] = x;
+                        s_[k]  = x;
                     }
                 }
             }
@@ -511,15 +510,15 @@ namespace nc
             // Description:
             /// reorders the input matrix
             ///
-            void reorder() 
+            void reorder()
             {
-                uint32  i = 0;
-                uint32  j = 0;
-                uint32  k = 0;
-                uint32  ss = 0;
-                uint32  inc = 1;
+                uint32 i   = 0;
+                uint32 j   = 0;
+                uint32 k   = 0;
+                uint32 ss  = 0;
+                uint32 inc = 1;
 
-                double			sw = 0.0;
+                double          sw = 0.0;
                 NdArray<double> su(m_, 1);
                 NdArray<double> sv(n_, 1);
 
@@ -579,7 +578,6 @@ namespace nc
                         {
                             v_(k, j) = sv[k];
                         }
-
                     }
                 } while (inc > 1);
 
@@ -631,19 +629,19 @@ namespace nc
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);
-                return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa)) :
-                    (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + utils::sqr(absa / absb))));
+                return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa))
+                                    : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + utils::sqr(absa / absb))));
             }
 
         private:
             // ===============================Attributes====================================
-            const uint32		m_;
-            const uint32		n_;
-            NdArray<double>     u_;
-            NdArray<double>     v_;
-            NdArray<double>     s_;
-            double				eps_;
-            double				tsh_;
+            const uint32    m_;
+            const uint32    n_;
+            NdArray<double> u_;
+            NdArray<double> v_;
+            NdArray<double> s_;
+            double          eps_;
+            double          tsh_;
         };
     } // namespace linalg
 } // namespace nc

@@ -27,10 +27,10 @@
 ///
 #pragma once
 
+#include <limits>
+
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <limits>
 
 namespace nc
 {
@@ -43,7 +43,7 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max()) 
+    inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max())
     {
         NdArray<uint32> indices = mask.flatnonzero();
 
@@ -51,7 +51,7 @@ namespace nc
         {
             return indices;
         }
-        
+
         return indices[Slice(0, n)];
     }
-}  // namespace nc
+} // namespace nc

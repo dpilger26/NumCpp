@@ -27,8 +27,8 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -40,7 +40,7 @@ namespace nc
     ///
     /// @param arr: Array to put data into.
     /// @param mask: Boolean mask array. Must have the same size as arr
-    /// @param vals: Values to put into a. Only the first N elements are used, where N is the 
+    /// @param vals: Values to put into a. Only the first N elements are used, where N is the
     /// number of True values in mask. If vals is smaller than N, it will be repeated.
     /// @return NdArray
     ///
@@ -66,4 +66,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

@@ -47,4 +47,4 @@ namespace nc
         inArray.ravel();
         return inArray;
     }
-}  // namespace nc
+} // namespace nc

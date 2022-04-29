@@ -41,7 +41,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> swapaxes(const NdArray<dtype>& inArray) 
+    NdArray<dtype> swapaxes(const NdArray<dtype>& inArray)
     {
         return inArray.swapaxes();
     }

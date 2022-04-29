@@ -27,6 +27,9 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <vector>
+
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -34,9 +37,6 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/max.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <vector>
 
 namespace nc
 {
@@ -52,7 +52,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -77,7 +77,7 @@ namespace nc
             }
             case Axis::COL:
             {
-                const Shape inShape = inArray.shape();
+                const Shape    inShape = inArray.shape();
                 NdArray<dtype> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -100,7 +100,7 @@ namespace nc
             case Axis::ROW:
             {
                 NdArray<dtype> transposedArray = inArray.transpose();
-                const Shape inShape = transposedArray.shape();
+                const Shape    inShape         = transposedArray.shape();
                 NdArray<dtype> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -127,4 +127,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

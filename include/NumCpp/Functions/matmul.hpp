@@ -27,10 +27,10 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -84,4 +84,4 @@ namespace nc
     {
         return dot(inArray1, inArray2);
     }
-}  // namespace nc
+} // namespace nc

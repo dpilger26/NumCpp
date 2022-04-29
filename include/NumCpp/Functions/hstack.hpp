@@ -27,10 +27,10 @@
 ///
 #pragma once
 
+#include <initializer_list>
+
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <initializer_list>
 
 namespace nc
 {
@@ -46,7 +46,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> hstack(std::initializer_list<NdArray<dtype> > inArrayList)
+    NdArray<dtype> hstack(std::initializer_list<NdArray<dtype>> inArrayList)
     {
         return column_stack(inArrayList);
     }

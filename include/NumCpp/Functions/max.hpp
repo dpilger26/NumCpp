@@ -41,8 +41,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.max(inAxis);
     }
-}  // namespace nc
+} // namespace nc

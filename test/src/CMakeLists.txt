@@ -44,8 +44,10 @@ if(NUMCPP_USE_MULTITHREAD)
   target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_USE_MULTITHREAD)
 endif()
 
-
-find_package(Boost 1.68.0 REQUIRED)
+if(NOT NUMCPP_NO_USE_BOOST)
+  set(Boost_USE_STATIC_LIBS TRUE) 
+  find_package(Boost 1.68.0 REQUIRED)
+endif()
 
 set(Python3_USE_STATIC_LIBS True)
 find_package(Python 3.8
@@ -60,10 +62,15 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
-  Boost::headers
   Python::Python
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
 )
+
+if (NOT NUMCPP_NO_USE_BOOST)
+  target_link_libraries(${PROJECT_NAME} PRIVATE 
+    Boost::headers
+  )
+endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(OUTPUT_SUFFIX ".pyd")

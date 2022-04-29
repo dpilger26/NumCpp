@@ -22,15 +22,22 @@ target_include_directories(${PROJECT_NAME} PRIVATE
   ../../include
 )
 
-set(Boost_USE_STATIC_LIBS TRUE) 
-find_package(Boost 1.68.0 REQUIRED 
-  COMPONENTS 
-  system
-  filesystem 
-)
+if (NUMCPP_NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
+else()
+  set(Boost_USE_STATIC_LIBS TRUE) 
+  find_package(Boost 1.68.0 REQUIRED 
+    COMPONENTS 
+    system
+    filesystem 
+  )
+
+  target_link_libraries(${PROJECT_NAME} PRIVATE 
+    Boost::headers
+  )
+endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
-  Boost::headers
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::system>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::filesystem>
 )

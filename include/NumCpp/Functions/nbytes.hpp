@@ -39,8 +39,8 @@ namespace nc
     /// @return number of bytes
     ///
     template<typename dtype>
-    uint64 nbytes(const NdArray<dtype>& inArray) noexcept 
+    uint64 nbytes(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.nbytes();
     }
-}  // namespace nc
+} // namespace nc

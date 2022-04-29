@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -37,8 +39,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -57,7 +57,10 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype>
-            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
+            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage,
+                                         Boundary              inBoundaryType,
+                                         uint32                inKernalSize,
+                                         dtype                 inConstantValue = 0)
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -98,5 +101,5 @@ namespace nc
                 }
             }
         } // namespace boundary
-    }  // namespace filter
-}  // namespace nc
+    }     // namespace filter
+} // namespace nc

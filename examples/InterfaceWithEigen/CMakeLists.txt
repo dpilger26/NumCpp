@@ -18,17 +18,26 @@ set_target_properties(${PROJECT_NAME}
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
 )
 
-set(Boost_USE_STATIC_LIBS TRUE) 
-find_package(Boost 1.68.0 REQUIRED)
-find_package (Eigen3 3.3 REQUIRED)
-
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ../../include
 )
 
+if (NUMCPP_NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
+else()
+  set(Boost_USE_STATIC_LIBS TRUE) 
+  find_package(Boost 1.68.0 REQUIRED 
+    COMPONENTS  
+  )
+
+  target_link_libraries(${PROJECT_NAME} PRIVATE 
+    Boost::headers
+  )
+endif()
+
+find_package (Eigen3 3.3 REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE 
   Eigen3::Eigen
-  Boost::headers  
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE

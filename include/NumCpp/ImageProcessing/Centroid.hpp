@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <iostream>
+#include <string>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/num2str.hpp"
-
-#include <iostream>
-#include <string>
 
 namespace nc
 {
@@ -76,7 +76,7 @@ namespace nc
             ///
             /// @return centroid row
             ///
-            double row() const noexcept 
+            double row() const noexcept
             {
                 return row_;
             }
@@ -87,7 +87,7 @@ namespace nc
             ///
             /// @return centroid col
             ///
-            double col() const noexcept 
+            double col() const noexcept
             {
                 return col_;
             }
@@ -98,7 +98,7 @@ namespace nc
             ///
             /// @return centroid intensity
             ///
-            dtype intensity() const noexcept 
+            dtype intensity() const noexcept
             {
                 return intensity_;
             }
@@ -109,7 +109,7 @@ namespace nc
             ///
             /// @return star id
             ///
-            double eod() const noexcept 
+            double eod() const noexcept
             {
                 return eod_;
             }
@@ -146,7 +146,7 @@ namespace nc
             ///
             /// @return bool
             ///
-            bool operator==(const Centroid<dtype>& rhs) const noexcept 
+            bool operator==(const Centroid<dtype>& rhs) const noexcept
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -159,7 +159,7 @@ namespace nc
             ///
             /// @return bool
             ///
-            bool operator!=(const Centroid<dtype>& rhs) const noexcept 
+            bool operator!=(const Centroid<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -175,7 +175,7 @@ namespace nc
             ///
             /// @return bool
             ///
-            bool operator<(const Centroid<dtype>& rhs) const noexcept 
+            bool operator<(const Centroid<dtype>& rhs) const noexcept
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }
@@ -196,10 +196,10 @@ namespace nc
 
         private:
             //==================================Attributes================================///
-            double          row_{ 0.0 };
-            double          col_{ 0.0 };
-            dtype           intensity_{ 0 };
-            double          eod_{ 0.0 };
+            double row_{ 0.0 };
+            double col_{ 0.0 };
+            dtype  intensity_{ 0 };
+            double eod_{ 0.0 };
 
             //=============================================================================
             // Description:
@@ -209,9 +209,9 @@ namespace nc
             ///
             /// @param inCluster
             ///
-            void centerOfMass(const Cluster<dtype>& inCluster) 
+            void centerOfMass(const Cluster<dtype>& inCluster)
             {
-                const Shape clusterShape(inCluster.height(), inCluster.width());
+                const Shape    clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);
                 clusterArray.zeros();
 
@@ -224,9 +224,9 @@ namespace nc
                 }
 
                 const auto rowCol = nc::centerOfMass(clusterArray);
-                row_ = rowCol.front() + rowMin;
-                col_ = rowCol.back() + colMin;
+                row_              = rowCol.front() + rowMin;
+                col_              = rowCol.back() + colMin;
             }
         };
-    }  // namespace imageProcessing
-}  // namespace nc
+    } // namespace imageProcessing
+} // namespace nc

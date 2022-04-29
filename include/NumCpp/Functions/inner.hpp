@@ -27,11 +27,12 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 namespace nc
 {
     //============================================================================
@@ -56,4 +57,4 @@ namespace nc
 
         return std::inner_product(a.cbegin(), a.cend(), b.cbegin(), dtype{ 0 });
     }
-}  // namespace nc
+} // namespace nc

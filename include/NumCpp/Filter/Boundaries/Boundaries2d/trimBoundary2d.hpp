@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -52,14 +52,15 @@ namespace nc
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
-                Shape inShape = inImageWithBoundary.shape();
+                Shape  inShape      = inImageWithBoundary.shape();
                 uint32 boundarySize = inSize / 2; /// integer division
 
                 inShape.rows -= boundarySize * 2;
                 inShape.cols -= boundarySize * 2;
 
-                return inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows), Slice(boundarySize, boundarySize + inShape.cols));
+                return inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows),
+                                           Slice(boundarySize, boundarySize + inShape.cols));
             }
-        }
-    }
-}
+        } // namespace boundary
+    }     // namespace filter
+} // namespace nc

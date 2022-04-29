@@ -52,7 +52,7 @@ namespace nc
         /// includes or a C++17 compliant compiler.
         ///
         /// @param inK: elliptic modulus or eccentricity
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto comp_ellint_2(dtype inK)
@@ -80,15 +80,15 @@ namespace nc
         {
             NdArray<decltype(comp_ellint_2(dtype{ 0 }))> returnArray(inArrayK.shape());
 
-            stl_algorithms::transform(inArrayK.cbegin(), inArrayK.cend(), returnArray.begin(),
-                [](dtype inK) -> auto
-            {
-                return comp_ellint_2(inK);
-            });
+            stl_algorithms::transform(
+                inArrayK.cbegin(),
+                inArrayK.cend(),
+                returnArray.begin(),
+                [](dtype inK) -> auto{ return comp_ellint_2(inK); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

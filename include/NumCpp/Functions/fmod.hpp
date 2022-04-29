@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -48,9 +48,8 @@ namespace nc
     /// @param inValue2
     /// @return value
     ///
-    template<typename dtype, 
-        enable_if_t<is_integral_v<dtype>, int> = 0>
-    dtype fmod(dtype inValue1, dtype inValue2) noexcept 
+    template<typename dtype, enable_if_t<is_integral_v<dtype>, int> = 0>
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
         return inValue1 % inValue2;
     }
@@ -66,9 +65,8 @@ namespace nc
     /// @param inValue2
     /// @return value
     ///
-    template<typename dtype, 
-        enable_if_t<is_floating_point_v<dtype>, int> = 0>
-    dtype fmod(dtype inValue1, dtype inValue2) noexcept 
+    template<typename dtype, enable_if_t<is_floating_point_v<dtype>, int> = 0>
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
         return std::fmod(inValue1, inValue2);
     }
@@ -94,11 +92,12 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray1.shape());
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> dtype
-            {
-                return fmod(inValue1, inValue2); 
-            });
+        stl_algorithms::transform(inArray1.cbegin(),
+                                  inArray1.cend(),
+                                  inArray2.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                  { return fmod(inValue1, inValue2); });
 
         return returnArray;
     }

@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/floor.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
 
 namespace nc
 {
@@ -68,4 +68,4 @@ namespace nc
     {
         return floor(inArray1 / inArray2);
     }
-}  // namespace nc
+} // namespace nc

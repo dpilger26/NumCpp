@@ -40,7 +40,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Solve a linear matrix equation, or system of linear scalar equations.
-        /// Computes the “exact” solution, x, of the well-determined, i.e., full rank, 
+        /// Computes the “exact” solution, x, of the well-determined, i.e., full rank,
         /// linear matrix equation ax = b.
         ///
         /// https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html

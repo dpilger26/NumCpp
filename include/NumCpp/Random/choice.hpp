@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/permutation.hpp"
 #include "NumCpp/Random/randInt.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -74,16 +74,14 @@ namespace nc
             if (replace)
             {
                 NdArray<dtype> outArray(1, inNum);
-                std::for_each(outArray.begin(), outArray.end(),
-                    [&inArray](dtype& value) -> void
-                    { 
-                        value = choice(inArray); 
-                    });
+                std::for_each(outArray.begin(),
+                              outArray.end(),
+                              [&inArray](dtype& value) -> void { value = choice(inArray); });
 
                 return outArray;
             }
 
             return permutation(inArray)[Slice(inNum)];
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

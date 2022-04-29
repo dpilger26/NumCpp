@@ -28,10 +28,10 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
-
-#include <cmath>
 
 namespace nc
 {
@@ -57,8 +57,8 @@ namespace nc
             auto kCrossV = kUnit.cross(v);
             kCrossV *= std::sin(theta);
 
-            const auto kDotV = kUnit.dot(v);
-            auto kkDotV = kUnit * kDotV;
+            const auto kDotV  = kUnit.dot(v);
+            auto       kkDotV = kUnit * kDotV;
             kkDotV *= 1 - std::cos(theta);
 
             auto vec = vCosTheta + kCrossV;
@@ -83,5 +83,5 @@ namespace nc
         {
             return rodriguesRotation(Vec3(k), theta, Vec3(v)).toNdArray();
         }
-    }  // namespace rotations
-}  // namespace nc
+    } // namespace rotations
+} // namespace nc

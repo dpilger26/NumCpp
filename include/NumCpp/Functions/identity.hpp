@@ -44,7 +44,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> identity(uint32 inSquareSize) 
+    NdArray<dtype> identity(uint32 inSquareSize)
     {
         NdArray<dtype> returnArray(inSquareSize);
         returnArray.zeros();
@@ -55,4 +55,4 @@ namespace nc
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

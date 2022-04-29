@@ -31,12 +31,12 @@
 ///
 #pragma once
 
+#include <functional>
+#include <vector>
+
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Integrate/trapazoidal.hpp"
 #include "NumCpp/Utils/power.hpp"
-
-#include <functional>
-#include <vector>
 
 namespace nc
 {
@@ -53,12 +53,12 @@ namespace nc
         ///
         /// @return double
         ///
-        inline double romberg(const double low, const double high, const uint8 n,
-            const std::function<double(double)>& f)
+        inline double
+            romberg(const double low, const double high, const uint8 n, const std::function<double(double)>& f)
         {
             NdArray<double> rombergIntegral(n);
 
-            //R(0,0) Start with trapezoidal integration with N = 1
+            // R(0,0) Start with trapezoidal integration with N = 1
             rombergIntegral(0, 0) = trapazoidal(low, high, 1, f);
 
             double h = high - low;
@@ -66,9 +66,9 @@ namespace nc
             {
                 h *= 0.5;
 
-                //R(step, 0) Improve trapezoidal integration with decreasing h
-                double trapezoidal_integration = 0.0;
-                const uint32 stepEnd = utils::power(2, step - 1);
+                // R(step, 0) Improve trapezoidal integration with decreasing h
+                double       trapezoidal_integration = 0.0;
+                const uint32 stepEnd                 = utils::power(2, step - 1);
                 for (uint32 tzStep = 1; tzStep <= stepEnd; ++tzStep)
                 {
                     const double deltaX = (2.0 * static_cast<double>(tzStep - 1)) * h;
@@ -78,10 +78,10 @@ namespace nc
                 rombergIntegral(step, 0) = 0.5 * rombergIntegral(step - 1, 0);
                 rombergIntegral(step, 0) += trapezoidal_integration * h;
 
-                //R(m,n) Romberg integration with R(m,1) -> Simpson rule, R(m,2) -> Boole's rule
+                // R(m,n) Romberg integration with R(m,1) -> Simpson rule, R(m,2) -> Boole's rule
                 for (uint8 rbStep = 1; rbStep <= step; ++rbStep)
                 {
-                    const double k = utils::power(4, rbStep);
+                    const double k                = utils::power(4, rbStep);
                     rombergIntegral(step, rbStep) = k * rombergIntegral(step, rbStep - 1);
                     rombergIntegral(step, rbStep) -= rombergIntegral(step - 1, rbStep - 1);
                     rombergIntegral(step, rbStep) /= (k - 1.0);
@@ -90,5 +90,5 @@ namespace nc
 
             return rombergIntegral.back();
         }
-    }  // namespace integrate
-}  // namespace nc
+    } // namespace integrate
+} // namespace nc

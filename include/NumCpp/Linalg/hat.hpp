@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -48,7 +48,7 @@ namespace nc
         /// @return 3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) 
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -93,9 +93,9 @@ namespace nc
         /// @param inVec
         /// @return 3x3 NdArray
         ///
-        inline NdArray<double> hat(const Vec3& inVec) 
+        inline NdArray<double> hat(const Vec3& inVec)
         {
             return hat(inVec.x, inVec.y, inVec.z);
         }
-    }  // namespace linalg
-}  // namespace nc
+    } // namespace linalg
+} // namespace nc

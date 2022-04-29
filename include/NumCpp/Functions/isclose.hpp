@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -55,7 +55,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1,
+                          const NdArray<dtype>& inArray2,
+                          double                inRtol = 1e-05,
+                          double                inAtol = 1e-08)
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -65,11 +68,12 @@ namespace nc
         }
 
         NdArray<bool> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
-            { 
-                return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); 
-            });
+        stl_algorithms::transform(inArray1.cbegin(),
+                                  inArray1.cend(),
+                                  inArray2.cbegin(),
+                                  returnArray.begin(),
+                                  [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
+                                  { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
 
         return returnArray;
     }

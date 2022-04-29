@@ -41,7 +41,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> copy(const NdArray<dtype>& inArray) 
+    NdArray<dtype> copy(const NdArray<dtype>& inArray)
     {
         return NdArray<dtype>(inArray);
     }

@@ -46,7 +46,7 @@ namespace nc
     /// @return inValue
     ///
     template<typename dtype>
-    dtype newbyteorder(dtype inValue, Endian inEndianess) 
+    dtype newbyteorder(dtype inValue, Endian inEndianess)
     {
         NdArray<dtype> valueArray = { inValue };
         return valueArray.newbyteorder(inEndianess).item();
@@ -66,7 +66,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess) 
+    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess)
     {
         return inArray.newbyteorder(inEndianess);
     }

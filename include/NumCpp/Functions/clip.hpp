@@ -49,15 +49,12 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) 
+    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
 #ifdef __cpp_lib_clamp
-        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
-        {
-            return lhs < rhs;
-        };
+        const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
 
         return std::clamp(inValue, inMinValue, inMaxValue, comparitor);
 #else
@@ -86,7 +83,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) 
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
     {
         return inArray.clip(inMinValue, inMaxValue);
     }

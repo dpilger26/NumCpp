@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <initializer_list>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <initializer_list>
-#include <string>
 
 namespace nc
 {
@@ -46,7 +46,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
+    NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype>>& inArrayList)
     {
         // first loop through to calculate the final size of the array
         Shape finalShape;
@@ -68,7 +68,7 @@ namespace nc
 
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
-        uint32 colStart = 0;
+        uint32         colStart = 0;
         for (auto& ndarray : inArrayList)
         {
             const Shape theShape = ndarray.shape();
@@ -84,4 +84,4 @@ namespace nc
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

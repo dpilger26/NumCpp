@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-
 #include <complex>
+
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -48,7 +48,7 @@ namespace nc
         {
             return lhs.real() < rhs.real();
         }
-        
+
         return lhs.imag() < rhs.imag();
     }
 
@@ -107,11 +107,10 @@ namespace nc
     /// @return std::complex<Out>
     ///
     template<typename Out, typename In>
-    std::complex<Out> complex_cast(const std::complex<In>& value)  noexcept
+    std::complex<Out> complex_cast(const std::complex<In>& value) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(Out);
 
-        return std::complex<Out>(static_cast<Out>(value.real()),
-            static_cast<Out>(value.imag()));
+        return std::complex<Out>(static_cast<Out>(value.real()), static_cast<Out>(value.imag()));
     }
-}  // namespace nc
+} // namespace nc

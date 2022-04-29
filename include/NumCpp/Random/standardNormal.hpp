@@ -41,7 +41,8 @@ namespace nc
         /// Single random value sampled from the "standard normal" distrubution with
         /// mean = 0 and std = 1
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
         /// @return NdArray
         ///
@@ -59,7 +60,8 @@ namespace nc
         /// random samples from a "standard normal" distrubution with
         /// mean = 0 and std = 1
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///
         /// @param inShape
         /// @return NdArray
@@ -71,5 +73,5 @@ namespace nc
 
             return normal<dtype>(inShape, 0, 1);
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

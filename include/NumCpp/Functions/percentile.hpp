@@ -27,6 +27,11 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <complex>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -36,11 +41,6 @@
 #include "NumCpp/Functions/clip.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
-
-#include <algorithm>
-#include <cmath>
-#include <complex>
-#include <string>
 
 namespace nc
 {
@@ -62,8 +62,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile,
-        Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
+    NdArray<double> percentile(const NdArray<dtype>& inArray,
+                               double                inPercentile,
+                               Axis                  inAxis         = Axis::NONE,
+                               const std::string&    inInterpMethod = "linear")
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -82,11 +84,8 @@ namespace nc
             return returnArray;
         }
 
-        if (inInterpMethod != "linear" &&
-            inInterpMethod != "lower" &&
-            inInterpMethod != "higher" &&
-            inInterpMethod != "nearest" &&
-            inInterpMethod != "midpoint")
+        if (inInterpMethod != "linear" && inInterpMethod != "lower" && inInterpMethod != "higher" &&
+            inInterpMethod != "nearest" && inInterpMethod != "midpoint")
         {
             std::string errStr = "input interpolation method is not a vaid option.\n";
             errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
@@ -111,16 +110,19 @@ namespace nc
                     return returnArray;
                 }
 
-                const auto i = static_cast<uint32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
+                const auto i =
+                    static_cast<uint32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
                 const auto indexLower = clip<uint32>(i, 0, inArray.size() - 2);
 
                 if (inInterpMethod == "linear")
                 {
                     const double percentI = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
-                    const double fraction = (inPercentile / 100.0 - percentI) /
+                    const double fraction =
+                        (inPercentile / 100.0 - percentI) /
                         (static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
 
-                    NdArray<double> returnArray = { arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction };
+                    NdArray<double> returnArray = { arrayCopy[indexLower] +
+                                                    (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction };
                     return returnArray;
                 }
 
@@ -138,9 +140,10 @@ namespace nc
 
                 if (inInterpMethod == "nearest")
                 {
-                    const double percent = inPercentile / 100.0;
+                    const double percent  = inPercentile / 100.0;
                     const double percent1 = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
-                    const double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
+                    const double percent2 =
+                        static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
                     const double diff1 = percent - percent1;
                     const double diff2 = percent2 - percent;
 
@@ -164,7 +167,7 @@ namespace nc
                     NdArray<double> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
                     return returnArray;
                 }
-                
+
                 THROW_INVALID_ARGUMENT_ERROR("interpolation method has not been implemented: " + inInterpMethod);
                 break; // get rid of compiler warning...
             }
@@ -176,7 +179,10 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     returnArray[row] = percentile(NdArray<dtype>(&inArray.front(row), inShape.cols),
-                        inPercentile, Axis::NONE, inInterpMethod).item();
+                                                  inPercentile,
+                                                  Axis::NONE,
+                                                  inInterpMethod)
+                                           .item();
                 }
 
                 return returnArray;
@@ -184,13 +190,16 @@ namespace nc
             case Axis::ROW:
             {
                 NdArray<dtype> arrayTrans = inArray.transpose();
-                const Shape inShape = arrayTrans.shape();
+                const Shape    inShape    = arrayTrans.shape();
 
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     returnArray[row] = percentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
-                        inPercentile, Axis::NONE, inInterpMethod).item();
+                                                  inPercentile,
+                                                  Axis::NONE,
+                                                  inInterpMethod)
+                                           .item();
                 }
 
                 return returnArray;
@@ -204,4 +213,4 @@ namespace nc
 
         return {}; // get rid of compiler warning
     }
-}  // namespace nc
+} // namespace nc

@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/bernoulli.hpp"
+
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/bernoulli.hpp"
 
 namespace nc
 {
@@ -73,11 +73,10 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> double
-                { 
-                    return bernoilli(inValue);
-                });
+            stl_algorithms::transform(inArray.cbegin(),
+                                      inArray.cend(),
+                                      returnArray.begin(),
+                                      [](uint32 inValue) -> double { return bernoilli(inValue); });
 
             return returnArray;
         }

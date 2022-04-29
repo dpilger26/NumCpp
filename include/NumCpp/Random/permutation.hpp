@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -47,7 +47,7 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(dtype inValue) 
+        NdArray<dtype> permutation(dtype inValue)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -66,7 +66,7 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> permutation(const NdArray<dtype>& inArray) 
+        NdArray<dtype> permutation(const NdArray<dtype>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -74,5 +74,5 @@ namespace nc
             std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }
-    }  // namespace random
+    } // namespace random
 } // namespace nc

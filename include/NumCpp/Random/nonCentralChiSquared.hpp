@@ -29,16 +29,16 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include <algorithm>
+#include <string>
+
+#include "boost/random/non_central_chi_squared_distribution.hpp"
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include "boost/random/non_central_chi_squared_distribution.hpp"
-
-#include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -49,7 +49,8 @@ namespace nc
         /// Single random value sampled from the "non central chi squared" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
         /// @param inK (default 1)
         /// @param inLambda (default 1)
@@ -80,7 +81,8 @@ namespace nc
         /// random samples from a "non central chi squared" distrubution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///
         /// @param inShape
         /// @param inK (default 1)
@@ -106,15 +108,13 @@ namespace nc
 
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                { 
-                    value = dist(generator_);
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

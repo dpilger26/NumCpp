@@ -28,13 +28,13 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
 
 namespace nc
 {
@@ -44,17 +44,18 @@ namespace nc
         // Method Description:
         /// Single random value sampled from the uniform distribution over [0, 1).
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
         /// @return NdArray
         ///
         template<typename dtype>
-        dtype rand() 
+        dtype rand()
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0), 
-                static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
+            std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0),
+                                                       static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
             return dist(generator_);
         }
 
@@ -63,28 +64,27 @@ namespace nc
         /// Create an array of the given shape and populate it with
         /// random samples from a uniform distribution over [0, 1).
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///
         /// @param inShape
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rand(const Shape& inShape) 
+        NdArray<dtype> rand(const Shape& inShape)
         {
             STATIC_ASSERT_FLOAT(dtype);
 
             NdArray<dtype> returnArray(inShape);
 
-            std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0), 
-                static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
+            std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0),
+                                                       static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_);
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

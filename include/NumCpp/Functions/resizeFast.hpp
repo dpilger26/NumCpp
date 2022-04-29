@@ -47,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         inArray.resizeFast(inNumRows, inNumCols);
         return inArray;
@@ -66,9 +66,9 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape) 
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
         inArray.resizeFast(inNewShape);
         return inArray;
     }
-}  // namespace nc
+} // namespace nc

@@ -57,7 +57,6 @@
 #include "NumCpp/Functions/asarray.hpp"
 #include "NumCpp/Functions/astype.hpp"
 #include "NumCpp/Functions/average.hpp"
-
 #include "NumCpp/Functions/bartlett.hpp"
 #include "NumCpp/Functions/binaryRepr.hpp"
 #include "NumCpp/Functions/bincount.hpp"
@@ -68,7 +67,6 @@
 #include "NumCpp/Functions/bitwise_xor.hpp"
 #include "NumCpp/Functions/blackman.hpp"
 #include "NumCpp/Functions/byteswap.hpp"
-
 #include "NumCpp/Functions/cbrt.hpp"
 #include "NumCpp/Functions/ceil.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
@@ -81,9 +79,9 @@
 #include "NumCpp/Functions/copy.hpp"
 #include "NumCpp/Functions/copySign.hpp"
 #include "NumCpp/Functions/copyto.hpp"
+#include "NumCpp/Functions/corrcoef.hpp"
 #include "NumCpp/Functions/cos.hpp"
 #include "NumCpp/Functions/cosh.hpp"
-#include "NumCpp/Functions/corrcoef.hpp"
 #include "NumCpp/Functions/count_nonzero.hpp"
 #include "NumCpp/Functions/cov.hpp"
 #include "NumCpp/Functions/cov_inv.hpp"
@@ -91,7 +89,6 @@
 #include "NumCpp/Functions/cube.hpp"
 #include "NumCpp/Functions/cumprod.hpp"
 #include "NumCpp/Functions/cumsum.hpp"
-
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Functions/degrees.hpp"
 #include "NumCpp/Functions/deleteIndices.hpp"
@@ -102,7 +99,6 @@
 #include "NumCpp/Functions/divide.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/dump.hpp"
-
 #include "NumCpp/Functions/empty.hpp"
 #include "NumCpp/Functions/empty_like.hpp"
 #include "NumCpp/Functions/endianess.hpp"
@@ -112,7 +108,6 @@
 #include "NumCpp/Functions/expm1.hpp"
 #include "NumCpp/Functions/extract.hpp"
 #include "NumCpp/Functions/eye.hpp"
-
 #include "NumCpp/Functions/fillDiagnol.hpp"
 #include "NumCpp/Functions/find.hpp"
 #include "NumCpp/Functions/fix.hpp"
@@ -131,20 +126,17 @@
 #include "NumCpp/Functions/fromiter.hpp"
 #include "NumCpp/Functions/full.hpp"
 #include "NumCpp/Functions/full_like.hpp"
-
 #include "NumCpp/Functions/gcd.hpp"
 #include "NumCpp/Functions/geomspace.hpp"
 #include "NumCpp/Functions/gradient.hpp"
 #include "NumCpp/Functions/greater.hpp"
 #include "NumCpp/Functions/greater_equal.hpp"
-
 #include "NumCpp/Functions/hamming.hpp"
 #include "NumCpp/Functions/hammingEncode.hpp"
 #include "NumCpp/Functions/hanning.hpp"
 #include "NumCpp/Functions/histogram.hpp"
 #include "NumCpp/Functions/hstack.hpp"
 #include "NumCpp/Functions/hypot.hpp"
-
 #include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/Functions/imag.hpp"
 #include "NumCpp/Functions/inner.hpp"
@@ -153,12 +145,10 @@
 #include "NumCpp/Functions/invert.hpp"
 #include "NumCpp/Functions/isclose.hpp"
 #include "NumCpp/Functions/isinf.hpp"
+#include "NumCpp/Functions/isnan.hpp"
 #include "NumCpp/Functions/isneginf.hpp"
 #include "NumCpp/Functions/isposinf.hpp"
-#include "NumCpp/Functions/isnan.hpp"
-
 #include "NumCpp/Functions/kaiser.hpp"
-
 #include "NumCpp/Functions/lcm.hpp"
 #include "NumCpp/Functions/ldexp.hpp"
 #include "NumCpp/Functions/left_shift.hpp"
@@ -167,16 +157,15 @@
 #include "NumCpp/Functions/linspace.hpp"
 #include "NumCpp/Functions/load.hpp"
 #include "NumCpp/Functions/log.hpp"
-#include "NumCpp/Functions/logb.hpp"
 #include "NumCpp/Functions/log10.hpp"
 #include "NumCpp/Functions/log1p.hpp"
 #include "NumCpp/Functions/log2.hpp"
+#include "NumCpp/Functions/logb.hpp"
 #include "NumCpp/Functions/logical_and.hpp"
 #include "NumCpp/Functions/logical_not.hpp"
 #include "NumCpp/Functions/logical_or.hpp"
 #include "NumCpp/Functions/logical_xor.hpp"
 #include "NumCpp/Functions/logspace.hpp"
-
 #include "NumCpp/Functions/matmul.hpp"
 #include "NumCpp/Functions/max.hpp"
 #include "NumCpp/Functions/maximum.hpp"
@@ -187,7 +176,6 @@
 #include "NumCpp/Functions/minimum.hpp"
 #include "NumCpp/Functions/mod.hpp"
 #include "NumCpp/Functions/multiply.hpp"
-
 #include "NumCpp/Functions/nan_to_num.hpp"
 #include "NumCpp/Functions/nanargmax.hpp"
 #include "NumCpp/Functions/nanargmin.hpp"
@@ -207,16 +195,14 @@
 #include "NumCpp/Functions/nbytes.hpp"
 #include "NumCpp/Functions/negative.hpp"
 #include "NumCpp/Functions/newbyteorder.hpp"
-#include "NumCpp/Functions/nth_root.hpp"
 #include "NumCpp/Functions/none.hpp"
 #include "NumCpp/Functions/nonzero.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/not_equal.hpp"
-
+#include "NumCpp/Functions/nth_root.hpp"
 #include "NumCpp/Functions/ones.hpp"
 #include "NumCpp/Functions/ones_like.hpp"
 #include "NumCpp/Functions/outer.hpp"
-
 #include "NumCpp/Functions/pad.hpp"
 #include "NumCpp/Functions/partition.hpp"
 #include "NumCpp/Functions/percentile.hpp"
@@ -230,7 +216,6 @@
 #include "NumCpp/Functions/ptp.hpp"
 #include "NumCpp/Functions/put.hpp"
 #include "NumCpp/Functions/putmask.hpp"
-
 #include "NumCpp/Functions/rad2deg.hpp"
 #include "NumCpp/Functions/radians.hpp"
 #include "NumCpp/Functions/ravel.hpp"
@@ -249,7 +234,6 @@
 #include "NumCpp/Functions/rot90.hpp"
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
-
 #include "NumCpp/Functions/select.hpp"
 #include "NumCpp/Functions/setdiff1d.hpp"
 #include "NumCpp/Functions/shape.hpp"
@@ -268,7 +252,6 @@
 #include "NumCpp/Functions/sum.hpp"
 #include "NumCpp/Functions/swap.hpp"
 #include "NumCpp/Functions/swapaxes.hpp"
-
 #include "NumCpp/Functions/tan.hpp"
 #include "NumCpp/Functions/tanh.hpp"
 #include "NumCpp/Functions/tile.hpp"
@@ -280,15 +263,11 @@
 #include "NumCpp/Functions/tri.hpp"
 #include "NumCpp/Functions/trim_zeros.hpp"
 #include "NumCpp/Functions/trunc.hpp"
-
 #include "NumCpp/Functions/union1d.hpp"
 #include "NumCpp/Functions/unique.hpp"
 #include "NumCpp/Functions/unwrap.hpp"
-
 #include "NumCpp/Functions/var.hpp"
 #include "NumCpp/Functions/vstack.hpp"
-
 #include "NumCpp/Functions/where.hpp"
-
 #include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"

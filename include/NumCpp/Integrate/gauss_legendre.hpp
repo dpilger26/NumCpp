@@ -31,13 +31,13 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Constants.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Utils/sqr.hpp"
-
 #include <cmath>
 #include <functional>
 #include <vector>
+
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
 namespace nc
 {
@@ -70,7 +70,7 @@ namespace nc
             ///
             /// @return weights vector
             ///
-            const std::vector<double>& getWeight() const noexcept 
+            const std::vector<double>& getWeight() const noexcept
             {
                 return weight_;
             }
@@ -81,7 +81,7 @@ namespace nc
             ///
             /// @return roots vector
             ///
-            const std::vector<double>& getRoot() const noexcept 
+            const std::vector<double>& getRoot() const noexcept
             {
                 return root_;
             }
@@ -106,7 +106,8 @@ namespace nc
                 Result(const double val, const double deriv) noexcept :
                     value(val),
                     derivative(deriv)
-                {}
+                {
+                }
             };
 
             //============================================================================
@@ -118,7 +119,8 @@ namespace nc
                 const auto numIterationsDouble = static_cast<double>(numIterations_);
                 for (uint32 step = 0; step <= numIterations_; ++step)
                 {
-                    double root = std::cos(constants::pi * (static_cast<double>(step) - 0.25) / (numIterationsDouble + 0.5));
+                    double root =
+                        std::cos(constants::pi * (static_cast<double>(step) - 0.25) / (numIterationsDouble + 0.5));
                     Result result = calculatePolynomialValueAndDerivative(root);
 
                     double newtonRaphsonRatio;
@@ -129,7 +131,7 @@ namespace nc
                         result = calculatePolynomialValueAndDerivative(root);
                     } while (std::fabs(newtonRaphsonRatio) > EPSILON);
 
-                    root_[step] = root;
+                    root_[step]   = root;
                     weight_[step] = 2.0 / ((1.0 - utils::sqr(root)) * result.derivative * result.derivative);
                 }
             }
@@ -145,16 +147,17 @@ namespace nc
             {
                 Result result(x, 0.0);
 
-                double value_minus_1 = 1.0;
-                const double f = 1.0 / (utils::sqr(x) - 1.0);
+                double       value_minus_1 = 1.0;
+                const double f             = 1.0 / (utils::sqr(x) - 1.0);
                 for (uint32 step = 2; step <= numIterations_; ++step)
                 {
-                    const auto stepDouble = static_cast<double>(step);
-                    const double value = ((2.0 * stepDouble - 1.0) * x * result.value - (stepDouble - 1.0) * value_minus_1) / stepDouble;
+                    const auto   stepDouble = static_cast<double>(step);
+                    const double value =
+                        ((2.0 * stepDouble - 1.0) * x * result.value - (stepDouble - 1.0) * value_minus_1) / stepDouble;
                     result.derivative = stepDouble * f * (x * value - result.value);
 
                     value_minus_1 = result.value;
-                    result.value = value;
+                    result.value  = value;
                 }
 
                 return result;
@@ -179,15 +182,15 @@ namespace nc
         ///
         /// @return double
         ///
-        inline double gauss_legendre(const double low, const double high, const uint32 n,
-            const std::function<double(double)>& f)
+        inline double
+            gauss_legendre(const double low, const double high, const uint32 n, const std::function<double(double)>& f)
         {
-            const LegendrePolynomial legendrePolynomial(n);
+            const LegendrePolynomial   legendrePolynomial(n);
             const std::vector<double>& weight = legendrePolynomial.getWeight();
-            const std::vector<double>& root = legendrePolynomial.getRoot();
+            const std::vector<double>& root   = legendrePolynomial.getRoot();
 
             const double width = 0.5 * (high - low);
-            const double mean = 0.5 * (low + high);
+            const double mean  = 0.5 * (low + high);
 
             double gaussLegendre = 0.0;
             for (uint32 step = 1; step <= n; ++step)
@@ -197,5 +200,5 @@ namespace nc
 
             return gaussLegendre * width;
         }
-    }  // namespace integrate
-}  // namespace nc
+    } // namespace integrate
+} // namespace nc

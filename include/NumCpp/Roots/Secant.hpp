@@ -27,17 +27,18 @@
 /// Finds the roots of the polynomial
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/rootApproximation
-/// as posted in https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
+/// as posted in
+/// https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
 ///
 #pragma once
-
-#include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Roots/Iteration.hpp"
 
 #include <cmath>
 #include <functional>
 #include <utility>
+
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Roots/Iteration.hpp"
 
 namespace nc
 {
@@ -55,13 +56,13 @@ namespace nc
             /// Constructor
             ///
             /// @param epsilon: the epsilon value
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Secant(const double epsilon,
-                std::function<double(double)>  f) noexcept :
+            Secant(const double epsilon, std::function<double(double)> f) noexcept :
                 Iteration(epsilon),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -69,14 +70,13 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Secant(const double epsilon,
-                const uint32 maxNumIterations,
-                std::function<double(double)>  f) noexcept :
+            Secant(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -101,9 +101,9 @@ namespace nc
                     std::swap(a, b);
                 }
 
-                double x = b;
-                double lastX = a;
-                double fx = f_(b);
+                double x      = b;
+                double lastX  = a;
+                double fx     = f_(b);
                 double lastFx = f_(a);
 
                 while (std::fabs(fx) >= epsilon_)
@@ -111,8 +111,8 @@ namespace nc
                     const double x_tmp = calculateX(x, lastX, fx, lastFx);
 
                     lastFx = fx;
-                    lastX = x;
-                    x = x_tmp;
+                    lastX  = x;
+                    x      = x_tmp;
 
                     fx = f_(x);
 
@@ -136,11 +136,11 @@ namespace nc
             /// @param lastFx: the function evaluated at the previous x value
             /// @return x
             ///
-            static double calculateX(double x, double lastX, double fx, double lastFx) noexcept 
+            static double calculateX(double x, double lastX, double fx, double lastFx) noexcept
             {
                 const double functionDifference = fx - lastFx;
                 return x - fx * (x - lastX) / functionDifference;
             }
         };
-    }  // namespace roots
-}  // namespace nc
+    } // namespace roots
+} // namespace nc

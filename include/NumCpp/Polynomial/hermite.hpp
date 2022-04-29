@@ -80,10 +80,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return hermite(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return hermite(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 

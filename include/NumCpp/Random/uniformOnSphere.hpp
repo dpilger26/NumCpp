@@ -30,16 +30,16 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include <algorithm>
+#include <string>
+
+#include "boost/random/uniform_on_sphere.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include "boost/random/uniform_on_sphere.hpp"
-
-#include <algorithm>
-#include <string>
 
 namespace nc
 {

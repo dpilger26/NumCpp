@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -42,7 +42,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    int bit_count(dtype inValue) noexcept 
+    constexpr int bit_count(dtype inValue) noexcept
     {
         STATIC_ASSERT_UNSIGNED_INTEGER(dtype);
 
@@ -63,15 +63,14 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<int> bit_count(const NdArray<dtype>& inArray) 
+    NdArray<int> bit_count(const NdArray<dtype>& inArray)
     {
         NdArray<int> returnArray(inArray.shape());
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> int
-            { 
-                return bit_count(inValue);
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> int { return bit_count(inValue); });
 
         return returnArray;
     }

@@ -44,7 +44,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.median(inAxis);
     }

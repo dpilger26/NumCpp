@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
-
 #include <climits>
+
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -45,8 +45,8 @@ namespace nc
         {
             union
             {
-                uint32  i;
-                char    c[4];
+                uint32 i;
+                char   c[4];
             } fourBytes = { 0x01020304 };
 
             return fourBytes.c[0] == 4;
@@ -59,7 +59,7 @@ namespace nc
         /// @param value
         /// @return byte swapped value
         ///
-        template <typename dtype>
+        template<typename dtype>
         dtype byteSwap(dtype value) noexcept
         {
             STATIC_ASSERT_INTEGER(dtype);
@@ -67,8 +67,8 @@ namespace nc
 
             union
             {
-                dtype   value;
-                uint8   value8[sizeof(dtype)];
+                dtype value;
+                uint8 value8[sizeof(dtype)];
             } source, dest;
 
             source.value = value;
@@ -80,5 +80,5 @@ namespace nc
 
             return dest.value;
         }
-    }  // namespace endian
-}  // namespace nc
+    } // namespace endian
+} // namespace nc

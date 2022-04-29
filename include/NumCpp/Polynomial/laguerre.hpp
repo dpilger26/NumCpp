@@ -103,10 +103,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return laguerre(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return laguerre(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
@@ -129,10 +126,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n, m](dtype x) -> double
-            {
-                return laguerre(n, m, x);
-            };
+            const auto function = [n, m](dtype x) -> double { return laguerre(n, m, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 

@@ -56,7 +56,7 @@ namespace nc
     /// @return dtype
     ///
     template<typename dtype>
-    dtype lcm(dtype inValue1, dtype inValue2) noexcept 
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 
@@ -86,6 +86,6 @@ namespace nc
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 #endif // #ifndef NUMCPP_NO_USE_BOOST
-}  // namespace nc
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)

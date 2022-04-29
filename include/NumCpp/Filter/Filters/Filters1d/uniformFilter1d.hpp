@@ -42,7 +42,8 @@ namespace nc
         // Method Description:
         /// Calculates a one-dimensional uniform filter.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d
         ///
         /// @param inImageArray
         /// @param inSize: linear size of the kernel to apply
@@ -51,14 +52,17 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray,
+                                       uint32                inSize,
+                                       Boundary              inBoundaryType  = Boundary::REFLECT,
+                                       dtype                 inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary =
+                boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             const uint32 boundarySize = inSize / 2; // integer division
-            const uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 endPoint     = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -69,5 +73,5 @@ namespace nc
 
             return output;
         }
-    }  // namespace filter
-}  // namespace nc
+    } // namespace filter
+} // namespace nc

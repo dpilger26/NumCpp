@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -65,7 +65,8 @@ namespace nc
                 const uint32 arraySize = inArray1.size();
                 if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    THROW_INVALID_ARGUMENT_ERROR(
+                        "incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 NdArray<dtype> in1 = inArray1.flatten();
@@ -99,7 +100,8 @@ namespace nc
                 const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    THROW_INVALID_ARGUMENT_ERROR(
+                        "incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 Shape returnArrayShape;
@@ -116,9 +118,9 @@ namespace nc
                 NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
-                    const auto theCol = static_cast<int32>(col);
-                    NdArray<dtype> vec1 = inArray1(inArray1.rSlice(), { theCol, theCol + 1 });
-                    NdArray<dtype> vec2 = inArray2(inArray2.rSlice(), { theCol, theCol + 1 });
+                    const auto     theCol   = static_cast<int32>(col);
+                    NdArray<dtype> vec1     = inArray1(inArray1.rSlice(), { theCol, theCol + 1 });
+                    NdArray<dtype> vec2     = inArray2(inArray2.rSlice(), { theCol, theCol + 1 });
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
@@ -131,7 +133,8 @@ namespace nc
                 const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    THROW_INVALID_ARGUMENT_ERROR(
+                        "incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 Shape returnArrayShape;
@@ -148,9 +151,9 @@ namespace nc
                 NdArray<dtype> returnArray(returnArrayShape);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
-                    const auto theRow = static_cast<int32>(row);
-                    NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, inArray1.cSlice());
-                    NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, inArray2.cSlice());
+                    const auto     theRow   = static_cast<int32>(row);
+                    NdArray<dtype> vec1     = inArray1({ theRow, theRow + 1 }, inArray1.cSlice());
+                    NdArray<dtype> vec2     = inArray2({ theRow, theRow + 1 }, inArray2.cSlice());
                     NdArray<dtype> vecCross = cross(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
@@ -165,4 +168,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

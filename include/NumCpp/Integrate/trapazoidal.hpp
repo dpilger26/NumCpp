@@ -31,9 +31,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
-
 #include <functional>
+
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -50,8 +50,10 @@ namespace nc
         ///
         /// @return double
         ///
-        inline double trapazoidal(const double low, const double high, const uint32 n,
-            const std::function<double(double)>& f) noexcept
+        inline double trapazoidal(const double                         low,
+                                  const double                         high,
+                                  const uint32                         n,
+                                  const std::function<double(double)>& f) noexcept
         {
             const double width = (high - low) / static_cast<double>(n);
 
@@ -66,5 +68,5 @@ namespace nc
 
             return trapezoidal_integral;
         }
-    }  // namespace integrate
-}  // namespace nc
+    } // namespace integrate
+} // namespace nc

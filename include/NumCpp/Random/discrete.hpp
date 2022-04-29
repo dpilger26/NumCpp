@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <random>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include <algorithm>
-#include <random>
 
 namespace nc
 {
@@ -42,8 +42,8 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// Single random value sampled from the from the 
-        /// "discrete" distrubution.  It produces integers in the 
+        /// Single random value sampled from the from the
+        /// "discrete" distrubution.  It produces integers in the
         /// range [0, n) with the probability of producing each value
         /// is specified by the parameters of the distribution.
         ///
@@ -80,13 +80,11 @@ namespace nc
 
             std::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                { 
-                    value = dist(generator_);
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
-    }  // namespace random
+    } // namespace random
 } // namespace nc

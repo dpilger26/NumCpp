@@ -27,10 +27,10 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -42,8 +42,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> astype(const NdArray<dtype> inArray) 
+    NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
     {
         return inArray.template astype<dtypeOut>();
     }
-}  // namespace nc
+} // namespace nc

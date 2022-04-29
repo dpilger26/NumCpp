@@ -29,16 +29,16 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include <algorithm>
+#include <string>
+
+#include "boost/random/beta_distribution.hpp"
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include "boost/random/beta_distribution.hpp"
-
-#include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -49,7 +49,8 @@ namespace nc
         /// Single random value sampled from the from the "beta" distribution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param inAlpha
         /// @param inBeta
@@ -71,7 +72,7 @@ namespace nc
             }
 
             boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
-            return dist(generator_); 
+            return dist(generator_);
         }
 
         //============================================================================
@@ -80,7 +81,8 @@ namespace nc
         /// random samples from the "beta" distribution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
         /// @param inShape
         /// @param inAlpha
@@ -106,11 +108,9 @@ namespace nc
 
             boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_); 
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }

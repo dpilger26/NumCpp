@@ -59,7 +59,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            if (x < -1.0 || x > 1.0 )
+            if (x < -1.0 || x > 1.0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }
@@ -87,7 +87,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            if (x < -1.0 || x > 1.0 )
+            if (x < -1.0 || x > 1.0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }
@@ -117,7 +117,7 @@ namespace nc
 #ifdef _MSC_VER
 
             value *= n % 2 == 0 ? 1 : -1;
-            
+
 #endif // #ifdef _MSC_VER
 
             return value;
@@ -140,14 +140,11 @@ namespace nc
         /// @return NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX) 
+        NdArray<double> legendre_p(uint32 n, const NdArray<dtype>& inArrayX)
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return legendre_p(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return legendre_p(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
@@ -166,20 +163,17 @@ namespace nc
         /// @return NdArray<double>
         ///
         template<typename dtype>
-        NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX) 
+        NdArray<double> legendre_p(uint32 m, uint32 n, const NdArray<dtype>& inArrayX)
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [m, n](dtype x) -> double
-            {
-                return legendre_p(m, n, x);
-            };
+            const auto function = [m, n](dtype x) -> double { return legendre_p(m, n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }
     } // namespace polynomial
-}  // namespace nc
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

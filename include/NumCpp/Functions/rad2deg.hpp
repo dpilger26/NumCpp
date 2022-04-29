@@ -65,12 +65,12 @@ namespace nc
     template<typename dtype>
     auto rad2deg(const NdArray<dtype>& inArray)
     {
-        NdArray<decltype(rad2deg(dtype{0})) > returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> auto
-            { 
-                return rad2deg(inValue);
-            });
+        NdArray<decltype(rad2deg(dtype{ 0 }))> returnArray(inArray.shape());
+        stl_algorithms::transform(
+            inArray.cbegin(),
+            inArray.cend(),
+            returnArray.begin(),
+            [](dtype inValue) noexcept -> auto{ return rad2deg(inValue); });
 
         return returnArray;
     }

@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <utility>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <utility>
 
 namespace nc
 {
@@ -58,10 +58,10 @@ namespace nc
             outU = svdSolver.u();
 
             NdArray<double> vt = svdSolver.v().transpose();
-            outVt = std::move(vt);
+            outVt              = std::move(vt);
 
             NdArray<double> s = diagflat(svdSolver.s(), 0);
-            outS = std::move(s);
+            outS              = std::move(s);
         }
-    }  // namespace linalg
-}  // namespace nc
+    } // namespace linalg
+} // namespace nc

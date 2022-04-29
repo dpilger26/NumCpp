@@ -42,7 +42,8 @@ namespace nc
         // Method Description:
         /// Calculates a one-dimensional rank filter.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///
         /// @param inImageArray
         /// @param inSize: linear size of the kernel to apply
@@ -52,14 +53,18 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray,
+                                    uint32                inSize,
+                                    uint8                 inRank,
+                                    Boundary              inBoundaryType  = Boundary::REFLECT,
+                                    dtype                 inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary =
+                boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             const uint32 boundarySize = inSize / 2; // integer division
-            const uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 endPoint     = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -70,5 +75,5 @@ namespace nc
 
             return output;
         }
-    }  // namespace filter
+    } // namespace filter
 } // namespace nc

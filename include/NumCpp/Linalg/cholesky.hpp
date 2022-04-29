@@ -27,7 +27,8 @@
 /// matrix cholesky decomposition
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/linAlg
-/// as posted in https://thoughts-on-coding.com/2019/06/12/numerical-methods-with-c-part-4-introduction-into-decomposition-methods-of-linear-equation-systems/
+/// as posted in
+/// https://thoughts-on-coding.com/2019/06/12/numerical-methods-with-c-part-4-introduction-into-decomposition-methods-of-linear-equation-systems/
 ///
 #pragma once
 
@@ -44,7 +45,8 @@ namespace nc
         // Method Description:
         /// matrix cholesky decomposition A = L * L.transpose()
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
         ///
         /// @param inMatrix: NdArray to be decomposed
         ///
@@ -56,40 +58,40 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             const auto shape = inMatrix.shape();
-            if(!shape.issquare()) 
+            if (!shape.issquare())
             {
                 THROW_RUNTIME_ERROR("Input matrix should be square.");
             }
 
             auto lMatrix = inMatrix.template astype<double>();
 
-            for(uint32 row = 0; row < shape.rows; ++row) 
+            for (uint32 row = 0; row < shape.rows; ++row)
             {
-                for(uint32 col = row + 1; col < shape.cols; ++col)
+                for (uint32 col = row + 1; col < shape.cols; ++col)
                 {
                     lMatrix(row, col) = 0.0;
                 }
             }
 
-            for(uint32 k = 0; k < shape.cols; ++k)
+            for (uint32 k = 0; k < shape.cols; ++k)
             {
                 const double& a_kk = lMatrix(k, k);
 
-                if(a_kk > 0.0) 
+                if (a_kk > 0.0)
                 {
                     lMatrix(k, k) = std::sqrt(a_kk);
 
-                    for(uint32 i = k + 1; i < shape.rows; ++i)
+                    for (uint32 i = k + 1; i < shape.rows; ++i)
                     {
                         lMatrix(i, k) /= lMatrix(k, k);
 
-                        for(uint32 j = k + 1; j <= i; ++j)
-                        { 
+                        for (uint32 j = k + 1; j <= i; ++j)
+                        {
                             lMatrix(i, j) -= lMatrix(i, k) * lMatrix(j, k);
                         }
                     }
                 }
-                else 
+                else
                 {
                     THROW_RUNTIME_ERROR("Matrix is not positive definite.");
                 }
@@ -97,5 +99,5 @@ namespace nc
 
             return lMatrix;
         }
-    }  // namespace linalg
-}  // namespace nc
+    } // namespace linalg
+} // namespace nc

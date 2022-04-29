@@ -39,10 +39,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> nans_like(const NdArray<dtype>& inArray) 
+    NdArray<double> nans_like(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
         returnArray.nans();
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -65,7 +65,7 @@ namespace nc
             {
                 return inArray.front();
             }
-            
+
             if (inShape.rows == 2)
             {
                 return inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
@@ -82,8 +82,8 @@ namespace nc
 
                 return aei + bfg + cdh - ceg - bdi - afh;
             }
-            
-            dtype determinant = 0;
+
+            dtype          determinant = 0;
             NdArray<dtype> submat(inShape.rows - 1);
 
             for (uint32 c = 0; c < inShape.rows; ++c)
@@ -108,5 +108,5 @@ namespace nc
 
             return determinant;
         }
-    }  // namespace linalg
-}  // namespace nc
+    } // namespace linalg
+} // namespace nc

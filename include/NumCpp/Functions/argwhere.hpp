@@ -42,8 +42,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argwhere(const NdArray<dtype>& inArray) 
+    NdArray<uint32> argwhere(const NdArray<dtype>& inArray)
     {
         return inArray.flatnonzero();
     }
-}  // namespace nc
+} // namespace nc

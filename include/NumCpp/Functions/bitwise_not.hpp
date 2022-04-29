@@ -39,8 +39,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray) 
+    NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray)
     {
         return ~inArray;
     }
-}  // namespace nc
+} // namespace nc

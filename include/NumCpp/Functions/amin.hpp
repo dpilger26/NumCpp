@@ -43,8 +43,8 @@ namespace nc
     /// @return min value
     ///
     template<typename dtype>
-    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.min(inAxis);
     }
-}  // namespace nc
+} // namespace nc

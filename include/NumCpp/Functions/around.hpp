@@ -42,7 +42,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    dtype around(dtype inValue, uint8 inNumDecimals = 0) 
+    dtype around(dtype inValue, uint8 inNumDecimals = 0)
     {
         NdArray<dtype> value = { inValue };
         return value.round(inNumDecimals).item();
@@ -59,8 +59,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0) 
+    NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0)
     {
         return inArray.round(inNumDecimals);
     }
-}  // namespace nc
+} // namespace nc

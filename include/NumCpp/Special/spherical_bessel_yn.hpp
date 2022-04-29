@@ -76,15 +76,15 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX) 
+        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX)
         {
-            NdArray<decltype(arccos(dtype{0}))> returnArray(inArrayX.shape());
+            NdArray<decltype(arccos(dtype{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) -> auto
-                { 
-                    return spherical_bessel_yn(inV, inX);
-                });
+            stl_algorithms::transform(
+                inArrayX.cbegin(),
+                inArrayX.cend(),
+                returnArray.begin(),
+                [inV](dtype inX) -> auto{ return spherical_bessel_yn(inV, inX); });
 
             return returnArray;
         }

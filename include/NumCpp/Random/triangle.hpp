@@ -30,16 +30,16 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include <algorithm>
+#include <string>
+
+#include "boost/random/triangle_distribution.hpp"
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
-
-#include "boost/random/triangle_distribution.hpp"
-
-#include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -50,7 +50,8 @@ namespace nc
         /// Single random value sampled from the "triangle" distribution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
         /// @param inA
         /// @param inB
@@ -94,7 +95,8 @@ namespace nc
         /// random samples from the "triangle" distribution.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///
         /// @param inShape
         /// @param inA
@@ -133,15 +135,13 @@ namespace nc
 
             boost::random::triangle_distribution<dtype> dist(inA, inB, inC);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
-                [&dist](dtype& value) -> void
-                {
-                    value = dist(generator_);
-                });
+            std::for_each(returnArray.begin(),
+                          returnArray.end(),
+                          [&dist](dtype& value) -> void { value = dist(generator_); });
 
             return returnArray;
         }
     } // namespace random
-}  // namespace nc
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

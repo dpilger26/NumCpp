@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
 
 namespace nc
 {
@@ -49,7 +49,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
@@ -79,7 +79,9 @@ namespace nc
                 NdArray<dtype> returnArray(inArray);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+                    stl_algorithms::rotate(returnArray.begin(row),
+                                           returnArray.begin(row) + shift,
+                                           returnArray.end(row));
                 }
 
                 return returnArray;
@@ -97,7 +99,9 @@ namespace nc
                 NdArray<dtype> returnArray = inArray.transpose();
                 for (uint32 row = 0; row < inShape.cols; ++row)
                 {
-                    stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+                    stl_algorithms::rotate(returnArray.begin(row),
+                                           returnArray.begin(row) + shift,
+                                           returnArray.end(row));
                 }
 
                 return returnArray.transpose();
@@ -109,4 +113,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

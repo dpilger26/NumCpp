@@ -29,14 +29,14 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include <string>
+
+#include "boost/math/special_functions/prime.hpp"
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/prime.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -55,7 +55,8 @@ namespace nc
         {
             if (n > boost::math::max_prime)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input n must be less than or equal to " + std::to_string(boost::math::max_prime));
+                THROW_INVALID_ARGUMENT_ERROR("input n must be less than or equal to " +
+                                             std::to_string(boost::math::max_prime));
             }
 
             return boost::math::prime(n);
@@ -74,15 +75,14 @@ namespace nc
         {
             NdArray<uint32> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> uint32
-                { 
-                    return prime(inValue); 
-                });
+            stl_algorithms::transform(inArray.cbegin(),
+                                      inArray.cend(),
+                                      returnArray.begin(),
+                                      [](uint32 inValue) -> uint32 { return prime(inValue); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

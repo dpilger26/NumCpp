@@ -54,7 +54,7 @@ namespace nc
             /// @param yaw: euler yaw angle in radians
             /// @return NdArray
             ///
-            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) 
+            static NdArray<double> eulerAngles(double roll, double pitch, double yaw)
             {
                 return Quaternion(roll, pitch, yaw).toDCM();
             }
@@ -95,7 +95,7 @@ namespace nc
             /// @param inAngle: euler angle in radians
             /// @return NdArray
             ///
-            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) 
+            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle)
             {
                 return Quaternion(inAxis, inAngle).toDCM();
             }
@@ -112,8 +112,8 @@ namespace nc
             {
                 const Shape inShape = inArray.shape();
                 return inShape.rows == inShape.cols &&
-                    utils::essentiallyEqual(round(linalg::det<double>(inArray), 2),  1.0) &&
-                    utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0);
+                       utils::essentiallyEqual(round(linalg::det<double>(inArray), 2), 1.0) &&
+                       utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0);
             }
 
             //============================================================================
@@ -160,7 +160,7 @@ namespace nc
             /// @param inAngle (in radians)
             /// @return NdArray<double>
             ///
-            static NdArray<double> xRotation(double inAngle) 
+            static NdArray<double> xRotation(double inAngle)
             {
                 return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
             }
@@ -173,7 +173,7 @@ namespace nc
             /// @param inAngle (in radians)
             /// @return NdArray<double>
             ///
-            static NdArray<double> yRotation(double inAngle) 
+            static NdArray<double> yRotation(double inAngle)
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
             }
@@ -186,10 +186,10 @@ namespace nc
             /// @param inAngle (in radians)
             /// @return NdArray<double>
             ///
-            static NdArray<double> zRotation(double inAngle) 
+            static NdArray<double> zRotation(double inAngle)
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }
         };
-    }  // namespace rotations
+    } // namespace rotations
 } // namespace nc

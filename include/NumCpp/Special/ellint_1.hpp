@@ -54,7 +54,7 @@ namespace nc
         ///
         /// @param inK: elliptic modulus or eccentricity
         /// @param inP: Jacobi amplitude (measured in radians)
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype1, typename dtype2>
         auto ellint_1(dtype1 inK, dtype2 inP)
@@ -89,15 +89,16 @@ namespace nc
 
             NdArray<decltype(ellint_1(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayK.shape());
 
-            stl_algorithms::transform(inArrayK.cbegin(), inArrayK.cend(), inArrayP.cbegin(), returnArray.begin(),
-                [](dtype1 inK, dtype2 inP) -> auto
-                {
-                    return ellint_1(inK, inP);
-                });
+            stl_algorithms::transform(
+                inArrayK.cbegin(),
+                inArrayK.cend(),
+                inArrayP.cbegin(),
+                returnArray.begin(),
+                [](dtype1 inK, dtype2 inP) -> auto{ return ellint_1(inK, inP); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
