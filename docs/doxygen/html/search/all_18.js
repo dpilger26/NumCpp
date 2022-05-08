@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_1194',['y',['../classnc_1_1_vec2.html#ad7a5bc1612f92f7e49112cf58caeaace',1,'nc::Vec2::y()'],['../classnc_1_1_vec3.html#a969dd1c195f4c78fc3a93292391e29c1',1,'nc::Vec3::y()'],['../classnc_1_1coordinates_1_1_coordinate.html#a624e354f60ca0822c5a60e9ee6432bc6',1,'nc::coordinates::Coordinate::y()']]],
-  ['yaw_1195',['yaw',['../classnc_1_1rotations_1_1_d_c_m.html#aef0f27b195b93151a94cb86ca9fa21c9',1,'nc::rotations::DCM::yaw()'],['../classnc_1_1rotations_1_1_quaternion.html#a5b5cef534a39badf5d3079ee642e675c',1,'nc::rotations::Quaternion::yaw()']]],
-  ['yrotation_1196',['yRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a9c495cb1fc84c70042d652d84bcddea4',1,'nc::rotations::DCM::yRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#ab77da90ef63465f79bd79348330ca9a4',1,'nc::rotations::Quaternion::yRotation()']]]
+  ['x_1196',['x',['../classnc_1_1_vec2.html#a36a67b9395b397e1b8e9364a39a5c458',1,'nc::Vec2::x()'],['../classnc_1_1_vec3.html#a7f71dd08d58a1327739de6041e3362bb',1,'nc::Vec3::x()'],['../classnc_1_1coordinates_1_1_coordinate.html#aded7d56f04931cfbb07488d45d6bfce5',1,'nc::coordinates::Coordinate::x()']]],
+  ['xrotation_1197',['xRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a7679a0d5443e2abdee0c376ef5f6d1e1',1,'nc::rotations::DCM::xRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#a30fe8031959271e5b0134a0c562713b4',1,'nc::rotations::Quaternion::xRotation()']]],
+  ['xyz_1198',['xyz',['../classnc_1_1coordinates_1_1_coordinate.html#a01ff982f40caae2429c20d0ba66e4afc',1,'nc::coordinates::Coordinate']]]
 ];

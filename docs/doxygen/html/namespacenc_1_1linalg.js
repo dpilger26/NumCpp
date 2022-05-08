@@ -11,7 +11,7 @@ var namespacenc_1_1linalg =
     [ "lstsq", "namespacenc_1_1linalg.html#a9c15421c77e6b4b12fca1515596d1414", null ],
     [ "lu_decomposition", "namespacenc_1_1linalg.html#a153a90dbcc2ca94c664c429868d15bc4", null ],
     [ "matrix_power", "namespacenc_1_1linalg.html#ad27c1996e4e27a6f8ba5d2aed0743bba", null ],
-    [ "multi_dot", "namespacenc_1_1linalg.html#a86ab79e41b748e7ea0ee4f2e0bc462a6", null ],
+    [ "multi_dot", "namespacenc_1_1linalg.html#a81e0a23be4542fea04d75cad8e7378ca", null ],
     [ "pivotLU_decomposition", "namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd", null ],
     [ "solve", "namespacenc_1_1linalg.html#afe2a5221f8e22e671e9e6eb231516205", null ],
     [ "svd", "namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055", null ]

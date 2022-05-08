@@ -56,6 +56,7 @@ var files_dup =
     [ "Bisection.hpp", "_bisection_8hpp.html", [
       [ "Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ]
     ] ],
+    [ "bit_count.hpp", "bit__count_8hpp.html", "bit__count_8hpp" ],
     [ "bitwise_and.hpp", "bitwise__and_8hpp.html", "bitwise__and_8hpp" ],
     [ "bitwise_not.hpp", "bitwise__not_8hpp.html", "bitwise__not_8hpp" ],
     [ "bitwise_or.hpp", "bitwise__or_8hpp.html", "bitwise__or_8hpp" ],

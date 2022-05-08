@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['value_2389',['value',['../structnc_1_1all__arithmetic_3_01_head_00_01_tail_8_8_8_01_4.html#a6e1a48ad3dc95bb666261cd0e3503f5c',1,'nc::all_arithmetic&lt; Head, Tail... &gt;::value()'],['../structnc_1_1all__arithmetic_3_01_t_01_4.html#aeb8a99e0539f9d4d01b6ac63dfe6c186',1,'nc::all_arithmetic&lt; T &gt;::value()'],['../structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4.html#a35efae6bdf247952d31021b7e811a653',1,'nc::all_same&lt; T1, Head, Tail... &gt;::value()'],['../structnc_1_1all__same_3_01_t1_00_01_t2_01_4.html#a02b49e4936f586c2407c089400ee891f',1,'nc::all_same&lt; T1, T2 &gt;::value()'],['../structnc_1_1is__valid__dtype.html#af383f42b2b624cc161c1748b98cc541e',1,'nc::is_valid_dtype::value()'],['../structnc_1_1is__complex.html#a273a78ae8b41cf81e633f259204ce5dd',1,'nc::is_complex::value()'],['../structnc_1_1is__complex_3_01std_1_1complex_3_01_t_01_4_01_4.html#add526ed6ceb3045a816385e5c2c6d553',1,'nc::is_complex&lt; std::complex&lt; T &gt; &gt;::value()'],['../structnc_1_1greater_than.html#a6664c509bb1b73d1547aeffa4ea2afec',1,'nc::greaterThan::value()']]],
-  ['version_2390',['VERSION',['../namespacenc.html#a8fa2b5de82ba40f346d1ba1e3ad0397a',1,'nc']]]
+  ['seconds_5fper_5fday_2394',['SECONDS_PER_DAY',['../namespacenc_1_1constants.html#a766ec3bf1f6fb57f586f943cea1946c3',1,'nc::constants']]],
+  ['seconds_5fper_5fhour_2395',['SECONDS_PER_HOUR',['../namespacenc_1_1constants.html#ad635a54557e853e1ee098d0ead5f1902',1,'nc::constants']]],
+  ['seconds_5fper_5fminute_2396',['SECONDS_PER_MINUTE',['../namespacenc_1_1constants.html#ad89620cbdf9102f40ec7c0fd52c16a5e',1,'nc::constants']]],
+  ['seconds_5fper_5fweek_2397',['SECONDS_PER_WEEK',['../namespacenc_1_1constants.html#ac36cac5f19ce5f81b2acc562f247f0be',1,'nc::constants']]],
+  ['start_2398',['start',['../classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f',1,'nc::Slice']]],
+  ['step_2399',['step',['../classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4',1,'nc::Slice']]],
+  ['stop_2400',['stop',['../classnc_1_1_slice.html#ac2d72f4ca003ed645bc82efcafee87f5',1,'nc::Slice']]]
 ];
