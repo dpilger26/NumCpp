@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.14...3.99)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
@@ -62,6 +62,7 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 target_compile_features(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:cxx_std_17>)
 
 if (BUILD_DOCS)
+    set(-Wno-dev)
     message(STATUS "Configuring Doxygen docs")
     find_package(Doxygen QUIET)
     if(DOXYGEN_FOUND)

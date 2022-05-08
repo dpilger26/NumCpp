@@ -3,30 +3,31 @@
 ## Version 2.8.0
 
 * added `bit_count`, Computes the number of 1-bits in the absolute value of the input
+* documentation updates
 * various minor performance improvements and bug fixes
 
 ## Version 2.7.0
 
-* added `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
-* added `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
-* added `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
-* added `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+* added `bartlett`, <https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html>
+* added `blackman`, <https://numpy.org/doc/stable/reference/generated/numpy.blackman.html>
+* added `corrcoef`, <https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html>
+* added `cov`, <https://numpy.org/doc/stable/reference/generated/numpy.cov.html>
 * added `cov_inv`, the inverse covariance matrix, aka the concentration matrix
-* added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
-* added `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
-* added `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
-* added `hanning`, https://numpy.org/doc/stable/reference/generated/numpy.hanning.html
-* added `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
-* added `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
-* added `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
-* added `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
+* added `extract`, <https://numpy.org/doc/stable/reference/generated/numpy.extract.html>
+* added `geomspace`, <https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html>
+* added `hamming`, <https://numpy.org/doc/stable/reference/generated/numpy.hamming.html>
+* added `hanning`, <https://numpy.org/doc/stable/reference/generated/numpy.hanning.html>
+* added `inner`, <https://numpy.org/doc/stable/reference/generated/numpy.inner.html>
+* added `isneginf`, <https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html>
+* added `isposinf`, <https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html>
+* added `kaiser`, <https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html>
 * added `logb`, logarithm of with an arbitrary base b
-* added `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
+* added `logspace`, <https://numpy.org/doc/stable/reference/generated/numpy.logspace.html>
 * added `nth_root`, the nth root of a value
-* added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
-* added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
+* added `place`, <https://numpy.org/doc/stable/reference/generated/numpy.place.html>
+* added `select` function, <https://numpy.org/doc/stable/reference/generated/numpy.select.html>
 * `fmod` and the modulus `%` operator now work with float dtypes
-* added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, https://en.wikipedia.org/wiki/Hamming_code
+* added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, <https://en.wikipedia.org/wiki/Hamming_code>
 * various minor performance improvements and bug fixes
 
 ## Version 2.6.2

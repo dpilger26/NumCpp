@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.14...3.99)
 
 set(NUMCPP_INCLUDES ../../include)
 
@@ -22,8 +22,6 @@ file(
   "${NUMCPP_INCLUDES}/*.h*"
 )
 
-add_library(${PROJECT_NAME} SHARED NumCppPy.cpp ${_source_list})
-
 foreach(_source IN ITEMS ${_source_list})
   get_filename_component(_source_path "${_source}" DIRECTORY)
   string(REPLACE "${CMAKE_SOURCE_DIR}" "" _group_path "${_source_path}")
@@ -32,44 +30,43 @@ foreach(_source IN ITEMS ${_source_list})
   source_group("${_group_path}" FILES "${_source}")
 endforeach()
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE 
-  -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
-)
+add_library(${PROJECT_NAME} SHARED NumCppPy.cpp ${_source_list})
 
-if(NUMCPP_NO_USE_BOOST)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
-endif()
-
-if(NUMCPP_USE_MULTITHREAD)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_USE_MULTITHREAD)
-endif()
-
-if(NOT NUMCPP_NO_USE_BOOST)
-  set(Boost_USE_STATIC_LIBS TRUE) 
-  find_package(Boost 1.68.0 REQUIRED)
-endif()
-
-set(Python3_USE_STATIC_LIBS True)
-find_package(Python 3.8
-  COMPONENTS
-  Development
-)
-
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
 target_include_directories(${PROJECT_NAME} PRIVATE 
   ${NUMCPP_INCLUDES}
 )
 
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE 
-  Python::Python
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
+set(Python_USE_STATIC_LIBS True)
+find_package(Python 3.9
+  COMPONENTS
+  Development.Module
 )
 
-if (NOT NUMCPP_NO_USE_BOOST)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  Python::Module
+)
+
+if(NUMCPP_NO_USE_BOOST)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
+else()
+  find_package(Boost 1.68.0 REQUIRED)
   target_link_libraries(${PROJECT_NAME} PRIVATE 
     Boost::headers
   )
+endif()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
+)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE 
+  -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
+)
+
+if(NUMCPP_USE_MULTITHREAD)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE 
+    -DNUMCPP_USE_MULTITHREAD)
 endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
@@ -88,7 +85,7 @@ set_target_properties(${PROJECT_NAME}
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>

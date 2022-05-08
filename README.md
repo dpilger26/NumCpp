@@ -24,12 +24,12 @@
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org/std/the-standard)
 
 **Compilers:**  
-Visual Studio: 2017, 2019, 2022  
-GNU: 6.5, 7.5, 8.4, 9.3, 10.1, 11.1  
-Clang: 6, 7, 8, 9, 10, 11, 12  
+Visual Studio: 2022  
+GNU: 11.2  
+Clang: 14  
 
 **Boost Versions:**  
-1.68+
+1.73+
 
 ## [Documentation](https://dpilger26.github.io/NumCpp)
 
