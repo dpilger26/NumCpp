@@ -3,6 +3,7 @@
 ## Version 2.8.0
 
 * added `bit_count`, Computes the number of 1-bits in the absolute value of the input
+* new non-global random interface
 * documentation updates
 * various minor performance improvements and bug fixes
 

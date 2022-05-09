@@ -29,8 +29,6 @@
 
 #include <random>
 
-#include "NumCpp/Core/Types.hpp"
-
 namespace nc
 {
     namespace random
@@ -47,7 +45,7 @@ namespace nc
         ///
         /// @param inSeed
         ///
-        inline void seed(uint32 inSeed)
+        inline void seed(int inSeed)
         {
             generator_.seed(inSeed);
         }

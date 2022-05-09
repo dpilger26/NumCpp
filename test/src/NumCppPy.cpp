@@ -1,5 +1,8 @@
 #include "NumCpp.hpp"
-#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "pybind11/complex.h"
+#include "pybind11/numpy.h"
+#include "pybind11/pybind11.h"
+#include "pybind11/stl.h"
 
 #include <algorithm>
 #include <array>
@@ -17,10 +20,7 @@
 #include <utility>
 #include <vector>
 
-#include "pybind11/pybind11.h"
-#include "pybind11/complex.h"
-#include "pybind11/numpy.h"
-#include "pybind11/stl.h"
+#include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 
 using namespace nc;
 using namespace nc::pybindInterface;
@@ -30,12 +30,12 @@ namespace pb11 = pybind11;
 
 namespace ShapeInterface
 {
-    bool testListContructor() 
+    bool testListContructor()
     {
         const Shape test = { 357, 666 };
         return test.rows == 357 && test.cols == 666;
     }
-}  // namespace ShapeInterface
+} // namespace ShapeInterface
 
 //================================================================================
 
@@ -174,7 +174,7 @@ namespace IteratorInterface
     {
         return self[offset];
     }
-}  // namespace IteratorInterface
+} // namespace IteratorInterface
 
 //================================================================================
 
@@ -185,13 +185,8 @@ namespace NdArrayInterface
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtype> test = { dtype{1},
-            dtype{2},
-            dtype{3},
-            dtype{4},
-            dtype{666},
-            dtype{357},
-            dtype{314159} };
+        NdArray<dtype> test = { dtype{ 1 },   dtype{ 2 },   dtype{ 3 },     dtype{ 4 },
+                                dtype{ 666 }, dtype{ 357 }, dtype{ 314159 } };
         if (test.size() != 7)
         {
             return false;
@@ -202,13 +197,8 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == dtype{ 1 } &&
-            test[1] == dtype{ 2 } &&
-            test[2] == dtype{ 3 } &&
-            test[3] == dtype{ 4 } &&
-            test[4] == dtype{ 666 } &&
-            test[5] == dtype{ 357 } &&
-            test[6] == dtype{ 314159 };
+        return test[0] == dtype{ 1 } && test[1] == dtype{ 2 } && test[2] == dtype{ 3 } && test[3] == dtype{ 4 } &&
+               test[4] == dtype{ 666 } && test[5] == dtype{ 357 } && test[6] == dtype{ 314159 };
     }
 
     //================================================================================
@@ -218,10 +208,10 @@ namespace NdArrayInterface
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        NdArray<dtype> test = { {dtype{1}, dtype{2}}, 
-            {dtype{4}, dtype{666}},
-            {dtype{314159}, dtype{9}},
-            {dtype{0}, dtype{8}} };
+        NdArray<dtype> test = { { dtype{ 1 }, dtype{ 2 } },
+                                { dtype{ 4 }, dtype{ 666 } },
+                                { dtype{ 314159 }, dtype{ 9 } },
+                                { dtype{ 0 }, dtype{ 8 } } };
         if (test.size() != 8)
         {
             return false;
@@ -232,14 +222,8 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == dtype{ 1 } &&
-            test[1] == dtype{ 2 } &&
-            test[2] == dtype{ 4 } &&
-            test[3] == dtype{ 666 } &&
-            test[4] == dtype{ 314159 } &&
-            test[5] == dtype{ 9 } &&
-            test[6] == dtype{ 0 } &&
-            test[7] == dtype{ 8 };
+        return test[0] == dtype{ 1 } && test[1] == dtype{ 2 } && test[2] == dtype{ 4 } && test[3] == dtype{ 666 } &&
+               test[4] == dtype{ 314159 } && test[5] == dtype{ 9 } && test[6] == dtype{ 0 } && test[7] == dtype{ 8 };
     }
 
     //================================================================================
@@ -247,8 +231,8 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test1dArrayConstructor(T value1, T value2)
     {
-        std::array<T, 2> arr = {value1, value2};
-        auto newNcArray = NdArray<T>(arr);
+        std::array<T, 2> arr        = { value1, value2 };
+        auto             newNcArray = NdArray<T>(arr);
 
         return nc2pybind(newNcArray);
     }
@@ -259,10 +243,10 @@ namespace NdArrayInterface
     pbArrayGeneric test2dArrayConstructor(T value1, T value2)
     {
         std::array<std::array<T, 2>, 2> arr2d{};
-        arr2d[0][0] = value1;
-        arr2d[0][1] = value2;
-        arr2d[1][0] = value1;
-        arr2d[1][1] = value2;
+        arr2d[0][0]     = value1;
+        arr2d[0][1]     = value2;
+        arr2d[1][0]     = value1;
+        arr2d[1][1]     = value2;
         auto newNcArray = NdArray<T>(arr2d);
 
         return nc2pybind(newNcArray);
@@ -391,8 +375,8 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test1dIteratorConstructor2(pbArray<T> inArray)
     {
-        const auto ncArray = pybind2nc(inArray);
-        auto newNcArray = NdArray<T>(ncArray.cbegin(), ncArray.cend());
+        const auto ncArray    = pybind2nc(inArray);
+        auto       newNcArray = NdArray<T>(ncArray.cbegin(), ncArray.cend());
 
         return nc2pybind(newNcArray.reshape(ncArray.shape()));
     }
@@ -402,8 +386,8 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test1dPointerConstructor(pbArray<T> inArray)
     {
-        const auto ncArray = pybind2nc(inArray);
-        auto newNcArray = NdArray<T>(ncArray.data(), ncArray.size());
+        const auto ncArray    = pybind2nc(inArray);
+        auto       newNcArray = NdArray<T>(ncArray.data(), ncArray.size());
 
         return nc2pybind(newNcArray.reshape(ncArray.shape()));
     }
@@ -413,8 +397,8 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test2dPointerConstructor(pbArray<T> inArray)
     {
-        const auto ncArray = pybind2nc(inArray);
-        auto newNcArray = NdArray<T>(ncArray.data(), ncArray.numRows(), ncArray.numCols());
+        const auto ncArray    = pybind2nc(inArray);
+        auto       newNcArray = NdArray<T>(ncArray.data(), ncArray.numRows(), ncArray.numCols());
 
         return nc2pybind(newNcArray);
     }
@@ -424,7 +408,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test1dPointerShellConstructor(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray).copy();
+        auto ncArray    = pybind2nc(inArray).copy();
         auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.size(), true);
 
         return nc2pybind(newNcArray.reshape(ncArray.shape()));
@@ -435,7 +419,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric test2dPointerShellConstructor(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray).copy();
+        auto ncArray    = pybind2nc(inArray).copy();
         auto newNcArray = NdArray<T>(ncArray.dataRelease(), ncArray.numRows(), ncArray.numCols(), true);
 
         return nc2pybind(newNcArray);
@@ -446,8 +430,8 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric testCopyConstructor(pbArray<T> inArray)
     {
-        const auto ncArray = pybind2nc(inArray);
-        auto newNcArray = NdArray<T>(ncArray);
+        const auto ncArray    = pybind2nc(inArray);
+        auto       newNcArray = NdArray<T>(ncArray);
 
         return nc2pybind(newNcArray);
     }
@@ -457,7 +441,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric testMoveConstructor(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray);
+        auto ncArray    = pybind2nc(inArray);
         auto newNcArray = NdArray<T>(std::move(ncArray));
 
         return nc2pybind(newNcArray);
@@ -468,7 +452,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric testAssignementOperator(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray);
+        auto       ncArray = pybind2nc(inArray);
         NdArray<T> newNcArray;
         newNcArray = ncArray;
 
@@ -481,7 +465,7 @@ namespace NdArrayInterface
     pbArrayGeneric testAssignementScalerOperator(pbArray<T> inArray, T value)
     {
         auto ncArray = pybind2nc(inArray);
-        ncArray = value;
+        ncArray      = value;
 
         return nc2pybind(ncArray);
     }
@@ -491,7 +475,7 @@ namespace NdArrayInterface
     template<typename T>
     pbArrayGeneric testMoveAssignementOperator(pbArray<T> inArray)
     {
-        auto ncArray = pybind2nc(inArray);
+        auto       ncArray = pybind2nc(inArray);
         NdArray<T> newNcArray;
         newNcArray = std::move(ncArray);
 
@@ -502,10 +486,10 @@ namespace NdArrayInterface
 
     struct TestStruct
     {
-        int member1{ 0 };
-        int member2{ 0 };
+        int    member1{ 0 };
+        int    member2{ 0 };
         double member3{ 0.0 };
-        bool member4{ true };
+        bool   member4{ true };
     };
 
     //================================================================================
@@ -518,14 +502,14 @@ namespace NdArrayInterface
         NdArray<TestStruct> test4(test3.shape());
         NdArray<TestStruct> test5_1(test2);
         NdArray<TestStruct> test5_2(std::move(test4));
-        NdArray<TestStruct> test6 = { TestStruct{666, 357, 3.14519, true},
-            TestStruct{666, 357, 3.14519, true} };
-        NdArray<TestStruct> test7 = { {TestStruct{666, 357, 3.14519, true}, TestStruct{667, 377, 3.7519, false}},
-            {TestStruct{665, 357, 3.15519, false}, TestStruct{69, 359, 3.19519, true}} };
+        NdArray<TestStruct> test6 = { TestStruct{ 666, 357, 3.14519, true }, TestStruct{ 666, 357, 3.14519, true } };
+        NdArray<TestStruct> test7 = { { TestStruct{ 666, 357, 3.14519, true }, TestStruct{ 667, 377, 3.7519, false } },
+                                      { TestStruct{ 665, 357, 3.15519, false },
+                                        TestStruct{ 69, 359, 3.19519, true } } };
 
         auto testStruct = TestStruct{ 666, 357, 3.14519, true };
-        test6 = testStruct;
-        test1.resizeFast({10, 10});
+        test6           = testStruct;
+        test1.resizeFast({ 10, 10 });
         test1 = testStruct;
 
         test7.begin();
@@ -533,7 +517,7 @@ namespace NdArrayInterface
         test5_2.end();
         test2.end(0);
 
-        test2.resizeFast({10, 10});
+        test2.resizeFast({ 10, 10 });
         test2 = TestStruct{ 666, 357, 3.14519, true };
         test2.rSlice();
         test2.cSlice();
@@ -544,13 +528,13 @@ namespace NdArrayInterface
         test2.diagonal();
         test2.dump("test.bin");
         remove("test.bin");
-        test2.fill(TestStruct{0, 1, 6.5, false});
+        test2.fill(TestStruct{ 0, 1, 6.5, false });
         test2.flatten();
         test2.front();
         test2[0];
         test2(0, 0);
-        test2[0] = TestStruct{0, 1, 6.5, false};
-        test2(0, 0) = TestStruct{0, 1, 6.5, false};
+        test2[0]    = TestStruct{ 0, 1, 6.5, false };
+        test2(0, 0) = TestStruct{ 0, 1, 6.5, false };
         test2.isempty();
         test2.isflat();
         test2.issquare();
@@ -559,7 +543,7 @@ namespace NdArrayInterface
         test2.numCols();
         test2.put(0, TestStruct{ 0, 1, 6.5, false });
         test2.ravel();
-        test2.repeat({2, 2});
+        test2.repeat({ 2, 2 });
         test2.reshape(test2.size(), 1);
         test2.resizeFast(1, 1);
         test2.resizeSlow(10, 10);
@@ -830,7 +814,6 @@ namespace NdArrayInterface
 
     //================================================================================
 
-
     template<typename dtype>
     pbArrayGeneric getSlice1D(const NdArray<dtype>& self, const Slice& inSlice)
     {
@@ -864,8 +847,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
-        int32 colIndex)
+    pbArrayGeneric getIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
     {
         return nc2pybind(self(rowIndices, colIndex));
     }
@@ -873,8 +855,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndicesSlice(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
-        Slice colSlice)
+    pbArrayGeneric getIndicesSlice(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, Slice colSlice)
     {
         return nc2pybind(self(rowIndices, colSlice));
     }
@@ -882,8 +863,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getScalerIndices(const NdArray<dtype>& self, int32 rowIndex,
-        const NdArray<int32>& colIndices)
+    pbArrayGeneric getScalerIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
     {
         return nc2pybind(self(rowIndex, colIndices));
     }
@@ -891,8 +871,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getSliceIndices(const NdArray<dtype>& self, Slice rowSlice,
-        const NdArray<int32>& colIndices)
+    pbArrayGeneric getSliceIndices(const NdArray<dtype>& self, Slice rowSlice, const NdArray<int32>& colIndices)
     {
         return nc2pybind(self(rowSlice, colIndices));
     }
@@ -900,8 +879,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, 
-        const NdArray<int32>& colIndices)
+    pbArrayGeneric
+        getIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices)
     {
         return nc2pybind(self(rowIndices, colIndices));
     }
@@ -1053,7 +1032,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+    pbArrayGeneric
+        putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inSliceRow, inSliceCol, inValue);
         return nc2pybind(self);
@@ -1080,7 +1060,10 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, pbArray<dtype>& inArrayValues)
+    pbArrayGeneric putSlice2DValues(NdArray<dtype>& self,
+                                    const Slice&    inSliceRow,
+                                    const Slice&    inSliceCol,
+                                    pbArray<dtype>& inArrayValues)
     {
         NdArray<dtype> inValues = pybind2nc(inArrayValues);
         self.put(inSliceRow, inSliceCol, inValues);
@@ -1090,7 +1073,10 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric putSlice2DValuesRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, pbArray<dtype>& inArrayValues)
+    pbArrayGeneric putSlice2DValuesRow(NdArray<dtype>& self,
+                                       int32           inRowIndex,
+                                       const Slice&    inSliceCol,
+                                       pbArray<dtype>& inArrayValues)
     {
         NdArray<dtype> inValues = pybind2nc(inArrayValues);
         self.put(inRowIndex, inSliceCol, inValues);
@@ -1100,7 +1086,10 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric putSlice2DValuesCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, pbArray<dtype>& inArrayValues)
+    pbArrayGeneric putSlice2DValuesCol(NdArray<dtype>& self,
+                                       const Slice&    inSliceRow,
+                                       int32           inColIndex,
+                                       pbArray<dtype>& inArrayValues)
     {
         NdArray<dtype> inValues = pybind2nc(inArrayValues);
         self.put(inSliceRow, inColIndex, inValues);
@@ -1122,7 +1111,7 @@ namespace NdArrayInterface
     template<typename dtype>
     pbArrayGeneric putMaskMultiple(NdArray<dtype>& self, pbArray<bool>& inMask, pbArray<dtype>& inArrayValues)
     {
-        auto mask = pybind2nc(inMask);
+        auto mask     = pybind2nc(inMask);
         auto inValues = pybind2nc(inArrayValues);
         self.putMask(mask, inValues);
         return nc2pybind(self);
@@ -1324,7 +1313,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorPlusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorPlusArithArrayComplexArray(const NdArray<dtype>&               lhs,
+                                                      const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1332,7 +1322,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorPlusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorPlusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs,
+                                                      const NdArray<dtype>&               rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1404,7 +1395,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorMinusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMinusEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs,
+                                                            const NdArray<dtype>&         rhs)
     {
         return nc2pybind(lhs -= rhs);
     }
@@ -1436,7 +1428,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorMinusArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorMinusArithArrayComplexArray(const NdArray<dtype>&               lhs,
+                                                       const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1444,7 +1437,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorMinusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMinusComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs,
+                                                       const NdArray<dtype>&               rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1508,7 +1502,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorMultiplyEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMultiplyEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs,
+                                                               const NdArray<dtype>&         rhs)
     {
         return nc2pybind(lhs *= rhs);
     }
@@ -1540,7 +1535,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorMultiplyArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorMultiplyArithArrayComplexArray(const NdArray<dtype>&               lhs,
+                                                          const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1548,7 +1544,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorMultiplyComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMultiplyComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs,
+                                                          const NdArray<dtype>&               rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1612,7 +1609,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorDivideEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorDivideEqualComplexArrayArithArray(NdArray<std::complex<dtype>>& lhs,
+                                                             const NdArray<dtype>&         rhs)
     {
         return nc2pybind(lhs /= rhs);
     }
@@ -1644,7 +1642,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (2)
-    pbArrayGeneric operatorDivideArithArrayComplexArray(const NdArray<dtype>& lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorDivideArithArrayComplexArray(const NdArray<dtype>&               lhs,
+                                                        const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1652,7 +1651,8 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorDivideComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorDivideComplexArrayArithArray(const NdArray<std::complex<dtype>>& lhs,
+                                                        const NdArray<dtype>&               rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -2056,7 +2056,7 @@ namespace NdArrayInterface
     {
         return nc2pybind(inArray--);
     }
-}  // namespace NdArrayInterface
+} // namespace NdArrayInterface
 
 //================================================================================
 
@@ -2255,7 +2255,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctan2Scaler(dtype inY, dtype inX) 
+    dtype arctan2Scaler(dtype inY, dtype inX)
     {
         return arctan2(inY, inX);
     }
@@ -2314,7 +2314,7 @@ namespace FunctionsInterface
     template<typename dtype>
     pbArrayGeneric asarrayInitializerList2D(dtype inValue1, dtype inValue2)
     {
-        auto a = asarray({ {inValue1, inValue2}, {inValue1, inValue2} });
+        auto a = asarray({ { inValue1, inValue2 }, { inValue1, inValue2 } });
         return nc2pybind<dtype>(a);
     }
 
@@ -2324,7 +2324,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayArray1D(dtype inValue1, dtype inValue2)
     {
         std::array<dtype, 2> arr = { inValue1, inValue2 };
-        auto a = asarray(arr, false);
+        auto                 a   = asarray(arr, false);
         return nc2pybind<dtype>(a);
     }
 
@@ -2334,7 +2334,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayArray1DCopy(dtype inValue1, dtype inValue2)
     {
         std::array<dtype, 2> arr = { inValue1, inValue2 };
-        auto a = asarray(arr, true);
+        auto                 a   = asarray(arr, true);
         return nc2pybind<dtype>(a);
     }
 
@@ -2374,7 +2374,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayVector1D(dtype inValue1, dtype inValue2)
     {
         std::vector<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr, false);
+        auto               a   = asarray(arr, false);
         return nc2pybind<dtype>(a);
     }
 
@@ -2384,7 +2384,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayVector1DCopy(dtype inValue1, dtype inValue2)
     {
         std::vector<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr, true);
+        auto               a   = asarray(arr, true);
         return nc2pybind<dtype>(a);
     }
 
@@ -2439,7 +2439,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayDeque1D(dtype inValue1, dtype inValue2)
     {
         std::deque<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr);
+        auto              a   = asarray(arr);
         return nc2pybind<dtype>(a);
     }
 
@@ -2464,7 +2464,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayList(dtype inValue1, dtype inValue2)
     {
         std::list<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr);
+        auto             a   = asarray(arr);
         return nc2pybind<dtype>(a);
     }
 
@@ -2474,7 +2474,7 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayIterators(dtype inValue1, dtype inValue2)
     {
         std::vector<dtype> arr = { inValue1, inValue2 };
-        auto a = asarray(arr.begin(), arr.end());
+        auto               a   = asarray(arr.begin(), arr.end());
         return nc2pybind<dtype>(a);
     }
 
@@ -2484,9 +2484,9 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointerIterators(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(2);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        auto a = asarray(ptr.get(), ptr.get() + 2);
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        auto a   = asarray(ptr.get(), ptr.get() + 2);
         return nc2pybind<dtype>(a);
     }
 
@@ -2496,9 +2496,9 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointer(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(2);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        auto a = asarray(ptr.release(), uint32{ 2 });
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        auto a   = asarray(ptr.release(), uint32{ 2 });
         return nc2pybind<dtype>(a);
     }
 
@@ -2508,11 +2508,11 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointer2D(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(4);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        ptr[2] = inValue1;
-        ptr[3] = inValue2;
-        auto a = asarray(ptr.release(), uint32{ 2 }, uint32{ 2 });
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        ptr[2]   = inValue1;
+        ptr[3]   = inValue2;
+        auto a   = asarray(ptr.release(), uint32{ 2 }, uint32{ 2 });
         return nc2pybind<dtype>(a);
     }
 
@@ -2522,9 +2522,9 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointerShell(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(2);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        auto a = asarray(ptr.get(), uint32{ 2 }, false);
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        auto a   = asarray(ptr.get(), uint32{ 2 }, false);
         return nc2pybind<dtype>(a);
     }
 
@@ -2534,11 +2534,11 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointerShell2D(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(4);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        ptr[2] = inValue1;
-        ptr[3] = inValue2;
-        auto a = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 }, false);
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        ptr[2]   = inValue1;
+        ptr[3]   = inValue2;
+        auto a   = asarray(ptr.get(), uint32{ 2 }, uint32{ 2 }, false);
         return nc2pybind<dtype>(a);
     }
 
@@ -2548,9 +2548,9 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointerShellTakeOwnership(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(2);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        auto a = asarray(ptr.release(), 2, true);
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        auto a   = asarray(ptr.release(), 2, true);
         return nc2pybind<dtype>(a);
     }
 
@@ -2560,11 +2560,11 @@ namespace FunctionsInterface
     pbArrayGeneric asarrayPointerShell2DTakeOwnership(dtype inValue1, dtype inValue2)
     {
         auto ptr = std::make_unique<dtype[]>(4);
-        ptr[0] = inValue1;
-        ptr[1] = inValue2;
-        ptr[2] = inValue1;
-        ptr[3] = inValue2;
-        auto a = asarray(ptr.release(), 2, 2, true);
+        ptr[0]   = inValue1;
+        ptr[1]   = inValue2;
+        ptr[2]   = inValue1;
+        ptr[3]   = inValue2;
+        auto a   = asarray(ptr.release(), 2, 2, true);
         return nc2pybind<dtype>(a);
     }
 
@@ -2579,7 +2579,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    pbArrayGeneric
+        averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(average(inArray, inWeights, inAxis));
     }
@@ -2587,8 +2588,9 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric averageWeightedComplex(const NdArray<std::complex<dtype>>& inArray, 
-        const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    pbArrayGeneric averageWeightedComplex(const NdArray<std::complex<dtype>>& inArray,
+                                          const NdArray<dtype>&               inWeights,
+                                          Axis                                inAxis = Axis::NONE)
     {
         return nc2pybind(average(inArray, inWeights, inAxis));
     }
@@ -2604,7 +2606,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+    pbArrayGeneric
+        bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
     {
         return nc2pybind(bincount(inArray, inWeights, inMinLength));
     }
@@ -2706,7 +2709,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cbrtScaler(dtype inValue) 
+    dtype cbrtScaler(dtype inValue)
     {
         return cbrt(inValue);
     }
@@ -2722,7 +2725,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ceilScaler(dtype inValue) 
+    dtype ceilScaler(dtype inValue)
     {
         return ceil(inValue);
     }
@@ -2738,7 +2741,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE) 
+    pbArrayGeneric centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE)
     {
         return nc2pybind(nc::centerOfMass(inArray, inAxis));
     }
@@ -2762,8 +2765,10 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    pbArrayGeneric column_stack(const NdArray<dtype>& inArray1,
+                                const NdArray<dtype>& inArray2,
+                                const NdArray<dtype>& inArray3,
+                                const NdArray<dtype>& inArray4)
     {
         return nc2pybind(nc::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -2819,8 +2824,11 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis inAxis)
+    pbArrayGeneric concatenate(const NdArray<dtype>& inArray1,
+                               const NdArray<dtype>& inArray2,
+                               const NdArray<dtype>& inArray3,
+                               const NdArray<dtype>& inArray4,
+                               Axis                  inAxis)
     {
         return nc2pybind(nc::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -2940,7 +2948,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype deg2radScaler(dtype inValue) 
+    dtype deg2radScaler(dtype inValue)
     {
         return deg2rad(inValue);
     }
@@ -2956,7 +2964,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype degreesScaler(dtype inValue) 
+    dtype degreesScaler(dtype inValue)
     {
         return degrees(inValue);
     }
@@ -3084,7 +3092,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype exp2Scaler(dtype inValue) 
+    dtype exp2Scaler(dtype inValue)
     {
         return exp2(inValue);
     }
@@ -3100,7 +3108,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expm1Scaler(dtype inValue) 
+    dtype expm1Scaler(dtype inValue)
     {
         return expm1(inValue);
     }
@@ -3139,14 +3147,14 @@ namespace FunctionsInterface
 
     //================================================================================
 
-    pbArrayGeneric find(const NdArray<bool>& inArray) 
+    pbArrayGeneric find(const NdArray<bool>& inArray)
     {
         return nc2pybind(nc::find(inArray));
     }
 
     //================================================================================
 
-    pbArrayGeneric findN(const NdArray<bool>& inArray, uint32 n) 
+    pbArrayGeneric findN(const NdArray<bool>& inArray, uint32 n)
     {
         return nc2pybind(nc::find(inArray, n));
     }
@@ -3154,7 +3162,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fixScaler(dtype inValue) 
+    dtype fixScaler(dtype inValue)
     {
         return fix(inValue);
     }
@@ -3170,7 +3178,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floorScaler(dtype inValue) 
+    dtype floorScaler(dtype inValue)
     {
         return floor(inValue);
     }
@@ -3186,7 +3194,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floor_divideScaler(dtype inValue1, dtype inValue2) 
+    dtype floor_divideScaler(dtype inValue1, dtype inValue2)
     {
         return floor_divide(inValue1, inValue2);
     }
@@ -3202,7 +3210,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fmaxScaler(dtype inValue1, dtype inValue2) 
+    dtype fmaxScaler(dtype inValue1, dtype inValue2)
     {
         return fmax(inValue1, inValue2);
     }
@@ -3218,7 +3226,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fminScaler(dtype inValue1, dtype inValue2) 
+    dtype fminScaler(dtype inValue1, dtype inValue2)
     {
         return fmin(inValue1, inValue2);
     }
@@ -3232,7 +3240,7 @@ namespace FunctionsInterface
     }
 
     template<typename dtype>
-    dtype fmodScaler(dtype inValue1, dtype inValue2) 
+    dtype fmodScaler(dtype inValue1, dtype inValue2)
     {
         return fmod(inValue1, inValue2);
     }
@@ -3307,7 +3315,7 @@ namespace FunctionsInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     template<typename dtype>
-    dtype gcdScaler(dtype inValue1, dtype inValue2) 
+    dtype gcdScaler(dtype inValue1, dtype inValue2)
     {
         return gcd(inValue1, inValue2);
     }
@@ -3367,15 +3375,17 @@ namespace FunctionsInterface
     template<typename dtype>
     pb11::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
-        std::pair<NdArray<uint32>, NdArray<double> > output = nc::histogram(inArray, inNumBins);
+        std::pair<NdArray<uint32>, NdArray<double>> output = nc::histogram(inArray, inNumBins);
         return pb11::make_tuple(output.first, output.second);
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    pbArrayGeneric hstack(const NdArray<dtype>& inArray1,
+                          const NdArray<dtype>& inArray2,
+                          const NdArray<dtype>& inArray3,
+                          const NdArray<dtype>& inArray4)
     {
         return nc2pybind(nc::hstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -3383,7 +3393,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScaler(dtype inValue1, dtype inValue2) 
+    dtype hypotScaler(dtype inValue1, dtype inValue2)
     {
         return hypot(inValue1, inValue2);
     }
@@ -3391,7 +3401,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3) 
+    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3)
     {
         return hypot(inValue1, inValue2, inValue3);
     }
@@ -3439,7 +3449,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isinfScaler(dtype inValue) 
+    bool isinfScaler(dtype inValue)
     {
         return nc::isinf(inValue);
     }
@@ -3455,7 +3465,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isposinfScaler(dtype inValue) 
+    bool isposinfScaler(dtype inValue)
     {
         return nc::isposinf(inValue);
     }
@@ -3471,7 +3481,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isneginfScaler(dtype inValue) 
+    bool isneginfScaler(dtype inValue)
     {
         return nc::isneginf(inValue);
     }
@@ -3487,7 +3497,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isnanScaler(dtype inValue) 
+    bool isnanScaler(dtype inValue)
     {
         return nc::isnan(inValue);
     }
@@ -3512,7 +3522,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ldexpScaler(dtype inValue1, uint8 inValue2) 
+    dtype ldexpScaler(dtype inValue1, uint8 inValue2)
     {
         return ldexp(inValue1, inValue2);
     }
@@ -3573,7 +3583,7 @@ namespace FunctionsInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
     template<typename dtype>
-    dtype lcmScaler(dtype inValue1, dtype inValue2) 
+    dtype lcmScaler(dtype inValue1, dtype inValue2)
     {
         return lcm(inValue1, inValue2);
     }
@@ -3648,7 +3658,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log1pScaler(dtype inValue) 
+    dtype log1pScaler(dtype inValue)
     {
         return log1p(inValue);
     }
@@ -3664,7 +3674,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log2Scaler(dtype inValue) 
+    dtype log2Scaler(dtype inValue)
     {
         return log2(inValue);
     }
@@ -3704,7 +3714,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
+    std::pair<NdArray<dtype>, NdArray<dtype>> meshgrid(const Slice& inISlice, const Slice& inJSlice)
     {
         return nc::meshgrid<dtype>(inISlice, inJSlice);
     }
@@ -3760,7 +3770,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype1, typename dtype2>
-    double nth_rootScaler(dtype1 inValue, dtype2 inRoot) 
+    double nth_rootScaler(dtype1 inValue, dtype2 inRoot)
     {
         return nth_root(inValue, inRoot);
     }
@@ -3808,10 +3818,10 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric select(std::vector<pbArray<bool>> condlist, 
-        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    pbArrayGeneric
+        select(std::vector<pbArray<bool>> condlist, std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
     {
-        std::vector<NdArray<bool>> condVec{};
+        std::vector<NdArray<bool>>        condVec{};
         std::vector<const NdArray<bool>*> condVecPtr{};
         condVec.reserve(condlist.size());
         condVecPtr.reserve(condlist.size());
@@ -3821,7 +3831,7 @@ namespace FunctionsInterface
             condVecPtr.push_back(&condVec.back());
         }
 
-        std::vector<NdArray<dtype>> choiceVec{};
+        std::vector<NdArray<dtype>>        choiceVec{};
         std::vector<const NdArray<dtype>*> choiceVecPtr{};
         choiceVec.reserve(choicelist.size());
         choiceVecPtr.reserve(choicelist.size());
@@ -3837,8 +3847,8 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric selectVector(std::vector<pbArray<bool>> condlist, 
-        std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
+    pbArrayGeneric
+        selectVector(std::vector<pbArray<bool>> condlist, std::vector<pbArray<dtype>> choicelist, dtype defaultValue)
     {
         std::vector<NdArray<bool>> condVec{};
         condVec.reserve(condlist.size());
@@ -3852,7 +3862,6 @@ namespace FunctionsInterface
         for (auto& choice : choicelist)
         {
             choiceVec.push_back(pybind2nc(choice));
-
         }
 
         return nc2pybind(nc::select(condVec, choiceVec, defaultValue));
@@ -3861,17 +3870,17 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric selectInitializerList(pbArray<bool> cond1, 
-        pbArray<bool> cond2, 
-        pbArray<bool> cond3,
-        pbArray<dtype> choice1,
-        pbArray<dtype> choice2,
-        pbArray<dtype> choice3,
-        dtype defaultValue)
+    pbArrayGeneric selectInitializerList(pbArray<bool>  cond1,
+                                         pbArray<bool>  cond2,
+                                         pbArray<bool>  cond3,
+                                         pbArray<dtype> choice1,
+                                         pbArray<dtype> choice2,
+                                         pbArray<dtype> choice3,
+                                         dtype          defaultValue)
     {
-        return nc2pybind(nc::select({pybind2nc(cond1), pybind2nc(cond2), pybind2nc(cond3)},
-            {pybind2nc(choice1), pybind2nc(choice2), pybind2nc(choice3)}, 
-            defaultValue));
+        return nc2pybind(nc::select({ pybind2nc(cond1), pybind2nc(cond2), pybind2nc(cond3) },
+                                    { pybind2nc(choice1), pybind2nc(choice2), pybind2nc(choice3) },
+                                    defaultValue));
     }
 
     //================================================================================
@@ -3965,7 +3974,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rad2degScaler(dtype inValue) 
+    dtype rad2degScaler(dtype inValue)
     {
         return rad2deg(inValue);
     }
@@ -3981,7 +3990,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype radiansScaler(dtype inValue) 
+    dtype radiansScaler(dtype inValue)
     {
         return radians(inValue);
     }
@@ -4029,7 +4038,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype remainderScaler(dtype inValue1, dtype inValue2) 
+    dtype remainderScaler(dtype inValue1, dtype inValue2)
     {
         return remainder(inValue1, inValue2);
     }
@@ -4049,7 +4058,6 @@ namespace FunctionsInterface
     {
         return nc2pybind(nc::replace(inArray, oldValue, newValue));
     }
-
 
     //================================================================================
 
@@ -4118,7 +4126,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rintScaler(dtype inValue) 
+    dtype rintScaler(dtype inValue)
     {
         return rint(inValue);
     }
@@ -4150,8 +4158,10 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    pbArrayGeneric row_stack(const NdArray<dtype>& inArray1,
+                             const NdArray<dtype>& inArray2,
+                             const NdArray<dtype>& inArray3,
+                             const NdArray<dtype>& inArray4)
     {
         return nc2pybind(nc::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -4159,7 +4169,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    int8 signScaler(dtype inValue) 
+    int8 signScaler(dtype inValue)
     {
         return sign(inValue);
     }
@@ -4175,7 +4185,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool signbitScaler(dtype inValue) 
+    bool signbitScaler(dtype inValue)
     {
         return signbit(inValue);
     }
@@ -4207,7 +4217,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sincScaler(dtype inValue) 
+    dtype sincScaler(dtype inValue)
     {
         return sinc(inValue);
     }
@@ -4255,7 +4265,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype squareScaler(dtype inValue) 
+    dtype squareScaler(dtype inValue)
     {
         return square(inValue);
     }
@@ -4415,7 +4425,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype unwrapScaler(dtype inValue) 
+    dtype unwrapScaler(dtype inValue)
     {
         return unwrap(inValue);
     }
@@ -4431,7 +4441,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double truncScaler(dtype inValue) 
+    double truncScaler(dtype inValue)
     {
         return trunc(inValue);
     }
@@ -4447,8 +4457,11 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, nc::Axis inAxis)
+    pbArrayGeneric stack(const NdArray<dtype>& inArray1,
+                         const NdArray<dtype>& inArray2,
+                         const NdArray<dtype>& inArray3,
+                         const NdArray<dtype>& inArray4,
+                         nc::Axis              inAxis)
     {
         return nc2pybind(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -4456,8 +4469,10 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    pbArrayGeneric vstack(const NdArray<dtype>& inArray1,
+                          const NdArray<dtype>& inArray2,
+                          const NdArray<dtype>& inArray3,
+                          const NdArray<dtype>& inArray4)
     {
         return nc2pybind(nc::vstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -4535,11 +4550,15 @@ namespace RandomInterface
         return random::choice(inArray);
     }
 
+    //================================================================================
+
     template<typename dtype>
     pbArrayGeneric choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
     {
         return nc2pybind(random::choice(inArray, inNum));
     }
+
+    //================================================================================
 
     template<typename dtype>
     pbArrayGeneric permutationScaler(dtype inValue)
@@ -4554,7 +4573,24 @@ namespace RandomInterface
     {
         return nc2pybind(random::permutation(inArray));
     }
-}  // namespace RandomInterface
+
+    namespace RNG
+    {
+        template<typename RNG_t, typename dtype>
+        dtype randIntValue(RNG_t rng, dtype inLow, dtype inHigh = 0)
+        {
+            return rng.randInt(inLow, inHigh);
+        }
+
+        //============================================================================
+
+        template<typename RNG_t, typename dtype>
+        pbArrayGeneric randIntShape(RNG_t rng, const Shape& inShape, dtype inLow, dtype inHigh = 0)
+        {
+            return nc2pybind(rng.randInt(inShape, inLow, inHigh));
+        }
+    } // namespace RNG
+} // namespace RandomInterface
 
 namespace LinalgInterface
 {
@@ -4565,7 +4601,10 @@ namespace LinalgInterface
     }
 
     template<typename dtype>
-    pbArrayGeneric multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    pbArrayGeneric multi_dot(const NdArray<dtype>& inArray1,
+                             const NdArray<dtype>& inArray2,
+                             const NdArray<dtype>& inArray3,
+                             const NdArray<dtype>& inArray4)
     {
         return nc2pybind(linalg::multi_dot({ inArray1, inArray2, inArray3, inArray4 }));
     }
@@ -4573,10 +4612,10 @@ namespace LinalgInterface
     template<typename dtype>
     pb11::tuple pivotLU_decomposition(const NdArray<dtype>& inArray)
     {
-        auto lup = linalg::pivotLU_decomposition(inArray);
-        auto& l = std::get<0>(lup);
-        auto& u = std::get<1>(lup);
-        auto& p = std::get<2>(lup);
+        auto  lup = linalg::pivotLU_decomposition(inArray);
+        auto& l   = std::get<0>(lup);
+        auto& u   = std::get<1>(lup);
+        auto& p   = std::get<2>(lup);
         return pb11::make_tuple(nc2pybind(l), nc2pybind(u), nc2pybind(p));
     }
 
@@ -4585,7 +4624,7 @@ namespace LinalgInterface
     {
         return nc2pybind(linalg::solve(inA, inB));
     }
-}  // namespace LinalgInterface
+} // namespace LinalgInterface
 
 namespace RotationsInterface
 {
@@ -4599,7 +4638,8 @@ namespace RotationsInterface
         return nc2pybind(rotations::Quaternion(Vec3(inAxis), inAngle).toNdArray());
     }
 
-    pbArray<double> angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
+    pbArray<double>
+        angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
     {
         return nc2pybind(inQuat1.angularVelocity(inQuat2, inTime));
     }
@@ -4727,7 +4767,8 @@ namespace CoordinateInterface
         std::cout << self;
     }
 
-    double degreeSeperationCoordinate(const coordinates::Coordinate& self, const coordinates::Coordinate& inOtherCoordinate)
+    double degreeSeperationCoordinate(const coordinates::Coordinate& self,
+                                      const coordinates::Coordinate& inOtherCoordinate)
     {
         return self.degreeSeperation(inOtherCoordinate);
     }
@@ -4737,7 +4778,8 @@ namespace CoordinateInterface
         return self.degreeSeperation(inVec);
     }
 
-    double radianSeperationCoordinate(const coordinates::Coordinate& self, const coordinates::Coordinate& inOtherCoordinate)
+    double radianSeperationCoordinate(const coordinates::Coordinate& self,
+                                      const coordinates::Coordinate& inOtherCoordinate)
     {
         return self.radianSeperation(inOtherCoordinate);
     }
@@ -4746,7 +4788,7 @@ namespace CoordinateInterface
     {
         return self.radianSeperation(inVec);
     }
-}  // namespace CoordinateInterface
+} // namespace CoordinateInterface
 
 namespace DataCubeInterface
 {
@@ -4817,7 +4859,8 @@ namespace DataCubeInterface
     }
 
     template<typename dtype>
-    DataCube<dtype> sliceZSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
+    DataCube<dtype>
+        sliceZSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
     {
         return self.sliceZ(inRow, inCol, inSlice);
     }
@@ -4853,7 +4896,8 @@ namespace DataCubeInterface
     }
 
     template<typename dtype>
-    pbArrayGeneric sliceZAtSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
+    pbArrayGeneric
+        sliceZAtSliceScaler(const DataCube<dtype>& self, const Slice& inRow, int32 inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZat(inRow, inCol, inSlice));
     }
@@ -4865,7 +4909,8 @@ namespace DataCubeInterface
     }
 
     template<typename dtype>
-    pbArrayGeneric sliceZAtScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
+    pbArrayGeneric
+        sliceZAtScalerSlice(const DataCube<dtype>& self, int32 inRow, const Slice& inCol, const Slice& inSlice)
     {
         return nc2pybind(self.sliceZat(inRow, inCol, inSlice));
     }
@@ -4877,12 +4922,13 @@ namespace DataCubeInterface
     }
 
     template<typename dtype>
-    DataCube<dtype> sliceZAtSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
+    DataCube<dtype>
+        sliceZAtSliceSlice(const DataCube<dtype>& self, const Slice& inRow, const Slice& inCol, const Slice& inSlice)
     {
         return self.sliceZat(inRow, inCol, inSlice);
     }
 
-}  // namespace DataCubeInterface
+} // namespace DataCubeInterface
 
 //================================================================================
 
@@ -4890,7 +4936,7 @@ namespace PolynomialInterface
 {
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype chebyshev_t_Scaler(uint32 n, dtype inValue) 
+    dtype chebyshev_t_Scaler(uint32 n, dtype inValue)
     {
         return polynomial::chebyshev_t(n, inValue);
     }
@@ -4910,7 +4956,7 @@ namespace PolynomialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype chebyshev_u_Scaler(uint32 n, dtype inValue) 
+    dtype chebyshev_u_Scaler(uint32 n, dtype inValue)
     {
         return polynomial::chebyshev_u(n, inValue);
     }
@@ -4930,7 +4976,7 @@ namespace PolynomialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype hermite_Scaler(uint32 n, dtype inValue) 
+    dtype hermite_Scaler(uint32 n, dtype inValue)
     {
         return polynomial::hermite(n, inValue);
     }
@@ -4950,7 +4996,7 @@ namespace PolynomialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype laguerre_Scaler1(uint32 n, dtype inValue) 
+    dtype laguerre_Scaler1(uint32 n, dtype inValue)
     {
         return polynomial::laguerre(n, inValue);
     }
@@ -4960,7 +5006,7 @@ namespace PolynomialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue) 
+    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue)
     {
         return polynomial::laguerre(n, m, inValue);
     }
@@ -4990,7 +5036,7 @@ namespace PolynomialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype legendre_p_Scaler1(int32 n, dtype inValue) 
+    dtype legendre_p_Scaler1(int32 n, dtype inValue)
     {
         return polynomial::legendre_p(n, inValue);
     }
@@ -5000,7 +5046,7 @@ namespace PolynomialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue) 
+    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue)
     {
         return polynomial::legendre_p(n, m, inValue);
     }
@@ -5030,7 +5076,7 @@ namespace PolynomialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype legendre_q_Scaler(int32 n, dtype inValue) 
+    dtype legendre_q_Scaler(int32 n, dtype inValue)
     {
         return polynomial::legendre_q(n, inValue);
     }
@@ -5052,12 +5098,12 @@ namespace PolynomialInterface
     template<typename dtype>
     std::vector<double> spherical_harmonic(uint32 n, int32 m, dtype theta, dtype phi)
     {
-        auto value = polynomial::spherical_harmonic(n, m, theta, phi);
-        std::vector<double> valueVec = {value.real(), value.imag()};
+        auto                value    = polynomial::spherical_harmonic(n, m, theta, phi);
+        std::vector<double> valueVec = { value.real(), value.imag() };
         return valueVec;
     }
 #endif
-}  // namespace PolynomialInterface
+} // namespace PolynomialInterface
 
 namespace RootsInterface
 {
@@ -5065,7 +5111,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double bisection(const polynomial::Poly1d<double>&p, double a, double b)
+    double bisection(const polynomial::Poly1d<double>& p, double a, double b)
     {
         auto rootFinder = roots::Bisection(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -5073,7 +5119,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double brent(const polynomial::Poly1d<double>&p, double a, double b)
+    double brent(const polynomial::Poly1d<double>& p, double a, double b)
     {
         auto rootFinder = roots::Brent(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -5081,7 +5127,7 @@ namespace RootsInterface
 
     //================================================================================
 
-    double dekker(const polynomial::Poly1d<double>&p, double a, double b)
+    double dekker(const polynomial::Poly1d<double>& p, double a, double b)
     {
         auto rootFinder = roots::Dekker(EPSILON, p);
         return rootFinder.solve(a, b);
@@ -5089,25 +5135,25 @@ namespace RootsInterface
 
     //================================================================================
 
-    double newton(const polynomial::Poly1d<double>&p, double x)
+    double newton(const polynomial::Poly1d<double>& p, double x)
     {
-        auto pPrime = p.deriv();
+        auto pPrime     = p.deriv();
         auto rootFinder = roots::Newton(EPSILON, p, pPrime);
         return rootFinder.solve(x);
     }
 
     //================================================================================
 
-    double secant(const polynomial::Poly1d<double>&p, double a, double b)
+    double secant(const polynomial::Poly1d<double>& p, double a, double b)
     {
         auto rootFinder = roots::Secant(EPSILON, p);
         return rootFinder.solve(a, b);
     }
-}  // namespace RootsInterface
+} // namespace RootsInterface
 
 namespace IntegrateInterface
 {
-    constexpr uint32 NUM_ITERATIONS = 100;
+    constexpr uint32 NUM_ITERATIONS   = 100;
     constexpr uint32 NUM_SUBDIVISIONS = 10000;
 
     //================================================================================
@@ -5137,7 +5183,7 @@ namespace IntegrateInterface
     {
         return integrate::trapazoidal(a, b, NUM_SUBDIVISIONS, p);
     }
-}  // namespace IntegrateInterface
+} // namespace IntegrateInterface
 
 namespace Vec2Interface
 {
@@ -5215,7 +5261,7 @@ namespace Vec2Interface
     {
         std::cout << vec;
     }
-}  // namespace Vec2Interface
+} // namespace Vec2Interface
 
 namespace Vec3Interface
 {
@@ -5301,7 +5347,7 @@ namespace SpecialInterface
 {
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_ai_Scaler(dtype inValue) 
+    dtype airy_ai_Scaler(dtype inValue)
     {
         return special::airy_ai(inValue);
     }
@@ -5321,7 +5367,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_ai_prime_Scaler(dtype inValue) 
+    dtype airy_ai_prime_Scaler(dtype inValue)
     {
         return special::airy_ai_prime(inValue);
     }
@@ -5341,7 +5387,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_bi_Scaler(dtype inValue) 
+    dtype airy_bi_Scaler(dtype inValue)
     {
         return special::airy_bi(inValue);
     }
@@ -5361,7 +5407,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype airy_bi_prime_Scaler(dtype inValue) 
+    dtype airy_bi_prime_Scaler(dtype inValue)
     {
         return special::airy_bi_prime(inValue);
     }
@@ -5380,7 +5426,7 @@ namespace SpecialInterface
     //================================================================================
 
 #ifndef NUMCPP_NO_USE_BOOST
-    double bernoulli_Scaler(uint32 n) 
+    double bernoulli_Scaler(uint32 n)
     {
         return special::bernoilli(n);
     }
@@ -5399,7 +5445,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype bessel_in_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_in_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_in(inV, inValue);
     }
@@ -5419,7 +5465,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_in_prime(inV, inValue);
     }
@@ -5439,7 +5485,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype bessel_jn_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_jn_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_jn(inV, inValue);
     }
@@ -5459,7 +5505,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_jn_prime(inV, inValue);
     }
@@ -5479,7 +5525,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype bessel_kn_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_kn_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_kn(inV, inValue);
     }
@@ -5499,7 +5545,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_kn_prime(inV, inValue);
     }
@@ -5519,7 +5565,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype bessel_yn_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_yn_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_yn(inV, inValue);
     }
@@ -5539,7 +5585,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue) 
+    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue)
     {
         return special::bessel_yn_prime(inV, inValue);
     }
@@ -5559,7 +5605,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype beta_Scaler(dtype a, dtype b) 
+    dtype beta_Scaler(dtype a, dtype b)
     {
         return special::beta(a, b);
     }
@@ -5579,7 +5625,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype comp_ellint_1_Scaler(dtype k) 
+    dtype comp_ellint_1_Scaler(dtype k)
     {
         return special::comp_ellint_1(k);
     }
@@ -5589,7 +5635,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    pbArrayGeneric comp_ellint_1_Array(const NdArray<dtype>& k) 
+    pbArrayGeneric comp_ellint_1_Array(const NdArray<dtype>& k)
     {
         return nc2pybind(special::comp_ellint_1(k));
     }
@@ -5599,7 +5645,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype comp_ellint_2_Scaler(dtype k) 
+    dtype comp_ellint_2_Scaler(dtype k)
     {
         return special::comp_ellint_2(k);
     }
@@ -5609,7 +5655,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    pbArrayGeneric comp_ellint_2_Array(const NdArray<dtype>& k) 
+    pbArrayGeneric comp_ellint_2_Array(const NdArray<dtype>& k)
     {
         return nc2pybind(special::comp_ellint_2(k));
     }
@@ -5619,7 +5665,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype comp_ellint_3_Scaler(dtype k, dtype v) 
+    dtype comp_ellint_3_Scaler(dtype k, dtype v)
     {
         return special::comp_ellint_3(k, v);
     }
@@ -5629,7 +5675,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype1, typename dtype2>
-    pbArrayGeneric comp_ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v) 
+    pbArrayGeneric comp_ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v)
     {
         return nc2pybind(special::comp_ellint_3(k, v));
     }
@@ -5639,7 +5685,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x) 
+    std::complex<dtype> cyclic_hankel_1_Scaler(dtype v, dtype x)
     {
         return special::cyclic_hankel_1(v, x);
     }
@@ -5659,7 +5705,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> cyclic_hankel_2_Scaler(dtype v, dtype x) 
+    std::complex<dtype> cyclic_hankel_2_Scaler(dtype v, dtype x)
     {
         return special::cyclic_hankel_2(v, x);
     }
@@ -5679,7 +5725,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype ellint_1_Scaler(dtype k, dtype p) 
+    dtype ellint_1_Scaler(dtype k, dtype p)
     {
         return special::ellint_1(k, p);
     }
@@ -5689,7 +5735,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype1, typename dtype2>
-    pbArrayGeneric ellint_1_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p) 
+    pbArrayGeneric ellint_1_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p)
     {
         return nc2pybind(special::ellint_1(k, p));
     }
@@ -5699,7 +5745,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype ellint_2_Scaler(dtype k, dtype p) 
+    dtype ellint_2_Scaler(dtype k, dtype p)
     {
         return special::ellint_2(k, p);
     }
@@ -5709,7 +5755,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype1, typename dtype2>
-    pbArrayGeneric ellint_2_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p) 
+    pbArrayGeneric ellint_2_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p)
     {
         return nc2pybind(special::ellint_2(k, p));
     }
@@ -5719,7 +5765,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype ellint_3_Scaler(dtype k, dtype v, dtype p) 
+    dtype ellint_3_Scaler(dtype k, dtype v, dtype p)
     {
         return special::ellint_3(k, v, p);
     }
@@ -5729,7 +5775,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype1, typename dtype2, typename dtype3>
-    pbArrayGeneric ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v, const NdArray<dtype3>& p) 
+    pbArrayGeneric ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v, const NdArray<dtype3>& p)
     {
         return nc2pybind(special::ellint_3(k, v, p));
     }
@@ -5739,7 +5785,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype expint_Scaler(dtype k) 
+    dtype expint_Scaler(dtype k)
     {
         return special::expint(k);
     }
@@ -5749,7 +5795,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    pbArrayGeneric expint_Array(const NdArray<dtype>& k) 
+    pbArrayGeneric expint_Array(const NdArray<dtype>& k)
     {
         return nc2pybind(special::expint(k));
     }
@@ -5759,7 +5805,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype digamma_Scaler(dtype inValue) 
+    dtype digamma_Scaler(dtype inValue)
     {
         return special::digamma(inValue);
     }
@@ -5779,7 +5825,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erf_Scaler(dtype inValue) 
+    dtype erf_Scaler(dtype inValue)
     {
         return special::erf(inValue);
     }
@@ -5799,7 +5845,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erf_inv_Scaler(dtype inValue) 
+    dtype erf_inv_Scaler(dtype inValue)
     {
         return special::erf_inv(inValue);
     }
@@ -5819,7 +5865,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erfc_Scaler(dtype inValue) 
+    dtype erfc_Scaler(dtype inValue)
     {
         return special::erfc(inValue);
     }
@@ -5839,7 +5885,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype erfc_inv_Scaler(dtype inValue) 
+    dtype erfc_inv_Scaler(dtype inValue)
     {
         return special::erfc_inv(inValue);
     }
@@ -5857,7 +5903,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-    double factorial_Scaler(uint32 inValue) 
+    double factorial_Scaler(uint32 inValue)
     {
         return special::factorial(inValue);
     }
@@ -5873,7 +5919,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype gamma_Scaler(dtype inValue) 
+    dtype gamma_Scaler(dtype inValue)
     {
         return special::gamma(inValue);
     }
@@ -5893,7 +5939,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype gamma1pm1_Scaler(dtype inValue) 
+    dtype gamma1pm1_Scaler(dtype inValue)
     {
         return special::gamma1pm1(inValue);
     }
@@ -5913,7 +5959,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype log_gamma_Scaler(dtype inValue) 
+    dtype log_gamma_Scaler(dtype inValue)
     {
         return special::log_gamma(inValue);
     }
@@ -5933,7 +5979,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype polygamma_Scaler(uint32 n, dtype inValue) 
+    dtype polygamma_Scaler(uint32 n, dtype inValue)
     {
         return special::polygamma(n, inValue);
     }
@@ -5952,7 +5998,7 @@ namespace SpecialInterface
     //================================================================================
 
 #ifndef NUMCPP_NO_USE_BOOST
-    double prime_Scaler(uint32 inValue) 
+    double prime_Scaler(uint32 inValue)
     {
         return special::prime(inValue);
     }
@@ -5971,7 +6017,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype riemann_zeta_Scaler(dtype inValue) 
+    dtype riemann_zeta_Scaler(dtype inValue)
     {
         return special::riemann_zeta(inValue);
     }
@@ -5999,7 +6045,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) 
+    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue)
     {
         return special::spherical_bessel_jn(inV, inValue);
     }
@@ -6019,7 +6065,7 @@ namespace SpecialInterface
 
 #if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
     template<typename dtype>
-    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue) 
+    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue)
     {
         return special::spherical_bessel_yn(inV, inValue);
     }
@@ -6039,7 +6085,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_1_Scaler(dtype v, dtype x) 
+    std::complex<dtype> spherical_hankel_1_Scaler(dtype v, dtype x)
     {
         return special::spherical_hankel_1(v, x);
     }
@@ -6059,7 +6105,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    std::complex<dtype> spherical_hankel_2_Scaler(dtype v, dtype x) 
+    std::complex<dtype> spherical_hankel_2_Scaler(dtype v, dtype x)
     {
         return special::spherical_hankel_2(v, x);
     }
@@ -6079,7 +6125,7 @@ namespace SpecialInterface
 
 #ifndef NUMCPP_NO_USE_BOOST
     template<typename dtype>
-    dtype trigamma_Scaler(dtype inValue) 
+    dtype trigamma_Scaler(dtype inValue)
     {
         return special::trigamma(inValue);
     }
@@ -6094,7 +6140,7 @@ namespace SpecialInterface
         return nc2pybind(special::trigamma(inArray));
     }
 #endif
-}  // namespace SpecialInterface
+} // namespace SpecialInterface
 
 //================================================================================
 
@@ -6117,37 +6163,37 @@ PYBIND11_MODULE(NumCppPy, m)
 #ifdef NUMCPP_NO_USE_BOOST
     m.attr("NUMCPP_NO_USE_BOOST") = true;
 #else
-    m.attr("NUMCPP_NO_USE_BOOST") = false;
+    m.attr("NUMCPP_NO_USE_BOOST")        = false;
 #endif
 
 #ifdef __cpp_lib_gcd_lcm
     m.attr("STL_GCD_LCM") = true;
 #else
-    m.attr("STL_GCD_LCM") = false;
+    m.attr("STL_GCD_LCM")                = false;
 #endif
 
 #ifdef __cpp_lib_clamp
     m.attr("STL_CLAMP") = true;
 #else
-    m.attr("STL_CLAMP") = false;
+    m.attr("STL_CLAMP")                  = false;
 #endif
 
 #ifdef __cpp_lib_hypot
     m.attr("STL_HYPOT") = true;
 #else
-    m.attr("STL_HYPOT") = false;
+    m.attr("STL_HYPOT")                  = false;
 #endif
 
 #ifdef __cpp_lib_math_special_functions
     m.attr("STL_SPECIAL_FUNCTIONS") = true;
 #else
-    m.attr("STL_SPECIAL_FUNCTIONS") = false;
+    m.attr("STL_SPECIAL_FUNCTIONS")      = false;
 #endif
 
 #ifdef __cpp_lib_execution
     m.attr("STL_LIB_EXECUTION") = true;
 #else
-    m.attr("STL_LIB_EXECUTION") = false;
+    m.attr("STL_LIB_EXECUTION")          = false;
 #endif
 
 #ifdef __cpp_lib_parallel_algorithm
@@ -6160,27 +6206,26 @@ PYBIND11_MODULE(NumCppPy, m)
     m.attr("VERSION") = VERSION;
 
     // Constants.hpp
-    m.attr("c") = constants::c;
-    m.attr("e") = constants::e;
-    m.attr("inf") = constants::inf;
-    m.attr("pi") = constants::pi;
-    m.attr("nan") = constants::nan;
-    m.attr("j") = constants::j;
-    m.attr("DAYS_PER_WEEK") = constants::DAYS_PER_WEEK;
-    m.attr("MINUTES_PER_HOUR") = constants::MINUTES_PER_HOUR;
-    m.attr("SECONDS_PER_MINUTE") = constants::SECONDS_PER_MINUTE;
+    m.attr("c")                       = constants::c;
+    m.attr("e")                       = constants::e;
+    m.attr("inf")                     = constants::inf;
+    m.attr("pi")                      = constants::pi;
+    m.attr("nan")                     = constants::nan;
+    m.attr("j")                       = constants::j;
+    m.attr("DAYS_PER_WEEK")           = constants::DAYS_PER_WEEK;
+    m.attr("MINUTES_PER_HOUR")        = constants::MINUTES_PER_HOUR;
+    m.attr("SECONDS_PER_MINUTE")      = constants::SECONDS_PER_MINUTE;
     m.attr("MILLISECONDS_PER_SECOND") = constants::MILLISECONDS_PER_SECOND;
-    m.attr("SECONDS_PER_HOUR") = constants::SECONDS_PER_HOUR;
-    m.attr("HOURS_PER_DAY") = constants::HOURS_PER_DAY;
-    m.attr("MINUTES_PER_DAY") = constants::MINUTES_PER_DAY;
-    m.attr("SECONDS_PER_DAY") = constants::SECONDS_PER_DAY;
-    m.attr("MILLISECONDS_PER_DAY") = constants::MILLISECONDS_PER_DAY;
-    m.attr("SECONDS_PER_WEEK") = constants::SECONDS_PER_WEEK;
+    m.attr("SECONDS_PER_HOUR")        = constants::SECONDS_PER_HOUR;
+    m.attr("HOURS_PER_DAY")           = constants::HOURS_PER_DAY;
+    m.attr("MINUTES_PER_DAY")         = constants::MINUTES_PER_DAY;
+    m.attr("SECONDS_PER_DAY")         = constants::SECONDS_PER_DAY;
+    m.attr("MILLISECONDS_PER_DAY")    = constants::MILLISECONDS_PER_DAY;
+    m.attr("SECONDS_PER_WEEK")        = constants::SECONDS_PER_WEEK;
 
     // DtypeInfo.hpp
     using DtypeInfoUint32 = DtypeInfo<uint32>;
-    pb11::class_<DtypeInfoUint32>
-        (m, "DtypeIntoUint32")
+    pb11::class_<DtypeInfoUint32>(m, "DtypeIntoUint32")
         .def(pb11::init<>())
         .def_static("bits", &DtypeInfoUint32::bits)
         .def_static("epsilon", &DtypeInfoUint32::epsilon)
@@ -6189,9 +6234,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def_static("min", &DtypeInfoUint32::min)
         .def_static("max", &DtypeInfoUint32::max);
 
-    using DtypeInfoComplexDouble = DtypeInfo<std::complex<double> >;
-    pb11::class_<DtypeInfoComplexDouble>
-        (m, "DtypeInfoComplexDouble")
+    using DtypeInfoComplexDouble = DtypeInfo<std::complex<double>>;
+    pb11::class_<DtypeInfoComplexDouble>(m, "DtypeInfoComplexDouble")
         .def(pb11::init<>())
         .def_static("bits", &DtypeInfoComplexDouble::bits)
         .def_static("epsilon", &DtypeInfoComplexDouble::epsilon)
@@ -6201,8 +6245,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def_static("max", &DtypeInfoComplexDouble::max);
 
     // Shape.hpp
-    pb11::class_<Shape>
-        (m, "Shape")
+    pb11::class_<Shape>(m, "Shape")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -6217,8 +6260,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__neq__", &Shape::operator!=);
 
     // Slice.hpp
-    pb11::class_<Slice>
-        (m, "Slice")
+    pb11::class_<Slice>(m, "Slice")
         .def(pb11::init<>())
         .def(pb11::init<int32>())
         .def(pb11::init<int32, int32>())
@@ -6235,8 +6277,7 @@ PYBIND11_MODULE(NumCppPy, m)
 
     // Timer.hpp
     using MicroTimer = Timer<std::chrono::microseconds>;
-    pb11::class_<MicroTimer>
-        (m, "Timer")
+    pb11::class_<MicroTimer>(m, "Timer")
         .def(pb11::init<>())
         .def(pb11::init<std::string>())
         .def("sleep", &MicroTimer::sleep)
@@ -6244,10 +6285,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("toc", &MicroTimer::toc);
 
     // Types.hpp
-    pb11::enum_<Axis>(m, "Axis")
-        .value("NONE", Axis::NONE)
-        .value("ROW", Axis::ROW)
-        .value("COL", Axis::COL);
+    pb11::enum_<Axis>(m, "Axis").value("NONE", Axis::NONE).value("ROW", Axis::ROW).value("COL", Axis::COL);
 
     pb11::enum_<Endian>(m, "Endian")
         .value("NATIVE", Endian::NATIVE)
@@ -6255,29 +6293,28 @@ PYBIND11_MODULE(NumCppPy, m)
         .value("LITTLE", Endian::LITTLE);
 
     // NdArray.hpp
-    using NdArrayDouble = NdArray<double>;
-    using NdArrayDoubleIterator = NdArrayDouble::iterator;
-    using NdArrayDoubleConstIterator = NdArrayDouble::const_iterator;
-    using NdArrayDoubleReverseIterator = NdArrayDouble::reverse_iterator;
-    using NdArrayDoubleConstReverseIterator = NdArrayDouble::const_reverse_iterator;
-    using NdArrayDoubleColumnIterator = NdArrayDouble::column_iterator;
-    using NdArrayDoubleConstColumnIterator = NdArrayDouble::const_column_iterator;
-    using NdArrayDoubleReverseColumnIterator = NdArrayDouble::reverse_column_iterator;
+    using NdArrayDouble                           = NdArray<double>;
+    using NdArrayDoubleIterator                   = NdArrayDouble::iterator;
+    using NdArrayDoubleConstIterator              = NdArrayDouble::const_iterator;
+    using NdArrayDoubleReverseIterator            = NdArrayDouble::reverse_iterator;
+    using NdArrayDoubleConstReverseIterator       = NdArrayDouble::const_reverse_iterator;
+    using NdArrayDoubleColumnIterator             = NdArrayDouble::column_iterator;
+    using NdArrayDoubleConstColumnIterator        = NdArrayDouble::const_column_iterator;
+    using NdArrayDoubleReverseColumnIterator      = NdArrayDouble::reverse_column_iterator;
     using NdArrayDoubleConstReverseColumnIterator = NdArrayDouble::const_reverse_column_iterator;
 
-    using ComplexDouble = std::complex<double>;
-    using NdArrayComplexDouble = NdArray<ComplexDouble>;
-    using NdArrayComplexDoubleIterator = NdArrayComplexDouble::iterator;
-    using NdArrayComplexDoubleConstIterator = NdArrayComplexDouble::const_iterator;
-    using NdArrayComplexDoubleReverseIterator = NdArrayComplexDouble::reverse_iterator;
-    using NdArrayComplexDoubleConstReverseIterator = NdArrayComplexDouble::const_reverse_iterator;
-    using NdArrayComplexDoubleColumnIterator = NdArrayComplexDouble::column_iterator;
-    using NdArrayComplexDoubleConstColumnIterator = NdArrayComplexDouble::const_column_iterator;
-    using NdArrayComplexDoubleReverseColumnIterator = NdArrayComplexDouble::reverse_column_iterator;
+    using ComplexDouble                                  = std::complex<double>;
+    using NdArrayComplexDouble                           = NdArray<ComplexDouble>;
+    using NdArrayComplexDoubleIterator                   = NdArrayComplexDouble::iterator;
+    using NdArrayComplexDoubleConstIterator              = NdArrayComplexDouble::const_iterator;
+    using NdArrayComplexDoubleReverseIterator            = NdArrayComplexDouble::reverse_iterator;
+    using NdArrayComplexDoubleConstReverseIterator       = NdArrayComplexDouble::const_reverse_iterator;
+    using NdArrayComplexDoubleColumnIterator             = NdArrayComplexDouble::column_iterator;
+    using NdArrayComplexDoubleConstColumnIterator        = NdArrayComplexDouble::const_column_iterator;
+    using NdArrayComplexDoubleReverseColumnIterator      = NdArrayComplexDouble::reverse_column_iterator;
     using NdArrayComplexDoubleConstReverseColumnIterator = NdArrayComplexDouble::const_reverse_column_iterator;
 
-    pb11::class_<NdArrayDoubleIterator>
-        (m, "NdArrayDoubleIterator")
+    pb11::class_<NdArrayDoubleIterator>(m, "NdArrayDoubleIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleIterator>)
@@ -6297,8 +6334,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleIterator>);
 
-    pb11::class_<NdArrayComplexDoubleIterator>
-        (m, "NdArrayComplexDoubleIterator")
+    pb11::class_<NdArrayComplexDoubleIterator>(m, "NdArrayComplexDoubleIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleIterator>)
@@ -6318,8 +6354,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleIterator>);
 
-    pb11::class_<NdArrayDoubleConstIterator>
-        (m, "NdArrayDoubleConstIterator")
+    pb11::class_<NdArrayDoubleConstIterator>(m, "NdArrayDoubleConstIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstIterator>)
@@ -6339,9 +6374,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstIterator>);
 
-
-    pb11::class_<NdArrayComplexDoubleConstIterator>
-        (m, "NdArrayComplexDoubleConstIterator")
+    pb11::class_<NdArrayComplexDoubleConstIterator>(m, "NdArrayComplexDoubleConstIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstIterator>)
@@ -6361,8 +6394,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstIterator>);
 
-    pb11::class_<NdArrayDoubleReverseIterator>
-        (m, "NdArrayDoubleReverseIterator")
+    pb11::class_<NdArrayDoubleReverseIterator>(m, "NdArrayDoubleReverseIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleReverseIterator>)
@@ -6382,8 +6414,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseIterator>);
 
-    pb11::class_<NdArrayComplexDoubleReverseIterator>
-        (m, "NdArrayComplexDoubleReverseIterator")
+    pb11::class_<NdArrayComplexDoubleReverseIterator>(m, "NdArrayComplexDoubleReverseIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleReverseIterator>)
@@ -6403,8 +6434,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseIterator>);
 
-    pb11::class_<NdArrayDoubleConstReverseIterator>
-        (m, "NdArrayDoubleConstReverseIterator")
+    pb11::class_<NdArrayDoubleConstReverseIterator>(m, "NdArrayDoubleConstReverseIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstReverseIterator>)
@@ -6424,14 +6454,15 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstReverseIterator>
-        (m, "NdArrayComplexDoubleConstReverseIterator")
+    pb11::class_<NdArrayComplexDoubleConstReverseIterator>(m, "NdArrayComplexDoubleConstReverseIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstReverseIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstReverseIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstReverseIterator>)
-        .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleConstReverseIterator>)
-        .def("operatorMinusMinusPost", IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstReverseIterator>)
+        .def("operatorMinusMinusPre",
+             IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleConstReverseIterator>)
+        .def("operatorMinusMinusPost",
+             IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstReverseIterator>)
         .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayComplexDoubleConstReverseIterator>)
         .def("__add__", IteratorInterface::operatorPlus<NdArrayComplexDoubleConstReverseIterator>)
         .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayComplexDoubleConstReverseIterator>)
@@ -6445,8 +6476,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstReverseIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseIterator>);
 
-    pb11::class_<NdArrayDoubleColumnIterator>
-        (m, "NdArrayDoubleColumnIterator")
+    pb11::class_<NdArrayDoubleColumnIterator>(m, "NdArrayDoubleColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleColumnIterator>)
@@ -6466,8 +6496,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleColumnIterator>
-        (m, "NdArrayComplexDoubleColumnIterator")
+    pb11::class_<NdArrayComplexDoubleColumnIterator>(m, "NdArrayComplexDoubleColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleColumnIterator>)
@@ -6487,8 +6516,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleColumnIterator>);
 
-    pb11::class_<NdArrayDoubleConstColumnIterator>
-        (m, "NdArrayDoubleConstColumnIterator")
+    pb11::class_<NdArrayDoubleConstColumnIterator>(m, "NdArrayDoubleConstColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstColumnIterator>)
@@ -6508,14 +6536,14 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstColumnIterator>
-        (m, "NdArrayComplexDoubleConstColumnIterator")
+    pb11::class_<NdArrayComplexDoubleConstColumnIterator>(m, "NdArrayComplexDoubleConstColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstColumnIterator>)
         .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleConstColumnIterator>)
-        .def("operatorMinusMinusPost", IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstColumnIterator>)
+        .def("operatorMinusMinusPost",
+             IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstColumnIterator>)
         .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayComplexDoubleConstColumnIterator>)
         .def("__add__", IteratorInterface::operatorPlus<NdArrayComplexDoubleConstColumnIterator>)
         .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayComplexDoubleConstColumnIterator>)
@@ -6529,8 +6557,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstColumnIterator>);
 
-    pb11::class_<NdArrayDoubleReverseColumnIterator>
-        (m, "NdArrayDoubleReverseColumnIterator")
+    pb11::class_<NdArrayDoubleReverseColumnIterator>(m, "NdArrayDoubleReverseColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleReverseColumnIterator>)
@@ -6550,14 +6577,15 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleReverseColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleReverseColumnIterator>
-        (m, "NdArrayComplexDoubleReverseColumnIterator")
+    pb11::class_<NdArrayComplexDoubleReverseColumnIterator>(m, "NdArrayComplexDoubleReverseColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleReverseColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleReverseColumnIterator>)
-        .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleReverseColumnIterator>)
-        .def("operatorMinusMinusPost", IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleReverseColumnIterator>)
+        .def("operatorMinusMinusPre",
+             IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleReverseColumnIterator>)
+        .def("operatorMinusMinusPost",
+             IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleReverseColumnIterator>)
         .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayComplexDoubleReverseColumnIterator>)
         .def("__add__", IteratorInterface::operatorPlus<NdArrayComplexDoubleReverseColumnIterator>)
         .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayComplexDoubleReverseColumnIterator>)
@@ -6571,14 +6599,14 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleReverseColumnIterator>);
 
-    pb11::class_<NdArrayDoubleConstReverseColumnIterator>
-        (m, "NdArrayDoubleConstReverseColumnIterator")
+    pb11::class_<NdArrayDoubleConstReverseColumnIterator>(m, "NdArrayDoubleConstReverseColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayDoubleConstReverseColumnIterator>)
         .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayDoubleConstReverseColumnIterator>)
         .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayDoubleConstReverseColumnIterator>)
         .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayDoubleConstReverseColumnIterator>)
-        .def("operatorMinusMinusPost", IteratorInterface::operatorMinusMinusPost<NdArrayDoubleConstReverseColumnIterator>)
+        .def("operatorMinusMinusPost",
+             IteratorInterface::operatorMinusMinusPost<NdArrayDoubleConstReverseColumnIterator>)
         .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayDoubleConstReverseColumnIterator>)
         .def("__add__", IteratorInterface::operatorPlus<NdArrayDoubleConstReverseColumnIterator>)
         .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayDoubleConstReverseColumnIterator>)
@@ -6592,14 +6620,17 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayDoubleConstReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayDoubleConstReverseColumnIterator>);
 
-    pb11::class_<NdArrayComplexDoubleConstReverseColumnIterator>
-        (m, "NdArrayComplexDoubleConstReverseColumnIterator")
+    pb11::class_<NdArrayComplexDoubleConstReverseColumnIterator>(m, "NdArrayComplexDoubleConstReverseColumnIterator")
         .def(pb11::init<>())
         .def("operatorDereference", &IteratorInterface::dereference<NdArrayComplexDoubleConstReverseColumnIterator>)
-        .def("operatorPlusPlusPre", IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstReverseColumnIterator>)
-        .def("operatorPlusPlusPost", IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstReverseColumnIterator>)
-        .def("operatorMinusMinusPre", IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleConstReverseColumnIterator>)
-        .def("operatorMinusMinusPost", IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstReverseColumnIterator>)
+        .def("operatorPlusPlusPre",
+             IteratorInterface::operatorPlusPlusPre<NdArrayComplexDoubleConstReverseColumnIterator>)
+        .def("operatorPlusPlusPost",
+             IteratorInterface::operatorPlusPlusPost<NdArrayComplexDoubleConstReverseColumnIterator>)
+        .def("operatorMinusMinusPre",
+             IteratorInterface::operatorMinusMinusPre<NdArrayComplexDoubleConstReverseColumnIterator>)
+        .def("operatorMinusMinusPost",
+             IteratorInterface::operatorMinusMinusPost<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("__iadd__", IteratorInterface::operatorPlusEqual<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("__add__", IteratorInterface::operatorPlus<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("__isub__", IteratorInterface::operatorMinusEqual<NdArrayComplexDoubleConstReverseColumnIterator>)
@@ -6613,103 +6644,141 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseColumnIterator>);
 
-    NdArrayDouble::reference(NdArrayDouble::*atSingleScaler)(int32) = &NdArrayDouble::at;
-    NdArrayDouble::const_reference(NdArrayDouble::*atSingleScalerConst)(int32) const= &NdArrayDouble::at;
-    NdArrayDouble::reference(NdArrayDouble::*atRowColScalers)(int32, int32) = &NdArrayDouble::at;
-    NdArrayDouble::const_reference(NdArrayDouble::*atRowColScalersConst)(int32, int32) const = &NdArrayDouble::at;
-    NdArrayDouble(NdArrayDouble::*atSlice)(const Slice&) const = &NdArrayDouble::at;
-    NdArrayDouble(NdArrayDouble::*atSliceSlice)(const Slice&, const Slice&) const = &NdArrayDouble::at;
-    NdArrayDouble(NdArrayDouble::*atSliceInt)(const Slice&, int32) const = &NdArrayDouble::at;
-    NdArrayDouble(NdArrayDouble::*atIntSlice)(int32, const Slice&) const = &NdArrayDouble::at;
+    NdArrayDouble::reference (NdArrayDouble::*atSingleScaler)(int32)                          = &NdArrayDouble::at;
+    NdArrayDouble::const_reference (NdArrayDouble::*atSingleScalerConst)(int32) const         = &NdArrayDouble::at;
+    NdArrayDouble::reference (NdArrayDouble::*atRowColScalers)(int32, int32)                  = &NdArrayDouble::at;
+    NdArrayDouble::const_reference (NdArrayDouble::*atRowColScalersConst)(int32, int32) const = &NdArrayDouble::at;
+    NdArrayDouble (NdArrayDouble::*atSlice)(const Slice&) const                               = &NdArrayDouble::at;
+    NdArrayDouble (NdArrayDouble::*atSliceSlice)(const Slice&, const Slice&) const            = &NdArrayDouble::at;
+    NdArrayDouble (NdArrayDouble::*atSliceInt)(const Slice&, int32) const                     = &NdArrayDouble::at;
+    NdArrayDouble (NdArrayDouble::*atIntSlice)(int32, const Slice&) const                     = &NdArrayDouble::at;
 
-    NdArrayComplexDouble::reference(NdArrayComplexDouble::*atComplexSingleScaler)(int32) = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::const_reference(NdArrayComplexDouble::*atComplexSingleScalerConst)(int32) const= &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::reference(NdArrayComplexDouble::*atComplexRowColScalers)(int32, int32) = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::const_reference(NdArrayComplexDouble::*atComplexRowColScalersConst)(int32, int32) const = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSlice)(const Slice&) const = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSliceSlice)(const Slice&, const Slice&) const = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexSliceInt)(const Slice&, int32) const = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble(NdArrayComplexDouble::*atComplexIntSlice)(int32, const Slice&) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::reference (NdArrayComplexDouble::*atComplexSingleScaler)(int32) = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::const_reference (NdArrayComplexDouble::*atComplexSingleScalerConst)(int32) const =
+        &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::reference (NdArrayComplexDouble::*atComplexRowColScalers)(int32, int32) =
+        &NdArrayComplexDouble::at;
+    NdArrayComplexDouble::const_reference (NdArrayComplexDouble::*atComplexRowColScalersConst)(int32, int32) const =
+        &NdArrayComplexDouble::at;
+    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSlice)(const Slice&) const = &NdArrayComplexDouble::at;
+    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSliceSlice)(const Slice&, const Slice&) const =
+        &NdArrayComplexDouble::at;
+    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSliceInt)(const Slice&, int32) const =
+        &NdArrayComplexDouble::at;
+    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexIntSlice)(int32, const Slice&) const =
+        &NdArrayComplexDouble::at;
 
-    NdArrayDoubleIterator(NdArrayDouble::*begin)()  = &NdArrayDouble::begin;
-    NdArrayDoubleIterator(NdArrayDouble::*beginRow)(NdArrayDouble::size_type) = &NdArrayDouble::begin;
-    NdArrayDoubleConstIterator(NdArrayDouble::*beginConst)() const  = &NdArrayDouble::cbegin;
-    NdArrayDoubleConstIterator(NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cbegin;
+    NdArrayDoubleIterator (NdArrayDouble::*begin)()                                            = &NdArrayDouble::begin;
+    NdArrayDoubleIterator (NdArrayDouble::*beginRow)(NdArrayDouble::size_type)                 = &NdArrayDouble::begin;
+    NdArrayDoubleConstIterator (NdArrayDouble::*beginConst)() const                            = &NdArrayDouble::cbegin;
+    NdArrayDoubleConstIterator (NdArrayDouble::*beginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cbegin;
 
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginComplex)()  = &NdArrayComplexDouble::begin;
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*beginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::begin;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginConstComplex)() const  = &NdArrayComplexDouble::cbegin;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::cbegin;
+    NdArrayComplexDoubleIterator (NdArrayComplexDouble::*beginComplex)() = &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleIterator (NdArrayComplexDouble::*beginRowComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::begin;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDouble::*beginConstComplex)() const =
+        &NdArrayComplexDouble::cbegin;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDouble::*beginRowConstComplex)(NdArrayComplexDouble::size_type)
+        const = &NdArrayComplexDouble::cbegin;
 
-    NdArrayDoubleColumnIterator(NdArrayDouble::*colbegin)()  = &NdArrayDouble::colbegin;
-    NdArrayDoubleColumnIterator(NdArrayDouble::*colbeginCol)(NdArrayDouble::size_type) = &NdArrayDouble::colbegin;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginConst)() const  = &NdArrayDouble::ccolbegin;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::ccolbegin;
+    NdArrayDoubleColumnIterator (NdArrayDouble::*colbegin)()                            = &NdArrayDouble::colbegin;
+    NdArrayDoubleColumnIterator (NdArrayDouble::*colbeginCol)(NdArrayDouble::size_type) = &NdArrayDouble::colbegin;
+    NdArrayDoubleConstColumnIterator (NdArrayDouble::*colbeginConst)() const            = &NdArrayDouble::ccolbegin;
+    NdArrayDoubleConstColumnIterator (NdArrayDouble::*colbeginColConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::ccolbegin;
 
-    NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colbeginComplex)()  = &NdArrayComplexDouble::colbegin;
-    NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colbeginColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::colbegin;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginConstComplex)() const  = &NdArrayComplexDouble::ccolbegin;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolbegin;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDouble::*colbeginComplex)() = &NdArrayComplexDouble::colbegin;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDouble::*colbeginColComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::colbegin;
+    NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDouble::*colbeginConstComplex)() const =
+        &NdArrayComplexDouble::ccolbegin;
+    NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDouble::*colbeginColConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolbegin;
 
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rbegin)()  = &NdArrayDouble::rbegin;
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginConst)() const  = &NdArrayDouble::crbegin;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crbegin;
+    NdArrayDoubleReverseIterator (NdArrayDouble::*rbegin)()                            = &NdArrayDouble::rbegin;
+    NdArrayDoubleReverseIterator (NdArrayDouble::*rbeginRow)(NdArrayDouble::size_type) = &NdArrayDouble::rbegin;
+    NdArrayDoubleConstReverseIterator (NdArrayDouble::*rbeginConst)() const            = &NdArrayDouble::crbegin;
+    NdArrayDoubleConstReverseIterator (NdArrayDouble::*rbeginRowConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::crbegin;
 
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginComplex)()  = &NdArrayComplexDouble::rbegin;
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rbeginRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rbegin;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginConstComplex)() const  = &NdArrayComplexDouble::crbegin;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rbeginRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crbegin;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDouble::*rbeginComplex)() = &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDouble::*rbeginRowComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::rbegin;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDouble::*rbeginConstComplex)() const =
+        &NdArrayComplexDouble::crbegin;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDouble::*rbeginRowConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crbegin;
 
-    NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolbegin)()  = &NdArrayDouble::rcolbegin;
-    NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolbeginCol)(NdArrayDouble::size_type) = &NdArrayDouble::rcolbegin;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginConst)() const  = &NdArrayDouble::crcolbegin;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolbeginColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crcolbegin;
+    NdArrayDoubleReverseColumnIterator (NdArrayDouble::*rcolbegin)() = &NdArrayDouble::rcolbegin;
+    NdArrayDoubleReverseColumnIterator (NdArrayDouble::*rcolbeginCol)(NdArrayDouble::size_type) =
+        &NdArrayDouble::rcolbegin;
+    NdArrayDoubleConstReverseColumnIterator (NdArrayDouble::*rcolbeginConst)() const = &NdArrayDouble::crcolbegin;
+    NdArrayDoubleConstReverseColumnIterator (NdArrayDouble::*rcolbeginColConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::crcolbegin;
 
-    NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolbeginComplex)()  = &NdArrayComplexDouble::rcolbegin;
-    NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolbeginColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolbegin;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginConstComplex)() const  = &NdArrayComplexDouble::crcolbegin;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolbeginColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolbegin;
+    NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDouble::*rcolbeginComplex)() =
+        &NdArrayComplexDouble::rcolbegin;
+    NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDouble::*rcolbeginColComplex)(
+        NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolbegin;
+    NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDouble::*rcolbeginConstComplex)() const =
+        &NdArrayComplexDouble::crcolbegin;
+    NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDouble::*rcolbeginColConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolbegin;
 
-    NdArrayDoubleIterator(NdArrayDouble::*end)()  = &NdArrayDouble::end;
-    NdArrayDoubleIterator(NdArrayDouble::*endRow)(NdArrayDouble::size_type) = &NdArrayDouble::end;
-    NdArrayDoubleConstIterator(NdArrayDouble::*endConst)() const  = &NdArrayDouble::cend;
-    NdArrayDoubleConstIterator(NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cend;
+    NdArrayDoubleIterator (NdArrayDouble::*end)()                                            = &NdArrayDouble::end;
+    NdArrayDoubleIterator (NdArrayDouble::*endRow)(NdArrayDouble::size_type)                 = &NdArrayDouble::end;
+    NdArrayDoubleConstIterator (NdArrayDouble::*endConst)() const                            = &NdArrayDouble::cend;
+    NdArrayDoubleConstIterator (NdArrayDouble::*endRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::cend;
 
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endComplex)()  = &NdArrayComplexDouble::end;
-    NdArrayComplexDoubleIterator(NdArrayComplexDouble::*endRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::end;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endConstComplex)() const  = &NdArrayComplexDouble::cend;
-    NdArrayComplexDoubleConstIterator(NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::cend;
+    NdArrayComplexDoubleIterator (NdArrayComplexDouble::*endComplex)() = &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleIterator (NdArrayComplexDouble::*endRowComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::end;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDouble::*endConstComplex)() const = &NdArrayComplexDouble::cend;
+    NdArrayComplexDoubleConstIterator (NdArrayComplexDouble::*endRowConstComplex)(NdArrayComplexDouble::size_type)
+        const = &NdArrayComplexDouble::cend;
 
-    NdArrayDoubleColumnIterator(NdArrayDouble::*colend)()  = &NdArrayDouble::colend;
-    NdArrayDoubleColumnIterator(NdArrayDouble::*colendCol)(NdArrayDouble::size_type) = &NdArrayDouble::colend;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendConst)() const  = &NdArrayDouble::ccolend;
-    NdArrayDoubleConstColumnIterator(NdArrayDouble::*colendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::ccolend;
+    NdArrayDoubleColumnIterator (NdArrayDouble::*colend)()                            = &NdArrayDouble::colend;
+    NdArrayDoubleColumnIterator (NdArrayDouble::*colendCol)(NdArrayDouble::size_type) = &NdArrayDouble::colend;
+    NdArrayDoubleConstColumnIterator (NdArrayDouble::*colendConst)() const            = &NdArrayDouble::ccolend;
+    NdArrayDoubleConstColumnIterator (NdArrayDouble::*colendColConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::ccolend;
 
-    NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colendComplex)()  = &NdArrayComplexDouble::colend;
-    NdArrayComplexDoubleColumnIterator(NdArrayComplexDouble::*colendColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::colend;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendConstComplex)() const  = &NdArrayComplexDouble::ccolend;
-    NdArrayComplexDoubleConstColumnIterator(NdArrayComplexDouble::*colendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolend;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDouble::*colendComplex)() = &NdArrayComplexDouble::colend;
+    NdArrayComplexDoubleColumnIterator (NdArrayComplexDouble::*colendColComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::colend;
+    NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDouble::*colendConstComplex)() const =
+        &NdArrayComplexDouble::ccolend;
+    NdArrayComplexDoubleConstColumnIterator (NdArrayComplexDouble::*colendColConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::ccolend;
 
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rend)()  = &NdArrayDouble::rend;
-    NdArrayDoubleReverseIterator(NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendConst)() const  = &NdArrayDouble::crend;
-    NdArrayDoubleConstReverseIterator(NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crend;
+    NdArrayDoubleReverseIterator (NdArrayDouble::*rend)()                            = &NdArrayDouble::rend;
+    NdArrayDoubleReverseIterator (NdArrayDouble::*rendRow)(NdArrayDouble::size_type) = &NdArrayDouble::rend;
+    NdArrayDoubleConstReverseIterator (NdArrayDouble::*rendConst)() const            = &NdArrayDouble::crend;
+    NdArrayDoubleConstReverseIterator (NdArrayDouble::*rendRowConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::crend;
 
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendComplex)()  = &NdArrayComplexDouble::rend;
-    NdArrayComplexDoubleReverseIterator(NdArrayComplexDouble::*rendRowComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rend;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendConstComplex)() const  = &NdArrayComplexDouble::crend;
-    NdArrayComplexDoubleConstReverseIterator(NdArrayComplexDouble::*rendRowConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crend;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDouble::*rendComplex)() = &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleReverseIterator (NdArrayComplexDouble::*rendRowComplex)(NdArrayComplexDouble::size_type) =
+        &NdArrayComplexDouble::rend;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDouble::*rendConstComplex)() const =
+        &NdArrayComplexDouble::crend;
+    NdArrayComplexDoubleConstReverseIterator (NdArrayComplexDouble::*rendRowConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crend;
 
-    NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolend)()  = &NdArrayDouble::rcolend;
-    NdArrayDoubleReverseColumnIterator(NdArrayDouble::*rcolendCol)(NdArrayDouble::size_type) = &NdArrayDouble::rcolend;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendConst)() const  = &NdArrayDouble::crcolend;
-    NdArrayDoubleConstReverseColumnIterator(NdArrayDouble::*rcolendColConst)(NdArrayDouble::size_type) const = &NdArrayDouble::crcolend;
+    NdArrayDoubleReverseColumnIterator (NdArrayDouble::*rcolend)()                            = &NdArrayDouble::rcolend;
+    NdArrayDoubleReverseColumnIterator (NdArrayDouble::*rcolendCol)(NdArrayDouble::size_type) = &NdArrayDouble::rcolend;
+    NdArrayDoubleConstReverseColumnIterator (NdArrayDouble::*rcolendConst)() const = &NdArrayDouble::crcolend;
+    NdArrayDoubleConstReverseColumnIterator (NdArrayDouble::*rcolendColConst)(NdArrayDouble::size_type) const =
+        &NdArrayDouble::crcolend;
 
-    NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolendComplex)()  = &NdArrayComplexDouble::rcolend;
-    NdArrayComplexDoubleReverseColumnIterator(NdArrayComplexDouble::*rcolendColComplex)(NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolend;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendConstComplex)() const  = &NdArrayComplexDouble::crcolend;
-    NdArrayComplexDoubleConstReverseColumnIterator(NdArrayComplexDouble::*rcolendColConstComplex)(NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolend;
+    NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDouble::*rcolendComplex)() =
+        &NdArrayComplexDouble::rcolend;
+    NdArrayComplexDoubleReverseColumnIterator (NdArrayComplexDouble::*rcolendColComplex)(
+        NdArrayComplexDouble::size_type) = &NdArrayComplexDouble::rcolend;
+    NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDouble::*rcolendConstComplex)() const =
+        &NdArrayComplexDouble::crcolend;
+    NdArrayComplexDoubleConstReverseColumnIterator (NdArrayComplexDouble::*rcolendColConstComplex)(
+        NdArrayComplexDouble::size_type) const = &NdArrayComplexDouble::crcolend;
 
     m.def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>);
     m.def("test1DListContructor", &NdArrayInterface::test1DListContructor<ComplexDouble>);
@@ -6754,8 +6823,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<ComplexDouble>);
 
-    pb11::class_<NdArrayDouble>
-        (m, "NdArray")
+    pb11::class_<NdArrayDouble>(m, "NdArray")
         .def(pb11::init<>())
         .def(pb11::init<NdArrayDouble::size_type>())
         .def(pb11::init<NdArrayDouble::size_type, NdArrayDouble::size_type>())
@@ -6905,21 +6973,21 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("transpose", &NdArrayInterface::transpose<double>)
         .def("zeros", &NdArrayDouble::zeros, pb11::return_value_policy::reference);
 
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>); // (1)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<ComplexDouble>); // (1)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithArray<double>); // (2)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<double>); // (3)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<ComplexDouble>); // (3)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>);                   // (1)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<ComplexDouble>);            // (1)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithArray<double>);  // (2)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<double>);                  // (3)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<ComplexDouble>);           // (3)
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithScaler<double>); // (4)
 
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<double>); // (1)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<ComplexDouble>); // (1)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexArray<double>); // (2)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithArray<double>); // (3)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<double>); // (4)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<ComplexDouble>); // (4)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<double>); // (5)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<ComplexDouble>); // (5)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<double>);                   // (1)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<ComplexDouble>);            // (1)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexArray<double>);  // (2)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithArray<double>);  // (3)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<double>);             // (4)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<ComplexDouble>);      // (4)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<double>);             // (5)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<ComplexDouble>);      // (5)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexScaler<double>); // (6)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexScalerArithArray<double>); // (7)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithScaler<double>); // (8)
@@ -6928,61 +6996,61 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("operatorNegative", &NdArrayInterface::operatorNegative<double>);
     m.def("operatorNegative", &NdArrayInterface::operatorNegative<ComplexDouble>);
 
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<double>); // (1)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<ComplexDouble>); // (1)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithArray<double>); // (2)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<double>); // (3)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<ComplexDouble>); // (3)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<double>);                   // (1)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<ComplexDouble>);            // (1)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithArray<double>);  // (2)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<double>);                  // (3)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<ComplexDouble>);           // (3)
     m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithScaler<double>); // (4)
 
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<double>); // (1)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<ComplexDouble>); // (1)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexArray<double>); // (2)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithArray<double>); // (3)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<double>); // (4)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<ComplexDouble>); // (4)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<double>); // (5)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<ComplexDouble>); // (5)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<double>);                   // (1)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<ComplexDouble>);            // (1)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexArray<double>);  // (2)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithArray<double>);  // (3)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<double>);             // (4)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<ComplexDouble>);      // (4)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<double>);             // (5)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<ComplexDouble>);      // (5)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexScaler<double>); // (6)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexScalerArithArray<double>); // (7)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithScaler<double>); // (8)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusArithScalerComplexArray<double>); // (9)
 
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<double>); // (1)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<ComplexDouble>); // (1)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithArray<double>); // (2)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<double>); // (3)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<ComplexDouble>); // (3)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<double>);                   // (1)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<ComplexDouble>);            // (1)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithArray<double>);  // (2)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<double>);                  // (3)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<ComplexDouble>);           // (3)
     m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithScaler<double>); // (4)
 
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<double>); // (1)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<ComplexDouble>); // (1)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexArray<double>); // (2)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithArray<double>); // (3)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<double>); // (4)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<ComplexDouble>); // (4)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<double>); // (5)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<ComplexDouble>); // (5)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<double>);                   // (1)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<ComplexDouble>);            // (1)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexArray<double>);  // (2)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithArray<double>);  // (3)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<double>);             // (4)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<ComplexDouble>);      // (4)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<double>);             // (5)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<ComplexDouble>);      // (5)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexScaler<double>); // (6)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexScalerArithArray<double>); // (7)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithScaler<double>); // (8)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithScalerComplexArray<double>); // (9)
 
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<double>); // (1)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<ComplexDouble>); // (1)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithArray<double>); // (2)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<double>); // (3)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<ComplexDouble>); // (3)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<double>);                   // (1)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<ComplexDouble>);            // (1)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithArray<double>);  // (2)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<double>);                  // (3)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<ComplexDouble>);           // (3)
     m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithScaler<double>); // (4)
 
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<double>); // (1)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<ComplexDouble>); // (1)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexArray<double>); // (2)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithArray<double>); // (3)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<double>); // (4)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<ComplexDouble>); // (4)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<double>); // (5)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<ComplexDouble>); // (5)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<double>);                   // (1)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<ComplexDouble>);            // (1)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexArray<double>);  // (2)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithArray<double>);  // (3)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<double>);             // (4)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<ComplexDouble>);      // (4)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<double>);             // (5)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<ComplexDouble>);      // (5)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexScaler<double>); // (6)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexScalerArithArray<double>); // (7)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithScaler<double>); // (8)
@@ -7072,8 +7140,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
     using NdArrayUInt32 = NdArray<uint32>;
-    pb11::class_<NdArrayUInt32>
-        (m, "NdArrayUInt32")
+    pb11::class_<NdArrayUInt32>(m, "NdArrayUInt32")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7088,8 +7155,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
     using NdArrayUInt64 = NdArray<uint64>;
-    pb11::class_<NdArrayUInt64>
-        (m, "NdArrayUInt64")
+    pb11::class_<NdArrayUInt64>(m, "NdArrayUInt64")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7102,8 +7168,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<uint64>);
 
     using NdArrayUInt16 = NdArray<uint16>;
-    pb11::class_<NdArrayUInt16>
-        (m, "NdArrayUInt16")
+    pb11::class_<NdArrayUInt16>(m, "NdArrayUInt16")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7116,8 +7181,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", NdArrayInterface::setArray<uint16>);
 
     using NdArrayUInt8 = NdArray<uint8>;
-    pb11::class_<NdArrayUInt8>
-        (m, "NdArrayUInt8")
+    pb11::class_<NdArrayUInt8>(m, "NdArrayUInt8")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7130,8 +7194,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", NdArrayInterface::setArray<uint8>);
 
     using NdArrayInt64 = NdArray<int64>;
-    pb11::class_<NdArrayInt64>
-        (m, "NdArrayInt64")
+    pb11::class_<NdArrayInt64>(m, "NdArrayInt64")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7145,8 +7208,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<int64>);
 
     using NdArrayInt32 = NdArray<int32>;
-    pb11::class_<NdArrayInt32>
-        (m, "NdArrayInt32")
+    pb11::class_<NdArrayInt32>(m, "NdArrayInt32")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7160,8 +7222,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
     using NdArrayInt16 = NdArray<int16>;
-    pb11::class_<NdArrayInt16>
-        (m, "NdArrayInt16")
+    pb11::class_<NdArrayInt16>(m, "NdArrayInt16")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7175,8 +7236,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<int16>);
 
     using NdArrayInt8 = NdArray<int8>;
-    pb11::class_<NdArrayInt8>
-        (m, "NdArrayInt8")
+    pb11::class_<NdArrayInt8>(m, "NdArrayInt8")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7190,8 +7250,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<int8>);
 
     using NdArrayFloat = NdArray<float>;
-    pb11::class_<NdArrayFloat>
-        (m, "NdArrayFloat")
+    pb11::class_<NdArrayFloat>(m, "NdArrayFloat")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7204,8 +7263,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
     using NdArrayBool = NdArray<bool>;
-    pb11::class_<NdArrayBool>
-        (m, "NdArrayBool")
+    pb11::class_<NdArrayBool>(m, "NdArrayBool")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7217,9 +7275,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("endianess", &NdArrayBool::endianess)
         .def("setArray", NdArrayInterface::setArray<bool>);
 
-    using NdArrayComplexLongDouble = NdArray<std::complex<long double> >;
-    pb11::class_<NdArrayComplexLongDouble>
-        (m, "NdArrayComplexLongDouble")
+    using NdArrayComplexLongDouble = NdArray<std::complex<long double>>;
+    pb11::class_<NdArrayComplexLongDouble>(m, "NdArrayComplexLongDouble")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7230,9 +7287,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<long double>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<long double>>);
 
-    using NdArrayComplexFloat = NdArray<std::complex<float> >;
-    pb11::class_<NdArrayComplexFloat>
-        (m, "NdArrayComplexFloat")
+    using NdArrayComplexFloat = NdArray<std::complex<float>>;
+    pb11::class_<NdArrayComplexFloat>(m, "NdArrayComplexFloat")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7243,8 +7299,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<std::complex<float>>)
         .def("setArray", NdArrayInterface::setArray<std::complex<float>>);
 
-    pb11::class_<NdArrayComplexDouble>
-        (m, "NdArrayComplexDouble")
+    pb11::class_<NdArrayComplexDouble>(m, "NdArrayComplexDouble")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def(pb11::init<uint32, uint32>())
@@ -7769,9 +7824,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("max", &FunctionsInterface::max<ComplexDouble>);
     m.def("maximum", &FunctionsInterface::maximum<double>);
     m.def("maximum", &FunctionsInterface::maximum<ComplexDouble>);
-    NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>; 
+    NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>;
     m.def("mean", meanDouble);
-    NdArray<ComplexDouble> (*meanComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mean<double>; 
+    NdArray<ComplexDouble> (*meanComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mean<double>;
     m.def("mean", meanComplexDouble);
     m.def("median", &median<double>);
     m.def("meshgrid", &FunctionsInterface::meshgrid<double>);
@@ -7824,9 +7879,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("none", &FunctionsInterface::noneArray<ComplexDouble>);
     m.def("nonzero", &nonzero<double>);
     m.def("nonzero", &nonzero<ComplexDouble>);
-    NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>; 
+    NdArray<double> (*normDouble)(const NdArray<double>&, Axis) = &norm<double>;
     m.def("norm", normDouble);
-    NdArray<ComplexDouble> (*normComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &norm<double>; 
+    NdArray<ComplexDouble> (*normComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &norm<double>;
     m.def("norm", normComplexDouble);
     m.def("not_equal", &not_equal<double>);
     m.def("not_equal", &not_equal<ComplexDouble>);
@@ -7895,9 +7950,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("right_shift", &right_shift<uint32>);
     m.def("rintScaler", &FunctionsInterface::rintScaler<double>);
     m.def("rintArray", &FunctionsInterface::rintArray<double>);
-    NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>; 
+    NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>;
     m.def("rms", rmsDouble);
-    NdArray<ComplexDouble> (*rmsComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &rms<double>; 
+    NdArray<ComplexDouble> (*rmsComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &rms<double>;
     m.def("rms", rmsComplexDouble);
     m.def("roll", &roll<double>);
     m.def("rot90", &rot90<double>);
@@ -7938,9 +7993,9 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("squareArray", &FunctionsInterface::squareArray<double>);
     m.def("squareArray", &FunctionsInterface::squareArray<ComplexDouble>);
     m.def("stack", &FunctionsInterface::stack<double>);
-    NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>; 
+    NdArray<double> (*stdevDouble)(const NdArray<double>&, Axis) = &stdev<double>;
     m.def("stdev", stdevDouble);
-    NdArray<ComplexDouble> (*stdevComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &stdev<double>; 
+    NdArray<ComplexDouble> (*stdevComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &stdev<double>;
     m.def("stdev", stdevComplexDouble);
     m.def("subtract", &FunctionsInterface::subtract<NdArray<double>, NdArray<double>>);
     m.def("subtract", &FunctionsInterface::subtract<NdArray<double>, double>);
@@ -8004,7 +8059,7 @@ PYBIND11_MODULE(NumCppPy, m)
 
     NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
     m.def("var", varDouble);
-    NdArray<ComplexDouble> (*varComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &var<double>; 
+    NdArray<ComplexDouble> (*varComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &var<double>;
     m.def("var", varComplexDouble);
     m.def("vstack", &FunctionsInterface::vstack<double>);
 
@@ -8034,44 +8089,46 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("cube", &utils::cube<double>);
     m.def("power", &utils::power<double>);
     m.def("power", &utils::power<ComplexDouble>);
-    decltype(utils::powerf<double, double>(double{ 0 }, double{ 0 }))(*powerf_double)(double, double) = &utils::powerf<double, double>;
+    decltype(utils::powerf<double, double>(double{ 0 }, double{ 0 })) (*powerf_double)(double, double) =
+        &utils::powerf<double, double>;
     m.def("powerf", powerf_double);
-    decltype(utils::powerf<ComplexDouble, ComplexDouble>(ComplexDouble{ 0 }, ComplexDouble{ 0 }))(*powerf_complexDouble)
-        (ComplexDouble, ComplexDouble) = &utils::powerf<ComplexDouble, ComplexDouble>;
+    decltype(utils::powerf<ComplexDouble, ComplexDouble>(ComplexDouble{ 0 }, ComplexDouble{ 0 })) (
+        *powerf_complexDouble)(ComplexDouble, ComplexDouble) = &utils::powerf<ComplexDouble, ComplexDouble>;
     m.def("powerf_complex", powerf_complexDouble);
 
     m.def("num2str", &utils::num2str<int64>);
     m.def("sqr", &utils::sqr<int64>);
     m.def("cube", &utils::cube<int64>);
     m.def("power", &utils::power<int64>);
-    decltype(utils::powerf<int64, double>(int64{ 0 }, double{ 0 }))(*powerf_int64)(int64, double) = &utils::powerf<int64, double>;
+    decltype(utils::powerf<int64, double>(int64{ 0 }, double{ 0 })) (*powerf_int64)(int64, double) =
+        &utils::powerf<int64, double>;
     m.def("powerf", powerf_int64);
 
     // Random.hpp
     NdArray<bool> (*bernoulliArray)(const Shape&, double) = &random::bernoulli;
-    bool (*bernoilliScalar)(double) = &random::bernoulli;
+    bool (*bernoilliScalar)(double)                       = &random::bernoulli;
     m.def("bernoulli", bernoulliArray);
     m.def("bernoulli", bernoilliScalar);
 
 #ifndef NUMCPP_NO_USE_BOOST
     NdArray<double> (*betaArray)(const Shape&, double, double) = &random::beta<double>;
-    double (*betaScalar)(double, double) = &random::beta<double>;
+    double (*betaScalar)(double, double)                       = &random::beta<double>;
     m.def("beta", betaArray);
     m.def("beta", betaScalar);
 #endif
 
     NdArray<int32> (*binomialArray)(const Shape&, int32, double) = &random::binomial<int32>;
-    int32 (*binomialScalar)(int32, double) = &random::binomial<int32>;
+    int32 (*binomialScalar)(int32, double)                       = &random::binomial<int32>;
     m.def("binomial", binomialArray);
     m.def("binomial", binomialScalar);
 
     NdArray<double> (*cauchyArray)(const Shape&, double, double) = &random::cauchy<double>;
-    double (*cauchyScalar)(double, double) = &random::cauchy<double>;
+    double (*cauchyScalar)(double, double)                       = &random::cauchy<double>;
     m.def("cauchy", cauchyArray);
     m.def("cauchy", cauchyScalar);
 
     NdArray<double> (*chiSquareArray)(const Shape&, double) = &random::chiSquare<double>;
-    double (*chiSquareScalar)(double) = &random::chiSquare<double>;
+    double (*chiSquareScalar)(double)                       = &random::chiSquare<double>;
     m.def("chiSquare", chiSquareArray);
     m.def("chiSquare", chiSquareScalar);
 
@@ -8079,61 +8136,61 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("choiceMultiple", &RandomInterface::choiceMultiple<double>);
 
     NdArray<int32> (*discreteArray)(const Shape&, const NdArray<double>&) = &random::discrete<int32>;
-    int32 (*discreteScalar)(const NdArray<double>&) = &random::discrete<int32>;
+    int32 (*discreteScalar)(const NdArray<double>&)                       = &random::discrete<int32>;
     m.def("discrete", discreteArray);
     m.def("discrete", discreteScalar);
 
     NdArray<double> (*exponentialArray)(const Shape&, double) = &random::exponential<double>;
-    double (*exponentialScalar)(double) = &random::exponential<double>;
+    double (*exponentialScalar)(double)                       = &random::exponential<double>;
     m.def("exponential", exponentialArray);
     m.def("exponential", exponentialScalar);
 
     NdArray<double> (*extremeValueArray)(const Shape&, double, double) = &random::extremeValue<double>;
-    double (*extremeValueScalar)(double, double) = &random::extremeValue<double>;
+    double (*extremeValueScalar)(double, double)                       = &random::extremeValue<double>;
     m.def("extremeValue", extremeValueArray);
     m.def("extremeValue", extremeValueScalar);
 
     NdArray<double> (*fArray)(const Shape&, double, double) = &random::f<double>;
-    double (*fScalar)(double, double) = &random::f<double>;
+    double (*fScalar)(double, double)                       = &random::f<double>;
     m.def("f", fArray);
     m.def("f", fScalar);
 
     NdArray<double> (*gammaArray)(const Shape&, double, double) = &random::gamma<double>;
-    double (*gammaScalar)(double, double) = &random::gamma<double>;
+    double (*gammaScalar)(double, double)                       = &random::gamma<double>;
     m.def("gamma", gammaArray);
     m.def("gamma", gammaScalar);
 
     NdArray<int32> (*geometricArray)(const Shape&, double) = &random::geometric<int32>;
-    int32 (*geometricScalar)(double) = &random::geometric<int32>;
+    int32 (*geometricScalar)(double)                       = &random::geometric<int32>;
     m.def("geometric", geometricArray);
     m.def("geometric", geometricScalar);
 
 #ifndef NUMCPP_NO_USE_BOOST
     NdArray<double> (*laplaceArray)(const Shape&, double, double) = &random::laplace<double>;
-    double (*laplaceScalar)(double, double) = &random::laplace<double>;
+    double (*laplaceScalar)(double, double)                       = &random::laplace<double>;
     m.def("laplace", laplaceArray);
     m.def("laplace", laplaceScalar);
 #endif
 
     NdArray<double> (*lognormalArray)(const Shape&, double, double) = &random::lognormal<double>;
-    double (*lognormalScalar)(double, double) = &random::lognormal<double>;
+    double (*lognormalScalar)(double, double)                       = &random::lognormal<double>;
     m.def("lognormal", lognormalArray);
     m.def("lognormal", lognormalScalar);
 
     NdArray<int32> (*negativeBinomialArray)(const Shape&, int32, double) = &random::negativeBinomial<int32>;
-    int32 (*negativeBinomialScalar)(int32, double) = &random::negativeBinomial<int32>;
+    int32 (*negativeBinomialScalar)(int32, double)                       = &random::negativeBinomial<int32>;
     m.def("negativeBinomial", negativeBinomialArray);
     m.def("negativeBinomial", negativeBinomialScalar);
 
 #ifndef NUMCPP_NO_USE_BOOST
     NdArray<double> (*nonCentralChiSquaredArray)(const Shape&, double, double) = &random::nonCentralChiSquared<double>;
-    double (*nonCentralChiSquaredScalar)(double, double) = &random::nonCentralChiSquared<double>;
+    double (*nonCentralChiSquaredScalar)(double, double)                       = &random::nonCentralChiSquared<double>;
     m.def("nonCentralChiSquared", nonCentralChiSquaredArray);
     m.def("nonCentralChiSquared", nonCentralChiSquaredScalar);
 #endif
 
     NdArray<double> (*normalArray)(const Shape&, double, double) = &random::normal<double>;
-    double (*normalScalar)(double, double) = &random::normal<double>;
+    double (*normalScalar)(double, double)                       = &random::normal<double>;
     m.def("normal", normalArray);
     m.def("normal", normalScalar);
 
@@ -8141,27 +8198,27 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("permutationArray", &RandomInterface::permutationArray<double>);
 
     NdArray<int32> (*poissonArray)(const Shape&, double) = &random::poisson<int32>;
-    int32 (*poissonScalar)(double) = &random::poisson<int32>;
+    int32 (*poissonScalar)(double)                       = &random::poisson<int32>;
     m.def("poisson", poissonArray);
     m.def("poisson", poissonScalar);
 
     NdArray<double> (*randArray)(const Shape&) = &random::rand<double>;
-    double (*randScalar)() = &random::rand<double>;
+    double (*randScalar)()                     = &random::rand<double>;
     m.def("rand", randArray);
     m.def("rand", randScalar);
 
     NdArray<double> (*randFloatArray)(const Shape&, double, double) = &random::randFloat<double>;
-    double (*randFloatScalar)(double, double) = &random::randFloat<double>;
+    double (*randFloatScalar)(double, double)                       = &random::randFloat<double>;
     m.def("randFloat", randFloatArray);
     m.def("randFloat", randFloatScalar);
 
     NdArray<int32> (*randIntArray)(const Shape&, int32, int32) = &random::randInt<int32>;
-    int32 (*randIntScalar)(int32, int32) = &random::randInt<int32>;
+    int32 (*randIntScalar)(int32, int32)                       = &random::randInt<int32>;
     m.def("randInt", randIntArray);
     m.def("randInt", randIntScalar);
 
     NdArray<double> (*randNArray)(const Shape&) = &random::randN<double>;
-    double (*randNScalar)() = &random::randN<double>;
+    double (*randNScalar)()                     = &random::randN<double>;
     m.def("randN", randNArray);
     m.def("randN", randNScalar);
 
@@ -8169,24 +8226,24 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("shuffle", &random::shuffle<double>);
 
     NdArray<double> (*standardNormalArray)(const Shape&) = &random::standardNormal<double>;
-    double (*standardNormalScalar)() = &random::standardNormal<double>;
+    double (*standardNormalScalar)()                     = &random::standardNormal<double>;
     m.def("standardNormal", standardNormalArray);
     m.def("standardNormal", standardNormalScalar);
 
     NdArray<double> (*studentTArray)(const Shape&, double) = &random::studentT<double>;
-    double (*studentTScalar)(double) = &random::studentT<double>;
+    double (*studentTScalar)(double)                       = &random::studentT<double>;
     m.def("studentT", studentTArray);
     m.def("studentT", studentTScalar);
 
 #ifndef NUMCPP_NO_USE_BOOST
     NdArray<double> (*triangleArray)(const Shape&, double, double, double) = &random::triangle<double>;
-    double (*triangleScalar)(double, double, double) = &random::triangle<double>;
+    double (*triangleScalar)(double, double, double)                       = &random::triangle<double>;
     m.def("triangle", triangleArray);
     m.def("triangle", triangleScalar);
 #endif
 
     NdArray<double> (*uniformArray)(const Shape&, double, double) = &random::uniform<double>;
-    double (*uniformScalar)(double, double) = &random::uniform<double>;
+    double (*uniformScalar)(double, double)                       = &random::uniform<double>;
     m.def("uniform", uniformArray);
     m.def("uniform", uniformScalar);
 
@@ -8195,9 +8252,17 @@ PYBIND11_MODULE(NumCppPy, m)
 #endif
 
     NdArray<double> (*weibullArray)(const Shape&, double, double) = &random::weibull<double>;
-    double (*weibullScalar)(double, double) = &random::weibull<double>;
+    double (*weibullScalar)(double, double)                       = &random::weibull<double>;
     m.def("weibull", weibullArray);
     m.def("weibull", weibullScalar);
+
+    using RNG_t = random::RNG<>;
+    pb11::class_<RNG_t>(m, "RNG")
+        .def(pb11::init<>())
+        .def(pb11::init<int>())
+        .def("randInt", &RandomInterface::RNG::randIntValue<RNG_t, int>)
+        .def("randInt", &RandomInterface::RNG::randIntShape<RNG_t, int>)
+        .def("seed", &RNG_t::seed);
 
     // Linalg.hpp
     m.def("cholesky", &linalg::cholesky<double>);
@@ -8214,14 +8279,13 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("svd", &linalg::svd<double>);
 
     // Rotations.hpp
-    pb11::class_<rotations::Quaternion>
-        (m, "Quaternion")
+    pb11::class_<rotations::Quaternion>(m, "Quaternion")
         .def(pb11::init<>())
         .def(pb11::init<double, double, double>())
         .def(pb11::init<double, double, double, double>())
         .def(pb11::init<Vec3, double>())
         .def(pb11::init<NdArray<double>, double>())
-        .def(pb11::init<NdArray<double> >())
+        .def(pb11::init<NdArray<double>>())
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray)
         .def_static("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3)
         .def("angularVelocity", &RotationsInterface::angularVelocity)
@@ -8256,8 +8320,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__truediv__", &rotations::Quaternion::operator/)
         .def("__str__", &rotations::Quaternion::str);
 
-    pb11::class_<rotations::DCM>
-        (m, "DCM")
+    pb11::class_<rotations::DCM>(m, "DCM")
         .def(pb11::init<>())
         .def_static("eulerAnglesValues", &RotationsInterface::eulerAnglesValues)
         .def_static("eulerAnglesArray", &RotationsInterface::eulerAnglesArray)
@@ -8305,8 +8368,7 @@ PYBIND11_MODULE(NumCppPy, m)
 
     // Image Processing
     using PixelDouble = imageProcessing::Pixel<double>;
-    pb11::class_<PixelDouble>
-        (m, "Pixel")
+    pb11::class_<PixelDouble>(m, "Pixel")
         .def(pb11::init<>())
         .def(pb11::init<uint32, uint32, double>())
         .def(pb11::init<PixelDouble>())
@@ -8321,8 +8383,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("print", &PixelDouble::print);
 
     using ClusterDouble = imageProcessing::Cluster<double>;
-    pb11::class_<ClusterDouble>
-        (m, "Cluster")
+    pb11::class_<ClusterDouble>(m, "Cluster")
         .def(pb11::init<>())
         .def(pb11::init<ClusterDouble>())
         .def("__eq__", &ClusterDouble::operator==)
@@ -8343,8 +8404,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("print", &ClusterDouble::print);
 
     using CentroidDouble = imageProcessing::Centroid<double>;
-    pb11::class_<CentroidDouble>
-        (m, "Centroid")
+    pb11::class_<CentroidDouble>(m, "Centroid")
         .def(pb11::init<>())
         .def(pb11::init<ClusterDouble>())
         .def(pb11::init<CentroidDouble>())
@@ -8366,8 +8426,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("windowExceedances", &imageProcessing::windowExceedances);
 
     // Coordinates.hpp
-    pb11::class_<coordinates::RA>
-        (m, "Ra")
+    pb11::class_<coordinates::RA>(m, "Ra")
         .def(pb11::init<>())
         .def(pb11::init<double>())
         .def(pb11::init<uint8, uint8, double>())
@@ -8383,13 +8442,11 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ne__", &coordinates::RA::operator!=)
         .def("print", &RaInterface::print);
 
-    pb11::enum_<coordinates::Sign>
-        (m, "Sign")
+    pb11::enum_<coordinates::Sign>(m, "Sign")
         .value("POSITIVE", coordinates::Sign::POSITIVE)
         .value("NEGATIVE", coordinates::Sign::NEGATIVE);
 
-    pb11::class_<coordinates::Dec>
-        (m, "Dec")
+    pb11::class_<coordinates::Dec>(m, "Dec")
         .def(pb11::init<>())
         .def(pb11::init<double>())
         .def(pb11::init<coordinates::Sign, uint8, uint8, double>())
@@ -8406,8 +8463,7 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("__ne__", &coordinates::Dec::operator!=)
         .def("print", &DecInterface::print);
 
-    pb11::class_<coordinates::Coordinate>
-        (m, "Coordinate")
+    pb11::class_<coordinates::Coordinate>(m, "Coordinate")
         .def(pb11::init<>())
         .def(pb11::init<double, double>())
         .def(pb11::init<uint8, uint8, double, coordinates::Sign, uint8, uint8, double>())
@@ -8433,8 +8489,7 @@ PYBIND11_MODULE(NumCppPy, m)
 
     // DataCube
     using DataCubeDouble = DataCube<double>;
-    pb11::class_<DataCubeDouble>
-        (m, "DataCube")
+    pb11::class_<DataCubeDouble>(m, "DataCube")
         .def(pb11::init<>())
         .def(pb11::init<uint32>())
         .def("at", &DataCubeInterface::at<double>, pb11::return_value_policy::reference)
@@ -8471,11 +8526,10 @@ PYBIND11_MODULE(NumCppPy, m)
     // Polynomial.hpp
     using Poly1d = polynomial::Poly1d<double>;
 
-    Poly1d(*fit)(const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
+    Poly1d (*fit)(const NdArrayDouble&, const NdArrayDouble&, uint8)                               = &Poly1d::fit;
     Poly1d (*fitWeighted)(const NdArrayDouble&, const NdArrayDouble&, const NdArrayDouble&, uint8) = &Poly1d::fit;
 
-    pb11::class_<Poly1d>
-        (m, "Poly1d")
+    pb11::class_<Poly1d>(m, "Poly1d")
         .def(pb11::init<>())
         .def(pb11::init<NdArray<double>, bool>())
         .def("area", &Poly1d::area)
@@ -8546,11 +8600,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("integrate_trapazoidal", &IntegrateInterface::trapazoidal);
 
     // Vec2.hpp
-    pb11::class_<Vec2>
-        (m, "Vec2")
+    pb11::class_<Vec2>(m, "Vec2")
         .def(pb11::init<>())
         .def(pb11::init<double, double>())
-        .def(pb11::init<NdArray<double> >())
+        .def(pb11::init<NdArray<double>>())
         .def_readwrite("x", &Vec2::x)
         .def_readwrite("y", &Vec2::y)
         .def("angle", &Vec2::angle)
@@ -8588,11 +8641,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("Vec2_print", &Vec2Interface::print);
 
     // Vec3.hpp
-    pb11::class_<Vec3>
-        (m, "Vec3")
+    pb11::class_<Vec3>(m, "Vec3")
         .def(pb11::init<>())
         .def(pb11::init<double, double, double>())
-        .def(pb11::init<NdArray<double> >())
+        .def(pb11::init<NdArray<double>>())
         .def_readwrite("x", &Vec3::x)
         .def_readwrite("y", &Vec3::y)
         .def_readwrite("z", &Vec3::z)

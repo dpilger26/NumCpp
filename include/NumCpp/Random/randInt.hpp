@@ -43,6 +43,80 @@ namespace nc
 {
     namespace random
     {
+        namespace detail
+        {
+            //============================================================================
+            // Method Description:
+            /// Return random integer from low (inclusive) to high (exclusive),
+            /// with the given shape. If no high value is input then the range will
+            /// go from [0, low).
+            ///
+            /// NumPy Reference:
+            /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+            ///
+            /// @param generator: instance of a random number generator
+            /// @param inLow
+            /// @param inHigh default 0.
+            /// @return NdArray
+            ///
+            template<typename dtype, typename GeneratorType = std::mt19937>
+            dtype randInt(GeneratorType generator, dtype inLow, dtype inHigh = 0)
+            {
+                STATIC_ASSERT_INTEGER(dtype);
+
+                if (inLow == inHigh)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
+                }
+                else if (inLow > inHigh - 1)
+                {
+                    std::swap(inLow, inHigh);
+                }
+
+                std::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
+                return dist(generator);
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Return random integers from low (inclusive) to high (exclusive),
+            /// with the given shape. If no high value is input then the range will
+            /// go from [0, low).
+            ///
+            /// NumPy Reference:
+            /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
+            ///
+            /// @param inShape
+            /// @param inLow
+            /// @param inHigh default 0.
+            /// @return NdArray
+            ///
+            template<typename dtype, typename GeneratorType = std::mt19937>
+            NdArray<dtype> randInt(GeneratorType generator, const Shape& inShape, dtype inLow, dtype inHigh = 0)
+            {
+                STATIC_ASSERT_INTEGER(dtype);
+
+                if (inLow == inHigh)
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
+                }
+                else if (inLow > inHigh - 1)
+                {
+                    std::swap(inLow, inHigh);
+                }
+
+                NdArray<dtype> returnArray(inShape);
+
+                std::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
+
+                std::for_each(returnArray.begin(),
+                              returnArray.end(),
+                              [&dist, &generator](dtype& value) -> void { value = dist(generator); });
+
+                return returnArray;
+            }
+        } // namespace detail
+
         //============================================================================
         // Method Description:
         /// Return random integer from low (inclusive) to high (exclusive),
@@ -59,19 +133,7 @@ namespace nc
         template<typename dtype>
         dtype randInt(dtype inLow, dtype inHigh = 0)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
-            if (inLow == inHigh)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
-            }
-            else if (inLow > inHigh - 1)
-            {
-                std::swap(inLow, inHigh);
-            }
-
-            std::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
-            return dist(generator_);
+            return detail::randInt(generator_, inLow, inHigh);
         }
 
         //============================================================================
@@ -91,26 +153,7 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
         {
-            STATIC_ASSERT_INTEGER(dtype);
-
-            if (inLow == inHigh)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
-            }
-            else if (inLow > inHigh - 1)
-            {
-                std::swap(inLow, inHigh);
-            }
-
-            NdArray<dtype> returnArray(inShape);
-
-            std::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
-
-            std::for_each(returnArray.begin(),
-                          returnArray.end(),
-                          [&dist](dtype& value) -> void { value = dist(generator_); });
-
-            return returnArray;
+            return detail::randInt(generator_, inShape, inLow, inHigh);
         }
     } // namespace random
 } // namespace nc

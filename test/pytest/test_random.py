@@ -340,3 +340,31 @@ def test_weibull():
     inputs = np.random.rand(2)
     assert NumCpp.weibull(inShape, inputs[0].item(), inputs[1].item()) is not None
     assert NumCpp.weibull(inputs[0].item(), inputs[1].item()) is not None
+
+
+####################################################################################
+def test_RNG_randInt():
+    shapeInput = np.random.randint(1, 100, [2, ])
+    inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
+    values = np.random.randint(1, 100, [2, ])
+    values.sort()
+    rng = NumCpp.RNG()
+    assert rng.randInt(inShape, values[0].item(), values[1].item()) is not None
+    assert rng.randInt(values[0].item(), values[1].item() + 1) is not None
+
+
+####################################################################################
+def test_RNG_seed():
+    seed = np.random.randint(0, 100000)
+    rng = NumCpp.RNG()
+    rng.seed(seed)
+
+    shapeInput = np.random.randint(1, 100, [2, ])
+    inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item() + 1)
+    values = np.random.randint(1, 100, [2, ])
+    values.sort()
+
+    values1 = rng.randInt(inShape, values[0].item(), values[1].item())
+    rng.seed(seed)
+    values2 = rng.randInt(inShape, values[0].item(), values[1].item())
+    assert np.array_equal(values1, values2)
