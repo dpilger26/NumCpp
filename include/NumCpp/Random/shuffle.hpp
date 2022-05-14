@@ -37,6 +37,22 @@ namespace nc
 {
     namespace random
     {
+        namespace detail
+        {
+            //============================================================================
+            // Method Description:
+            /// Modify a sequence in-place by shuffling its contents.
+            ///
+            /// @param generator: instance of a random number generator
+            /// @param inArray
+            ///
+            template<typename dtype, typename GeneratorType = std::mt19937>
+            void shuffle(GeneratorType& generator, NdArray<dtype>& inArray)
+            {
+                std::shuffle(inArray.begin(), inArray.end(), generator);
+            }
+        } // namespace detail
+
         //============================================================================
         // Method Description:
         /// Modify a sequence in-place by shuffling its contents.
@@ -46,7 +62,7 @@ namespace nc
         template<typename dtype>
         void shuffle(NdArray<dtype>& inArray)
         {
-            std::shuffle(inArray.begin(), inArray.end(), generator_);
+            return detail::shuffle(generator_, inArray);
         }
     } // namespace random
 } // namespace nc

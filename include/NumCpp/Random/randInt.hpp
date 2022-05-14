@@ -60,7 +60,7 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype, typename GeneratorType = std::mt19937>
-            dtype randInt(GeneratorType generator, dtype inLow, dtype inHigh = 0)
+            dtype randInt(GeneratorType& generator, dtype inLow, dtype inHigh = 0)
             {
                 STATIC_ASSERT_INTEGER(dtype);
 
@@ -68,7 +68,7 @@ namespace nc
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
                 }
-                else if (inLow > inHigh - 1)
+                else if (inLow > inHigh)
                 {
                     std::swap(inLow, inHigh);
                 }
@@ -86,13 +86,14 @@ namespace nc
             /// NumPy Reference:
             /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
             ///
+            /// @param generator: instance of a random number generator
             /// @param inShape
             /// @param inLow
             /// @param inHigh default 0.
             /// @return NdArray
             ///
             template<typename dtype, typename GeneratorType = std::mt19937>
-            NdArray<dtype> randInt(GeneratorType generator, const Shape& inShape, dtype inLow, dtype inHigh = 0)
+            NdArray<dtype> randInt(GeneratorType& generator, const Shape& inShape, dtype inLow, dtype inHigh = 0)
             {
                 STATIC_ASSERT_INTEGER(dtype);
 
