@@ -4553,9 +4553,9 @@ namespace RandomInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    pbArrayGeneric choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum, bool replace)
     {
-        return nc2pybind(random::choice(inArray, inNum));
+        return nc2pybind(random::choice(inArray, inNum, replace));
     }
 
     //================================================================================
@@ -4847,9 +4847,9 @@ namespace RandomInterface
         //============================================================================
 
         template<typename RNG_t, typename dtype>
-        NdArray<dtype> permutationValue(RNG_t rng, dtype inValue)
+        pbArrayGeneric permutationValue(RNG_t rng, dtype inValue)
         {
-            return rng.permutation(inValue);
+            return nc2pybind(rng.permutation(inValue));
         }
 
         //============================================================================
@@ -4858,6 +4858,22 @@ namespace RandomInterface
         pbArrayGeneric permutationShape(RNG_t rng, const NdArray<dtype>& inArray)
         {
             return nc2pybind(rng.permutation(inArray));
+        }
+
+        //============================================================================
+
+        template<typename RNG_t, typename dtype>
+        dtype poissonValue(RNG_t rng, double mean)
+        {
+            return rng.template poisson<dtype>(mean);
+        }
+
+        //============================================================================
+
+        template<typename RNG_t, typename dtype>
+        pbArrayGeneric poissonShape(RNG_t rng, const Shape& inShape, double mean)
+        {
+            return nc2pybind(rng.template poisson<dtype>(inShape, mean));
         }
 
         //============================================================================
@@ -8698,6 +8714,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("discrete", &RandomInterface::RNG::discreteShape<RNG_t, int32>)
         .def("exponential", &RandomInterface::RNG::exponentialValue<RNG_t, double>)
         .def("exponential", &RandomInterface::RNG::exponentialShape<RNG_t, double>)
+        .def("extremeValue", &RandomInterface::RNG::extremeValueValue<RNG_t, double>)
+        .def("extremeValue", &RandomInterface::RNG::extremeValueShape<RNG_t, double>)
         .def("f", &RandomInterface::RNG::fValue<RNG_t, double>)
         .def("f", &RandomInterface::RNG::fShape<RNG_t, double>)
         .def("gamma", &RandomInterface::RNG::gammaValue<RNG_t, double>)
@@ -8716,6 +8734,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("normal", &RandomInterface::RNG::normalShape<RNG_t, double>)
         .def("permutation", &RandomInterface::RNG::permutationValue<RNG_t, double>)
         .def("permutation", &RandomInterface::RNG::permutationShape<RNG_t, double>)
+        .def("poisson", &RandomInterface::RNG::poissonValue<RNG_t, int32>)
+        .def("poisson", &RandomInterface::RNG::poissonShape<RNG_t, int32>)
         .def("rand", &RandomInterface::RNG::randValue<RNG_t, double>)
         .def("rand", &RandomInterface::RNG::randShape<RNG_t, double>)
         .def("randFloat", &RandomInterface::RNG::randFloatValue<RNG_t, double>)

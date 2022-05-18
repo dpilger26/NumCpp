@@ -704,6 +704,40 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            /// Single random value sampled from the "poisson" distribution.
+            ///
+            /// NumPy Reference:
+            /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+            ///
+            /// @param inMean (default 1)
+            /// @return NdArray
+            ///
+            template<typename dtype>
+            dtype poisson(double inMean = 1)
+            {
+                return detail::poisson<dtype>(generator_, inMean);
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Create an array of the given shape and populate it with
+            /// random samples from the "poisson" distribution.
+            ///
+            /// NumPy Reference:
+            /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+            ///
+            /// @param inShape
+            /// @param inMean (default 1)
+            /// @return NdArray
+            ///
+            template<typename dtype>
+            NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
+            {
+                return detail::poisson<dtype>(generator_, inShape, inMean);
+            }
+
+            //============================================================================
+            // Method Description:
             /// Single random value sampled from the uniform distribution over [0, 1).
             ///
             /// NumPy Reference:

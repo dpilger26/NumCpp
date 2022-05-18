@@ -57,7 +57,7 @@ namespace nc
             template<typename dtype, typename GeneratorType = std::mt19937>
             dtype poisson(GeneratorType& generator, double inMean = 1)
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+                STATIC_ASSERT_INTEGER(dtype);
 
                 if (inMean <= 0)
                 {
@@ -84,7 +84,7 @@ namespace nc
             template<typename dtype, typename GeneratorType = std::mt19937>
             NdArray<dtype> poisson(GeneratorType& generator, const Shape& inShape, double inMean = 1)
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+                STATIC_ASSERT_INTEGER(dtype);
 
                 if (inMean <= 0)
                 {
