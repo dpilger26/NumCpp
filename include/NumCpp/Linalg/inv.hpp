@@ -27,13 +27,17 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/zeros.hpp"
+#include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc
 {
@@ -49,7 +53,7 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<double> inv(const NdArray<dtype>& inArray)
+        NdArray<double> inv1(const NdArray<dtype>& inArray)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -122,5 +126,246 @@ namespace nc
 
             return returnArray;
         }
+
+        namespace detail
+        {
+            //============================================================================
+            // Method Description:
+            // Function to get cofactor of inArray(p, q) in inTemp(). n is current
+            // dimension of inArray()
+            //
+            /// @param inArray
+            /// @param p
+            /// @param q
+            /// @param n
+            /// @param outCofactor
+            ///
+            template<typename dtype>
+            void getCofactor(const NdArray<dtype>& inArray, uint32 p, uint32 q, uint32 n, NdArray<dtype>& outCofactor)
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
+                uint32 i = 0;
+                uint32 j = 0;
+
+                // Looping for each element of the matrix
+                for (uint32 row = 0; row < n; ++row)
+                {
+                    for (uint32 col = 0; col < n; ++col)
+                    {
+                        //  Copying into temporary matrix only those element
+                        //  which are not in given row and column
+                        if (row == p || col == q)
+                        {
+                            continue;
+                        }
+
+                        outCofactor(i, j++) = inArray(row, col);
+
+                        if (j == n - 1)
+                        {
+                            // Row is filled, so increase row index and
+                            // reset col index
+                            j = 0;
+                            ++i;
+                        }
+                    }
+                }
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Matrix adjoint
+            ///
+            /// @param inArray
+            /// @return NdArray
+            ///
+            template<typename dtype>
+            NdArray<dtype> adjoint(const NdArray<dtype>& inArray)
+            {
+                STATIC_ASSERT_ARITHMETIC(dtype);
+
+                const auto inShape = inArray.shape();
+                const auto order   = static_cast<uint32>(inShape.rows);
+                if (order == 1)
+                {
+                    return { 1 };
+                }
+
+                int            sign = 1;
+                NdArray<dtype> adj(inShape);
+                NdArray<dtype> cofactor(inShape);
+
+                for (uint32 i = 0; i < order; ++i)
+                {
+                    for (uint32 j = 0; j < order; ++j)
+                    {
+                        getCofactor(inArray, i, j, order, cofactor);
+
+                        // sign of adj(i, j) positive if sum of row
+                        // and column indexes is even.
+                        sign = ((i + j) % 2 == 0) ? 1 : -1;
+
+                        // Interchanging rows and columns to get the
+                        // transpose of the cofactor matrix
+                        adj(j, i) = sign * detail::det(cofactor, order - 1);
+                    }
+                }
+
+                return adj;
+            }
+        } // namespace detail
+
+        //============================================================================
+        // Method Description:
+        /// matrix inverse
+        ///
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
+        ///
+        /// @param inArray
+        /// @return NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> inv2(const NdArray<dtype>& inArray)
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
+            const auto inShape = inArray.shape();
+            if (!inShape.issquare())
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input array must be square.");
+            }
+
+            const auto order = static_cast<uint32>(inShape.rows);
+
+            const auto det_ = static_cast<double>(detail::det(inArray, inShape.rows));
+            if (det_ == 0)
+            {
+                THROW_RUNTIME_ERROR("Input array is singular.");
+            }
+
+            const auto adj = detail::adjoint(inArray).template astype<double>();
+
+            NdArray<double> returnArray(inShape);
+            for (uint32 i = 0; i < order; ++i)
+            {
+                for (uint32 j = 0; j < order; ++j)
+                {
+                    returnArray(i, j) = adj(i, j) / det_;
+                }
+            }
+
+            return returnArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// matrix inverse
+        ///
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
+        ///
+        /// @param inArray
+        /// @return NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> inv3(const NdArray<dtype>& inArray)
+        {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            const Shape inShape = inArray.shape();
+            if (inShape.rows != inShape.cols)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input array must be square.");
+            }
+
+            NdArray<double> inArrayDouble = inArray.template astype<double>();
+            NdArray<int>    incidence     = nc::zeros<int>(inShape);
+
+            for (uint32 k = 0; k < inShape.rows - 1; ++k)
+            {
+                if (utils::essentiallyEqual(inArrayDouble(k, k), 0.0))
+                {
+                    uint32 l = k;
+                    while (l < inShape.cols && utils::essentiallyEqual(inArrayDouble(k, l), 0.0))
+                    {
+                        ++l;
+                    }
+
+                    inArrayDouble.swapRows(k, l);
+                    incidence(k, k) = 1;
+                    incidence(k, l) = 1;
+                }
+            }
+
+            NdArray<double> result(inShape);
+
+            for (uint32 k = 0; k < inShape.rows; ++k)
+            {
+                result(k, k) = -1.0 / inArrayDouble(k, k);
+                for (uint32 i = 0; i < inShape.rows; ++i)
+                {
+                    for (uint32 j = 0; j < inShape.cols; ++j)
+                    {
+                        if ((i - k) && (j - k))
+                        {
+                            result(i, j) =
+                                inArrayDouble(i, j) + inArrayDouble(k, j) * inArrayDouble(i, k) * result(k, k);
+                        }
+                        else if ((i - k) && !(j - k))
+                        {
+                            result(i, k) = inArrayDouble(i, k) * result(k, k);
+                        }
+                        else if (!(i - k) && (j - k))
+                        {
+                            result(k, j) = inArrayDouble(k, j) * result(k, k);
+                        }
+                    }
+                }
+
+                for (uint32 i = 0; i < inShape.rows; ++i)
+                {
+                    for (uint32 j = 0; j < inShape.cols; ++j)
+                    {
+                        inArrayDouble(i, j) = result(i, j);
+                    }
+                }
+            }
+
+            result *= -1.0;
+
+            for (int i = static_cast<int>(inShape.rows) - 1; i >= 0; --i)
+            {
+                if (incidence(i, i) == 1)
+                {
+                    int k = 0;
+                    for (;; ++k)
+                    {
+                        if ((k - i) && incidence(i, k) != 0)
+                        {
+                            break;
+                        }
+                    }
+
+                    result.swapCols(i, k);
+                }
+            }
+
+            return result;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// matrix inverse
+        ///
+        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
+        ///
+        /// @param inArray
+        /// @return NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> inv(const NdArray<dtype>& inArray)
+        {
+            return inv1(inArray);
+        }
     } // namespace linalg
-}  // namespace nc
+} // namespace nc
