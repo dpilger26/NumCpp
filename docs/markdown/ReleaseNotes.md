@@ -2,8 +2,12 @@
 
 ## Version 2.8.0
 
+* fixed error in `inv` when a zero was on the diagnol for **Issue #132**
+* fixed **Issue 140**
 * added `bit_count`, Computes the number of 1-bits in the absolute value of the input
-* new non-global random interface
+* added `swapRows` and `swapCols` methods to `NdArray`, and also free functions
+* added `pinv`, Computes the pseudo-inverse of a matrix
+* new non-global `random` interface
 * documentation updates
 * various minor performance improvements and bug fixes
 
@@ -141,9 +145,9 @@
 ## Version 2.0.0
 
 * Dropped support of C++11, now requires a C++14 or higher compiler
-* Added support for `std::complex<T>`, closing __Issue #58__
-* Added more `NdArray` constructors for STL containers including `std::vector<std::vector<T>>`, closing __Issue #59__
-* Added `polyfit` routine inline with Numpy `polyfit`, closing __Issue #61__
+* Added support for `std::complex<T>`, closing **Issue #58**
+* Added more `NdArray` constructors for STL containers including `std::vector<std::vector<T>>`, closing **Issue #59**
+* Added `polyfit` routine inline with Numpy `polyfit`, closing **Issue #61**
 * Added ability to use `NdArray` as container for generic structs
 * Non-linear least squares fitting using Gauss-Newton
 * Root finding routines

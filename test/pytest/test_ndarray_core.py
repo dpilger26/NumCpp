@@ -3508,6 +3508,34 @@ def test_swapaxes():
 
 
 ####################################################################################
+def test_swapRows():
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, shapeInput)
+    cArray.setArray(data)
+    rowIdx1 = np.random.randint(0, shape.rows)
+    rowIdx2 = np.random.randint(0, shape.rows)
+    cArrayNp = cArray.swapRows(rowIdx1, rowIdx2)
+    assert np.array_equal(cArrayNp[rowIdx1, :], data[rowIdx2, :])
+    assert np.array_equal(cArrayNp[rowIdx2, :], data[rowIdx1, :])
+
+
+####################################################################################
+def test_swapCols():
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, shapeInput)
+    cArray.setArray(data)
+    colIdx1 = np.random.randint(0, shape.cols)
+    colIdx2 = np.random.randint(0, shape.cols)
+    cArrayNp = cArray.swapCols(colIdx1, colIdx2)
+    assert np.array_equal(cArrayNp[:, colIdx1], data[:, colIdx2])
+    assert np.array_equal(cArrayNp[:, colIdx2], data[:, colIdx1])
+
+
+####################################################################################
 def test_tofile():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

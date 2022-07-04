@@ -4436,6 +4436,36 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        /// Swaps rows of the array
+        ///
+        /// @param colIdx1
+        /// @param colIdx2
+        ///
+        void swapCols(int32 colIdx1, int32 colIdx2) noexcept
+        {
+            for (int32 row = 0; row < static_cast<int32>(shape_.rows); ++row)
+            {
+                std::swap(operator()(row, colIdx1), operator()(row, colIdx2));
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Swaps rows of the array
+        ///
+        /// @param rowIdx1
+        /// @param rowIdx2
+        ///
+        void swapRows(int32 rowIdx1, int32 rowIdx2) noexcept
+        {
+            for (int32 col = 0; col < static_cast<int32>(shape_.cols); ++col)
+            {
+                std::swap(operator()(rowIdx1, col), operator()(rowIdx2, col));
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         /// Write array to a file as binary.
         /// The data produced by this method can be recovered
         /// using the function fromfile().
@@ -4443,7 +4473,6 @@ namespace nc
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///
         /// @param inFilename
-
         /// @return None
         ///
         void tofile(const std::string& inFilename) const

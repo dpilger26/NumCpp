@@ -1249,6 +1249,24 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric swapRows(NdArray<dtype>& self, int32 rowIdx1, int32 rowIdx2)
+    {
+        self.swapRows(rowIdx1, rowIdx2);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric swapCols(NdArray<dtype>& self, int32 colIdx1, int32 colIdx2)
+    {
+        self.swapCols(colIdx1, colIdx2);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     void tofileBinary(const NdArray<dtype>& self, const std::string& filename)
     {
         return self.tofile(filename);
@@ -7403,6 +7421,8 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("sort", &NdArrayInterface::sort<double>)
         .def("sum", &NdArrayInterface::sum<double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
+        .def("swapRows", &NdArrayInterface::swapRows<double>)
+        .def("swapCols", &NdArrayInterface::swapCols<double>)
         .def("tofile", &NdArrayInterface::tofileBinary<double>)
         .def("tofile", &NdArrayInterface::tofileTxt<double>)
         .def("toIndices", &NdArrayDouble::toIndices)
@@ -8449,8 +8469,10 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("subtract", &FunctionsInterface::subtract<double, NdArray<ComplexDouble>>);
     m.def("sum", &sum<double>);
     m.def("sum", &sum<ComplexDouble>);
-    m.def("swapaxes", &swapaxes<double>);
     m.def("swap", &nc::swap<double>);
+    m.def("swapaxes", &swapaxes<double>);
+    m.def("swapRows", &nc::swapRows<double>);
+    m.def("swapCols", &nc::swapCols<double>);
 
     m.def("tanScaler", &FunctionsInterface::tanScaler<double>);
     m.def("tanScaler", &FunctionsInterface::tanScaler<ComplexDouble>);
@@ -8761,6 +8783,7 @@ PYBIND11_MODULE(NumCppPy, m)
     // Linalg.hpp
     m.def("cholesky", &linalg::cholesky<double>);
     m.def("det", &linalg::det<double>);
+    m.def("det", &linalg::det<int64>);
     m.def("hat", &LinalgInterface::hatArray<double>);
     m.def("inv", &linalg::inv<double>);
     m.def("lstsq", &linalg::lstsq<double>);
@@ -8768,6 +8791,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("matrix_power", &linalg::matrix_power<double>);
     m.def("multi_dot", &LinalgInterface::multi_dot<double>);
     m.def("multi_dot", &LinalgInterface::multi_dot<ComplexDouble>);
+    m.def("pinv", &linalg::pinv<double>);
     m.def("pivotLU_decomposition", &LinalgInterface::pivotLU_decomposition<double>);
     m.def("solve", &LinalgInterface::solve<double>);
     m.def("svd", &linalg::svd<double>);

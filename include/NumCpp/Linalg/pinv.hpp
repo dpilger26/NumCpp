@@ -23,20 +23,48 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// Description
-/// Module for doing linear algebra operations
+/// matrix psuedo-inverse
 ///
 #pragma once
 
-#include "NumCpp/Linalg/cholesky.hpp"
-#include "NumCpp/Linalg/det.hpp"
-#include "NumCpp/Linalg/gaussNewtonNlls.hpp"
-#include "NumCpp/Linalg/hat.hpp"
-#include "NumCpp/Linalg/inv.hpp"
-#include "NumCpp/Linalg/lstsq.hpp"
-#include "NumCpp/Linalg/lu_decomposition.hpp"
-#include "NumCpp/Linalg/matrix_power.hpp"
-#include "NumCpp/Linalg/multi_dot.hpp"
-#include "NumCpp/Linalg/pinv.hpp"
-#include "NumCpp/Linalg/pivotLU_decomposition.hpp"
-#include "NumCpp/Linalg/solve.hpp"
+#include <string>
+
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Linalg/svd.hpp"
+#include "NumCpp/NdArray.hpp"
+
+namespace nc
+{
+    namespace linalg
+    {
+        //============================================================================
+        // Method Description:
+        /// matrix psuedo-inverse
+        ///
+        /// @param inArray
+        /// @return NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> pinv(const NdArray<dtype>& inArray)
+        {
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+
+            NdArray<double> u;
+            NdArray<double> d;
+            NdArray<double> v;
+            svd(inArray, u, d, v);
+
+            const auto inShape = inArray.shape();
+            auto       dPlus   = nc::zeros<double>(inShape.cols, inShape.rows); // transpose
+
+            for (uint32 i = 0; i < d.shape().rows; ++i)
+            {
+                dPlus(i, i) = 1.0 / d(i, i);
+            }
+
+            return v.transpose().dot(dPlus).dot(u.transpose());
+        }
+    } // namespace linalg
+} // namespace nc
