@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -44,7 +44,8 @@ def test_power():
     real = np.random.rand(1).astype(float).item()
     imag = np.random.rand(1).astype(float).item()
     value = np.complex128(complex(real, imag))
-    assert np.round(NumCpp.power(value, power), 5) == np.round(np.power(value, power), 5)
+    assert np.round(NumCpp.power(value, power), 5) == np.round(
+        np.power(value, power), 5)
 
 
 ####################################################################################
@@ -63,4 +64,5 @@ def test_powerf():
     real = np.random.rand(1).astype(float).item()
     imag = np.random.rand(1).astype(float).item()
     value = np.complex128(complex(real, imag))
-    assert np.round(NumCpp.powerf_complex(value, power), 5) == np.round(np.float_power(value, power), 5)
+    assert np.round(NumCpp.powerf_complex(value, power),
+                    5) == np.round(np.float_power(value, power), 5)

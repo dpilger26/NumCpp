@@ -4,7 +4,7 @@ from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
 import sys
 import os
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -89,7 +89,8 @@ def test_dec_degree_constructor():
 
 ####################################################################################
 def test_dec_hms_constructor():
-    sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
+    sign = NumCpp.Sign.POSITIVE if np.random.randint(
+        -1, 1) == 0 else NumCpp.Sign.NEGATIVE
     degrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
     minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
     seconds = np.random.rand(1).astype(float).item() * 60
@@ -175,7 +176,8 @@ def test_coord_cartesian_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    cCoord = NumCpp.Coordinate(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Coordinate(
+        pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
     assert round(cCoord.ra().degrees(), 9) == round(ra.degrees(), 9)
     assert round(cCoord.dec().degrees(), 9) == round(dec.degrees(), 9)
     assert round(cCoord.x(), 9) == round(pyCoord.cartesian.x.value, 9)
@@ -190,7 +192,8 @@ def test_coord_cartesian_vector_constructor():
     decDegrees = np.random.rand(1).item() * 180 - 90
     dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)  # noqa
-    vec = np.asarray([pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
+    vec = np.asarray([pyCoord.cartesian.x.value,
+                     pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
     cCoord = NumCpp.Coordinate(cVec)
@@ -208,7 +211,8 @@ def test_coord_rms_constructor():
     raSeconds = np.random.rand(1).astype(float).item() * 60
     raDegreesPy = (raHours + raMinutes / 60 + raSeconds / 3600) * 15
 
-    decSign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
+    decSign = NumCpp.Sign.POSITIVE if np.random.randint(
+        -1, 1) == 0 else NumCpp.Sign.NEGATIVE
     decDegrees = np.random.randint(0, 90, [1, ], dtype=np.uint8).item()
     decMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
     decSeconds = np.random.rand(1).astype(float).item() * 60
@@ -216,7 +220,8 @@ def test_coord_rms_constructor():
     if decSign == NumCpp.Sign.NEGATIVE:
         decDegreesPy *= -1
 
-    cCoord = NumCpp.Coordinate(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
+    cCoord = NumCpp.Coordinate(
+        raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
     cRa = cCoord.ra()
     cDec = cCoord.dec()
     pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)  # noqa
@@ -303,7 +308,8 @@ def test_coord_degreeSeperation_vec():
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
-    vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
+    vec2 = np.asarray(
+        [pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cDegSep = cCoord.degreeSeperation(cArray)
@@ -322,7 +328,8 @@ def test_coord_radianSeperation_vec():
     pyCoord = SkyCoord(cCoord.ra().degrees(), cCoord.dec().degrees(), unit=u.deg)  # noqa
     pyCoord2 = SkyCoord(cCoord2.ra().degrees(), cCoord2.dec().degrees(), unit=u.deg)  # noqa
 
-    vec2 = np.asarray([pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
+    vec2 = np.asarray(
+        [pyCoord2.cartesian.x, pyCoord2.cartesian.y, pyCoord2.cartesian.z])
     cArray = NumCpp.NdArray(1, 3)
     cArray.setArray(vec2)
     cRadSep = cCoord.radianSeperation(cArray)

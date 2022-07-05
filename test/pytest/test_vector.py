@@ -2,7 +2,7 @@ import numpy as np
 import vectormath
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 DECIMALS_TO_ROUND = 9
@@ -79,7 +79,8 @@ def test_Vec2_clampMagnitude():
     vec2 = NumCpp.Vec2(*components)
     clampedVec = vec2.clampMagnitude(float(clampMag))
     assert np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag
-    assert np.round(vec2.dot(clampedVec) / vec2.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1
+    assert np.round(vec2.dot(clampedVec) / vec2.norm() /
+                    clampedVec.norm(), DECIMALS_TO_ROUND) == 1
 
 
 ####################################################################################
@@ -385,7 +386,8 @@ def test_Vec3_clampedVec():
     vec3 = NumCpp.Vec3(*components)
     clampedVec = vec3.clampMagnitude(float(clampMag))
     assert np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag
-    assert np.round(vec3.dot(clampedVec) / vec3.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1
+    assert np.round(vec3.dot(clampedVec) / vec3.norm() /
+                    clampedVec.norm(), DECIMALS_TO_ROUND) == 1
 
 
 ####################################################################################

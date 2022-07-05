@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -89,7 +89,8 @@ def test_z_slices():
     colIdx = np.random.randint(0, shape[1])
     idx = int(rowIdx * shape[1] + colIdx)
 
-    assert np.array_equal(dataCube.sliceZAllat(idx).flatten(), data[rowIdx, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(
+        idx).flatten(), data[rowIdx, colIdx, :])
 
     shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
     data = np.random.randint(0, 100, shape)
@@ -122,7 +123,8 @@ def test_z_slices():
     rowIdx = np.random.randint(0, shape[0])
     colIdx = np.random.randint(0, shape[1])
 
-    assert np.array_equal(dataCube.sliceZAllat(rowIdx, colIdx).flatten(), data[rowIdx, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(
+        rowIdx, colIdx).flatten(), data[rowIdx, colIdx, :])
 
     shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
     data = np.random.randint(0, 100, shape)
@@ -157,7 +159,8 @@ def test_z_slices():
     rowSlice = NumCpp.Slice(rowStart, rowEnd, rowStep)
     colIdx = np.random.randint(0, shape[1])
 
-    assert np.array_equal(dataCube.sliceZAllat(rowSlice, colIdx), data[rowStart:rowEnd:rowStep, colIdx, :])
+    assert np.array_equal(dataCube.sliceZAllat(
+        rowSlice, colIdx), data[rowStart:rowEnd:rowStep, colIdx, :])
 
     shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
     data = np.random.randint(0, 100, shape)
@@ -195,7 +198,8 @@ def test_z_slices():
     colStep = 3
     colSlice = NumCpp.Slice(colStart, colEnd, colStep)
 
-    assert np.array_equal(dataCube.sliceZAllat(rowIdx, colSlice), data[rowIdx, colStart:colEnd:colStep, :])
+    assert np.array_equal(dataCube.sliceZAllat(
+        rowIdx, colSlice), data[rowIdx, colStart:colEnd:colStep, :])
 
     shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
     data = np.random.randint(0, 100, shape)
@@ -238,7 +242,8 @@ def test_z_slices():
 
     zSlice = dataCube.sliceZAllat(rowSlice, colSlice)
     for z in range(shape[-1]):
-        assert np.array_equal(zSlice[z].getNumpyArray(), data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, z])
+        assert np.array_equal(zSlice[z].getNumpyArray(
+        ), data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, z])
 
     shape = np.random.randint(30, 100, [3, ], dtype=np.uint32)
     data = np.random.randint(0, 100, shape)
@@ -263,8 +268,10 @@ def test_z_slices():
     zSlice = NumCpp.Slice(zStart, zEnd, zStep)
 
     zSliceDataNC = dataCube.sliceZat(rowSlice, colSlice, zSlice)
-    zSliceData = data[rowStart:rowEnd:rowStep, colStart:colEnd:colStep, zStart:zEnd:zStep]
+    zSliceData = data[rowStart:rowEnd:rowStep,
+                      colStart:colEnd:colStep, zStart:zEnd:zStep]
 
     assert zSliceDataNC.sizeZ() == zSliceData.shape[-1]
     for z in range(zSliceDataNC.sizeZ()):
-        assert np.array_equal(zSliceDataNC[z].getNumpyArray(), zSliceData[:, :, z])
+        assert np.array_equal(
+            zSliceDataNC[z].getNumpyArray(), zSliceData[:, :, z])

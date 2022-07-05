@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -16,7 +16,8 @@ def test_imageProcessing():
     imageSize = 512
     noiseStd = np.random.rand(1) * 4
     noiseMean = np.random.randint(75, 100, [1, ]).item()
-    noise = np.round(np.random.randn(imageSize, imageSize) * noiseStd + noiseMean)
+    noise = np.round(np.random.randn(imageSize, imageSize)
+                     * noiseStd + noiseMean)
 
     # scatter some point sources on it
     pointSize = 5
@@ -30,12 +31,16 @@ def test_imageProcessing():
     scene = noise.copy()
     numPointSources = 3000
     for point in range(numPointSources):
-        row = np.random.randint(pointHalfSize, imageSize - pointHalfSize, [1, ]).item()
-        col = np.random.randint(pointHalfSize, imageSize - pointHalfSize, [1, ]).item()
+        row = np.random.randint(
+            pointHalfSize, imageSize - pointHalfSize, [1, ]).item()
+        col = np.random.randint(
+            pointHalfSize, imageSize - pointHalfSize, [1, ]).item()
 
-        cutout = scene[row - pointHalfSize: row + pointHalfSize + 1, col - pointHalfSize: col + pointHalfSize + 1]
+        cutout = scene[row - pointHalfSize: row + pointHalfSize +
+                       1, col - pointHalfSize: col + pointHalfSize + 1]
         cutout = cutout + pointSource
-        scene[row - pointHalfSize: row + pointHalfSize + 1, col - pointHalfSize: col + pointHalfSize + 1] = cutout
+        scene[row - pointHalfSize: row + pointHalfSize + 1,
+              col - pointHalfSize: col + pointHalfSize + 1] = cutout
 
     # generate centroids from the image
     thresholdRate = 0.014
@@ -48,11 +53,15 @@ def test_imageProcessing():
     print(f'Scene Max = {scene.max()}')
     print(f'Threshold = {threshold}')
     print(f'Desired Rate = {thresholdRate}')
-    print(f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
-    print(f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
+    print(
+        f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
+    print(
+        f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
 
-    centroids = list(NumCpp.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
-    print(f'Window Pre Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
+    centroids = list(NumCpp.generateCentroids(
+        cScene, thresholdRate, 'pre', borderWidth))
+    print(
+        f'Window Pre Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results
     plt.figure()
@@ -69,7 +78,8 @@ def test_imageProcessing():
     if PLOT_SHOW:
         plt.show()
 
-    centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
+    centroidInfo = np.asarray(
+        [[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:, 0].flatten()))
@@ -87,8 +97,10 @@ def test_imageProcessing():
     if PLOT_SHOW:
         plt.show()
 
-    centroids = list(NumCpp.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
-    print(f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
+    centroids = list(NumCpp.generateCentroids(
+        cScene, thresholdRate, 'post', borderWidth))
+    print(
+        f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results
     plt.figure()
@@ -105,7 +117,8 @@ def test_imageProcessing():
     if PLOT_SHOW:
         plt.show()
 
-    centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
+    centroidInfo = np.asarray(
+        [[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:, 0].flatten()))

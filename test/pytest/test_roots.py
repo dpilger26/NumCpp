@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -15,7 +15,8 @@ def test_bisection():
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
     polyC = NumCpp.Poly1d(rootsC, True)
-    rootC = int(np.round(NumCpp.bisection_roots(polyC, largestRoot - 1, largestRoot + 1)))
+    rootC = int(np.round(NumCpp.bisection_roots(
+        polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
 
@@ -27,7 +28,8 @@ def test_brent():
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
     polyC = NumCpp.Poly1d(rootsC, True)
-    rootC = int(np.round(NumCpp.brent_roots(polyC, largestRoot - 1, largestRoot + 1)))
+    rootC = int(np.round(NumCpp.brent_roots(
+        polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
 
@@ -39,7 +41,8 @@ def test_dekker():
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
     polyC = NumCpp.Poly1d(rootsC, True)
-    rootC = int(np.round(NumCpp.dekker_roots(polyC, largestRoot - 1, largestRoot + 1)))
+    rootC = int(np.round(NumCpp.dekker_roots(
+        polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot
 
 
@@ -63,5 +66,6 @@ def test_secant():
     rootsC = NumCpp.NdArray(1, roots.size)
     rootsC.setArray(roots)
     polyC = NumCpp.Poly1d(rootsC, True)
-    rootC = int(np.round(NumCpp.secant_roots(polyC, largestRoot - 1, largestRoot + 1)))
+    rootC = int(np.round(NumCpp.secant_roots(
+        polyC, largestRoot - 1, largestRoot + 1)))
     assert rootC == largestRoot

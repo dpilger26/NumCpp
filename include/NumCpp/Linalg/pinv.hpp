@@ -43,6 +43,8 @@ namespace nc
         // Method Description:
         /// matrix psuedo-inverse
         ///
+        /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html
+        ///
         /// @param inArray
         /// @return NdArray
         ///

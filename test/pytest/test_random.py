@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -14,7 +14,8 @@ def test_bernoulli():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
-    assert np.array_equal(NumCpp.bernoulli(inShape, p).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.bernoulli(
+        inShape, p).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.bernoulli(p)) is bool
 
 
@@ -26,7 +27,8 @@ def test_beta():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     alpha, beta = np.random.randint(1, 100, [2, ]).astype(float)
-    assert np.array_equal(NumCpp.beta(inShape, alpha, beta).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.beta(
+        inShape, alpha, beta).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.beta(alpha, beta)) is float
 
 
@@ -36,7 +38,8 @@ def test_binomial():
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand(1)
-    assert np.array_equal(NumCpp.binomial(inShape, n, p).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.binomial(
+        inShape, n, p).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.binomial(n, p)) is int
 
 
@@ -45,7 +48,8 @@ def test_cauchy():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ]).astype(float)
-    assert np.array_equal(NumCpp.cauchy(inShape, mean, sigma).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.cauchy(
+        inShape, mean, sigma).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.cauchy(mean, sigma)) is float
 
 
@@ -54,7 +58,8 @@ def test_chiSquare():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
-    assert np.array_equal(NumCpp.chiSquare(inShape, dof).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.chiSquare(
+        inShape, dof).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.chiSquare(dof)) is float
 
 
@@ -80,7 +85,8 @@ def test_discrete():
     cWeights = NumCpp.NdArray(inShape)
     weights = np.random.randint(0, 100, shapeInput)
     cWeights.setArray(weights)
-    assert np.array_equal(NumCpp.discrete(inShape, cWeights).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.discrete(
+        inShape, cWeights).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.discrete(cWeights)) is int
 
 
@@ -90,7 +96,8 @@ def test_exponential():
     inShape = NumCpp.Shape(*shapeInput)
     scaleValue = np.random.randint(1, 100)
     rng = NumCpp.RNG()
-    assert np.array_equal(NumCpp.exponential(inShape, scaleValue).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.exponential(
+        inShape, scaleValue).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.exponential(scaleValue)) is float
 
 
@@ -99,7 +106,8 @@ def test_extremeValue():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.extremeValue(inShape, a, b).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.extremeValue(
+        inShape, a, b).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.extremeValue(a, b)) is float
 
 
@@ -108,7 +116,8 @@ def test_f():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof_n, dof_d = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.f(inShape, dof_n, dof_d).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(
+        NumCpp.f(inShape, dof_n, dof_d).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.f(dof_n, dof_d)) is float
 
 
@@ -117,7 +126,8 @@ def test_gamma():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     gamma_shape, scale_value = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.gamma(inShape, gamma_shape, scale_value).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.gamma(
+        inShape, gamma_shape, scale_value).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.gamma(gamma_shape, scale_value)) is float
 
 
@@ -126,7 +136,8 @@ def test_geometric():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     p = np.random.rand()
-    assert np.array_equal(NumCpp.geometric(inShape, p).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.geometric(
+        inShape, p).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.geometric(p)) is int
 
 
@@ -138,7 +149,8 @@ def test_laplace():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     loc, scale = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.laplace(inShape, loc, scale).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.laplace(
+        inShape, loc, scale).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.laplace(loc, scale)) is float
 
 
@@ -147,7 +159,8 @@ def test_lognormal():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.lognormal(inShape, mean, sigma).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.lognormal(
+        inShape, mean, sigma).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.lognormal(mean, sigma)) is float
 
 
@@ -157,7 +170,8 @@ def test_negativeBinomial():
     inShape = NumCpp.Shape(*shapeInput)
     n = np.random.randint(100)
     p = np.random.rand()
-    assert np.array_equal(NumCpp.negativeBinomial(inShape, n, p).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.negativeBinomial(
+        inShape, n, p).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.negativeBinomial(n, p)) is int
 
 
@@ -169,7 +183,8 @@ def test_nonCentralChiSquared():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     k, lambda_ = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.nonCentralChiSquared(inShape, k, lambda_).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.nonCentralChiSquared(
+        inShape, k, lambda_).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.nonCentralChiSquared(k, lambda_)) is float
 
 
@@ -178,7 +193,8 @@ def test_normal():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.normal(inShape, mean, sigma).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.normal(
+        inShape, mean, sigma).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.normal(mean, sigma)) is float
 
 
@@ -203,7 +219,8 @@ def test_poisson():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.normal(inShape, mean, sigma).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.normal(
+        inShape, mean, sigma).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.normal(mean, sigma)) is float
 
 
@@ -243,7 +260,8 @@ def test_randInt():
 def test_randN():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
-    assert np.array_equal(NumCpp.randN(inShape).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.randN(
+        inShape).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.randN()) is float
 
 
@@ -257,9 +275,11 @@ def test_seed():
     values = np.random.randint(1, 100, [2, ])
     values.sort()
 
-    values1 = NumCpp.randInt(inShape, values[0].item(), values[1].item()).getNumpyArray()
+    values1 = NumCpp.randInt(
+        inShape, values[0].item(), values[1].item()).getNumpyArray()
     NumCpp.seed(seed)
-    values2 = NumCpp.randInt(inShape, values[0].item(), values[1].item()).getNumpyArray()
+    values2 = NumCpp.randInt(
+        inShape, values[0].item(), values[1].item()).getNumpyArray()
     assert np.array_equal(values1, values2)
 
 
@@ -279,7 +299,8 @@ def test_shuffle():
 def test_standardNormal():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
-    assert np.array_equal(NumCpp.standardNormal(inShape).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.standardNormal(
+        inShape).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.standardNormal()) is float
 
 
@@ -288,7 +309,8 @@ def test_studentT():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     dof = np.random.randint(1, 100)
-    assert np.array_equal(NumCpp.studentT(inShape, dof).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.studentT(
+        inShape, dof).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.studentT(dof)) is float
 
 
@@ -300,7 +322,8 @@ def test_triangle():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b, c = np.sort(np.random.randint(1, 100, [3, ]))
-    assert np.array_equal(NumCpp.triangle(inShape, a, b, c).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.triangle(
+        inShape, a, b, c).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.triangle(a, b, c)) is float
 
 
@@ -322,7 +345,8 @@ def test_uniformOnSphere():
 
     numPoints = np.random.randint(10, 100)
     numDims = np.random.randint(2, 10)
-    assert np.array_equal(NumCpp.uniformOnSphere(numPoints, numDims).getNumpyArray().shape, [numPoints, numDims])
+    assert np.array_equal(NumCpp.uniformOnSphere(
+        numPoints, numDims).getNumpyArray().shape, [numPoints, numDims])
 
 
 ####################################################################################
@@ -330,7 +354,8 @@ def test_weibull():
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b = np.random.randint(1, 100, [2, ])
-    assert np.array_equal(NumCpp.weibull(inShape, a, b).getNumpyArray().shape, shapeInput)
+    assert np.array_equal(NumCpp.weibull(
+        inShape, a, b).getNumpyArray().shape, shapeInput)
     assert type(NumCpp.weibull(a, b)) is float
 
 
@@ -419,7 +444,8 @@ def test_RNG_exponential():
     inShape = NumCpp.Shape(*shapeInput)
     scaleValue = np.random.randint(1, 100)
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.exponential(inShape, scaleValue).shape, shapeInput)
+    assert np.array_equal(rng.exponential(
+        inShape, scaleValue).shape, shapeInput)
     assert type(rng.exponential(scaleValue)) is float
 
 
@@ -449,7 +475,8 @@ def test_RNG_gamma():
     inShape = NumCpp.Shape(*shapeInput)
     gamma_shape, scale_value = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.gamma(inShape, gamma_shape, scale_value).shape, shapeInput)
+    assert np.array_equal(rng.gamma(inShape, gamma_shape,
+                          scale_value).shape, shapeInput)
     assert type(rng.gamma(gamma_shape, scale_value)) is float
 
 
@@ -479,7 +506,8 @@ def test_RNG_lognormal():
     inShape = NumCpp.Shape(*shapeInput)
     mean, sigma = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.lognormal(inShape, mean, sigma).shape, shapeInput)
+    assert np.array_equal(rng.lognormal(
+        inShape, mean, sigma).shape, shapeInput)
     assert type(rng.lognormal(mean, sigma)) is float
 
 
@@ -490,7 +518,8 @@ def test_RNG_negativeBinomial():
     n = np.random.randint(100)
     p = np.random.rand()
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.negativeBinomial(inShape, n, p).shape, shapeInput)
+    assert np.array_equal(rng.negativeBinomial(
+        inShape, n, p).shape, shapeInput)
     assert type(rng.negativeBinomial(n, p)) is int
 
 
@@ -500,7 +529,8 @@ def test_RNG_nonCentralChiSquared():
     inShape = NumCpp.Shape(*shapeInput)
     k, lambda_ = np.random.randint(1, 100, [2, ])
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.nonCentralChiSquared(inShape, k, lambda_).shape, shapeInput)
+    assert np.array_equal(rng.nonCentralChiSquared(
+        inShape, k, lambda_).shape, shapeInput)
     assert type(rng.nonCentralChiSquared(k, lambda_)) is float
 
 
@@ -661,7 +691,8 @@ def test_RNG_uniformOnSphere():
     numPoints = np.random.randint(10, 100)
     numDims = np.random.randint(2, 10)
     rng = NumCpp.RNG()
-    assert np.array_equal(rng.uniformOnSphere(numPoints, numDims).shape, [numPoints, numDims])
+    assert np.array_equal(rng.uniformOnSphere(
+        numPoints, numDims).shape, [numPoints, numDims])
 
 
 ####################################################################################
