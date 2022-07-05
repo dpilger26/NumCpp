@@ -6,7 +6,7 @@
 * fixed **Issue 140**
 * added `bit_count`, Computes the number of 1-bits in the absolute value of the input
 * added `swapRows` and `swapCols` methods to `NdArray`, and also free functions
-* added `pinv`, Computes the pseudo-inverse of a matrix
+* added `pinv`, <https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html>
 * new non-global `random` interface
 * documentation updates
 * various minor performance improvements and bug fixes
