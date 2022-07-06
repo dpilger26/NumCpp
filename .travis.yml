@@ -35,7 +35,7 @@ install:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake .. -DPython_ROOT_DIR=$HOME/miniconda -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
   - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target Multiple
   - cmake --build . --config Release --target GaussNewtonNlls
