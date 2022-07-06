@@ -8,7 +8,9 @@ before_install:
   - sudo apt remove --purge cmake python
   - sudo apt install -y libboost-all-dev libtbb-dev python3 python3-dev
   - python3 --version
+  - python --version
   - which python
+  - which python3
   - pip3 install -U pip
   - pip3 install -U pytest
   - pip3 install -U numpy
