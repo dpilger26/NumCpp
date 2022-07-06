@@ -42,4 +42,4 @@ script:
   - cmake --build . --config Release --target ReadMe
   - sudo make install
   - cd ../test/pytest
-  - python -m pytest
+  - $HOME/miniconda/bin/python -m pytest
