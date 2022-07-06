@@ -15,14 +15,13 @@ before_install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - pip install -U pip
-  - pip install -U pytest
-  - pip install -U numpy
-  - pip install -U scipy
-  - pip install -U astropy
-  - pip install -U matplotlib
-  - pip install -U mpmath
-  - pip install -U vectormath
+  - $HOME/miniconda/bin/pip install -U pytest
+  - $HOME/miniconda/bin/pip install -U numpy
+  - $HOME/miniconda/bin/pip install -U scipy
+  - $HOME/miniconda/bin/pip install -U astropy
+  - $HOME/miniconda/bin/pip install -U matplotlib
+  - $HOME/miniconda/bin/pip install -U mpmath
+  - $HOME/miniconda/bin/pip install -U vectormath
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
