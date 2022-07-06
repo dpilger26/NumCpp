@@ -2,8 +2,6 @@ import numpy as np
 from astropy.coordinates import SkyCoord
 from astropy.coordinates import Latitude, Longitude  # Angles
 import astropy.units as u
-import sys
-import os
 
 import NumCppPy as NumCpp  # noqa E402
 

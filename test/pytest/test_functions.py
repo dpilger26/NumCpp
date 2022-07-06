@@ -1,10 +1,9 @@
 import os
 import tempfile
 import numpy as np
-import scipy.ndimage.measurements as meas
+import scipy.ndimage as ndimage
 from functools import reduce
 import warnings
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 
@@ -1561,7 +1560,7 @@ def test_center_of_mass():
     data = np.random.randn(shape.rows, shape.cols).astype(float) * 1000
     cArray.setArray(data)
     assert np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.NONE).flatten(), 9),
-                          np.round(meas.center_of_mass(data), 9))
+                          np.round(ndimage.center_of_mass(data), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1571,7 +1570,7 @@ def test_center_of_mass():
 
     coms = list()
     for col in range(data.shape[1]):
-        coms.append(np.round(meas.center_of_mass(data[:, col])[0], 9))
+        coms.append(np.round(ndimage.center_of_mass(data[:, col])[0], 9))
 
     assert np.array_equal(np.round(NumCpp.centerOfMass(
         cArray, NumCpp.Axis.ROW).flatten(), 9), np.round(coms, 9))
@@ -1584,7 +1583,7 @@ def test_center_of_mass():
 
     coms = list()
     for row in range(data.shape[0]):
-        coms.append(np.round(meas.center_of_mass(data[row, :])[0], 9))
+        coms.append(np.round(ndimage.center_of_mass(data[row, :])[0], 9))
 
     assert np.array_equal(np.round(NumCpp.centerOfMass(
         cArray, NumCpp.Axis.COL).flatten(), 9), np.round(coms, 9))

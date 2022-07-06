@@ -1,7 +1,5 @@
 import numpy as np
-import scipy.ndimage.filters as filters
-import os
-import sys
+import scipy.ndimage as ndimage
 
 import NumCppPy as NumCpp  # noqa E402
 
@@ -35,7 +33,7 @@ def test_complementaryMedianFilter1d():
                                                       kernalSize,
                                                       modes[mode],
                                                       constantValue).getNumpyArray().flatten()
-        dataOutPy = data - filters.generic_filter(data, np.median, footprint=np.ones([kernalSize, ]),
+        dataOutPy = data - ndimage.generic_filter(data, np.median, footprint=np.ones([kernalSize, ]),
                                                   mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -58,7 +56,7 @@ def test_convolve1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.convolve1d(
             cArray, cWeights, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.convolve(
+        dataOutPy = ndimage.convolve(
             data, weights, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))
 
@@ -79,7 +77,7 @@ def test_gaussianFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.gaussianFilter1d(
             cArray, sigma, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.gaussian_filter(
+        dataOutPy = ndimage.gaussian_filter(
             data, sigma, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 7), np.round(dataOutPy, 7))
 
@@ -99,7 +97,7 @@ def test_maximumFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.maximumFilter1d(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.generic_filter(data, np.max, footprint=np.ones([kernalSize, ]),
+        dataOutPy = ndimage.generic_filter(data, np.max, footprint=np.ones([kernalSize, ]),
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -119,7 +117,7 @@ def test_medianFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.medianFilter1d(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.generic_filter(data, np.median, footprint=np.ones([kernalSize, ]),
+        dataOutPy = ndimage.generic_filter(data, np.median, footprint=np.ones([kernalSize, ]),
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -139,7 +137,7 @@ def test_minumumFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.minumumFilter1d(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.generic_filter(data, np.min, footprint=np.ones([kernalSize, ]),
+        dataOutPy = ndimage.generic_filter(data, np.min, footprint=np.ones([kernalSize, ]),
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -163,7 +161,7 @@ def test_percentileFilter1d():
                                              percentile,
                                              modes[mode],
                                              constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.generic_filter(data, np.percentile, footprint=np.ones([kernalSize, ]),
+        dataOutPy = ndimage.generic_filter(data, np.percentile, footprint=np.ones([kernalSize, ]),
                                            mode=mode, cval=constantValue, extra_arguments=(percentile,))
         assert np.array_equal(np.round(dataOutC, 7), np.round(dataOutPy, 7))
 
@@ -184,7 +182,7 @@ def test_rankFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.rankFilter1d(
             cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.rank_filter(data, rank, footprint=np.ones(
+        dataOutPy = ndimage.rank_filter(data, rank, footprint=np.ones(
             [kernalSize, ]), mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -204,7 +202,7 @@ def test_uniformFilter1d():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.uniformFilter1d(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
-        dataOutPy = filters.generic_filter(data, np.mean, footprint=np.ones([kernalSize, ]),
+        dataOutPy = ndimage.generic_filter(data, np.mean, footprint=np.ones([kernalSize, ]),
                                            mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -225,7 +223,7 @@ def test_complementaryMedianFilter():
         dataOutC = NumCpp.complementaryMedianFilter(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = data - \
-            filters.median_filter(data, size=kernalSize,
+            ndimage.median_filter(data, size=kernalSize,
                                   mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -249,7 +247,7 @@ def test_convolve():
         cWeights.setArray(weights)
         dataOutC = NumCpp.convolve(
             cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.convolve(
+        dataOutPy = ndimage.convolve(
             data, weights, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -267,7 +265,7 @@ def test_gaussianFilter():
         sigma = np.random.rand(1).item() * 2
         dataOutC = NumCpp.gaussianFilter(
             cArray, sigma, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.gaussian_filter(
+        dataOutPy = ndimage.gaussian_filter(
             data, sigma, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 2), np.round(dataOutPy, 2))
 
@@ -284,7 +282,7 @@ def test_laplaceFilter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.laplaceFilter(
             cArray, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.laplace(data, mode=mode, cval=constantValue)
+        dataOutPy = ndimage.laplace(data, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
 
@@ -303,7 +301,7 @@ def test_maximumFilter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.maximumFilter(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.maximum_filter(
+        dataOutPy = ndimage.maximum_filter(
             data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -323,7 +321,7 @@ def test_median_filter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.medianFilter(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.median_filter(
+        dataOutPy = ndimage.median_filter(
             data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -343,7 +341,7 @@ def test_minimum_filter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.minimumFilter(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.minimum_filter(
+        dataOutPy = ndimage.minimum_filter(
             data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -364,7 +362,7 @@ def test_percentileFilter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.percentileFilter(
             cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.percentile_filter(
+        dataOutPy = ndimage.percentile_filter(
             data, percentile, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -385,7 +383,7 @@ def test_rankFilter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.rankFilter(
             cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.rank_filter(
+        dataOutPy = ndimage.rank_filter(
             data, rank, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(dataOutC, dataOutPy)
 
@@ -405,6 +403,6 @@ def test_uniform_filter():
         constantValue = np.random.randint(0, 5, [1, ]).item()
         dataOutC = NumCpp.uniformFilter(
             cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.uniform_filter(
+        dataOutPy = ndimage.uniform_filter(
             data, size=kernalSize, mode=mode, cval=constantValue)
         assert np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8))

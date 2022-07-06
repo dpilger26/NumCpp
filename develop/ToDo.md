@@ -1,8 +1,5 @@
 # TODO
 
-* split ndarray access operators into private non-error checking and public error checking
-  * all internal "safe" operations can use the non-error checking versions
-
 * redo all CI/CD pipelines for new compilers supported
 
 * integrate improved threshold and cluster code

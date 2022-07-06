@@ -1,7 +1,5 @@
 import numpy as np
 import vectormath
-import os
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 

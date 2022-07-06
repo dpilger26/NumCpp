@@ -1,8 +1,6 @@
 import numpy as np
 from numpy.polynomial.polynomial import Polynomial
 import scipy.special as sp
-import os
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 

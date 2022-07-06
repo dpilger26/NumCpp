@@ -1,8 +1,6 @@
 import numpy as np
 import scipy.special as sp
 import mpmath
-import os
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 

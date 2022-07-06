@@ -3,7 +3,6 @@ from functools import reduce
 import os
 import tempfile
 import warnings
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 

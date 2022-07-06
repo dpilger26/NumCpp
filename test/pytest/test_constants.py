@@ -1,8 +1,6 @@
 import numpy as np
-import os
 from pathlib import Path
 import re
-import sys
 
 import NumCppPy as NumCpp  # noqa E402
 
