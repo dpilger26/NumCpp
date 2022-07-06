@@ -7,16 +7,22 @@ compiler:
 before_install:
   - sudo apt update
   - sudo apt remove --purge cmake python
-  - sudo apt install -y libboost-all-dev libtbb-dev python3 python3-dev
-  - dpkg -L python3-dev
-  - pip3 install -U pip
-  - pip3 install -U pytest
-  - pip3 install -U numpy
-  - pip3 install -U scipy
-  - pip3 install -U astropy
-  - pip3 install -U matplotlib
-  - pip3 install -U mpmath
-  - pip3 install -U vectormath
+  - sudo apt install -y libboost-all-dev libtbb-dev
+  - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - source "$HOME/miniconda/etc/profile.d/conda.sh"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install -U numpy
+  - pip install -U scipy
+  - pip install -U astropy
+  - pip install -U matplotlib
+  - pip install -U mpmath
+  - pip install -U vectormath
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
@@ -29,7 +35,7 @@ install:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DPython_ROOT_DIR=/opt/pyenv/shims -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - cmake .. -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
   - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target Multiple
   - cmake --build . --config Release --target GaussNewtonNlls
