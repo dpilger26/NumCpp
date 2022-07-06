@@ -23,6 +23,7 @@ install:
   - tar -xvf cmake-3.23.2-linux-x86_64.tar.gz > /dev/null
   - mv cmake-3.23.2-linux-x86_64 cmake-install
   - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
+  - cmake --version
   - cd ${TRAVIS_BUILD_DIR}
 script:
   - mkdir build
