@@ -8,6 +8,7 @@ before_install:
   - sudo apt remove --purge cmake
   - sudo apt install libboost-all-dev
   - sudo apt install -y libtbb-dev
+  - sudo apt install python3
   - python3 --version
   - pip3 install -U pip
   - pip3 install -U pytest
