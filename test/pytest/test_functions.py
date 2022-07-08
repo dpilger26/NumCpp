@@ -7168,6 +7168,33 @@ def test_tan():
 
 
 ####################################################################################
+def test_take():
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, shapeInput)
+    cArray.setArray(data)
+
+    indices = np.random.choice(range(data.size), data.size // 5, replace=False).astype(np.uint32)
+    cIndices = NumCpp.NdArrayUInt32(1, indices.size)
+    cIndices.setArray(indices)
+    assert np.array_equal(NumCpp.take(cArray, cIndices, NumCpp.Axis.NONE).flatten(),
+                          np.take(data, indices).flatten())
+
+    rowIndices = np.sort(np.random.choice(range(shape.rows), shape.rows // 2, replace=False).astype(np.uint32))
+    cRowIndices = NumCpp.NdArrayUInt32(1, rowIndices.size)
+    cRowIndices.setArray(rowIndices)
+    assert np.array_equal(NumCpp.take(cArray, cRowIndices, NumCpp.Axis.ROW),
+                          np.take(data, rowIndices, axis=0))
+
+    colIndices = np.sort(np.random.choice(range(shape.cols), shape.cols // 2, replace=False).astype(np.uint32))
+    cColIndices = NumCpp.NdArrayUInt32(1, colIndices.size)
+    cColIndices.setArray(colIndices)
+    assert np.array_equal(NumCpp.take(cArray, cColIndices, NumCpp.Axis.COL),
+                          np.take(data, colIndices, axis=1))
+
+
+####################################################################################
 def test_tanh():
     value = np.random.rand(1).item() * np.pi
     assert np.round(NumCpp.tanhScaler(value), 9) == np.round(np.tanh(value), 9)

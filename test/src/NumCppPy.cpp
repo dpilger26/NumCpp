@@ -4307,6 +4307,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric take(const NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, Axis inAxis = Axis::NONE)
+    {
+        return nc2pybind(nc::take(inArray, inIndices, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     auto tanScaler(dtype inValue) -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
@@ -8474,6 +8482,7 @@ PYBIND11_MODULE(NumCppPy, m)
     m.def("swapRows", &nc::swapRows<double>);
     m.def("swapCols", &nc::swapCols<double>);
 
+    m.def("take", &FunctionsInterface::take<double>);
     m.def("tanScaler", &FunctionsInterface::tanScaler<double>);
     m.def("tanScaler", &FunctionsInterface::tanScaler<ComplexDouble>);
     m.def("tanArray", &FunctionsInterface::tanArray<double>);

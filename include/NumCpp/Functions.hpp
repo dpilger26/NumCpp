@@ -254,6 +254,7 @@
 #include "NumCpp/Functions/swapCols.hpp"
 #include "NumCpp/Functions/swapRows.hpp"
 #include "NumCpp/Functions/swapaxes.hpp"
+#include "NumCpp/Functions/take.hpp"
 #include "NumCpp/Functions/tan.hpp"
 #include "NumCpp/Functions/tanh.hpp"
 #include "NumCpp/Functions/tile.hpp"
@@ -273,4 +274,3 @@
 #include "NumCpp/Functions/where.hpp"
 #include "NumCpp/Functions/zeros.hpp"
 #include "NumCpp/Functions/zeros_like.hpp"
-
