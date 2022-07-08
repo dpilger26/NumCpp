@@ -65,9 +65,10 @@ namespace nc
         template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
         bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
         {
+            const auto absValue1 = std::abs(inValue1);
+            const auto absValue2 = std::abs(inValue2);
             return std::abs(inValue1 - inValue2) <=
-                   ((std::abs(inValue1) > std::abs(inValue2) ? std::abs(inValue2) : std::abs(inValue1)) *
-                    std::abs(inEpsilon));
+                   ((absValue1 > absValue2 ? absValue2 : absValue1) * std::abs(inEpsilon));
         }
 
         //============================================================================
@@ -98,9 +99,10 @@ namespace nc
                               const std::complex<dtype>& inValue2,
                               const std::complex<dtype>& inEpsilon) noexcept
         {
+            const auto absValue1 = std::abs(inValue1);
+            const auto absValue2 = std::abs(inValue2);
             return std::abs(inValue1 - inValue2) <=
-                   ((std::abs(inValue1) > std::abs(inValue2) ? std::abs(inValue2) : std::abs(inValue1)) *
-                    std::abs(inEpsilon));
+                   ((absValue1 > absValue2 ? absValue2 : absValue1) * std::abs(inEpsilon));
         }
 
         //============================================================================

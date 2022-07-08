@@ -1,7 +1,6 @@
 # TODO
 
-* redo all CI/CD pipelines for new compilers supported
-
+* `numpy.take()`
 * integrate improved threshold and cluster code
 
 * address open issues
