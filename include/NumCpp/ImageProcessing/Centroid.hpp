@@ -27,14 +27,17 @@
 ///
 #pragma once
 
+#include <cmath>
 #include <iostream>
 #include <string>
+#include <type_traits>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/centerOfMass.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 namespace nc
@@ -51,6 +54,8 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype);
 
         public:
+            using accumulator_t = typename std::conditional<std::is_integral<dtype>::value, int64, double>::type;
+
             //=============================================================================
             // Description:
             /// defualt constructor needed by containers
@@ -68,6 +73,7 @@ namespace nc
                 eod_(inCluster.eod())
             {
                 centerOfMass(inCluster);
+                setEllipseProperties(inCluster);
             }
 
             //=============================================================================
@@ -98,7 +104,7 @@ namespace nc
             ///
             /// @return centroid intensity
             ///
-            dtype intensity() const noexcept
+            accumulator_t intensity() const noexcept
             {
                 return intensity_;
             }
@@ -116,15 +122,63 @@ namespace nc
 
             //=============================================================================
             // Description:
+            /// returns the ellipse semi-major axis a
+            ///
+            /// @return a
+            ///
+            double a() const noexcept
+            {
+                return a_;
+            }
+
+            //=============================================================================
+
+            // Description:
+            /// returns the ellipse semi-minor axis b
+            ///
+            /// @return b
+            ///
+            double b() const noexcept
+            {
+                return b_;
+            }
+
+            //=============================================================================
+            // Description:
+            /// returns the ellipse eccentricity
+            ///
+            /// @return eccentricity
+            ///
+            double eccentricity() const noexcept
+            {
+                return eccentricity_;
+            }
+
+            //=============================================================================
+
+            // Description:
+            /// returns the ellipse semi-minor axis orientation
+            ///
+            /// @return orientation
+            ///
+            double orientation() const noexcept
+            {
+                return orientation_;
+            }
+
+            //=============================================================================
+            // Description:
             /// returns the centroid as a string representation
             ///
             /// @return std::string
             ///
             std::string str() const
             {
-                std::string out;
-                out += "row = " + utils::num2str(row_) + " col = " + utils::num2str(col_);
-                out += " intensity = " + utils::num2str(intensity_) + " eod = " + utils::num2str(eod_) + '\n';
+                std::string out = "row = " + utils::num2str(row_) + " col = " + utils::num2str(col_) +
+                                  " intensity = " + utils::num2str(intensity_) + " eod = " + utils::num2str(eod_) +
+                                  " a = " + utils::num2str(a_) + " b = " + utils::num2str(b_) +
+                                  " eccentricity = " + utils::num2str(eccentricity_) +
+                                  " orientation = " + utils::num2str(orientation_) + '\n';
 
                 return out;
             }
@@ -148,7 +202,11 @@ namespace nc
             ///
             bool operator==(const Centroid<dtype>& rhs) const noexcept
             {
-                return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
+                return (row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ &&
+                        utils::essentiallyEqual(eod_, rhs.eod_) && utils::essentiallyEqual(a_, rhs.a_) &&
+                        utils::essentiallyEqual(b_, rhs.b_) &&
+                        utils::essentiallyEqual(eccentricity_, rhs.eccentricity_) &&
+                        utils::essentiallyEqual(orientation_, rhs.orientation_));
             }
 
             //=============================================================================
@@ -196,10 +254,18 @@ namespace nc
 
         private:
             //==================================Attributes================================///
-            double row_{ 0.0 };
-            double col_{ 0.0 };
-            dtype  intensity_{ 0 };
-            double eod_{ 0.0 };
+            double        row_{ 0.0 };
+            double        col_{ 0.0 };
+            accumulator_t intensity_{ 0 };
+            double        eod_{ 0.0 };
+            /// The ellipse semi-major axis a
+            double a_;
+            /// The ellipse semi-minor axis b
+            double b_;
+            /// The centriod eccentricity
+            double eccentricity_;
+            /// The centriod ellipse orientation in radians.  Measured counter-clockwise from +x axis
+            double orientation_;
 
             //=============================================================================
             // Description:
@@ -226,6 +292,51 @@ namespace nc
                 const auto rowCol = nc::centerOfMass(clusterArray);
                 row_              = rowCol.front() + rowMin;
                 col_              = rowCol.back() + colMin;
+            }
+
+            //=============================================================================
+            // Description:
+            /// Sets the cluster ellipse properties
+            ///
+            /// @param inCluster
+            ///
+            void setEllipseProperties(const Cluster<dtype>& inCluster) noexcept
+            {
+                constexpr double two = static_cast<double>(2.0);
+
+                double m20 = static_cast<double>(0.0);
+                double m02 = static_cast<double>(0.0);
+                double m11 = static_cast<double>(0.0);
+
+                for (Cluster<dtype>::const_iterator iter = inCluster.begin(); iter != inCluster.end(); ++iter)
+                {
+                    const auto&  pixel  = *iter;
+                    const double deltaX = pixel.col - col_;
+                    const double deltaY = pixel.row - row_;
+
+                    m11 += deltaX * deltaY;
+                    m20 += utils::sqr(deltaX);
+                    m02 += utils::sqr(deltaY);
+                }
+
+                const double numPixels = static_cast<double>(inCluster.size());
+                m11 /= numPixels;
+                m20 /= numPixels;
+                m02 /= numPixels;
+
+                double piece1 = m20 + m02;
+                piece1 /= two;
+
+                double piece2 = std::sqrt(static_cast<double>(4.0) * utils::sqr(m11) + utils::sqr(m20 - m02));
+                piece2 /= two;
+
+                const double lambda1 = piece1 - piece2;
+                const double lambda2 = piece1 + piece2;
+
+                eccentricity_ = std::sqrt(static_cast<double>(1.0) - lambda1 / lambda2);
+                orientation_  = static_cast<double>(-0.5) * std::atan2(two * m11, m20 - m02);
+                a_            = two * std::sqrt(lambda2);
+                b_            = two * std::sqrt(lambda1);
             }
         };
     } // namespace imageProcessing

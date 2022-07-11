@@ -1,8 +1,5 @@
 # TODO
 
-* `numpy.take()`
-* integrate improved threshold and cluster code
-
 * address open issues
   * 137: add `fft()`
     * <https://rosettacode.org/wiki/Fast_Fourier_transform#C.2B.2B>

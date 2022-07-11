@@ -3,12 +3,13 @@
 ## Version 2.8.0
 
 * fixed error in `inv` when a zero was on the diagnol for **Issue #132**
-* fixed **Issue 140**
+* fixed **Issue #140**
 * added `bit_count`, Computes the number of 1-bits in the absolute value of the input
 * added `swapRows` and `swapCols` methods to `NdArray`, and also free functions
 * added `pinv`, <https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html>
-* added `take`, <https://numpy.org/doc/stable/reference/generated/numpy.take.html>
+* added `take` for **Issue #149**, <https://numpy.org/doc/stable/reference/generated/numpy.take.html>
 * new non-global `random` interface
+* added ellipse metrics to `imageProcessing::Centroids`
 * documentation updates
 * various minor performance improvements and bug fixes
 

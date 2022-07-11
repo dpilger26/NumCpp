@@ -32,6 +32,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -58,6 +59,7 @@ namespace nc
         public:
             //================================Typedefs===============================
             using const_iterator = typename std::vector<Pixel<dtype>>::const_iterator;
+            using accumulator_t  = typename std::conditional<std::is_integral<dtype>::value, int64, double>::type;
 
             //=============================================================================
             // Description:
@@ -253,7 +255,7 @@ namespace nc
             ///
             /// @return summed cluster intensity
             ///
-            dtype intensity() const noexcept
+            accumulator_t intensity() const noexcept
             {
                 return intensity_;
             }
@@ -289,7 +291,7 @@ namespace nc
             void addPixel(const Pixel<dtype>& inPixel)
             {
                 pixels_.push_back(inPixel);
-                intensity_ += inPixel.intensity;
+                intensity_ += static_cast<accumulator_t>(inPixel.intensity);
 
                 // adjust the cluster bounds
                 rowMin_             = std::min(rowMin_, inPixel.row);
@@ -345,17 +347,27 @@ namespace nc
 
         private:
             //================================Attributes===============================
-            int32                     clusterId_{ -1 };
+            /// The cluster id
+            int32 clusterId_{ -1 };
+            /// The pixels that make up the cluster
             std::vector<Pixel<dtype>> pixels_{};
-
+            /// The bounding box minimum row of the cluster.
             uint32 rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            /// The bounding box maximum row of the cluster.
             uint32 rowMax_{ 0 };
+            /// The bounding box minimum col of the cluster.
             uint32 colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            /// The bounding box maximum row of the cluster.
             uint32 colMax_{ 0 };
-
-            dtype intensity_{ 0 };
+            /// The total summed intensity of the pixels in the cluster.
+            accumulator_t intensity_{ 0 };
+            /// The peak pixel intensity of the cluster
             dtype peakPixelIntensity_{ 0 };
-
+            /// The minimum pixel count value of the cluster
+            dtype minPixel;
+            /// The maximum pixel count value of the cluster
+            dtype maxPixel;
+            /// The cluster energy on detector
             double eod_{ 1.0 };
         };
     } // namespace imageProcessing
