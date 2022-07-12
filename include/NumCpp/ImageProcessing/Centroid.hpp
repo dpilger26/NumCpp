@@ -308,7 +308,7 @@ namespace nc
                 double m02 = static_cast<double>(0.0);
                 double m11 = static_cast<double>(0.0);
 
-                for (Cluster<dtype>::const_iterator iter = inCluster.begin(); iter != inCluster.end(); ++iter)
+                for (typename Cluster<dtype>::const_iterator iter = inCluster.begin(); iter != inCluster.end(); ++iter)
                 {
                     const auto&  pixel  = *iter;
                     const double deltaX = pixel.col - col_;
