@@ -28,8 +28,8 @@ jobs:
           echo $CONDA/bin >> $GITHUB_PATH
       - name: Install dependencies
         run: |
-          conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base \
-          && conda init bash
+          conda env update --file ${{github.workspace}}/test/pytest/environment.yml
+          conda init bash
 
       - name: Install Boost
         run: |
@@ -37,8 +37,7 @@ jobs:
           sudo apt install -y libboost-all-dev
 
       - name: Configure CMake
-        run: |
-          cmake -B ${{github.workspace}}/build \
+        run: cmake -B ${{github.workspace}}/build \
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DBUILD_TESTS=ON \
           -DBUILD_MULTIPLE_TESTS=ON \
@@ -49,10 +48,10 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: Test
-        working-directory: ${{github.workspace}}/test/pytestl
+        working-directory: ${{github.workspace}}/test/pytest
         run: |
-          conda activate test \
-          && pytest
+          conda activate test
+          pytest
 
   build_windows:
     runs-on: windows-latest
@@ -71,12 +70,11 @@ jobs:
           echo $CONDA/bin >> $GITHUB_PATH
       - name: Install dependencies
         run: |
-          conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base \ 
-          && conda init bash
+          conda env update --file ${{github.workspace}}/test/pytest/environment.yml
+          conda init bash
 
       - name: Configure CMake
-        run: |
-          cmake -B ${{github.workspace}}/build \
+        run: cmake -B ${{github.workspace}}/build \
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DBUILD_TESTS=ON \
           -DBUILD_MULTIPLE_TESTS=ON \
@@ -88,7 +86,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: Test
-        working-directory: ${{github.workspace}}/test/pytestl
+        working-directory: ${{github.workspace}}/test/pytest
         run: |
-          conda activate test \
-          && pytest
+          conda activate test
+          pytest
