@@ -44,9 +44,7 @@ jobs:
 
       - name: Test
         working-directory: ${{github.workspace}}/test/pytest
-        run: |
-          conda activate test
-          pytest
+        run: pytest
 
   build_windows:
     runs-on: windows-latest
@@ -76,6 +74,4 @@ jobs:
 
       - name: Test
         working-directory: ${{github.workspace}}/test/pytest
-        run: |
-          conda activate test
-          pytest
+        run: pytest
