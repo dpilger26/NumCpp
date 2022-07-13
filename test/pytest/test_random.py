@@ -369,6 +369,9 @@ def test_RNG_bernoulli():
 
 ####################################################################################
 def test_RNG_beta():
+    if NumCpp.NUMCPP_NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     alpha, beta = np.random.randint(1, 100, [2, ]).astype(float)
@@ -490,6 +493,9 @@ def test_RNG_geometric():
 
 ####################################################################################
 def test_RNG_laplace():
+    if NumCpp.NUMCPP_NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     loc, scale = np.random.randint(1, 100, [2, ])
@@ -523,6 +529,9 @@ def test_RNG_negativeBinomial():
 
 ####################################################################################
 def test_RNG_nonCentralChiSquared():
+    if NumCpp.NUMCPP_NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     k, lambda_ = np.random.randint(1, 100, [2, ])
@@ -664,6 +673,9 @@ def test_RNG_studentT():
 
 ####################################################################################
 def test_RNG_triangle():
+    if NumCpp.NUMCPP_NO_USE_BOOST:
+        return
+
     shapeInput = np.random.randint(1, 100, [2, ]).flatten()
     inShape = NumCpp.Shape(*shapeInput)
     a, b, c = np.sort(np.random.randint(1, 100, [3, ]))
@@ -686,6 +698,9 @@ def test_RNG_uniform():
 
 ####################################################################################
 def test_RNG_uniformOnSphere():
+    if NumCpp.NUMCPP_NO_USE_BOOST:
+        return
+
     numPoints = np.random.randint(10, 100)
     numDims = np.random.randint(2, 10)
     rng = NumCpp.RNG()

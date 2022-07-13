@@ -8765,8 +8765,10 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("gamma", &RandomInterface::RNG::gammaShape<RNG_t, double>)
         .def("geometric", &RandomInterface::RNG::geometricValue<RNG_t, int32>)
         .def("geometric", &RandomInterface::RNG::geometricShape<RNG_t, int32>)
+#ifndef NUMCPP_NO_USE_BOOST
         .def("laplace", &RandomInterface::RNG::laplaceValue<RNG_t, double>)
         .def("laplace", &RandomInterface::RNG::laplaceShape<RNG_t, double>)
+#endif
         .def("lognormal", &RandomInterface::RNG::lognormalValue<RNG_t, double>)
         .def("lognormal", &RandomInterface::RNG::lognormalShape<RNG_t, double>)
         .def("negativeBinomial", &RandomInterface::RNG::negativeBinomialValue<RNG_t, int32>)
