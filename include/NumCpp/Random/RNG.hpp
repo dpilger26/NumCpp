@@ -100,6 +100,7 @@ namespace nc
                 return detail::bernoulli(generator_, inP);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Create an array of the given shape and populate it with
@@ -131,6 +132,7 @@ namespace nc
             {
                 return detail::beta(generator_, inAlpha, inBeta);
             }
+#endif
 
             //============================================================================
             // Method Description:
@@ -484,6 +486,7 @@ namespace nc
                 return detail::geometric<dtype>(generator_, inShape, inP);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Single random value sampled from the "laplace" distrubution.
@@ -521,6 +524,7 @@ namespace nc
             {
                 return detail::laplace(generator_, inShape, inLoc, inScale);
             }
+#endif
 
             //============================================================================
             // Method Description:
@@ -596,6 +600,7 @@ namespace nc
                 return detail::negativeBinomial(generator_, inShape, inN, inP);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Single random value sampled from the "non central chi squared" distrubution.
@@ -633,6 +638,7 @@ namespace nc
             {
                 return detail::nonCentralChiSquared(generator_, inShape, inK, inLambda);
             }
+#endif
 
             //============================================================================
             // Method Description:
@@ -969,6 +975,7 @@ namespace nc
                 return detail::studentT(generator_, inShape, inDof);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Single random value sampled from the "triangle" distribution.
@@ -1008,6 +1015,7 @@ namespace nc
             {
                 return detail::triangle(generator_, inShape, inA, inB, inC);
             }
+#endif
 
             //============================================================================
             // Method Description:
@@ -1050,6 +1058,7 @@ namespace nc
                 return detail::uniform(generator_, inShape, inLow, inHigh);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Such a distribution produces random numbers uniformly
@@ -1065,6 +1074,7 @@ namespace nc
             {
                 return detail::uniformOnSphere<dtype>(generator_, inNumPoints, inDims);
             }
+#endif
 
             //============================================================================
             // Method Description:

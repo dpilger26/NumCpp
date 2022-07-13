@@ -63,6 +63,8 @@ jobs:
       - name: Install dependencies
         run: |
           C:\Miniconda\condabin\conda.bat env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+          C:\Miniconda\condabin\conda.bat init --all
+          C:\Miniconda\condabin\conda.bat activate
 
       - name: Configure CMake
         run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DNUMCPP_NO_USE_BOOST=ON

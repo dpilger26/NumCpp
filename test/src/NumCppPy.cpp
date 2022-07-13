@@ -4618,6 +4618,7 @@ namespace RandomInterface
 
         //============================================================================
 
+#ifndef NUMCPP_NO_USE_BOOST
         template<typename RNG_t, typename dtype>
         dtype betaValue(RNG_t rng, dtype inAlpha, dtype inBeta)
         {
@@ -4631,6 +4632,7 @@ namespace RandomInterface
         {
             return nc2pybind(rng.beta(inShape, inAlpha, inBeta));
         }
+#endif
 
         //============================================================================
 
@@ -4792,6 +4794,7 @@ namespace RandomInterface
 
         //============================================================================
 
+#ifndef NUMCPP_NO_USE_BOOST
         template<typename RNG_t, typename dtype>
         dtype laplaceValue(RNG_t rng, dtype inLoc, dtype inScale)
         {
@@ -4805,6 +4808,7 @@ namespace RandomInterface
         {
             return nc2pybind(rng.laplace(inShape, inLoc, inScale));
         }
+#endif
 
         //============================================================================
 
@@ -4840,6 +4844,7 @@ namespace RandomInterface
 
         //============================================================================
 
+#ifndef NUMCPP_NO_USE_BOOST
         template<typename RNG_t, typename dtype>
         dtype nonCentralChiSquaredValue(RNG_t rng, dtype inK, dtype inLambda)
         {
@@ -4853,6 +4858,7 @@ namespace RandomInterface
         {
             return nc2pybind(rng.nonCentralChiSquared(inShape, inK, inLambda));
         }
+#endif
 
         //============================================================================
 
@@ -5000,6 +5006,7 @@ namespace RandomInterface
 
         //============================================================================
 
+#ifndef NUMCPP_NO_USE_BOOST
         template<typename RNG_t, typename dtype>
         dtype triangleValue(RNG_t rng, dtype inA, dtype inB, dtype inC)
         {
@@ -5013,6 +5020,7 @@ namespace RandomInterface
         {
             return nc2pybind(rng.triangle(inShape, inA, inB, inC));
         }
+#endif
 
         //============================================================================
 
@@ -5032,11 +5040,13 @@ namespace RandomInterface
 
         //============================================================================
 
+#ifndef NUMCPP_NO_USE_BOOST
         template<typename RNG_t, typename dtype>
         pbArrayGeneric uniformOnSphere(RNG_t rng, uint32 inNumPoints, uint32 inDims)
         {
             return nc2pybind(rng.template uniformOnSphere<dtype>(inNumPoints, inDims));
         }
+#endif
 
         //============================================================================
 
@@ -8731,8 +8741,10 @@ PYBIND11_MODULE(NumCppPy, m)
         .def(pb11::init<int>())
         .def("bernoulli", &RandomInterface::RNG::bernoulliValue<RNG_t>)
         .def("bernoulli", &RandomInterface::RNG::bernoulliShape<RNG_t>)
+#ifndef NUMCPP_NO_USE_BOOST
         .def("beta", &RandomInterface::RNG::betaValue<RNG_t, double>)
         .def("beta", &RandomInterface::RNG::betaShape<RNG_t, double>)
+#endif
         .def("binomial", &RandomInterface::RNG::binomialValue<RNG_t, int32>)
         .def("binomial", &RandomInterface::RNG::binomialShape<RNG_t, int32>)
         .def("cauchy", &RandomInterface::RNG::cauchyValue<RNG_t, double>)
@@ -8759,8 +8771,10 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("lognormal", &RandomInterface::RNG::lognormalShape<RNG_t, double>)
         .def("negativeBinomial", &RandomInterface::RNG::negativeBinomialValue<RNG_t, int32>)
         .def("negativeBinomial", &RandomInterface::RNG::negativeBinomialShape<RNG_t, int32>)
+#ifndef NUMCPP_NO_USE_BOOST
         .def("nonCentralChiSquared", &RandomInterface::RNG::nonCentralChiSquaredValue<RNG_t, double>)
         .def("nonCentralChiSquared", &RandomInterface::RNG::nonCentralChiSquaredShape<RNG_t, double>)
+#endif
         .def("normal", &RandomInterface::RNG::normalValue<RNG_t, double>)
         .def("normal", &RandomInterface::RNG::normalShape<RNG_t, double>)
         .def("permutation", &RandomInterface::RNG::permutationValue<RNG_t, double>)
@@ -8781,11 +8795,15 @@ PYBIND11_MODULE(NumCppPy, m)
         .def("standardNormal", &RandomInterface::RNG::standardNormalShape<RNG_t, double>)
         .def("studentT", &RandomInterface::RNG::studentTValue<RNG_t, double>)
         .def("studentT", &RandomInterface::RNG::studentTShape<RNG_t, double>)
+#ifndef NUMCPP_NO_USE_BOOST
         .def("triangle", &RandomInterface::RNG::triangleValue<RNG_t, double>)
         .def("triangle", &RandomInterface::RNG::triangleShape<RNG_t, double>)
+#endif
         .def("uniform", &RandomInterface::RNG::uniformValue<RNG_t, double>)
         .def("uniform", &RandomInterface::RNG::uniformShape<RNG_t, double>)
+#ifndef NUMCPP_NO_USE_BOOST
         .def("uniformOnSphere", &RandomInterface::RNG::uniformOnSphere<RNG_t, double>)
+#endif
         .def("weibull", &RandomInterface::RNG::weibullValue<RNG_t, double>)
         .def("weibull", &RandomInterface::RNG::weibullShape<RNG_t, double>);
 
