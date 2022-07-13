@@ -100,7 +100,6 @@ namespace nc
                 return detail::bernoulli(generator_, inP);
             }
 
-#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Create an array of the given shape and populate it with
@@ -115,6 +114,7 @@ namespace nc
                 return detail::bernoulli(generator_, inShape, inP);
             }
 
+#ifndef NUMCPP_NO_USE_BOOST
             //============================================================================
             // Method Description:
             /// Single random value sampled from the from the "beta" distribution.
@@ -132,7 +132,6 @@ namespace nc
             {
                 return detail::beta(generator_, inAlpha, inBeta);
             }
-#endif
 
             //============================================================================
             // Method Description:
@@ -153,6 +152,7 @@ namespace nc
             {
                 return detail::beta(generator_, inShape, inAlpha, inBeta);
             }
+#endif
 
             //============================================================================
             // Method Description:
