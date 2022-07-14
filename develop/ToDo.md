@@ -1,6 +1,8 @@
 # TODO
 
-* break all unit test source into seperate module files
+* break NdArray test bindings up further
+* only include necessary headers in bindings source files
+
 * update run all script for new linux env and windows env
 * test building all with NumCpp with -DNO_USE_BOOST option in cmake configure
 

@@ -30,7 +30,28 @@ foreach(_source IN ITEMS ${_source_list})
   source_group("${_group_path}" FILES "${_source}")
 endforeach()
 
-add_library(${PROJECT_NAME} SHARED NumCppPy.cpp ${_source_list})
+add_library(${PROJECT_NAME} SHARED 
+  NumCppPy.cpp
+  Constants.cpp 
+  Coordinates.cpp 
+  Core.cpp 
+  DataCube.cpp 
+  Filter.cpp 
+  Functions.cpp 
+  ImageProcessing.cpp 
+  Integrate.cpp 
+  Linalg.cpp 
+  Misc.cpp 
+  NdArray.cpp 
+  Polynomial.cpp 
+  Random.cpp 
+  Roots.cpp 
+  Rotations.cpp 
+  Special.cpp 
+  Utils.cpp 
+  Vector.cpp
+  ${_source_list}
+)
 
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
 target_include_directories(${PROJECT_NAME} PRIVATE 
@@ -51,7 +72,7 @@ if(NUMCPP_NO_USE_BOOST)
   target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
 else()
   find_package(Boost 1.68.0 REQUIRED)
-  target_link_libraries(${PROJECT_NAME} PRIVATE 
+  target_link_libraries(${PROJECT_NAME} PRIVATE
     Boost::headers
   )
 endif()
