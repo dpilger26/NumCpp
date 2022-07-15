@@ -1,4 +1,8 @@
+#include "NumCpp/Core/Constants.hpp"
+
 #include "BindingsIncludes.hpp"
+
+#include "NumCpp/Core/Internal/Version.hpp"
 
 //================================================================================
 

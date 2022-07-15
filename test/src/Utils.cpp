@@ -1,4 +1,7 @@
+#include "NumCpp/Utils.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

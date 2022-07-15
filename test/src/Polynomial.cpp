@@ -1,4 +1,7 @@
+#include "NumCpp/Polynomial.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

@@ -1,4 +1,7 @@
+#include "NumCpp/Filter.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

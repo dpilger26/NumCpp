@@ -1,4 +1,7 @@
+#include "NumCpp/Vector.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

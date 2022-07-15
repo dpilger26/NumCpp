@@ -1,6 +1,5 @@
 #pragma once
 
-#include "NumCpp.hpp"
 #include "pybind11/complex.h"
 #include "pybind11/numpy.h"
 #include "pybind11/pybind11.h"
@@ -23,6 +22,8 @@
 #include <vector>
 
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/PythonInterface/PybindInterface.hpp"
 
 using namespace nc;
 using namespace nc::pybindInterface;

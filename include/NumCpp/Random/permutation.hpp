@@ -30,8 +30,10 @@
 #include <algorithm>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Functions/arange.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+
 
 namespace nc
 {

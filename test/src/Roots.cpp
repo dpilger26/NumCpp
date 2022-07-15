@@ -1,4 +1,8 @@
+#include "NumCpp/Roots.hpp"
+
 #include "BindingsIncludes.hpp"
+
+#include "NumCpp/Polynomial/Poly1d.hpp"
 
 //================================================================================
 

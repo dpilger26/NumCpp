@@ -1,4 +1,7 @@
+#include "NumCpp/ImageProcessing.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

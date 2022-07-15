@@ -1,4 +1,7 @@
+#include "NumCpp/Linalg.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

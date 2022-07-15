@@ -36,6 +36,7 @@
 
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Integrate/trapazoidal.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/power.hpp"
 
 namespace nc

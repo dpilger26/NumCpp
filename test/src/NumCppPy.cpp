@@ -1,4 +1,6 @@
-#include "BindingsIncludes.hpp"
+#include "pybind11/pybind11.h"
+
+namespace pb11 = pybind11;
 
 //================================================================================
 

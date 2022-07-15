@@ -1,3 +1,5 @@
+#include "NumCpp/Functions.hpp"
+
 #include "BindingsIncludes.hpp"
 
 //================================================================================

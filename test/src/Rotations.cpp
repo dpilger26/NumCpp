@@ -1,4 +1,7 @@
+#include "NumCpp/Rotations.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

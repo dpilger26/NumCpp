@@ -1,4 +1,7 @@
+#include "NumCpp/Random.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

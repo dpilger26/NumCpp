@@ -1,4 +1,7 @@
+#include "NumCpp/Coordinates.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 

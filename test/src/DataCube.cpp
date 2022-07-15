@@ -1,4 +1,7 @@
+#include "NumCpp/Core/DataCube.hpp"
+
 #include "BindingsIncludes.hpp"
+
 
 //================================================================================
 
