@@ -27,13 +27,11 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#ifdef __cpp_lib_clamp
-#include <algorithm>
-#endif
 
 namespace nc
 {

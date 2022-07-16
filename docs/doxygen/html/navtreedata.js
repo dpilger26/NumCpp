@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "Release Notes", "md__c___github__num_cpp_docs_markdown__release_notes.html", null ],
-    [ "Installation", "md__c___github__num_cpp_docs_markdown__installation.html", null ],
-    [ "Building", "md__c___github__num_cpp_docs_markdown__building.html", null ],
-    [ "Compiler Flags", "md__c___github__num_cpp_docs_markdown__compiler_flags.html", null ],
+    [ "Release Notes", "md__mnt_c__github__num_cpp_docs_markdown__release_notes.html", null ],
+    [ "Installation", "md__mnt_c__github__num_cpp_docs_markdown__installation.html", null ],
+    [ "Building", "md__mnt_c__github__num_cpp_docs_markdown__building.html", null ],
+    [ "Compiler Flags", "md__mnt_c__github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,20 +65,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
-"_random_2beta_8hpp.html#a9cf5ddddc350278c76e077c67b5254ab",
-"arccos_8hpp_source.html",
-"classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc",
-"classnc_1_1_nd_array_const_column_iterator.html#a99d31459bd356031b795095a38366706",
-"classnc_1_1image_processing_1_1_cluster.html#a9c84aca9710bec5c721fd6a9f94182c3",
-"copy_8hpp.html#a9bbe10d41fdbd74a6254bad44c7c7cf6",
-"fromiter_8hpp.html#a17c629bae4e06fe95b23d2b5799148f0",
-"log10_8hpp.html#a3cd82f65b6ee069a7d6443646dfecf67",
-"namespacenc.html#a22372b41fc480a7284967d2be4b87841",
-"namespacenc.html#a8c8fc041b633785104c583a8ce3d9cef",
-"namespacenc.html#afadd339ab80158ebd9f1dc294052e58d",
-"namespacenc_1_1special.html#a742272fb70f0b85164b61409ad3f464f",
-"prime_8hpp_source.html",
-"subtract_8hpp.html#ae4be1086253a0b121695d9cabfcb86ce"
+"_r_n_g_8hpp_source.html",
+"append_8hpp_source.html",
+"classnc_1_1_dtype_info.html#a2a3dc0ba2812411660219f61189d8aca",
+"classnc_1_1_nd_array_column_iterator.html#aeb402bf56941dc24138dc9f33845be81",
+"classnc_1_1image_processing_1_1_centroid.html#a4ef0e9b2faa4999af5c3597a60140d6c",
+"classnc_1_1rotations_1_1_quaternion.html#a687155cd6469c095941b94a738119da9",
+"exp_8hpp_source.html",
+"hermite_8hpp.html#ad88f67a61dad283461c6121958c5af54",
+"namespacemembers_func_t.html",
+"namespacenc.html#a5f89d7fdd9706dd37cfbaa5e78e17f5f",
+"namespacenc.html#acb8250110150dfe1c585f48f988d703a",
+"namespacenc_1_1random.html",
+"namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6",
+"reciprocal_8hpp.html",
+"tri_8hpp.html#a0fc9894890a23f64d3a676f595920a9a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -888,7 +888,7 @@ namespace nc
             // Method Description:
             /// Seed Constructor
             ///
-            /// @param seed: the seed value
+            /// @param value: the seed value
             ///
             void seed(int value) noexcept
             {

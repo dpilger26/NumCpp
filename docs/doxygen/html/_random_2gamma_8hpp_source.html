@@ -122,56 +122,76 @@ $(document).ready(function(){initNavTree('_random_2gamma_8hpp_source.html',''); 
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">namespace </span>random</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">   56</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">gamma</a>(dtype inGammaShape, dtype inScaleValue = 1)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">if</span> (inGammaShape &lt;= 0)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input gamma shape should be greater than zero.&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span> (inScaleValue &lt;= 0)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input scale should be greater than zero.&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::gamma_distribution&lt;dtype&gt; dist(inGammaShape, inScaleValue);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> dist(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79">   88</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">gamma</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape, dtype inGammaShape, dtype inScaleValue = 1)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span> (inGammaShape &lt;= 0)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input gamma shape should be greater than zero.&quot;</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">   59</a></span>&#160;            dtype <a class="code" href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">gamma</a>(GeneratorType&amp; generator, dtype inGammaShape, dtype inScaleValue = 1)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span> (inGammaShape &lt;= 0)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input gamma shape should be greater than zero.&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">if</span> (inScaleValue &lt;= 0)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input scale should be greater than zero.&quot;</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                std::gamma_distribution&lt;dtype&gt; dist(inGammaShape, inScaleValue);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> dist(generator);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#af58b5aa05a49b86910ce8d86b177cd83">   93</a></span>&#160;                <a class="code" href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">gamma</a>(GeneratorType&amp; generator, <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape, dtype inGammaShape, dtype inScaleValue = 1)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">if</span> (inScaleValue &lt;= 0)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input scale should be greater than zero.&quot;</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">if</span> (inGammaShape &lt;= 0)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input gamma shape should be greater than zero.&quot;</span>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inShape);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            std::gamma_distribution&lt;dtype&gt; dist(inGammaShape, inScaleValue);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                          returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(),</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                          [&amp;dist](dtype&amp; value) -&gt; <span class="keywordtype">void</span> { value = dist(generator_); });</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    } <span class="comment">// namespace random</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> (inScaleValue &lt;= 0)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input scale should be greater than zero.&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inShape);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                std::gamma_distribution&lt;dtype&gt; dist(inGammaShape, inScaleValue);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                              returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(),</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                              [&amp;generator, &amp;dist](dtype&amp; value) -&gt; <span class="keywordtype">void</span> { value = dist(generator); });</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        } <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">  131</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">gamma</a>(dtype inGammaShape, dtype inScaleValue = 1)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">detail::gamma</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inGammaShape, inScaleValue);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79">  150</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">gamma</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape, dtype inGammaShape, dtype inScaleValue = 1)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">detail::gamma</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inShape, inGammaShape, inScaleValue);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    } <span class="comment">// namespace random</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
@@ -183,9 +203,10 @@ $(document).ready(function(){initNavTree('_random_2gamma_8hpp_source.html',''); 
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1171</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="agenerator_8hpp_html"><div class="ttname"><a href="generator_8hpp.html">generator.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_a0a969335423de5ad59fed5e952189e2d"><div class="ttname"><a href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">nc::random::gamma</a></div><div class="ttdeci">dtype gamma(dtype inGammaShape, dtype inScaleValue=1)</div><div class="ttdef"><b>Definition:</b> Random/gamma.hpp:56</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:39</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a734698435eabdbc5bdf93b195d7fb6a7"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">nc::stl_algorithms::for_each</a></div><div class="ttdeci">void for_each(InputIt first, InputIt last, UnaryFunction f)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:227</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_acafe7aa5662b948cf4a8709f30c631f8"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#acafe7aa5662b948cf4a8709f30c631f8">nc::random::detail::gamma</a></div><div class="ttdeci">dtype gamma(GeneratorType &amp;generator, dtype inGammaShape, dtype inScaleValue=1)</div><div class="ttdef"><b>Definition:</b> Random/gamma.hpp:59</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_a0a969335423de5ad59fed5e952189e2d"><div class="ttname"><a href="namespacenc_1_1random.html#a0a969335423de5ad59fed5e952189e2d">nc::random::gamma</a></div><div class="ttdeci">dtype gamma(dtype inGammaShape, dtype inScaleValue=1)</div><div class="ttdef"><b>Definition:</b> Random/gamma.hpp:131</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:37</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a734698435eabdbc5bdf93b195d7fb6a7"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">nc::stl_algorithms::for_each</a></div><div class="ttdeci">void for_each(InputIt first, InputIt last, UnaryFunction f)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:228</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

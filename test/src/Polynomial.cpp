@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace PolynomialInterface
@@ -47,7 +46,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype hermite_Scaler(uint32 n, dtype inValue)
     {
@@ -57,7 +56,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric hermite_Array(uint32 n, const NdArray<dtype>& inArray)
     {
@@ -67,7 +66,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype laguerre_Scaler1(uint32 n, dtype inValue)
     {
@@ -77,7 +76,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue)
     {
@@ -87,7 +86,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric laguerre_Array1(uint32 n, const NdArray<dtype>& inArray)
     {
@@ -97,7 +96,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric laguerre_Array2(uint32 n, uint32 m, const NdArray<dtype>& inArray)
     {
@@ -107,7 +106,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype legendre_p_Scaler1(int32 n, dtype inValue)
     {
@@ -117,7 +116,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue)
     {
@@ -127,7 +126,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric legendre_p_Array1(int32 n, const NdArray<dtype>& inArray)
     {
@@ -137,7 +136,7 @@ namespace PolynomialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric legendre_p_Array2(int32 n, int32 m, const NdArray<dtype>& inArray)
     {
@@ -219,17 +218,17 @@ void initPolynomial(pb11::module& m)
     m.def("chebyshev_u_Scaler", &PolynomialInterface::chebyshev_u_Scaler<double>);
     m.def("chebyshev_u_Array", &PolynomialInterface::chebyshev_u_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("hermite_Scaler", &PolynomialInterface::hermite_Scaler<double>);
     m.def("hermite_Array", &PolynomialInterface::hermite_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("laguerre_Scaler1", &PolynomialInterface::laguerre_Scaler1<double>);
     m.def("laguerre_Array1", &PolynomialInterface::laguerre_Array1<double>);
     m.def("laguerre_Scaler2", &PolynomialInterface::laguerre_Scaler2<double>);
     m.def("laguerre_Array2", &PolynomialInterface::laguerre_Array2<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("legendre_p_Scaler1", &PolynomialInterface::legendre_p_Scaler1<double>);
     m.def("legendre_p_Array1", &PolynomialInterface::legendre_p_Array1<double>);
     m.def("legendre_p_Scaler2", &PolynomialInterface::legendre_p_Scaler2<double>);

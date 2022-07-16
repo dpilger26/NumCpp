@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace SpecialInterface
@@ -105,7 +104,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype bessel_in_Scaler(dtype inV, dtype inValue)
     {
@@ -115,7 +114,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric bessel_in_Array(dtype inV, const NdArray<dtype>& inArray)
     {
@@ -145,7 +144,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype bessel_jn_Scaler(dtype inV, dtype inValue)
     {
@@ -155,7 +154,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric bessel_jn_Array(dtype inV, const NdArray<dtype>& inArray)
     {
@@ -185,7 +184,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype bessel_kn_Scaler(dtype inV, dtype inValue)
     {
@@ -195,7 +194,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric bessel_kn_Array(dtype inV, const NdArray<dtype>& inArray)
     {
@@ -225,7 +224,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype bessel_yn_Scaler(dtype inV, dtype inValue)
     {
@@ -235,7 +234,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric bessel_yn_Array(dtype inV, const NdArray<dtype>& inArray)
     {
@@ -265,7 +264,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype beta_Scaler(dtype a, dtype b)
     {
@@ -275,7 +274,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric beta_Array(const NdArray<dtype>& a, const NdArray<dtype>& b)
     {
@@ -285,7 +284,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype comp_ellint_1_Scaler(dtype k)
     {
@@ -295,7 +294,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric comp_ellint_1_Array(const NdArray<dtype>& k)
     {
@@ -305,7 +304,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype comp_ellint_2_Scaler(dtype k)
     {
@@ -315,7 +314,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric comp_ellint_2_Array(const NdArray<dtype>& k)
     {
@@ -325,7 +324,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype comp_ellint_3_Scaler(dtype k, dtype v)
     {
@@ -335,7 +334,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype1, typename dtype2>
     pbArrayGeneric comp_ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v)
     {
@@ -385,7 +384,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype ellint_1_Scaler(dtype k, dtype p)
     {
@@ -395,7 +394,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype1, typename dtype2>
     pbArrayGeneric ellint_1_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p)
     {
@@ -405,7 +404,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype ellint_2_Scaler(dtype k, dtype p)
     {
@@ -415,7 +414,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype1, typename dtype2>
     pbArrayGeneric ellint_2_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& p)
     {
@@ -425,7 +424,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype ellint_3_Scaler(dtype k, dtype v, dtype p)
     {
@@ -435,7 +434,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype1, typename dtype2, typename dtype3>
     pbArrayGeneric ellint_3_Array(const NdArray<dtype1>& k, const NdArray<dtype2>& v, const NdArray<dtype3>& p)
     {
@@ -445,7 +444,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype expint_Scaler(dtype k)
     {
@@ -455,7 +454,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric expint_Array(const NdArray<dtype>& k)
     {
@@ -677,7 +676,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype riemann_zeta_Scaler(dtype inValue)
     {
@@ -687,7 +686,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric riemann_zeta_Array(const NdArray<dtype>& inArray)
     {
@@ -705,7 +704,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue)
     {
@@ -715,7 +714,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric spherical_bessel_jn_Array(uint32 inV, const NdArray<dtype>& inArray)
     {
@@ -725,7 +724,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue)
     {
@@ -735,7 +734,7 @@ namespace SpecialInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     pbArrayGeneric spherical_bessel_yn_Array(uint32 inV, const NdArray<dtype>& inArray)
     {
@@ -829,7 +828,7 @@ void initSpecial(pb11::module& m)
     m.def("bernoulli_Scaler", &SpecialInterface::bernoulli_Scaler);
     m.def("bernoulli_Array", &SpecialInterface::bernoulli_Array);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("bessel_in_Scaler", &SpecialInterface::bessel_in_Scaler<double>);
     m.def("bessel_in_Array", &SpecialInterface::bessel_in_Array<double>);
 #endif
@@ -837,7 +836,7 @@ void initSpecial(pb11::module& m)
     m.def("bessel_in_prime_Scaler", &SpecialInterface::bessel_in_prime_Scaler<double>);
     m.def("bessel_in_prime_Array", &SpecialInterface::bessel_in_prime_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("bessel_jn_Scaler", &SpecialInterface::bessel_jn_Scaler<double>);
     m.def("bessel_jn_Array", &SpecialInterface::bessel_jn_Array<double>);
 #endif
@@ -845,7 +844,7 @@ void initSpecial(pb11::module& m)
     m.def("bessel_jn_prime_Scaler", &SpecialInterface::bessel_jn_prime_Scaler<double>);
     m.def("bessel_jn_prime_Array", &SpecialInterface::bessel_jn_prime_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("bessel_kn_Scaler", &SpecialInterface::bessel_kn_Scaler<double>);
     m.def("bessel_kn_Array", &SpecialInterface::bessel_kn_Array<double>);
 #endif
@@ -853,7 +852,7 @@ void initSpecial(pb11::module& m)
     m.def("bessel_kn_prime_Scaler", &SpecialInterface::bessel_kn_prime_Scaler<double>);
     m.def("bessel_kn_prime_Array", &SpecialInterface::bessel_kn_prime_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("bessel_yn_Scaler", &SpecialInterface::bessel_yn_Scaler<double>);
     m.def("bessel_yn_Array", &SpecialInterface::bessel_yn_Array<double>);
 #endif
@@ -861,21 +860,21 @@ void initSpecial(pb11::module& m)
     m.def("bessel_yn_prime_Scaler", &SpecialInterface::bessel_yn_prime_Scaler<double>);
     m.def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
     m.def("beta_Array", &SpecialInterface::beta_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("comp_ellint_1_Scaler", &SpecialInterface::comp_ellint_1_Scaler<double>);
     m.def("comp_ellint_1_Array", &SpecialInterface::comp_ellint_1_Array<double>);
 #endif
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("comp_ellint_2_Scaler", &SpecialInterface::comp_ellint_2_Scaler<double>);
     m.def("comp_ellint_2_Array", &SpecialInterface::comp_ellint_2_Array<double>);
 #endif
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("comp_ellint_3_Scaler", &SpecialInterface::comp_ellint_3_Scaler<double>);
     m.def("comp_ellint_3_Array", &SpecialInterface::comp_ellint_3_Array<double, double>);
 #endif
@@ -888,19 +887,19 @@ void initSpecial(pb11::module& m)
     m.def("cyclic_hankel_2_Scaler", &SpecialInterface::cyclic_hankel_2_Scaler<double>);
     m.def("cyclic_hankel_2_Array", &SpecialInterface::cyclic_hankel_2_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("ellint_1_Scaler", &SpecialInterface::ellint_1_Scaler<double>);
     m.def("ellint_1_Array", &SpecialInterface::ellint_1_Array<double, double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("ellint_2_Scaler", &SpecialInterface::ellint_2_Scaler<double>);
     m.def("ellint_2_Array", &SpecialInterface::ellint_2_Array<double, double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("ellint_3_Scaler", &SpecialInterface::ellint_3_Scaler<double>);
     m.def("ellint_3_Array", &SpecialInterface::ellint_3_Array<double, double, double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("expint_Scaler", &SpecialInterface::expint_Scaler<double>);
     m.def("expint_Array", &SpecialInterface::expint_Array<double>);
 #endif
@@ -947,16 +946,16 @@ void initSpecial(pb11::module& m)
     m.def("prime_Scaler", &SpecialInterface::prime_Scaler);
     m.def("prime_Array", &SpecialInterface::prime_Array);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
     m.def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
 #endif
     m.def("softmax", &SpecialInterface::softmax<double>);
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
     m.def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
 #endif
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_math_special_functions)
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
     m.def("spherical_bessel_yn_Array", &SpecialInterface::spherical_bessel_yn_Array<double>);
 #endif

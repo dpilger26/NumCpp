@@ -205,6 +205,8 @@ var classnc_1_1_nd_array =
     [ "str", "classnc_1_1_nd_array.html#aa44f94cc8d02a56636223686f30d84f1", null ],
     [ "sum", "classnc_1_1_nd_array.html#a467700098b002b5631c756ca0fd50cae", null ],
     [ "swapaxes", "classnc_1_1_nd_array.html#a7995ba04b64061dfd931ac58c05826f2", null ],
+    [ "swapCols", "classnc_1_1_nd_array.html#a88cea1308a5fbcae59756158ef00f5d2", null ],
+    [ "swapRows", "classnc_1_1_nd_array.html#abe23114cef0a3f9d5a3b04de6d29d028", null ],
     [ "tofile", "classnc_1_1_nd_array.html#a3533a4192c58304b6be7035098d8e263", null ],
     [ "tofile", "classnc_1_1_nd_array.html#a25390a2e453495e50219103d389a62d1", null ],
     [ "toIndices", "classnc_1_1_nd_array.html#a151940b3a151f2d15354bb4a9cbb0852", null ],

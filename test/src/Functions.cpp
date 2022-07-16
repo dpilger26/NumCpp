@@ -2,6 +2,8 @@
 
 #include "BindingsIncludes.hpp"
 
+#include <version>
+
 //================================================================================
 
 namespace FunctionsInterface
@@ -1257,7 +1259,7 @@ namespace FunctionsInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
+#if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype gcdScaler(dtype inValue1, dtype inValue2)
     {
@@ -1525,7 +1527,7 @@ namespace FunctionsInterface
 
     //================================================================================
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
+#if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
     dtype lcmScaler(dtype inValue1, dtype inValue2)
     {
@@ -2782,7 +2784,7 @@ void initFunctions(pb11::module& m)
     m.def("full_like", &full_like<double>);
     m.def("full_likeComplex", &full_like<ComplexDouble>);
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
+#if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
@@ -2827,7 +2829,7 @@ void initFunctions(pb11::module& m)
     m.def("kaiser", &FunctionsInterface::kaiser);
 #endif
 
-#if !defined(NUMCPP_NO_USE_BOOST) || defined(__cpp_lib_gcd_lcm)
+#if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     m.def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST

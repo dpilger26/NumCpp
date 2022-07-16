@@ -2,6 +2,8 @@
 
 #include "BindingsIncludes.hpp"
 
+#include <version>
+
 #include "NumCpp/Core/Internal/Version.hpp"
 
 //================================================================================

@@ -6,6 +6,11 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
+
 option(BUILD_ALL "Build All targets" OFF)
 option(BUILD_DOCS "Build the doxygen documentation" OFF)
 option(BUILD_TESTS "Build the unit tests" OFF)
@@ -15,6 +20,9 @@ option(BUILD_EXAMPLE_GAUSS_NEWTON_NLLS "Build the Gauss-Newton NLLS example" OFF
 option(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN "Build the Interface with Eigen example" OFF)
 option(BUILD_EXAMPLE_INTERFACE_WITH_OPENCV "Build the Interface with OpenCV example" OFF)
 option(BUILD_EXAMPLE_README "Build the README example" OFF)
+
+option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" OFF)
+option(NUMCPP_USE_MULTITHREAD "Enable multithreading" OFF)
 
 if(BUILD_ALL)
     set(BUILD_DOCS ON)
@@ -28,6 +36,19 @@ if(BUILD_EXAMPLE_ALL)
     set(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN ON)
     set(BUILD_EXAMPLE_INTERFACE_WITH_OPENCV ON)
     set(BUILD_EXAMPLE_README ON)
+endif()
+
+set(COMPILE_DEFINITIONS_TARGET compile_definitions)
+add_library(${COMPILE_DEFINITIONS_TARGET} INTERFACE)
+
+if(NUMCPP_NO_USE_BOOST)
+    target_compile_definitions(${COMPILE_DEFINITIONS_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
+else()
+    find_package(Boost 1.68.0 REQUIRED)
+endif()
+
+if(NUMCPP_USE_MULTITHREAD)
+    target_compile_definitions(${COMPILE_DEFINITIONS_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
 endif()
 
 include(NumCppTools)

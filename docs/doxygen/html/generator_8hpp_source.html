@@ -110,27 +110,23 @@ $(document).ready(function(){initNavTree('generator_8hpp_source.html',''); initR
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">namespace </span>random</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">   39</a></span>&#160;        <span class="keyword">static</span> std::mt19937_64 <a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a93fe76208181d041adb08a02de0966d8">   50</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacenc_1_1random.html#a93fe76208181d041adb08a02de0966d8">seed</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inSeed)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>.seed(inSeed);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    } <span class="comment">// namespace random</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace nc</span></div>
-<div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_a93fe76208181d041adb08a02de0966d8"><div class="ttname"><a href="namespacenc_1_1random.html#a93fe76208181d041adb08a02de0966d8">nc::random::seed</a></div><div class="ttdeci">void seed(uint32 inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:50</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:39</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">namespace </span>random</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">   37</a></span>&#160;        <span class="keyword">static</span> std::mt19937_64 <a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">   48</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">seed</a>(<span class="keywordtype">int</span> inSeed)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>.seed(inSeed);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    } <span class="comment">// namespace random</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:37</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

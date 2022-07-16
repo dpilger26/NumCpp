@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/bessel.hpp"
 #endif
 
@@ -62,9 +62,9 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
 #ifdef __cpp_lib_math_special_functions
-            return std::cyl_bessel_j(inV, inX);
+            return std::cyl_bessel_j(static_cast<double>(inV), static_cast<double>(inX));
 #else
-            return boost::math::cyl_bessel_j(inV, inX);
+            return boost::math::cyl_bessel_j(static_cast<double>(inV), static_cast<double>(inX));
 #endif
         }
 

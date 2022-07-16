@@ -15,6 +15,7 @@
 #include <iostream>
 #include <list>
 #include <memory>
+#include <numeric>
 #include <set>
 #include <string>
 #include <type_traits>

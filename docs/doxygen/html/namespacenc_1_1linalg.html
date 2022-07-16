@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('namespacenc_1_1linalg.html',''); initR
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -110,6 +111,11 @@ $(document).ready(function(){initNavTree('namespacenc_1_1linalg.html',''); initR
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacenc_1_1linalg_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg_1_1detail.html">detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1linalg_1_1_s_v_d.html">SVD</a></td></tr>
@@ -120,9 +126,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac2d27e58dd0f082ef5a422d545699d19"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ac2d27e58dd0f082ef5a422d545699d19"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#ac2d27e58dd0f082ef5a422d545699d19">cholesky</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inMatrix)</td></tr>
 <tr class="separator:ac2d27e58dd0f082ef5a422d545699d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55bafcebbc897458164e8dc511b6119c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a55bafcebbc897458164e8dc511b6119c"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a55bafcebbc897458164e8dc511b6119c">det</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
-<tr class="separator:a55bafcebbc897458164e8dc511b6119c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560873e98ef9b3d8da501ad6feb121e9"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a560873e98ef9b3d8da501ad6feb121e9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">det</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:a560873e98ef9b3d8da501ad6feb121e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename... Params, nc::enable_if_t&lt; is_arithmetic_v&lt; dtype &gt;, int &gt;  = 0, nc::enable_if_t&lt; all_arithmetic_v&lt; Params... &gt;, int &gt;  = 0, nc::enable_if_t&lt; all_same_v&lt; dtype, Params... &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aff0f97e94666284100b584e13d27def3"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;, double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">gaussNewtonNlls</a> (const <a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> numIterations, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;coordinates, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</td></tr>
 <tr class="separator:aff0f97e94666284100b584e13d27def3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +155,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a81e0a23be4542fea04d75cad8e7378ca"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a81e0a23be4542fea04d75cad8e7378ca"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a81e0a23be4542fea04d75cad8e7378ca">multi_dot</a> (const std::initializer_list&lt; <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&gt; &amp;inList)</td></tr>
 <tr class="separator:a81e0a23be4542fea04d75cad8e7378ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd344fec1eaaa687e9004c3fe5569e53"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:acd344fec1eaaa687e9004c3fe5569e53"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#acd344fec1eaaa687e9004c3fe5569e53">pinv</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:acd344fec1eaaa687e9004c3fe5569e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390c3d32ed4b8ed7e718cbe121025ebd"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a390c3d32ed4b8ed7e718cbe121025ebd"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;, <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;, <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a390c3d32ed4b8ed7e718cbe121025ebd">pivotLU_decomposition</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inMatrix)</td></tr>
 <tr class="separator:a390c3d32ed4b8ed7e718cbe121025ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,8 +198,8 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a55bafcebbc897458164e8dc511b6119c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55bafcebbc897458164e8dc511b6119c">&#9670;&nbsp;</a></span>det()</h2>
+<a id="a560873e98ef9b3d8da501ad6feb121e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a560873e98ef9b3d8da501ad6feb121e9">&#9670;&nbsp;</a></span>det()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +207,7 @@ template&lt;typename dtype &gt; </div>
 template&lt;typename dtype &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">dtype nc::linalg::det </td>
+          <td class="memname">auto nc::linalg::det </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
           <td class="paramname"><em>inArray</em></td><td>)</td>
@@ -580,6 +589,35 @@ template&lt;typename dtype &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inList</td><td>list of arrays</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library.">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="acd344fec1eaaa687e9004c3fe5569e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd344fec1eaaa687e9004c3fe5569e53">&#9670;&nbsp;</a></span>pinv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::linalg::pinv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>matrix psuedo-inverse</p>
+<p>NumPy Reference: <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html">https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>

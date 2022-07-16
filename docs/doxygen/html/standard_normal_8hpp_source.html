@@ -117,34 +117,55 @@ $(document).ready(function(){initNavTree('standard_normal_8hpp_source.html','');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">namespace </span>random</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">   50</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">standardNormal</a>()</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> normal&lt;dtype&gt;(0, 1);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#abdee8056d3ea531f0bf8a7a688e3f002">   53</a></span>&#160;            dtype <a class="code" href="namespacenc_1_1random_1_1detail.html#abdee8056d3ea531f0bf8a7a688e3f002">standardNormal</a>(GeneratorType&amp; generator)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a026e31e4ef305beb2bbb546817e44eb0">   70</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">standardNormal</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> normal&lt;dtype&gt;(inShape, 0, 1);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    } <span class="comment">// namespace random</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">return</span> detail::normal&lt;dtype&gt;(generator, 0, 1);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a0f39dfa31defb2a6ef419a4a72119c36">   74</a></span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random_1_1detail.html#abdee8056d3ea531f0bf8a7a688e3f002">standardNormal</a>(GeneratorType&amp; generator, <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> detail::normal&lt;dtype&gt;(generator, inShape, 0, 1);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        } <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">   93</a></span>&#160;        dtype <a class="code" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">standardNormal</a>()</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> detail::standardNormal&lt;dtype&gt;(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a026e31e4ef305beb2bbb546817e44eb0">  111</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">standardNormal</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a>&amp; inShape)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> detail::standardNormal&lt;dtype&gt;(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inShape);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    } <span class="comment">// namespace random</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_acc9d03c66c1fa8b35dea3fa0a0f075e7"><div class="ttname"><a href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">nc::random::standardNormal</a></div><div class="ttdeci">dtype standardNormal()</div><div class="ttdef"><b>Definition:</b> standardNormal.hpp:50</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_abdee8056d3ea531f0bf8a7a688e3f002"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#abdee8056d3ea531f0bf8a7a688e3f002">nc::random::detail::standardNormal</a></div><div class="ttdeci">dtype standardNormal(GeneratorType &amp;generator)</div><div class="ttdef"><b>Definition:</b> standardNormal.hpp:53</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:37</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_acc9d03c66c1fa8b35dea3fa0a0f075e7"><div class="ttname"><a href="namespacenc_1_1random.html#acc9d03c66c1fa8b35dea3fa0a0f075e7">nc::random::standardNormal</a></div><div class="ttdeci">dtype standardNormal()</div><div class="ttdef"><b>Definition:</b> standardNormal.hpp:93</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anormal_8hpp_html"><div class="ttname"><a href="normal_8hpp.html">normal.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

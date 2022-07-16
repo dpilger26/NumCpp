@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
-
 #include <cmath>
+
+#if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/bessel_in.hpp"

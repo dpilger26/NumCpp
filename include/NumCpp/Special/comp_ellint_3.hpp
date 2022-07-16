@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
@@ -34,9 +36,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/ellint_3.hpp"
 #endif
 

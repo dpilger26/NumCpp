@@ -1,17 +1,7 @@
 cmake_minimum_required(VERSION 3.14...3.99)
 
+set(TARGET_NAME NumCppPy)
 set(NUMCPP_INCLUDES ../../include)
-
-project(NumCppPy CXX)
-
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
-endif()
-
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-endif()
-message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 
@@ -30,8 +20,7 @@ foreach(_source IN ITEMS ${_source_list})
   source_group("${_group_path}" FILES "${_source}")
 endforeach()
 
-add_library(${PROJECT_NAME} SHARED 
-  NumCppPy.cpp
+add_library(${TARGET_NAME} SHARED 
   Constants.cpp 
   Coordinates.cpp 
   Core.cpp 
@@ -50,11 +39,12 @@ add_library(${PROJECT_NAME} SHARED
   Special.cpp 
   Utils.cpp 
   Vector.cpp
+  NumCppPy.cpp
   ${_source_list}
 )
 
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE .)
-target_include_directories(${PROJECT_NAME} PRIVATE 
+target_include_directories(${TARGET_NAME} SYSTEM PRIVATE .)
+target_include_directories(${TARGET_NAME} PRIVATE 
   ${NUMCPP_INCLUDES}
 )
 
@@ -64,31 +54,29 @@ find_package(Python 3.8
   Development.Module
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE 
+target_link_libraries(${TARGET_NAME} PRIVATE 
   Python::Module
 )
 
-if(NUMCPP_NO_USE_BOOST)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE -DNUMCPP_NO_USE_BOOST)
-else()
-  find_package(Boost 1.68.0 REQUIRED)
-  target_link_libraries(${PROJECT_NAME} PRIVATE
+if (NOT NUMCPP_NO_USE_BOOST)
+  target_link_libraries(${TARGET_NAME} PRIVATE 
     Boost::headers
   )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE 
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
-)
+if (NUMCPP_USE_MULTITHREAD)
+  target_link_libraries(${TARGET_NAME} PRIVATE 
+    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
+  )
+endif()
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE 
+target_compile_definitions(${TARGET_NAME} PRIVATE 
   -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 )
 
-if(NUMCPP_USE_MULTITHREAD)
-  target_compile_definitions(${PROJECT_NAME} PRIVATE 
-    -DNUMCPP_USE_MULTITHREAD)
-endif()
+target_link_libraries(${TARGET_NAME} PRIVATE 
+  ${COMPILE_DEFINITIONS_TARGET}
+)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(OUTPUT_SUFFIX ".pyd")
@@ -96,7 +84,7 @@ else ()
   set(OUTPUT_SUFFIX ".so")
 endif()
 
-set_target_properties(${PROJECT_NAME}
+set_target_properties(${TARGET_NAME}
   PROPERTIES
   PREFIX ""
   SUFFIX ${OUTPUT_SUFFIX}
@@ -105,7 +93,7 @@ set_target_properties(${PROJECT_NAME}
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../pytest/$<0:>
 )
 
-target_compile_options(${PROJECT_NAME} PRIVATE
+target_compile_options(${TARGET_NAME} PRIVATE
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
@@ -123,6 +111,6 @@ target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
 )
 
-target_link_options(${PROJECT_NAME} PRIVATE
+target_link_options(${TARGET_NAME} PRIVATE
   $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
 )

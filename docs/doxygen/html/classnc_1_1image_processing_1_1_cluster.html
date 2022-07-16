@@ -118,6 +118,8 @@ $(document).ready(function(){initNavTree('classnc_1_1image_processing_1_1_cluste
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a243ffe7ecbcf4473e1225e6694624c08"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a243ffe7ecbcf4473e1225e6694624c08">accumulator_t</a> = typename std::conditional&lt; std::is_integral&lt; dtype &gt;::value, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double &gt;::type</td></tr>
+<tr class="separator:a243ffe7ecbcf4473e1225e6694624c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b344c255dfcfcf18e0fc9f1e84979ae"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a3b344c255dfcfcf18e0fc9f1e84979ae">const_iterator</a> = typename std::vector&lt; <a class="el" href="classnc_1_1image_processing_1_1_pixel.html">Pixel</a>&lt; dtype &gt; &gt;::<a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a3b344c255dfcfcf18e0fc9f1e84979ae">const_iterator</a></td></tr>
 <tr class="separator:a3b344c255dfcfcf18e0fc9f1e84979ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -145,8 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a461863af036452bdb1813dfff33c7c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71ccd5ee3fea70b4b1b27ba25f4b3fb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a71ccd5ee3fea70b4b1b27ba25f4b3fb8">height</a> () const noexcept</td></tr>
 <tr class="separator:a71ccd5ee3fea70b4b1b27ba25f4b3fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1797d804406d51ab2e22d5b9fae9cb53"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a1797d804406d51ab2e22d5b9fae9cb53">intensity</a> () const noexcept</td></tr>
-<tr class="separator:a1797d804406d51ab2e22d5b9fae9cb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff111af8d260b45e8657507d067eac8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a243ffe7ecbcf4473e1225e6694624c08">accumulator_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#abff111af8d260b45e8657507d067eac8">intensity</a> () const noexcept</td></tr>
+<tr class="separator:abff111af8d260b45e8657507d067eac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa023fb6ea06515f18cd629b155f96a2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#aa023fb6ea06515f18cd629b155f96a2c">operator!=</a> (const <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">Cluster</a>&lt; dtype &gt; &amp;rhs) const noexcept</td></tr>
 <tr class="separator:aa023fb6ea06515f18cd629b155f96a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8308c5f0313872c9499de36d69d0ff19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a8308c5f0313872c9499de36d69d0ff19">operator==</a> (const <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">Cluster</a>&lt; dtype &gt; &amp;rhs) const noexcept</td></tr>
@@ -179,6 +181,22 @@ class nc::imageProcessing::Cluster&lt; dtype &gt;</h3>
 
 <p>Holds the information for a cluster of pixels. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a243ffe7ecbcf4473e1225e6694624c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a243ffe7ecbcf4473e1225e6694624c08">&#9670;&nbsp;</a></span>accumulator_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a>&lt; dtype &gt;::<a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a243ffe7ecbcf4473e1225e6694624c08">accumulator_t</a> =  typename std::conditional&lt;std::is_integral&lt;dtype&gt;::value, <a class="el" href="namespacenc.html#a6223a7f3b0f7886036f64276f36c921e">int64</a>, double&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3b344c255dfcfcf18e0fc9f1e84979ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b344c255dfcfcf18e0fc9f1e84979ae">&#9670;&nbsp;</a></span>const_iterator</h2>
 
@@ -534,8 +552,8 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a1797d804406d51ab2e22d5b9fae9cb53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1797d804406d51ab2e22d5b9fae9cb53">&#9670;&nbsp;</a></span>intensity()</h2>
+<a id="abff111af8d260b45e8657507d067eac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff111af8d260b45e8657507d067eac8">&#9670;&nbsp;</a></span>intensity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -546,7 +564,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dtype <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a>&lt; dtype &gt;::intensity </td>
+          <td class="memname"><a class="el" href="classnc_1_1image_processing_1_1_cluster.html#a243ffe7ecbcf4473e1225e6694624c08">accumulator_t</a> <a class="el" href="classnc_1_1image_processing_1_1_cluster.html">nc::imageProcessing::Cluster</a>&lt; dtype &gt;::intensity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
