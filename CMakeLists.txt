@@ -38,18 +38,42 @@ if(BUILD_EXAMPLE_ALL)
     set(BUILD_EXAMPLE_README ON)
 endif()
 
-set(COMPILE_DEFINITIONS_TARGET compile_definitions)
-add_library(${COMPILE_DEFINITIONS_TARGET} INTERFACE)
+set(ALL_INTERFACE_TARGET compile_definitions)
+add_library(${ALL_INTERFACE_TARGET} INTERFACE)
 
 if(NUMCPP_NO_USE_BOOST)
-    target_compile_definitions(${COMPILE_DEFINITIONS_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
+    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
 else()
     find_package(Boost 1.68.0 REQUIRED)
 endif()
 
 if(NUMCPP_USE_MULTITHREAD)
-    target_compile_definitions(${COMPILE_DEFINITIONS_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
+    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
 endif()
+
+target_compile_options(${ALL_INTERFACE_TARGET} INTERFACE
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
+  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
+  $<$<CXX_COMPILER_ID:MSVC>:/MP>
+  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
+)
+
+target_link_options(${ALL_INTERFACE_TARGET} INTERFACE
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+)
+
+get_filename_component(NUMCPP_INCLUDES ./include ABSOLUTE)
 
 include(NumCppTools)
 numcpp_find_version_file("" NUMCPP_VERSION_FILE)

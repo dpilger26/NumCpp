@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.14...3.99)
 
 set(TARGET_NAME NumCppPy)
-set(NUMCPP_INCLUDES ../../include)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 
@@ -75,7 +74,7 @@ target_compile_definitions(${TARGET_NAME} PRIVATE
 )
 
 target_link_libraries(${TARGET_NAME} PRIVATE 
-  ${COMPILE_DEFINITIONS_TARGET}
+  ${ALL_INTERFACE_TARGET}
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
@@ -91,26 +90,4 @@ set_target_properties(${TARGET_NAME}
   ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../pytest/$<0:>
   LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../pytest/$<0:>
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../pytest/$<0:>
-)
-
-target_compile_options(${TARGET_NAME} PRIVATE
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
-  $<$<CXX_COMPILER_ID:MSVC>:/W4>
-  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
-  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
-  $<$<CXX_COMPILER_ID:MSVC>:/MP>
-  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
-)
-
-target_link_options(${TARGET_NAME} PRIVATE
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
 )

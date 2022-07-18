@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14...3.99)
 
-project(ReadMe)
+set(TARGET_NAME ReadMe)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
@@ -11,15 +11,15 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_executable(${PROJECT_NAME} ReadMe.cpp)
+add_executable(${TARGET_NAME} ReadMe.cpp)
 
-set_target_properties(${PROJECT_NAME}
+set_target_properties(${TARGET_NAME}
   PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE 
-  ../../include
+target_include_directories(${TARGET_NAME} PRIVATE 
+  ${NUMCPP_INCLUDES}
 )
 
 set(Boost_USE_STATIC_LIBS ON)
@@ -29,32 +29,16 @@ find_package(Boost 1.68.0 REQUIRED
   filesystem
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE 
+target_link_libraries(${TARGET_NAME} PRIVATE 
   Boost::headers
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::system>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::filesystem>
 )
 
-target_link_directories(${PROJECT_NAME} PRIVATE
+target_link_directories(${TARGET_NAME} PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:${Boost_LIBRARY_DIRS}>
 )
 
-target_compile_options(${PROJECT_NAME} PRIVATE
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
-  $<$<CXX_COMPILER_ID:MSVC>:/W4>
-  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
-  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
-  $<$<CXX_COMPILER_ID:MSVC>:/MP>
-  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
-)
-
-target_link_options(${PROJECT_NAME} PRIVATE
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+target_link_libraries(${TARGET_NAME} PRIVATE 
+  ${ALL_INTERFACE_TARGET}
 )

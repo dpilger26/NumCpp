@@ -14,7 +14,7 @@ set_target_properties(${TARGET_NAME}
 
 target_include_directories(${TARGET_NAME} PRIVATE 
   ./
-  ../../include
+  ${NUMCPP_INCLUDES}
 )
 
 if (NOT NUMCPP_NO_USE_BOOST)
@@ -24,25 +24,5 @@ if (NOT NUMCPP_NO_USE_BOOST)
 endif()
 
 target_link_libraries(${TARGET_NAME} PRIVATE 
-  ${COMPILE_DEFINITIONS_TARGET}
-)
-
-target_compile_options(${TARGET_NAME} PRIVATE
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
-  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
-  $<$<CXX_COMPILER_ID:MSVC>:/W4>
-  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
-  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
-  $<$<CXX_COMPILER_ID:MSVC>:/MP>
-  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
-)
-
-target_link_options(${TARGET_NAME} PRIVATE
-  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+  ${ALL_INTERFACE_TARGET}
 )

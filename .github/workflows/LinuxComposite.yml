@@ -1,0 +1,46 @@
+name: LinuxComposite
+description: "Sets up the linux environment"
+
+env:
+  BOOST_ROOT: /home/runner/boost
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+
+    - name: Install Dependency libs
+      run: |
+        sudo apt update
+        sudo apt install -y libtbb-dev
+
+    - name: Install boost
+      uses: MarkusJx/install-boost@v2.3.0
+      id: install-boost
+      with:
+        # REQUIRED: Specify the required boost version
+        # A list of supported versions can be found here:
+        # https://github.com/actions/boost-versions/blob/main/versions-manifest.json
+        boost_version: 1.73.0
+        # OPTIONAL: Specify a platform version
+        platform_version: 20.04
+        # OPTIONAL: Specify a custom install location
+        boost_install_dir: ${{env.BOOST_ROOT}}
+        # OPTIONAL: Specify a toolset
+        toolset: gcc
+        # OPTIONAL: Specify an architecture
+        arch: x64
