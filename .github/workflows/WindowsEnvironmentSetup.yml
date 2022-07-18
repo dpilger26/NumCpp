@@ -1,8 +1,8 @@
-name: LinuxComposite
-description: "Sets up the linux environment"
+name: Windows Environment Setup
+description: "Sets up the windows environment"
 
 env:
-  BOOST_ROOT: /home/runner/boost
+  BOOST_ROOT: C:\boost
 
 runs:
   using: "composite"
