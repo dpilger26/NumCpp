@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Environment
-        uses: ./.github/actions/linux-environment-setup
+        uses: ./.github/actions/LinuxEnvironmentSetup
 
       - name: Build and Test
-        uses: ./.github/actions/build-and-test
+        uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: OFF
 
@@ -28,10 +28,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Environment
-        uses: ./.github/actions/linux-environment-setup1
+        uses: ./.github/actions/LinuxEnvironmentSetup
 
       - name: Build and Test
-        uses: ./.github/actions/build-and-test
+        uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: ON
 
@@ -42,10 +42,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Environment
-        uses: ./.github/actions/windows-environment-setup
+        uses: ./.github/actions/WindowsEnvironmentSetup
 
       - name: Build and Test
-        uses: ./.github/actions/build-and-test
+        uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: OFF
 
@@ -56,9 +56,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Environment
-        uses: ./.github/actions/windows-environment-setup
+        uses: ./.github/actions/WindowsEnvironmentSetup
 
       - name: Build and Test
-        uses: ./.github/actions/build-and-test
+        uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: ON
