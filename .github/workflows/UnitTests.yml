@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure Environment
-        uses: actions/linux-environment-setup-composite-action@v1
+        uses: ./.github/actions/linux-environment-setup
 
       - name: Build and Test
-        uses: actions/build-and-test-composite-action@v1
+        uses: ./.github/actions/build-and-test
         with:
           numcpp_no_use_boost: OFF
 
@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure Environment
-        uses: actions/linux-environment-setup-composite-action@v1
+        uses: ./.github/actions/linux-environment-setup1
 
       - name: Build and Test
-        uses: actions/build-and-test-composite-action@v1
+        uses: ./.github/actions/build-and-test
         with:
           numcpp_no_use_boost: ON
 
@@ -33,10 +33,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Configure Environment
-        uses: actions/windows-environment-setup-composite-action@v1
+        uses: ./.github/actions/windows-environment-setup
 
       - name: Build and Test
-        uses: actions/build-and-test-composite-action@v1
+        uses: ./.github/actions/build-and-test
         with:
           numcpp_no_use_boost: OFF
 
@@ -44,9 +44,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Configure Environment
-        uses: actions/windows-environment-setup-composite-action@v1
+        uses: ./.github/actions/windows-environment-setup
 
       - name: Build and Test
-        uses: actions/build-and-test-composite-action@v1
+        uses: ./.github/actions/build-and-test
         with:
           numcpp_no_use_boost: ON
