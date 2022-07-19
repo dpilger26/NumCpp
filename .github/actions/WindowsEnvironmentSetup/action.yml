@@ -15,14 +15,12 @@ runs:
     - name: Add conda to system path
       shell: pwsh
       run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-        conda init --all
+        C:\Miniconda\condabin\conda.bat init --all
 
     - name: Install dependencies
       shell: pwsh
       run: |
-        conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+        C:\Miniconda\condabin\conda.bat env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
 
     - name: Install boost
       uses: MarkusJx/install-boost@v2.3.0
