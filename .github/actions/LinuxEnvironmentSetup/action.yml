@@ -27,16 +27,4 @@ runs:
       run: |
         sudo apt update
         sudo apt install -y libtbb-dev
-
-    - name: Install boost
-      uses: MarkusJx/install-boost@v2.3.0
-      id: install-boost
-      with:
-        # REQUIRED: Specify the required boost version
-        # A list of supported versions can be found here:
-        # https://github.com/actions/boost-versions/blob/main/versions-manifest.json
-        boost_version: 1.73.0
-        platform_version: 20.04
-        boost_install_dir: ${{env.BOOST_ROOT}}
-        toolset: gcc
-        arch: x86
+        sudo apt install -y install -y libboost-all-dev

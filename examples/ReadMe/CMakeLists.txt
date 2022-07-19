@@ -15,7 +15,7 @@ add_executable(${TARGET_NAME} ReadMe.cpp)
 
 set_target_properties(${TARGET_NAME}
   PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/$<0:>
+  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/$<0:>
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE 
