@@ -13,14 +13,17 @@ runs:
         python-version: 3.9
 
     - name: Add conda to system path
+      shell: bash
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
+      shell: bash
       run: |
         conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
 
     - name: Install Dependency libs
+      shell: bash
       run: |
         sudo apt update
         sudo apt install -y libtbb-dev
