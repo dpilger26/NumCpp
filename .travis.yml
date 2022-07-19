@@ -15,13 +15,7 @@ before_install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - $HOME/miniconda/bin/pip install -U pytest
-  - $HOME/miniconda/bin/pip install -U numpy
-  - $HOME/miniconda/bin/pip install -U scipy
-  - $HOME/miniconda/bin/pip install -U astropy
-  - $HOME/miniconda/bin/pip install -U matplotlib
-  - $HOME/miniconda/bin/pip install -U mpmath
-  - $HOME/miniconda/bin/pip install -U vectormath
+  - conda env update --file ${TRAVIS_BUILD_DIR}/test/pytest/environment.yml --name base
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
