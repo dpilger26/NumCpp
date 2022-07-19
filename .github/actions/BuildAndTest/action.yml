@@ -8,16 +8,22 @@ inputs:
   numcpp_no_use_boost:
     description: “NUMCPP_NO_USE_BOOST compiler flag”
     required: true
+  shell:
+    description: the shell to use
+    required: true
 
 runs:
   using: "composite"
   steps:
     - name: Configure CMake
+      shell: ${{inputs.shell}}
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBOOST_ROOT=${{env.BOOST_ROOT}} -DBUILD_TESTS=${{inputs.numcpp_no_use_boost}} -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_README=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON
 
     - name: Build
+      shell: ${{inputs.shell}}
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test
+      shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/test/pytest
       run: pytest
