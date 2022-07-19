@@ -17,16 +17,12 @@ runs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
+        conda init --all
+
     - name: Install dependencies
       shell: pwsh
       run: |
         conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
-
-    - name: Install Dependency libs
-      shell: pwsh
-      run: |
-        sudo apt update
-        sudo apt install -y libtbb-dev
 
     - name: Install boost
       uses: MarkusJx/install-boost@v2.3.0
@@ -37,10 +33,10 @@ runs:
         # https://github.com/actions/boost-versions/blob/main/versions-manifest.json
         boost_version: 1.73.0
         # OPTIONAL: Specify a platform version
-        platform_version: 20.04
+        platform_version: 2016
         # OPTIONAL: Specify a custom install location
         boost_install_dir: ${{env.BOOST_ROOT}}
         # OPTIONAL: Specify a toolset
-        toolset: gcc
+        toolset: msvc
         # OPTIONAL: Specify an architecture
         arch: x86
