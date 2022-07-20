@@ -21,7 +21,7 @@ jobs:
         with:
           numcpp_no_use_boost: OFF
           shell: bash
-          boost_root: /usr/share
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
           conda_bin_dir: $CONDA/bin
 
   build_linux_no_boost:
@@ -38,7 +38,7 @@ jobs:
         with:
           numcpp_no_use_boost: ON
           shell: bash
-          boost_root: /usr/share
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
           conda_bin_dir: $CONDA/bin/
 
   build_windows:
@@ -54,7 +54,7 @@ jobs:
         uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: OFF
-          shell: pwsh
+          shell: powershell
           boost_root: C:\boost
           conda_bin_dir: C:\Miniconda\condabin
 
@@ -71,6 +71,6 @@ jobs:
         uses: ./.github/actions/BuildAndTest
         with:
           numcpp_no_use_boost: ON
-          shell: pwsh
+          shell: powershell
           boost_root: C:\boost
           conda_bin_dir: C:\Miniconda\condabin
