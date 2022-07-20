@@ -9,7 +9,7 @@ add_executable(${TARGET_NAME}
 
 set_target_properties(${TARGET_NAME}
   PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/$<0:>
+  RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_BINARY_DIR}
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE 

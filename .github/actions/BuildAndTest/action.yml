@@ -11,6 +11,9 @@ inputs:
   boost_root:
     description: the root of the boost installation
     required: true
+  conda_bin_dir:
+    description: the bin dir for the conda installation
+    required: true
 
 runs:
   using: "composite"
@@ -26,4 +29,4 @@ runs:
     - name: Test
       shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/test/pytest
-      run: pytest
+      run: ${{conda_bin_dir}}/pytest

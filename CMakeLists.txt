@@ -89,6 +89,8 @@ project("NumCpp"
 
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
+set(OUTPUT_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin/$<0:>)
+
 if (BUILD_TESTS OR BUILD_MULTIPLE_TEST) 
     add_subdirectory(test)
 endif()

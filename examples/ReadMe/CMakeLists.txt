@@ -2,20 +2,11 @@ cmake_minimum_required(VERSION 3.14...3.99)
 
 set(TARGET_NAME ReadMe)
 
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-endif()
-message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
-
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
-endif()
-
 add_executable(${TARGET_NAME} ReadMe.cpp)
 
 set_target_properties(${TARGET_NAME}
   PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/$<0:>
+  RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_BINARY_DIR}
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE 
