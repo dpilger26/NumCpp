@@ -6,10 +6,9 @@ compiler:
   - clang
 before_install:
   - sudo apt update
-  - sudo apt remove --purge cmake python
+  - sudo apt remove --purge python
+  - sudo apt upgrade -y
   - sudo apt install -y libboost-all-dev libtbb-dev
-  - apt list --installed '*boost*'
-  - dpkg -L libboost-system-dev
   - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
   - bash miniconda.sh -b -p $HOME/miniconda
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
@@ -18,15 +17,6 @@ before_install:
   - conda update -q conda
   - conda info -a
   - conda env update --file ${TRAVIS_BUILD_DIR}/test/pytest/environment.yml --name base
-install:
-  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
-  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
-  - travis_retry wget --no-check-certificate https://cmake.org/files/v3.23/cmake-3.23.2-linux-x86_64.tar.gz
-  - tar -xvf cmake-3.23.2-linux-x86_64.tar.gz > /dev/null
-  - mv cmake-3.23.2-linux-x86_64 cmake-install
-  - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
-  - cmake --version
-  - cd ${TRAVIS_BUILD_DIR}
 script:
   - mkdir build
   - cd build
