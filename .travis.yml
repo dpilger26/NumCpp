@@ -4,11 +4,15 @@ language: cpp
 compiler:
   - gcc
   - clang
+addons:
+  apt:
+    update: true
+    packages:
+      - cmake
+      - libboost-all-dev
+      - libtbb-dev
 before_install:
-  - sudo apt update
   - sudo apt remove --purge python
-  - sudo apt upgrade -y
-  - sudo apt install -y libboost-all-dev libtbb-dev
   - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
   - bash miniconda.sh -b -p $HOME/miniconda
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
