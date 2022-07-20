@@ -55,7 +55,7 @@ jobs:
         with:
           numcpp_no_use_boost: OFF
           shell: powershell
-          boost_root: C:\boost
+          boost_root: ${{ steps.install-boost.outputs.BOOST_ROOT }}
           conda_bin_dir: C:\Miniconda\condabin
 
   build_windows_no_boost:
@@ -72,5 +72,5 @@ jobs:
         with:
           numcpp_no_use_boost: ON
           shell: powershell
-          boost_root: C:\boost
+          boost_root: ${{ steps.install-boost.outputs.BOOST_ROOT }}
           conda_bin_dir: C:\Miniconda\condabin

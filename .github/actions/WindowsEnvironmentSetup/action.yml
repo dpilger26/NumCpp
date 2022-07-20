@@ -23,11 +23,8 @@ runs:
       uses: MarkusJx/install-boost@v2.3.0
       id: install-boost
       with:
-        # REQUIRED: Specify the required boost version
-        # A list of supported versions can be found here:
-        # https://github.com/actions/boost-versions/blob/main/versions-manifest.json
-        boost_version: 1.73.0
+        boost_version: 1.74.0
         platform_version: 2019
-        toolset: msvc14.2
-        boost_install_dir: C:\boost
+        toolset: msvc
+        link: static
         arch: x86
