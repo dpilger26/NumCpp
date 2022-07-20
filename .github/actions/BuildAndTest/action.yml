@@ -1,9 +1,6 @@
 name: Build And Test
 description: "Builds the binaries and runs the tests"
 
-env:
-  BUILD_TYPE: Release
-
 inputs:
   numcpp_no_use_boost:
     description: “NUMCPP_NO_USE_BOOST compiler flag”
@@ -11,17 +8,20 @@ inputs:
   shell:
     description: the shell to use
     required: true
+  boost_root:
+    description: the root of the boost installation
+    required: true
 
 runs:
   using: "composite"
   steps:
     - name: Configure CMake
       shell: ${{inputs.shell}}
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBOOST_ROOT=$BOOST_ROOT -DNUMCPP_NO_USE_BOOST=${{inputs.numcpp_no_use_boost}} -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_README=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=${{inputs.boost_root}} -DNUMCPP_NO_USE_BOOST=${{inputs.numcpp_no_use_boost}} -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_README=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON
 
     - name: Build
       shell: ${{inputs.shell}}
-      run: cmake --build ${{github.workspace}}/build --config $BUILD_TYPE
+      run: cmake --build ${{github.workspace}}/build --config Release
 
     - name: Test
       shell: ${{inputs.shell}}

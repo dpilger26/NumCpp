@@ -21,6 +21,7 @@ jobs:
         with:
           numcpp_no_use_boost: OFF
           shell: bash
+          boost_root: /usr/share
 
   build_linux_no_boost:
     runs-on: ubuntu-latest
@@ -36,6 +37,7 @@ jobs:
         with:
           numcpp_no_use_boost: ON
           shell: bash
+          boost_root: /usr/share
 
   build_windows:
     runs-on: windows-latest
@@ -51,6 +53,7 @@ jobs:
         with:
           numcpp_no_use_boost: OFF
           shell: pwsh
+          boost_root: C:\boost
 
   build_windows_no_boost:
     runs-on: windows-latest
@@ -66,3 +69,4 @@ jobs:
         with:
           numcpp_no_use_boost: ON
           shell: pwsh
+          boost_root: C:\boost

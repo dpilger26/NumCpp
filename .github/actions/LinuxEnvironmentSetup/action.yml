@@ -1,9 +1,6 @@
 name: Linux Environment Setup
 description: "Sets up the linux environment"
 
-env:
-  BOOST_ROOT: /home/runner/boost
-
 runs:
   using: "composite"
   steps:
