@@ -21,7 +21,7 @@ find_package(Boost 1.68.0 REQUIRED
 )
 
 target_link_libraries(${TARGET_NAME} PRIVATE 
-  Boost::headers
+  Boost::boost
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::system>
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::filesystem>
 )

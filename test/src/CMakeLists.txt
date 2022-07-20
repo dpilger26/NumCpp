@@ -57,12 +57,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
   Python::Module
 )
 
-if (NOT NUMCPP_NO_USE_BOOST)
-  target_link_libraries(${TARGET_NAME} PRIVATE 
-    Boost::headers
-  )
-endif()
-
 if (NUMCPP_USE_MULTITHREAD)
   target_link_libraries(${TARGET_NAME} PRIVATE 
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>

@@ -13,12 +13,6 @@ target_include_directories(${TARGET_NAME} PRIVATE
   ${NUMCPP_INCLUDES}
 )
 
-if (NOT NUMCPP_NO_USE_BOOST)
-  target_link_libraries(${TARGET_NAME} PRIVATE 
-    Boost::headers
-  )
-endif()
-
 find_package (Eigen3 3.3 REQUIRED)
 target_link_libraries(${TARGET_NAME} PRIVATE 
   Eigen3::Eigen

@@ -45,6 +45,7 @@ if(NUMCPP_NO_USE_BOOST)
     target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
 else()
     find_package(Boost 1.68.0 REQUIRED)
+    target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE Boost::boost)
 endif()
 
 if(NUMCPP_USE_MULTITHREAD)

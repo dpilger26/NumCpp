@@ -13,12 +13,6 @@ target_include_directories(${TARGET_NAME} PRIVATE
   ${NUMCPP_INCLUDES}
 )
 
-if (NOT NUMCPP_NO_USE_BOOST)
-  target_link_libraries(${TARGET_NAME} PRIVATE 
-    Boost::headers
-  )
-endif()
-
 find_package(OpenCV REQUIRED)
 target_link_libraries(${TARGET_NAME} PRIVATE 
   ${OpenCV_LIBS}
