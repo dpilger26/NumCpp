@@ -26,6 +26,7 @@ script:
   - ls /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
   - ls /usr/lib/x86_64-linux-gnu/ | grep boost
   - ls /usr/include/boost
+  - cmake --version
   - mkdir build
   - cd build
   - cmake .. -DPython_ROOT_DIR=$HOME/miniconda -DBOOST_ROOT=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0 -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
