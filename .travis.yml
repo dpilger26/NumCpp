@@ -30,7 +30,8 @@ script:
   - mkdir build
   - cd build
   - export BOOST_ROOT=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
-  - cmake .. -DPython_ROOT_DIR=$HOME/miniconda -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
+  - export Python_ROOT_DIR=$HOME/miniconda
+  - cmake .. -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
   - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target Multiple
   - cmake --build . --config Release --target GaussNewtonNlls
