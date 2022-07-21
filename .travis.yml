@@ -22,15 +22,12 @@ install:
   - conda info -a
   - conda env update --file ${TRAVIS_BUILD_DIR}/test/pytest/environment.yml --name base
 script:
-  - ls /usr/lib/x86_64-linux-gnu/cmake/
-  - ls /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
-  - ls /usr/lib/x86_64-linux-gnu/ | grep boost
-  - ls /usr/include/boost
   - cmake --version
   - mkdir build
   - cd build
   - export BOOST_ROOT=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
   - export Python_ROOT_DIR=$HOME/miniconda
+  - echo $Python_ROOT_DIR
   - cmake .. -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
   - cmake --build . --config Release --target NumCppPy
   - cmake --build . --config Release --target Multiple

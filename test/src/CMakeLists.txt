@@ -48,7 +48,7 @@ target_include_directories(${TARGET_NAME} PRIVATE
 )
 
 set(Python_USE_STATIC_LIBS True)
-find_package(Python 3.8
+find_package(Python 3.8 REQUIRED
   COMPONENTS
   Development.Module
 )
