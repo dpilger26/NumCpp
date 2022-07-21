@@ -23,8 +23,8 @@ runs:
       uses: MarkusJx/install-boost@v2.3.0
       id: install-boost
       with:
-        boost_version: 1.74.0
-        platform_version: 2019
+        boost_version: 1.79.0
+        platform_version: 2022
         toolset: msvc
         link: static
         arch: x86
