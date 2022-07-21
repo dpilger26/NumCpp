@@ -1,6 +1,11 @@
 name: Windows Environment Setup
 description: "Sets up the windows environment"
 
+outputs:
+  BOOST_ROOT:
+    description: "The Boost root directory"
+    value: ${{ steps.install-boost.outputs.BOOST_ROOT }}
+
 runs:
   using: "composite"
   steps:
