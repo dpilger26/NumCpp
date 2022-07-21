@@ -57,7 +57,7 @@ jobs:
           numcpp_no_use_boost: OFF
           shell: powershell
           boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
-          conda_bin_dir: C:\Miniconda\condabin
+          conda_bin_dir: C:\Miniconda\Scripts
 
   build_windows_no_boost:
     runs-on: windows-latest
@@ -75,4 +75,4 @@ jobs:
           numcpp_no_use_boost: ON
           shell: powershell
           boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
-          conda_bin_dir: C:\Miniconda\condabin
+          conda_bin_dir: C:\Miniconda\Scripts
