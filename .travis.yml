@@ -34,12 +34,11 @@ script:
   - cd build
   - export BOOST_ROOT=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
   - export Python_ROOT_DIR=$HOME/miniconda
-  - echo $Python_ROOT_DIR
   - cmake .. -DBUILD_TESTS=ON -DBUILD_MULTIPLE_TEST=ON -DBUILD_EXAMPLE_GAUSS_NEWTON_NLLS=ON -DBUILD_EXAMPLE_README=ON
-  - cmake --build . --config Release --target NumCppPy
-  - cmake --build . --config Release --target Multiple
-  - cmake --build . --config Release --target GaussNewtonNlls
-  - cmake --build . --config Release --target ReadMe
+  - cmake --build . --config Release --target NumCppPy -- -j8
+  - cmake --build . --config Release --target Multiple -- -j8
+  - cmake --build . --config Release --target GaussNewtonNlls -- -j8
+  - cmake --build . --config Release --target ReadMe -- -j8
   - sudo make install
   - cd ../test/pytest
   - $HOME/miniconda/bin/python -m pytest
