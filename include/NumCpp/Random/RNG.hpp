@@ -85,7 +85,7 @@ namespace nc
             ///
             /// @param seed: the seed value
             ///
-            RNG(int seed) :
+            explicit RNG(int seed) :
                 generator_(seed){};
 
             //============================================================================
