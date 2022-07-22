@@ -41,8 +41,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.min(inAxis);
     }
-}  // namespace nc
+} // namespace nc

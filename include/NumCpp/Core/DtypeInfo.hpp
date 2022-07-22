@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-
 #include <complex>
 #include <limits>
+
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -195,4 +195,4 @@ namespace nc
             return { DtypeInfo<dtype>::max(), DtypeInfo<dtype>::max() };
         }
     };
-}  // namespace nc
+} // namespace nc

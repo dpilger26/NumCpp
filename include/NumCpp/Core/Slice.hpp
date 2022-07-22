@@ -28,13 +28,13 @@
 
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Utils/num2str.hpp"
-
 #include <algorithm>
 #include <iostream>
 #include <string>
+
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
 namespace nc
 {
@@ -44,9 +44,9 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        int32	start{ 0 };
-        int32	stop{ 1 };
-        int32	step{ 1 };
+        int32 start{ 0 };
+        int32 stop{ 1 };
+        int32 step{ 1 };
 
         //============================================================================
         /// Constructor
@@ -60,7 +60,8 @@ namespace nc
         ///
         constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
-        {}
+        {
+        }
 
         //============================================================================
         /// Constructor
@@ -71,7 +72,8 @@ namespace nc
         constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
             stop(inStop)
-        {}
+        {
+        }
 
         //============================================================================
         /// Constructor
@@ -84,7 +86,8 @@ namespace nc
             start(inStart),
             stop(inStop),
             step(inStep)
-        {}
+        {
+        }
 
         //============================================================================
         /// Equality operator
@@ -117,7 +120,8 @@ namespace nc
         ///
         std::string str() const
         {
-            std::string out = "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
+            std::string out =
+                "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
             return out;
         }
 
@@ -143,7 +147,8 @@ namespace nc
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize) + ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize) +
+                                             ".");
             }
 
             /// convert the stop value
@@ -153,7 +158,8 @@ namespace nc
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize) + ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize) +
+                                             ".");
             }
 
             /// do some error checking
@@ -180,8 +186,8 @@ namespace nc
 
         //============================================================================
         /// Returns the number of elements that the slice contains.
-        /// be aware that this method will also make the slice all 
-        /// positive! 
+        /// be aware that this method will also make the slice all
+        /// positive!
         ///
         /// @param inArraySize
         ///

@@ -1,6 +1,7 @@
 import argparse
 from dataclasses import dataclass
 from enum import Enum
+import multiprocessing
 from pathlib import Path
 import platform
 import shutil
@@ -16,10 +17,9 @@ _DEFAULT_BOOST_DIR = None
 _DEFAULT_EIGEN_DIR = None
 _DEFAULT_OPENCV_DIR = None
 if _IS_WINDOWS:
-    _DEFAULT_BOOST_DIR = Path(r'C:\libs\boost\boost_1_73_0')
-    _DEFAULT_BOOST_DIR_v141 = Path(r'C:\libs\boost\boost_1_68_0')
+    _DEFAULT_BOOST_DIR = Path(r'C:\libs\boost\boost_1_79_0')
     _DEFAULT_EIGEN_DIR = Path(r'C:\Program Files (x86)\Eigen3\share\eigen3\cmake')
-    _DEFAULT_OPENCV_DIR = Path(r'C:\libs\opencv\build')
+    _DEFAULT_OPENCV_DIR = Path(r'C:\libs\opencv\opencv-4.x\build')
 
 _NUMCPP_ROOT_DIR = (Path(__file__).parent / '..' / '..').resolve()
 _TEST_DIR = _NUMCPP_ROOT_DIR / 'test'
@@ -56,7 +56,7 @@ if _IS_WINDOWS:
 
     _COMPILERS = {Compiler.MSVC: 'msbuild'}
 
-    _COMPILER_VERSIONS = {Compiler.MSVC: ['v141', 'v142']}
+    _COMPILER_VERSIONS = {Compiler.MSVC: ['v143']}
 else:
     class Compiler(Enum):
         GNU = 0
@@ -65,8 +65,8 @@ else:
     _COMPILERS = {Compiler.GNU: 'gcc',
                   Compiler.Clang: 'clang'}
 
-    _COMPILER_VERSIONS = {Compiler.GNU: ['6', '7', '8', '9', '10'],
-                          Compiler.Clang: ['6.0', '7', '8', '9', '10']}
+    _COMPILER_VERSIONS = {Compiler.GNU: ['11'],
+                          Compiler.Clang: ['14']}
 
 
 class CxxStandard(Enum):
@@ -139,7 +139,7 @@ class Builder:
             cmake_cmd.append(f'-D{cmake_define}=True')
 
         if _IS_WINDOWS:
-            cmake_cmd.extend(['-G', 'Visual Studio 16 2019',
+            cmake_cmd.extend(['-G', 'Visual Studio 17 2022',
                               '-A', 'x64',
                               f'-DCMAKE_GENERATOR_TOOLSET={self._current_compiler_version}'])
 
@@ -177,6 +177,10 @@ class Builder:
                      '--config', 'Release']
         if target != Target.all or not _IS_WINDOWS: 
             cmake_cmd.extend(['--target', target.name])
+
+        if not _IS_WINDOWS:
+            cmake_cmd.extend(['--', f'-j{multiprocessing.cpu_count()}'])
+
         subprocess.check_call(cmake_cmd)
 
     def build_all(self) -> None:
@@ -237,14 +241,14 @@ class Builder:
             raise ValueError(f"Unknown version '{version}' for {self._current_compiler} compiler\n"
                              f'Valid options are {_COMPILER_VERSIONS[self._current_compiler]}')
 
-        if not _IS_WINDOWS:
-            compiler_str = _COMPILERS[self._current_compiler]
-            update_alternatives_cmd = ['update-alternatives',
-                                       '--set', compiler_str, f'/usr/bin/{compiler_str}-{version}']
-            if _SUDO_REQUIRED:
-                update_alternatives_cmd.insert(0, 'sudo')
-
-            subprocess.check_call(update_alternatives_cmd)
+        # if not _IS_WINDOWS:
+        #     compiler_str = _COMPILERS[self._current_compiler]
+        #     update_alternatives_cmd = ['update-alternatives',
+        #                                '--set', compiler_str, f'/usr/bin/{compiler_str}-{version}']
+        #     if _SUDO_REQUIRED:
+        #         update_alternatives_cmd.insert(0, 'sudo')
+        #
+        #     subprocess.check_call(update_alternatives_cmd)
 
         self._current_compiler_version = version
 
@@ -334,8 +338,6 @@ def run_single(root_dir: Union[Path, str],
 
     build_configs = BuildConfigs()
     build_configs.cxx_standard = cxx_standard
-    if _IS_WINDOWS and compiler_version == 'v141':
-        build_configs.boost_root = _DEFAULT_BOOST_DIR_v141
 
     builder = Builder(root_dir=root_dir)
     builder.update_compiler(compiler=compiler)
@@ -396,10 +398,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     if _IS_WINDOWS:
         default_compiler = 'MSVC'
-        default_compiler_version = 'v142'
     else:
         default_compiler = 'GNU'
-        default_compiler_version = '10'
+
+    default_compiler_version = _COMPILER_VERSIONS[Compiler[default_compiler]][0]
 
     parser.add_argument('-c', '--compiler', type=str, required=False, default=default_compiler)
     parser.add_argument('-v', '--compiler_version', type=str, required=False, default=default_compiler_version)

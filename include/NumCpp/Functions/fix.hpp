@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    dtype fix(dtype inValue) noexcept 
+    dtype fix(dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -62,16 +62,15 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fix(const NdArray<dtype>& inArray) 
+    NdArray<dtype> fix(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
 
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            {
-                return fix(inValue); 
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> double { return fix(inValue); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

@@ -46,7 +46,8 @@ namespace nc
         /// full rank, then x (but for round-off error) is the
         /// "exact" solution of the equation.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
         ///
         /// @param inA: coefficient matrix
         /// @param inB: Ordinate or "dependent variable" values
@@ -59,10 +60,10 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            SVD svdSolver(inA.template astype<double>());
+            SVD          svdSolver(inA.template astype<double>());
             const double threshold = inTolerance * svdSolver.s().front();
 
             return svdSolver.solve(inB.template astype<double>(), threshold);
         }
-    }  // namespace linalg
-}  // namespace nc
+    } // namespace linalg
+} // namespace nc

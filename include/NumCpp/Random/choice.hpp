@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <algorithm>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -34,12 +36,60 @@
 #include "NumCpp/Random/permutation.hpp"
 #include "NumCpp/Random/randInt.hpp"
 
-#include <algorithm>
-
 namespace nc
 {
     namespace random
     {
+        namespace detail
+        {
+            //============================================================================
+            // Method Description:
+            /// Chooses a random sample from an input array.
+            ///
+            /// @param generator: instance of a random number generator
+            /// @param inArray
+            /// @return NdArray
+            ///
+            template<typename dtype, typename GeneratorType = std::mt19937>
+            dtype choice(GeneratorType& generator, const NdArray<dtype>& inArray)
+            {
+                uint32 randIdx = detail::randInt<uint32>(generator, inArray.size());
+                return inArray[randIdx];
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Chooses inNum random samples from an input array.
+            ///
+            /// @param generator: instance of a random number generator
+            /// @param inArray
+            /// @param inNum
+            /// @param replace: Whether the sample is with or without replacement
+            /// @return NdArray
+            ///
+            template<typename dtype, typename GeneratorType = std::mt19937>
+            NdArray<dtype>
+                choice(GeneratorType& generator, const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
+            {
+                if (!replace && inNum > inArray.size())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("when 'replace' == false 'inNum' must be <= inArray.size()");
+                }
+
+                if (replace)
+                {
+                    NdArray<dtype> outArray(1, inNum);
+                    std::for_each(outArray.begin(),
+                                  outArray.end(),
+                                  [&generator, &inArray](dtype& value) -> void { value = choice(generator, inArray); });
+
+                    return outArray;
+                }
+
+                return detail::permutation(generator, inArray)[Slice(inNum)];
+            }
+        } // namespace detail
+
         //============================================================================
         // Method Description:
         /// Chooses a random sample from an input array.
@@ -50,8 +100,7 @@ namespace nc
         template<typename dtype>
         dtype choice(const NdArray<dtype>& inArray)
         {
-            uint32 randIdx = random::randInt<uint32>(0, inArray.size());
-            return inArray[randIdx];
+            return detail::choice(generator_, inArray);
         }
 
         //============================================================================
@@ -66,24 +115,7 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum, bool replace = true)
         {
-            if (!replace && inNum > inArray.size())
-            {
-                THROW_INVALID_ARGUMENT_ERROR("when 'replace' == false 'inNum' must be <= inArray.size()");
-            }
-
-            if (replace)
-            {
-                NdArray<dtype> outArray(1, inNum);
-                std::for_each(outArray.begin(), outArray.end(),
-                    [&inArray](dtype& value) -> void
-                    { 
-                        value = choice(inArray); 
-                    });
-
-                return outArray;
-            }
-
-            return permutation(inArray)[Slice(inNum)];
+            return detail::choice(generator_, inArray, inNum, replace = true);
         }
-    }  // namespace random
-}  // namespace nc
+    } // namespace random
+} // namespace nc

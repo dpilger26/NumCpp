@@ -1,0 +1,78 @@
+name: UnitTests
+
+on:
+  push:
+    branches: ["master", "develop"]
+  pull_request:
+    branches: ["master", "develop"]
+
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+
+  build_linux_no_boost:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+
+  build_windows_no_boost:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts

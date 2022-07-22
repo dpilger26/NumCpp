@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/legendre.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/legendre.hpp"
 
 namespace nc
 {
@@ -53,7 +53,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            if (x < -1.0 || x > 1.0 )
+            if (x < -1.0 || x > 1.0)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }
@@ -75,16 +75,13 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return legendre_q(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return legendre_q(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }
     } // namespace polynomial
-}  // namespace nc
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

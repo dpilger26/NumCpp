@@ -43,8 +43,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flipud(const NdArray<dtype>& inArray) 
+    NdArray<dtype> flipud(const NdArray<dtype>& inArray)
     {
         return flip(inArray, Axis::ROW);
     }
-}  // namespace nc
+} // namespace nc

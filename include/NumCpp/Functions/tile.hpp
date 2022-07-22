@@ -44,7 +44,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) 
+    NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return inArray.repeat(inNumRows, inNumCols);
     }
@@ -60,8 +60,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps) 
+    NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps)
     {
         return inArray.repeat(inReps);
     }
-}  // namespace nc
+} // namespace nc

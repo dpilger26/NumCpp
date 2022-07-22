@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/bessel.hpp"
 #endif
 
@@ -76,15 +76,15 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX) 
+        auto spherical_bessel_yn(uint32 inV, const NdArray<dtype>& inArrayX)
         {
-            NdArray<decltype(arccos(dtype{0}))> returnArray(inArrayX.shape());
+            NdArray<decltype(spherical_bessel_yn(inV, dtype{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype inX) -> auto
-                { 
-                    return spherical_bessel_yn(inV, inX);
-                });
+            stl_algorithms::transform(
+                inArrayX.cbegin(),
+                inArrayX.cend(),
+                returnArray.begin(),
+                [inV](dtype inX) -> auto{ return spherical_bessel_yn(inV, inX); });
 
             return returnArray;
         }

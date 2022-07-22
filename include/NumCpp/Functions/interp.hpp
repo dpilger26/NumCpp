@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/interp.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -83,12 +83,12 @@ namespace nc
 
         // sort the input inXp and inFp data
         NdArray<uint32> sortedXpIdxs = argsort(inXp);
-        NdArray<dtype> sortedXp(1, inFp.size());
-        NdArray<dtype> sortedFp(1, inFp.size());
-        uint32 counter = 0;
+        NdArray<dtype>  sortedXp(1, inFp.size());
+        NdArray<dtype>  sortedFp(1, inFp.size());
+        uint32          counter = 0;
         for (auto sortedXpIdx : sortedXpIdxs)
         {
-            sortedXp[counter] = inXp[sortedXpIdx];
+            sortedXp[counter]   = inXp[sortedXpIdx];
             sortedFp[counter++] = inFp[sortedXpIdx];
         }
 
@@ -98,19 +98,19 @@ namespace nc
         NdArray<dtype> returnArray(1, inX.size());
 
         uint32 currXpIdx = 0;
-        uint32 currXidx = 0;
+        uint32 currXidx  = 0;
         while (currXidx < inX.size())
         {
             const auto sortedXIdx = sortedXIdxs[currXidx];
-            const auto x = inX[sortedXIdx];
-            const auto xPLow = sortedXp[currXpIdx];
-            const auto xPHigh = sortedXp[currXpIdx + 1];
-            const auto fPLow = sortedFp[currXpIdx];
-            const auto fPHigh = sortedFp[currXpIdx + 1];
+            const auto x          = inX[sortedXIdx];
+            const auto xPLow      = sortedXp[currXpIdx];
+            const auto xPHigh     = sortedXp[currXpIdx + 1];
+            const auto fPLow      = sortedFp[currXpIdx];
+            const auto fPHigh     = sortedFp[currXpIdx + 1];
 
             if (xPLow <= x && x <= xPHigh)
             {
-                const double percent = static_cast<double>(x - xPLow) / static_cast<double>(xPHigh - xPLow);
+                const double percent    = static_cast<double>(x - xPLow) / static_cast<double>(xPHigh - xPLow);
                 returnArray[sortedXIdx] = utils::interp(fPLow, fPHigh, percent);
                 ++currXidx;
             }
@@ -122,4 +122,4 @@ namespace nc
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

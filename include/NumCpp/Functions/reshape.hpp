@@ -38,9 +38,9 @@ namespace nc
     /// Gives a new shape to an array without changing its data.
     ///
     /// The new shape should be compatible with the original shape. If an single integer,
-    /// then the result will be a 1-D array of that length. One shape dimension 
-    /// can be -1. In this case, the value is inferred from the length of the 
-    /// array and remaining dimensions. 
+    /// then the result will be a 1-D array of that length. One shape dimension
+    /// can be -1. In this case, the value is inferred from the length of the
+    /// array and remaining dimensions.
     ///
     /// @param inArray
     /// @param inSize
@@ -59,9 +59,9 @@ namespace nc
     /// Gives a new shape to an array without changing its data.
     ///
     /// The new shape should be compatible with the original shape. If an single integer,
-    /// then the result will be a 1-D array of that length. One shape dimension 
-    /// can be -1. In this case, the value is inferred from the length of the 
-    /// array and remaining dimensions. 
+    /// then the result will be a 1-D array of that length. One shape dimension
+    /// can be -1. In this case, the value is inferred from the length of the
+    /// array and remaining dimensions.
     ///
     /// @param inArray
     /// @param inNumRows
@@ -81,9 +81,9 @@ namespace nc
     /// Gives a new shape to an array without changing its data.
     ///
     /// The new shape should be compatible with the original shape. If an single integer,
-    /// then the result will be a 1-D array of that length. One shape dimension 
-    /// can be -1. In this case, the value is inferred from the length of the 
-    /// array and remaining dimensions. 
+    /// then the result will be a 1-D array of that length. One shape dimension
+    /// can be -1. In this case, the value is inferred from the length of the
+    /// array and remaining dimensions.
     ///
     /// @param inArray
     /// @param inNewShape
@@ -96,4 +96,4 @@ namespace nc
         inArray.reshape(inNewShape);
         return inArray;
     }
-}  // namespace nc
+} // namespace nc

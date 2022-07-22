@@ -51,14 +51,16 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
         const Shape inShape = inArray.shape();
-        Shape outShape(inShape);
+        Shape       outShape(inShape);
         outShape.rows += 2 * inPadWidth;
         outShape.cols += 2 * inPadWidth;
 
         NdArray<dtype> returnArray(outShape);
         returnArray.fill(inPadValue);
-        returnArray.put(Slice(inPadWidth, inPadWidth + inShape.rows), Slice(inPadWidth, inPadWidth + inShape.cols), inArray);
+        returnArray.put(Slice(inPadWidth, inPadWidth + inShape.rows),
+                        Slice(inPadWidth, inPadWidth + inShape.cols),
+                        inArray);
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

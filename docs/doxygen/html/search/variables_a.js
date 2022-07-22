@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pi_2379',['pi',['../namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221',1,'nc::constants']]]
+  ['nan_2421',['nan',['../namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac',1,'nc::constants']]],
+  ['numiterations_5f_2422',['numIterations_',['../classnc_1_1roots_1_1_iteration.html#a84d7f2f7412d1f54861edeacc7bc0c20',1,'nc::roots::Iteration']]]
 ];

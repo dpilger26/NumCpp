@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/zeta.hpp"
 #endif
 
@@ -51,7 +51,7 @@ namespace nc
         /// includes or a C++17 compliant compiler.
         ///
         /// @param inValue
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto riemann_zeta(dtype inValue)
@@ -76,19 +76,19 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        auto riemann_zeta(const NdArray<dtype>& inArray) 
+        auto riemann_zeta(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(riemann_zeta(dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(riemann_zeta(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) -> auto
-                { 
-                    return riemann_zeta(inValue); 
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [](dtype inValue) -> auto{ return riemann_zeta(inValue); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

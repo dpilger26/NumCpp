@@ -27,11 +27,11 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-
 #include <bitset>
 #include <string>
+
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -45,10 +45,10 @@ namespace nc
     /// @return std::string
     ///
     template<typename dtype>
-    std::string binaryRepr(dtype inValue) 
+    std::string binaryRepr(dtype inValue)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         return std::bitset<DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
-}  // namespace nc
+} // namespace nc

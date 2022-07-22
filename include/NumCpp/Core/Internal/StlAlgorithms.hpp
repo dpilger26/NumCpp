@@ -31,6 +31,7 @@
 #include <iterator>
 #include <numeric>
 #include <utility>
+#include <version>
 
 #if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm) && defined(NUMCPP_USE_MULTITHREAD)
 #define PARALLEL_ALGORITHMS_SUPPORTED
@@ -52,7 +53,7 @@ namespace nc
         /// @param last: the last iterator of the source
         /// @param p: unary predicate function
         /// @return bool
-        /// 
+        ///
         template<class InputIt, class UnaryPredicate>
         bool all_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
@@ -60,7 +61,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, p);
+                first,
+                last,
+                p);
         }
 
         //============================================================================
@@ -71,7 +74,7 @@ namespace nc
         /// @param last: the last iterator of the source
         /// @param p: unary predicate function
         /// @return bool
-        /// 
+        ///
         template<class InputIt, class UnaryPredicate>
         bool any_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
@@ -79,7 +82,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, p);
+                first,
+                last,
+                p);
         }
 
         //============================================================================
@@ -98,7 +103,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, destination);
+                first,
+                last,
+                destination);
         }
 
         //============================================================================
@@ -112,14 +119,15 @@ namespace nc
         ///
         template<class InputIt, class T>
         typename std::iterator_traits<InputIt>::difference_type
-            count(InputIt first, InputIt last, const T &value) CONDITIONAL_NO_EXCEPT
+            count(InputIt first, InputIt last, const T& value) CONDITIONAL_NO_EXCEPT
         {
             return std::count(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, value);
-
+                first,
+                last,
+                value);
         }
 
         //============================================================================
@@ -138,7 +146,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2);
+                first1,
+                last1,
+                first2);
         }
 
         //============================================================================
@@ -152,14 +162,16 @@ namespace nc
         /// @return bool
         ///
         template<class InputIt1, class InputIt2, class BinaryPredicate>
-        bool equal(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, BinaryPredicate p) CONDITIONAL_NO_EXCEPT
+        bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
             return std::equal(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, p);
+                first1,
+                last1,
+                first2,
+                p);
         }
 
         //============================================================================
@@ -171,19 +183,20 @@ namespace nc
         /// @param value: the function to apply to the input iterators
         ///
         template<class ForwardIt, class T>
-        void fill(ForwardIt first, ForwardIt last, const T& value) CONDITIONAL_NO_EXCEPT 
+        void fill(ForwardIt first, ForwardIt last, const T& value) CONDITIONAL_NO_EXCEPT
         {
             return std::fill(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, value);
-
+                first,
+                last,
+                value);
         }
 
         //============================================================================
         // Method Description:
-        /// Returns the first element in the range [first, last) 
+        /// Returns the first element in the range [first, last)
         /// that satisfies specific criteria:
         ///
         /// @param first: the first iterator of the source
@@ -192,13 +205,15 @@ namespace nc
         /// @return InputIt
         ///
         template<class InputIt, class T>
-        InputIt find(InputIt first, InputIt last, const T& value) CONDITIONAL_NO_EXCEPT 
+        InputIt find(InputIt first, InputIt last, const T& value) CONDITIONAL_NO_EXCEPT
         {
             return std::find(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, value);
+                first,
+                last,
+                value);
         }
 
         //============================================================================
@@ -216,7 +231,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, f);
+                first,
+                last,
+                f);
         }
 
         //============================================================================
@@ -234,7 +251,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -253,7 +271,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -271,7 +291,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -290,7 +311,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -307,7 +330,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -326,7 +350,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -344,7 +370,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -357,13 +384,16 @@ namespace nc
         /// @return std::pair
         ///
         template<class ForwardIt, class Compare>
-        std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
+        std::pair<ForwardIt, ForwardIt>
+            minmax_element(ForwardIt first, ForwardIt last, Compare comp) CONDITIONAL_NO_EXCEPT
         {
             return std::minmax_element(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -374,7 +404,7 @@ namespace nc
         /// @param last: the last iterator of the source
         /// @param p: unary predicate function
         /// @return bool
-        /// 
+        ///
         template<class InputIt, class UnaryPredicate>
         bool none_of(InputIt first, InputIt last, UnaryPredicate p) CONDITIONAL_NO_EXCEPT
         {
@@ -382,7 +412,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, p);
+                first,
+                last,
+                p);
         }
 
         //============================================================================
@@ -400,7 +432,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, nth, last);
+                first,
+                nth,
+                last);
         }
 
         //============================================================================
@@ -419,7 +453,10 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, nth, last, comp);
+                first,
+                nth,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -432,14 +469,16 @@ namespace nc
         /// @param newValue: the replacement value
         ///
         template<class ForwardIt, class T>
-        void replace(ForwardIt first, ForwardIt last,
-            const T& oldValue, const T& newValue) CONDITIONAL_NO_EXCEPT 
+        void replace(ForwardIt first, ForwardIt last, const T& oldValue, const T& newValue) CONDITIONAL_NO_EXCEPT
         {
             std::replace(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, oldValue, newValue);
+                first,
+                last,
+                oldValue,
+                newValue);
         }
 
         //============================================================================
@@ -456,7 +495,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -468,13 +508,15 @@ namespace nc
         /// @param last: the last iterator of the range
         ///
         template<class ForwardIt>
-        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last) CONDITIONAL_NO_EXCEPT 
+        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last) CONDITIONAL_NO_EXCEPT
         {
             std::rotate(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, firstN, last);
+                first,
+                firstN,
+                last);
         }
 
         //============================================================================
@@ -489,15 +531,17 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt>
-        OutputIt set_difference(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination)
+        OutputIt set_difference(InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2, OutputIt destination)
         {
             return std::set_difference(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination);
         }
 
         //============================================================================
@@ -513,15 +557,23 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
-        OutputIt set_difference(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
+        OutputIt set_difference(InputIt1 first1,
+                                InputIt1 last1,
+                                InputIt2 first2,
+                                InputIt2 last2,
+                                OutputIt destination,
+                                Compare  comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_difference(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination, comp);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination,
+                comp);
         }
 
         //============================================================================
@@ -536,15 +588,21 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt>
-        OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination) CONDITIONAL_NO_EXCEPT 
+        OutputIt set_intersection(InputIt1 first1,
+                                  InputIt1 last1,
+                                  InputIt2 first2,
+                                  InputIt2 last2,
+                                  OutputIt destination) CONDITIONAL_NO_EXCEPT
         {
             return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination);
         }
 
         //============================================================================
@@ -560,15 +618,23 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
-        OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
+        OutputIt set_intersection(InputIt1 first1,
+                                  InputIt1 last1,
+                                  InputIt2 first2,
+                                  InputIt2 last2,
+                                  OutputIt destination,
+                                  Compare  comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_intersection(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination, comp);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination,
+                comp);
         }
 
         //============================================================================
@@ -583,15 +649,18 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt>
-        OutputIt set_union(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination) CONDITIONAL_NO_EXCEPT
+        OutputIt set_union(InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2, OutputIt destination)
+            CONDITIONAL_NO_EXCEPT
         {
             return std::set_union(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination);
         }
 
         //============================================================================
@@ -607,15 +676,23 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class Compare>
-        OutputIt set_union(InputIt1 first1, InputIt1 last1,
-            InputIt2 first2, InputIt2 last2,
-            OutputIt destination, Compare comp) CONDITIONAL_NO_EXCEPT
+        OutputIt set_union(InputIt1 first1,
+                           InputIt1 last1,
+                           InputIt2 first2,
+                           InputIt2 last2,
+                           OutputIt destination,
+                           Compare  comp) CONDITIONAL_NO_EXCEPT
         {
             return std::set_union(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, last2, destination, comp);
+                first1,
+                last1,
+                first2,
+                last2,
+                destination,
+                comp);
         }
 
         //============================================================================
@@ -626,13 +703,14 @@ namespace nc
         /// @param last: the last iterator of the source
         ///
         template<class RandomIt>
-        void sort(RandomIt first, RandomIt last) CONDITIONAL_NO_EXCEPT 
+        void sort(RandomIt first, RandomIt last) CONDITIONAL_NO_EXCEPT
         {
             return std::sort(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -650,7 +728,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -667,7 +747,8 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last);
+                first,
+                last);
         }
 
         //============================================================================
@@ -685,7 +766,9 @@ namespace nc
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, comp);
+                first,
+                last,
+                comp);
         }
 
         //============================================================================
@@ -699,14 +782,16 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt, class OutputIt, class UnaryOperation>
-        OutputIt transform(InputIt first, InputIt last, OutputIt destination,
-            UnaryOperation unaryFunction)
+        OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)
         {
             return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, destination, unaryFunction);
+                first,
+                last,
+                destination,
+                unaryFunction);
         }
 
         //============================================================================
@@ -721,14 +806,21 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
-        OutputIt transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
-            OutputIt destination, BinaryOperation unaryFunction) 
+        OutputIt transform(InputIt1        first1,
+                           InputIt1        last1,
+                           InputIt2        first2,
+                           OutputIt        destination,
+                           BinaryOperation unaryFunction)
         {
             return std::transform(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first1, last1, first2, destination, unaryFunction);
+                first1,
+                last1,
+                first2,
+                destination,
+                unaryFunction);
         }
 
         //============================================================================
@@ -741,14 +833,15 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt, class OutputIt>
-        constexpr OutputIt unique_copy(InputIt first, InputIt last,
-            OutputIt destination) CONDITIONAL_NO_EXCEPT
+        constexpr OutputIt unique_copy(InputIt first, InputIt last, OutputIt destination) CONDITIONAL_NO_EXCEPT
         {
             return std::unique_copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, destination);
+                first,
+                last,
+                destination);
         }
 
         //============================================================================
@@ -762,14 +855,19 @@ namespace nc
         /// @return OutputIt
         ///
         template<class InputIt, class OutputIt, class BinaryPredicate>
-        constexpr OutputIt unique_copy(InputIt first, InputIt last,
-            OutputIt destination, BinaryPredicate binaryFunction) CONDITIONAL_NO_EXCEPT
+        constexpr OutputIt unique_copy(InputIt         first,
+                                       InputIt         last,
+                                       OutputIt        destination,
+                                       BinaryPredicate binaryFunction) CONDITIONAL_NO_EXCEPT
         {
             return std::unique_copy(
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
                 std::execution::par_unseq,
 #endif
-                first, last, destination, binaryFunction);
+                first,
+                last,
+                destination,
+                binaryFunction);
         }
     } // namespace stl_algorithms
 } // namespace nc

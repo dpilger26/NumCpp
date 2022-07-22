@@ -27,12 +27,11 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
-
-
-#include <string>
 
 namespace nc
 {
@@ -85,10 +84,10 @@ namespace nc
                 NdArray<dtype> returnArray = { inStart, inStop };
                 return returnArray;
             }
-            
+
             NdArray<dtype> returnArray(1, inNum);
             returnArray.front() = inStart;
-            returnArray.back() = inStop;
+            returnArray.back()  = inStop;
 
             dtype step = (inStop - inStart) / static_cast<dtype>(inNum - 1);
 
@@ -99,14 +98,14 @@ namespace nc
 
             return returnArray;
         }
-        
+
         if (inNum == 2)
         {
-            dtype step = (inStop - inStart) / (inNum);
+            dtype          step        = (inStop - inStart) / (inNum);
             NdArray<dtype> returnArray = { inStart, inStart + step };
             return returnArray;
         }
-        
+
         NdArray<dtype> returnArray(1, inNum);
         returnArray.front() = inStart;
 
@@ -119,4 +118,4 @@ namespace nc
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

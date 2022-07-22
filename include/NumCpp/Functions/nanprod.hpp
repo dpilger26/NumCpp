@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/prod.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
 
 namespace nc
 {
@@ -49,17 +49,21 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_FLOAT(dtype);
 
         NdArray<dtype> arrayCopy(inArray);
-        stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
-            [](dtype& value) noexcept -> void
-            { 
-                if (std::isnan(value)) { value = static_cast<dtype>(1); };
-            });
+        stl_algorithms::for_each(arrayCopy.begin(),
+                                 arrayCopy.end(),
+                                 [](dtype& value) noexcept -> void
+                                 {
+                                     if (std::isnan(value))
+                                     {
+                                         value = static_cast<dtype>(1);
+                                     };
+                                 });
 
         return prod(arrayCopy, inAxis);
     }
-}  // namespace nc
+} // namespace nc

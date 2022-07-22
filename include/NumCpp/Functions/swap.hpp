@@ -39,10 +39,10 @@ namespace nc
     /// @param inArray2
     ///
     template<typename dtype>
-    void swap(NdArray<dtype>& inArray1, NdArray<dtype>& inArray2) noexcept 
+    void swap(NdArray<dtype>& inArray1, NdArray<dtype>& inArray2) noexcept
     {
         NdArray<dtype> tmp(std::move(inArray1));
         inArray1 = std::move(inArray2);
         inArray2 = std::move(tmp);
     }
-}  // namespace nc
+} // namespace nc

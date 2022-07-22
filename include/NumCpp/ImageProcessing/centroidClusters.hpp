@@ -28,12 +28,12 @@
 
 #pragma once
 
+#include <utility>
+#include <vector>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
-
-#include <utility>
-#include <vector>
 
 namespace nc
 {
@@ -47,7 +47,7 @@ namespace nc
         /// @return std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) 
+        std::vector<Centroid<dtype>> centroidClusters(const std::vector<Cluster<dtype>>& inClusters)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -61,5 +61,5 @@ namespace nc
 
             return centroids;
         }
-    }  // namespace imageProcessing
-}  // namespace nc
+    } // namespace imageProcessing
+} // namespace nc

@@ -65,5 +65,5 @@ namespace nc
                 return outArray;
             }
         } // namespace boundary
-    } // namespace filter
+    }     // namespace filter
 } // namespace nc

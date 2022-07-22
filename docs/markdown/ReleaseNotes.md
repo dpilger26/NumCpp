@@ -1,27 +1,40 @@
 # Release Notes
 
+## Version 2.8.0
+
+* fixed error in `inv` when a zero was on the diagnol for **Issue #132**
+* fixed **Issue #140**
+* added `bit_count`, Computes the number of 1-bits in the absolute value of the input
+* added `swapRows` and `swapCols` methods to `NdArray`, and also free functions
+* added `pinv`, <https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html>
+* added `take` for **Issue #149**, <https://numpy.org/doc/stable/reference/generated/numpy.take.html>
+* new non-global `random` interface
+* added ellipse metrics to `imageProcessing::Centroids`
+* documentation updates
+* various minor performance improvements and bug fixes
+
 ## Version 2.7.0
 
-* added `bartlett`, https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
-* added `blackman`, https://numpy.org/doc/stable/reference/generated/numpy.blackman.html
-* added `corrcoef`, https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html
-* added `cov`, https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+* added `bartlett`, <https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html>
+* added `blackman`, <https://numpy.org/doc/stable/reference/generated/numpy.blackman.html>
+* added `corrcoef`, <https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html>
+* added `cov`, <https://numpy.org/doc/stable/reference/generated/numpy.cov.html>
 * added `cov_inv`, the inverse covariance matrix, aka the concentration matrix
-* added `extract`, https://numpy.org/doc/stable/reference/generated/numpy.extract.html
-* added `geomspace`, https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html
-* added `hamming`, https://numpy.org/doc/stable/reference/generated/numpy.hamming.html
-* added `hanning`, https://numpy.org/doc/stable/reference/generated/numpy.hanning.html
-* added `inner`, https://numpy.org/doc/stable/reference/generated/numpy.inner.html
-* added `isneginf`, https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html
-* added `isposinf`, https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html
-* added `kaiser`, https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html
+* added `extract`, <https://numpy.org/doc/stable/reference/generated/numpy.extract.html>
+* added `geomspace`, <https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html>
+* added `hamming`, <https://numpy.org/doc/stable/reference/generated/numpy.hamming.html>
+* added `hanning`, <https://numpy.org/doc/stable/reference/generated/numpy.hanning.html>
+* added `inner`, <https://numpy.org/doc/stable/reference/generated/numpy.inner.html>
+* added `isneginf`, <https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html>
+* added `isposinf`, <https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html>
+* added `kaiser`, <https://numpy.org/doc/stable/reference/generated/numpy.kaiser.html>
 * added `logb`, logarithm of with an arbitrary base b
-* added `logspace`, https://numpy.org/doc/stable/reference/generated/numpy.logspace.html
+* added `logspace`, <https://numpy.org/doc/stable/reference/generated/numpy.logspace.html>
 * added `nth_root`, the nth root of a value
-* added `place`, https://numpy.org/doc/stable/reference/generated/numpy.place.html
-* added `select` function, https://numpy.org/doc/stable/reference/generated/numpy.select.html
+* added `place`, <https://numpy.org/doc/stable/reference/generated/numpy.place.html>
+* added `select` function, <https://numpy.org/doc/stable/reference/generated/numpy.select.html>
 * `fmod` and the modulus `%` operator now work with float dtypes
-* added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, https://en.wikipedia.org/wiki/Hamming_code
+* added Hamming EDAC (Error Dectection and Correction) `encode` and `decode` functions, <https://en.wikipedia.org/wiki/Hamming_code>
 * various minor performance improvements and bug fixes
 
 ## Version 2.6.2
@@ -134,9 +147,9 @@
 ## Version 2.0.0
 
 * Dropped support of C++11, now requires a C++14 or higher compiler
-* Added support for `std::complex<T>`, closing __Issue #58__
-* Added more `NdArray` constructors for STL containers including `std::vector<std::vector<T>>`, closing __Issue #59__
-* Added `polyfit` routine inline with Numpy `polyfit`, closing __Issue #61__
+* Added support for `std::complex<T>`, closing **Issue #58**
+* Added more `NdArray` constructors for STL containers including `std::vector<std::vector<T>>`, closing **Issue #59**
+* Added `polyfit` routine inline with Numpy `polyfit`, closing **Issue #61**
 * Added ability to use `NdArray` as container for generic structs
 * Non-linear least squares fitting using Gauss-Newton
 * Root finding routines

@@ -27,17 +27,18 @@
 /// Finds the roots of the polynomial
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/rootApproximation
-/// as posted in https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
+/// as posted in
+/// https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
 ///
 #pragma once
-
-#include "NumCpp/Core/DtypeInfo.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Roots/Iteration.hpp"
 
 #include <cmath>
 #include <functional>
 #include <utility>
+
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Roots/Iteration.hpp"
 
 namespace nc
 {
@@ -55,13 +56,13 @@ namespace nc
             /// Constructor
             ///
             /// @param epsilon: the epsilon value
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Brent(const double epsilon,
-                std::function<double(double)>  f) noexcept :
+            Brent(const double epsilon, std::function<double(double)> f) noexcept :
                 Iteration(epsilon),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -69,14 +70,13 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Brent(const double epsilon,
-                const uint32 maxNumIterations, 
-                std::function<double(double)>  f) noexcept :
+            Brent(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -101,10 +101,10 @@ namespace nc
 
                 checkAndFixAlgorithmCriteria(a, b, fa, fb);
 
-                double lastB = a; // b_{k-1}
-                double lastFb = fa;
-                double s = DtypeInfo<double>::max();
-                double fs = DtypeInfo<double>::max();
+                double lastB        = a; // b_{k-1}
+                double lastFb       = fa;
+                double s            = DtypeInfo<double>::max();
+                double fs           = DtypeInfo<double>::max();
                 double penultimateB = a; // b_{k-2}
 
                 bool bisection = true;
@@ -121,7 +121,7 @@ namespace nc
 
                     if (useBisection(bisection, b, lastB, penultimateB, s))
                     {
-                        s = calculateBisection(a, b);
+                        s         = calculateBisection(a, b);
                         bisection = true;
                     }
                     else
@@ -129,21 +129,22 @@ namespace nc
                         bisection = false;
                     }
 
-                    fs = f_(s);
+                    fs           = f_(s);
                     penultimateB = lastB;
-                    lastB = b;
+                    lastB        = b;
 
                     if (fa * fs < 0)
                     {
                         b = s;
                     }
-                    else {
+                    else
+                    {
                         a = s;
                     }
 
-                    fa = f_(a);
+                    fa     = f_(a);
                     lastFb = fb;
-                    fb = f_(b);
+                    fb     = f_(b);
                     checkAndFixAlgorithmCriteria(a, b, fa, fb);
 
                     incrementNumberOfIterations();
@@ -164,7 +165,7 @@ namespace nc
             /// @param b: the upper bound
             /// @return x
             ///
-            static double calculateBisection(const double a, const double b) noexcept 
+            static double calculateBisection(const double a, const double b) noexcept
             {
                 return 0.5 * (a + b);
             }
@@ -179,9 +180,10 @@ namespace nc
             /// @param fb: the function evaluated at b
             /// @return the secant point
             ///
-            static double calculateSecant(const double a, const double b, const double fa, const double fb) noexcept 
+            static double calculateSecant(const double a, const double b, const double fa, const double fb) noexcept
             {
-                //No need to check division by 0, in this case the method returns NAN which is taken care by useSecantMethod method
+                // No need to check division by 0, in this case the method returns NAN which is taken care by
+                // useSecantMethod method
                 return b - fb * (b - a) / (fb - fa);
             }
 
@@ -197,12 +199,15 @@ namespace nc
             /// @param lastFb: the previous function evaluated at the upper bound
             /// @return the inverse quadratic interpolation
             ///
-            static double calculateInverseQuadraticInterpolation(const double a, const double b, const double lastB,
-                const double fa, const double fb, const double lastFb) noexcept 
+            static double calculateInverseQuadraticInterpolation(const double a,
+                                                                 const double b,
+                                                                 const double lastB,
+                                                                 const double fa,
+                                                                 const double fb,
+                                                                 const double lastFb) noexcept
             {
-                return a * fb * lastFb / ((fa - fb) * (fa - lastFb)) +
-                    b * fa * lastFb / ((fb - fa) * (fb - lastFb)) +
-                    lastB * fa * fb / ((lastFb - fa) * (lastFb - fb));
+                return a * fb * lastFb / ((fa - fb) * (fa - lastFb)) + b * fa * lastFb / ((fb - fa) * (fb - lastFb)) +
+                       lastB * fa * fb / ((lastFb - fa) * (lastFb - fb));
             }
 
             //============================================================================
@@ -214,7 +219,7 @@ namespace nc
             /// @param lastFb: the previous function evaluated at the upper bound
             /// @return bool
             ///
-            static bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) noexcept 
+            static bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) noexcept
             {
                 return fa != lastFb && fb != lastFb;
             }
@@ -228,9 +233,9 @@ namespace nc
             /// @param fa: the function evaluated at a
             /// @param fb: the function evaluated at b
             ///
-            static void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept 
+            static void checkAndFixAlgorithmCriteria(double &a, double &b, double &fa, double &fb) noexcept
             {
-                //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
+                // Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (std::fabs(fa) < std::fabs(fb))
                 {
                     std::swap(a, b);
@@ -246,19 +251,34 @@ namespace nc
             /// @param b: the upper bound
             /// @param lastB: the previous upper bound
             /// @param penultimateB:
-            /// @param s: 
+            /// @param s:
             /// @return bool
             ///
-            bool useBisection(const bool bisection, const double b, const double lastB,
-                const double penultimateB, const double s) const noexcept 
+            bool useBisection(const bool   bisection,
+                              const double b,
+                              const double lastB,
+                              const double penultimateB,
+                              const double s) const noexcept
             {
                 const double DELTA = epsilon_ + std::numeric_limits<double>::min();
 
-                return (bisection && std::fabs(s - b) >= 0.5 * std::fabs(b - lastB)) || //Bisection was used in last step but |s-b|>=|b-lastB|/2 <- Interpolation step would be to rough, so still use bisection
-                    (!bisection && std::fabs(s - b) >= 0.5 * std::fabs(lastB - penultimateB)) || //Interpolation was used in last step but |s-b|>=|lastB-penultimateB|/2 <- Interpolation step would be to small
-                    (bisection && std::fabs(b - lastB) < DELTA) || //If last iteration was using bisection and difference between b and lastB is < delta use bisection for next iteration
-                    (!bisection && std::fabs(lastB - penultimateB) < DELTA); //If last iteration was using interpolation but difference between lastB ond penultimateB is < delta use biscetion for next iteration
+                return (bisection &&
+                        std::fabs(s - b) >=
+                            0.5 *
+                                std::fabs(b - lastB)) || // Bisection was used in last step but |s-b|>=|b-lastB|/2 <-
+                                                         // Interpolation step would be to rough, so still use bisection
+                       (!bisection &&
+                        std::fabs(s - b) >=
+                            0.5 * std::fabs(lastB - penultimateB)) || // Interpolation was used in last step but
+                                                                      // |s-b|>=|lastB-penultimateB|/2 <- Interpolation
+                                                                      // step would be to small
+                       (bisection &&
+                        std::fabs(b - lastB) < DELTA) || // If last iteration was using bisection and difference between
+                                                         // b and lastB is < delta use bisection for next iteration
+                       (!bisection && std::fabs(lastB - penultimateB) <
+                                          DELTA); // If last iteration was using interpolation but difference between
+                                                  // lastB ond penultimateB is < delta use biscetion for next iteration
             }
         };
-    }  // namespace roots
+    } // namespace roots
 } // namespace nc

@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/expint.hpp"
 #endif
 
@@ -52,7 +52,7 @@ namespace nc
         /// includes or a C++17 compliant compiler.
         ///
         /// @param inX: value
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto expint(dtype inX)
@@ -80,15 +80,15 @@ namespace nc
         {
             NdArray<decltype(expint(dtype{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [](dtype inX) -> auto
-                {
-                    return expint(inX);
-                });
+            stl_algorithms::transform(
+                inArrayX.cbegin(),
+                inArrayX.cend(),
+                returnArray.begin(),
+                [](dtype inX) -> auto{ return expint(inX); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

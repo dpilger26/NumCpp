@@ -27,13 +27,13 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
-
 #include <chrono>
 #include <iostream>
 #include <string>
 #include <thread>
 #include <type_traits>
+
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
     public:
         //==============================Typedefs======================================
         using ChronoClock = std::chrono::high_resolution_clock;
-        using TimePoint = std::chrono::time_point<ChronoClock>;
+        using TimePoint   = std::chrono::time_point<ChronoClock>;
 
         //============================================================================
         // Method Description:
@@ -63,7 +63,7 @@ namespace nc
         ///
         /// @param inName
         ///
-        explicit Timer(const std::string& inName)  :
+        explicit Timer(const std::string& inName) :
             name_(inName + " "),
             start_(ChronoClock::now())
         {
@@ -76,7 +76,7 @@ namespace nc
         ///
         /// @param inName
         ///
-        void setName(const std::string& inName) 
+        void setName(const std::string& inName)
         {
             name_ = inName + " ";
         }
@@ -96,7 +96,7 @@ namespace nc
         // Method Description:
         /// Starts the timer
         ///
-        void tic() noexcept 
+        void tic() noexcept
         {
             start_ = ChronoClock::now();
         }
@@ -105,13 +105,14 @@ namespace nc
         // Method Description:
         /// Stops the timer
         ///
-        /// @param printElapsedTime: bool whether or not to print the elapsed time to 
+        /// @param printElapsedTime: bool whether or not to print the elapsed time to
         /// the console
         /// @return ellapsed time in specified time units
         ///
-        uint64 toc(bool printElapsedTime = true) 
+        uint64 toc(bool printElapsedTime = true)
         {
-            const auto duration = static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
+            const auto duration =
+                static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
 
             if (printElapsedTime)
             {
@@ -123,11 +124,11 @@ namespace nc
 
     private:
         //==============================Attributes====================================
-        std::string		name_{ "" };
-        std::string		unit_{ "" };
-        TimePoint		start_{};
+        std::string name_{ "" };
+        std::string unit_{ "" };
+        TimePoint   start_{};
 
-        void setUnits() 
+        void setUnits()
         {
             if (std::is_same<TimeUnit, std::chrono::hours>::value)
             {
@@ -159,4 +160,4 @@ namespace nc
             }
         }
     };
-}  // namespace nc
+} // namespace nc

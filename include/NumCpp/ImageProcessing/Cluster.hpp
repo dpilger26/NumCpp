@@ -28,19 +28,20 @@
 
 #pragma once
 
+#include <algorithm>
+#include <iostream>
+#include <limits>
+#include <string>
+#include <type_traits>
+#include <utility>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/Pixel.hpp"
 #include "NumCpp/Utils/num2str.hpp"
-
-#include <algorithm>
-#include <iostream>
-#include <limits>
-#include <string>
-#include <utility>
-#include <vector>
 
 namespace nc
 {
@@ -57,7 +58,8 @@ namespace nc
 
         public:
             //================================Typedefs===============================
-            using const_iterator = typename std::vector<Pixel<dtype> >::const_iterator;
+            using const_iterator = typename std::vector<Pixel<dtype>>::const_iterator;
+            using accumulator_t  = typename std::conditional<std::is_integral<dtype>::value, int64, double>::type;
 
             //=============================================================================
             // Description:
@@ -73,7 +75,8 @@ namespace nc
             ///
             explicit Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
-            {}
+            {
+            }
 
             //=============================================================================
             // Description:
@@ -142,7 +145,7 @@ namespace nc
             ///
             /// @return const_iterator
             ///
-            const_iterator begin() const noexcept  
+            const_iterator begin() const noexcept
             {
                 return pixels_.cbegin();
             }
@@ -153,7 +156,7 @@ namespace nc
             ///
             /// @return const_iterator
             ///
-            const_iterator end() const noexcept 
+            const_iterator end() const noexcept
             {
                 return pixels_.cend();
             }
@@ -164,7 +167,7 @@ namespace nc
             ///
             /// @return number of pixels in the cluster
             ///
-            uint32 size() const noexcept 
+            uint32 size() const noexcept
             {
                 return static_cast<uint32>(pixels_.size());
             }
@@ -175,7 +178,7 @@ namespace nc
             ///
             /// @return minimum row number of the cluster
             ///
-            uint32 clusterId() const noexcept 
+            uint32 clusterId() const noexcept
             {
                 return clusterId_;
             }
@@ -186,7 +189,7 @@ namespace nc
             ///
             /// @return minimum row number of the cluster
             ///
-            uint32 rowMin() const noexcept 
+            uint32 rowMin() const noexcept
             {
                 return rowMin_;
             }
@@ -197,7 +200,7 @@ namespace nc
             ///
             /// @return maximum row number of the cluster
             ///
-            uint32 rowMax() const noexcept 
+            uint32 rowMax() const noexcept
             {
                 return rowMax_;
             }
@@ -208,7 +211,7 @@ namespace nc
             ///
             /// @return minimum column number of the cluster
             ///
-            uint32 colMin() const noexcept 
+            uint32 colMin() const noexcept
             {
                 return colMin_;
             }
@@ -219,7 +222,7 @@ namespace nc
             ///
             /// @return maximum column number of the cluster
             ///
-            uint32 colMax() const noexcept 
+            uint32 colMax() const noexcept
             {
                 return colMax_;
             }
@@ -230,7 +233,7 @@ namespace nc
             ///
             /// @return number of rows
             ///
-            uint32 height() const noexcept 
+            uint32 height() const noexcept
             {
                 return rowMax_ - rowMin_ + 1;
             }
@@ -241,7 +244,7 @@ namespace nc
             ///
             /// @return number of columns
             ///
-            uint32 width() const noexcept 
+            uint32 width() const noexcept
             {
                 return colMax_ - colMin_ + 1;
             }
@@ -252,7 +255,7 @@ namespace nc
             ///
             /// @return summed cluster intensity
             ///
-            dtype intensity() const noexcept 
+            accumulator_t intensity() const noexcept
             {
                 return intensity_;
             }
@@ -263,7 +266,7 @@ namespace nc
             ///
             /// @return peak pixel intensity
             ///
-            dtype peakPixelIntensity() const noexcept 
+            dtype peakPixelIntensity() const noexcept
             {
                 return peakPixelIntensity_;
             }
@@ -274,7 +277,7 @@ namespace nc
             ///
             /// @return eod
             ///
-            double eod() const noexcept 
+            double eod() const noexcept
             {
                 return eod_;
             }
@@ -288,13 +291,13 @@ namespace nc
             void addPixel(const Pixel<dtype>& inPixel)
             {
                 pixels_.push_back(inPixel);
-                intensity_ += inPixel.intensity;
+                intensity_ += static_cast<accumulator_t>(inPixel.intensity);
 
                 // adjust the cluster bounds
-                rowMin_ = std::min(rowMin_, inPixel.row);
-                rowMax_ = std::max(rowMax_, inPixel.row);
-                colMin_ = std::min(colMin_, inPixel.col);
-                colMax_ = std::max(colMax_, inPixel.col);
+                rowMin_             = std::min(rowMin_, inPixel.row);
+                rowMax_             = std::max(rowMax_, inPixel.row);
+                colMin_             = std::min(colMin_, inPixel.col);
+                colMax_             = std::max(colMax_, inPixel.col);
                 peakPixelIntensity_ = std::max(peakPixelIntensity_, inPixel.intensity);
 
                 // calculate the energy on detector estimate
@@ -310,12 +313,11 @@ namespace nc
             std::string str() const
             {
                 std::string out;
-                uint32 counter = 0;
-                std::for_each(begin(), end(),
-                    [&](const Pixel<dtype>& pixel)
-                    {
-                        out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str();
-                    });
+                uint32      counter = 0;
+                std::for_each(begin(),
+                              end(),
+                              [&](const Pixel<dtype>& pixel)
+                              { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
 
                 return out;
             }
@@ -345,18 +347,28 @@ namespace nc
 
         private:
             //================================Attributes===============================
-            int32                       clusterId_{ -1 };
-            std::vector<Pixel<dtype> >  pixels_{};
-
-            uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      rowMax_{ 0 };
-            uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      colMax_{ 0 };
-
-            dtype                       intensity_{ 0 };
-            dtype                       peakPixelIntensity_{ 0 };
-
-            double                      eod_{ 1.0 };
+            /// The cluster id
+            int32 clusterId_{ -1 };
+            /// The pixels that make up the cluster
+            std::vector<Pixel<dtype>> pixels_{};
+            /// The bounding box minimum row of the cluster.
+            uint32 rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            /// The bounding box maximum row of the cluster.
+            uint32 rowMax_{ 0 };
+            /// The bounding box minimum col of the cluster.
+            uint32 colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            /// The bounding box maximum row of the cluster.
+            uint32 colMax_{ 0 };
+            /// The total summed intensity of the pixels in the cluster.
+            accumulator_t intensity_{ 0 };
+            /// The peak pixel intensity of the cluster
+            dtype peakPixelIntensity_{ 0 };
+            /// The minimum pixel count value of the cluster
+            dtype minPixel;
+            /// The maximum pixel count value of the cluster
+            dtype maxPixel;
+            /// The cluster energy on detector
+            double eod_{ 1.0 };
         };
-    }  // namespace imageProcessing
+    } // namespace imageProcessing
 } // namespace nc

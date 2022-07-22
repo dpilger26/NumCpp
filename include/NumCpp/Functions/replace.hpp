@@ -42,10 +42,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> replace(const NdArray<dtype>& inArray, dtype oldValue, dtype newValue) 
+    NdArray<dtype> replace(const NdArray<dtype>& inArray, dtype oldValue, dtype newValue)
     {
         auto returnArray = inArray.copy();
         returnArray.replace(oldValue, newValue);
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

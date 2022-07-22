@@ -27,10 +27,10 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -52,10 +52,10 @@ namespace nc
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
                 uint32 boundarySize = inSize / 2; // integer division
-                uint32 imageSize = inImageWithBoundary.size() - boundarySize * 2;
+                uint32 imageSize    = inImageWithBoundary.size() - boundarySize * 2;
 
                 return inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)];
             }
-        }
-    }
-}
+        } // namespace boundary
+    }     // namespace filter
+} // namespace nc

@@ -54,10 +54,7 @@ namespace nc
             /// @param n integer value
             /// @return bool true if value is a power of two, else false
             ///
-            template<
-                typename IntType,
-                enable_if_t<is_integral_v<IntType>, int> = 0
-            >
+            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
             constexpr bool isPowerOfTwo(IntType n) noexcept
             {
                 // Returns true if the given non-negative integer n is a power of two.
@@ -76,10 +73,7 @@ namespace nc
             /// @return next power of two
             /// @exception std::invalid_argument if input value is less than zero
             ////
-            template<
-                typename IntType,
-                enable_if_t<is_integral_v<IntType>, int> = 0
-            >
+            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
             std::size_t nextPowerOfTwo(IntType n)
             {
                 if (n < 0)
@@ -103,14 +97,11 @@ namespace nc
             /// @return first n powers of two
             /// @exception std::bad_alloc if unable to allocate for return vector
             ///
-            template<
-                typename IntType,
-                enable_if_t<is_integral_v<IntType>, int> = 0
-            >
+            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
             std::vector<std::size_t> powersOfTwo(IntType n)
             {
-                auto i = std::size_t{ 0 };
-                auto power = std::size_t{ 1 };
+                auto i      = std::size_t{ 0 };
+                auto power  = std::size_t{ 1 };
                 auto powers = std::vector<std::size_t>();
                 powers.reserve(n);
 
@@ -133,21 +124,19 @@ namespace nc
             /// @exception std::invalid_argument if input value is less than zero
             /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
             ///
-            template<
-                typename IntType,
-                enable_if_t<is_integral_v<IntType>, int> = 0
-            >
+            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
             std::size_t numSecdedParityBitsNeeded(IntType numDataBits)
             {
-                const auto n = nextPowerOfTwo(numDataBits);
-                const auto lowerBin = static_cast<std::size_t>(std::floor(std::log2(n)));
-                const auto upperBin = lowerBin + 1;
+                const auto n               = nextPowerOfTwo(numDataBits);
+                const auto lowerBin        = static_cast<std::size_t>(std::floor(std::log2(n)));
+                const auto upperBin        = lowerBin + 1;
                 const auto dataBitBoundary = n - lowerBin - 1;
-                const auto numParityBits = numDataBits <= dataBitBoundary ? lowerBin + 1 : upperBin + 1;
+                const auto numParityBits   = numDataBits <= dataBitBoundary ? lowerBin + 1 : upperBin + 1;
 
                 if (!isPowerOfTwo(numParityBits + numDataBits))
                 {
-                    throw std::runtime_error("input number of data bits is not a valid Hamming SECDED code configuration.");
+                    throw std::runtime_error(
+                        "input number of data bits is not a valid Hamming SECDED code configuration.");
                 }
 
                 return numParityBits;
@@ -165,12 +154,10 @@ namespace nc
             /// @exception std::invalid_argument if parityBit is not a power of two
             /// @exception std::bad_alloc if unable to allocate return vector
             ///
-            template<
-                typename IntType1,
-                typename IntType2,
-                enable_if_t<is_integral_v<IntType1>, int> = 0,
-                enable_if_t<is_integral_v<IntType2>, int> = 0
-            >
+            template<typename IntType1,
+                     typename IntType2,
+                     enable_if_t<is_integral_v<IntType1>, int> = 0,
+                     enable_if_t<is_integral_v<IntType2>, int> = 0>
             std::vector<std::size_t> dataBitsCovered(IntType1 numDataBits, IntType2 parityBit)
             {
                 if (!isPowerOfTwo(parityBit))
@@ -178,9 +165,9 @@ namespace nc
                     throw std::invalid_argument("All hamming parity bits are indexed by powers of two.");
                 }
 
-                std::size_t dataIndex = 1; // bit we're currently at in the DATA bitstring
+                std::size_t dataIndex  = 1; // bit we're currently at in the DATA bitstring
                 std::size_t totalIndex = 3; // bit we're currently at in the OVERALL bitstring
-                auto parityBit_ = static_cast<std::size_t>(parityBit);
+                auto        parityBit_ = static_cast<std::size_t>(parityBit);
 
                 auto indices = std::vector<std::size_t>();
                 indices.reserve(numDataBits); // worst case
@@ -248,11 +235,7 @@ namespace nc
             /// @exception std::invalid_argument if parityBit is not a power of two
             /// @exception std::bad_alloc if unable to allocate return vector
             ///
-            template<
-                std::size_t DataBits,
-                typename IntType,
-                enable_if_t<is_integral_v<IntType>, int> = 0
-            >
+            template<std::size_t DataBits, typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
             bool calculateParity(const std::bitset<DataBits>& data, IntType parityBit)
             {
                 bool parity = false;
@@ -272,11 +255,9 @@ namespace nc
             /// @exception std::runtime_error if DataBits and EncodedBits are not consistent
             /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
             ///
-            template<
-                std::size_t DataBits,
-                std::size_t EncodedBits,
-                enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
-            >
+            template<std::size_t DataBits,
+                     std::size_t EncodedBits,
+                     enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
             std::size_t checkBitsConsistent()
             {
                 const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
@@ -290,17 +271,15 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            /// Returns the Hamming SECDED decoded bits from the endoded bits. Assumes that the 
+            /// Returns the Hamming SECDED decoded bits from the endoded bits. Assumes that the
             /// DataBits and EncodedBits have been checks for consistancy already
             ///
             /// @param encodedBits the Hamming SECDED encoded word
             /// @return data bits from the encoded word
             ///
-            template<
-                std::size_t DataBits,
-                std::size_t EncodedBits,
-                enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
-            >
+            template<std::size_t DataBits,
+                     std::size_t EncodedBits,
+                     enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
             std::bitset<DataBits> extractData(const std::bitset<EncodedBits>& encodedBits) noexcept
             {
                 auto dataBits = std::bitset<DataBits>();
@@ -333,20 +312,22 @@ namespace nc
         template<std::size_t DataBits>
         boost::dynamic_bitset<> encode(const std::bitset<DataBits>& dataBits)
         {
-            const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
+            const auto numParityBits  = detail::numSecdedParityBitsNeeded(DataBits);
             const auto numEncodedBits = numParityBits + DataBits;
 
             auto encodedBits = boost::dynamic_bitset<>(numEncodedBits);
 
             // set the parity bits
-            for (const auto parityBit : detail::powersOfTwo(numParityBits - 1)) // -1 because overall parity will be calculated seperately later
+            for (const auto parityBit : detail::powersOfTwo(
+                     numParityBits - 1)) // -1 because overall parity will be calculated seperately later
             {
                 encodedBits[parityBit - 1] = detail::calculateParity(dataBits, parityBit);
             }
 
             // set the data bits, switch to 1 based to make things easier for isPowerOfTwo
             std::size_t dataBitIndex = 0;
-            for (std::size_t bitIndex = 1; bitIndex <= numEncodedBits - 1; ++bitIndex) // -1 to account for the overall parity bit
+            for (std::size_t bitIndex = 1; bitIndex <= numEncodedBits - 1;
+                 ++bitIndex) // -1 to account for the overall parity bit
             {
                 if (!detail::isPowerOfTwo(bitIndex))
                 {
@@ -372,11 +353,9 @@ namespace nc
         /// @exception std::runtime_error if DataBits and EncodedBits are not consistent
         /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
         ///
-        template<
-            std::size_t DataBits,
-            std::size_t EncodedBits,
-            enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0
-        >
+        template<std::size_t DataBits,
+                 std::size_t EncodedBits,
+                 enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
         int decode(std::bitset<EncodedBits> encodedBits, std::bitset<DataBits>& decodedBits)
         {
             const auto numParityBits = detail::checkBitsConsistent<DataBits, EncodedBits>();
@@ -386,15 +365,15 @@ namespace nc
 
             // check the overall parity bit
             const auto overallExpected = detail::calculateParity(encodedBits);
-            const auto overallActual = encodedBits[EncodedBits - 1];
-            const auto overallCorrect = overallExpected == overallActual;
+            const auto overallActual   = encodedBits[EncodedBits - 1];
+            const auto overallCorrect  = overallExpected == overallActual;
 
             // check individual parities - each parity bit's index (besides overall parity) is a power of two
             std::size_t indexOfError = 0;
             for (const auto parityBit : detail::powersOfTwo(numParityBits - 1))
             {
                 const auto expected = detail::calculateParity(decodedBits, parityBit);
-                const auto actual = encodedBits[parityBit - 1]; // -1 because parityBit is 1 based
+                const auto actual   = encodedBits[parityBit - 1]; // -1 because parityBit is 1 based
                 if (expected != actual)
                 {
                     indexOfError += parityBit;

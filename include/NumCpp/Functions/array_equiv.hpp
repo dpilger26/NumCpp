@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -64,14 +64,10 @@ namespace nc
         {
             return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
         }
-        
-        
-            const auto b = [](dtype value1, dtype value2) noexcept -> bool
-            {
-                return utils::essentiallyEqual(value1, value2);
-            };
 
-            return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), b);
-        
+        const auto comparitor = [](dtype value1, dtype value2) noexcept -> bool
+        { return utils::essentiallyEqual(value1, value2); };
+
+        return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), comparitor);
     }
-}  // namespace nc
+} // namespace nc

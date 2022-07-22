@@ -1,9 +1,7 @@
 import numpy as np
 import scipy.special as sp
 import mpmath
-import os
-import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 
@@ -338,7 +336,8 @@ def test_comp_ellint_3():
     result = np.zeros_like(a)
     for row in range(a.shape[0]):
         for col in range(a.shape[1]):
-            result[row, col] = float(mpmath.ellippi(b[row, col], a[row, col]**2))
+            result[row, col] = float(
+                mpmath.ellippi(b[row, col], a[row, col]**2))
     assert np.array_equal(roundArray(NumCpp.comp_ellint_3_Array(aArray, bArray), NUM_DECIMALS_ROUND),
                           roundArray(result, NUM_DECIMALS_ROUND))
 
@@ -480,7 +479,8 @@ def test_ellint_3():
     result = np.zeros_like(a)
     for row in range(a.shape[0]):
         for col in range(a.shape[1]):
-            result[row, col] = float(mpmath.ellippi(b[row, col], c[row, col], a[row, col]**2))
+            result[row, col] = float(mpmath.ellippi(
+                b[row, col], c[row, col], a[row, col]**2))
     assert np.array_equal(roundArray(NumCpp.ellint_3_Array(aArray, bArray, cArray), NUM_DECIMALS_ROUND),
                           roundArray(result, NUM_DECIMALS_ROUND))
 
@@ -682,7 +682,8 @@ def test_prime():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayUInt32(shape)
-    data = np.random.randint(0, 10000, [shape.rows, shape.cols], dtype=np.uint32)
+    data = np.random.randint(
+        0, 10000, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     assert NumCpp.prime_Array(cArray) is not None
 

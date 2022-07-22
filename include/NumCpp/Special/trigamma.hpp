@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/trigamma.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/trigamma.hpp"
 
 namespace nc
 {
@@ -41,12 +41,12 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// Returns the trigamma function of x. Trigamma is defined as the derivative 
+        /// Returns the trigamma function of x. Trigamma is defined as the derivative
         /// of the digamma function.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
         /// @param inValue
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype>
         auto trigamma(dtype inValue)
@@ -58,7 +58,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Returns the trigamma function of x. Trigamma is defined as the derivative 
+        /// Returns the trigamma function of x. Trigamma is defined as the derivative
         /// of the digamma function.
         /// NOTE: Use of this function requires using the Boost includes.
         ///
@@ -68,17 +68,17 @@ namespace nc
         template<typename dtype>
         auto trigamma(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(trigamma(dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(trigamma(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) -> auto
-                { 
-                    return trigamma(inValue); 
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [](dtype inValue) -> auto{ return trigamma(inValue); });
 
             return returnArray;
         }
     } // namespace special
-}  // namespace nc
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

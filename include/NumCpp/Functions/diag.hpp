@@ -41,14 +41,14 @@ namespace nc
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diag.html
     ///
     /// @param inArray
-    /// @param k Diagonal in question. The default is 0. 
-    /// Use k>0 for diagonals above the main diagonal, and k<0 
+    /// @param k Diagonal in question. The default is 0.
+    /// Use k>0 for diagonals above the main diagonal, and k<0
     /// for diagonals below the main diagonal.
     ///
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0) 
+    NdArray<dtype> diag(const NdArray<dtype>& inArray, int32 k = 0)
     {
         if (inArray.isflat())
         {
@@ -57,4 +57,4 @@ namespace nc
 
         return diagonal(inArray, k, Axis::ROW);
     }
-}  // namespace nc
+} // namespace nc

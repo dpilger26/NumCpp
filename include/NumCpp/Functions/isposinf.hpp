@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/isinf.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -44,7 +44,7 @@ namespace nc
     /// @return bool
     ///
     template<typename dtype>
-    bool isposinf(dtype inValue) noexcept 
+    bool isposinf(dtype inValue) noexcept
     {
         STATIC_ASSERT_FLOAT(dtype);
 
@@ -62,15 +62,14 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isposinf(const NdArray<dtype>& inArray) 
+    NdArray<bool> isposinf(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool
-            {
-                return isposinf(inValue);
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> bool { return isposinf(inValue); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

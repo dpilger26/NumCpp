@@ -47,13 +47,15 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray,
+                                                   uint32                inSize,
+                                                   Boundary              inBoundaryType  = Boundary::REFLECT,
+                                                   dtype                 inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inBoundaryType, inConstantValue);
 
             return inImageArrayCopy;
         }
-    }  // namespace filter
+    } // namespace filter
 } // namespace nc

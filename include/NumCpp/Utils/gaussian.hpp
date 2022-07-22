@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Utils/sqr.hpp"
-
 #include <cmath>
+
+#include "NumCpp/Utils/sqr.hpp"
 
 namespace nc
 {
@@ -53,4 +53,4 @@ namespace nc
             return std::exp(-exponent);
         }
     } // namespace utils
-}  // namespace nc
+} // namespace nc

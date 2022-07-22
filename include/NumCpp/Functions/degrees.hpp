@@ -57,8 +57,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto degrees(const NdArray<dtype>& inArray) 
+    auto degrees(const NdArray<dtype>& inArray)
     {
         return rad2deg(inArray);
     }
-}  // namespace nc
+} // namespace nc

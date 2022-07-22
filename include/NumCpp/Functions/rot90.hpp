@@ -47,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1) 
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1)
     {
         inK %= 4;
         switch (inK)
@@ -76,4 +76,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

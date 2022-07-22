@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
@@ -34,9 +36,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/ellint_3.hpp"
 #endif
 
@@ -54,7 +54,7 @@ namespace nc
         ///
         /// @param inK: elliptic modulus or eccentricity
         /// @param inV: elliptic characteristic
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype1, typename dtype2>
         auto comp_ellint_3(dtype1 inK, dtype2 inV)
@@ -89,15 +89,16 @@ namespace nc
 
             NdArray<decltype(comp_ellint_3(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayK.shape());
 
-            stl_algorithms::transform(inArrayK.cbegin(), inArrayK.cend(), inArrayV.cbegin(), returnArray.begin(),
-                [](dtype1 inK, dtype2 inV) -> auto
-            {
-                return comp_ellint_3(inK, inV);
-            });
+            stl_algorithms::transform(
+                inArrayK.cbegin(),
+                inArrayK.cend(),
+                inArrayV.cbegin(),
+                returnArray.begin(),
+                [](dtype1 inK, dtype2 inV) -> auto{ return comp_ellint_3(inK, inV); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

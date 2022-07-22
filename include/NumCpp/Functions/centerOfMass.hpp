@@ -44,7 +44,7 @@ namespace nc
     /// @return NdArray: if axis is NONE then a 1x2 array of the centroid row/col is returned.
     ///
     template<typename dtype>
-    NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<double> centerOfMass(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -54,10 +54,10 @@ namespace nc
         {
             case Axis::NONE:
             {
-                double inten = 0.0;
+                double inten     = 0.0;
                 double rowCenter = 0.0;
                 double colCenter = 0.0;
-                
+
                 for (uint32 row = 0; row < shape.rows; ++row)
                 {
                     for (uint32 col = 0; col < shape.cols; ++col)
@@ -86,7 +86,8 @@ namespace nc
                 {
                     for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                     {
-                        returnArray(0, colIdx) += static_cast<double>(inArray(rowIdx, colIdx)) * static_cast<double>(rowIdx);
+                        returnArray(0, colIdx) +=
+                            static_cast<double>(inArray(rowIdx, colIdx)) * static_cast<double>(rowIdx);
                     }
 
                     returnArray(0, colIdx) /= inten[colIdx];
@@ -105,7 +106,8 @@ namespace nc
                 {
                     for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
                     {
-                        returnArray(0, rowIdx) += static_cast<double>(inArray(rowIdx, colIdx)) * static_cast<double>(colIdx);
+                        returnArray(0, rowIdx) +=
+                            static_cast<double>(inArray(rowIdx, colIdx)) * static_cast<double>(colIdx);
                     }
 
                     returnArray(0, rowIdx) /= inten[rowIdx];

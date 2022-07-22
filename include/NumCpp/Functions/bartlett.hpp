@@ -29,15 +29,15 @@
 
 #include <cmath>
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Functions/linspace.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    /// The Bartlett window is very similar to a triangular window, except that the end 
-    /// points are at zero. It is often used in signal processing for tapering a signal, 
+    /// The Bartlett window is very similar to a triangular window, except that the end
+    /// points are at zero. It is often used in signal processing for tapering a signal,
     /// without generating too much ripple in the frequency domain.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.bartlett.html
@@ -52,17 +52,17 @@ namespace nc
             return {};
         }
 
-        const auto mDouble = static_cast<double>(m);
-        const auto mMinus1Over2 = (mDouble - 1.0) / 2.0;
+        const auto mDouble         = static_cast<double>(m);
+        const auto mMinus1Over2    = (mDouble - 1.0) / 2.0;
         const auto mMinus1Over2Inv = 1.0 / mMinus1Over2;
 
         NdArray<double> result(1, m);
-        int32 i = 0; 
+        int32           i = 0;
         for (auto n : linspace(0.0, mDouble - 1.0, m, true))
         {
             result[i++] = mMinus1Over2Inv * (mMinus1Over2 - std::abs(n - mMinus1Over2));
-        }   
+        }
 
         return result;
     }
-}  // namespace nc
+} // namespace nc

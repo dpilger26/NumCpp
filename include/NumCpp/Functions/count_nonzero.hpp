@@ -46,7 +46,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -54,8 +54,9 @@ namespace nc
         {
             case Axis::NONE:
             {
-                NdArray<uint32> count = { inArray.size() - 
-                    static_cast<uint32>(stl_algorithms::count(inArray.cbegin(), inArray.cend(), dtype{ 0 })) };
+                NdArray<uint32> count = { inArray.size() -
+                                          static_cast<uint32>(
+                                              stl_algorithms::count(inArray.cbegin(), inArray.cend(), dtype{ 0 })) };
                 return count;
             }
             case Axis::COL:
@@ -65,7 +66,8 @@ namespace nc
                 NdArray<uint32> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray(0, row) = inShape.cols -
+                    returnArray(0, row) =
+                        inShape.cols -
                         static_cast<uint32>(stl_algorithms::count(inArray.cbegin(row), inArray.cend(row), dtype{ 0 }));
                 }
 
@@ -73,13 +75,15 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> inArrayTranspose = inArray.transpose();
-                Shape inShapeTransposed = inArrayTranspose.shape();
+                NdArray<dtype>  inArrayTranspose  = inArray.transpose();
+                Shape           inShapeTransposed = inArrayTranspose.shape();
                 NdArray<uint32> returnArray(1, inShapeTransposed.rows);
                 for (uint32 row = 0; row < inShapeTransposed.rows; ++row)
                 {
-                    returnArray(0, row) = inShapeTransposed.cols -
-                        static_cast<uint32>(stl_algorithms::count(inArrayTranspose.cbegin(row), inArrayTranspose.cend(row), dtype{ 0 }));
+                    returnArray(0, row) =
+                        inShapeTransposed.cols - static_cast<uint32>(stl_algorithms::count(inArrayTranspose.cbegin(row),
+                                                                                           inArrayTranspose.cend(row),
+                                                                                           dtype{ 0 }));
                 }
 
                 return returnArray;
@@ -91,4 +95,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

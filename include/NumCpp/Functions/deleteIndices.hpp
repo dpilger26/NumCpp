@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <string>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Functions/unique.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
-#include <vector>
 
 namespace nc
 {
@@ -48,7 +48,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
+    NdArray<dtype>
+        deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
     {
         // make sure that the indices are unique first
         NdArray<uint32> indices = unique(inArrayIdxs);
@@ -78,7 +79,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of rows in the array.");
                 }
 
-                const uint32 numNewRows = inShape.rows - indices.size();
+                const uint32   numNewRows = inShape.rows - indices.size();
                 NdArray<dtype> returnArray(numNewRows, inShape.cols);
 
                 uint32 rowCounter = 0;
@@ -106,7 +107,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of cols in the array.");
                 }
 
-                const uint32 numNewCols = inShape.cols - indices.size();
+                const uint32   numNewCols = inShape.cols - indices.size();
                 NdArray<dtype> returnArray(inShape.rows, numNewCols);
 
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -124,8 +125,6 @@ namespace nc
                 }
 
                 return returnArray;
-
-
             }
             default:
             {
@@ -169,7 +168,8 @@ namespace nc
         }
 
         std::vector<uint32> indices;
-        for (auto i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
+        for (auto i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop);
+             i += sliceCopy.step)
         {
             indices.push_back(i);
         }

@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <complex>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-
-#include <algorithm>
-#include <cmath>
-#include <complex>
 
 namespace nc
 {
@@ -48,15 +48,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        double squareSum = 0.0;
-        const auto function = [&squareSum](dtype value) -> void
-        {
-            squareSum += utils::sqr(static_cast<double>(value));
-        };
+        double     squareSum = 0.0;
+        const auto function  = [&squareSum](dtype value) -> void
+        { squareSum += utils::sqr(static_cast<double>(value)); };
 
         switch (inAxis)
         {
@@ -80,7 +78,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<dtype>  transposedArray = inArray.transpose();
                 NdArray<double> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
@@ -109,22 +107,21 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<std::complex<double>> rms(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> squareSum = 0.0;
-        const auto function = [&squareSum](std::complex<dtype> value) -> void
-        {
-            squareSum += utils::sqr(complex_cast<double>(value));
-        };
+        const auto           function  = [&squareSum](std::complex<dtype> value) -> void
+        { squareSum += utils::sqr(complex_cast<double>(value)); };
 
         switch (inAxis)
         {
             case Axis::NONE:
             {
                 std::for_each(inArray.cbegin(), inArray.cend(), function);
-                NdArray<std::complex<double>> returnArray = { std::sqrt(squareSum / static_cast<double>(inArray.size())) };
+                NdArray<std::complex<double>> returnArray = { std::sqrt(squareSum /
+                                                                        static_cast<double>(inArray.size())) };
                 return returnArray;
             }
             case Axis::COL:
@@ -141,7 +138,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
+                NdArray<std::complex<dtype>>  transposedArray = inArray.transpose();
                 NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
@@ -159,4 +156,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

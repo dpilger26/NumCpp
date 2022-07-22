@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -45,7 +45,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    auto angle(const std::complex<dtype>& inValue) 
+    auto angle(const std::complex<dtype>& inValue)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -62,14 +62,14 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto angle(const NdArray<std::complex<dtype>>& inArray) 
+    auto angle(const NdArray<std::complex<dtype>>& inArray)
     {
-        NdArray<decltype(angle(std::complex<dtype>{0}))> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](auto& inValue) -> auto
-            {
-                return angle(inValue);
-            });
+        NdArray<decltype(angle(std::complex<dtype>{ 0 }))> returnArray(inArray.shape());
+        stl_algorithms::transform(
+            inArray.cbegin(),
+            inArray.cend(),
+            returnArray.begin(),
+            [](auto& inValue) -> auto{ return angle(inValue); });
 
         return returnArray;
     }

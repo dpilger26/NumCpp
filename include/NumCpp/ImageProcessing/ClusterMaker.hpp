@@ -28,18 +28,18 @@
 
 #pragma once
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/ImageProcessing/Cluster.hpp"
-#include "NumCpp/NdArray.hpp"
-
 #include <algorithm>
 #include <cmath>
 #include <set>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/ImageProcessing/Cluster.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -56,7 +56,7 @@ namespace nc
 
         public:
             //================================Typedefs=====================================
-            using const_iterator = typename std::vector<Cluster<dtype> >::const_iterator;
+            using const_iterator = typename std::vector<Cluster<dtype>>::const_iterator;
 
             //=============================================================================
             // Description:
@@ -68,7 +68,9 @@ namespace nc
             ///
             /// @return None
             ///
-            ClusterMaker(const NdArray<bool>* const inXcdArrayPtr, const NdArray<dtype>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
+            ClusterMaker(const NdArray<bool>* const  inXcdArrayPtr,
+                         const NdArray<dtype>* const inIntensityArrayPtr,
+                         uint8                       inBorderWidth = 0) :
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {
@@ -147,7 +149,7 @@ namespace nc
             ///
             /// @return const_iterator
             ///
-            const_iterator begin() const noexcept 
+            const_iterator begin() const noexcept
             {
                 return clusters_.cbegin();
             }
@@ -158,20 +160,20 @@ namespace nc
             ///
             /// @return const_iterator
             ///
-            const_iterator end() const noexcept 
+            const_iterator end() const noexcept
             {
                 return clusters_.cend();
             }
 
         private:
             //==================================Attributes=================================
-            const NdArray<bool>* const      xcds_;
-            const NdArray<dtype>* const     intensities_;
-            std::vector<Pixel<dtype> >      xcdsVec_{};
+            const NdArray<bool>* const  xcds_;
+            const NdArray<dtype>* const intensities_;
+            std::vector<Pixel<dtype>>   xcdsVec_{};
 
-            Shape                           shape_{};
+            Shape shape_{};
 
-            std::vector<Cluster<dtype> >    clusters_{};
+            std::vector<Cluster<dtype>> clusters_{};
 
             //=============================================================================
             // Description:
@@ -186,8 +188,8 @@ namespace nc
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that
                 // i haven't gone over the edge
-                const uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
-                const uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
+                const uint32 row      = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
+                const uint32 col      = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
                 const dtype intensity = intensities_->operator()(row, col);
 
                 return Pixel<dtype>(row, col, intensity);
@@ -201,7 +203,7 @@ namespace nc
             /// @param outNeighbors
             /// @return None
             ///
-            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
+            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype>>& outNeighbors)
             {
                 // using a set will auto take care of adding duplicate pixels on the edges
 
@@ -228,9 +230,9 @@ namespace nc
             ///
             /// @return vector of non exceedance neighboring pixels
             ///
-            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
+            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype>>& outNeighbors)
             {
-                std::set<Pixel<dtype> > neighbors;
+                std::set<Pixel<dtype>> neighbors;
                 findNeighbors(inPixel, neighbors);
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
@@ -254,9 +256,9 @@ namespace nc
             ///
             void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
             {
-                std::set<Pixel<dtype> > neighbors;
+                std::set<Pixel<dtype>> neighbors;
                 findNeighbors(inPixel, neighbors);
-                std::vector<Pixel<dtype> > neighborXcds;
+                std::vector<Pixel<dtype>> neighborXcds;
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
                 for (auto& pixel : neighbors)
@@ -288,9 +290,9 @@ namespace nc
                     // not already visited
                     if (currentPixel.clusterId == -1)
                     {
-                        Cluster<dtype> newCluster(clusterId);    // a new cluster
+                        Cluster<dtype> newCluster(clusterId); // a new cluster
                         currentPixel.clusterId = clusterId;
-                        newCluster.addPixel(currentPixel);  // assign pixel to cluster
+                        newCluster.addPixel(currentPixel); // assign pixel to cluster
 
                         // get the neighbors
                         std::vector<uint32> neighborIds;
@@ -315,7 +317,8 @@ namespace nc
                             for (auto newNeighborId : newNeighborIds)
                             {
                                 // not already in neighbors
-                                if (std::find(neighborIds.begin(), neighborIds.end(), newNeighborId) == neighborIds.end())
+                                if (std::find(neighborIds.begin(), neighborIds.end(), newNeighborId) ==
+                                    neighborIds.end())
                                 {
                                     neighborIds.push_back(newNeighborId);
                                 }
@@ -347,7 +350,7 @@ namespace nc
                     // loop through the pixels of the cluster
                     for (auto& thePixel : theCluster)
                     {
-                        std::vector<Pixel<dtype> > neighborsNotXcds;
+                        std::vector<Pixel<dtype>> neighborsNotXcds;
                         findNeighborNotXcds(thePixel, neighborsNotXcds);
 
                         // loop through the neighbors and if they haven't already been added to the cluster, add them
@@ -362,5 +365,5 @@ namespace nc
                 }
             }
         };
-    }  // namespace imageProcessing
-}  // namespace nc
+    } // namespace imageProcessing
+} // namespace nc

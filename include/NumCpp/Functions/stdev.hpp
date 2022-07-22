@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <complex>
+
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/mean.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-
-#include <algorithm>
-#include <cmath>
-#include <complex>
 
 namespace nc
 {
@@ -49,17 +49,15 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         double meanValue = 0.0;
-        double sum = 0.0;
+        double sum       = 0.0;
 
         const auto function = [&sum, &meanValue](dtype value) -> void
-        {
-            sum += utils::sqr(static_cast<double>(value) - meanValue);
-        };
+        { sum += utils::sqr(static_cast<double>(value) - meanValue); };
 
         switch (inAxis)
         {
@@ -78,7 +76,7 @@ namespace nc
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     meanValue = meanValueArray[row];
-                    sum = 0.0;
+                    sum       = 0.0;
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
 
                     returnArray(0, row) = std::sqrt(sum / inArray.numCols());
@@ -88,13 +86,13 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<double> meanValueArray = mean(inArray, inAxis);
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<double> meanValueArray  = mean(inArray, inAxis);
+                NdArray<dtype>  transposedArray = inArray.transpose();
                 NdArray<double> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     meanValue = meanValueArray[row];
-                    sum = 0.0;
+                    sum       = 0.0;
                     std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
 
                     returnArray(0, row) = std::sqrt(sum / transposedArray.numCols());
@@ -121,7 +119,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> stdev(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<std::complex<double>> stdev(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -129,9 +127,7 @@ namespace nc
         std::complex<double> sum(0.0, 0.0);
 
         const auto function = [&sum, &meanValue](std::complex<dtype> value) -> void
-        {
-            sum += utils::sqr(complex_cast<double>(value) - meanValue);
-        };
+        { sum += utils::sqr(complex_cast<double>(value) - meanValue); };
 
         switch (inAxis)
         {
@@ -150,7 +146,7 @@ namespace nc
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
                     meanValue = meanValueArray[row];
-                    sum = std::complex<double>(0.0, 0.0);
+                    sum       = std::complex<double>(0.0, 0.0);
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
 
                     returnArray(0, row) = std::sqrt(sum / static_cast<double>(inArray.numCols()));
@@ -160,13 +156,13 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<double>> meanValueArray = mean(inArray, inAxis);
-                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
+                NdArray<std::complex<double>> meanValueArray  = mean(inArray, inAxis);
+                NdArray<std::complex<dtype>>  transposedArray = inArray.transpose();
                 NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
                     meanValue = meanValueArray[row];
-                    sum = std::complex<double>(0.0, 0.0);
+                    sum       = std::complex<double>(0.0, 0.0);
                     std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
 
                     returnArray(0, row) = std::sqrt(sum / static_cast<double>(transposedArray.numCols()));
@@ -181,4 +177,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

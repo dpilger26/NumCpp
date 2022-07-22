@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <numeric>
+
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
@@ -35,10 +37,6 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 #include "boost/integer/common_factor_rt.hpp"
-#endif
-
-#ifdef __cpp_lib_gcd_lcm
-#include <numeric>
 #endif
 
 namespace nc
@@ -56,7 +54,7 @@ namespace nc
     /// @return dtype
     ///
     template<typename dtype>
-    dtype gcd(dtype inValue1, dtype inValue2) noexcept 
+    dtype gcd(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_INTEGER(dtype);
 

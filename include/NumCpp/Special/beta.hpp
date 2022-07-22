@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/beta.hpp"
 #endif
 
@@ -53,7 +53,7 @@ namespace nc
         ///
         /// @param a
         /// @param b
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype1, typename dtype2>
         auto beta(dtype1 a, dtype2 b)
@@ -83,15 +83,16 @@ namespace nc
         {
             NdArray<decltype(beta(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayB.shape());
 
-            stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(), inArrayB.cbegin(), returnArray.begin(),
-                [](dtype1 a, dtype2 b) -> auto
-                { 
-                    return beta(a, b); 
-                });
+            stl_algorithms::transform(
+                inArrayA.cbegin(),
+                inArrayA.cend(),
+                inArrayB.cbegin(),
+                returnArray.begin(),
+                [](dtype1 a, dtype2 b) -> auto{ return beta(a, b); });
 
             return returnArray;
         }
-    }  // namespace special
+    } // namespace special
 } // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

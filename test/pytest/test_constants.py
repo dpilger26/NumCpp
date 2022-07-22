@@ -1,8 +1,7 @@
 import numpy as np
-import os
+from pathlib import Path
 import re
-import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 NUM_DECIMALS_ROUND = 10
@@ -10,7 +9,8 @@ NUM_DECIMALS_ROUND = 10
 
 ####################################################################################
 def test_version():
-    version_file = r'../../include/NumCpp/Core/Internal/Version.hpp'
+    version_file = (Path(__file__).parent /
+                    r'../../include/NumCpp/Core/Internal/Version.hpp')
     with open(version_file, 'r') as fid:
         version_contents = fid.read()
 

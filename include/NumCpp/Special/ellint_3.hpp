@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/Error.hpp"
@@ -34,9 +36,7 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/ellint_3.hpp"
 #endif
 
@@ -55,7 +55,7 @@ namespace nc
         /// @param inK: elliptic modulus or eccentricity
         /// @param inV: elliptic characteristic
         /// @param inP: Jacobi amplitude (measured in radians)
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(dtype1 inK, dtype2 inV, dtype3 inP)
@@ -85,8 +85,7 @@ namespace nc
         template<typename dtype1, typename dtype2, typename dtype3>
         auto ellint_3(const NdArray<dtype1>& inArrayK, const NdArray<dtype2>& inArrayV, const NdArray<dtype3>& inArrayP)
         {
-            if (inArrayK.size() != inArrayV.size() || 
-                inArrayK.size() != inArrayP.size())
+            if (inArrayK.size() != inArrayV.size() || inArrayK.size() != inArrayP.size())
             {
                 THROW_INVALID_ARGUMENT_ERROR("Shapes of inArrayK, inArrayV, and inArrayP must match.");
             }
@@ -100,7 +99,7 @@ namespace nc
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

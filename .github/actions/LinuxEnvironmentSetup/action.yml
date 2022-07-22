@@ -1,0 +1,28 @@
+name: Linux Environment Setup
+description: "Sets up the linux environment"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+
+    - name: Add conda to system path
+      shell: bash
+      run: |
+        $CONDA/bin/conda init --all
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        $CONDA/bin/conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+
+    - name: Install Dependency libs
+      shell: bash
+      run: |
+        sudo apt update
+        sudo apt install -y libtbb-dev
+        sudo apt install -y libboost-all-dev
+        dpkg -L libboost-system-dev

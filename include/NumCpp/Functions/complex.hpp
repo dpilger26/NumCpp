@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -44,7 +44,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    auto complex(dtype inReal) 
+    auto complex(dtype inReal)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -60,7 +60,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    auto complex(dtype inReal, dtype inImag) 
+    auto complex(dtype inReal, dtype inImag)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -75,14 +75,14 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto complex(const NdArray<dtype>& inReal) 
+    auto complex(const NdArray<dtype>& inReal)
     {
-        NdArray<decltype(nc::complex(dtype{0}))> returnArray(inReal.shape());
-        stl_algorithms::transform(inReal.cbegin(), inReal.cend(), returnArray.begin(),
-            [](dtype real) -> auto
-            {
-                return nc::complex(real); 
-            });
+        NdArray<decltype(nc::complex(dtype{ 0 }))> returnArray(inReal.shape());
+        stl_algorithms::transform(
+            inReal.cbegin(),
+            inReal.cend(),
+            returnArray.begin(),
+            [](dtype real) -> auto{ return nc::complex(real); });
 
         return returnArray;
     }
@@ -103,12 +103,13 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Input real array must be the same shape as input imag array");
         }
 
-        NdArray<decltype(nc::complex(dtype{0}, dtype{0}))> returnArray(inReal.shape());
-        stl_algorithms::transform(inReal.cbegin(), inReal.cend(), inImag.cbegin(), returnArray.begin(),
-            [](dtype real, dtype imag) -> auto
-            {
-                return nc::complex(real, imag); 
-            });
+        NdArray<decltype(nc::complex(dtype{ 0 }, dtype{ 0 }))> returnArray(inReal.shape());
+        stl_algorithms::transform(
+            inReal.cbegin(),
+            inReal.cend(),
+            inImag.cbegin(),
+            returnArray.begin(),
+            [](dtype real, dtype imag) -> auto{ return nc::complex(real, imag); });
 
         return returnArray;
     }

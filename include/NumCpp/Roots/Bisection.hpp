@@ -27,16 +27,17 @@
 /// Finds the roots of the polynomial
 ///
 /// Code modified under MIT license from https://github.com/Ben1980/rootApproximation
-/// as posted in https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
+/// as posted in
+/// https://thoughts-on-coding.com/2019/06/06/numerical-methods-with-cpp-part-3-root-approximation-algorithms/
 ///
 #pragma once
-
-#include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Roots/Iteration.hpp"
 
 #include <cmath>
 #include <functional>
 #include <utility>
+
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Roots/Iteration.hpp"
 
 namespace nc
 {
@@ -54,13 +55,13 @@ namespace nc
             /// Constructor
             ///
             /// @param epsilon: the epsilon value
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Bisection(const double epsilon, 
-                std::function<double(double)>  f) noexcept :
+            Bisection(const double epsilon, std::function<double(double)> f) noexcept :
                 Iteration(epsilon),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -68,14 +69,13 @@ namespace nc
             ///
             /// @param epsilon: the epsilon value
             /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function 
+            /// @param f: the function
             ///
-            Bisection(const double epsilon, 
-                const uint32 maxNumIterations,
-                std::function<double(double)>  f) noexcept :
+            Bisection(const double epsilon, const uint32 maxNumIterations, std::function<double(double)> f) noexcept :
                 Iteration(epsilon, maxNumIterations),
                 f_(std::move(f))
-            {}
+            {
+            }
 
             //============================================================================
             // Method Description:
@@ -96,12 +96,12 @@ namespace nc
                 resetNumberOfIterations();
                 checkAndFixAlgorithmCriteria(a, b);
 
-                double x = 0.5 * (a + b);
+                double x  = 0.5 * (a + b);
                 double fx = f_(x);
 
                 while (std::fabs(fx) >= epsilon_)
                 {
-                    x = calculateX(x, a, b, fx);
+                    x  = calculateX(x, a, b, fx);
                     fx = f_(x);
 
                     incrementNumberOfIterations();
@@ -123,7 +123,7 @@ namespace nc
             ///
             void checkAndFixAlgorithmCriteria(double &a, double &b) const noexcept
             {
-                //Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
+                // Algorithm works in range [a,b] if criteria f(a)*f(b) < 0 and f(a) > f(b) is fulfilled
                 if (f_(a) < f_(b))
                 {
                     std::swap(a, b);
@@ -140,7 +140,7 @@ namespace nc
             /// @param fx: the function evaluated at x
             /// @return x
             ///
-            static double calculateX(double x, double &a, double &b, double fx) noexcept 
+            static double calculateX(double x, double &a, double &b, double fx) noexcept
             {
                 if (fx < 0)
                 {
@@ -154,5 +154,5 @@ namespace nc
                 return 0.5 * (a + b);
             }
         };
-    }  // namespace roots
-}  // namespace nc
+    } // namespace roots
+} // namespace nc

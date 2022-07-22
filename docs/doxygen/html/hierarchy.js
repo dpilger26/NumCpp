@@ -31,6 +31,7 @@ var hierarchy =
       [ "nc::NdArrayIterator< dtype, PointerType, DifferenceType >", "classnc_1_1_nd_array_iterator.html", null ]
     ] ],
     [ "nc::polynomial::Poly1d< dtype >", "classnc_1_1polynomial_1_1_poly1d.html", null ],
+    [ "nc::random::RNG< GeneratorType >", "classnc_1_1random_1_1_r_n_g.html", null ],
     [ "nc::roots::Iteration", "classnc_1_1roots_1_1_iteration.html", [
       [ "nc::roots::Bisection", "classnc_1_1roots_1_1_bisection.html", null ],
       [ "nc::roots::Brent", "classnc_1_1roots_1_1_brent.html", null ],

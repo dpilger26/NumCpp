@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <complex>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-
-#include <algorithm>
-#include <cmath>
-#include <complex>
 
 namespace nc
 {
@@ -48,15 +48,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        double sumOfSquares = 0.0;
-        const auto function = [&sumOfSquares](dtype value) -> void
-        {
-            sumOfSquares += utils::sqr(static_cast<double>(value));
-        };
+        double     sumOfSquares = 0.0;
+        const auto function     = [&sumOfSquares](dtype value) -> void
+        { sumOfSquares += utils::sqr(static_cast<double>(value)); };
 
         switch (inAxis)
         {
@@ -81,7 +79,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
+                NdArray<dtype>  transposedArray = inArray.transpose();
                 NdArray<double> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
@@ -110,15 +108,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<std::complex<double>> norm(const NdArray<std::complex<dtype>>& inArray, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
         std::complex<double> sumOfSquares(0.0, 0.0);
-        const auto function = [&sumOfSquares](const std::complex<dtype>& value) -> void
-        {
-            sumOfSquares += utils::sqr(complex_cast<double>(value));
-        };
+        const auto           function = [&sumOfSquares](const std::complex<dtype>& value) -> void
+        { sumOfSquares += utils::sqr(complex_cast<double>(value)); };
 
         switch (inAxis)
         {
@@ -143,7 +139,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
+                NdArray<std::complex<dtype>>  transposedArray = inArray.transpose();
                 NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
@@ -161,4 +157,4 @@ namespace nc
             }
         }
     }
-}  // namespace nc
+} // namespace nc

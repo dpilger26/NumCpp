@@ -39,7 +39,7 @@ namespace nc
     /// @return Endian
     ///
     template<typename dtype>
-    Endian endianess(const NdArray<dtype>& inArray) noexcept 
+    Endian endianess(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.endianess();
     }

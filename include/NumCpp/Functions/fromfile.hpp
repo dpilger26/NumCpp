@@ -27,16 +27,16 @@
 ///
 #pragma once
 
+#include <fstream>
+#include <memory>
+#include <sstream>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <fstream>
-#include <memory>
-#include <sstream>
-#include <string>
 
 namespace nc
 {
@@ -83,7 +83,7 @@ namespace nc
 
         return returnArray;
     }
-        
+
     //============================================================================
     // Method Description:
     /// Construct an array from data in a text file.
@@ -106,7 +106,7 @@ namespace nc
         }
 
         std::vector<dtype> values;
-        uint32 lineNumber = 0;
+        uint32             lineNumber = 0;
         while (!file.eof())
         {
             std::string line;
@@ -136,4 +136,4 @@ namespace nc
 
         return NdArray<dtype>(values);
     }
-}  // namespace nc
+} // namespace nc

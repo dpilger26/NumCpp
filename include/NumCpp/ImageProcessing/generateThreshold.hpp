@@ -28,15 +28,15 @@
 
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -92,19 +92,19 @@ namespace nc
             }
 
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
-            const auto dNumPixels = static_cast<double>(inImageArray.size());
+            const auto      dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
             survivalFunction[-1] = 0.0;
             for (int32 i = histSize - 1; i > -1; --i)
             {
-                double histValue = histogram[i] / dNumPixels;
+                double histValue    = histogram[i] / dNumPixels;
                 survivalFunction[i] = survivalFunction[i + 1] + histValue;
             }
 
             // binary search through the survival function to find the rate
-            uint32 indexLow = 0;
+            uint32 indexLow  = 0;
             uint32 indexHigh = histSize - 1;
-            uint32 index = indexHigh / 2; // integer division
+            uint32 index     = indexHigh / 2; // integer division
 
             constexpr bool keepGoing = true;
             while (keepGoing)

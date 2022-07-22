@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+#include <utility>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/gaussian.hpp"
-
-#include <cmath>
-#include <string>
-#include <utility>
 
 namespace nc
 {
@@ -45,7 +45,8 @@ namespace nc
         // Method Description:
         /// Calculates a multidimensional gaussian filter.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
         ///
         /// @param inImageArray
         /// @param inSigma: Standard deviation for Gaussian kernel
@@ -54,8 +55,10 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray,
+                                      double                inSigma,
+                                      Boundary              inBoundaryType  = Boundary::REFLECT,
+                                      dtype                 inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -64,7 +67,8 @@ namespace nc
 
             // calculate the kernel size based off of the input sigma value
             constexpr uint32 MIN_KERNEL_SIZE = 5;
-            uint32 kernelSize = std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); // 4 standard deviations
+            uint32           kernelSize =
+                std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); // 4 standard deviations
             if (kernelSize % 2 == 0)
             {
                 ++kernelSize; // make sure the kernel is an odd size
@@ -87,11 +91,9 @@ namespace nc
             kernel /= kernel.sum().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
-                kernelSize,
-                kernel,
-                inBoundaryType,
-                inConstantValue).template astype<dtype>();
+            NdArray<dtype> output =
+                convolve(inImageArray.template astype<double>(), kernelSize, kernel, inBoundaryType, inConstantValue)
+                    .template astype<dtype>();
 
             return output;
         }

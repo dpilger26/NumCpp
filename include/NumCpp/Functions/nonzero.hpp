@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-
 #include <utility>
+
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -45,8 +45,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) 
+    std::pair<NdArray<uint32>, NdArray<uint32>> nonzero(const NdArray<dtype>& inArray)
     {
         return inArray.nonzero();
     }
-}  // namespace nc
+} // namespace nc

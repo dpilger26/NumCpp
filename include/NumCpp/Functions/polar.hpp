@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <complex>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <complex>
 
 namespace nc
 {
@@ -42,11 +42,11 @@ namespace nc
     ///
     /// @param magnitude
     /// @param phaseAngle
-    /// 
+    ///
     /// @return std::complex
     ///
     template<typename dtype>
-    auto polar(dtype magnitude, dtype phaseAngle) 
+    auto polar(dtype magnitude, dtype phaseAngle)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -69,13 +69,14 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Input magnitude and phaseAngle arrays must be the same shape");
         }
 
-        NdArray<decltype(nc::polar(dtype{0}, dtype{0}))> returnArray(magnitude.shape());
-        stl_algorithms::transform(magnitude.cbegin(), magnitude.cend(), phaseAngle.begin(), returnArray.begin(),
-            [](dtype mag, dtype angle) -> auto
-            {
-                return nc::polar(mag, angle);
-            });
+        NdArray<decltype(nc::polar(dtype{ 0 }, dtype{ 0 }))> returnArray(magnitude.shape());
+        stl_algorithms::transform(
+            magnitude.cbegin(),
+            magnitude.cend(),
+            phaseAngle.begin(),
+            returnArray.begin(),
+            [](dtype mag, dtype angle) -> auto{ return nc::polar(mag, angle); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <initializer_list>
+
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/column_stack.hpp"
 #include "NumCpp/Functions/row_stack.hpp"
-
-#include <initializer_list>
 
 namespace nc
 {
@@ -48,7 +48,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype>>& inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
         {
@@ -61,7 +61,7 @@ namespace nc
                 }
 
                 NdArray<dtype> returnArray(1, finalSize);
-                uint32 offset = 0;
+                uint32         offset = 0;
                 for (auto& ndarray : inArrayList)
                 {
                     stl_algorithms::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);

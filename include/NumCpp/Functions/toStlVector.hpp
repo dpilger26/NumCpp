@@ -39,8 +39,8 @@ namespace nc
     /// @return std::vector
     ///
     template<typename dtype>
-    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray) 
+    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray)
     {
         return inArray.toStlVector();
     }
-}  // namespace nc
+} // namespace nc

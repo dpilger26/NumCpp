@@ -29,8 +29,8 @@
 
 #include <cmath>
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -52,16 +52,16 @@ namespace nc
             return {};
         }
 
-        const auto mDouble = static_cast<double>(m);
+        const auto mDouble         = static_cast<double>(m);
         const auto twoPiDivMMinus1 = (2.0 * constants::pi) / (mDouble - 1.0);
 
         NdArray<double> result(1, m);
-        int32 i = 0; 
+        int32           i = 0;
         for (auto n : linspace(0.0, mDouble - 1.0, m, true))
         {
             result[i++] = 0.5 - 0.5 * std::cos(twoPiDivMMinus1 * n);
-        }   
+        }
 
         return result;
     }
-}  // namespace nc
+} // namespace nc

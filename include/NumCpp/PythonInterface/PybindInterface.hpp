@@ -29,29 +29,36 @@
 
 #ifdef NUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 
-#include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Shape.hpp"
-#include "NumCpp/NdArray.hpp"
-
-#include "pybind11/pybind11.h"
 #include "pybind11/numpy.h"
+#include "pybind11/pybind11.h"
 
 #include <map>
 #include <utility>
+
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
     namespace pybindInterface
     {
         /// Enum for the pybind array return policy
-        enum class ReturnPolicy { COPY, REFERENCE, TAKE_OWNERSHIP };
+        enum class ReturnPolicy
+        {
+            COPY,
+            REFERENCE,
+            TAKE_OWNERSHIP
+        };
 
-        static const std::map<ReturnPolicy, std::string> returnPolicyStringMap = { {ReturnPolicy::COPY, "COPY"},
-        {ReturnPolicy::REFERENCE, "REFERENCE"},
-        {ReturnPolicy::TAKE_OWNERSHIP, "TAKE_OWNERSHIP"} };
+        static const std::map<ReturnPolicy, std::string> returnPolicyStringMap = {
+            { ReturnPolicy::COPY, "COPY" },
+            { ReturnPolicy::REFERENCE, "REFERENCE" },
+            { ReturnPolicy::TAKE_OWNERSHIP, "TAKE_OWNERSHIP" }
+        };
 
         template<typename dtype>
-        using pbArray = pybind11::array_t<dtype, pybind11::array::c_style>;
+        using pbArray        = pybind11::array_t<dtype, pybind11::array::c_style>;
         using pbArrayGeneric = pybind11::array;
 
         //============================================================================
@@ -136,13 +143,13 @@ namespace nc
         /// @return pybind11::array_t
         ///
         template<typename dtype>
-        pbArrayGeneric nc2pybind(const NdArray<dtype>& inArray) 
+        pbArrayGeneric nc2pybind(const NdArray<dtype>& inArray)
         {
-            const Shape inShape = inArray.shape();
-            const std::vector<pybind11::ssize_t> shape{ static_cast<pybind11::ssize_t>(inShape.rows), 
-                static_cast<pybind11::ssize_t>(inShape.cols) };
-            const std::vector<pybind11::ssize_t> strides{ static_cast<pybind11::ssize_t>(inShape.cols * sizeof(dtype)), 
-                static_cast<pybind11::ssize_t>(sizeof(dtype)) };
+            const Shape                          inShape = inArray.shape();
+            const std::vector<pybind11::ssize_t> shape{ static_cast<pybind11::ssize_t>(inShape.rows),
+                                                        static_cast<pybind11::ssize_t>(inShape.cols) };
+            const std::vector<pybind11::ssize_t> strides{ static_cast<pybind11::ssize_t>(inShape.cols * sizeof(dtype)),
+                                                          static_cast<pybind11::ssize_t>(sizeof(dtype)) };
             return pbArrayGeneric(shape, strides, inArray.data());
         }
 
@@ -155,13 +162,13 @@ namespace nc
         /// @return pybind11::array_t
         ///
         template<typename dtype>
-        pbArrayGeneric nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy) 
+        pbArrayGeneric nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy)
         {
-            const Shape inShape = inArray.shape();
-            const std::vector<pybind11::ssize_t> shape{ static_cast<pybind11::ssize_t>(inShape.rows), 
-                static_cast<pybind11::ssize_t>(inShape.cols) };
+            const Shape                          inShape = inArray.shape();
+            const std::vector<pybind11::ssize_t> shape{ static_cast<pybind11::ssize_t>(inShape.rows),
+                                                        static_cast<pybind11::ssize_t>(inShape.cols) };
             const std::vector<pybind11::ssize_t> strides{ static_cast<pybind11::ssize_t>(inShape.cols * sizeof(dtype)),
-                static_cast<pybind11::ssize_t>(sizeof(dtype)) };
+                                                          static_cast<pybind11::ssize_t>(sizeof(dtype)) };
 
             switch (returnPolicy)
             {
@@ -177,22 +184,22 @@ namespace nc
                 case ReturnPolicy::TAKE_OWNERSHIP:
                 {
                     typename pybind11::capsule garbageCollect(inArray.dataRelease(),
-                        [](void* ptr)
-                        {
-                            dtype* dataPtr = reinterpret_cast<dtype*>(ptr);
-                            delete[] dataPtr;
-                        }
-                    );
+                                                              [](void* ptr)
+                                                              {
+                                                                  dtype* dataPtr = reinterpret_cast<dtype*>(ptr);
+                                                                  delete[] dataPtr;
+                                                              });
                     return pbArrayGeneric(shape, strides, inArray.data(), garbageCollect);
                 }
                 default:
                 {
                     std::stringstream sstream;
-                    sstream << "ReturnPolicy " << returnPolicyStringMap.at(returnPolicy) << " has not been implemented yet" << std::endl;
+                    sstream << "ReturnPolicy " << returnPolicyStringMap.at(returnPolicy)
+                            << " has not been implemented yet" << std::endl;
                     THROW_INVALID_ARGUMENT_ERROR(sstream.str());
                 }
             }
         }
-    }
-}
+    } // namespace pybindInterface
+} // namespace nc
 #endif

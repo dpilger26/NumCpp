@@ -27,10 +27,10 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Functions/fromfile.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -49,4 +49,4 @@ namespace nc
     {
         return fromfile<dtype>(inFilename);
     }
-}  // namespace nc
+} // namespace nc

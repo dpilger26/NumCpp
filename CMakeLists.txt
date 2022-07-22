@@ -1,10 +1,15 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.14...3.99)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
+
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
 option(BUILD_ALL "Build All targets" OFF)
 option(BUILD_DOCS "Build the doxygen documentation" OFF)
@@ -15,6 +20,9 @@ option(BUILD_EXAMPLE_GAUSS_NEWTON_NLLS "Build the Gauss-Newton NLLS example" OFF
 option(BUILD_EXAMPLE_INTERFACE_WITH_EIGEN "Build the Interface with Eigen example" OFF)
 option(BUILD_EXAMPLE_INTERFACE_WITH_OPENCV "Build the Interface with OpenCV example" OFF)
 option(BUILD_EXAMPLE_README "Build the README example" OFF)
+
+option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" OFF)
+option(NUMCPP_USE_MULTITHREAD "Enable multithreading" OFF)
 
 if(BUILD_ALL)
     set(BUILD_DOCS ON)
@@ -30,6 +38,44 @@ if(BUILD_EXAMPLE_ALL)
     set(BUILD_EXAMPLE_README ON)
 endif()
 
+set(ALL_INTERFACE_TARGET compile_definitions)
+add_library(${ALL_INTERFACE_TARGET} INTERFACE)
+
+if(NUMCPP_NO_USE_BOOST)
+    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
+else()
+    find_package(Boost 1.68.0 REQUIRED)
+    target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE Boost::boost)
+endif()
+
+if(NUMCPP_USE_MULTITHREAD)
+    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
+endif()
+
+target_compile_options(${ALL_INTERFACE_TARGET} INTERFACE
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-W>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wall>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wextra>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-pedantic>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wdouble-promotion>
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-Wunused>
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<CXX_COMPILER_ID:MSVC>:/Zi>
+  $<$<CXX_COMPILER_ID:MSVC>:/sdl>
+  $<$<CXX_COMPILER_ID:MSVC>:/MP>
+  $<$<CXX_COMPILER_ID:MSVC>:/Gy>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Oi>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/Ot>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/GL>
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/bigobj>
+)
+
+target_link_options(${ALL_INTERFACE_TARGET} INTERFACE
+  $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/LTCG>
+)
+
+get_filename_component(NUMCPP_INCLUDES ./include ABSOLUTE)
+
 include(NumCppTools)
 numcpp_find_version_file("" NUMCPP_VERSION_FILE)
 message(STATUS "Found version file: ${NUMCPP_VERSION_FILE}")
@@ -43,6 +89,8 @@ project("NumCpp"
 )
 
 message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
+
+set(OUTPUT_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin/$<0:>)
 
 if (BUILD_TESTS OR BUILD_MULTIPLE_TEST) 
     add_subdirectory(test)
@@ -62,6 +110,7 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 target_compile_features(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:cxx_std_17>)
 
 if (BUILD_DOCS)
+    set(-Wno-dev)
     message(STATUS "Configuring Doxygen docs")
     find_package(Doxygen QUIET)
     if(DOXYGEN_FOUND)

@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <complex>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <complex>
-#include <string>
 
 namespace nc
 {
@@ -52,15 +52,13 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    dtype fmin(dtype inValue1, dtype inValue2) noexcept 
+    dtype fmin(dtype inValue1, dtype inValue2) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        return std::min(inValue1, inValue2, 
-            [](const dtype value1, const dtype value2) noexcept -> bool
-            {
-                return value1 < value2;
-            });
+        return std::min(inValue1,
+                        inValue2,
+                        [](const dtype value1, const dtype value2) noexcept -> bool { return value1 < value2; });
     }
 
     //============================================================================
@@ -86,11 +84,12 @@ namespace nc
 
         NdArray<dtype> returnArray(inArray1.shape());
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> dtype
-            {
-                return fmin(inValue1, inValue2); 
-            });
+        stl_algorithms::transform(inArray1.cbegin(),
+                                  inArray1.cend(),
+                                  inArray2.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                                  { return fmin(inValue1, inValue2); });
 
         return returnArray;
     }

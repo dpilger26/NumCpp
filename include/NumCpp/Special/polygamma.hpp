@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/polygamma.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/polygamma.hpp"
 
 namespace nc
 {
@@ -68,19 +68,19 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        auto polygamma(uint32 n, const NdArray<dtype>& inArray) 
+        auto polygamma(uint32 n, const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(polygamma(n, dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(polygamma(n, dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [n](dtype inValue) -> auto
-                { 
-                    return polygamma(n, inValue);
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [n](dtype inValue) -> auto{ return polygamma(n, inValue); });
 
             return returnArray;
         }
     } // namespace special
-}  // namespace nc
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

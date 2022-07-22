@@ -48,7 +48,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) 
+    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -98,7 +98,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, int32 inK = 0) 
+    NdArray<dtype> eye(uint32 inN, int32 inK = 0)
     {
         return eye<dtype>(inN, inN, inK);
     }
@@ -116,7 +116,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0) 
+    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
     {
         return eye<dtype>(inShape.rows, inShape.cols, inK);
     }

@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-
 #include <string>
+
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
 namespace nc
 {
@@ -43,11 +43,11 @@ namespace nc
         /// @return std::string
         ///
         template<typename dtype>
-        std::string num2str(dtype inNumber) 
+        std::string num2str(dtype inNumber)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             return std::to_string(inNumber);
         }
-    }  // namespace utils
-}  // namespace nc
+    } // namespace utils
+} // namespace nc

@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <iostream>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
-
-#include <cmath>
-#include <iostream>
-#include <string>
 
 namespace nc
 {
@@ -43,7 +43,11 @@ namespace nc
     {
         //================================================================================
         /// Struct Enum for positive or negative Dec angle
-        enum class Sign { NEGATIVE = 0, POSITIVE };
+        enum class Sign
+        {
+            NEGATIVE = 0,
+            POSITIVE
+        };
 
         //================================================================================
         /// Holds a Declination object
@@ -69,13 +73,13 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input degrees must be of the range [-90, 90]");
                 }
 
-                sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
+                sign_                   = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
                 const double absDegrees = std::abs(degrees_);
-                degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
+                degreesWhole_           = static_cast<uint8>(std::floor(absDegrees));
 
                 const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
-                minutes_ = static_cast<uint8>(std::floor(decMinutes));
-                seconds_ = (decMinutes - static_cast<double>(minutes_)) * 60.0;
+                minutes_                = static_cast<uint8>(std::floor(decMinutes));
+                seconds_                = (decMinutes - static_cast<double>(minutes_)) * 60.0;
             }
 
             //============================================================================
@@ -92,7 +96,8 @@ namespace nc
                 minutes_(inMinutes),
                 seconds_(inSeconds)
             {
-                degrees_ = static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + seconds_ / 3600.0;
+                degrees_ =
+                    static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + seconds_ / 3600.0;
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
 
                 radians_ = deg2rad(degrees_);
@@ -103,7 +108,7 @@ namespace nc
             ///
             /// @return Sign
             ///
-            Sign sign() const noexcept 
+            Sign sign() const noexcept
             {
                 return sign_;
             }
@@ -113,7 +118,7 @@ namespace nc
             ///
             /// @return degrees
             ///
-            double degrees() const noexcept 
+            double degrees() const noexcept
             {
                 return degrees_;
             }
@@ -123,7 +128,7 @@ namespace nc
             ///
             /// @return minutes
             ///
-            double radians() const noexcept 
+            double radians() const noexcept
             {
                 return radians_;
             }
@@ -133,7 +138,7 @@ namespace nc
             ///
             /// @return whole degrees
             ///
-            uint8 degreesWhole() const noexcept 
+            uint8 degreesWhole() const noexcept
             {
                 return degreesWhole_;
             }
@@ -143,7 +148,7 @@ namespace nc
             ///
             /// @return minutes
             ///
-            uint8 minutes() const noexcept 
+            uint8 minutes() const noexcept
             {
                 return minutes_;
             }
@@ -153,7 +158,7 @@ namespace nc
             ///
             /// @return seconds
             ///
-            double seconds() const noexcept 
+            double seconds() const noexcept
             {
                 return seconds_;
             }
@@ -166,7 +171,8 @@ namespace nc
             std::string str() const
             {
                 std::string strSign = sign_ == Sign::NEGATIVE ? "-" : "+";
-                std::string out = "Dec dms: " + strSign + utils::num2str(degreesWhole_) + " degrees, " + utils::num2str(minutes_) + " minutes, ";
+                std::string out     = "Dec dms: " + strSign + utils::num2str(degreesWhole_) + " degrees, " +
+                                  utils::num2str(minutes_) + " minutes, ";
                 out += utils::num2str(seconds_) + " seconds\nDec degrees = " + utils::num2str(degrees_) + '\n';
                 return out;
             }
@@ -219,12 +225,12 @@ namespace nc
 
         private:
             //====================================Attributes==============================
-            Sign            sign_{ Sign::POSITIVE };
-            uint8           degreesWhole_{ 0 };
-            uint8           minutes_{ 0 };
-            double          seconds_{ 0.0 };
-            double          degrees_{ 0.0 };
-            double          radians_{ 0.0 };
+            Sign   sign_{ Sign::POSITIVE };
+            uint8  degreesWhole_{ 0 };
+            uint8  minutes_{ 0 };
+            double seconds_{ 0.0 };
+            double degrees_{ 0.0 };
+            double radians_{ 0.0 };
         };
-    }  // namespace coordinates
-}  // namespace nc
+    } // namespace coordinates
+} // namespace nc

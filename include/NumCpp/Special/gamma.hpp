@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/gamma.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/gamma.hpp"
 
 namespace nc
 {
@@ -66,17 +66,17 @@ namespace nc
         template<typename dtype>
         auto gamma(const NdArray<dtype>& inArray)
         {
-            NdArray<decltype(gamma(dtype{0}))> returnArray(inArray.shape());
+            NdArray<decltype(gamma(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](dtype inValue) -> auto
-                { 
-                    return gamma(inValue); 
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [](dtype inValue) -> auto{ return gamma(inValue); });
 
             return returnArray;
         }
-    }  // namespace special
+    } // namespace special
 } // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

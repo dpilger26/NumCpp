@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -62,7 +62,7 @@ namespace nc
                 {
                     break;
                 }
-                
+
                 ++place;
             }
 
@@ -140,8 +140,8 @@ namespace nc
 
             return returnArray;
         }
-        
+
         THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
         return {};
     }
-}  // namespace nc
+} // namespace nc

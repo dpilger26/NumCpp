@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/bessel.hpp"
 #endif
 
@@ -53,7 +53,7 @@ namespace nc
         ///
         /// @param inV: the order of the bessel function
         /// @param inX: the input value
-        /// @return calculated-result-type 
+        /// @return calculated-result-type
         ///
         template<typename dtype1, typename dtype2>
         auto bessel_jn(dtype1 inV, dtype2 inX)
@@ -62,9 +62,9 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
 #ifdef __cpp_lib_math_special_functions
-            return std::cyl_bessel_j(inV, inX);
+            return std::cyl_bessel_j(static_cast<double>(inV), static_cast<double>(inX));
 #else
-            return boost::math::cyl_bessel_j(inV, inX);
+            return boost::math::cyl_bessel_j(static_cast<double>(inV), static_cast<double>(inX));
 #endif
         }
 
@@ -83,11 +83,11 @@ namespace nc
         {
             NdArray<decltype(bessel_jn(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype2 inX) -> auto
-                { 
-                    return bessel_jn(inV, inX);
-                });
+            stl_algorithms::transform(
+                inArrayX.cbegin(),
+                inArrayX.cend(),
+                returnArray.begin(),
+                [inV](dtype2 inX) -> auto{ return bessel_jn(inV, inX); });
 
             return returnArray;
         }

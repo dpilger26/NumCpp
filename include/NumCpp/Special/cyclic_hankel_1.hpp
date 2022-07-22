@@ -29,13 +29,13 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/NdArray.hpp"
+#include <complex>
+#include <type_traits>
 
 #include "boost/math/special_functions/hankel.hpp"
 
-#include <complex>
-#include <type_traits>
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -73,15 +73,15 @@ namespace nc
         {
             NdArray<decltype(cyclic_hankel_1(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inX.shape());
 
-            stl_algorithms::transform(inX.cbegin(), inX.cend(), returnArray.begin(),
-                [inV](dtype2 x) -> auto
-            { 
-                return cyclic_hankel_1(inV, x); 
-            });
+            stl_algorithms::transform(
+                inX.cbegin(),
+                inX.cend(),
+                returnArray.begin(),
+                [inV](dtype2 x) -> auto{ return cyclic_hankel_1(inV, x); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

@@ -43,8 +43,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.ptp(inAxis);
     }
-}  // namespace nc
+} // namespace nc

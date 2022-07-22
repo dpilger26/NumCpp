@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
@@ -34,8 +36,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
 #include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -45,7 +45,8 @@ namespace nc
         // Method Description:
         /// Calculates a multidimensional rank filter.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///
         /// @param inImageArray
         /// @param inSize: square size of the kernel to apply
@@ -55,28 +56,32 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray,
+                                  uint32                inSize,
+                                  uint32                inRank,
+                                  Boundary              inBoundaryType  = Boundary::REFLECT,
+                                  dtype                 inConstantValue = 0)
         {
             if (inRank >= utils::sqr(inSize))
             {
                 THROW_INVALID_ARGUMENT_ERROR("rank not within filter footprint size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary =
+                boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            const Shape inShape = inImageArray.shape();
+            const Shape  inShape      = inImageArray.shape();
             const uint32 boundarySize = inSize / 2; // integer division
-            const uint32 endPointRow = boundarySize + inShape.rows;
-            const uint32 endPointCol = boundarySize + inShape.cols;
+            const uint32 endPointRow  = boundarySize + inShape.rows;
+            const uint32 endPointCol  = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
                 for (uint32 col = boundarySize; col < endPointCol; ++col)
                 {
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
-                        Slice(col - boundarySize, col + boundarySize + 1));
+                                                              Slice(col - boundarySize, col + boundarySize + 1));
 
                     output(row - boundarySize, col - boundarySize) = sort(window)[inRank];
                 }
@@ -84,5 +89,5 @@ namespace nc
 
             return output;
         }
-    }  // namespace filter
-}  // namespace nc
+    } // namespace filter
+} // namespace nc

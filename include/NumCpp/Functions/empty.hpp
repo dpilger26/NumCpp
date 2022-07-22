@@ -44,7 +44,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols) 
+    NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols)
     {
         return NdArray<dtype>(inNumRows, inNumCols);
     }
@@ -59,7 +59,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> empty(const Shape& inShape) 
+    NdArray<dtype> empty(const Shape& inShape)
     {
         return NdArray<dtype>(inShape);
     }

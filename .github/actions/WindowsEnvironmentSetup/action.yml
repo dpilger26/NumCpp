@@ -1,0 +1,35 @@
+name: Windows Environment Setup
+description: "Sets up the windows environment"
+
+outputs:
+  BOOST_ROOT:
+    description: "The Boost root directory"
+    value: ${{ steps.install-boost.outputs.BOOST_ROOT }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+
+    - name: Add conda to system path
+      shell: pwsh
+      run: |
+        C:\Miniconda\condabin\conda.bat init --all
+
+    - name: Install dependencies
+      shell: pwsh
+      run: |
+        C:\Miniconda\condabin\conda.bat env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+
+    - name: Install boost
+      uses: MarkusJx/install-boost@v2.3.0
+      id: install-boost
+      with:
+        boost_version: 1.79.0
+        platform_version: 2022
+        toolset: msvc
+        link: static
+        arch: x86

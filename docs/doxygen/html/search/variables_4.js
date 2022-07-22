@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['generator_5f_2360',['generator_',['../namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95',1,'nc::random']]],
-  ['greaterthan_5fv_2361',['greaterThan_v',['../namespacenc.html#a4cdb8bc70afcd7483d200f235181471c',1,'nc']]]
+  ['e_2401',['e',['../namespacenc_1_1constants.html#aebabe96d6c2be3df3d71922b399e24c7',1,'nc::constants']]],
+  ['epsilon_5f_2402',['epsilon_',['../classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a',1,'nc::roots::Iteration']]]
 ];

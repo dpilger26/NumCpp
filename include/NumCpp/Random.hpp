@@ -27,7 +27,8 @@
 ///
 #pragma once
 
-#include "NumCpp/Random/bernoilli.hpp"
+#include "NumCpp/Random/RNG.hpp"
+#include "NumCpp/Random/bernoulli.hpp"
 #include "NumCpp/Random/beta.hpp"
 #include "NumCpp/Random/binomial.hpp"
 #include "NumCpp/Random/cauchy.hpp"

@@ -27,11 +27,11 @@
 ///
 #pragma once
 
+#include <utility>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/arange.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <utility>
 
 namespace nc
 {
@@ -50,14 +50,14 @@ namespace nc
     /// @return std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
     ///
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords) 
+    std::pair<NdArray<dtype>, NdArray<dtype>> meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        const uint32 numRows = inJCoords.size();
-        const uint32 numCols = inICoords.size();
-        auto returnArrayI = NdArray<dtype>(numRows, numCols);
-        auto returnArrayJ = NdArray<dtype>(numRows, numCols);
+        const uint32 numRows      = inJCoords.size();
+        const uint32 numCols      = inICoords.size();
+        auto         returnArrayI = NdArray<dtype>(numRows, numCols);
+        auto         returnArrayJ = NdArray<dtype>(numRows, numCols);
 
         // first the I array
         for (uint32 row = 0; row < numRows; ++row)
@@ -94,7 +94,7 @@ namespace nc
     /// @return std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
     ///
     template<typename dtype>
-    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
+    std::pair<NdArray<dtype>, NdArray<dtype>> meshgrid(const Slice& inSlice1, const Slice& inSlice2)
     {
         return meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2));
     }

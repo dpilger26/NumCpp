@@ -27,13 +27,17 @@
 ///
 #pragma once
 
+#include <algorithm>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/zeros.hpp"
+#include "NumCpp/Linalg/det.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc
 {
@@ -51,7 +55,7 @@ namespace nc
         template<typename dtype>
         NdArray<double> inv(const NdArray<dtype>& inArray)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -59,68 +63,74 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input array must be square.");
             }
 
-            const uint32 order = inShape.rows;
+            NdArray<double> inArrayDouble = inArray.template astype<double>();
+            NdArray<int>    incidence     = nc::zeros<int>(inShape);
 
-            Shape newShape(inShape);
-            newShape.rows *= 2;
-            newShape.cols *= 2;
-
-            NdArray<double> tempArray(newShape);
-            for (uint32 row = 0; row < order; ++row)
+            for (uint32 k = 0; k < inShape.rows - 1; ++k)
             {
-                for (uint32 col = 0; col < order; ++col)
+                if (utils::essentiallyEqual(inArrayDouble(k, k), 0.0))
                 {
-                    tempArray(row, col) = static_cast<double>(inArray(row, col));
+                    uint32 l = k;
+                    while (l < inShape.cols && utils::essentiallyEqual(inArrayDouble(k, l), 0.0))
+                    {
+                        ++l;
+                    }
+
+                    inArrayDouble.swapRows(k, l);
+                    incidence(k, k) = 1;
+                    incidence(k, l) = 1;
                 }
             }
 
-            for (uint32 row = 0; row < order; ++row)
-            {
-                for (uint32 col = order; col < 2 * order; ++col)
-                {
-                    if (row == col - order)
-                    {
-                        tempArray(row, col) = 1.0;
-                    }
-                    else
-                    {
-                        tempArray(row, col) = 0.0;
-                    }
-                }
-            }
+            NdArray<double> result(inShape);
 
-            for (uint32 row = 0; row < order; ++row)
+            for (uint32 k = 0; k < inShape.rows; ++k)
             {
-                double t = tempArray(row, row);
-                for (uint32 col = row; col < 2 * order; ++col)
+                result(k, k) = -1.0 / inArrayDouble(k, k);
+                for (uint32 i = 0; i < inShape.rows; ++i)
                 {
-                    tempArray(row, col) /= t;
-                }
-
-                for (uint32 col = 0; col < order; ++col)
-                {
-                    if (row != col)
+                    for (uint32 j = 0; j < inShape.cols; ++j)
                     {
-                        t = tempArray(col, row);
-                        for (uint32 k = 0; k < 2 * order; ++k)
+                        if ((i - k) && (j - k))
                         {
-                            tempArray(col, k) -= t * tempArray(row, k);
+                            result(i, j) =
+                                inArrayDouble(i, j) + inArrayDouble(k, j) * inArrayDouble(i, k) * result(k, k);
+                        }
+                        else if ((i - k) && !(j - k))
+                        {
+                            result(i, k) = inArrayDouble(i, k) * result(k, k);
+                        }
+                        else if (!(i - k) && (j - k))
+                        {
+                            result(k, j) = inArrayDouble(k, j) * result(k, k);
                         }
                     }
                 }
+
+                inArrayDouble = result;
             }
 
-            NdArray<double> returnArray(inShape);
-            for (uint32 row = 0; row < order; row++)
+            result *= -1.0;
+
+            for (int i = static_cast<int>(inShape.rows) - 1; i >= 0; --i)
             {
-                uint32 colCounter = 0;
-                for (uint32 col = order; col < 2 * order; ++col)
+                if (incidence(i, i) != 1)
                 {
-                    returnArray(row, colCounter++) = tempArray(row, col);
+                    continue;
+                }
+
+                int k = 0;
+                for (; k < static_cast<int>(inShape.cols); ++k)
+                {
+                    if ((k - i) && incidence(i, k) != 0)
+                    {
+                        result.swapCols(i, k);
+                        break;
+                    }
                 }
             }
 
-            return returnArray;
+            return result;
         }
     } // namespace linalg
-}  // namespace nc
+} // namespace nc

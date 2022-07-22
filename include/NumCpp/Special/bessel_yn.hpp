@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/bessel.hpp"
 #endif
 
@@ -62,9 +62,9 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype2);
 
 #ifdef __cpp_lib_math_special_functions
-            return std::cyl_neumann(inV, inX);
+            return std::cyl_neumann(static_cast<double>(inV), static_cast<double>(inX));
 #else
-            return boost::math::cyl_neumann(inV, inX);
+            return boost::math::cyl_neumann(static_cast<double>(inV), static_cast<double>(inX));
 #endif
         }
 
@@ -83,15 +83,15 @@ namespace nc
         {
             NdArray<decltype(bessel_yn(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype2 inX) -> auto
-                {
-                    return bessel_yn(inV, inX);
-                });
+            stl_algorithms::transform(
+                inArrayX.cbegin(),
+                inArrayX.cend(),
+                returnArray.begin(),
+                [inV](dtype2 inX) -> auto{ return bessel_yn(inV, inX); });
 
             return returnArray;
         }
     } // namespace special
-}  // namespace nc
+} // namespace nc
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

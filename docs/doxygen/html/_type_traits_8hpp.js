@@ -17,5 +17,6 @@ var _type_traits_8hpp =
     [ "is_floating_point_v", "_type_traits_8hpp.html#a33d8e465a48ee094f340d8a5bab416bd", null ],
     [ "is_integral_v", "_type_traits_8hpp.html#a157cdac039a66a88d2aa922781d060f6", null ],
     [ "is_same_v", "_type_traits_8hpp.html#a04829dab261829c5ee2570febfa287eb", null ],
+    [ "is_unsigned_v", "_type_traits_8hpp.html#ad149fd11e6732af59a3b2303f97bddd7", null ],
     [ "is_valid_dtype_v", "_type_traits_8hpp.html#aae4eab83016ec7dcaa7d78b6d1e78481", null ]
 ];

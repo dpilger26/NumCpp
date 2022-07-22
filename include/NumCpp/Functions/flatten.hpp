@@ -40,8 +40,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flatten(const NdArray<dtype>& inArray) 
+    NdArray<dtype> flatten(const NdArray<dtype>& inArray)
     {
         return inArray.flatten();
     }
-}  // namespace nc
+} // namespace nc

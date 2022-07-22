@@ -36,6 +36,7 @@
 #include "NumCpp/Linalg/lu_decomposition.hpp"
 #include "NumCpp/Linalg/matrix_power.hpp"
 #include "NumCpp/Linalg/multi_dot.hpp"
+#include "NumCpp/Linalg/pinv.hpp"
 #include "NumCpp/Linalg/pivotLU_decomposition.hpp"
 #include "NumCpp/Linalg/solve.hpp"
 #include "NumCpp/Linalg/svd.hpp"

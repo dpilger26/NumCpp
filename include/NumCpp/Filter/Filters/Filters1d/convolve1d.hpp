@@ -43,7 +43,8 @@ namespace nc
         // Method Description:
         /// Calculates a one-dimensional kernel convolution.
         ///
-        /// SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
+        /// SciPy Reference:
+        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
         ///
         /// @param inImageArray
         /// @param inWeights
@@ -52,11 +53,14 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
+        NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray,
+                                  const NdArray<dtype>& inWeights,
+                                  Boundary              inBoundaryType  = Boundary::REFLECT,
+                                  dtype                 inConstantValue = 0)
         {
-            const uint32 boundarySize = inWeights.size() / 2; // integer division
-            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
+            const uint32   boundarySize = inWeights.size() / 2; // integer division
+            NdArray<dtype> arrayWithBoundary =
+                boundary::addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             NdArray<dtype> weightsFlat = fliplr(inWeights.flatten());
@@ -72,5 +76,5 @@ namespace nc
 
             return output;
         }
-    }  // namespace filter
-}  // namespace nc
+    } // namespace filter
+} // namespace nc

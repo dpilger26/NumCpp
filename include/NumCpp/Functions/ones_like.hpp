@@ -42,7 +42,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray) 
+    NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -50,4 +50,4 @@ namespace nc
         returnArray.ones();
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

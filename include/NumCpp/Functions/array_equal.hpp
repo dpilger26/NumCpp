@@ -53,4 +53,4 @@ namespace nc
 
         return array_equiv(inArray1, inArray2);
     }
-}  // namespace nc
+} // namespace nc

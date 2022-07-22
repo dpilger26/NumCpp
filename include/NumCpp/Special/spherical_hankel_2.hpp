@@ -29,13 +29,13 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/NdArray.hpp"
+#include <complex>
+#include <type_traits>
 
 #include "boost/math/special_functions/hankel.hpp"
 
-#include <complex>
-#include <type_traits>
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -69,15 +69,15 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype1, typename dtype2>
-        auto spherical_hankel_2(dtype1 inV, const NdArray<dtype2>& inArray) 
+        auto spherical_hankel_2(dtype1 inV, const NdArray<dtype2>& inArray)
         {
-            NdArray<decltype(spherical_hankel_2(dtype1{0}, dtype2{0}))> returnArray(inArray.shape());
+            NdArray<decltype(spherical_hankel_2(dtype1{ 0 }, dtype2{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [inV](dtype2 inValue) -> auto
-                { 
-                    return spherical_hankel_2(inV, inValue); 
-                });
+            stl_algorithms::transform(
+                inArray.cbegin(),
+                inArray.cend(),
+                returnArray.begin(),
+                [inV](dtype2 inValue) -> auto{ return spherical_hankel_2(inV, inValue); });
 
             return returnArray;
         }

@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
-
 #include <complex>
+
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -72,8 +72,8 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
-                inArray2.cbegin(), std::complex<dtype>{0});
+            const std::complex<dtype> dotProduct =
+                std::inner_product(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), std::complex<dtype>{ 0 });
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
@@ -81,20 +81,22 @@ namespace nc
         {
             // 2D array, use matrix multiplication
             NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
-            auto array2T = inArray2.transpose();
+            auto                         array2T = inArray2.transpose();
 
             for (uint32 i = 0; i < shape1.rows; ++i)
             {
                 for (uint32 j = 0; j < shape2.cols; ++j)
                 {
-                    returnArray(i, j) = std::inner_product(array2T.cbegin(j), array2T.cend(j), 
-                        inArray1.cbegin(i), std::complex<dtype>{0});
+                    returnArray(i, j) = std::inner_product(array2T.cbegin(j),
+                                                           array2T.cend(j),
+                                                           inArray1.cbegin(i),
+                                                           std::complex<dtype>{ 0 });
                 }
             }
 
             return returnArray;
         }
-        
+
         std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
         errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
         errStr += " are not consistent.";
@@ -126,8 +128,8 @@ namespace nc
 
         if (shape1 == shape2 && (shape1.rows == 1 || shape1.cols == 1))
         {
-            const std::complex<dtype> dotProduct = std::inner_product(inArray1.cbegin(), inArray1.cend(), 
-                inArray2.cbegin(), std::complex<dtype>{0});
+            const std::complex<dtype> dotProduct =
+                std::inner_product(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), std::complex<dtype>{ 0 });
             NdArray<std::complex<dtype>> returnArray = { dotProduct };
             return returnArray;
         }
@@ -135,25 +137,27 @@ namespace nc
         {
             // 2D array, use matrix multiplication
             NdArray<std::complex<dtype>> returnArray(shape1.rows, shape2.cols);
-            auto array2T = inArray2.transpose();
+            auto                         array2T = inArray2.transpose();
 
             for (uint32 i = 0; i < shape1.rows; ++i)
             {
                 for (uint32 j = 0; j < shape2.cols; ++j)
                 {
-                    returnArray(i, j) = std::inner_product(array2T.cbegin(j), array2T.cend(j),
-                        inArray1.cbegin(i), std::complex<dtype>{0});
+                    returnArray(i, j) = std::inner_product(array2T.cbegin(j),
+                                                           array2T.cend(j),
+                                                           inArray1.cbegin(i),
+                                                           std::complex<dtype>{ 0 });
                 }
             }
 
             return returnArray;
         }
-        
+
         std::string errStr = "shapes of [" + utils::num2str(shape1.rows) + ", " + utils::num2str(shape1.cols) + "]";
         errStr += " and [" + utils::num2str(shape2.rows) + ", " + utils::num2str(shape2.cols) + "]";
         errStr += " are not consistent.";
         THROW_INVALID_ARGUMENT_ERROR(errStr);
-        
+
         return NdArray<std::complex<dtype>>(); // get rid of compiler warning
     }
-}  // namespace nc
+} // namespace nc

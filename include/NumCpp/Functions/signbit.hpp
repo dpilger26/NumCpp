@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    bool signbit(dtype inValue) noexcept 
+    bool signbit(dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -60,14 +60,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<bool> signbit(const NdArray<dtype>& inArray) 
+    NdArray<bool> signbit(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool
-            { 
-                return signbit(inValue); 
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [](dtype inValue) noexcept -> bool { return signbit(inValue); });
 
         return returnArray;
     }

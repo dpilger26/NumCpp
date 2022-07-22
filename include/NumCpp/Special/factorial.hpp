@@ -53,7 +53,7 @@ namespace nc
 #ifndef NUMCPP_NO_USE_BOOST
             if (inValue <= boost::math::max_factorial<double>::value)
             {
-                return boost::math::factorial<double>(inValue);   
+                return boost::math::factorial<double>(inValue);
             }
 
             return std::numeric_limits<double>::infinity();
@@ -63,7 +63,7 @@ namespace nc
             {
                 result *= static_cast<double>(i);
             }
-            
+
             return result;
 #endif
         }
@@ -79,13 +79,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> double
-                { 
-                    return factorial(inValue); 
-                });
+            stl_algorithms::transform(inArray.cbegin(),
+                                      inArray.cend(),
+                                      returnArray.begin(),
+                                      [](uint32 inValue) -> double { return factorial(inValue); });
 
             return returnArray;
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc

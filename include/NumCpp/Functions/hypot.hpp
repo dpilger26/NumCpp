@@ -27,14 +27,14 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
-
-#include <cmath>
-#include <string>
 
 namespace nc
 {
@@ -81,13 +81,10 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype);
 
 #ifdef __cpp_lib_hypot
-        return std::hypot(static_cast<double>(inValue1),
-            static_cast<double>(inValue2),
-            static_cast<double>(inValue3));
+        return std::hypot(static_cast<double>(inValue1), static_cast<double>(inValue2), static_cast<double>(inValue3));
 #else
-        return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
-            utils::sqr(static_cast<double>(inValue2)) + 
-            utils::sqr(static_cast<double>(inValue3)));
+        return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + utils::sqr(static_cast<double>(inValue2)) +
+                         utils::sqr(static_cast<double>(inValue3)));
 #endif
     }
 
@@ -115,12 +112,13 @@ namespace nc
 
         NdArray<double> returnArray(inArray1.shape());
 
-        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> double
-            { 
-                return hypot(inValue1, inValue2); 
-            });
+        stl_algorithms::transform(inArray1.cbegin(),
+                                  inArray1.cend(),
+                                  inArray2.cbegin(),
+                                  returnArray.begin(),
+                                  [](dtype inValue1, dtype inValue2) noexcept -> double
+                                  { return hypot(inValue1, inValue2); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

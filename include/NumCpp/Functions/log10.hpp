@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <complex>
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <cmath>
-#include <complex>
 
 namespace nc
 {
@@ -47,7 +47,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype>
-    auto log10(dtype inValue) noexcept 
+    auto log10(dtype inValue) noexcept
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -65,15 +65,15 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    auto log10(const NdArray<dtype>& inArray) 
+    auto log10(const NdArray<dtype>& inArray)
     {
-        NdArray<decltype(log10(dtype{0}))> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> auto
-            { 
-                return log10(inValue); 
-            });
+        NdArray<decltype(log10(dtype{ 0 }))> returnArray(inArray.shape());
+        stl_algorithms::transform(
+            inArray.cbegin(),
+            inArray.cend(),
+            returnArray.begin(),
+            [](dtype inValue) noexcept -> auto{ return log10(inValue); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

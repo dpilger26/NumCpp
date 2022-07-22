@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.any(inAxis);
     }

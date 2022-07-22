@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> full_like(const NdArray<dtype>& inArray, dtype inFillValue) 
+    NdArray<dtype> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
     {
         return full(inArray.shape(), inFillValue);
     }

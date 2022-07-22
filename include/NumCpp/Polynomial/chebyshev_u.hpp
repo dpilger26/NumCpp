@@ -29,11 +29,11 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
+#include "boost/math/special_functions/chebyshev.hpp"
+
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/math/special_functions/chebyshev.hpp"
 
 namespace nc
 {
@@ -70,10 +70,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return chebyshev_u(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return chebyshev_u(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 

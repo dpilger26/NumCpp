@@ -1,5 +1,6 @@
 var classnc_1_1image_processing_1_1_cluster =
 [
+    [ "accumulator_t", "classnc_1_1image_processing_1_1_cluster.html#a243ffe7ecbcf4473e1225e6694624c08", null ],
     [ "const_iterator", "classnc_1_1image_processing_1_1_cluster.html#a3b344c255dfcfcf18e0fc9f1e84979ae", null ],
     [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a9c84aca9710bec5c721fd6a9f94182c3", null ],
     [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a73ce20625b5ca5d9e0d872cc8ad885dc", null ],
@@ -12,7 +13,7 @@ var classnc_1_1image_processing_1_1_cluster =
     [ "end", "classnc_1_1image_processing_1_1_cluster.html#afc8b5d168cf1d611be9f5226ec7efd55", null ],
     [ "eod", "classnc_1_1image_processing_1_1_cluster.html#a461863af036452bdb1813dfff33c7c42", null ],
     [ "height", "classnc_1_1image_processing_1_1_cluster.html#a71ccd5ee3fea70b4b1b27ba25f4b3fb8", null ],
-    [ "intensity", "classnc_1_1image_processing_1_1_cluster.html#a1797d804406d51ab2e22d5b9fae9cb53", null ],
+    [ "intensity", "classnc_1_1image_processing_1_1_cluster.html#abff111af8d260b45e8657507d067eac8", null ],
     [ "operator!=", "classnc_1_1image_processing_1_1_cluster.html#aa023fb6ea06515f18cd629b155f96a2c", null ],
     [ "operator==", "classnc_1_1image_processing_1_1_cluster.html#a8308c5f0313872c9499de36d69d0ff19", null ],
     [ "operator[]", "classnc_1_1image_processing_1_1_cluster.html#a386b222d5747fc2b77448ea5a56d24e4", null ],

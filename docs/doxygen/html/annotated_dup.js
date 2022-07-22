@@ -24,6 +24,9 @@ var annotated_dup =
       [ "polynomial", "namespacenc_1_1polynomial.html", [
         [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html", "classnc_1_1polynomial_1_1_poly1d" ]
       ] ],
+      [ "random", "namespacenc_1_1random.html", [
+        [ "RNG", "classnc_1_1random_1_1_r_n_g.html", "classnc_1_1random_1_1_r_n_g" ]
+      ] ],
       [ "roots", "namespacenc_1_1roots.html", [
         [ "Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ],
         [ "Brent", "classnc_1_1roots_1_1_brent.html", "classnc_1_1roots_1_1_brent" ],

@@ -89,7 +89,7 @@ namespace nc
             ///
             /// @return std::string
             ///
-            std::string fullName() const 
+            std::string fullName() const
             {
                 return filename_ + "." + extension_;
             }
@@ -119,11 +119,11 @@ namespace nc
             //============================================================================
             // Method Description:
             /// Sets the extension to the input extension.  Do not input the dot.
-            /// E.g. input "txt", not ".txt" 
+            /// E.g. input "txt", not ".txt"
             ///
             /// @return std::string
             ///
-            std::string withExt(const std::string& ext) 
+            std::string withExt(const std::string& ext)
             {
                 extension_ = ext;
                 return fullName();
@@ -131,10 +131,10 @@ namespace nc
 
         private:
             //================================Attributes==================================
-            std::string fullFilename_{""};
-            std::string filename_{""};
-            std::string extension_{""};
-            bool        exists_{false};
+            std::string fullFilename_{ "" };
+            std::string filename_{ "" };
+            std::string extension_{ "" };
+            bool        exists_{ false };
         };
-    }  // namespace filesystem
-}  // namespace nc
+    } // namespace filesystem
+} // namespace nc

@@ -43,7 +43,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fliplr(const NdArray<dtype>& inArray) 
+    NdArray<dtype> fliplr(const NdArray<dtype>& inArray)
     {
         return flip(inArray, Axis::COL);
     }

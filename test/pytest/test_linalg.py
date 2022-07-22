@@ -1,7 +1,5 @@
 import numpy as np
-import os
-import sys
-sys.path.append(os.path.abspath(r'../lib'))
+
 import NumCppPy as NumCpp  # noqa E402
 
 np.random.seed(666)
@@ -16,31 +14,25 @@ def test_cholesky():
     aL = np.tril(a)
     b = aL.dot(aL.transpose())
     cArray.setArray(b)
-    assert np.array_equal(np.round(NumCpp.cholesky(cArray).getNumpyArray()), np.round(aL))
+    assert np.array_equal(np.round(NumCpp.cholesky(
+        cArray).getNumpyArray()), np.round(aL))
 
 
 ####################################################################################
 def test_det():
-    order = 2
-    shape = NumCpp.Shape(order)
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
-    cArray.setArray(data)
-    assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
+    for order in range(1, 5):
+        shape = NumCpp.Shape(order)
+        cArray = NumCpp.NdArray(shape)
+        data = np.random.rand(order, order) * 10
+        cArray.setArray(data)
+        assert round(NumCpp.det(cArray), 9) == round(np.linalg.det(data), 9)
 
-    order = 3
-    shape = NumCpp.Shape(order)
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
-    cArray.setArray(data)
-    assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
-
-    order = np.random.randint(4, 8, [1, ]).item()
-    shape = NumCpp.Shape(order)
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(float)
-    cArray.setArray(data)
-    assert round(NumCpp.det(cArray)) == round(np.linalg.det(data).item())
+    for order in range(1, 10):
+        shape = NumCpp.Shape(order)
+        cArray = NumCpp.NdArrayInt64(shape)
+        data = np.random.randint(0, 10, [order, order])
+        cArray.setArray(data)
+        assert NumCpp.det(cArray) == round(np.linalg.det(data))
 
 
 ####################################################################################
@@ -54,12 +46,26 @@ def test_hat():
 
 ####################################################################################
 def test_inv():
-    order = np.random.randint(5, 50, [1, ]).item()
-    shape = NumCpp.Shape(order)
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.inv(cArray).getNumpyArray(), 9), np.round(np.linalg.inv(data), 9))
+    max_order = 30
+
+    for order in range(1, max_order):
+        shape = NumCpp.Shape(order)
+        cArray = NumCpp.NdArray(shape)
+        data = np.random.randint(1, 100, [order, order])
+        cArray.setArray(data)
+        assert np.array_equal(np.round(NumCpp.inv(cArray).getNumpyArray(), 9),
+                              np.round(np.linalg.inv(data), 9))
+
+    # test zero on diagnol
+    for order in range(2, max_order):
+        shape = NumCpp.Shape(order)
+        cArray = NumCpp.NdArray(shape)
+        data = np.random.randint(1, 100, [order, order])
+        idx = np.random.randint(0, order)
+        data[idx, idx] = 0
+        cArray.setArray(data)
+        assert np.array_equal(np.round(NumCpp.inv(cArray).getNumpyArray(), 9),
+                              np.round(np.linalg.inv(data), 9))
 
 
 ####################################################################################
@@ -73,7 +79,8 @@ def test_lstsq():
     aArray.setArray(aData)
     bArray.setArray(bData)
     x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
-    assert np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 9))
+    assert np.array_equal(np.round(x, 9), np.round(
+        np.linalg.lstsq(aData, bData, rcond=None)[0], 9))
 
 
 ####################################################################################
@@ -95,14 +102,16 @@ def test_matrix_power():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.matrix_power(cArray, 0).getNumpyArray(), np.linalg.matrix_power(data, 0))
+    assert np.array_equal(NumCpp.matrix_power(
+        cArray, 0).getNumpyArray(), np.linalg.matrix_power(data, 0))
 
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.matrix_power(cArray, 1).getNumpyArray(), np.linalg.matrix_power(data, 1))
+    assert np.array_equal(NumCpp.matrix_power(
+        cArray, 1).getNumpyArray(), np.linalg.matrix_power(data, 1))
 
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
@@ -118,7 +127,8 @@ def test_matrix_power():
     data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     power = np.random.randint(2, 9, [1, ]).item()
-    assert np.array_equal(NumCpp.matrix_power(cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power))
+    assert np.array_equal(NumCpp.matrix_power(
+        cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power))
 
     order = np.random.randint(5, 50, [1, ]).item()
     shape = NumCpp.Shape(order)
@@ -182,6 +192,26 @@ def test_multi_dot():
 
 
 ####################################################################################
+def test_pinv():
+    max_order = 30
+
+    for order in range(1, max_order):
+        shape = NumCpp.Shape(order + 5, order)
+        cArray = NumCpp.NdArray(shape)
+        data = np.random.randint(1, 100, [order, order])
+        cArray.setArray(data)
+        assert np.array_equal(np.round(NumCpp.pinv(cArray).getNumpyArray(), 9),
+                              np.round(np.linalg.pinv(data), 9))
+
+        shape = NumCpp.Shape(order, order + 5)
+        cArray = NumCpp.NdArray(shape)
+        data = np.random.randint(1, 100, [order, order])
+        cArray.setArray(data)
+        assert np.array_equal(np.round(NumCpp.pinv(cArray).getNumpyArray(), 9),
+                              np.round(np.linalg.pinv(data), 9))
+
+
+####################################################################################
 def test_pivotLU_decomposition():
     sizeInput = np.random.randint(5, 50)
     shape = NumCpp.Shape(sizeInput)
@@ -202,7 +232,8 @@ def test_pivotLU_decomposition():
     sArray = NumCpp.NdArray()
     vArray = NumCpp.NdArray()
     NumCpp.svd(cArray, uArray, sArray, vArray)
-    data2 = np.dot(uArray.getNumpyArray(), np.dot(sArray.getNumpyArray(), vArray.getNumpyArray()))
+    data2 = np.dot(uArray.getNumpyArray(),
+                   np.dot(sArray.getNumpyArray(), vArray.getNumpyArray()))
     assert np.array_equal(np.round(data, 9), np.round(data2, 9))
 
 
@@ -216,7 +247,8 @@ def test_solve():
     b = np.random.randint(1, 100, [shape.rows, 1])
     bArray = NumCpp.NdArray(*b.shape)
     bArray.setArray(b)
-    assert np.array_equal(np.round(NumCpp.solve(aArray, bArray), 8), np.round(np.linalg.solve(a, b), 8))
+    assert np.array_equal(np.round(NumCpp.solve(aArray, bArray), 8),
+                          np.round(np.linalg.solve(a, b), 8))
 
 
 ####################################################################################

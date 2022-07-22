@@ -27,8 +27,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
-
 #include <random>
 
 namespace nc
@@ -42,13 +40,14 @@ namespace nc
         // Method Description:
         /// Seeds the random number generator
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///
         /// @param inSeed
         ///
-        inline void seed(uint32 inSeed) 
+        inline void seed(int inSeed)
         {
             generator_.seed(inSeed);
         }
     } // namespace random
-}  // namespace nc
+} // namespace nc

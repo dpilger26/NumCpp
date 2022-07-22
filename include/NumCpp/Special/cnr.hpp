@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Special/factorial.hpp"
 #include "NumCpp/Special/pnr.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -51,5 +51,5 @@ namespace nc
         {
             return pnr(n, r) / factorial(r);
         }
-    }  // namespace special
-}  // namespace nc
+    } // namespace special
+} // namespace nc

@@ -27,16 +27,16 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Internal/Filesystem.hpp"
+#include <limits>
+#include <string>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <limits>
-#include <string>
-#include <vector>
 
 namespace nc
 {
@@ -47,8 +47,8 @@ namespace nc
     {
     public:
         //================================Typedefs==================================
-        using iterator = typename std::deque<NdArray<dtype> >::iterator;
-        using const_iterator = typename std::deque<NdArray<dtype> >::const_iterator;
+        using iterator       = typename std::deque<NdArray<dtype>>::iterator;
+        using const_iterator = typename std::deque<NdArray<dtype>>::const_iterator;
 
         //============================================================================
         /// Default Constructor
@@ -94,7 +94,7 @@ namespace nc
         ///
         /// @return NdArray&
         ///
-        NdArray<dtype>& back() noexcept 
+        NdArray<dtype>& back() noexcept
         {
             return cube_.back();
         }
@@ -151,7 +151,7 @@ namespace nc
         ///
         /// @return bool
         ///
-        bool isempty() noexcept 
+        bool isempty() noexcept
         {
             return cube_.empty();
         }
@@ -181,7 +181,7 @@ namespace nc
         ///
         /// @return NdArray&
         ///
-        NdArray<dtype>& front() noexcept 
+        NdArray<dtype>& front() noexcept
         {
             return cube_.front();
         }
@@ -191,7 +191,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        const Shape& shape() const noexcept 
+        const Shape& shape() const noexcept
         {
             return elementShape_;
         }
@@ -201,7 +201,7 @@ namespace nc
         ///
         /// @return size
         ///
-        uint32 sizeZ() const noexcept 
+        uint32 sizeZ() const noexcept
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -209,7 +209,7 @@ namespace nc
         //============================================================================
         /// Removes the last z "slice" of the cube
         ///
-        void pop_back() noexcept 
+        void pop_back() noexcept
         {
             cube_.pop_back();
         }
@@ -278,7 +278,7 @@ namespace nc
             NdArray<dtype> returnArray(1, inSliceZ.numElements(sizeZ()));
 
             uint32 idx = 0;
-            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i+=inSliceZ.step)
+            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i += inSliceZ.step)
             {
                 returnArray[idx++] = cube_[i][inIndex];
             }
@@ -338,7 +338,7 @@ namespace nc
             NdArray<dtype> returnArray(1, inSliceZ.numElements(sizeZ()));
 
             uint32 idx = 0;
-            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i+=inSliceZ.step)
+            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i += inSliceZ.step)
             {
                 returnArray[idx++] = cube_[i](inRow, inCol);
             }
@@ -385,8 +385,8 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(inRow.numElements(elementShape_.rows), inSliceZ.numElements(sizeZ()));
-            uint32 idx = 0;
-            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i+=inSliceZ.step)
+            uint32         idx = 0;
+            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i += inSliceZ.step)
             {
                 returnArray.put(returnArray.rSlice(), idx++, cube_[i](inRow, inCol));
             }
@@ -433,8 +433,8 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(inCol.numElements(elementShape_.cols), inSliceZ.numElements(sizeZ()));
-            uint32 idx = 0;
-            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i+=inSliceZ.step)
+            uint32         idx = 0;
+            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i += inSliceZ.step)
             {
                 returnArray.put(returnArray.rSlice(), idx++, cube_[i](inRow, inCol));
             }
@@ -471,7 +471,7 @@ namespace nc
         DataCube<dtype> sliceZ(Slice inRow, Slice inCol, Slice inSliceZ) const
         {
             DataCube<dtype> returnCube(inSliceZ.numElements(sizeZ()));
-            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i+=inSliceZ.step)
+            for (int32 i = inSliceZ.start; i < inSliceZ.stop; i += inSliceZ.step)
             {
                 returnCube.push_back(cube_[i](inRow, inCol));
             }
@@ -704,7 +704,7 @@ namespace nc
             {
                 THROW_INVALID_ARGUMENT_ERROR("inCol exceeds matrix dimensions.");
             }
-            
+
             if (inRow < 0)
             {
                 inRow += elementShape_.rows;
@@ -782,7 +782,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& operator[](uint32 inIndex) noexcept 
+        NdArray<dtype>& operator[](uint32 inIndex) noexcept
         {
             return cube_[inIndex];
         }
@@ -801,7 +801,7 @@ namespace nc
 
     private:
         //================================Attributes==================================
-        std::vector<NdArray<dtype> >    cube_{};
-        Shape                           elementShape_{ 0, 0 };
+        std::vector<NdArray<dtype>> cube_{};
+        Shape                       elementShape_{ 0, 0 };
     };
-}  // namespace nc
+} // namespace nc

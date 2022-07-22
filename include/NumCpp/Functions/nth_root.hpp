@@ -27,9 +27,9 @@
 ///
 #pragma once
 
-#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
+#include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 
 namespace nc
@@ -43,7 +43,7 @@ namespace nc
     /// @return value
     ///
     template<typename dtype1, typename dtype2>
-    double nth_root(dtype1 inValue, dtype2 inRoot) noexcept 
+    double nth_root(dtype1 inValue, dtype2 inRoot) noexcept
     {
         STATIC_ASSERT_ARITHMETIC(dtype1);
         STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -60,15 +60,14 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype1, typename dtype2>
-    NdArray<double> nth_root(const NdArray<dtype1>& inArray, dtype2 inRoot) 
+    NdArray<double> nth_root(const NdArray<dtype1>& inArray, dtype2 inRoot)
     {
         NdArray<double> returnArray(inArray.shape());
-        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [inRoot](dtype1 inValue) noexcept -> double
-            {
-                return nth_root(inValue, inRoot); 
-            });
+        stl_algorithms::transform(inArray.cbegin(),
+                                  inArray.cend(),
+                                  returnArray.begin(),
+                                  [inRoot](dtype1 inValue) noexcept -> double { return nth_root(inValue, inRoot); });
 
         return returnArray;
     }
-}  // namespace nc
+} // namespace nc

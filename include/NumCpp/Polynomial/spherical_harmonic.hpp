@@ -29,12 +29,12 @@
 
 #ifndef NUMCPP_NO_USE_BOOST
 
-#include "NumCpp/Core/Internal/StaticAsserts.hpp"
-#include "NumCpp/NdArray.hpp"
+#include <complex>
 
 #include "boost/math/special_functions/spherical_harmonic.hpp"
 
-#include <complex>
+#include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -43,7 +43,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the value of the Spherical Harmonic Ynm(theta, phi).
-        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
+        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
@@ -55,7 +55,7 @@ namespace nc
         /// @return double
         ///
         template<typename dtype1, typename dtype2>
-        std::complex<double> spherical_harmonic(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
+        std::complex<double> spherical_harmonic(uint32 n, int32 m, dtype1 theta, dtype2 phi)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -66,7 +66,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the real part of the Spherical Harmonic Ynm(theta, phi).
-        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
+        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
@@ -78,7 +78,7 @@ namespace nc
         /// @return double
         ///
         template<typename dtype1, typename dtype2>
-        double spherical_harmonic_r(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
+        double spherical_harmonic_r(uint32 n, int32 m, dtype1 theta, dtype2 phi)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);
@@ -89,7 +89,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Returns the imaginary part of the Spherical Harmonic Ynm(theta, phi).
-        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the 
+        /// The spherical harmonics Ynm(theta, phi) are the angular portion of the
         /// solution to Laplace's equation in spherical coordinates where azimuthal
         /// symmetry is not present.
         /// NOTE: Use of this function requires using the Boost includes.
@@ -101,7 +101,7 @@ namespace nc
         /// @return double
         ///
         template<typename dtype1, typename dtype2>
-        double spherical_harmonic_i(uint32 n, int32 m,  dtype1 theta, dtype2 phi)
+        double spherical_harmonic_i(uint32 n, int32 m, dtype1 theta, dtype2 phi)
         {
             STATIC_ASSERT_ARITHMETIC(dtype1);
             STATIC_ASSERT_ARITHMETIC(dtype2);

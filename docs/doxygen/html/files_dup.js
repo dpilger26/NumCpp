@@ -38,8 +38,8 @@ var files_dup =
     [ "astype.hpp", "astype_8hpp.html", "astype_8hpp" ],
     [ "average.hpp", "average_8hpp.html", "average_8hpp" ],
     [ "bartlett.hpp", "bartlett_8hpp.html", "bartlett_8hpp" ],
-    [ "bernoilli.hpp", "bernoilli_8hpp.html", "bernoilli_8hpp" ],
-    [ "bernoulli.hpp", "bernoulli_8hpp.html", "bernoulli_8hpp" ],
+    [ "Random/bernoulli.hpp", "_random_2bernoulli_8hpp.html", "_random_2bernoulli_8hpp" ],
+    [ "Special/bernoulli.hpp", "_special_2bernoulli_8hpp.html", "_special_2bernoulli_8hpp" ],
     [ "bessel_in.hpp", "bessel__in_8hpp.html", "bessel__in_8hpp" ],
     [ "bessel_in_prime.hpp", "bessel__in__prime_8hpp.html", "bessel__in__prime_8hpp" ],
     [ "bessel_jn.hpp", "bessel__jn_8hpp.html", "bessel__jn_8hpp" ],
@@ -56,6 +56,7 @@ var files_dup =
     [ "Bisection.hpp", "_bisection_8hpp.html", [
       [ "Bisection", "classnc_1_1roots_1_1_bisection.html", "classnc_1_1roots_1_1_bisection" ]
     ] ],
+    [ "bit_count.hpp", "bit__count_8hpp.html", "bit__count_8hpp" ],
     [ "bitwise_and.hpp", "bitwise__and_8hpp.html", "bitwise__and_8hpp" ],
     [ "bitwise_not.hpp", "bitwise__not_8hpp.html", "bitwise__not_8hpp" ],
     [ "bitwise_or.hpp", "bitwise__or_8hpp.html", "bitwise__or_8hpp" ],
@@ -343,6 +344,7 @@ var files_dup =
     [ "percentileFilter.hpp", "percentile_filter_8hpp.html", "percentile_filter_8hpp" ],
     [ "percentileFilter1d.hpp", "percentile_filter1d_8hpp.html", "percentile_filter1d_8hpp" ],
     [ "permutation.hpp", "permutation_8hpp.html", "permutation_8hpp" ],
+    [ "pinv.hpp", "pinv_8hpp.html", "pinv_8hpp" ],
     [ "pivotLU_decomposition.hpp", "pivot_l_u__decomposition_8hpp.html", "pivot_l_u__decomposition_8hpp" ],
     [ "Pixel.hpp", "_pixel_8hpp.html", [
       [ "Pixel", "classnc_1_1image_processing_1_1_pixel.html", "classnc_1_1image_processing_1_1_pixel" ]
@@ -400,6 +402,9 @@ var files_dup =
     [ "right_shift.hpp", "right__shift_8hpp.html", "right__shift_8hpp" ],
     [ "rint.hpp", "rint_8hpp.html", "rint_8hpp" ],
     [ "rms.hpp", "rms_8hpp.html", "rms_8hpp" ],
+    [ "RNG.hpp", "_r_n_g_8hpp.html", [
+      [ "RNG", "classnc_1_1random_1_1_r_n_g.html", "classnc_1_1random_1_1_r_n_g" ]
+    ] ],
     [ "rodriguesRotation.hpp", "rodrigues_rotation_8hpp.html", "rodrigues_rotation_8hpp" ],
     [ "roll.hpp", "roll_8hpp.html", "roll_8hpp" ],
     [ "romberg.hpp", "romberg_8hpp.html", "romberg_8hpp" ],
@@ -455,6 +460,9 @@ var files_dup =
     ] ],
     [ "swap.hpp", "swap_8hpp.html", "swap_8hpp" ],
     [ "swapaxes.hpp", "swapaxes_8hpp.html", "swapaxes_8hpp" ],
+    [ "swapCols.hpp", "swap_cols_8hpp.html", "swap_cols_8hpp" ],
+    [ "swapRows.hpp", "swap_rows_8hpp.html", "swap_rows_8hpp" ],
+    [ "take.hpp", "take_8hpp.html", "take_8hpp" ],
     [ "tan.hpp", "tan_8hpp.html", "tan_8hpp" ],
     [ "tanh.hpp", "tanh_8hpp.html", "tanh_8hpp" ],
     [ "tile.hpp", "tile_8hpp.html", "tile_8hpp" ],

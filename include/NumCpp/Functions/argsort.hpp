@@ -43,8 +43,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) 
+    NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return inArray.argsort(inAxis);
     }
-}  // namespace nc
+} // namespace nc

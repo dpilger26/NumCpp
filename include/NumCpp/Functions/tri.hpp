@@ -47,7 +47,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) 
+    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -94,7 +94,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) 
+    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -129,7 +129,7 @@ namespace nc
 
     // forward declare
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0) ;
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0);
 
     //============================================================================
     // Method Description:
@@ -148,12 +148,12 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) 
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const Shape inShape = inArray.shape();
-        auto outArray = inArray.copy();
+        const Shape inShape  = inArray.shape();
+        auto        outArray = inArray.copy();
         outArray.putMask(triu<bool>(inShape.rows, inShape.cols, inOffset + 1), 0);
         return outArray;
     }
@@ -172,7 +172,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) 
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -221,7 +221,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) 
+    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -245,13 +245,13 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) 
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const Shape inShape = inArray.shape();
-        auto outArray = inArray.copy();
+        const Shape inShape  = inArray.shape();
+        auto        outArray = inArray.copy();
         outArray.putMask(tril<bool>(inShape.rows, inShape.cols, inOffset - 1), 0);
         return outArray;
     }
-}  // namespace nc
+} // namespace nc

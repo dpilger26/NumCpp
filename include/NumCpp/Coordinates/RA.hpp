@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <iostream>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
-
-#include <cmath>
-#include <iostream>
-#include <string>
 
 namespace nc
 {
@@ -65,10 +65,10 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input degrees must be of the range [0, 360)");
                 }
 
-                hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
+                hours_                  = static_cast<uint8>(std::floor(degrees_ / 15.0));
                 const double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
-                minutes_ = static_cast<uint8>(std::floor(decMinutes));
-                seconds_ = static_cast<double>((decMinutes - static_cast<double>(minutes_)) * 60.0);
+                minutes_                = static_cast<uint8>(std::floor(decMinutes));
+                seconds_                = static_cast<double>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
 
             //============================================================================
@@ -78,7 +78,8 @@ namespace nc
             /// @param inMinutes
             /// @param inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept :
+            RA(uint8 inHours, uint8 inMinutes, double inSeconds)
+            noexcept :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
@@ -92,7 +93,7 @@ namespace nc
             ///
             /// @return radians
             ///
-            double radians() const noexcept 
+            double radians() const noexcept
             {
                 return radians_;
             }
@@ -102,7 +103,7 @@ namespace nc
             ///
             /// @return degrees
             ///
-            double degrees() const noexcept 
+            double degrees() const noexcept
             {
                 return degrees_;
             }
@@ -112,7 +113,7 @@ namespace nc
             ///
             /// @return hours
             ///
-            uint8 hours() const noexcept 
+            uint8 hours() const noexcept
             {
                 return hours_;
             }
@@ -122,7 +123,7 @@ namespace nc
             ///
             /// @return minutes
             ///
-            uint8 minutes() const noexcept 
+            uint8 minutes() const noexcept
             {
                 return minutes_;
             }
@@ -132,7 +133,7 @@ namespace nc
             ///
             /// @return seconds
             ///
-            double seconds() const noexcept 
+            double seconds() const noexcept
             {
                 return seconds_;
             }
@@ -144,7 +145,8 @@ namespace nc
             ///
             std::string str() const
             {
-                std::string out = "RA hms: " + utils::num2str(hours_) + " hours, " + utils::num2str(minutes_) + " minutes, ";
+                std::string out =
+                    "RA hms: " + utils::num2str(hours_) + " hours, " + utils::num2str(minutes_) + " minutes, ";
                 out += utils::num2str(seconds_) + " seconds\nRA degrees: " + utils::num2str(degrees_) + '\n';
                 return out;
             }
@@ -195,11 +197,11 @@ namespace nc
 
         private:
             //====================================Attributes==============================
-            uint8   hours_{ 0 };
-            uint8   minutes_{ 0 };
-            double  seconds_{ 0.0 };
-            double  degrees_{ 0.0 };
-            double  radians_{ 0.0 };
+            uint8  hours_{ 0 };
+            uint8  minutes_{ 0 };
+            double seconds_{ 0.0 };
+            double degrees_{ 0.0 };
+            double radians_{ 0.0 };
         };
-    }  // namespace coordinates
-}  // namespace nc
+    } // namespace coordinates
+} // namespace nc

@@ -62,6 +62,13 @@ namespace nc
 
     //============================================================================
     // Class Description:
+    /// std::is_unsigned helper, for c++14 compatibility
+    ///
+    template<typename T>
+    constexpr bool is_unsigned_v = std::is_unsigned<T>::value;
+
+    //============================================================================
+    // Class Description:
     /// std::is_floating_point helper, for c++14 compatibility
     ///
     template<typename T>
@@ -71,14 +78,14 @@ namespace nc
     // Class Description:
     /// Template class for determining if all of the types are arithmetic
     ///
-    template <typename... Ts>
+    template<typename... Ts>
     struct all_arithmetic;
 
     //============================================================================
     // Class Description:
     /// Template class specialization for determining if all of the types are arithmetic
     ///
-    template <typename Head, typename... Tail>
+    template<typename Head, typename... Tail>
     struct all_arithmetic<Head, Tail...>
     {
         static constexpr bool value = std::is_arithmetic<Head>::value && all_arithmetic<Tail...>::value;
@@ -88,7 +95,7 @@ namespace nc
     // Class Description:
     /// Template class specialization for determining if all of the types are arithmetic
     ///
-    template <typename T>
+    template<typename T>
     struct all_arithmetic<T>
     {
         static constexpr bool value = std::is_arithmetic<T>::value;
@@ -105,14 +112,14 @@ namespace nc
     // Class Description:
     /// Template class for determining if all of the types are the same as another type
     ///
-    template <typename T1, typename... Ts>
+    template<typename T1, typename... Ts>
     struct all_same;
 
     //============================================================================
     // Class Description:
     /// Template class specialization for determining if all of the types are the same as another type
     ///
-    template <typename T1, typename Head, typename... Tail>
+    template<typename T1, typename Head, typename... Tail>
     struct all_same<T1, Head, Tail...>
     {
         static constexpr bool value = std::is_same<T1, Head>::value && all_same<T1, Tail...>::value;
@@ -122,7 +129,7 @@ namespace nc
     // Class Description:
     /// Template class specialization for determining if all of the types are the same as another type
     ///
-    template <typename T1, typename T2>
+    template<typename T1, typename T2>
     struct all_same<T1, T2>
     {
         static constexpr bool value = std::is_same<T1, T2>::value;
@@ -140,20 +147,14 @@ namespace nc
     /// Template class for determining if dtype is a valid dtype for NdArray
     ///
     template<typename dtype>
-    struct is_valid_dtype 
+    struct is_valid_dtype
     {
-        static constexpr bool value = std::is_default_constructible<dtype>::value &&
-            std::is_nothrow_copy_constructible<dtype>::value &&
-            std::is_nothrow_move_constructible<dtype>::value &&
-            std::is_nothrow_copy_assignable<dtype>::value &&
-            std::is_nothrow_move_assignable<dtype>::value &&
-            std::is_nothrow_destructible<dtype>::value &&
-            !std::is_void<dtype>::value &&
-            !std::is_pointer<dtype>::value &&
-            !std::is_array<dtype>::value &&
-            !std::is_union<dtype>::value &&
-            !std::is_function<dtype>::value &&
-            !std::is_abstract<dtype>::value;
+        static constexpr bool value =
+            std::is_default_constructible<dtype>::value && std::is_nothrow_copy_constructible<dtype>::value &&
+            std::is_nothrow_move_constructible<dtype>::value && std::is_nothrow_copy_assignable<dtype>::value &&
+            std::is_nothrow_move_assignable<dtype>::value && std::is_nothrow_destructible<dtype>::value &&
+            !std::is_void<dtype>::value && !std::is_pointer<dtype>::value && !std::is_array<dtype>::value &&
+            !std::is_union<dtype>::value && !std::is_function<dtype>::value && !std::is_abstract<dtype>::value;
     };
 
     //============================================================================

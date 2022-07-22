@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -68,19 +68,18 @@ namespace nc
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            THROW_INVALID_ARGUMENT_ERROR("array values too large, will result in gigantic array that will take up alot of memory...");
+            THROW_INVALID_ARGUMENT_ERROR(
+                "array values too large, will result in gigantic array that will take up alot of memory...");
         }
 
-        const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+        const uint16   outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
         NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
-        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
-            [&outArray](dtype value) noexcept -> void
-            { 
-                ++outArray[value];
-            });
+        std::for_each(clippedArray.cbegin(),
+                      clippedArray.cend(),
+                      [&outArray](dtype value) noexcept -> void { ++outArray[value]; });
 
         return outArray;
     }
@@ -124,20 +123,20 @@ namespace nc
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            THROW_INVALID_ARGUMENT_ERROR("array values too large, will result in gigantic array that will take up alot of memory...");
+            THROW_INVALID_ARGUMENT_ERROR(
+                "array values too large, will result in gigantic array that will take up alot of memory...");
         }
 
-        const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+        const uint16   outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
         NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
         uint32 counter = 0;
-        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
-            [&outArray, &inWeights, &counter](dtype value) noexcept -> void
-            {
-                outArray[value] += inWeights[counter++];
-            });
+        std::for_each(clippedArray.cbegin(),
+                      clippedArray.cend(),
+                      [&outArray, &inWeights, &counter](dtype value) noexcept -> void
+                      { outArray[value] += inWeights[counter++]; });
 
         return outArray;
     }

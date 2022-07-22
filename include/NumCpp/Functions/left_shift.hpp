@@ -44,8 +44,8 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits) 
+    NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
     {
         return inArray << inNumBits;
     }
-}  // namespace nc
+} // namespace nc

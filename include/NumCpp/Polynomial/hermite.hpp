@@ -27,15 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#ifdef __cpp_lib_math_special_functions
-#include <cmath>
-#else
+#ifndef __cpp_lib_math_special_functions
 #include "boost/math/special_functions/hermite.hpp"
 #endif
 
@@ -80,10 +80,7 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            const auto function = [n](dtype x) -> double
-            {
-                return hermite(n, x);
-            };
+            const auto function = [n](dtype x) -> double { return hermite(n, x); };
 
             stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 

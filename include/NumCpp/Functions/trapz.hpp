@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <string>
 
 namespace nc
 {
@@ -50,7 +50,7 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) 
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -66,7 +66,7 @@ namespace nc
                     for (uint32 col = 0; col < inShape.cols - 1; ++col)
                     {
                         sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 +
-                            static_cast<double>(inArray(row, col));
+                               static_cast<double>(inArray(row, col));
                     }
 
                     returnArray[row] = sum * dx;
@@ -76,8 +76,8 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> arrayTranspose = inArray.transpose();
-                const Shape transShape = arrayTranspose.shape();
+                NdArray<dtype>  arrayTranspose = inArray.transpose();
+                const Shape     transShape     = arrayTranspose.shape();
                 NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
@@ -85,7 +85,7 @@ namespace nc
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
                         sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 +
-                            static_cast<double>(arrayTranspose(row, col));
+                               static_cast<double>(arrayTranspose(row, col));
                     }
 
                     returnArray[row] = sum * dx;
@@ -147,7 +147,7 @@ namespace nc
                     {
                         const auto dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
                         sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 +
-                            static_cast<double>(inArrayY(row, col)));
+                                     static_cast<double>(inArrayY(row, col)));
                     }
 
                     returnArray[row] = sum;
@@ -157,9 +157,9 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> arrayYTranspose = inArrayY.transpose();
-                NdArray<dtype> arrayXTranspose = inArrayX.transpose();
-                const Shape transShape = arrayYTranspose.shape();
+                NdArray<dtype>  arrayYTranspose = inArrayY.transpose();
+                NdArray<dtype>  arrayXTranspose = inArrayX.transpose();
+                const Shape     transShape      = arrayYTranspose.shape();
                 NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
@@ -167,8 +167,9 @@ namespace nc
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
                         const auto dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
-                        sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 +
-                            static_cast<double>(arrayYTranspose(row, col)));
+                        sum +=
+                            dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 +
+                                  static_cast<double>(arrayYTranspose(row, col)));
                     }
 
                     returnArray[row] = sum;
@@ -182,7 +183,8 @@ namespace nc
                 for (uint32 i = 0; i < inArrayY.size() - 1; ++i)
                 {
                     const auto dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
-                    sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]));
+                    sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 +
+                                 static_cast<double>(inArrayY[i]));
                 }
 
                 NdArray<double> returnArray = { sum };

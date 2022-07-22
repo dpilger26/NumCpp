@@ -52,17 +52,14 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool
-        {
-            return lhs < rhs;
-        };
+        const auto comp = [](const dtype lhs, const dtype rhs) noexcept -> bool { return lhs < rhs; };
 
         const auto set1 = unique(inArray1);
         const auto set2 = unique(inArray2);
 
         std::vector<dtype> res(set1.size() + set2.size());
-        const auto last = stl_algorithms::set_union(set1.begin(), set1.end(), 
-            set2.begin(), set2.end(), res.begin(), comp);
+        const auto         last =
+            stl_algorithms::set_union(set1.begin(), set1.end(), set2.begin(), set2.end(), res.begin(), comp);
 
         return NdArray<dtype>(res.begin(), last);
     }

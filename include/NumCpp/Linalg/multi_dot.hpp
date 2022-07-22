@@ -27,13 +27,13 @@
 ///
 #pragma once
 
+#include <initializer_list>
+#include <string>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <initializer_list>
-#include <string>
 
 namespace nc
 {
@@ -44,18 +44,19 @@ namespace nc
         /// Compute the dot product of two or more arrays in a single
         /// function call.
         ///
-        /// NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
+        /// NumPy Reference:
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
         ///
         /// @param inList: list of arrays
         ///
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype>>& inList)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
+            typename std::initializer_list<NdArray<dtype>>::iterator iter = inList.begin();
 
             if (inList.size() == 0)
             {
