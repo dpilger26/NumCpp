@@ -108,7 +108,14 @@ $(document).ready(function(){initNavTree('md__c___github__num_cpp_docs_markdown_
 <div class="contents">
 <div class="textblock"><h1>Version 2.8.0</h1>
 <ul>
+<li>fixed error in <code>inv</code> when a zero was on the diagnol for <b>Issue #132</b></li>
+<li>fixed <b>Issue #140</b></li>
 <li>added <code>bit_count</code>, Computes the number of 1-bits in the absolute value of the input</li>
+<li>added <code>swapRows</code> and <code>swapCols</code> methods to <code>NdArray</code>, and also free functions</li>
+<li>added <code>pinv</code>, <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html">https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html</a></li>
+<li>added <code>take</code> for <b>Issue #149</b>, <a href="https://numpy.org/doc/stable/reference/generated/numpy.take.html">https://numpy.org/doc/stable/reference/generated/numpy.take.html</a></li>
+<li>new non-global <code>random</code> interface</li>
+<li>added ellipse metrics to <code>imageProcessing::Centroids</code></li>
 <li>documentation updates</li>
 <li>various minor performance improvements and bug fixes</li>
 </ul>
