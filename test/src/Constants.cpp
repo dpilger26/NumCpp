@@ -2,7 +2,9 @@
 
 #include "BindingsIncludes.hpp"
 
-#include <version>
+#include <algorithm>
+#include <cmath>
+#include <numeric>
 
 #include "NumCpp/Core/Internal/Version.hpp"
 

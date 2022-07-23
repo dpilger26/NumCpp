@@ -2,7 +2,9 @@
 
 #include "BindingsIncludes.hpp"
 
-#include <version>
+#include <algorithm>
+#include <numeric>
+
 
 //================================================================================
 
