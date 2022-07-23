@@ -31,9 +31,8 @@
 #include <iterator>
 #include <numeric>
 #include <utility>
-#include <version>
 
-#if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm) && defined(NUMCPP_USE_MULTITHREAD)
+#if defined(__cpp_lib_parallel_algorithm) && defined(NUMCPP_USE_MULTITHREAD)
 #define PARALLEL_ALGORITHMS_SUPPORTED
 #define CONDITIONAL_NO_EXCEPT
 #include <execution>
