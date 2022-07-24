@@ -5984,15 +5984,15 @@ def test_prod():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(float)
+    data = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert NumCpp.prod(cArray, NumCpp.Axis.NONE).item() == data.prod()
 
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 10, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 10, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert NumCpp.prod(cArray, NumCpp.Axis.NONE).item() == data.prod()
@@ -6000,7 +6000,7 @@ def test_prod():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(float)
+    data = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert np.array_equal(NumCpp.prod(
         cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), data.prod(axis=0))
@@ -6008,8 +6008,8 @@ def test_prod():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 10, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 10, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.prod(
@@ -6018,7 +6018,7 @@ def test_prod():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(float)
+    data = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(float)
     cArray.setArray(data)
     assert np.array_equal(NumCpp.prod(
         cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), data.prod(axis=1))
@@ -6026,8 +6026,8 @@ def test_prod():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 10, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 10, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(NumCpp.prod(
@@ -6123,7 +6123,7 @@ def test_put():
 def test_rad2deg():
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
     assert np.round(NumCpp.rad2degScaler(value),
-                    9) == np.round(np.rad2deg(value), 9)
+                    8) == np.round(np.rad2deg(value), 8)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6131,7 +6131,7 @@ def test_rad2deg():
     data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
     cArray.setArray(data)
     assert np.array_equal(np.round(NumCpp.rad2degArray(
-        cArray), 9), np.round(np.rad2deg(data), 9))
+        cArray), 8), np.round(np.rad2deg(data), 8))
 
 
 ####################################################################################
