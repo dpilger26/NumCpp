@@ -7,7 +7,7 @@ on:
     branches: ["master", "develop"]
 
 jobs:
-  build_linux:
+  build_linux_cxx_14_single_thread:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,8 +23,29 @@ jobs:
           shell: bash
           boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
           conda_bin_dir: $CONDA/bin
+          cxx_std_version: 14
+          numcpp_use_multithread: false
 
-  build_linux_no_boost:
+  build_linux_cxx_14_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+          cxx_std_version: 14
+          numcpp_use_multithread: true
+
+  build_linux_no_boost_cxx_14_single_thread:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,8 +61,181 @@ jobs:
           shell: bash
           boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
           conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 14
+          numcpp_use_multithread: false
 
-  build_windows:
+  build_linux_no_boost_cxx_14_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 14
+          numcpp_use_multithread: true
+
+  build_linux_cxx_17_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+          cxx_std_version: 17
+          numcpp_use_multithread: false
+
+  build_linux_cxx_17_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+          cxx_std_version: 17
+          numcpp_use_multithread: true
+
+  build_linux_no_boost_cxx_17_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 17
+          numcpp_use_multithread: false
+
+  build_linux_no_boost_cxx_17_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 17
+          numcpp_use_multithread: true
+
+  build_linux_cxx_20_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+          cxx_std_version: 20
+          numcpp_use_multithread: false
+
+  build_linux_cxx_20_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin
+          cxx_std_version: 20
+          numcpp_use_multithread: true
+
+  build_linux_no_boost_cxx_20_single_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 20
+          numcpp_use_multithread: false
+
+  build_linux_no_boost_cxx_20_multi_thread:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        uses: ./.github/actions/LinuxEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: bash
+          boost_root: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+          conda_bin_dir: $CONDA/bin/
+          cxx_std_version: 20
+          numcpp_use_multithread: true
+
+  build_windows_cxx_14_single_thread:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -58,8 +252,30 @@ jobs:
           shell: powershell
           boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
           conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 14
+          numcpp_use_multithread: false
 
-  build_windows_no_boost:
+  build_windows_cxx_14_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 14
+          numcpp_use_multithread: true
+
+  build_windows_no_boost_cxx_14_single_thread:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -76,3 +292,185 @@ jobs:
           shell: powershell
           boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
           conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 14
+          numcpp_use_multithread: false
+
+  build_windows_no_boost_cxx_14_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 14
+          numcpp_use_multithread: true
+
+  build_windows_cxx_17_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 17
+          numcpp_use_multithread: false
+
+  build_windows_cxx_17_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 17
+          numcpp_use_multithread: true
+
+  build_windows_no_boost_cxx_17_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 17
+          numcpp_use_multithread: false
+
+  build_windows_no_boost_cxx_17_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 17
+          numcpp_use_multithread: true
+
+  build_windows_cxx_20_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 20
+          numcpp_use_multithread: false
+
+  build_windows_cxx_20_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: OFF
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 20
+          numcpp_use_multithread: true
+
+  build_windows_no_boost_cxx_20_single_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 20
+          numcpp_use_multithread: false
+
+  build_windows_no_boost_cxx_20_multi_thread:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Environment
+        id: configure-environment
+        uses: ./.github/actions/WindowsEnvironmentSetup
+
+      - name: Build and Test
+        uses: ./.github/actions/BuildAndTest
+        with:
+          numcpp_no_use_boost: ON
+          shell: powershell
+          boost_root: ${{ steps.configure-environment.outputs.BOOST_ROOT }}
+          conda_bin_dir: C:\Miniconda\Scripts
+          cxx_std_version: 20
+          numcpp_use_multithread: true
