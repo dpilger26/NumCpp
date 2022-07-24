@@ -50,6 +50,9 @@ endif()
 
 if(NUMCPP_USE_MULTITHREAD)
     target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
+    target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE 
+        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
+    )
 endif()
 
 target_compile_options(${ALL_INTERFACE_TARGET} INTERFACE

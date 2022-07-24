@@ -57,12 +57,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
   Python::Module
 )
 
-if (NUMCPP_USE_MULTITHREAD)
-  target_link_libraries(${TARGET_NAME} PRIVATE 
-    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
-  )
-endif()
-
 target_compile_definitions(${TARGET_NAME} PRIVATE 
   -DNUMCPP_INCLUDE_PYBIND_PYTHON_INTERFACE
 )
