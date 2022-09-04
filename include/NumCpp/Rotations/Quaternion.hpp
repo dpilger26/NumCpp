@@ -866,21 +866,30 @@ namespace nc
             ///
             void eulerToQuat(double roll, double pitch, double yaw) noexcept
             {
-                const double halfPhi   = roll / 2.0;
-                const double halfTheta = pitch / 2.0;
-                const double halfPsi   = yaw / 2.0;
+                const auto halfPhi   = roll / 2.0;
+                const auto halfTheta = pitch / 2.0;
+                const auto halfPsi   = yaw / 2.0;
 
-                components_[0] = std::sin(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
-                components_[0] -= std::cos(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+                const auto sinHalfPhi = std::sin(halfPhi);
+                const auto cosHalfPhi = std::cos(halfPhi);
 
-                components_[1] = std::cos(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
-                components_[1] += std::sin(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
+                const auto sinHalfTheta = std::sin(halfTheta);
+                const auto cosHalfTheta = std::cos(halfTheta);
 
-                components_[2] = std::cos(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
-                components_[2] -= std::sin(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
+                const auto sinHalfPsi = std::sin(halfPsi);
+                const auto cosHalfPsi = std::cos(halfPsi);
 
-                components_[3] = std::cos(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
-                components_[3] += std::sin(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+                components_[0] = sinHalfPhi * cosHalfTheta * cosHalfPsi;
+                components_[0] -= cosHalfPhi * sinHalfTheta * sinHalfPsi;
+
+                components_[1] = cosHalfPhi * sinHalfTheta * cosHalfPsi;
+                components_[1] += sinHalfPhi * cosHalfTheta * sinHalfPsi;
+
+                components_[2] = cosHalfPhi * cosHalfTheta * sinHalfPsi;
+                components_[2] -= sinHalfPhi * sinHalfTheta * cosHalfPsi;
+
+                components_[3] = cosHalfPhi * cosHalfTheta * cosHalfPsi;
+                components_[3] += sinHalfPhi * sinHalfTheta * sinHalfPsi;
             }
 
             //============================================================================
