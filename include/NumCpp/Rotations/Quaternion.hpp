@@ -352,7 +352,7 @@ namespace nc
             ///
             double roll() const noexcept
             {
-                return std::atan2(2 * (s() * i() + j() * k()), 1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
+                return std::atan2(2.0 * (s() * i() + j() * k()), 1.0 - 2.0 * (utils::sqr(i()) + utils::sqr(j())));
             }
 
             //============================================================================
@@ -428,8 +428,8 @@ namespace nc
                 Quaternion quat1Copy(inQuat1);
                 if (dotProduct < 0.0)
                 {
-                    quat1Copy *= -1;
-                    dotProduct *= -1;
+                    quat1Copy *= -1.0;
+                    dotProduct *= -1.0;
                 }
 
                 constexpr double DOT_THRESHOLD = 0.9995;
@@ -545,7 +545,7 @@ namespace nc
             ///
             double yaw() const noexcept
             {
-                return std::atan2(2 * (s() * k() + i() * j()), 1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
+                return std::atan2(2.0 * (s() * k() + i() * j()), 1.0 - 2.0 * (utils::sqr(j()) + utils::sqr(k())));
             }
 
             //============================================================================
