@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace RotationsInterface
@@ -173,7 +172,9 @@ void initRotations(pb11::module& m)
         .def(pb11::init<NdArray<double>>())
         .def_static("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray)
         .def_static("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3)
+        .def("angleOfRotation", &rotations::Quaternion::angleOfRotation)
         .def("angularVelocity", &RotationsInterface::angularVelocity)
+        .def("axisOfRotation", &rotations::Quaternion::axisOfRotation)
         .def("conjugate", &rotations::Quaternion::conjugate)
         .def("i", &rotations::Quaternion::i)
         .def_static("identity", &rotations::Quaternion::identity)

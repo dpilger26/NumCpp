@@ -159,6 +159,17 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            /// the angle of rotation around the rotation axis that is described by the quaternion
+            ///
+            /// @return radians
+            ///
+            double angleOfRotation() const noexcept
+            {
+                return 2.0 * std::acos(s());
+            }
+
+            //============================================================================
+            // Method Description:
             /// angular velocity vector between the two quaternions. The norm
             /// of the array is the magnitude
             ///
@@ -204,6 +215,24 @@ namespace nc
             NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const
             {
                 return angularVelocity(*this, inQuat2, inTime);
+            }
+
+            //============================================================================
+            // Method Description:
+            /// the axis of rotation described by the quaternion
+            ///
+            /// @return Vec3
+            ///
+            Vec3 axisOfRotation() const noexcept
+            {
+                const auto halfAngle    = angleOfRotation() / 2.0;
+                const auto sinHalfAngle = std::sin(halfAngle);
+                auto       axis         = Vec3(i() / sinHalfAngle, j() / sinHalfAngle, k() / sinHalfAngle);
+
+                // shouldn't be necessary, but let's be pedantic
+                axis.normalize();
+
+                return axis;
             }
 
             //============================================================================
