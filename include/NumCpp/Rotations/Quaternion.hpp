@@ -159,6 +159,17 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            /// the angle of rotation around the rotation axis that is described by the quaternion
+            ///
+            /// @return radians
+            ///
+            double angleOfRotation() const noexcept
+            {
+                return 2.0 * std::acos(s());
+            }
+
+            //============================================================================
+            // Method Description:
             /// angular velocity vector between the two quaternions. The norm
             /// of the array is the magnitude
             ///
@@ -204,6 +215,24 @@ namespace nc
             NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const
             {
                 return angularVelocity(*this, inQuat2, inTime);
+            }
+
+            //============================================================================
+            // Method Description:
+            /// the axis of rotation described by the quaternion
+            ///
+            /// @return Vec3
+            ///
+            Vec3 axisOfRotation() const noexcept
+            {
+                const auto halfAngle    = angleOfRotation() / 2.0;
+                const auto sinHalfAngle = std::sin(halfAngle);
+                auto       axis         = Vec3(i() / sinHalfAngle, j() / sinHalfAngle, k() / sinHalfAngle);
+
+                // shouldn't be necessary, but let's be pedantic
+                axis.normalize();
+
+                return axis;
             }
 
             //============================================================================
@@ -352,7 +381,7 @@ namespace nc
             ///
             double roll() const noexcept
             {
-                return std::atan2(2 * (s() * i() + j() * k()), 1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
+                return std::atan2(2.0 * (s() * i() + j() * k()), 1.0 - 2.0 * (utils::sqr(i()) + utils::sqr(j())));
             }
 
             //============================================================================
@@ -428,8 +457,8 @@ namespace nc
                 Quaternion quat1Copy(inQuat1);
                 if (dotProduct < 0.0)
                 {
-                    quat1Copy *= -1;
-                    dotProduct *= -1;
+                    quat1Copy *= -1.0;
+                    dotProduct *= -1.0;
                 }
 
                 constexpr double DOT_THRESHOLD = 0.9995;
@@ -500,13 +529,13 @@ namespace nc
                 const double q3sqr = utils::sqr(q3);
 
                 dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
-                dcm(0, 1) = 2 * (q0 * q1 - q3 * q2);
-                dcm(0, 2) = 2 * (q0 * q2 + q3 * q1);
-                dcm(1, 0) = 2 * (q0 * q1 + q3 * q2);
+                dcm(0, 1) = 2.0 * (q0 * q1 - q3 * q2);
+                dcm(0, 2) = 2.0 * (q0 * q2 + q3 * q1);
+                dcm(1, 0) = 2.0 * (q0 * q1 + q3 * q2);
                 dcm(1, 1) = q3sqr + q1sqr - q0sqr - q2sqr;
-                dcm(1, 2) = 2 * (q1 * q2 - q3 * q0);
-                dcm(2, 0) = 2 * (q0 * q2 - q3 * q1);
-                dcm(2, 1) = 2 * (q1 * q2 + q3 * q0);
+                dcm(1, 2) = 2.0 * (q1 * q2 - q3 * q0);
+                dcm(2, 0) = 2.0 * (q0 * q2 - q3 * q1);
+                dcm(2, 1) = 2.0 * (q1 * q2 + q3 * q0);
                 dcm(2, 2) = q3sqr + q2sqr - q0sqr - q1sqr;
 
                 return dcm;
@@ -545,7 +574,7 @@ namespace nc
             ///
             double yaw() const noexcept
             {
-                return std::atan2(2 * (s() * k() + i() * j()), 1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
+                return std::atan2(2.0 * (s() * k() + i() * j()), 1.0 - 2.0 * (utils::sqr(j()) + utils::sqr(k())));
             }
 
             //============================================================================

@@ -40,6 +40,16 @@ def test_quaternion():
             np.round(quat.yaw(), 10) == np.round(yaw, 10))
 
     axis = np.random.randint(1, 10, [3, ])
+    normAxis = axis / np.linalg.norm(axis)
+    angle = np.random.rand(1).item() * np.pi
+    quat = NumCpp.Quaternion(NumCpp.Vec3(*axis), angle)
+    assert np.round(quat.angleOfRotation(), 9) == np.round(angle, 9)
+    axisOfRotation = quat.axisOfRotation()
+    assert np.round(axisOfRotation.x, 9) == np.round(normAxis[0], 9)
+    assert np.round(axisOfRotation.y, 9) == np.round(normAxis[1], 9)
+    assert np.round(axisOfRotation.z, 9) == np.round(normAxis[2], 9)
+
+    axis = np.random.randint(1, 10, [3, ])
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
