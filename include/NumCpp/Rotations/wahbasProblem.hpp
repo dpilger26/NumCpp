@@ -103,8 +103,8 @@ namespace nc
             linalg::svd(b, u, s, vt);
 
             auto m  = eye<double>(3, 3);
-            m(0, 0) = 1.0;
-            m(1, 1) = 1.0;
+            m(0, 0) = 1.;
+            m(1, 1) = 1.;
             m(2, 2) = linalg::det(u) * linalg::det(vt.transpose());
 
             return dot(u, dot(m, vt));

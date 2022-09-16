@@ -69,7 +69,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        if (inPercentile < 0.0 || inPercentile > 100.0)
+        if (inPercentile < 0. || inPercentile > 100.)
         {
             THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");
         }
@@ -99,26 +99,26 @@ namespace nc
                 NdArray<double> arrayCopy = inArray.template astype<double>();
                 stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
 
-                if (utils::essentiallyEqual(inPercentile, 0.0))
+                if (utils::essentiallyEqual(inPercentile, 0.))
                 {
                     NdArray<double> returnArray = { arrayCopy.front() };
                     return returnArray;
                 }
-                if (utils::essentiallyEqual(inPercentile, 100.0))
+                if (utils::essentiallyEqual(inPercentile, 100.))
                 {
                     NdArray<double> returnArray = { arrayCopy.back() };
                     return returnArray;
                 }
 
                 const auto i =
-                    static_cast<uint32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
+                    static_cast<uint32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.));
                 const auto indexLower = clip<uint32>(i, 0, inArray.size() - 2);
 
                 if (inInterpMethod == "linear")
                 {
                     const double percentI = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
                     const double fraction =
-                        (inPercentile / 100.0 - percentI) /
+                        (inPercentile / 100. - percentI) /
                         (static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
 
                     NdArray<double> returnArray = { arrayCopy[indexLower] +
@@ -140,7 +140,7 @@ namespace nc
 
                 if (inInterpMethod == "nearest")
                 {
-                    const double percent  = inPercentile / 100.0;
+                    const double percent  = inPercentile / 100.;
                     const double percent1 = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
                     const double percent2 =
                         static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
@@ -164,7 +164,7 @@ namespace nc
 
                 if (inInterpMethod == "midpoint")
                 {
-                    NdArray<double> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
+                    NdArray<double> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2. };
                     return returnArray;
                 }
 
@@ -189,20 +189,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> arrayTrans = inArray.transpose();
-                const Shape    inShape    = arrayTrans.shape();
-
-                NdArray<double> returnArray(1, inShape.rows);
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    returnArray[row] = percentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
-                                                  inPercentile,
-                                                  Axis::NONE,
-                                                  inInterpMethod)
-                                           .item();
-                }
-
-                return returnArray;
+                return percentile(inArray.transpose(), inPercentile, Axis::COL, inInterpMethod);
             }
             default:
             {

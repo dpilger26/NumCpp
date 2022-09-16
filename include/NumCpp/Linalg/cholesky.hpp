@@ -69,7 +69,7 @@ namespace nc
             {
                 for (uint32 col = row + 1; col < shape.cols; ++col)
                 {
-                    lMatrix(row, col) = 0.0;
+                    lMatrix(row, col) = 0.;
                 }
             }
 
@@ -77,7 +77,7 @@ namespace nc
             {
                 const double& a_kk = lMatrix(k, k);
 
-                if (a_kk > 0.0)
+                if (a_kk > 0.)
                 {
                     lMatrix(k, k) = std::sqrt(a_kk);
 

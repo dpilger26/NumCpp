@@ -368,7 +368,7 @@ namespace nc
             /// The maximum pixel count value of the cluster
             dtype maxPixel;
             /// The cluster energy on detector
-            double eod_{ 1.0 };
+            double eod_{ 1. };
         };
     } // namespace imageProcessing
 } // namespace nc

@@ -57,7 +57,7 @@ namespace nc
         {
             const double width = (high - low) / static_cast<double>(n);
 
-            double trapezoidal_integral = 0.0;
+            double trapezoidal_integral = 0.;
             for (uint32 step = 0; step < n; ++step)
             {
                 const double x1 = low + static_cast<double>(step) * width;

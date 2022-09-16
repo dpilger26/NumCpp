@@ -99,26 +99,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> transposedArray = inArray.transpose();
-                const Shape    inShape         = transposedArray.shape();
-                NdArray<dtype> returnArray(1, inShape.rows);
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    std::vector<dtype> values;
-                    for (uint32 col = 0; col < inShape.cols; ++col)
-                    {
-                        if (!std::isnan(transposedArray(row, col)))
-                        {
-                            values.push_back(transposedArray(row, col));
-                        }
-                    }
-
-                    const uint32 middle = static_cast<uint32>(values.size()) / 2;
-                    stl_algorithms::nth_element(values.begin(), values.begin() + middle, values.end());
-                    returnArray(0, row) = values[middle];
-                }
-
-                return returnArray;
+                return nanmedian(inArray.transpose(), Axis::COL);
             }
             default:
             {

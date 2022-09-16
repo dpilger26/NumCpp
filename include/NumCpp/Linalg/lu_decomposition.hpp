@@ -75,7 +75,7 @@ namespace nc
                 for (uint32 row = col + 1; row < shape.rows; ++row)
                 {
                     const double& divisor = uMatrix(col, col);
-                    if (utils::essentiallyEqual(divisor, double{ 0.0 }))
+                    if (utils::essentiallyEqual(divisor, double{ 0. }))
                     {
                         THROW_RUNTIME_ERROR("Division by 0.");
                     }

@@ -93,8 +93,8 @@ namespace nc
             ///
             struct Result
             {
-                double value{ 0.0 };
-                double derivative{ 0.0 };
+                double value{ 0. };
+                double derivative{ 0. };
 
                 //============================================================================
                 // Method Description:
@@ -132,7 +132,7 @@ namespace nc
                     } while (std::fabs(newtonRaphsonRatio) > EPSILON);
 
                     root_[step]   = root;
-                    weight_[step] = 2.0 / ((1.0 - utils::sqr(root)) * result.derivative * result.derivative);
+                    weight_[step] = 2. / ((1. - utils::sqr(root)) * result.derivative * result.derivative);
                 }
             }
 
@@ -145,15 +145,15 @@ namespace nc
             ///
             Result calculatePolynomialValueAndDerivative(const double x) noexcept
             {
-                Result result(x, 0.0);
+                Result result(x, 0.);
 
-                double       value_minus_1 = 1.0;
-                const double f             = 1.0 / (utils::sqr(x) - 1.0);
+                double       value_minus_1 = 1.;
+                const double f             = 1. / (utils::sqr(x) - 1.);
                 for (uint32 step = 2; step <= numIterations_; ++step)
                 {
                     const auto   stepDouble = static_cast<double>(step);
                     const double value =
-                        ((2.0 * stepDouble - 1.0) * x * result.value - (stepDouble - 1.0) * value_minus_1) / stepDouble;
+                        ((2. * stepDouble - 1.) * x * result.value - (stepDouble - 1.) * value_minus_1) / stepDouble;
                     result.derivative = stepDouble * f * (x * value - result.value);
 
                     value_minus_1 = result.value;
@@ -192,7 +192,7 @@ namespace nc
             const double width = 0.5 * (high - low);
             const double mean  = 0.5 * (low + high);
 
-            double gaussLegendre = 0.0;
+            double gaussLegendre = 0.;
             for (uint32 step = 1; step <= n; ++step)
             {
                 gaussLegendre += weight[step] * f(width * root[step] + mean);

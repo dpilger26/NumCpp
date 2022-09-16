@@ -53,7 +53,7 @@ namespace nc
     ///
     template<typename dtype>
     NdArray<dtype> nan_to_num(NdArray<dtype> inArray,
-                              dtype          nan    = static_cast<dtype>(0.0),
+                              dtype          nan    = static_cast<dtype>(0.),
                               dtype          posInf = DtypeInfo<dtype>::max(),
                               dtype          negInf = DtypeInfo<dtype>::min())
     {
@@ -69,7 +69,7 @@ namespace nc
                                      }
                                      else if (isinf(value))
                                      {
-                                         if (value > static_cast<dtype>(0.0))
+                                         if (value > static_cast<dtype>(0.))
                                          {
                                              value = posInf;
                                          }

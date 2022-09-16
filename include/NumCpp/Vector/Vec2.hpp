@@ -49,8 +49,8 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        double x{ 0.0 };
-        double y{ 0.0 };
+        double x{ 0. };
+        double y{ 0. };
 
         //============================================================================
         // Method Description:
@@ -119,7 +119,7 @@ namespace nc
             dotProduct /= otherVec.norm();
 
             // clamp the value to the acos range just to be safe
-            dotProduct = std::max(std::min(dotProduct, 1.0), -1.0);
+            dotProduct = std::max(std::min(dotProduct, 1.), -1.);
 
             return std::acos(dotProduct);
         }
@@ -177,7 +177,7 @@ namespace nc
         ///
         static constexpr Vec2 down() noexcept
         {
-            return Vec2(0.0, -1.0);
+            return Vec2(0., -1.);
         }
 
         //============================================================================
@@ -188,7 +188,7 @@ namespace nc
         ///
         static constexpr Vec2 left() noexcept
         {
-            return Vec2(-1.0, 0.0);
+            return Vec2(-1., 0.);
         }
 
         //============================================================================
@@ -201,12 +201,12 @@ namespace nc
         ///
         Vec2 lerp(const Vec2& otherVec, double t) const noexcept
         {
-            t = std::max(std::min(t, 1.0), 0.0);
+            t = std::max(std::min(t, 1.), 0.);
 
             Vec2 trajectory = otherVec;
             trajectory -= *this;
-            const double xInterp = utils::interp(0.0, trajectory.x, t);
-            const double yInterp = utils::interp(0.0, trajectory.y, t);
+            const double xInterp = utils::interp(0., trajectory.x, t);
+            const double yInterp = utils::interp(0., trajectory.y, t);
 
             return Vec2(*this) += Vec2(xInterp, yInterp);
         }
@@ -254,7 +254,7 @@ namespace nc
         ///
         static constexpr Vec2 right() noexcept
         {
-            return Vec2(1.0, 0.0);
+            return Vec2(1., 0.);
         }
 
         //============================================================================
@@ -290,7 +290,7 @@ namespace nc
         ///
         static constexpr Vec2 up() noexcept
         {
-            return Vec2(0.0, 1.0);
+            return Vec2(0., 1.);
         }
 
         //============================================================================

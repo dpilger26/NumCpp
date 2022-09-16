@@ -101,28 +101,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<double> meanValue       = nanmean(inArray, inAxis);
-                NdArray<dtype>  transposedArray = inArray.transpose();
-                const Shape     inShape         = transposedArray.shape();
-                NdArray<double> returnArray(1, inShape.rows);
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    double sum     = 0;
-                    double counter = 0;
-                    for (uint32 col = 0; col < inShape.cols; ++col)
-                    {
-                        if (std::isnan(transposedArray(row, col)))
-                        {
-                            continue;
-                        }
-
-                        sum += utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
-                        ++counter;
-                    }
-                    returnArray(0, row) = std::sqrt(sum / counter);
-                }
-
-                return returnArray;
+                return nanstdev(inArray.transpose(), Axis::COL);
             }
             default:
             {

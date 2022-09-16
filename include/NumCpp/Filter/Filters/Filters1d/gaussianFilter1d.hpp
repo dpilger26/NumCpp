@@ -68,7 +68,7 @@ namespace nc
             // calculate the kernel size based off of the input sigma value
             constexpr uint32 MIN_KERNEL_SIZE = 5;
             uint32           kernelSize =
-                std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); // 4 standard deviations
+                std::max(static_cast<uint32>(std::ceil(inSigma * 2. * 4.)), MIN_KERNEL_SIZE); // 4 standard deviations
             if (kernelSize % 2 == 0)
             {
                 ++kernelSize; // make sure the kernel is an odd size
@@ -80,7 +80,7 @@ namespace nc
             NdArray<double> kernel(1, kernelSize);
             for (double i = 0; i < kernelSize; ++i)
             {
-                kernel[static_cast<uint32>(i)] = utils::gaussian1d(i - kernalHalfSize, 0.0, inSigma);
+                kernel[static_cast<uint32>(i)] = utils::gaussian1d(i - kernalHalfSize, 0., inSigma);
             }
 
             // normalize the kernel

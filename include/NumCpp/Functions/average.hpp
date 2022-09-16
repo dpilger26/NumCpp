@@ -90,7 +90,7 @@ namespace nc
                                           weightedArray.begin(),
                                           std::multiplies<double>());
 
-                double          sum         = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
+                double          sum         = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.);
                 NdArray<double> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
@@ -114,7 +114,7 @@ namespace nc
                                               weightedArray.begin(),
                                               std::multiplies<double>());
 
-                    double sum          = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
+                    double sum          = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.);
                     returnArray(0, row) = sum / weightSum;
                 }
 
@@ -122,30 +122,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                if (inWeights.size() != inArray.shape().rows)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
-                }
-
-                NdArray<dtype> transposedArray = inArray.transpose();
-
-                const Shape     transShape = transposedArray.shape();
-                double          weightSum  = inWeights.template astype<double>().sum().item();
-                NdArray<double> returnArray(1, transShape.rows);
-                for (uint32 row = 0; row < transShape.rows; ++row)
-                {
-                    NdArray<double> weightedArray(1, transShape.cols);
-                    stl_algorithms::transform(transposedArray.cbegin(row),
-                                              transposedArray.cend(row),
-                                              inWeights.cbegin(),
-                                              weightedArray.begin(),
-                                              std::multiplies<double>());
-
-                    double sum          = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
-                    returnArray(0, row) = sum / weightSum;
-                }
-
-                return returnArray;
+                return average(inArray.transpose(), inWeights, Axis::COL);
             }
             default:
             {
@@ -192,7 +169,7 @@ namespace nc
                                           multiplies);
 
                 std::complex<double> sum =
-                    std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.0));
+                    std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.));
                 NdArray<std::complex<double>> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
@@ -217,7 +194,7 @@ namespace nc
                                               multiplies);
 
                     const std::complex<double> sum =
-                        std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.0));
+                        std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.));
                     returnArray(0, row) = sum / weightSum;
                 }
 
@@ -225,31 +202,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                if (inWeights.size() != inArray.shape().rows)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
-                }
-
-                NdArray<std::complex<dtype>> transposedArray = inArray.transpose();
-
-                const Shape                   transShape = transposedArray.shape();
-                double                        weightSum  = inWeights.template astype<double>().sum().item();
-                NdArray<std::complex<double>> returnArray(1, transShape.rows);
-                for (uint32 row = 0; row < transShape.rows; ++row)
-                {
-                    NdArray<std::complex<double>> weightedArray(1, transShape.cols);
-                    stl_algorithms::transform(transposedArray.cbegin(row),
-                                              transposedArray.cend(row),
-                                              inWeights.cbegin(),
-                                              weightedArray.begin(),
-                                              multiplies);
-
-                    const std::complex<double> sum =
-                        std::accumulate(weightedArray.begin(), weightedArray.end(), std::complex<double>(0.0));
-                    returnArray(0, row) = sum / weightSum;
-                }
-
-                return returnArray;
+                return average(inArray.transpose(), inWeights, Axis::COL);
             }
             default:
             {

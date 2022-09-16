@@ -51,14 +51,14 @@ namespace nc
         {
             if (r > n)
             {
-                return 0.0;
+                return 0.;
             }
             else if (r == n)
             {
                 return factorial(n);
             }
 
-            double combinations = 1.0;
+            double combinations = 1.;
 
 #ifndef NUMCPP_NO_USE_BOOST
             if (n <= boost::math::max_factorial<double>::value)

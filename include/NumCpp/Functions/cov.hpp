@@ -69,7 +69,7 @@ namespace nc
             {
                 const auto var2Mean = varMeans[j];
 
-                double sum = 0.0;
+                double sum = 0.;
                 for (IndexType iObs = 0; iObs < numObs; ++iObs)
                 {
                     sum += (x(i, iObs) - var1Mean) * (x(j, iObs) - var2Mean);

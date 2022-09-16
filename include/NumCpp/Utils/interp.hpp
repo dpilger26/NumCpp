@@ -42,7 +42,7 @@ namespace nc
         ///
         constexpr double interp(double inValue1, double inValue2, double inPercent) noexcept
         {
-            return inValue1 * (1.0 - inPercent) + inValue2 * inPercent;
+            return inValue1 * (1. - inPercent) + inValue2 * inPercent;
         }
     } // namespace utils
 } // namespace nc

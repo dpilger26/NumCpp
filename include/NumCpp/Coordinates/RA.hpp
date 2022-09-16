@@ -65,10 +65,10 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input degrees must be of the range [0, 360)");
                 }
 
-                hours_                  = static_cast<uint8>(std::floor(degrees_ / 15.0));
-                const double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
+                hours_                  = static_cast<uint8>(std::floor(degrees_ / 15.));
+                const double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.) * 4.;
                 minutes_                = static_cast<uint8>(std::floor(decMinutes));
-                seconds_                = static_cast<double>((decMinutes - static_cast<double>(minutes_)) * 60.0);
+                seconds_                = static_cast<double>((decMinutes - static_cast<double>(minutes_)) * 60.);
             }
 
             //============================================================================
@@ -84,7 +84,7 @@ namespace nc
                 minutes_(inMinutes),
                 seconds_(inSeconds)
             {
-                degrees_ = static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + seconds_ / 240.0;
+                degrees_ = static_cast<double>(hours_) * 15. + static_cast<double>(minutes_) / 4. + seconds_ / 240.;
                 radians_ = deg2rad(degrees_);
             }
 
@@ -199,9 +199,9 @@ namespace nc
             //====================================Attributes==============================
             uint8  hours_{ 0 };
             uint8  minutes_{ 0 };
-            double seconds_{ 0.0 };
-            double degrees_{ 0.0 };
-            double radians_{ 0.0 };
+            double seconds_{ 0. };
+            double degrees_{ 0. };
+            double radians_{ 0. };
         };
     } // namespace coordinates
 } // namespace nc

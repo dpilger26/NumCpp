@@ -57,11 +57,11 @@ namespace nc
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(0.0, mDouble, m, true))
+        for (auto n : linspace(0., mDouble, m, true))
         {
             const auto nOverM = n / mDouble;
             result[i++] =
-                0.42 - 0.5 * std::cos(2.0 * constants::pi * nOverM) + 0.08 * std::cos(4.0 * constants::pi * nOverM);
+                0.42 - 0.5 * std::cos(2. * constants::pi * nOverM) + 0.08 * std::cos(4. * constants::pi * nOverM);
         }
 
         return result;

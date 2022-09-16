@@ -60,7 +60,7 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype, typename GeneratorType = std::mt19937>
-            dtype randFloat(GeneratorType& generator, dtype inLow, dtype inHigh = 0.0)
+            dtype randFloat(GeneratorType& generator, dtype inLow, dtype inHigh = 0.)
             {
                 STATIC_ASSERT_FLOAT(dtype);
 
@@ -93,7 +93,7 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype, typename GeneratorType = std::mt19937>
-            NdArray<dtype> randFloat(GeneratorType& generator, const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
+            NdArray<dtype> randFloat(GeneratorType& generator, const Shape& inShape, dtype inLow, dtype inHigh = 0.)
             {
                 STATIC_ASSERT_FLOAT(dtype);
 
@@ -132,7 +132,7 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        dtype randFloat(dtype inLow, dtype inHigh = 0.0)
+        dtype randFloat(dtype inLow, dtype inHigh = 0.)
         {
             return detail::randFloat(generator_, inLow, inHigh);
         }
@@ -152,7 +152,7 @@ namespace nc
         /// @return NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
+        NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.)
         {
             return detail::randFloat(generator_, inShape, inLow, inHigh);
         }

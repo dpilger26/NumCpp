@@ -254,10 +254,10 @@ namespace nc
 
         private:
             //==================================Attributes================================///
-            double        row_{ 0.0 };
-            double        col_{ 0.0 };
+            double        row_{ 0. };
+            double        col_{ 0. };
             accumulator_t intensity_{ 0 };
-            double        eod_{ 0.0 };
+            double        eod_{ 0. };
             /// The ellipse semi-major axis a
             double a_;
             /// The ellipse semi-minor axis b
@@ -302,11 +302,11 @@ namespace nc
             ///
             void setEllipseProperties(const Cluster<dtype>& inCluster) noexcept
             {
-                constexpr double two = static_cast<double>(2.0);
+                constexpr double two = static_cast<double>(2.);
 
-                double m20 = static_cast<double>(0.0);
-                double m02 = static_cast<double>(0.0);
-                double m11 = static_cast<double>(0.0);
+                double m20 = static_cast<double>(0.);
+                double m02 = static_cast<double>(0.);
+                double m11 = static_cast<double>(0.);
 
                 for (typename Cluster<dtype>::const_iterator iter = inCluster.begin(); iter != inCluster.end(); ++iter)
                 {
@@ -327,13 +327,13 @@ namespace nc
                 double piece1 = m20 + m02;
                 piece1 /= two;
 
-                double piece2 = std::sqrt(static_cast<double>(4.0) * utils::sqr(m11) + utils::sqr(m20 - m02));
+                double piece2 = std::sqrt(static_cast<double>(4.) * utils::sqr(m11) + utils::sqr(m20 - m02));
                 piece2 /= two;
 
                 const double lambda1 = piece1 - piece2;
                 const double lambda2 = piece1 + piece2;
 
-                eccentricity_ = std::sqrt(static_cast<double>(1.0) - lambda1 / lambda2);
+                eccentricity_ = std::sqrt(static_cast<double>(1.) - lambda1 / lambda2);
                 orientation_  = static_cast<double>(-0.5) * std::atan2(two * m11, m20 - m02);
                 a_            = two * std::sqrt(lambda2);
                 b_            = two * std::sqrt(lambda1);

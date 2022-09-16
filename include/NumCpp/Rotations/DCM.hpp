@@ -112,8 +112,8 @@ namespace nc
             {
                 const Shape inShape = inArray.shape();
                 return inShape.rows == inShape.cols &&
-                       utils::essentiallyEqual(round(linalg::det<double>(inArray), 2), 1.0) &&
-                       utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0);
+                       utils::essentiallyEqual(round(linalg::det<double>(inArray), 2), 1.) &&
+                       utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.);
             }
 
             //============================================================================
@@ -162,7 +162,7 @@ namespace nc
             ///
             static NdArray<double> xRotation(double inAngle)
             {
-                return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
+                return DCM::eulerAxisAngle(Vec3{ 1., 0., 0. }, inAngle);
             }
 
             //============================================================================
@@ -175,7 +175,7 @@ namespace nc
             ///
             static NdArray<double> yRotation(double inAngle)
             {
-                return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
+                return DCM::eulerAxisAngle(Vec3{ 0., 1., 0. }, inAngle);
             }
 
             //============================================================================
@@ -188,7 +188,7 @@ namespace nc
             ///
             static NdArray<double> zRotation(double inAngle)
             {
-                return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
+                return DCM::eulerAxisAngle(Vec3{ 0., 0., 1. }, inAngle);
             }
         };
     } // namespace rotations

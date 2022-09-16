@@ -52,7 +52,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        double     sumOfSquares = 0.0;
+        double     sumOfSquares = 0.;
         const auto function     = [&sumOfSquares](dtype value) -> void
         { sumOfSquares += utils::sqr(static_cast<double>(value)); };
 
@@ -70,7 +70,7 @@ namespace nc
                 NdArray<double> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    sumOfSquares = 0.0;
+                    sumOfSquares = 0.;
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
                     returnArray(0, row) = std::sqrt(sumOfSquares);
                 }
@@ -79,16 +79,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype>  transposedArray = inArray.transpose();
-                NdArray<double> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    sumOfSquares = 0.0;
-                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                    returnArray(0, row) = std::sqrt(sumOfSquares);
-                }
-
-                return returnArray;
+                return norm(inArray.transpose(), Axis::COL);
             }
             default:
             {
@@ -112,7 +103,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        std::complex<double> sumOfSquares(0.0, 0.0);
+        std::complex<double> sumOfSquares(0., 0.);
         const auto           function = [&sumOfSquares](const std::complex<dtype>& value) -> void
         { sumOfSquares += utils::sqr(complex_cast<double>(value)); };
 
@@ -130,7 +121,7 @@ namespace nc
                 NdArray<std::complex<double>> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    sumOfSquares = std::complex<double>(0.0, 0.0);
+                    sumOfSquares = std::complex<double>(0., 0.);
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
                     returnArray(0, row) = std::sqrt(sumOfSquares);
                 }
@@ -143,7 +134,7 @@ namespace nc
                 NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
                 for (uint32 row = 0; row < transposedArray.numRows(); ++row)
                 {
-                    sumOfSquares = std::complex<double>(0.0, 0.0);
+                    sumOfSquares = std::complex<double>(0., 0.);
                     std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
                     returnArray(0, row) = std::sqrt(sumOfSquares);
                 }

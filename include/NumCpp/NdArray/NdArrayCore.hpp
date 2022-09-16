@@ -1813,15 +1813,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool>  returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            stl_algorithms::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-                    }
-
-                    return returnArray;
+                    return transpose().all(Axis::COL);
                 }
                 default:
                 {
@@ -1865,15 +1857,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool>  returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            stl_algorithms::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-                    }
-
-                    return returnArray;
+                    return transpose().any(Axis::COL);
                 }
                 default:
                 {
@@ -1920,18 +1904,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype>  arrayTransposed = transpose();
-                    NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            static_cast<uint32>(stl_algorithms::max_element(arrayTransposed.cbegin(row),
-                                                                            arrayTransposed.cend(row),
-                                                                            comparitor) -
-                                                arrayTransposed.cbegin(row));
-                    }
-
-                    return returnArray;
+                    return transpose().argmax(Axis::COL);
                 }
                 default:
                 {
@@ -1978,18 +1951,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype>  arrayTransposed = transpose();
-                    NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            static_cast<uint32>(stl_algorithms::min_element(arrayTransposed.cbegin(row),
-                                                                            arrayTransposed.cend(row),
-                                                                            comparitor) -
-                                                arrayTransposed.cbegin(row));
-                    }
-
-                    return returnArray;
+                    return transpose().argmin(Axis::COL);
                 }
                 default:
                 {
@@ -2048,25 +2010,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype>      arrayTransposed = transpose();
-                    NdArray<uint32>     returnArray(shape_.cols, shape_.rows);
-                    std::vector<uint32> idx(arrayTransposed.shape_.cols);
-
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        std::iota(idx.begin(), idx.end(), 0);
-
-                        const auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
-                        { return arrayTransposed(row, i1) < arrayTransposed(row, i2); };
-
-                        stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
-
-                        for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
-                        {
-                            returnArray(row, col) = idx[col];
-                        }
-                    }
-                    return returnArray.transpose();
+                    return transpose().argsort(Axis::COL).transpose();
                 }
                 default:
                 {
@@ -2352,16 +2296,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transArray = transpose();
-                    NdArray<bool>  returnArray(1, transArray.shape_.rows);
-                    for (uint32 row = 0; row < transArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            stl_algorithms::find(transArray.cbegin(row), transArray.cend(row), inValue) !=
-                            transArray.cend(row);
-                    }
-
-                    return returnArray;
+                    return transpose().contains(inValue, Axis::COL);
                 }
                 default:
                 {
@@ -2426,17 +2361,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> returnArray(shape_);
-                    for (uint32 col = 0; col < shape_.cols; ++col)
-                    {
-                        returnArray(0, col) = operator()(0, col);
-                        for (uint32 row = 1; row < shape_.rows; ++row)
-                        {
-                            returnArray(row, col) = returnArray(row - 1, col) * operator()(row, col);
-                        }
-                    }
-
-                    return returnArray;
+                    return transpose().cumprod(Axis::COL).transpose();
                 }
                 default:
                 {
@@ -2488,17 +2413,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> returnArray(shape_);
-                    for (uint32 col = 0; col < shape_.cols; ++col)
-                    {
-                        returnArray(0, col) = operator()(0, col);
-                        for (uint32 row = 1; row < shape_.rows; ++row)
-                        {
-                            returnArray(row, col) = returnArray(row - 1, col) + operator()(row, col);
-                        }
-                    }
-
-                    return returnArray;
+                    return transpose().cumsum(Axis::COL).transpose();
                 }
                 default:
                 {
@@ -2556,28 +2471,6 @@ namespace nc
         {
             switch (inAxis)
             {
-                case Axis::ROW:
-                {
-                    std::vector<dtype> diagnolValues;
-                    int32              col = inOffset;
-                    for (uint32 row = 0; row < shape_.rows; ++row)
-                    {
-                        if (col < 0)
-                        {
-                            ++col;
-                            continue;
-                        }
-                        if (col >= static_cast<int32>(shape_.cols))
-                        {
-                            break;
-                        }
-
-                        diagnolValues.push_back(operator()(row, static_cast<uint32>(col)));
-                        ++col;
-                    }
-
-                    return NdArray<dtype>(diagnolValues);
-                }
                 case Axis::COL:
                 {
                     std::vector<dtype> diagnolValues;
@@ -2599,6 +2492,10 @@ namespace nc
                     }
 
                     return NdArray<dtype>(diagnolValues);
+                }
+                case Axis::ROW:
+                {
+                    return transpose().diagonal(inOffset, Axis::COL);
                 }
                 default:
                 {
@@ -2868,19 +2765,6 @@ namespace nc
                 {
                     return { stl_algorithms::is_sorted(cbegin(), cend(), comparitor) };
                 }
-                case Axis::ROW:
-                {
-                    NdArray<bool> returnArray(shape_.cols, 1);
-                    auto          transposedArray = transpose();
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = stl_algorithms::is_sorted(transposedArray.cbegin(row),
-                                                                        transposedArray.cend(row),
-                                                                        comparitor);
-                    }
-
-                    return returnArray;
-                }
                 case Axis::COL:
                 {
                     NdArray<bool> returnArray(1, shape_.rows);
@@ -2890,6 +2774,10 @@ namespace nc
                     }
 
                     return returnArray;
+                }
+                case Axis::ROW:
+                {
+                    return transpose().issorted(Axis::COL);
                 }
                 default:
                 {
@@ -2962,16 +2850,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = *stl_algorithms::max_element(transposedArray.cbegin(row),
-                                                                           transposedArray.cend(row),
-                                                                           comparitor);
-                    }
-
-                    return returnArray;
+                    return transpose().max(Axis::COL);
                 }
                 default:
                 {
@@ -3015,16 +2894,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = *stl_algorithms::min_element(transposedArray.cbegin(row),
-                                                                           transposedArray.cend(row),
-                                                                           comparitor);
-                    }
-
-                    return returnArray;
+                    return transpose().min(Axis::COL);
                 }
                 default:
                 {
@@ -3115,34 +2985,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-
-                    const bool isEven = shape_.rows % 2 == 0;
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        const uint32 middleIdx = transposedArray.shape_.cols / 2; // integer division
-                        stl_algorithms::nth_element(transposedArray.begin(row),
-                                                    transposedArray.begin(row) + middleIdx,
-                                                    transposedArray.end(row),
-                                                    comparitor);
-
-                        dtype medianValue = transposedArray(row, middleIdx);
-                        if (isEven)
-                        {
-                            const uint32 lhsIndex = middleIdx - 1;
-                            stl_algorithms::nth_element(transposedArray.begin(row),
-                                                        transposedArray.begin(row) + lhsIndex,
-                                                        transposedArray.end(row),
-                                                        comparitor);
-                            medianValue = (medianValue + transposedArray(row, lhsIndex)) /
-                                          dtype{ 2 }; // potentially integer division, ok
-                        }
-
-                        returnArray(0, row) = medianValue;
-                    }
-
-                    return returnArray;
+                    return transpose().median(Axis::COL);
                 }
                 default:
                 {
@@ -3158,6 +3001,7 @@ namespace nc
         ///
         ///
         NdArray<dtype>& nans() noexcept
+
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -3376,15 +3220,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> arrayTransposed = transpose();
-                    NdArray<bool>  returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            stl_algorithms::none_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-                    }
-
-                    return returnArray;
+                    return transpose().none(Axis::COL);
                 }
                 default:
                 {
@@ -3575,17 +3411,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row),
-                                                              transposedArray.cend(row),
-                                                              dtype{ 1 },
-                                                              std::multiplies<dtype>());
-                    }
-
-                    return returnArray;
+                    return transpose().prod(Axis::COL);
                 }
                 default:
                 {
@@ -3631,17 +3457,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
-                    {
-                        const auto result   = stl_algorithms::minmax_element(transposedArray.cbegin(row),
-                                                                           transposedArray.cend(row),
-                                                                           comparitor);
-                        returnArray(0, row) = *result.second - *result.first;
-                    }
-
-                    return returnArray;
+                    return transpose().ptp(Axis::COL);
                 }
                 default:
                 {
@@ -4244,7 +4060,7 @@ namespace nc
             STATIC_ASSERT_FLOAT(dtype);
 
             NdArray<dtype> returnArray(shape_);
-            const double   multFactor = utils::power(10.0, inNumDecimals);
+            const double   multFactor = utils::power(10., inNumDecimals);
             const auto     function   = [multFactor](dtype value) noexcept -> dtype
             { return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor); };
 
@@ -4402,16 +4218,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    const Shape    transShape      = transposedArray.shape();
-                    NdArray<dtype> returnArray(1, transShape.rows);
-                    for (uint32 row = 0; row < transShape.rows; ++row)
-                    {
-                        returnArray(0, row) =
-                            std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), dtype{ 0 });
-                    }
-
-                    return returnArray;
+                    return transpose().sum(Axis::COL);
                 }
                 default:
                 {

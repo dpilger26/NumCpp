@@ -95,12 +95,24 @@ namespace nc
             // Method Description:
             /// Constructor
             ///
+            /// @param components
+            ///
+            Quaternion(const std::array<double, 4>& components) noexcept :
+                components_{ components }
+            {
+                normalize();
+            }
+
+            //============================================================================
+            // Method Description:
+            /// Constructor
+            ///
             /// @param inArray: if size = 3 the roll, pitch, yaw euler angles
             /// if size = 4 the i, j, k, s components
             /// if shape = [3, 3] then direction cosine matrix
             ///
             Quaternion(const NdArray<double>& inArray) :
-                components_{ 0.0, 0.0, 0.0, 0.0 }
+                components_{ 0., 0., 0., 0. }
             {
                 if (inArray.size() == 3)
                 {
@@ -136,7 +148,7 @@ namespace nc
                 // normalize the input vector
                 Vec3 normAxis = inAxis.normalize();
 
-                const double halfAngle    = inAngle / 2.0;
+                const double halfAngle    = inAngle / 2.;
                 const double sinHalfAngle = std::sin(halfAngle);
 
                 components_[0] = normAxis.x * sinHalfAngle;
@@ -165,7 +177,7 @@ namespace nc
             ///
             double angleOfRotation() const noexcept
             {
-                return 2.0 * std::acos(s());
+                return 2. * std::acos(s());
             }
 
             //============================================================================
@@ -200,7 +212,7 @@ namespace nc
                 q(3, 2) = -inQuat2.k();
 
                 NdArray<double> omega = q.transpose().dot(qDot.transpose());
-                return omega *= 2.0;
+                return omega *= 2.;
             }
 
             //============================================================================
@@ -225,7 +237,7 @@ namespace nc
             ///
             Vec3 axisOfRotation() const noexcept
             {
-                const auto halfAngle    = angleOfRotation() / 2.0;
+                const auto halfAngle    = angleOfRotation() / 2.;
                 const auto sinHalfAngle = std::sin(halfAngle);
                 auto       axis         = Vec3(i() / sinHalfAngle, j() / sinHalfAngle, k() / sinHalfAngle);
 
@@ -313,21 +325,21 @@ namespace nc
             ///
             static Quaternion nlerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
-                if (inPercent < 0.0 || inPercent > 1.0)
+                if (inPercent < 0. || inPercent > 1.)
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input percent must be of the range [0,1].");
                 }
 
-                if (utils::essentiallyEqual(inPercent, 0.0))
+                if (utils::essentiallyEqual(inPercent, 0.))
                 {
                     return inQuat1;
                 }
-                if (utils::essentiallyEqual(inPercent, 1.0))
+                if (utils::essentiallyEqual(inPercent, 1.))
                 {
                     return inQuat2;
                 }
 
-                const double          oneMinus = 1.0 - inPercent;
+                const double          oneMinus = 1. - inPercent;
                 std::array<double, 4> newComponents{};
 
                 stl_algorithms::transform(inQuat1.components_.begin(),
@@ -337,7 +349,7 @@ namespace nc
                                           [inPercent, oneMinus](double component1, double component2) -> double
                                           { return oneMinus * component1 + inPercent * component2; });
 
-                return { newComponents[0], newComponents[1], newComponents[2], newComponents[3] };
+                return { newComponents };
             }
 
             //============================================================================
@@ -381,7 +393,7 @@ namespace nc
             ///
             double roll() const noexcept
             {
-                return std::atan2(2.0 * (s() * i() + j() * k()), 1.0 - 2.0 * (utils::sqr(i()) + utils::sqr(j())));
+                return std::atan2(2. * (s() * i() + j() * k()), 1. - 2. * (utils::sqr(i()) + utils::sqr(j())));
             }
 
             //============================================================================
@@ -455,10 +467,10 @@ namespace nc
                 // have opposite handed-ness and slerp won't take
                 // the shorter path. Fix by reversing one quaternion.
                 Quaternion quat1Copy(inQuat1);
-                if (dotProduct < 0.0)
+                if (dotProduct < 0.)
                 {
-                    quat1Copy *= -1.0;
-                    dotProduct *= -1.0;
+                    quat1Copy *= -1.;
+                    dotProduct *= -1.;
                 }
 
                 constexpr double DOT_THRESHOLD = 0.9995;
@@ -469,9 +481,9 @@ namespace nc
                     return nlerp(inQuat1, inQuat2, inPercent);
                 }
 
-                dotProduct          = clip(dotProduct, -1.0, 1.0); // Robustness: Stay within domain of acos()
-                const double theta0 = std::acos(dotProduct);       // angle between input vectors
-                const double theta  = theta0 * inPercent;          // angle between v0 and result
+                dotProduct          = clip(dotProduct, -1., 1.); // Robustness: Stay within domain of acos()
+                const double theta0 = std::acos(dotProduct);     // angle between input vectors
+                const double theta  = theta0 * inPercent;        // angle between v0 and result
 
                 const double s0 = std::cos(theta) - dotProduct * std::sin(theta) /
                                                         std::sin(theta0); // == sin(theta_0 - theta) / sin(theta_0)
@@ -529,13 +541,13 @@ namespace nc
                 const double q3sqr = utils::sqr(q3);
 
                 dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
-                dcm(0, 1) = 2.0 * (q0 * q1 - q3 * q2);
-                dcm(0, 2) = 2.0 * (q0 * q2 + q3 * q1);
-                dcm(1, 0) = 2.0 * (q0 * q1 + q3 * q2);
+                dcm(0, 1) = 2. * (q0 * q1 - q3 * q2);
+                dcm(0, 2) = 2. * (q0 * q2 + q3 * q1);
+                dcm(1, 0) = 2. * (q0 * q1 + q3 * q2);
                 dcm(1, 1) = q3sqr + q1sqr - q0sqr - q2sqr;
-                dcm(1, 2) = 2.0 * (q1 * q2 - q3 * q0);
-                dcm(2, 0) = 2.0 * (q0 * q2 - q3 * q1);
-                dcm(2, 1) = 2.0 * (q1 * q2 + q3 * q0);
+                dcm(1, 2) = 2. * (q1 * q2 - q3 * q0);
+                dcm(2, 0) = 2. * (q0 * q2 - q3 * q1);
+                dcm(2, 1) = 2. * (q1 * q2 + q3 * q0);
                 dcm(2, 2) = q3sqr + q2sqr - q0sqr - q1sqr;
 
                 return dcm;
@@ -562,7 +574,7 @@ namespace nc
             ///
             static Quaternion xRotation(double inAngle) noexcept
             {
-                const Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
+                const Vec3 eulerAxis = { 1., 0., 0. };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -574,7 +586,7 @@ namespace nc
             ///
             double yaw() const noexcept
             {
-                return std::atan2(2.0 * (s() * k() + i() * j()), 1.0 - 2.0 * (utils::sqr(j()) + utils::sqr(k())));
+                return std::atan2(2. * (s() * k() + i() * j()), 1. - 2. * (utils::sqr(j()) + utils::sqr(k())));
             }
 
             //============================================================================
@@ -586,7 +598,7 @@ namespace nc
             ///
             static Quaternion yRotation(double inAngle) noexcept
             {
-                const Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
+                const Vec3 eulerAxis = { 0., 1., 0. };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -599,7 +611,7 @@ namespace nc
             ///
             static Quaternion zRotation(double inAngle) noexcept
             {
-                const Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
+                const Vec3 eulerAxis = { 0., 0., 1. };
                 return Quaternion(eulerAxis, inAngle);
             }
 
@@ -705,7 +717,7 @@ namespace nc
             ///
             Quaternion operator-() const noexcept
             {
-                return Quaternion(*this) *= -1.0;
+                return Quaternion(*this) *= -1.;
             }
 
             //============================================================================
@@ -805,7 +817,7 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input vector must be a cartesion vector of length = 3.");
                 }
 
-                const auto p      = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
+                const auto p      = Quaternion(inVec[0], inVec[1], inVec[2], 0.);
                 const auto pPrime = *this * p * this->inverse();
 
                 NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
@@ -865,7 +877,7 @@ namespace nc
 
         private:
             //====================================Attributes==============================
-            std::array<double, 4> components_{ { 0.0, 0.0, 0.0, 1.0 } };
+            std::array<double, 4> components_{ { 0., 0., 0., 1. } };
 
             //============================================================================
             // Method Description:
@@ -873,7 +885,7 @@ namespace nc
             ///
             void normalize() noexcept
             {
-                double sumOfSquares = 0.0;
+                double sumOfSquares = 0.;
                 std::for_each(components_.begin(),
                               components_.end(),
                               [&sumOfSquares](double component) noexcept -> void
@@ -895,9 +907,9 @@ namespace nc
             ///
             void eulerToQuat(double roll, double pitch, double yaw) noexcept
             {
-                const auto halfPhi   = roll / 2.0;
-                const auto halfTheta = pitch / 2.0;
-                const auto halfPsi   = yaw / 2.0;
+                const auto halfPhi   = roll / 2.;
+                const auto halfTheta = pitch / 2.;
+                const auto halfPsi   = yaw / 2.;
 
                 const auto sinHalfPhi = std::sin(halfPhi);
                 const auto cosHalfPhi = std::cos(halfPhi);

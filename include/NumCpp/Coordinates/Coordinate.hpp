@@ -319,9 +319,9 @@ namespace nc
             //====================================Attributes==============================
             RA     ra_{};
             Dec    dec_{};
-            double x_{ 1.0 };
-            double y_{ 0.0 };
-            double z_{ 0.0 };
+            double x_{ 1. };
+            double y_{ 0. };
+            double z_{ 0. };
 
             //============================================================================
             /// Converts polar coordinates to cartesian coordinates

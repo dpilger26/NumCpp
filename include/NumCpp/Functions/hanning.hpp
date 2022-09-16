@@ -53,11 +53,11 @@ namespace nc
         }
 
         const auto mDouble         = static_cast<double>(m);
-        const auto twoPiDivMMinus1 = (2.0 * constants::pi) / (mDouble - 1.0);
+        const auto twoPiDivMMinus1 = (2. * constants::pi) / (mDouble - 1.);
 
         NdArray<double> result(1, m);
         int32           i = 0;
-        for (auto n : linspace(0.0, mDouble - 1.0, m, true))
+        for (auto n : linspace(0., mDouble - 1., m, true))
         {
             result[i++] = 0.5 - 0.5 * std::cos(twoPiDivMMinus1 * n);
         }

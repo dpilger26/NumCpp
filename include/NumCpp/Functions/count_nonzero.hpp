@@ -75,18 +75,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype>  inArrayTranspose  = inArray.transpose();
-                Shape           inShapeTransposed = inArrayTranspose.shape();
-                NdArray<uint32> returnArray(1, inShapeTransposed.rows);
-                for (uint32 row = 0; row < inShapeTransposed.rows; ++row)
-                {
-                    returnArray(0, row) =
-                        inShapeTransposed.cols - static_cast<uint32>(stl_algorithms::count(inArrayTranspose.cbegin(row),
-                                                                                           inArrayTranspose.cend(row),
-                                                                                           dtype{ 0 }));
-                }
-
-                return returnArray;
+                return count_nonzero(inArray.transpose(), Axis::COL);
             }
             default:
             {

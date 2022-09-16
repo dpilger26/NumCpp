@@ -53,7 +53,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            if (x < -1.0 || x > 1.0)
+            if (x < -1. || x > 1.)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
             }

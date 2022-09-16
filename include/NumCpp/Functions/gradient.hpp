@@ -82,7 +82,7 @@ namespace nc
                     {
                         returnArray(row, col) =
                             (static_cast<double>(inArray(row + 1, col)) - static_cast<double>(inArray(row - 1, col))) /
-                            2.0;
+                            2.;
                     }
                 }
 
@@ -112,7 +112,7 @@ namespace nc
                     {
                         returnArray(row, col) =
                             (static_cast<double>(inArray(row, col + 1)) - static_cast<double>(inArray(row, col - 1))) /
-                            2.0;
+                            2.;
                     }
                 }
 
@@ -134,9 +134,8 @@ namespace nc
                                           inArray.cend(),
                                           inArray.cbegin(),
                                           returnArray.begin() + 1,
-                                          [](dtype value1, dtype value2) -> double {
-                                              return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0;
-                                          });
+                                          [](dtype value1, dtype value2) -> double
+                                          { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.; });
 
                 return returnArray;
             }
@@ -185,7 +184,7 @@ namespace nc
                     {
                         returnArray(row, col) = (complex_cast<double>(inArray(row + 1, col)) -
                                                  complex_cast<double>(inArray(row - 1, col))) /
-                                                2.0;
+                                                2.;
                     }
                 }
 
@@ -215,7 +214,7 @@ namespace nc
                     {
                         returnArray(row, col) = (complex_cast<double>(inArray(row, col + 1)) -
                                                  complex_cast<double>(inArray(row, col - 1))) /
-                                                2.0;
+                                                2.;
                     }
                 }
 
@@ -239,7 +238,7 @@ namespace nc
                     inArray.cbegin(),
                     returnArray.begin() + 1,
                     [](const std::complex<dtype>& value1, const std::complex<dtype>& value2) -> std::complex<double>
-                    { return (complex_cast<double>(value1) - complex_cast<double>(value2)) / 2.0; });
+                    { return (complex_cast<double>(value1) - complex_cast<double>(value2)) / 2.; });
 
                 return returnArray;
             }
