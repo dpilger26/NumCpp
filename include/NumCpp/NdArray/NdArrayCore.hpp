@@ -2724,7 +2724,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Return if the NdArray is empty. ie the default construtor
+        /// Return if the NdArray is empty. ie the default constructor
         /// was used.
         ///
         /// @return boolean
@@ -2736,8 +2736,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Return if the NdArray is empty. ie the default construtor
-        /// was used.
+        /// Return if the NdArray is flat. ie the number of columns or
+        /// rows is equal to one.
         ///
         /// @return boolean
         ///
@@ -2789,7 +2789,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Return if the NdArray is sorted.
+        /// Return if the NdArray is square.
         ///
         /// @return boolean
         ///
