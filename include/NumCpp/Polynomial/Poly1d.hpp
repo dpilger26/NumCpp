@@ -331,7 +331,7 @@ namespace nc
                 }
 
                 NdArray<double> integralCofficients(1, numCoefficients + 1);
-                integralCofficients[0] = 0.0;
+                integralCofficients[0] = 0.;
 
                 for (uint32 i = 0; i < numCoefficients; ++i)
                 {
@@ -386,7 +386,7 @@ namespace nc
                     }
                     else
                     {
-                        if (utils::essentiallyEqual(coefficient, static_cast<dtype>(0.0)))
+                        if (utils::essentiallyEqual(coefficient, static_cast<dtype>(0.)))
                         {
                             ++power;
                             continue;

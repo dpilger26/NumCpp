@@ -788,7 +788,7 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype>
-            dtype randFloat(dtype inLow, dtype inHigh = 0.0)
+            dtype randFloat(dtype inLow, dtype inHigh = 0.)
             {
                 return detail::randFloat(generator_, inLow, inHigh);
             }
@@ -808,7 +808,7 @@ namespace nc
             /// @return NdArray
             ///
             template<typename dtype>
-            NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
+            NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.)
             {
                 return detail::randFloat(generator_, inShape, inLow, inHigh);
             }

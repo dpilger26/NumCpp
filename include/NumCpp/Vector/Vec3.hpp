@@ -50,9 +50,9 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        double x{ 0.0 };
-        double y{ 0.0 };
-        double z{ 0.0 };
+        double x{ 0. };
+        double y{ 0. };
+        double z{ 0. };
 
         //============================================================================
         // Method Description:
@@ -125,7 +125,7 @@ namespace nc
             dotProduct /= otherVec.norm();
 
             // clamp the value to the acos range just to be safe
-            dotProduct = std::max(std::min(dotProduct, 1.0), -1.0);
+            dotProduct = std::max(std::min(dotProduct, 1.), -1.);
 
             return std::acos(dotProduct);
         }
@@ -138,7 +138,7 @@ namespace nc
         ///
         static constexpr Vec3 back() noexcept
         {
-            return Vec3(0.0, 0.0, -1.0);
+            return Vec3(0., 0., -1.);
         }
 
         //============================================================================
@@ -210,7 +210,7 @@ namespace nc
         ///
         static constexpr Vec3 down() noexcept
         {
-            return Vec3(0.0, -1.0, 0.0);
+            return Vec3(0., -1., 0.);
         }
 
         //============================================================================
@@ -221,7 +221,7 @@ namespace nc
         ///
         static constexpr Vec3 forward() noexcept
         {
-            return Vec3(0.0, 0.0, 1.0);
+            return Vec3(0., 0., 1.);
         }
 
         //============================================================================
@@ -232,7 +232,7 @@ namespace nc
         ///
         static constexpr Vec3 left() noexcept
         {
-            return Vec3(-1.0, 0.0, 0.0);
+            return Vec3(-1., 0., 0.);
         }
 
         //============================================================================
@@ -245,13 +245,13 @@ namespace nc
         ///
         Vec3 lerp(const Vec3& otherVec, double t) const noexcept
         {
-            t = std::max(std::min(t, 1.0), 0.0);
+            t = std::max(std::min(t, 1.), 0.);
 
             Vec3 trajectory = otherVec;
             trajectory -= *this;
-            const double xInterp = utils::interp(0.0, trajectory.x, t);
-            const double yInterp = utils::interp(0.0, trajectory.y, t);
-            const double zInterp = utils::interp(0.0, trajectory.z, t);
+            const double xInterp = utils::interp(0., trajectory.x, t);
+            const double yInterp = utils::interp(0., trajectory.y, t);
+            const double zInterp = utils::interp(0., trajectory.z, t);
 
             return Vec3(*this) += Vec3(xInterp, yInterp, zInterp);
         }
@@ -299,7 +299,7 @@ namespace nc
         ///
         static constexpr Vec3 right() noexcept
         {
-            return Vec3(1.0, 0.0, 0.0);
+            return Vec3(1., 0., 0.);
         }
 
         //============================================================================
@@ -335,7 +335,7 @@ namespace nc
         ///
         static constexpr Vec3 up() noexcept
         {
-            return Vec3(0.0, 1.0, 0.0);
+            return Vec3(0., 1., 0.);
         }
 
         //============================================================================

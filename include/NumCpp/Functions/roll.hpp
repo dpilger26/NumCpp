@@ -88,23 +88,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                const Shape inShape = inArray.shape();
-
-                uint32 shift = std::abs(inShift) % inShape.rows;
-                if (inShift > 0)
-                {
-                    shift = inShape.rows - shift;
-                }
-
-                NdArray<dtype> returnArray = inArray.transpose();
-                for (uint32 row = 0; row < inShape.cols; ++row)
-                {
-                    stl_algorithms::rotate(returnArray.begin(row),
-                                           returnArray.begin(row) + shift,
-                                           returnArray.end(row));
-                }
-
-                return returnArray.transpose();
+                return roll(inArray.transpose(), inShift, Axis::COL).transpose();
             }
             default:
             {

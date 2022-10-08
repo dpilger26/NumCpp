@@ -68,11 +68,11 @@ namespace nc
                 h *= 0.5;
 
                 // R(step, 0) Improve trapezoidal integration with decreasing h
-                double       trapezoidal_integration = 0.0;
+                double       trapezoidal_integration = 0.;
                 const uint32 stepEnd                 = utils::power(2, step - 1);
                 for (uint32 tzStep = 1; tzStep <= stepEnd; ++tzStep)
                 {
-                    const double deltaX = (2.0 * static_cast<double>(tzStep - 1)) * h;
+                    const double deltaX = (2. * static_cast<double>(tzStep - 1)) * h;
                     trapezoidal_integration += f(low + deltaX);
                 }
 
@@ -85,7 +85,7 @@ namespace nc
                     const double k                = utils::power(4, rbStep);
                     rombergIntegral(step, rbStep) = k * rombergIntegral(step, rbStep - 1);
                     rombergIntegral(step, rbStep) -= rombergIntegral(step - 1, rbStep - 1);
-                    rombergIntegral(step, rbStep) /= (k - 1.0);
+                    rombergIntegral(step, rbStep) /= (k - 1.);
                 }
             }
 

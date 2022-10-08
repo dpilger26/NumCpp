@@ -58,7 +58,7 @@ namespace nc
 
             return std::numeric_limits<double>::infinity();
 #else
-            double result = 1.0;
+            double result = 1.;
             for (uint32 i = 2; i <= inValue; ++i)
             {
                 result *= static_cast<double>(i);

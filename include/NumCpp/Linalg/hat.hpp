@@ -53,15 +53,15 @@ namespace nc
             STATIC_ASSERT_ARITHMETIC(dtype);
 
             NdArray<dtype> returnArray(3);
-            returnArray(0, 0) = 0.0;
+            returnArray(0, 0) = 0.;
             returnArray(0, 1) = -inZ;
             returnArray(0, 2) = inY;
             returnArray(1, 0) = inZ;
-            returnArray(1, 1) = 0.0;
+            returnArray(1, 1) = 0.;
             returnArray(1, 2) = -inX;
             returnArray(2, 0) = -inY;
             returnArray(2, 1) = inX;
-            returnArray(2, 2) = 0.0;
+            returnArray(2, 2) = 0.;
 
             return returnArray;
         }

@@ -63,7 +63,7 @@ namespace nc
 
             for (uint32 i = 0; i < d.shape().rows; ++i)
             {
-                dPlus(i, i) = 1.0 / d(i, i);
+                dPlus(i, i) = 1. / d(i, i);
             }
 
             return v.transpose().dot(dPlus).dot(u.transpose());

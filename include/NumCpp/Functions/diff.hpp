@@ -96,25 +96,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                if (inShape.rows < 2)
-                {
-                    return NdArray<dtype>(0);
-                }
-
-                NdArray<dtype> transArray = inArray.transpose();
-                const Shape    transShape = transArray.shape();
-                NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
-                for (uint32 row = 0; row < transShape.rows; ++row)
-                {
-                    stl_algorithms::transform(transArray.cbegin(row),
-                                              transArray.cend(row) - 1,
-                                              transArray.cbegin(row) + 1,
-                                              returnArray.begin(row),
-                                              [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                                              { return inValue2 - inValue1; });
-                }
-
-                return returnArray.transpose();
+                return diff(inArray.transpose(), Axis::COL).transpose();
             }
             default:
             {

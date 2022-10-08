@@ -119,29 +119,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> arrayTrans = inArray.transpose();
-                const Shape    inShape    = arrayTrans.shape();
-
-                NdArray<double> returnArray(1, inShape.rows);
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    NdArray<double> outValue =
-                        nanpercentile(NdArray<dtype>(&arrayTrans.front(row), inShape.cols, false),
-                                      inPercentile,
-                                      Axis::NONE,
-                                      inInterpMethod);
-
-                    if (outValue.size() == 1)
-                    {
-                        returnArray[row] = outValue.item();
-                    }
-                    else
-                    {
-                        returnArray[row] = constants::nan;
-                    }
-                }
-
-                return returnArray;
+                return nanpercentile(inArray.transpose(), inPercentile, Axis::COL, inInterpMethod);
             }
             default:
             {

@@ -77,9 +77,9 @@ namespace nc
                 const double absDegrees = std::abs(degrees_);
                 degreesWhole_           = static_cast<uint8>(std::floor(absDegrees));
 
-                const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
+                const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.;
                 minutes_                = static_cast<uint8>(std::floor(decMinutes));
-                seconds_                = (decMinutes - static_cast<double>(minutes_)) * 60.0;
+                seconds_                = (decMinutes - static_cast<double>(minutes_)) * 60.;
             }
 
             //============================================================================
@@ -96,8 +96,7 @@ namespace nc
                 minutes_(inMinutes),
                 seconds_(inSeconds)
             {
-                degrees_ =
-                    static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + seconds_ / 3600.0;
+                degrees_ = static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60. + seconds_ / 3600.;
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
 
                 radians_ = deg2rad(degrees_);
@@ -228,9 +227,9 @@ namespace nc
             Sign   sign_{ Sign::POSITIVE };
             uint8  degreesWhole_{ 0 };
             uint8  minutes_{ 0 };
-            double seconds_{ 0.0 };
-            double degrees_{ 0.0 };
-            double radians_{ 0.0 };
+            double seconds_{ 0. };
+            double degrees_{ 0. };
+            double radians_{ 0. };
         };
     } // namespace coordinates
 } // namespace nc

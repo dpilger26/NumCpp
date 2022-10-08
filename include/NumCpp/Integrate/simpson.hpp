@@ -57,13 +57,13 @@ namespace nc
         {
             const double width = (high - low) / static_cast<double>(n);
 
-            double simpson_integral = 0.0;
+            double simpson_integral = 0.;
             for (uint32 step = 0; step < n; ++step)
             {
                 const double x1 = low + static_cast<double>(step) * width;
                 const double x2 = low + static_cast<double>(step + 1) * width;
 
-                simpson_integral += (x2 - x1) / 6.0 * (f(x1) + 4.0 * f(0.5 * (x1 + x2)) + f(x2));
+                simpson_integral += (x2 - x1) / 6. * (f(x1) + 4. * f(0.5 * (x1 + x2)) + f(x2));
             }
 
             return simpson_integral;

@@ -55,8 +55,8 @@ namespace nc
         }
 
         const auto mDouble        = static_cast<double>(m);
-        const auto mMinus1        = mDouble - 1.0;
-        const auto mMinus1Over2   = mMinus1 / 2.0;
+        const auto mMinus1        = mDouble - 1.;
+        const auto mMinus1Over2   = mMinus1 / 2.;
         const auto mMinus1Squared = utils::sqr(mMinus1);
         const auto i0Beta         = special::bessel_in(0, beta);
 
@@ -64,7 +64,7 @@ namespace nc
         int32           i = 0;
         for (auto n : linspace(-mMinus1Over2, mMinus1Over2, m, true))
         {
-            auto value  = beta * std::sqrt(1.0 - (4.0 * utils::sqr(n)) / mMinus1Squared);
+            auto value  = beta * std::sqrt(1. - (4. * utils::sqr(n)) / mMinus1Squared);
             result[i++] = special::bessel_in(0, value) / i0Beta;
         }
 

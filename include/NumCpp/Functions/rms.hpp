@@ -52,7 +52,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        double     squareSum = 0.0;
+        double     squareSum = 0.;
         const auto function  = [&squareSum](dtype value) -> void
         { squareSum += utils::sqr(static_cast<double>(value)); };
 
@@ -69,7 +69,7 @@ namespace nc
                 NdArray<double> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    squareSum = 0.0;
+                    squareSum = 0.;
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
                     returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(inArray.numCols()));
                 }
@@ -78,16 +78,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype>  transposedArray = inArray.transpose();
-                NdArray<double> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    squareSum = 0.0;
-                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.numCols()));
-                }
-
-                return returnArray;
+                return rms(inArray.transpose(), Axis::COL);
             }
             default:
             {
@@ -111,7 +102,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        std::complex<double> squareSum = 0.0;
+        std::complex<double> squareSum = 0.;
         const auto           function  = [&squareSum](std::complex<dtype> value) -> void
         { squareSum += utils::sqr(complex_cast<double>(value)); };
 
@@ -129,7 +120,7 @@ namespace nc
                 NdArray<std::complex<double>> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    squareSum = std::complex<double>(0.0, 0.0);
+                    squareSum = std::complex<double>(0., 0.);
                     std::for_each(inArray.cbegin(row), inArray.cend(row), function);
                     returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(inArray.numCols()));
                 }
@@ -138,16 +129,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<std::complex<dtype>>  transposedArray = inArray.transpose();
-                NdArray<std::complex<double>> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    squareSum = std::complex<double>(0.0, 0.0);
-                    std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-                    returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.numCols()));
-                }
-
-                return returnArray;
+                return rms(inArray.transpose(), Axis::COL);
             }
             default:
             {

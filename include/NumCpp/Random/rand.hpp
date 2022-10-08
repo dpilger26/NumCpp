@@ -57,8 +57,8 @@ namespace nc
             {
                 STATIC_ASSERT_FLOAT(dtype);
 
-                std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0),
-                                                           static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
+                std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.),
+                                                           static_cast<dtype>(1.) - DtypeInfo<dtype>::epsilon());
                 return dist(generator);
             }
 
@@ -81,8 +81,8 @@ namespace nc
 
                 NdArray<dtype> returnArray(inShape);
 
-                std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.0),
-                                                           static_cast<dtype>(1.0) - DtypeInfo<dtype>::epsilon());
+                std::uniform_real_distribution<dtype> dist(static_cast<dtype>(0.),
+                                                           static_cast<dtype>(1.) - DtypeInfo<dtype>::epsilon());
 
                 std::for_each(returnArray.begin(),
                               returnArray.end(),

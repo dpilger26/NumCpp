@@ -48,7 +48,7 @@ namespace nc
         STATIC_ASSERT_ARITHMETIC(dtype1);
         STATIC_ASSERT_ARITHMETIC(dtype2);
 
-        return utils::powerf(static_cast<double>(inValue), 1.0 / static_cast<double>(inRoot));
+        return utils::powerf(static_cast<double>(inValue), 1. / static_cast<double>(inRoot));
     }
 
     //============================================================================

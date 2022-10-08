@@ -68,10 +68,10 @@ namespace nc
 
             for (uint32 k = 0; k < inShape.rows - 1; ++k)
             {
-                if (utils::essentiallyEqual(inArrayDouble(k, k), 0.0))
+                if (utils::essentiallyEqual(inArrayDouble(k, k), 0.))
                 {
                     uint32 l = k;
-                    while (l < inShape.cols && utils::essentiallyEqual(inArrayDouble(k, l), 0.0))
+                    while (l < inShape.cols && utils::essentiallyEqual(inArrayDouble(k, l), 0.))
                     {
                         ++l;
                     }
@@ -86,7 +86,7 @@ namespace nc
 
             for (uint32 k = 0; k < inShape.rows; ++k)
             {
-                result(k, k) = -1.0 / inArrayDouble(k, k);
+                result(k, k) = -1. / inArrayDouble(k, k);
                 for (uint32 i = 0; i < inShape.rows; ++i)
                 {
                     for (uint32 j = 0; j < inShape.cols; ++j)
@@ -110,7 +110,7 @@ namespace nc
                 inArrayDouble = result;
             }
 
-            result *= -1.0;
+            result *= -1.;
 
             for (int i = static_cast<int>(inShape.rows) - 1; i >= 0; --i)
             {

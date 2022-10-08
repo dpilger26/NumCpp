@@ -65,12 +65,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype> returnArray = inArray.transpose();
-                for (uint32 row = 0; row < returnArray.shape().rows; ++row)
-                {
-                    stl_algorithms::reverse(returnArray.begin(row), returnArray.end(row));
-                }
-                return returnArray.transpose();
+                return flip(inArray.transpose(), Axis::COL).transpose();
             }
             default:
             {

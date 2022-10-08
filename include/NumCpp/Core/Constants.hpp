@@ -37,7 +37,7 @@ namespace nc
     /// Holds usefull constants
     namespace constants
     {
-        constexpr double c   = 3.0e8;                                   ///< speed of light
+        constexpr double c   = 3.e8;                                    ///< speed of light
         constexpr double e   = 2.718281828459045;                       ///< eulers number
         constexpr double inf = std::numeric_limits<double>::infinity(); ///< infinity
         constexpr double pi  = 3.141592653589793238462643383279502884;  ///< Pi

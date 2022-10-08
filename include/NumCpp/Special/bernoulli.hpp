@@ -55,7 +55,7 @@ namespace nc
             }
             if (n % 2 != 0)
             {
-                return 0.0;
+                return 0.;
             }
 
             return boost::math::bernoulli_b2n<double>(n / 2);

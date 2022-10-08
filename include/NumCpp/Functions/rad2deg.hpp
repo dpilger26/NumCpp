@@ -49,7 +49,7 @@ namespace nc
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        return inValue * 180.0 / constants::pi;
+        return inValue * 180. / constants::pi;
     }
 
     //============================================================================

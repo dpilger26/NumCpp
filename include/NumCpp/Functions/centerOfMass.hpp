@@ -54,9 +54,9 @@ namespace nc
         {
             case Axis::NONE:
             {
-                double inten     = 0.0;
-                double rowCenter = 0.0;
-                double colCenter = 0.0;
+                double inten     = 0.;
+                double rowCenter = 0.;
+                double colCenter = 0.;
 
                 for (uint32 row = 0; row < shape.rows; ++row)
                 {

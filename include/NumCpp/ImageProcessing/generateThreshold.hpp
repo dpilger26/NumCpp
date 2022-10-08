@@ -57,7 +57,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
-            if (inRate < 0.0 || inRate > 1.0)
+            if (inRate < 0. || inRate > 1.)
             {
                 THROW_INVALID_ARGUMENT_ERROR("input rate must be of the range [0, 1]");
             }
@@ -66,12 +66,12 @@ namespace nc
             auto minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
             auto maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
 
-            if (utils::essentiallyEqual(inRate, 0.0))
+            if (utils::essentiallyEqual(inRate, 0.))
             {
                 return static_cast<dtype>(maxValue);
             }
 
-            if (utils::essentiallyEqual(inRate, 1.0))
+            if (utils::essentiallyEqual(inRate, 1.))
             {
                 if (DtypeInfo<dtype>::isSigned())
                 {
@@ -94,7 +94,7 @@ namespace nc
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
             const auto      dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
-            survivalFunction[-1] = 0.0;
+            survivalFunction[-1] = 0.;
             for (int32 i = histSize - 1; i > -1; --i)
             {
                 double histValue    = histogram[i] / dNumPixels;

@@ -74,11 +74,11 @@ namespace nc
 
             for (uint32 k = 0; k < shape.rows; ++k)
             {
-                double max = 0.0;
+                double max = 0.;
                 uint32 pk  = 0;
                 for (uint32 i = k; i < shape.rows; ++i)
                 {
-                    double s = 0.0;
+                    double s = 0.;
                     for (uint32 j = k; j < shape.cols; ++j)
                     {
                         s += std::fabs(uMatrix(i, j));
@@ -92,7 +92,7 @@ namespace nc
                     }
                 }
 
-                if (utils::essentiallyEqual(max, double{ 0.0 }))
+                if (utils::essentiallyEqual(max, double{ 0. }))
                 {
                     THROW_RUNTIME_ERROR("Division by 0.");
                 }
@@ -120,7 +120,7 @@ namespace nc
 
             for (uint32 k = 0; k < shape.rows; ++k)
             {
-                lMatrix(k, k) = 1.0;
+                lMatrix(k, k) = 1.;
             }
 
             return std::make_tuple(lMatrix, uMatrix, pMatrix);

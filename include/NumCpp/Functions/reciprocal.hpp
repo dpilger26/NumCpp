@@ -60,7 +60,7 @@ namespace nc
         std::for_each(inArray.cbegin(),
                       inArray.cend(),
                       [&returnArray, &counter](dtype value) noexcept -> void
-                      { returnArray[counter++] = 1.0 / static_cast<double>(value); });
+                      { returnArray[counter++] = 1. / static_cast<double>(value); });
 
         return returnArray;
     }
@@ -88,7 +88,7 @@ namespace nc
         std::for_each(inArray.cbegin(),
                       inArray.cend(),
                       [&returnArray, &counter](std::complex<dtype> value) -> void
-                      { returnArray[counter++] = std::complex<double>(1.0) / complex_cast<double>(value); });
+                      { returnArray[counter++] = std::complex<double>(1.) / complex_cast<double>(value); });
 
         return returnArray;
     }

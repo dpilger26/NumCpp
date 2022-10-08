@@ -57,7 +57,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                auto            sum         = std::accumulate(inArray.cbegin(), inArray.cend(), 0.0);
+                auto            sum         = std::accumulate(inArray.cbegin(), inArray.cend(), 0.);
                 NdArray<double> returnArray = { sum /= static_cast<double>(inArray.size()) };
 
                 return returnArray;
@@ -67,7 +67,7 @@ namespace nc
                 NdArray<double> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    auto sum            = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0);
+                    auto sum            = std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.);
                     returnArray(0, row) = sum / static_cast<double>(inArray.numCols());
                 }
 
@@ -75,16 +75,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                NdArray<dtype>  transposedArray = inArray.transpose();
-                NdArray<double> returnArray(1, transposedArray.numRows());
-                for (uint32 row = 0; row < transposedArray.numRows(); ++row)
-                {
-                    auto sum = static_cast<double>(
-                        std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
-                    returnArray(0, row) = sum / static_cast<double>(transposedArray.numCols());
-                }
-
-                return returnArray;
+                return mean(inArray.transpose(), Axis::COL);
             }
             default:
             {
@@ -114,7 +105,7 @@ namespace nc
         {
             case Axis::NONE:
             {
-                auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), std::complex<double>(0.0));
+                auto sum = std::accumulate(inArray.cbegin(), inArray.cend(), std::complex<double>(0.));
                 NdArray<std::complex<double>> returnArray = { sum /= std::complex<double>(inArray.size()) };
 
                 return returnArray;
@@ -124,7 +115,7 @@ namespace nc
                 NdArray<std::complex<double>> returnArray(1, inArray.numRows());
                 for (uint32 row = 0; row < inArray.numRows(); ++row)
                 {
-                    auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), std::complex<double>(0.0));
+                    auto sum = std::accumulate(inArray.cbegin(row), inArray.cend(row), std::complex<double>(0.));
                     returnArray(0, row) = sum / std::complex<double>(inArray.numCols());
                 }
 
@@ -138,7 +129,7 @@ namespace nc
                 {
                     auto sum            = std::accumulate(transposedArray.cbegin(row),
                                                transposedArray.cend(row),
-                                               std::complex<double>(0.0));
+                                               std::complex<double>(0.));
                     returnArray(0, row) = sum / std::complex<double>(transposedArray.numCols());
                 }
 
