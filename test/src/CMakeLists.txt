@@ -24,6 +24,7 @@ add_library(${TARGET_NAME} SHARED
   Coordinates.cpp 
   Core.cpp 
   DataCube.cpp 
+  DateTime.cpp
   Filter.cpp 
   Functions.cpp 
   ImageProcessing.cpp 
@@ -63,6 +64,10 @@ target_compile_definitions(${TARGET_NAME} PRIVATE
 
 target_link_libraries(${TARGET_NAME} PRIVATE 
   ${ALL_INTERFACE_TARGET}
+)
+
+target_link_options(${TARGET_NAME} PRIVATE 
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:-static-libstdc++>
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")

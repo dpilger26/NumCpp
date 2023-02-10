@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -138,29 +138,24 @@ $(document).ready(function(){initNavTree('flip_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a>:</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray = inArray.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = 0; row &lt; returnArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>().rows; ++row)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <a class="code" href="namespacenc_1_1stl__algorithms.html#a5334750b4a1bb38d3932bffcc32a71b4">stl_algorithms::reverse</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(row), returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(row));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> returnArray.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#ab17a2f12bb2bea50a74c2ed41b30fdb2">flip</a>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">Axis::COL</a>).transpose();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;Unimplemented axis type.&quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> {}; <span class="comment">// get rid of compiler warning</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a153d3032d72c24d233407a351d0f8174"><div class="ttname"><a href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">nc::NdArray::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1479</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4276</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4650</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4457</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1171</div></div>
 <div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a5334750b4a1bb38d3932bffcc32a71b4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a5334750b4a1bb38d3932bffcc32a71b4">nc::stl_algorithms::reverse</a></div><div class="ttdeci">void reverse(BidirIt first, BidirIt last) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:491</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>

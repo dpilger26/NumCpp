@@ -8,6 +8,9 @@ void initConstants(pb11::module&);
 void initCoordinates(pb11::module&);
 void initCore(pb11::module&);
 void initDataCube(pb11::module&);
+#ifndef NUMCPP_NO_USE_BOOST
+void initDateTime(pb11::module&);
+#endif
 void initFilter(pb11::module&);
 void initFunctions(pb11::module&);
 void initImageProcessing(pb11::module&);
@@ -33,6 +36,9 @@ PYBIND11_MODULE(NumCppPy, m)
     initCoordinates(m);
     initCore(m);
     initDataCube(m);
+#ifndef NUMCPP_NO_USE_BOOST
+    initDateTime(m);
+#endif
     initFilter(m);
     initFunctions(m);
     initImageProcessing(m);

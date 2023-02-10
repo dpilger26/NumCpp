@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -125,13 +125,13 @@ $(document).ready(function(){initNavTree('simpson_8hpp_source.html',''); initRes
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">double</span> width = (high - low) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(n);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordtype">double</span> simpson_integral = 0.0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordtype">double</span> simpson_integral = 0.;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> step = 0; step &lt; n; ++step)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> x1 = low + <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(step) * width;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> x2 = low + <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(step + 1) * width;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                simpson_integral += (x2 - x1) / 6.0 * (<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(x1) + 4.0 * <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(0.5 * (x1 + x2)) + <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(x2));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                simpson_integral += (x2 - x1) / 6. * (<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(x1) + 4. * <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(0.5 * (x1 + x2)) + <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(x2));</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> simpson_integral;</div>

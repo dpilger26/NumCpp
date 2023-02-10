@@ -46,6 +46,7 @@ var annotated_dup =
       [ "all_same< T1, Head, Tail... >", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_head_00_01_tail_8_8_8_01_4" ],
       [ "all_same< T1, T2 >", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4.html", "structnc_1_1all__same_3_01_t1_00_01_t2_01_4" ],
       [ "DataCube", "classnc_1_1_data_cube.html", "classnc_1_1_data_cube" ],
+      [ "DateTime", "classnc_1_1_date_time.html", "classnc_1_1_date_time" ],
       [ "DtypeInfo", "classnc_1_1_dtype_info.html", "classnc_1_1_dtype_info" ],
       [ "DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4" ],
       [ "greaterThan", "structnc_1_1greater_than.html", "structnc_1_1greater_than" ],

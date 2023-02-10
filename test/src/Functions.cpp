@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <numeric>
 
-
 //================================================================================
 
 namespace FunctionsInterface
@@ -975,6 +974,14 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    template<typename dtype>
+    pbArrayGeneric digitize(const NdArray<dtype>& x, const NdArray<dtype>& bins)
+    {
+        return nc2pybind(nc::digitize(x, bins));
+    }
+
+    //================================================================================
+
     template<typename Type1, typename Type2>
     pbArrayGeneric divide(const Type1& in1, const Type2& in2)
     {
@@ -1229,10 +1236,37 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric fromfunctionSize(typename NdArray<dtype>::size_type size)
+    {
+        const auto func = [](typename NdArray<dtype>::size_type idx) { return static_cast<double>(idx) / 10.; };
+        return nc2pybind(nc::fromfunction<dtype>(func, size));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fromfunctionShape(Shape shape)
+    {
+        const auto func = [](typename NdArray<dtype>::size_type row, typename NdArray<dtype>::size_type col)
+        { return static_cast<double>(row * col) / 10.; };
+        return nc2pybind(nc::fromfunction<dtype>(func, shape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric fromiter(const NdArray<dtype>& inArray)
     {
         std::vector<dtype> vec(inArray.begin(), inArray.end());
         return nc2pybind(nc::fromiter<dtype>(vec.begin(), vec.end()));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fromstring(const std::string& str, const char sep)
+    {
+        return nc2pybind(nc::fromstring<dtype>(str, sep));
     }
 
     //================================================================================
@@ -1325,6 +1359,20 @@ namespace FunctionsInterface
     {
         std::pair<NdArray<uint32>, NdArray<double>> output = nc::histogram(inArray, inNumBins);
         return pb11::make_tuple(output.first, output.second);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    std::vector<pbArrayGeneric> hsplit(const NdArray<dtype>& inArray, const NdArray<int32>& indices)
+    {
+        const auto                  splits = nc::hsplit(inArray, indices);
+        std::vector<pbArrayGeneric> result{};
+        for (const auto& split : splits)
+        {
+            result.push_back(nc2pybind(split));
+        }
+        return result;
     }
 
     //================================================================================
@@ -1637,6 +1685,38 @@ namespace FunctionsInterface
 
     //================================================================================
 
+    template<typename dtype>
+    dtype logaddexpScaler(dtype x1, dtype x2)
+    {
+        return logaddexp(x1, x2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric logaddexpArray(const NdArray<dtype>& x1, const NdArray<dtype>& x2)
+    {
+        return nc2pybind(logaddexp(x1, x2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype logaddexp2Scaler(dtype x1, dtype x2)
+    {
+        return logaddexp2(x1, x2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric logaddexp2Array(const NdArray<dtype>& x1, const NdArray<dtype>& x2)
+    {
+        return nc2pybind(logaddexp2(x1, x2));
+    }
+
+    //================================================================================
+
     template<typename dtype1, typename dtype2>
     pbArrayGeneric matmul(const NdArray<dtype1>& inArray1, const NdArray<dtype2>& inArray2)
     {
@@ -1761,6 +1841,22 @@ namespace FunctionsInterface
     pbArrayGeneric outer(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(nc::outer(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric packbitsLittleEndian(const NdArray<dtype>& x, Axis axis)
+    {
+        return nc2pybind(nc::packbitsLittleEndian(x, axis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric packbitsBigEndian(const NdArray<dtype>& x, Axis axis)
+    {
+        return nc2pybind(nc::packbitsBigEndian(x, axis));
     }
 
     //================================================================================
@@ -2197,6 +2293,20 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    std::vector<pbArrayGeneric> split(const NdArray<dtype>& inArray, const NdArray<int32>& indices, nc::Axis inAxis)
+    {
+        const auto                  splits = nc::split(inArray, indices, inAxis);
+        std::vector<pbArrayGeneric> result{};
+        for (const auto& split : splits)
+        {
+            result.push_back(nc2pybind(split));
+        }
+        return result;
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     auto sqrtScaler(dtype inValue) -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
@@ -2224,6 +2334,18 @@ namespace FunctionsInterface
     pbArrayGeneric squareArray(const NdArray<dtype>& inArray)
     {
         return nc2pybind(square(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric stack(const NdArray<dtype>& inArray1,
+                         const NdArray<dtype>& inArray2,
+                         const NdArray<dtype>& inArray3,
+                         const NdArray<dtype>& inArray4,
+                         nc::Axis              inAxis)
+    {
+        return nc2pybind(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -2381,6 +2503,36 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    double truncScaler(dtype inValue)
+    {
+        return trunc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric truncArray(const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(trunc(inArray));
+    }
+
+    //================================================================================
+
+    pbArrayGeneric unpackbitsLittleEndian(const NdArray<uint8>& x, Axis axis)
+    {
+        return nc2pybind(nc::unpackbitsLittleEndian(x, axis));
+    }
+
+    //================================================================================
+
+    pbArrayGeneric unpackbitsBigEndian(const NdArray<uint8>& x, Axis axis)
+    {
+        return nc2pybind(nc::unpackbitsBigEndian(x, axis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype unwrapScaler(dtype inValue)
     {
         return unwrap(inValue);
@@ -2397,29 +2549,31 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double truncScaler(dtype inValue)
+    pbArrayGeneric vander(const NdArray<dtype>& x, bool increasing)
     {
-        return trunc(inValue);
+        return nc2pybind(nc::vander(x, increasing));
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric truncArray(const NdArray<dtype>& inArray)
+    pbArrayGeneric vander(const NdArray<dtype>& x, uint32 n, bool increasing)
     {
-        return nc2pybind(trunc(inArray));
+        return nc2pybind(nc::vander(x, n, increasing));
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric stack(const NdArray<dtype>& inArray1,
-                         const NdArray<dtype>& inArray2,
-                         const NdArray<dtype>& inArray3,
-                         const NdArray<dtype>& inArray4,
-                         nc::Axis              inAxis)
+    std::vector<pbArrayGeneric> vsplit(const NdArray<dtype>& inArray, const NdArray<int32>& indices)
     {
-        return nc2pybind(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+        const auto                  splits = nc::vsplit(inArray, indices);
+        std::vector<pbArrayGeneric> result{};
+        for (const auto& split : splits)
+        {
+            result.push_back(nc2pybind(split));
+        }
+        return result;
     }
 
     //================================================================================
@@ -2701,6 +2855,7 @@ void initFunctions(pb11::module& m)
     m.def("diagonal", &FunctionsInterface::diagonal<ComplexDouble>);
     m.def("diff", &FunctionsInterface::diff<double>);
     m.def("diff", &FunctionsInterface::diff<ComplexDouble>);
+    m.def("digitize", &FunctionsInterface::digitize<double>);
     m.def("divide", &FunctionsInterface::divide<NdArray<double>, NdArray<double>>);
     m.def("divide", &FunctionsInterface::divide<NdArray<double>, double>);
     m.def("divide", &FunctionsInterface::divide<double, NdArray<double>>);
@@ -2775,8 +2930,12 @@ void initFunctions(pb11::module& m)
     m.def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
     m.def("fromfile", &FunctionsInterface::fromfileBinary<double>);
     m.def("fromfile", &FunctionsInterface::fromfileTxt<double>);
+    m.def("fromfunction", &FunctionsInterface::fromfunctionSize<double>);
+    m.def("fromfunction", &FunctionsInterface::fromfunctionShape<double>);
     m.def("fromiter", &FunctionsInterface::fromiter<double>);
     m.def("fromiter", &FunctionsInterface::fromiter<ComplexDouble>);
+    m.def("fromstringInt", &FunctionsInterface::fromstring<int>);
+    m.def("fromstringDouble", &FunctionsInterface::fromstring<double>);
     m.def("fullSquare", &FunctionsInterface::fullSquare<double>);
     m.def("fullSquareComplex", &FunctionsInterface::fullSquare<ComplexDouble>);
     m.def("fullRowCol", &FunctionsInterface::fullRowCol<double>);
@@ -2804,6 +2963,7 @@ void initFunctions(pb11::module& m)
     m.def("hanning", &FunctionsInterface::hanning);
     m.def("histogram", &FunctionsInterface::histogram<double>);
     m.def("histogram", &FunctionsInterface::histogramWithEdges<double>);
+    m.def("hsplit", &FunctionsInterface::hsplit<double>);
     m.def("hstack", &FunctionsInterface::hstack<double>);
     m.def("hypotScaler", &FunctionsInterface::hypotScaler<double>);
     m.def("hypotScalerTriple", &FunctionsInterface::hypotScalerTriple<double>);
@@ -2861,6 +3021,12 @@ void initFunctions(pb11::module& m)
     m.def("log1pArray", &FunctionsInterface::log1pArray<double>);
     m.def("log2Scaler", &FunctionsInterface::log2Scaler<double>);
     m.def("log2Array", &FunctionsInterface::log2Array<double>);
+    m.def("logaddexpScaler", &FunctionsInterface::logaddexpScaler<double>);
+    m.def("logaddexpArray", &FunctionsInterface::logaddexpArray<double>);
+    m.def("logaddexpScaler", &FunctionsInterface::logaddexpScaler<ComplexDouble>);
+    m.def("logaddexpArray", &FunctionsInterface::logaddexpArray<ComplexDouble>);
+    m.def("logaddexp2Scaler", &FunctionsInterface::logaddexp2Scaler<double>);
+    m.def("logaddexp2Array", &FunctionsInterface::logaddexp2Array<double>);
     m.def("logical_and", &logical_and<double>);
     m.def("logical_not", &logical_not<double>);
     m.def("logical_or", &logical_or<double>);
@@ -2947,6 +3113,10 @@ void initFunctions(pb11::module& m)
     m.def("outer", &FunctionsInterface::outer<double>);
     m.def("outer", &FunctionsInterface::outer<ComplexDouble>);
 
+    m.def("packbitsLittleEndian", &FunctionsInterface::packbitsLittleEndian<bool>);
+    m.def("packbitsLittleEndian", &FunctionsInterface::packbitsLittleEndian<uint8>);
+    m.def("packbitsBigEndian", &FunctionsInterface::packbitsBigEndian<bool>);
+    m.def("packbitsBigEndian", &FunctionsInterface::packbitsBigEndian<uint8>);
     m.def("pad", &pad<double>);
     m.def("pad", &pad<ComplexDouble>);
     m.def("partition", &partition<double>);
@@ -3034,6 +3204,7 @@ void initFunctions(pb11::module& m)
     m.def("size", &size<double>);
     m.def("sort", &sort<double>);
     m.def("sort", &sort<ComplexDouble>);
+    m.def("split", &FunctionsInterface::split<double>);
     m.def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
     m.def("sqrtScaler", &FunctionsInterface::sqrtScaler<ComplexDouble>);
     m.def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
@@ -3107,13 +3278,27 @@ void initFunctions(pb11::module& m)
     m.def("union1d", &union1d<std::complex<double>>);
     m.def("unique", &unique<uint32>);
     m.def("unique", &unique<std::complex<double>>);
+    m.def("unpackbitsBigEndian", &FunctionsInterface::unpackbitsBigEndian);
+    m.def("unpackbitsLittleEndian", &FunctionsInterface::unpackbitsLittleEndian);
     m.def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
     m.def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
+    pbArrayGeneric (*vanderDouble)(const NdArray<double>&, bool increasing) = &FunctionsInterface::vander<double>;
+    m.def("vander", vanderDouble);
+    pbArrayGeneric (*vanderComplexDouble)(const NdArray<ComplexDouble>&, bool increasing) =
+        &FunctionsInterface::vander<ComplexDouble>;
+    m.def("vander", vanderComplexDouble);
+    pbArrayGeneric (*vanderNDouble)(const NdArray<double>&, uint32 n, bool increasing) =
+        &FunctionsInterface::vander<double>;
+    m.def("vander", vanderNDouble);
+    pbArrayGeneric (*vanderNComplexDouble)(const NdArray<ComplexDouble>&, uint32 n, bool increasing) =
+        &FunctionsInterface::vander<ComplexDouble>;
+    m.def("vander", vanderNComplexDouble);
     NdArray<double> (*varDouble)(const NdArray<double>&, Axis) = &var<double>;
     m.def("var", varDouble);
     NdArray<ComplexDouble> (*varComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &var<double>;
     m.def("var", varComplexDouble);
+    m.def("vsplit", &FunctionsInterface::vsplit<double>);
     m.def("vstack", &FunctionsInterface::vstack<double>);
 
     m.def("where", &FunctionsInterface::whereArrayArray<double>);

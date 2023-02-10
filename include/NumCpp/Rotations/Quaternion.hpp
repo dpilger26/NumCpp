@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2022 David Pilger
+/// Copyright 2018-2023 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -378,6 +378,18 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            /// returns a quaternion to rotate about the pitch axis
+            ///
+            /// @param inAngle (radians)
+            /// @return Quaternion
+            ///
+            static Quaternion pitchRotation(double inAngle) noexcept
+            {
+                return Quaternion(0., inAngle, 0.);
+            }
+
+            //============================================================================
+            // Method Description:
             /// prints the Quaternion to the console
             ///
             void print() const
@@ -394,6 +406,18 @@ namespace nc
             double roll() const noexcept
             {
                 return std::atan2(2. * (s() * i() + j() * k()), 1. - 2. * (utils::sqr(i()) + utils::sqr(j())));
+            }
+
+            //============================================================================
+            // Method Description:
+            /// returns a quaternion to rotate about the roll axis
+            ///
+            /// @param inAngle (radians)
+            /// @return Quaternion
+            ///
+            static Quaternion rollRotation(double inAngle) noexcept
+            {
+                return Quaternion(inAngle, 0., 0.);
             }
 
             //============================================================================
@@ -587,6 +611,18 @@ namespace nc
             double yaw() const noexcept
             {
                 return std::atan2(2. * (s() * k() + i() * j()), 1. - 2. * (utils::sqr(j()) + utils::sqr(k())));
+            }
+
+            //============================================================================
+            // Method Description:
+            /// returns a quaternion to rotate about the yaw axis
+            ///
+            /// @param inAngle (radians)
+            /// @return Quaternion
+            ///
+            static Quaternion yawRotation(double inAngle) noexcept
+            {
+                return Quaternion(0., 0., inAngle);
             }
 
             //============================================================================

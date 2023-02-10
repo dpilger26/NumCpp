@@ -1,6 +1,19 @@
 cmake_minimum_required(VERSION 3.14...3.99)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+include(NumCppTools)
+numcpp_find_version_file("" NUMCPP_VERSION_FILE)
+message(STATUS "Found version file: ${NUMCPP_VERSION_FILE}")
+numcpp_read_version("${NUMCPP_VERSION_FILE}" "" VERSION_STRING)
+
+project("NumCpp"
+    VERSION "${VERSION_STRING}"
+    DESCRIPTION "A Templatized Header Only C++ Implementation of the Python NumPy Library"
+    HOMEPAGE_URL "https://github.com/dpilger26/NumCpp"
+    LANGUAGES CXX
+)
+
+message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -41,18 +54,29 @@ endif()
 set(ALL_INTERFACE_TARGET compile_definitions)
 add_library(${ALL_INTERFACE_TARGET} INTERFACE)
 
+target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE $<$<CXX_COMPILER_ID:MSVC>:NOMINMAX>)
+
 if(NUMCPP_NO_USE_BOOST)
     target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_NO_USE_BOOST)
 else()
-    find_package(Boost 1.68.0 REQUIRED)
-    target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE Boost::boost)
+    find_package(Boost 1.68.0 REQUIRED 
+        COMPONENTS 
+        date_time
+    )
+    target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE 
+        Boost::boost
+        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
+    )
 endif()
 
 if(NUMCPP_USE_MULTITHREAD)
-    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        find_package(TBB REQUIRED)
+    endif()
     target_link_libraries(${ALL_INTERFACE_TARGET} INTERFACE 
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:tbb>
+        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:TBB::tbb>
     )
+    target_compile_definitions(${ALL_INTERFACE_TARGET} INTERFACE -DNUMCPP_USE_MULTITHREAD)
 endif()
 
 target_compile_options(${ALL_INTERFACE_TARGET} INTERFACE
@@ -78,21 +102,6 @@ target_link_options(${ALL_INTERFACE_TARGET} INTERFACE
 )
 
 get_filename_component(NUMCPP_INCLUDES ./include ABSOLUTE)
-
-include(NumCppTools)
-numcpp_find_version_file("" NUMCPP_VERSION_FILE)
-message(STATUS "Found version file: ${NUMCPP_VERSION_FILE}")
-numcpp_read_version("${NUMCPP_VERSION_FILE}" "" VERSION_STRING)
-
-project("NumCpp"
-    VERSION "${VERSION_STRING}"
-    DESCRIPTION "A Templatized Header Only C++ Implementation of the Python NumPy Library"
-    HOMEPAGE_URL "https://github.com/dpilger26/NumCpp"
-    LANGUAGES CXX
-)
-
-message(STATUS "Building ${PROJECT_NAME} version ${VERSION_STRING}")
-
 set(OUTPUT_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin/$<0:>)
 
 if (BUILD_TESTS OR BUILD_MULTIPLE_TEST) 

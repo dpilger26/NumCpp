@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2022 David Pilger
+/// Copyright 2018-2023 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -167,7 +167,8 @@ namespace nc
             {
                 if (step < 0)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values.");
+                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values [" + utils::num2str(start) + ", " +
+                                                 utils::num2str(stop) + ", " + utils::num2str(step) + ']');
                 }
             }
 
@@ -175,7 +176,8 @@ namespace nc
             {
                 if (step > 0)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values.");
+                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values [" + utils::num2str(start) + ", " +
+                                                 utils::num2str(stop) + ", " + utils::num2str(step) + ']');
                 }
 
                 /// otherwise flip things around for my own sanity

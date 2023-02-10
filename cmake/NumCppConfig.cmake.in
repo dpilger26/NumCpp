@@ -21,8 +21,13 @@ if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
     set_and_check(@PROJECT_NAME@_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
     check_required_components("@PROJECT_NAME@")
 
-    find_package(Boost REQUIRED)
-    set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND PROPERTY INTERFACE_LINK_LIBRARIES Boost::headers)
+    find_package(Boost REQUIRED COMPONENTS date_time)
+    set_property(TARGET @PROJECT_NAME@::@PROJECT_NAME@ APPEND 
+        PROPERTY 
+        INTERFACE_LINK_LIBRARIES 
+        Boost::boost 
+        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:Boost::date_time>
+    )
 
     message(STATUS "Found NumCpp: ${@PROJECT_NAME@_INCLUDE_DIR} (found version ${@PROJECT_NAME@_VERSION})")
 endif()

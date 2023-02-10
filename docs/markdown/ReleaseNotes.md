@@ -1,5 +1,23 @@
 # Release Notes
 
+## Version 2.9.0
+
+* dropped support of C++14 standard, now requires C++17 or greater
+* added a new `DateTime` class for working with date times
+* added `split` for **Issue #168** <https://numpy.org/doc/stable/reference/generated/numpy.split.html>
+* added `hsplit` for **Issue #168** <https://numpy.org/doc/stable/reference/generated/numpy.hsplit.html>
+* added `vsplit` for **Issue #168** <https://numpy.org/doc/stable/reference/generated/numpy.vsplit.html>
+* added `digitize` <https://numpy.org/doc/stable/reference/generated/numpy.digitize.html>
+* added `fromfunction` <https://numpy.org/doc/stable/reference/generated/numpy.fromfunction.html>
+* added `fromstring` <https://numpy.org/doc/stable/reference/generated/numpy.fromstring.html>
+* added `logaddexp` <https://numpy.org/doc/stable/reference/generated/numpy.logaddexp.html>
+* added `logaddexp2` <https://numpy.org/doc/stable/reference/generated/numpy.logaddexp2.html>
+* added `packbits` <https://numpy.org/doc/stable/reference/generated/numpy.packbits.html>
+* added `unpackbits` <https://numpy.org/doc/stable/reference/generated/numpy.unpackbits.html>
+* added `vander` <https://numpy.org/doc/stable/reference/generated/numpy.vander.html>
+* added `rollRotation`, `pitchRotation`, and `yawRotation` methods to `Quaternion`
+* added `NOMINMAX` compiler define to CMake target to deconflict with Windows builds
+
 ## Version 2.8.0
 
 * fixed error in `inv` when a zero was on the diagnol for **Issue #132**
