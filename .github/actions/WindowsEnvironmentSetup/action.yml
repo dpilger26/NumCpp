@@ -9,20 +9,19 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v3
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
+        auto-update-conda: true
+        auto-activate-base: false
+        activate-environment: test
+        environment-file: test/pytest/environment.yml
         python-version: 3.9
 
-    - name: Add conda to system path
-      shell: pwsh
+    - name: Activate Env
+      shell: powershell
       run: |
-        C:\Miniconda\condabin\conda.bat init --all
-
-    - name: Install dependencies
-      shell: pwsh
-      run: |
-        C:\Miniconda\condabin\conda.bat env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+        conda activate test 
 
     - name: Install boost
       uses: MarkusJx/install-boost@v2.3.0
