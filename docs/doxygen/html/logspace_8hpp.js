@@ -1,4 +1,4 @@
 var logspace_8hpp =
 [
-    [ "logspace", "logspace_8hpp.html#a4342eee2bea5ed3c8ece78b9119efc31", null ]
+    [ "logspace", "logspace_8hpp.html#af246d9406fec4a9ff47efad150cb6ca4", null ]
 ];

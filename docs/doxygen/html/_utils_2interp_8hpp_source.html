@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_utils_2interp_8hpp_source.html',''); 
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//============================================================================</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e">   43</a></span>&#160;<span class="comment"></span>        constexpr <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1utils.html#a691a52cfcc401340af355bd53869600e">interp</a>(<span class="keywordtype">double</span> inValue1, <span class="keywordtype">double</span> inValue2, <span class="keywordtype">double</span> inPercent) noexcept</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> inValue1 * (1.0 - inPercent) + inValue2 * inPercent;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> inValue1 * (1. - inPercent) + inValue2 * inPercent;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    } <span class="comment">// namespace utils</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace nc</span></div>

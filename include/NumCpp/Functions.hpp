@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 ///
 /// License
-/// Copyright 2018-2022 David Pilger
+/// Copyright 2018-2023 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
 /// software and associated documentation files(the "Software"), to deal in the Software
@@ -96,6 +96,7 @@
 #include "NumCpp/Functions/diagflat.hpp"
 #include "NumCpp/Functions/diagonal.hpp"
 #include "NumCpp/Functions/diff.hpp"
+#include "NumCpp/Functions/digitize.hpp"
 #include "NumCpp/Functions/divide.hpp"
 #include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/dump.hpp"
@@ -123,7 +124,9 @@
 #include "NumCpp/Functions/fmod.hpp"
 #include "NumCpp/Functions/frombuffer.hpp"
 #include "NumCpp/Functions/fromfile.hpp"
+#include "NumCpp/Functions/fromfunction.hpp"
 #include "NumCpp/Functions/fromiter.hpp"
+#include "NumCpp/Functions/fromstring.hpp"
 #include "NumCpp/Functions/full.hpp"
 #include "NumCpp/Functions/full_like.hpp"
 #include "NumCpp/Functions/gcd.hpp"
@@ -135,6 +138,7 @@
 #include "NumCpp/Functions/hammingEncode.hpp"
 #include "NumCpp/Functions/hanning.hpp"
 #include "NumCpp/Functions/histogram.hpp"
+#include "NumCpp/Functions/hsplit.hpp"
 #include "NumCpp/Functions/hstack.hpp"
 #include "NumCpp/Functions/hypot.hpp"
 #include "NumCpp/Functions/identity.hpp"
@@ -160,6 +164,8 @@
 #include "NumCpp/Functions/log10.hpp"
 #include "NumCpp/Functions/log1p.hpp"
 #include "NumCpp/Functions/log2.hpp"
+#include "NumCpp/Functions/logaddexp.hpp"
+#include "NumCpp/Functions/logaddexp2.hpp"
 #include "NumCpp/Functions/logb.hpp"
 #include "NumCpp/Functions/logical_and.hpp"
 #include "NumCpp/Functions/logical_not.hpp"
@@ -203,6 +209,7 @@
 #include "NumCpp/Functions/ones.hpp"
 #include "NumCpp/Functions/ones_like.hpp"
 #include "NumCpp/Functions/outer.hpp"
+#include "NumCpp/Functions/packbits.hpp"
 #include "NumCpp/Functions/pad.hpp"
 #include "NumCpp/Functions/partition.hpp"
 #include "NumCpp/Functions/percentile.hpp"
@@ -244,6 +251,7 @@
 #include "NumCpp/Functions/sinh.hpp"
 #include "NumCpp/Functions/size.hpp"
 #include "NumCpp/Functions/sort.hpp"
+#include "NumCpp/Functions/split.hpp"
 #include "NumCpp/Functions/sqrt.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Functions/stack.hpp"
@@ -268,8 +276,11 @@
 #include "NumCpp/Functions/trunc.hpp"
 #include "NumCpp/Functions/union1d.hpp"
 #include "NumCpp/Functions/unique.hpp"
+#include "NumCpp/Functions/unpackbits.hpp"
 #include "NumCpp/Functions/unwrap.hpp"
+#include "NumCpp/Functions/vander.hpp"
 #include "NumCpp/Functions/var.hpp"
+#include "NumCpp/Functions/vsplit.hpp"
 #include "NumCpp/Functions/vstack.hpp"
 #include "NumCpp/Functions/where.hpp"
 #include "NumCpp/Functions/zeros.hpp"

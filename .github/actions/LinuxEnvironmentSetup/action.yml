@@ -4,25 +4,22 @@ description: "Sets up the linux environment"
 runs:
   using: "composite"
   steps:
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v3
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
+        auto-update-conda: true
+        auto-activate-base: false
+        activate-environment: test
+        environment-file: test/pytest/environment.yml
         python-version: 3.9
 
-    - name: Add conda to system path
-      shell: bash
+    - name: Activate Env
+      shell: bash -l {0}
       run: |
-        $CONDA/bin/conda init --all
-
-    - name: Install dependencies
-      shell: bash
-      run: |
-        $CONDA/bin/conda env update --file ${{github.workspace}}/test/pytest/environment.yml --name base
+        conda activate test 
 
     - name: Install Dependency libs
-      shell: bash
+      shell: bash -l {0}
       run: |
         sudo apt update
-        sudo apt install -y libtbb-dev
         sudo apt install -y libboost-all-dev
-        dpkg -L libboost-system-dev

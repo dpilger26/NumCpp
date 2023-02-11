@@ -1,5 +1,5 @@
-name: Build And Test
-description: "Builds the binaries and runs the tests"
+name: Build Test and Install
+description: "Builds the binaries, runs the tests, and installs the library"
 
 inputs:
   numcpp_no_use_boost:
@@ -11,9 +11,6 @@ inputs:
   boost_root:
     description: the root of the boost installation
     required: true
-  conda_bin_dir:
-    description: the bin dir for the conda installation
-    required: true
   cxx_std_version:
     description: the c++ standard to use for compilation
     required: false
@@ -22,6 +19,10 @@ inputs:
     description: compile with multithread support
     required: false
     default: false
+  sudo:
+    description: run command with sudo
+    required: false
+    default: ""
 
 runs:
   using: "composite"
@@ -32,9 +33,14 @@ runs:
 
     - name: Build
       shell: ${{inputs.shell}}
-      run: cmake --build ${{github.workspace}}/build --config Release
+      run: cmake --build ${{github.workspace}}/build --config Release -j16
 
     - name: Test
       shell: ${{inputs.shell}}
       working-directory: ${{github.workspace}}/test/pytest
-      run: ${{inputs.conda_bin_dir}}/pytest
+      run: pytest
+
+    - name: Install
+      shell: ${{inputs.shell}}
+      working-directory: ${{github.workspace}}
+      run: ${{inputs.sudo}} cmake --build ${{github.workspace}}/build --config Release --target install

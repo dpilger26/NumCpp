@@ -1,0 +1,85 @@
+/// @file
+/// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
+/// License
+/// Copyright 2018-2023 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// Description
+/// Functions for working with NdArrays
+///
+#pragma once
+
+#include <vector>
+
+#include "NumCpp/Functions/split.hpp"
+#include "NumCpp/NdArray.hpp"
+
+namespace nc
+{
+    //============================================================================
+    // Method Description:
+    /// Split an array into multiple sub-arrays vertically (row-wise).
+    ///
+    /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.vsplit.html
+    ///
+    /// @param inArray
+    /// @param indices: the indices to split
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const NdArray<int32>& indices)
+    {
+        const auto numRows       = inArray.numRows();
+        auto       uniqueIndices = unique(indices);
+        for (auto& index : uniqueIndices)
+        {
+            if (index < 0)
+            {
+                index += numRows;
+            }
+        }
+        uniqueIndices = unique(uniqueIndices);
+
+        std::vector<NdArray<dtype>> splits{};
+        splits.reserve(uniqueIndices.size() + 1);
+
+        const auto cSlice   = inArray.cSlice();
+        int32      lowerIdx = 0;
+        for (const auto index : uniqueIndices)
+        {
+            if (static_cast<uint32>(index) > numRows)
+            {
+                break;
+            }
+
+            splits.push_back(inArray({ lowerIdx, index }, cSlice));
+            lowerIdx = index;
+        }
+
+        if (static_cast<uint32>(lowerIdx) < numRows)
+        {
+            splits.push_back(inArray({ lowerIdx, static_cast<int32>(numRows) }, cSlice));
+        }
+
+        return splits;
+    }
+} // namespace nc

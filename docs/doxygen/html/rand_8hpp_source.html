@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -129,8 +129,8 @@ $(document).ready(function(){initNavTree('rand_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a0cd8e186da549fbdd918111d0302d973">STATIC_ASSERT_FLOAT</a>(dtype);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                std::uniform_real_distribution&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(0.0),</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                                           <span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(1.0) - <a class="code" href="classnc_1_1_dtype_info.html">DtypeInfo&lt;dtype&gt;::epsilon</a>());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                std::uniform_real_distribution&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(0.),</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                                           <span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(1.) - <a class="code" href="classnc_1_1_dtype_info.html">DtypeInfo&lt;dtype&gt;::epsilon</a>());</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">return</span> dist(generator);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
@@ -143,8 +143,8 @@ $(document).ready(function(){initNavTree('rand_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inShape);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::uniform_real_distribution&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(0.0),</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                           <span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(1.0) - <a class="code" href="classnc_1_1_dtype_info.html">DtypeInfo&lt;dtype&gt;::epsilon</a>());</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::uniform_real_distribution&lt;dtype&gt; dist(<span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(0.),</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                           <span class="keyword">static_cast&lt;</span>dtype<span class="keyword">&gt;</span>(1.) - <a class="code" href="classnc_1_1_dtype_info.html">DtypeInfo&lt;dtype&gt;::epsilon</a>());</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(),</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                              returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(),</div>

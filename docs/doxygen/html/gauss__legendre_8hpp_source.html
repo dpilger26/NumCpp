@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -154,8 +154,8 @@ $(document).ready(function(){initNavTree('gauss__legendre_8hpp_source.html','');
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="comment">// Class Description:</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"></span>            <span class="keyword">struct </span>Result</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">double</span> value{ 0.0 };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">double</span> derivative{ 0.0 };</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">double</span> value{ 0. };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">double</span> derivative{ 0. };</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="comment">//============================================================================</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="comment">// Method Description:</span></div>
@@ -186,7 +186,7 @@ $(document).ready(function(){initNavTree('gauss__legendre_8hpp_source.html','');
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    } <span class="keywordflow">while</span> (std::fabs(newtonRaphsonRatio) &gt; EPSILON);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    root_[step]   = root;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    weight_[step] = 2.0 / ((1.0 - <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(root)) * result.derivative * result.derivative);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    weight_[step] = 2. / ((1. - <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(root)) * result.derivative * result.derivative);</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                }</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            }</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
@@ -194,15 +194,15 @@ $(document).ready(function(){initNavTree('gauss__legendre_8hpp_source.html','');
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="comment">// Method Description:</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"></span>            Result calculatePolynomialValueAndDerivative(<span class="keyword">const</span> <span class="keywordtype">double</span> x) noexcept</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                Result result(x, 0.0);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                Result result(x, 0.);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="keywordtype">double</span>       value_minus_1 = 1.0;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>             = 1.0 / (<a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(x) - 1.0);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="keywordtype">double</span>       value_minus_1 = 1.;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>             = 1. / (<a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(x) - 1.);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> step = 2; step &lt;= numIterations_; ++step)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span>   stepDouble = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(step);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> value =</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        ((2.0 * stepDouble - 1.0) * x * result.value - (stepDouble - 1.0) * value_minus_1) / stepDouble;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        ((2. * stepDouble - 1.) * x * result.value - (stepDouble - 1.) * value_minus_1) / stepDouble;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    result.derivative = stepDouble * <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a> * (x * value - result.value);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    value_minus_1 = result.value;</div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('gauss__legendre_8hpp_source.html','');
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">double</span> width = 0.5 * (high - low);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc.html#ae215351046b49fec834d006fd35a4078">mean</a>  = 0.5 * (low + high);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordtype">double</span> gaussLegendre = 0.0;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordtype">double</span> gaussLegendre = 0.;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> step = 1; step &lt;= n; ++step)</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                gaussLegendre += weight[step] * <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>(width * root[step] + <a class="code" href="namespacenc.html#ae215351046b49fec834d006fd35a4078">mean</a>);</div>

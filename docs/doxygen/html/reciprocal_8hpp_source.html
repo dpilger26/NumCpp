@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('reciprocal_8hpp_source.html',''); init
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(inArray.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(),</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                      inArray.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(),</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                      [&amp;returnArray, &amp;counter](dtype value) noexcept -&gt; <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                      { returnArray[counter++] = 1.0 / static_cast&lt;double&gt;(value); });</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                      { returnArray[counter++] = 1. / static_cast&lt;double&gt;(value); });</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('reciprocal_8hpp_source.html',''); init
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">std::for_each</a>(inArray.cbegin(),</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                      inArray.cend(),</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                      [&amp;returnArray, &amp;counter](std::complex&lt;dtype&gt; value) -&gt; <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                      { returnArray[counter++] = std::complex&lt;double&gt;(1.0) / complex_cast&lt;double&gt;(value); });</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                      { returnArray[counter++] = std::complex&lt;double&gt;(1.) / complex_cast&lt;double&gt;(value); });</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('reciprocal_8hpp_source.html',''); init
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1221</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4276</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1529</div></div>
 <div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a734698435eabdbc5bdf93b195d7fb6a7"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a734698435eabdbc5bdf93b195d7fb6a7">nc::stl_algorithms::for_each</a></div><div class="ttdeci">void for_each(InputIt first, InputIt last, UnaryFunction f)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:227</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>

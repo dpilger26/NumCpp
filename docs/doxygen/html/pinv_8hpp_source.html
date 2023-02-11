@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('pinv_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; d.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>().rows; ++i)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                dPlus(i, i) = 1.0 / d(i, i);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                dPlus(i, i) = 1. / d(i, i);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> v.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>().<a class="code" href="classnc_1_1_nd_array.html#acca065e13f826c504493a2eae31f5d0e">dot</a>(dPlus).<a class="code" href="classnc_1_1_nd_array.html#acca065e13f826c504493a2eae31f5d0e">dot</a>(u.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>());</div>
@@ -149,9 +149,9 @@ $(document).ready(function(){initNavTree('pinv_8hpp_source.html',''); initResiza
 <div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:49</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4276</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4650</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_acca065e13f826c504493a2eae31f5d0e"><div class="ttname"><a href="classnc_1_1_nd_array.html#acca065e13f826c504493a2eae31f5d0e">nc::NdArray::dot</a></div><div class="ttdeci">NdArray&lt; dtype &gt; dot(const NdArray&lt; dtype &gt; &amp;inOtherArray) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2623</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4457</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_acca065e13f826c504493a2eae31f5d0e"><div class="ttname"><a href="classnc_1_1_nd_array.html#acca065e13f826c504493a2eae31f5d0e">nc::NdArray::dot</a></div><div class="ttdeci">NdArray&lt; dtype &gt; dot(const NdArray&lt; dtype &gt; &amp;inOtherArray) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2520</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_acb38ad2613d50422afc539d005159055"><div class="ttname"><a href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</div><div class="ttdef"><b>Definition:</b> svd.hpp:53</div></div>
 <div class="ttc" id="anamespacenc_1_1linalg_html_acd344fec1eaaa687e9004c3fe5569e53"><div class="ttname"><a href="namespacenc_1_1linalg.html#acd344fec1eaaa687e9004c3fe5569e53">nc::linalg::pinv</a></div><div class="ttdeci">NdArray&lt; double &gt; pinv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> pinv.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>

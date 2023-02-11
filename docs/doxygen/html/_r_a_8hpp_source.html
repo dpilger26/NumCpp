@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -139,10 +139,10 @@ $(document).ready(function(){initNavTree('_r_a_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input degrees must be of the range [0, 360)&quot;</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                hours_                  = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a><span class="keyword">&gt;</span>(<a class="code" href="namespacenc.html#a832da7fc615ea4e1da7bed94a4488ea6">std::floor</a>(degrees_ / 15.0));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> decMinutes = (degrees_ - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(hours_) * 15.0) * 4.0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                hours_                  = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a><span class="keyword">&gt;</span>(<a class="code" href="namespacenc.html#a832da7fc615ea4e1da7bed94a4488ea6">std::floor</a>(degrees_ / 15.));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> decMinutes = (degrees_ - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(hours_) * 15.) * 4.;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                minutes_                = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a><span class="keyword">&gt;</span>(<a class="code" href="namespacenc.html#a832da7fc615ea4e1da7bed94a4488ea6">std::floor</a>(decMinutes));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                seconds_                = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>((decMinutes - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(minutes_)) * 60.0);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                seconds_                = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>((decMinutes - <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(minutes_)) * 60.);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">//============================================================================</span></div>
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('_r_a_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1_r_a.html#a6524c44bb15dbcc6e65be1bb90db3e4a">   84</a></span>&#160;                minutes_(inMinutes),</div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classnc_1_1coordinates_1_1_r_a.html#acf5692818d41544b2849496bc720e515">   85</a></span>&#160;                seconds_(inSeconds)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                degrees_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(hours_) * 15.0 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(minutes_) / 4.0 + seconds_ / 240.0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                degrees_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(hours_) * 15. + <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(minutes_) / 4. + seconds_ / 240.;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                radians_ = <a class="code" href="namespacenc.html#a2cdc1c791ab98eb708ba5662ffb82b39">deg2rad</a>(degrees_);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
@@ -224,9 +224,9 @@ $(document).ready(function(){initNavTree('_r_a_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="comment">//====================================Attributes==============================</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a>  hours_{ 0 };</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <a class="code" href="namespacenc.html#a9ba5a0aa26753a185985b8273fb9062d">uint8</a>  minutes_{ 0 };</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordtype">double</span> seconds_{ 0.0 };</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordtype">double</span> degrees_{ 0.0 };</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordtype">double</span> radians_{ 0.0 };</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordtype">double</span> seconds_{ 0. };</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordtype">double</span> degrees_{ 0. };</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordtype">double</span> radians_{ 0. };</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        };</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    } <span class="comment">// namespace coordinates</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;} <span class="comment">// namespace nc</span></div>

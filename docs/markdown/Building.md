@@ -26,13 +26,33 @@ int main()
 ### 2. CMakeLists.txt file
 
 ```cmake
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.20)
 
 project("HelloWorld" CXX)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-find_package(NumCpp 2.6.2 REQUIRED)
+find_package(NumCpp 2.9.0 REQUIRED)
+target_link_libraries(${PROJECT_NAME}
+    NumCpp::NumCpp
+)
+```
+
+Alternative using cmake fetch content
+
+```cmake 
+cmake_minimum_required(VERSION 3.20)
+
+project("HelloWorld" CXX)
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+include(FetchContent)
+FetchContent_Declare(NumCpp
+        GIT_REPOSITORY https://github.com/dpilger26/NumCpp
+        GIT_TAG Version_2.9.0)
+FetchContent_MakeAvailable(NumCpp)
+
 target_link_libraries(${PROJECT_NAME}
     NumCpp::NumCpp
 )

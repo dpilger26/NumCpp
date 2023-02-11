@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('gaussian_filter_8hpp_source.html','');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment">// calculate the kernel size based off of the input sigma value</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            constexpr <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> MIN_KERNEL_SIZE = 5;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>           kernelSize =</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">std::max</a>(<span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a><span class="keyword">&gt;</span>(<a class="code" href="namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a">std::ceil</a>(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); <span class="comment">// 4 standard deviations</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">std::max</a>(<span class="keyword">static_cast&lt;</span><a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a><span class="keyword">&gt;</span>(<a class="code" href="namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a">std::ceil</a>(inSigma * 2. * 4.)), MIN_KERNEL_SIZE); <span class="comment">// 4 standard deviations</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (kernelSize % 2 == 0)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                ++kernelSize; <span class="comment">// make sure the kernel is an odd size</span></div>
@@ -174,8 +174,8 @@ $(document).ready(function(){initNavTree('gaussian_filter_8hpp_source.html','');
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a467700098b002b5631c756ca0fd50cae"><div class="ttname"><a href="classnc_1_1_nd_array.html#a467700098b002b5631c756ca0fd50cae">nc::NdArray::sum</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sum(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4382</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2921</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a467700098b002b5631c756ca0fd50cae"><div class="ttname"><a href="classnc_1_1_nd_array.html#a467700098b002b5631c756ca0fd50cae">nc::NdArray::sum</a></div><div class="ttdeci">NdArray&lt; dtype &gt; sum(Axis inAxis=Axis::NONE) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4198</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_abec76b8f271e07fa07cc2f88fed676fa"><div class="ttname"><a href="classnc_1_1_nd_array.html#abec76b8f271e07fa07cc2f88fed676fa">nc::NdArray::item</a></div><div class="ttdeci">value_type item() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2809</div></div>
 <div class="ttc" id="aconvolve_8hpp_html"><div class="ttname"><a href="convolve_8hpp.html">convolve.hpp</a></div></div>
 <div class="ttc" id="agaussian_8hpp_html"><div class="ttname"><a href="gaussian_8hpp.html">gaussian.hpp</a></div></div>
 <div class="ttc" id="anamespacenc_1_1filter_html_a91c9fcd09a78eba8a42c5166ebb7709b"><div class="ttname"><a href="namespacenc_1_1filter.html#a91c9fcd09a78eba8a42c5166ebb7709b">nc::filter::gaussianFilter</a></div><div class="ttdeci">NdArray&lt; dtype &gt; gaussianFilter(const NdArray&lt; dtype &gt; &amp;inImageArray, double inSigma, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</div><div class="ttdef"><b>Definition:</b> gaussianFilter.hpp:58</div></div>

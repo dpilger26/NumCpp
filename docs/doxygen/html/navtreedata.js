@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "Release Notes", "md__mnt_c__github__num_cpp_docs_markdown__release_notes.html", null ],
-    [ "Installation", "md__mnt_c__github__num_cpp_docs_markdown__installation.html", null ],
-    [ "Building", "md__mnt_c__github__num_cpp_docs_markdown__building.html", null ],
-    [ "Compiler Flags", "md__mnt_c__github__num_cpp_docs_markdown__compiler_flags.html", null ],
+    [ "Release Notes", "md__home_dpilger__github__num_cpp_docs_markdown__release_notes.html", null ],
+    [ "Installation", "md__home_dpilger__github__num_cpp_docs_markdown__installation.html", null ],
+    [ "Building", "md__home_dpilger__github__num_cpp_docs_markdown__building.html", null ],
+    [ "Compiler Flags", "md__home_dpilger__github__num_cpp_docs_markdown__compiler_flags.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,21 +65,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bisection_8hpp.html",
-"_r_n_g_8hpp_source.html",
-"append_8hpp_source.html",
-"classnc_1_1_dtype_info.html#a2a3dc0ba2812411660219f61189d8aca",
-"classnc_1_1_nd_array_column_iterator.html#aeb402bf56941dc24138dc9f33845be81",
-"classnc_1_1image_processing_1_1_centroid.html#a4ef0e9b2faa4999af5c3597a60140d6c",
-"classnc_1_1rotations_1_1_quaternion.html#a687155cd6469c095941b94a738119da9",
-"exp_8hpp_source.html",
-"hermite_8hpp.html#ad88f67a61dad283461c6121958c5af54",
-"namespacemembers_func_t.html",
-"namespacenc.html#a5f89d7fdd9706dd37cfbaa5e78e17f5f",
-"namespacenc.html#acb8250110150dfe1c585f48f988d703a",
-"namespacenc_1_1random.html",
-"namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6",
-"reciprocal_8hpp.html",
-"tri_8hpp.html#a0fc9894890a23f64d3a676f595920a9a"
+"_newton_8hpp.html",
+"allclose_8hpp.html",
+"classnc_1_1_data_cube.html#a8164f497dd44a89d1c5a1aeb7ca92e55",
+"classnc_1_1_nd_array.html#ade07629d4094244f1dfca863af67e7c0",
+"classnc_1_1coordinates_1_1_coordinate.html#afb451d6e6c10d1f6cacd98bea67850a2",
+"classnc_1_1roots_1_1_newton.html#ab3192d0f9de4b8b27b23013c65489e5a",
+"dump_8hpp_source.html",
+"gaussian_filter_8hpp.html#a91c9fcd09a78eba8a42c5166ebb7709b",
+"median_8hpp.html",
+"namespacenc.html#a3fa4e582cdeef0716309ad51378f2983",
+"namespacenc.html#aa31a10ae8201c637ab3d203844b81904",
+"namespacenc_1_1edac_1_1detail.html#abde37c852253de171988da5e4b775273",
+"namespacenc_1_1special.html#a3b24e9dde5d68f19d8a29de419e32024",
+"percentile_filter_8hpp.html#a357d5be7b2dc0b511d398acc4c8af1fd",
+"sqrt_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

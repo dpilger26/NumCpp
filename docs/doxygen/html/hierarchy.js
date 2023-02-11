@@ -10,6 +10,7 @@ var hierarchy =
     [ "nc::coordinates::Dec", "classnc_1_1coordinates_1_1_dec.html", null ],
     [ "nc::coordinates::RA", "classnc_1_1coordinates_1_1_r_a.html", null ],
     [ "nc::DataCube< dtype >", "classnc_1_1_data_cube.html", null ],
+    [ "nc::DateTime", "classnc_1_1_date_time.html", null ],
     [ "nc::DtypeInfo< dtype >", "classnc_1_1_dtype_info.html", null ],
     [ "nc::DtypeInfo< std::complex< dtype > >", "classnc_1_1_dtype_info_3_01std_1_1complex_3_01dtype_01_4_01_4.html", null ],
     [ "nc::filesystem::File", "classnc_1_1filesystem_1_1_file.html", null ],

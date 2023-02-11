@@ -46,7 +46,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.8.0</span>
+                                &#160;<span id="projectnumber">2.9.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -262,10 +262,10 @@ $(document).ready(function(){initNavTree('_centroid_8hpp_source.html',''); initR
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="comment">//==================================Attributes================================///</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordtype">double</span>        row_{ 0.0 };</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordtype">double</span>        col_{ 0.0 };</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordtype">double</span>        row_{ 0. };</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordtype">double</span>        col_{ 0. };</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <a class="code" href="classnc_1_1image_processing_1_1_centroid.html#aad242afbcb78cfb650864a2c331d2f1a">accumulator_t</a> intensity_{ 0 };</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordtype">double</span>        eod_{ 0.0 };</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordtype">double</span>        eod_{ 0. };</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordtype">double</span> a_;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordtype">double</span> b_;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="keywordtype">double</span> eccentricity_;</div>
@@ -296,11 +296,11 @@ $(document).ready(function(){initNavTree('_centroid_8hpp_source.html',''); initR
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <span class="comment">// Description:</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"></span>            <span class="keywordtype">void</span> setEllipseProperties(<span class="keyword">const</span> Cluster&lt;dtype&gt;&amp; inCluster) noexcept</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                constexpr <span class="keywordtype">double</span> two = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(2.0);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                constexpr <span class="keywordtype">double</span> two = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(2.);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keywordtype">double</span> m20 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.0);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keywordtype">double</span> m02 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.0);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="keywordtype">double</span> m11 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.0);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keywordtype">double</span> m20 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keywordtype">double</span> m02 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="keywordtype">double</span> m11 = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(0.);</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">typename</span> <a class="code" href="classnc_1_1image_processing_1_1_cluster.html#a3b344c255dfcfcf18e0fc9f1e84979ae">Cluster&lt;dtype&gt;::const_iterator</a> iter = inCluster.begin(); iter != inCluster.end(); ++iter)</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                {</div>
@@ -321,13 +321,13 @@ $(document).ready(function(){initNavTree('_centroid_8hpp_source.html',''); initR
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                <span class="keywordtype">double</span> piece1 = m20 + m02;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                piece1 /= two;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keywordtype">double</span> piece2 = <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(4.0) * <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(m11) + <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(m20 - m02));</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keywordtype">double</span> piece2 = <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(4.) * <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(m11) + <a class="code" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">utils::sqr</a>(m20 - m02));</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                piece2 /= two;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> lambda1 = piece1 - piece2;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> lambda2 = piece1 + piece2;</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                eccentricity_ = <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(1.0) - lambda1 / lambda2);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                eccentricity_ = <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(1.) - lambda1 / lambda2);</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                orientation_  = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(-0.5) * std::atan2(two * m11, m20 - m02);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                a_            = two * <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(lambda2);</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                b_            = two * <a class="code" href="namespacenc.html#a941a5a1ffb61387495a6f23dc4036287">std::sqrt</a>(lambda1);</div>

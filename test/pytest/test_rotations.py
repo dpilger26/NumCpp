@@ -287,6 +287,25 @@ def test_quaternion():
     assert np.array_equal(
         np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10))
 
+    roll = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
+    pitch = np.random.rand(1).item() * np.pi - np.pi / 2  # [-pi/2, pi/2]
+    yaw = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
+
+    quat = NumCpp.Quaternion.rollRotation(roll)
+    assert (np.round(quat.roll(), 10) == np.round(roll, 10) and
+            np.round(quat.pitch(), 10) == 0.0 and
+            np.round(quat.yaw(), 10) == 0.0)
+
+    quat = NumCpp.Quaternion.pitchRotation(pitch)
+    assert (np.round(quat.roll(), 10) == 0.0 and
+            np.round(quat.pitch(), 10) == np.round(pitch, 10) and
+            np.round(quat.yaw(), 10) == 0.0)
+
+    quat = NumCpp.Quaternion.yawRotation(yaw)
+    assert (np.round(quat.roll(), 10) == 0.0 and
+            np.round(quat.pitch(), 10) == 0.0 and
+            np.round(quat.yaw(), 10) == np.round(yaw, 10))
+
 
 ####################################################################################
 def test_dcm():
