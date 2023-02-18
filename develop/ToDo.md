@@ -4,7 +4,6 @@
 * issue #170: insert()
 * issue #74, #147, #174: broadcasting
 
-* remove Core/Internal/Filesystem in favour of std::filesystem
 * setup job for clang-tidy
 * setup job for cpp-check
 

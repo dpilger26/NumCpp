@@ -30,6 +30,7 @@
 #include <array>
 #include <cmath>
 #include <deque>
+#include <filesystem>
 #include <forward_list>
 #include <fstream>
 #include <initializer_list>
@@ -48,7 +49,6 @@
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Internal/Endian.hpp"
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/StdComplexOperators.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
@@ -2578,13 +2578,13 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            filesystem::File f(inFilename);
-            if (!f.hasExt())
+            std::filesystem::path f(inFilename);
+            if (!f.has_extension())
             {
-                f.withExt(".bin");
+                f.replace_extension("bin");
             }
 
-            std::ofstream ofile(f.fullName().c_str(), std::ios::binary);
+            std::ofstream ofile(f.c_str(), std::ios::binary);
             if (!ofile.good())
             {
                 THROW_RUNTIME_ERROR("Unable to open the input file:\n\t" + inFilename);
@@ -4316,13 +4316,13 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            filesystem::File f(inFilename);
-            if (!f.hasExt())
+            std::filesystem::path f(inFilename);
+            if (!f.has_extension())
             {
-                f.withExt("txt");
+                f.replace_extension("txt");
             }
 
-            std::ofstream ofile(f.fullName().c_str());
+            std::ofstream ofile(f.c_str());
             if (!ofile.good())
             {
                 THROW_RUNTIME_ERROR("Input file could not be opened:\n\t" + inFilename);

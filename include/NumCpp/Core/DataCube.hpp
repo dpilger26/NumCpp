@@ -27,12 +27,12 @@
 ///
 #pragma once
 
+#include <filesystem>
 #include <limits>
 #include <string>
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
-#include "NumCpp/Core/Internal/Filesystem.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -126,13 +126,13 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            filesystem::File f(inFilename);
-            if (!f.hasExt())
+            std::filesystem::path f(inFilename);
+            if (!f.has_extension())
             {
-                f.withExt("bin");
+                f.replace_extension("bin");
             }
 
-            std::ofstream ofile(f.fullName().c_str(), std::ios::binary);
+            std::ofstream ofile(f.c_str(), std::ios::binary);
             if (!ofile.good())
             {
                 THROW_RUNTIME_ERROR("Could not open the input file:\n\t" + inFilename);
