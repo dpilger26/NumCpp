@@ -2,6 +2,10 @@
 
 ## Version 2.9.0
 
+*
+
+## Version 2.9.0
+
 * dropped support of C++14 standard, now requires C++17 or greater
 * added a new `DateTime` class for working with date times
 * added `split` for **Issue #168** <https://numpy.org/doc/stable/reference/generated/numpy.split.html>
