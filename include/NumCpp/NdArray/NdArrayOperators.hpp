@@ -1199,7 +1199,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         if (lhs.shape() != rhs.shape())
@@ -1220,7 +1220,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         if (lhs.shape() != rhs.shape())
@@ -1243,7 +1243,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
     {
         const auto function = [rhs](dtype& value) -> dtype { return value %= rhs; };
@@ -1261,7 +1261,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
     {
         const auto function = [rhs](dtype& value) -> void { value = std::fmod(value, rhs); };
@@ -1311,7 +1311,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
@@ -1331,7 +1331,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());

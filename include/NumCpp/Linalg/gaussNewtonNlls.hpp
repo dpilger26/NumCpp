@@ -72,9 +72,9 @@ namespace nc
         ///
         template<typename dtype,
                  typename... Params,
-                 nc::enable_if_t<is_arithmetic_v<dtype>, int>       = 0,
-                 nc::enable_if_t<all_arithmetic_v<Params...>, int>  = 0,
-                 nc::enable_if_t<all_same_v<dtype, Params...>, int> = 0>
+                 std::enable_if_t<std::is_arithmetic_v<dtype>, int>  = 0,
+                 std::enable_if_t<all_arithmetic_v<Params...>, int>  = 0,
+                 std::enable_if_t<all_same_v<dtype, Params...>, int> = 0>
         std::pair<NdArray<double>, double>
             gaussNewtonNlls(const uint32                                                              numIterations,
                             const NdArray<dtype>&                                                     coordinates,

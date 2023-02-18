@@ -34,48 +34,6 @@ namespace nc
 {
     //============================================================================
     // Class Description:
-    /// std::enable_if helper, for c++14 compatibility
-    ///
-    template<bool B, class T = void>
-    using enable_if_t = typename std::enable_if<B, T>::type;
-
-    //============================================================================
-    // Class Description:
-    /// std::is_same helper, for c++14 compatibility
-    ///
-    template<class A, class B>
-    constexpr bool is_same_v = std::is_same<A, B>::value;
-
-    //============================================================================
-    // Class Description:
-    /// std::is_arithmetic helper, for c++14 compatibility
-    ///
-    template<typename T>
-    constexpr bool is_arithmetic_v = std::is_arithmetic<T>::value;
-
-    //============================================================================
-    // Class Description:
-    /// std::is_integral helper, for c++14 compatibility
-    ///
-    template<typename T>
-    constexpr bool is_integral_v = std::is_integral<T>::value;
-
-    //============================================================================
-    // Class Description:
-    /// std::is_unsigned helper, for c++14 compatibility
-    ///
-    template<typename T>
-    constexpr bool is_unsigned_v = std::is_unsigned<T>::value;
-
-    //============================================================================
-    // Class Description:
-    /// std::is_floating_point helper, for c++14 compatibility
-    ///
-    template<typename T>
-    constexpr bool is_floating_point_v = std::is_floating_point<T>::value;
-
-    //============================================================================
-    // Class Description:
     /// Template class for determining if all of the types are arithmetic
     ///
     template<typename... Ts>
@@ -163,6 +121,44 @@ namespace nc
     ///
     template<class dtype>
     constexpr bool is_valid_dtype_v = is_valid_dtype<dtype>::value;
+
+    // Forward declare
+    template<typename dtype, class Allocator>
+    class NdArray;
+
+    //============================================================================
+    // Class Description:
+    /// Template class for determining if dtype is a valid index type for NdArray
+    ///
+    template<typename>
+    struct is_ndarray_int : std::false_type
+    {
+    };
+
+    //============================================================================
+    // Class Description:
+    /// Template class for determining if dtype is a valid index typefor NdArray
+    ///
+
+    template<typename dtype, typename Allocator>
+    struct is_ndarray_int<NdArray<dtype, Allocator>>
+    {
+        static constexpr bool value = std::is_integral_v<dtype>;
+    };
+
+    //============================================================================
+    // Class Description:
+    /// is_ndarray_int helper
+    ///
+    template<typename T>
+    constexpr bool is_ndarray_int_v = is_ndarray_int<T>::value;
+
+    //============================================================================
+    // Class Description:
+    /// is_ndarray_int
+    ///
+    template<typename T>
+    using ndarray_int_concept = std::enable_if_t<is_ndarray_int_v<T>, int>;
 
     //============================================================================
     // Class Description:

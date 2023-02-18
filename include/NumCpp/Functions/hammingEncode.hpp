@@ -54,7 +54,7 @@ namespace nc
             /// @param n integer value
             /// @return bool true if value is a power of two, else false
             ///
-            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
+            template<typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
             constexpr bool isPowerOfTwo(IntType n) noexcept
             {
                 // Returns true if the given non-negative integer n is a power of two.
@@ -73,7 +73,7 @@ namespace nc
             /// @return next power of two
             /// @exception std::invalid_argument if input value is less than zero
             ////
-            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
+            template<typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
             std::size_t nextPowerOfTwo(IntType n)
             {
                 if (n < 0)
@@ -97,7 +97,7 @@ namespace nc
             /// @return first n powers of two
             /// @exception std::bad_alloc if unable to allocate for return vector
             ///
-            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
+            template<typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
             std::vector<std::size_t> powersOfTwo(IntType n)
             {
                 auto i      = std::size_t{ 0 };
@@ -124,7 +124,7 @@ namespace nc
             /// @exception std::invalid_argument if input value is less than zero
             /// @exception std::runtime_error if the number of data bits does not represent a valid Hamming SECDED code
             ///
-            template<typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
+            template<typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
             std::size_t numSecdedParityBitsNeeded(IntType numDataBits)
             {
                 const auto n               = nextPowerOfTwo(numDataBits);
@@ -156,8 +156,8 @@ namespace nc
             ///
             template<typename IntType1,
                      typename IntType2,
-                     enable_if_t<is_integral_v<IntType1>, int> = 0,
-                     enable_if_t<is_integral_v<IntType2>, int> = 0>
+                     std::enable_if_t<std::is_integral_v<IntType1>, int> = 0,
+                     std::enable_if_t<std::is_integral_v<IntType2>, int> = 0>
             std::vector<std::size_t> dataBitsCovered(IntType1 numDataBits, IntType2 parityBit)
             {
                 if (!isPowerOfTwo(parityBit))
@@ -235,7 +235,7 @@ namespace nc
             /// @exception std::invalid_argument if parityBit is not a power of two
             /// @exception std::bad_alloc if unable to allocate return vector
             ///
-            template<std::size_t DataBits, typename IntType, enable_if_t<is_integral_v<IntType>, int> = 0>
+            template<std::size_t DataBits, typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
             bool calculateParity(const std::bitset<DataBits>& data, IntType parityBit)
             {
                 bool parity = false;
@@ -257,7 +257,7 @@ namespace nc
             ///
             template<std::size_t DataBits,
                      std::size_t EncodedBits,
-                     enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+                     std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
             std::size_t checkBitsConsistent()
             {
                 const auto numParityBits = detail::numSecdedParityBitsNeeded(DataBits);
@@ -279,7 +279,7 @@ namespace nc
             ///
             template<std::size_t DataBits,
                      std::size_t EncodedBits,
-                     enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+                     std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
             std::bitset<DataBits> extractData(const std::bitset<EncodedBits>& encodedBits) noexcept
             {
                 auto dataBits = std::bitset<DataBits>();
@@ -355,7 +355,7 @@ namespace nc
         ///
         template<std::size_t DataBits,
                  std::size_t EncodedBits,
-                 enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
+                 std::enable_if_t<greaterThan_v<EncodedBits, DataBits>, int> = 0>
         int decode(std::bitset<EncodedBits> encodedBits, std::bitset<DataBits>& decodedBits)
         {
             const auto numParityBits = detail::checkBitsConsistent<DataBits, EncodedBits>();

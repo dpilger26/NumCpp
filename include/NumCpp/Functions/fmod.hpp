@@ -48,7 +48,7 @@ namespace nc
     /// @param inValue2
     /// @return value
     ///
-    template<typename dtype, enable_if_t<is_integral_v<dtype>, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype>, int> = 0>
     dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
         return inValue1 % inValue2;
@@ -65,7 +65,7 @@ namespace nc
     /// @param inValue2
     /// @return value
     ///
-    template<typename dtype, enable_if_t<is_floating_point_v<dtype>, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point_v<dtype>, int> = 0>
     dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
         return std::fmod(inValue1, inValue2);

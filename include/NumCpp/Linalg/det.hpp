@@ -54,11 +54,11 @@ namespace nc
             ///
             template<typename dtype>
             auto det(const NdArray<dtype>& inArray, uint32 order)
-                -> std::conditional_t<is_integral_v<dtype>, int64, double>
+                -> std::conditional_t<std::is_integral_v<dtype>, int64, double>
             {
                 STATIC_ASSERT_ARITHMETIC(dtype);
 
-                using ReturnType = std::conditional_t<is_integral_v<dtype>, int64, double>;
+                using ReturnType = std::conditional_t<std::is_integral_v<dtype>, int64, double>;
 
                 if (order == 1)
                 {
