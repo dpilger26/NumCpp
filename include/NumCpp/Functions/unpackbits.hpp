@@ -61,9 +61,9 @@ namespace nc
                     const auto startIdx  = byte * 8;
                     const auto byteValue = a[byte];
 
-                    for (auto bit = 0; bit < 8; ++bit)
+                    for (uint8 bit = 0; bit < 8; ++bit)
                     {
-                        result[startIdx + bit] = (byteValue & (1 << bit)) >> bit;
+                        result[startIdx + bit] = static_cast<uint8>((byteValue & (uint8{ 1 } << bit)) >> bit);
                     }
                 }
 
@@ -122,10 +122,11 @@ namespace nc
                     const auto startIdx  = byte * 8;
                     const auto byteValue = a[byte];
 
-                    for (auto bit = 0; bit < 8; ++bit)
+                    for (uint8 bit = 0; bit < 8; ++bit)
                     {
-                        const auto bitToMask   = static_cast<uint8>(7 - bit);
-                        result[startIdx + bit] = (byteValue & (1 << bitToMask)) >> bitToMask;
+                        const auto bitToMask = static_cast<uint8>(7 - bit);
+                        result[startIdx + bit] =
+                            static_cast<uint8>((byteValue & (uint8{ 1 } << bitToMask)) >> bitToMask);
                     }
                 }
 

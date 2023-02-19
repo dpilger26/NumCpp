@@ -60,7 +60,7 @@ namespace nc
                       [&uniqueBins, &result, &idx](const auto value)
                       {
                           const auto upperBin = std::upper_bound(uniqueBins.begin(), uniqueBins.end(), value);
-                          result[idx++]       = std::distance(uniqueBins.begin(), upperBin);
+                          result[idx++]       = static_cast<uint32>(std::distance(uniqueBins.begin(), upperBin));
                       });
 
         return result;
