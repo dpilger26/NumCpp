@@ -39,6 +39,7 @@
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc::roots
 {
@@ -219,7 +220,7 @@ namespace nc::roots
         ///
         static bool useInverseQuadraticInterpolation(const double fa, const double fb, const double lastFb) noexcept
         {
-            return fa != lastFb && fb != lastFb;
+            return !utils::essentiallyEqual(fa, lastFb) && utils::essentiallyEqual(fb, lastFb);
         }
 
         //============================================================================

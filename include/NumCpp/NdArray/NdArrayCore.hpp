@@ -57,6 +57,8 @@
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray/NdArrayIterators.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/essentiallyEqualComplex.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
@@ -1806,7 +1808,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i) -> bool { return i != dtype{ 0 }; };
+            const auto function = [](dtype i) -> bool { return !utils::essentiallyEqual(i, dtype{ 0 }); };
 
             switch (inAxis)
             {
@@ -1850,7 +1852,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i) -> bool { return i != dtype{ 0 }; };
+            const auto function = [](dtype i) -> bool { return !utils::essentiallyEqual(i, dtype{ 0 }); };
 
             switch (inAxis)
             {
@@ -2641,7 +2643,7 @@ namespace nc
             uint32              idx = 0;
             for (auto value : *this)
             {
-                if (value != dtype{ 0 })
+                if (!utils::essentiallyEqual(value, dtype{ 0 }))
                 {
                     indices.push_back(idx);
                 }
@@ -3213,7 +3215,7 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto function = [](dtype i) -> bool { return i != dtype{ 0 }; };
+            const auto function = [](dtype i) -> bool { return !utils::essentiallyEqual(i, dtype{ 0 }); };
 
             switch (inAxis)
             {
@@ -4564,7 +4566,7 @@ namespace nc
         {
             for (uint32 col = 0; col < shape_.cols; ++col)
             {
-                if (operator()(row, col) != dtype{ 0 })
+                if (!utils::essentiallyEqual(operator()(row, col), dtype{ 0 }))
                 {
                     rowIndices.push_back(row);
                     colIndices.push_back(col);

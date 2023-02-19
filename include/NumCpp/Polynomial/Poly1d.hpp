@@ -371,21 +371,10 @@ namespace nc::polynomial
             uint32      power = 0;
             for (auto& coefficient : coefficients_)
             {
-                if (DtypeInfo<dtype>::isInteger())
+                if (utils::essentiallyEqual(coefficient, static_cast<dtype>(0)))
                 {
-                    if (coefficient == 0)
-                    {
-                        ++power;
-                        continue;
-                    }
-                }
-                else
-                {
-                    if (utils::essentiallyEqual(coefficient, static_cast<dtype>(0.)))
-                    {
-                        ++power;
-                        continue;
-                    }
+                    ++power;
+                    continue;
                 }
 
                 repr += utils::num2str(coefficient);

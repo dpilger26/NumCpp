@@ -201,9 +201,10 @@ namespace nc::imageProcessing
         ///
         bool operator==(const Centroid<dtype>& rhs) const noexcept
         {
-            return (row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ &&
-                    utils::essentiallyEqual(eod_, rhs.eod_) && utils::essentiallyEqual(a_, rhs.a_) &&
-                    utils::essentiallyEqual(b_, rhs.b_) && utils::essentiallyEqual(eccentricity_, rhs.eccentricity_) &&
+            return (utils::essentiallyEqual(row_, rhs.row_) && utils::essentiallyEqual(col_, rhs.col_) &&
+                    utils::essentiallyEqual(intensity_, rhs.intensity_) && utils::essentiallyEqual(eod_, rhs.eod_) &&
+                    utils::essentiallyEqual(a_, rhs.a_) && utils::essentiallyEqual(b_, rhs.b_) &&
+                    utils::essentiallyEqual(eccentricity_, rhs.eccentricity_) &&
                     utils::essentiallyEqual(orientation_, rhs.orientation_));
         }
 

@@ -34,7 +34,6 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc
 {

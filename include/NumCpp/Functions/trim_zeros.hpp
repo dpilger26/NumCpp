@@ -58,7 +58,7 @@ namespace nc
             uint32 place = 0;
             for (auto value : inArray)
             {
-                if (value != dtype{ 0 })
+                if (!utils::essentiallyEqual(value, dtype{ 0 }))
                 {
                     break;
                 }
@@ -82,7 +82,7 @@ namespace nc
             uint32 place = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != dtype{ 0 })
+                if (!utils::essentiallyEqual(inArray[i], dtype{ 0 }))
                 {
                     break;
                 }
@@ -90,7 +90,7 @@ namespace nc
                 --place;
             }
 
-            if (place == 0 || (place == 1 && inArray[0] == dtype{ 0 }))
+            if (place == 0 || (place == 1 && utils::essentiallyEqual(inArray[0], dtype{ 0 })))
             {
                 return NdArray<dtype>(0);
             }
@@ -106,7 +106,7 @@ namespace nc
             uint32 placeBegin = 0;
             for (auto value : inArray)
             {
-                if (value != dtype{ 0 })
+                if (!utils::essentiallyEqual(value, dtype{ 0 }))
                 {
                     break;
                 }
@@ -122,7 +122,7 @@ namespace nc
             uint32 placeEnd = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != dtype{ 0 })
+                if (!utils::essentiallyEqual(inArray[i], dtype{ 0 }))
                 {
                     break;
                 }
@@ -130,7 +130,7 @@ namespace nc
                 --placeEnd;
             }
 
-            if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == dtype{ 0 }))
+            if (placeEnd == 0 || (placeEnd == 1 && utils::essentiallyEqual(inArray[0], dtype{ 0 })))
             {
                 return NdArray<dtype>(0);
             }

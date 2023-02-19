@@ -40,6 +40,7 @@
 #include "NumCpp/Functions/complex.hpp"
 #include "NumCpp/NdArray/NdArrayCore.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/essentiallyEqualComplex.hpp"
 
 namespace nc
 {
@@ -1793,7 +1794,8 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto equalTo = [](dtype lhs, dtype rhs) noexcept -> bool { return utils::essentiallyEqual(lhs, rhs); };
+        const auto equalTo = [](dtype lhs_, dtype rhs_) noexcept -> bool
+        { return utils::essentiallyEqual(lhs_, rhs_); };
 
         NdArray<bool> returnArray(lhs.shape());
 
@@ -1856,8 +1858,8 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto notEqualTo = [](dtype lhs, dtype rhs) noexcept -> bool
-        { return !utils::essentiallyEqual(lhs, rhs); };
+        const auto notEqualTo = [](dtype lhs_, dtype rhs_) noexcept -> bool
+        { return !utils::essentiallyEqual(lhs_, rhs_); };
 
         NdArray<bool> returnArray(lhs.shape());
 
@@ -1924,7 +1926,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ < rhs_; };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
 
@@ -1998,7 +2000,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs > rhs; };
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ > rhs_; };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
 
@@ -2074,7 +2076,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs <= rhs; };
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ <= rhs_; };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
 
@@ -2148,7 +2150,7 @@ namespace nc
 
         NdArray<bool> returnArray(lhs.shape());
 
-        const auto function = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs >= rhs; };
+        const auto function = [](dtype lhs_, dtype rhs_) noexcept -> bool { return lhs_ >= rhs_; };
 
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
 

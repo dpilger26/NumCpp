@@ -62,8 +62,10 @@ namespace nc
                                   inArray1.cend(),
                                   inArray2.cbegin(),
                                   returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) -> bool
-                                  { return (inValue1 != dtype{ 0 }) != (inValue2 != dtype{ 0 }); });
+                                  [](dtype inValue1, dtype inValue2) -> bool {
+                                      return !utils::essentiallyEqual(inValue1, dtype{ 0 }) !=
+                                             !utils::essentiallyEqual(inValue2, dtype{ 0 });
+                                  });
 
         return returnArray;
     }

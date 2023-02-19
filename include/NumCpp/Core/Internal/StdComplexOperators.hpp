@@ -30,6 +30,7 @@
 #include <complex>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc
 {
@@ -44,7 +45,7 @@ namespace nc
     template<typename T>
     bool operator<(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
-        if (lhs.real() != rhs.real())
+        if (!utils::essentiallyEqual(lhs.real(), rhs.real()))
         {
             return lhs.real() < rhs.real();
         }
@@ -63,7 +64,7 @@ namespace nc
     template<typename T>
     bool operator<=(const std::complex<T>& lhs, const std::complex<T>& rhs) noexcept
     {
-        if (lhs.real() != rhs.real())
+        if (!utils::essentiallyEqual(lhs.real(), rhs.real()))
         {
             return lhs.real() <= rhs.real();
         }

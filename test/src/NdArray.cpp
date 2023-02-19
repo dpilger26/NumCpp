@@ -1,5 +1,7 @@
 #include "BindingsIncludes.hpp"
 
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+
 //================================================================================
 
 namespace IteratorInterface
@@ -160,8 +162,10 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == dtype{ 1 } && test[1] == dtype{ 2 } && test[2] == dtype{ 3 } && test[3] == dtype{ 4 } &&
-               test[4] == dtype{ 666 } && test[5] == dtype{ 357 } && test[6] == dtype{ 314159 };
+        return utils::essentiallyEqual(test[0], dtype{ 1 }) && utils::essentiallyEqual(test[1], dtype{ 2 }) &&
+               utils::essentiallyEqual(test[2], dtype{ 3 }) && utils::essentiallyEqual(test[3], dtype{ 4 }) &&
+               utils::essentiallyEqual(test[4], dtype{ 666 }) && utils::essentiallyEqual(test[5], dtype{ 357 }) &&
+               utils::essentiallyEqual(test[6], dtype{ 314159 });
     }
 
     //================================================================================
@@ -185,8 +189,10 @@ namespace NdArrayInterface
             return false;
         }
 
-        return test[0] == dtype{ 1 } && test[1] == dtype{ 2 } && test[2] == dtype{ 4 } && test[3] == dtype{ 666 } &&
-               test[4] == dtype{ 314159 } && test[5] == dtype{ 9 } && test[6] == dtype{ 0 } && test[7] == dtype{ 8 };
+        return utils::essentiallyEqual(test[0], dtype{ 1 }) && utils::essentiallyEqual(test[1], dtype{ 2 }) &&
+               utils::essentiallyEqual(test[2], dtype{ 4 }) && utils::essentiallyEqual(test[3], dtype{ 666 }) &&
+               utils::essentiallyEqual(test[4], dtype{ 314159 }) && utils::essentiallyEqual(test[5], dtype{ 9 }) &&
+               utils::essentiallyEqual(test[6], dtype{ 0 }) && utils::essentiallyEqual(test[7], dtype{ 8 });
     }
 
     //================================================================================

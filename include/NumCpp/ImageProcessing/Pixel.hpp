@@ -33,6 +33,7 @@
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 namespace nc::imageProcessing
@@ -84,7 +85,8 @@ namespace nc::imageProcessing
         ///
         constexpr bool operator==(const Pixel<dtype>& rhs) const noexcept
         {
-            return row == rhs.row && col == rhs.col && intensity == rhs.intensity;
+            return utils::essentiallyEqual(row, rhs.row) && utils::essentiallyEqual(col, rhs.col) &&
+                   utils::essentiallyEqual(intensity, rhs.intensity);
         }
 
         //=============================================================================

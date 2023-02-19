@@ -472,11 +472,11 @@ namespace nc::rotations
                 THROW_INVALID_ARGUMENT_ERROR("input percent must be of the range [0, 1]");
             }
 
-            if (inPercent == 0)
+            if (utils::essentiallyEqual(inPercent, 0.))
             {
                 return inQuat1;
             }
-            if (inPercent == 1)
+            if (utils::essentiallyEqual(inPercent, 1.))
             {
                 return inQuat2;
             }
