@@ -1650,7 +1650,8 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto function = [](dtype value1, dtype value2) -> bool { return value1 && value2; };
+        const auto function = [](dtype value1, dtype value2) -> bool
+        { return !utils::essentiallyEqual(value1, dtype{ 0 }) && !utils::essentiallyEqual(value2, dtype{ 0 }); };
 
         NdArray<bool> returnArray(lhs.shape());
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);
@@ -1712,7 +1713,8 @@ namespace nc
             THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
         }
 
-        const auto function = [](dtype value1, dtype value2) -> bool { return value1 || value2; };
+        const auto function = [](dtype value1, dtype value2) -> bool
+        { return !utils::essentiallyEqual(value1, dtype{ 0 }) || !utils::essentiallyEqual(value2, dtype{ 0 }); };
 
         NdArray<bool> returnArray(lhs.shape());
         stl_algorithms::transform(lhs.cbegin(), lhs.cend(), rhs.cbegin(), returnArray.begin(), function);

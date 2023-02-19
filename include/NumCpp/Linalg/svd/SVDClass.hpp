@@ -35,6 +35,7 @@
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 namespace nc::linalg
 {
@@ -205,7 +206,7 @@ namespace nc::linalg
                         scale += std::abs(u_(k, i));
                     }
 
-                    if (scale != 0.)
+                    if (!utils::essentiallyEqual(scale, 0.))
                     {
                         for (k = i; k < m_; ++k)
                         {
@@ -250,7 +251,7 @@ namespace nc::linalg
                         scale += std::abs(u_(i, k));
                     }
 
-                    if (scale != 0.)
+                    if (!utils::essentiallyEqual(scale, 0.))
                     {
                         for (k = l - 1; k < n_; ++k)
                         {
@@ -295,7 +296,7 @@ namespace nc::linalg
             {
                 if (i < n_ - 1)
                 {
-                    if (g != 0.)
+                    if (!utils::essentiallyEqual(g, 0.))
                     {
                         for (j = l; j < n_; ++j)
                         {
@@ -337,7 +338,7 @@ namespace nc::linalg
                     u_(i, j) = 0.;
                 }
 
-                if (g != 0.)
+                if (!utils::essentiallyEqual(g, 0.))
                 {
                     g = 1. / g;
 
@@ -479,7 +480,7 @@ namespace nc::linalg
                         z     = pythag(f, h);
                         s_[j] = z;
 
-                        if (z != 0.)
+                        if (!utils::essentiallyEqual(z, 0.))
                         {
                             z  = 1. / z;
                             c  = f * z;
@@ -627,8 +628,9 @@ namespace nc::linalg
         {
             const double absa = std::abs(inA);
             const double absb = std::abs(inB);
-            return (absa > absb ? absa * std::sqrt(1. + utils::sqr(absb / absa))
-                                : (absb == 0. ? 0. : absb * std::sqrt(1. + utils::sqr(absa / absb))));
+            return (absa > absb
+                        ? absa * std::sqrt(1. + utils::sqr(absb / absa))
+                        : (utils::essentiallyEqual(absb, 0.) ? 0. : absb * std::sqrt(1. + utils::sqr(absa / absb))));
         }
 
     private:
