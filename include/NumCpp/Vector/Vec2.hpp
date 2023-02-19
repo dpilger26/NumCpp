@@ -177,7 +177,7 @@ namespace nc
         ///
         static constexpr Vec2 down() noexcept
         {
-            return Vec2(0., -1.);
+            return Vec2(0., -1.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -188,7 +188,7 @@ namespace nc
         ///
         static constexpr Vec2 left() noexcept
         {
-            return Vec2(-1., 0.);
+            return Vec2(-1., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -254,7 +254,7 @@ namespace nc
         ///
         static constexpr Vec2 right() noexcept
         {
-            return Vec2(1., 0.);
+            return Vec2(1., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -290,7 +290,7 @@ namespace nc
         ///
         static constexpr Vec2 up() noexcept
         {
-            return Vec2(0., 1.);
+            return Vec2(0., 1.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -449,7 +449,7 @@ namespace nc
     ///
     inline Vec2 operator-(const Vec2& vec) noexcept
     {
-        return Vec2(-vec.x, -vec.y);
+        return Vec2(-vec.x, -vec.y); // NOLINT(modernize-return-braced-init-list)
     }
 
     //============================================================================

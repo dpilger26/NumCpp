@@ -138,7 +138,7 @@ namespace nc
         ///
         static constexpr Vec3 back() noexcept
         {
-            return Vec3(0., 0., -1.);
+            return Vec3(0., 0., -1.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -175,7 +175,7 @@ namespace nc
             const double crossY = -(x * otherVec.z - z * otherVec.x);
             const double crossZ = x * otherVec.y - y * otherVec.x;
 
-            return Vec3(crossX, crossY, crossZ);
+            return Vec3(crossX, crossY, crossZ); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -210,7 +210,7 @@ namespace nc
         ///
         static constexpr Vec3 down() noexcept
         {
-            return Vec3(0., -1., 0.);
+            return Vec3(0., -1., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -221,7 +221,7 @@ namespace nc
         ///
         static constexpr Vec3 forward() noexcept
         {
-            return Vec3(0., 0., 1.);
+            return Vec3(0., 0., 1.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -232,7 +232,7 @@ namespace nc
         ///
         static constexpr Vec3 left() noexcept
         {
-            return Vec3(-1., 0., 0.);
+            return Vec3(-1., 0., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -299,7 +299,7 @@ namespace nc
         ///
         static constexpr Vec3 right() noexcept
         {
-            return Vec3(1., 0., 0.);
+            return Vec3(1., 0., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -335,7 +335,7 @@ namespace nc
         ///
         static constexpr Vec3 up() noexcept
         {
-            return Vec3(0., 1., 0.);
+            return Vec3(0., 1., 0.); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -501,7 +501,7 @@ namespace nc
     ///
     inline Vec3 operator-(const Vec3& vec) noexcept
     {
-        return Vec3(-vec.x, -vec.y, -vec.z);
+        return Vec3(-vec.x, -vec.y, -vec.z); // NOLINT(modernize-return-braced-init-list)
     }
 
     //============================================================================

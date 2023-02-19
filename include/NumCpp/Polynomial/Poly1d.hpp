@@ -309,7 +309,7 @@ namespace nc::polynomial
             }
 
             auto x = aInv.dot(yWeighted);
-            return Poly1d<double>(x);
+            return Poly1d<double>(x); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -333,7 +333,7 @@ namespace nc::polynomial
                 integralCofficients[i + 1] = static_cast<double>(coefficients_[i]) / static_cast<double>(i + 1);
             }
 
-            return Poly1d<double>(integralCofficients);
+            return Poly1d<double>(integralCofficients); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================

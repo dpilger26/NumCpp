@@ -29,7 +29,6 @@
 
 #include <cmath>
 #include <iostream>
-#include <math.h>
 #include <string>
 #include <type_traits>
 
@@ -318,7 +317,7 @@ namespace nc::imageProcessing
                 m02 += utils::sqr(deltaY);
             }
 
-            const double numPixels = static_cast<double>(inCluster.size());
+            const auto numPixels = static_cast<double>(inCluster.size());
             m11 /= numPixels;
             m20 /= numPixels;
             m02 /= numPixels;

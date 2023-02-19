@@ -510,7 +510,7 @@ namespace nc::rotations
             const double s1 = std::sin(theta) / std::sin(theta0);
 
             NdArray<double> interpQuat = (quat1Copy.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
-            return Quaternion(interpQuat);
+            return Quaternion(interpQuat); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -582,7 +582,7 @@ namespace nc::rotations
         [[nodiscard]] NdArray<double> toNdArray() const
         {
             auto componentsCopy = components_;
-            return NdArray<double>(componentsCopy);
+            return NdArray<double>(componentsCopy); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -595,7 +595,7 @@ namespace nc::rotations
         static Quaternion xRotation(double inAngle) noexcept
         {
             const Vec3 eulerAxis = { 1., 0., 0. };
-            return Quaternion(eulerAxis, inAngle);
+            return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -631,7 +631,7 @@ namespace nc::rotations
         static Quaternion yRotation(double inAngle) noexcept
         {
             const Vec3 eulerAxis = { 0., 1., 0. };
-            return Quaternion(eulerAxis, inAngle);
+            return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -644,7 +644,7 @@ namespace nc::rotations
         static Quaternion zRotation(double inAngle) noexcept
         {
             const Vec3 eulerAxis = { 0., 0., 1. };
-            return Quaternion(eulerAxis, inAngle);
+            return Quaternion(eulerAxis, inAngle); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -687,7 +687,7 @@ namespace nc::rotations
                                       components_.end(),
                                       inRhs.components_.begin(),
                                       components_.begin(),
-                                      std::plus<double>());
+                                      std::plus<double>()); // NOLINT(modernize-use-transparent-functors)
 
             normalize();
 
@@ -719,7 +719,7 @@ namespace nc::rotations
                                       components_.end(),
                                       inRhs.components_.begin(),
                                       components_.begin(),
-                                      std::minus<double>());
+                                      std::minus<double>()); // NOLINT(modernize-use-transparent-functors)
 
             normalize();
 

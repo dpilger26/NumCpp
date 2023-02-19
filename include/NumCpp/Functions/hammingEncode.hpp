@@ -312,7 +312,7 @@ namespace nc::edac
         const auto numParityBits  = detail::numSecdedParityBitsNeeded(DataBits);
         const auto numEncodedBits = numParityBits + DataBits;
 
-        auto encodedBits = boost::dynamic_bitset<>(numEncodedBits);
+        auto encodedBits = boost::dynamic_bitset<>(numEncodedBits); // NOLINT(google-readability-casting)
 
         // set the parity bits
         for (const auto parityBit :

@@ -24,6 +24,8 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 message(STATUS "Compiling with C++ standard: ${CMAKE_CXX_STANDARD}")
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works
+
 option(BUILD_ALL "Build All targets" OFF)
 option(BUILD_DOCS "Build the doxygen documentation" OFF)
 option(BUILD_TESTS "Build the unit tests" OFF)

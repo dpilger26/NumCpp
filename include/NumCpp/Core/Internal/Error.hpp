@@ -33,8 +33,10 @@
 
 #include "NumCpp/Core/Types.hpp"
 
+// NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
 #define THROW_INVALID_ARGUMENT_ERROR(msg) \
     nc::error::throwError<std::invalid_argument>(__FILE__, __func__, __LINE__, msg)
+// NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
 #define THROW_RUNTIME_ERROR(msg) nc::error::throwError<std::runtime_error>(__FILE__, __func__, __LINE__, msg)
 
 namespace nc::error

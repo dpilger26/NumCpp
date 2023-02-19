@@ -983,7 +983,7 @@ namespace nc
         ///
         [[nodiscard]] Slice cSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const noexcept
         {
-            return Slice(inStartIdx, shape_.cols, inStepSize);
+            return Slice(inStartIdx, shape_.cols, inStepSize); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -997,7 +997,7 @@ namespace nc
         ///
         [[nodiscard]] Slice rSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const noexcept
         {
-            return Slice(inStartIdx, shape_.rows, inStepSize);
+            return Slice(inStartIdx, shape_.rows, inStepSize); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -2001,7 +2001,7 @@ namespace nc
                     { return (*this)[i1] < (*this)[i2]; };
 
                     stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
-                    return NdArray<size_type>(idx);
+                    return NdArray<size_type>(idx); // NOLINT(modernize-return-braced-init-list)
                 }
                 case Axis::COL:
                 {
@@ -2650,7 +2650,7 @@ namespace nc
                 ++idx;
             }
 
-            return NdArray<size_type>(indices);
+            return NdArray<size_type>(indices); // NOLINT(modernize-return-braced-init-list)
         }
 
         //============================================================================
@@ -2745,6 +2745,7 @@ namespace nc
         ///
         /// @return boolean
         ///
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
         bool isempty() const noexcept
         {
             return size_ == 0;
@@ -2757,6 +2758,7 @@ namespace nc
         ///
         /// @return boolean
         ///
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
         bool isflat() const noexcept
         {
             return shape_.rows == 1 || shape_.cols == 1;
@@ -2809,6 +2811,7 @@ namespace nc
         ///
         /// @return boolean
         ///
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
         bool issquare() const noexcept
         {
             return shape_.issquare();
@@ -3256,7 +3259,7 @@ namespace nc
         /// @return std::pair<NdArray, NdArray> where first is the row indices and second is the
         /// column indices
         ///
-        std::pair<NdArray<size_type>, NdArray<size_type>> nonzero() const;
+        [[nodiscard]] std::pair<NdArray<size_type>, NdArray<size_type>> nonzero() const;
 
         //============================================================================
         // Method Description:
@@ -4555,8 +4558,8 @@ namespace nc
 
     // NOTE: this needs to be defined outside of the class to get rid of a compiler
     // error in Visual Studio
-    template<typename dtype, class _Alloc>
-    std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype, _Alloc>::nonzero() const
+    template<typename dtype, class Alloc_>
+    [[nodiscard]] std::pair<NdArray<uint32>, NdArray<uint32>> NdArray<dtype, Alloc_>::nonzero() const
     {
         STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

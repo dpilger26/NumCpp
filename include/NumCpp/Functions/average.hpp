@@ -88,7 +88,7 @@ namespace nc
                                           inArray.cend(),
                                           inWeights.cbegin(),
                                           weightedArray.begin(),
-                                          std::multiplies<double>());
+                                          std::multiplies<double>()); // NOLINT(modernize-use-transparent-functors)
 
                 double          sum         = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.);
                 NdArray<double> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
@@ -112,7 +112,7 @@ namespace nc
                                               inArray.cend(row),
                                               inWeights.cbegin(),
                                               weightedArray.begin(),
-                                              std::multiplies<double>());
+                                              std::multiplies<double>()); // NOLINT(modernize-use-transparent-functors)
 
                     double sum          = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.);
                     returnArray(0, row) = sum / weightSum;

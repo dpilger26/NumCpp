@@ -417,7 +417,7 @@ namespace nc
         ///
         static TimePoint strToTimepoint(const std::string& timestamp)
         {
-            const std::regex regexIsoTime{ "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(.\\d+)?Z" };
+            const std::regex regexIsoTime{ R"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d+)?Z)" };
             if (!std::regex_match(timestamp, regexIsoTime))
             {
                 throw std::invalid_argument("Invalid iso timestamp format");
