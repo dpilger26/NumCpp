@@ -1,0 +1,37 @@
+Checks: >
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  bugprone-*,
+  google-readability-*,
+  modernize-*,
+  hicpp-*,
+  -modernize-use-trailing-return-type
+
+# Turn all the warnings from the checks above into errors.
+WarningsAsErrors: "*"
+
+CheckOptions:
+  - { key: readability-identifier-naming.NamespaceCase, value: lower_case }
+  - { key: readability-identifier-naming.ClassCase, value: CamelCase }
+  - { key: readability-identifier-naming.ClassMethodCase, value: camelBack }
+  - { key: readability-identifier-naming.StructCase, value: CamelCase }
+  - {
+      key: readability-identifier-naming.TemplateParameterCase,
+      value: CamelCase,
+    }
+  - { key: readability-identifier-naming.FunctionCase, value: camelBack }
+  - { key: readability-identifier-naming.VariableCase, value: camelBack }
+  - { key: readability-identifier-naming.PrivateMemberSuffix, value: _ }
+  - { key: readability-identifier-naming.ProtectedMemberSuffix, value: _ }
+  - {
+      key: readability-identifier-naming.MacroDefinitionCase,
+      value: UPPER_CASE,
+    }
+  - { key: readability-identifier-naming.EnumConstantCase, value: UPPER_CASE }
+  - {
+      key: readability-identifier-naming.ConstexprVariableCase,
+      value: UPPER_CASE,
+    }
+  - { key: readability-identifier-naming.GlobalConstantCase, value: UPPER_CASE }
+  - { key: readability-identifier-naming.MemberConstantCase, value: UPPER_CASE }
+  - { key: readability-identifier-naming.StaticConstantCase, value: UPPER_CASE }

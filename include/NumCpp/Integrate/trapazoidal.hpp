@@ -35,38 +35,35 @@
 
 #include "NumCpp/Core/Types.hpp"
 
-namespace nc
+namespace nc::integrate
 {
-    namespace integrate
+    //============================================================================
+    // Method Description:
+    /// Performs Newton-Cotes trapazoidal integration of the input function
+    ///
+    /// @param low: the lower bound of the integration
+    /// @param high: the upper bound of the integration
+    /// @param n: the number of subdivisions
+    /// @param f: the function to integrate over
+    ///
+    /// @return double
+    ///
+    inline double trapazoidal(const double                         low,
+                              const double                         high,
+                              const uint32                         n,
+                              const std::function<double(double)>& f) noexcept
     {
-        //============================================================================
-        // Method Description:
-        /// Performs Newton-Cotes trapazoidal integration of the input function
-        ///
-        /// @param low: the lower bound of the integration
-        /// @param high: the upper bound of the integration
-        /// @param n: the number of subdivisions
-        /// @param f: the function to integrate over
-        ///
-        /// @return double
-        ///
-        inline double trapazoidal(const double                         low,
-                                  const double                         high,
-                                  const uint32                         n,
-                                  const std::function<double(double)>& f) noexcept
+        const double width = (high - low) / static_cast<double>(n);
+
+        double trapezoidal_integral = 0.;
+        for (uint32 step = 0; step < n; ++step)
         {
-            const double width = (high - low) / static_cast<double>(n);
+            const double x1 = low + static_cast<double>(step) * width;
+            const double x2 = low + static_cast<double>(step + 1) * width;
 
-            double trapezoidal_integral = 0.;
-            for (uint32 step = 0; step < n; ++step)
-            {
-                const double x1 = low + static_cast<double>(step) * width;
-                const double x2 = low + static_cast<double>(step + 1) * width;
-
-                trapezoidal_integral += 0.5 * (x2 - x1) * (f(x1) + f(x2));
-            }
-
-            return trapezoidal_integral;
+            trapezoidal_integral += 0.5 * (x2 - x1) * (f(x1) + f(x2));
         }
-    } // namespace integrate
-} // namespace nc
+
+        return trapezoidal_integral;
+    }
+} // namespace nc::integrate

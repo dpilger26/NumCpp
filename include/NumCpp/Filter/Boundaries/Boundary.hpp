@@ -27,20 +27,17 @@
 ///
 #pragma once
 
-namespace nc
+namespace nc::filter
 {
-    namespace filter
+    //================================================================================
+    // Enum Description:
+    /// Boundary condition to apply to the image filter
+    enum class Boundary
     {
-        //================================================================================
-        // Enum Description:
-        /// Boundary condition to apply to the image filter
-        enum class Boundary
-        {
-            REFLECT = 0,
-            CONSTANT,
-            NEAREST,
-            MIRROR,
-            WRAP
-        };
-    } // namespace filter
-} // namespace nc
+        REFLECT = 0,
+        CONSTANT,
+        NEAREST,
+        MIRROR,
+        WRAP
+    };
+} // namespace nc::filter

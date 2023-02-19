@@ -42,54 +42,51 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
-namespace nc
+namespace nc::linalg
 {
-    namespace linalg
+    //============================================================================
+    // Method Description:
+    /// matrix LU decomposition A = LU
+    ///
+    /// @param inMatrix: NdArray to be decomposed
+    ///
+    /// @return std::pair<NdArray, NdArray> of the decomposed L and U matrices
+    ///
+    template<typename dtype>
+    std::pair<NdArray<double>, NdArray<double>> lu_decomposition(const NdArray<dtype>& inMatrix)
     {
-        //============================================================================
-        // Method Description:
-        /// matrix LU decomposition A = LU
-        ///
-        /// @param inMatrix: NdArray to be decomposed
-        ///
-        /// @return std::pair<NdArray, NdArray> of the decomposed L and U matrices
-        ///
-        template<typename dtype>
-        std::pair<NdArray<double>, NdArray<double>> lu_decomposition(const NdArray<dtype>& inMatrix)
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        const auto shape = inMatrix.shape();
+        if (!shape.issquare())
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+            THROW_RUNTIME_ERROR("Input matrix should be square.");
+        }
 
-            const auto shape = inMatrix.shape();
-            if (!shape.issquare())
+        NdArray<double> lMatrix = zeros_like<double>(inMatrix);
+        NdArray<double> uMatrix = inMatrix.template astype<double>();
+
+        for (uint32 col = 0; col < shape.cols; ++col)
+        {
+            lMatrix(col, col) = 1;
+
+            for (uint32 row = col + 1; row < shape.rows; ++row)
             {
-                THROW_RUNTIME_ERROR("Input matrix should be square.");
-            }
-
-            NdArray<double> lMatrix = zeros_like<double>(inMatrix);
-            NdArray<double> uMatrix = inMatrix.template astype<double>();
-
-            for (uint32 col = 0; col < shape.cols; ++col)
-            {
-                lMatrix(col, col) = 1;
-
-                for (uint32 row = col + 1; row < shape.rows; ++row)
+                const double& divisor = uMatrix(col, col);
+                if (utils::essentiallyEqual(divisor, double{ 0. }))
                 {
-                    const double& divisor = uMatrix(col, col);
-                    if (utils::essentiallyEqual(divisor, double{ 0. }))
-                    {
-                        THROW_RUNTIME_ERROR("Division by 0.");
-                    }
+                    THROW_RUNTIME_ERROR("Division by 0.");
+                }
 
-                    lMatrix(row, col) = uMatrix(row, col) / divisor;
+                lMatrix(row, col) = uMatrix(row, col) / divisor;
 
-                    for (uint32 col2 = col; col2 < shape.cols; ++col2)
-                    {
-                        uMatrix(row, col2) -= lMatrix(row, col) * uMatrix(col, col2);
-                    }
+                for (uint32 col2 = col; col2 < shape.cols; ++col2)
+                {
+                    uMatrix(row, col2) -= lMatrix(row, col) * uMatrix(col, col2);
                 }
             }
-
-            return std::make_pair(lMatrix, uMatrix);
         }
-    } // namespace linalg
-} // namespace nc
+
+        return std::make_pair(lMatrix, uMatrix);
+    }
+} // namespace nc::linalg

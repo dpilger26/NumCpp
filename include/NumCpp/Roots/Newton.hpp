@@ -39,103 +39,99 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Roots/Iteration.hpp"
 
-namespace nc
+namespace nc::roots
 {
-    namespace roots
+    //================================================================================
+    // Class Description:
+    /// Newton root finding method
+    ///
+    class Newton : public Iteration
     {
-        //================================================================================
-        // Class Description:
-        /// Newton root finding method
+    public:
+        //============================================================================
+        // Method Description:
+        /// Constructor
         ///
-        class Newton : public Iteration
+        /// @param epsilon: the epsilon value
+        /// @param f: the function
+        /// @param fPrime: the derivative of the function
+        ///
+        Newton(const double epsilon, std::function<double(double)> f, std::function<double(double)> fPrime) noexcept :
+            Iteration(epsilon),
+            f_(std::move(f)),
+            fPrime_(std::move(fPrime))
         {
-        public:
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            /// @param f: the function
-            /// @param fPrime: the derivative of the function
-            ///
-            Newton(const double epsilon, std::function<double(double)> f, std::function<double(double)> fPrime) noexcept
-                :
-                Iteration(epsilon),
-                f_(std::move(f)),
-                fPrime_(std::move(fPrime))
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Constructor
+        ///
+        /// @param epsilon: the epsilon value
+        /// @param maxNumIterations: the maximum number of iterations to perform
+        /// @param f: the function
+        /// @param fPrime: the derivative of the function
+        ///
+        Newton(const double                  epsilon,
+               const uint32                  maxNumIterations,
+               std::function<double(double)> f,
+               std::function<double(double)> fPrime) noexcept :
+            Iteration(epsilon, maxNumIterations),
+            f_(std::move(f)),
+            fPrime_(std::move(fPrime))
+        {
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Destructor
+        ///
+        ~Newton() noexcept override = default;
+
+        //============================================================================
+        // Method Description:
+        /// Solves for the root in the range [a, b]
+        ///
+        /// @param x: the starting point
+        /// @return root nearest the starting point
+        ///
+        double solve(double x)
+        {
+            resetNumberOfIterations();
+
+            double fx      = f_(x);
+            double fxPrime = fPrime_(x);
+
+            while (std::fabs(fx) >= epsilon_)
             {
+                x = calculateX(x, fx, fxPrime);
+
+                fx      = f_(x);
+                fxPrime = fPrime_(x);
+
+                incrementNumberOfIterations();
             }
 
-            //============================================================================
-            // Method Description:
-            /// Constructor
-            ///
-            /// @param epsilon: the epsilon value
-            /// @param maxNumIterations: the maximum number of iterations to perform
-            /// @param f: the function
-            /// @param fPrime: the derivative of the function
-            ///
-            Newton(const double                  epsilon,
-                   const uint32                  maxNumIterations,
-                   std::function<double(double)> f,
-                   std::function<double(double)> fPrime) noexcept :
-                Iteration(epsilon, maxNumIterations),
-                f_(std::move(f)),
-                fPrime_(std::move(fPrime))
-            {
-            }
+            return x;
+        }
 
-            //============================================================================
-            // Method Description:
-            /// Destructor
-            ///
-            ~Newton() noexcept override = default;
+    private:
+        //============================================================================
+        const std::function<double(double)> f_;
+        const std::function<double(double)> fPrime_;
 
-            //============================================================================
-            // Method Description:
-            /// Solves for the root in the range [a, b]
-            ///
-            /// @param x: the starting point
-            /// @return root nearest the starting point
-            ///
-            double solve(double x)
-            {
-                resetNumberOfIterations();
-
-                double fx      = f_(x);
-                double fxPrime = fPrime_(x);
-
-                while (std::fabs(fx) >= epsilon_)
-                {
-                    x = calculateX(x, fx, fxPrime);
-
-                    fx      = f_(x);
-                    fxPrime = fPrime_(x);
-
-                    incrementNumberOfIterations();
-                }
-
-                return x;
-            }
-
-        private:
-            //============================================================================
-            const std::function<double(double)> f_;
-            const std::function<double(double)> fPrime_;
-
-            //============================================================================
-            // Method Description:
-            /// Calculates x
-            ///
-            /// @param x: the current x value
-            /// @param fx: the function evaluated at the current x value
-            /// @param fxPrime: the derivate of the function evaluated at the current x value
-            /// @return x
-            ///
-            static double calculateX(double x, double fx, double fxPrime) noexcept
-            {
-                return x - fx / fxPrime;
-            }
-        };
-    } // namespace roots
-} // namespace nc
+        //============================================================================
+        // Method Description:
+        /// Calculates x
+        ///
+        /// @param x: the current x value
+        /// @param fx: the function evaluated at the current x value
+        /// @param fxPrime: the derivate of the function evaluated at the current x value
+        /// @return x
+        ///
+        static double calculateX(double x, double fx, double fxPrime) noexcept
+        {
+            return x - fx / fxPrime;
+        }
+    };
+} // namespace nc::roots

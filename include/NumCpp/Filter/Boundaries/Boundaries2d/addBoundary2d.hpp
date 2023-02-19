@@ -40,66 +40,60 @@
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter::boundary
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// Wrap boundary
+    ///
+    /// @param inImage
+    /// @param inBoundaryType
+    /// @param inKernalSize
+    /// @param inConstantValue (default 0)
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage,
+                                 Boundary              inBoundaryType,
+                                 uint32                inKernalSize,
+                                 dtype                 inConstantValue = 0)
     {
-        namespace boundary
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        if (inKernalSize % 2 == 0)
         {
-            //============================================================================
-            // Method Description:
-            /// Wrap boundary
-            ///
-            /// @param inImage
-            /// @param inBoundaryType
-            /// @param inKernalSize
-            /// @param inConstantValue (default 0)
-            /// @return NdArray
-            ///
-            template<typename dtype>
-            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage,
-                                         Boundary              inBoundaryType,
-                                         uint32                inKernalSize,
-                                         dtype                 inConstantValue = 0)
+            THROW_INVALID_ARGUMENT_ERROR("input kernal size must be an odd value.");
+        }
+
+        const uint32 boundarySize = inKernalSize / 2; // integer division
+
+        switch (inBoundaryType)
+        {
+            case Boundary::REFLECT:
             {
-                STATIC_ASSERT_ARITHMETIC(dtype);
-
-                if (inKernalSize % 2 == 0)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input kernal size must be an odd value.");
-                }
-
-                const uint32 boundarySize = inKernalSize / 2; // integer division
-
-                switch (inBoundaryType)
-                {
-                    case Boundary::REFLECT:
-                    {
-                        return reflect2d(inImage, boundarySize);
-                    }
-                    case Boundary::CONSTANT:
-                    {
-                        return constant2d(inImage, boundarySize, inConstantValue);
-                    }
-                    case Boundary::NEAREST:
-                    {
-                        return nearest2d(inImage, boundarySize);
-                    }
-                    case Boundary::MIRROR:
-                    {
-                        return mirror2d(inImage, boundarySize);
-                    }
-                    case Boundary::WRAP:
-                    {
-                        return wrap2d(inImage, boundarySize);
-                    }
-                    default:
-                    {
-                        THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
-                        return {}; // get rid of compiler warning
-                    }
-                }
+                return reflect2d(inImage, boundarySize);
             }
-        } // namespace boundary
-    }     // namespace filter
-} // namespace nc
+            case Boundary::CONSTANT:
+            {
+                return constant2d(inImage, boundarySize, inConstantValue);
+            }
+            case Boundary::NEAREST:
+            {
+                return nearest2d(inImage, boundarySize);
+            }
+            case Boundary::MIRROR:
+            {
+                return mirror2d(inImage, boundarySize);
+            }
+            case Boundary::WRAP:
+            {
+                return wrap2d(inImage, boundarySize);
+            }
+            default:
+            {
+                THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                return {}; // get rid of compiler warning
+            }
+        }
+    }
+} // namespace nc::filter::boundary

@@ -118,7 +118,7 @@ namespace nc
         ///
         /// @return std::string
         ///
-        std::string str() const
+        [[nodiscard]] std::string str() const
         {
             std::string out =
                 "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";

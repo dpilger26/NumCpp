@@ -30,24 +30,21 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::imageProcessing
 {
-    namespace imageProcessing
+    //============================================================================
+    // Method Description:
+    /// Applies a threshold to an image
+    ///
+    /// @param inImageArray
+    /// @param inThreshold
+    /// @return NdArray of booleans of pixels that exceeded the threshold
+    ///
+    template<typename dtype>
+    NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
     {
-        //============================================================================
-        // Method Description:
-        /// Applies a threshold to an image
-        ///
-        /// @param inImageArray
-        /// @param inThreshold
-        /// @return NdArray of booleans of pixels that exceeded the threshold
-        ///
-        template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return inImageArray > inThreshold;
-        }
-    } // namespace imageProcessing
-} // namespace nc
+        return inImageArray > inThreshold;
+    }
+} // namespace nc::imageProcessing

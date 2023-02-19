@@ -32,39 +32,33 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter::boundary
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// Constant boundary1d
+    ///
+    /// @param inImage
+    /// @param inBoundarySize
+    /// @param inConstantValue
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> constant1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
     {
-        namespace boundary
-        {
-            //============================================================================
-            // Method Description:
-            /// Constant boundary1d
-            ///
-            /// @param inImage
-            /// @param inBoundarySize
-            /// @param inConstantValue
-            /// @return NdArray
-            ///
-            template<typename dtype>
-            NdArray<dtype> constant1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
-            {
-                STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-                const uint32 outSize = inImage.size() + inBoundarySize * 2;
+        const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
-                NdArray<dtype> outArray(1, outSize);
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
+        NdArray<dtype> outArray(1, outSize);
+        outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
-                // left
-                outArray.put(Slice(0, inBoundarySize), inConstantValue);
+        // left
+        outArray.put(Slice(0, inBoundarySize), inConstantValue);
 
-                // right
-                outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inConstantValue);
+        // right
+        outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inConstantValue);
 
-                return outArray;
-            }
-        } // namespace boundary
-    }     // namespace filter
-} // namespace nc
+        return outArray;
+    }
+} // namespace nc::filter::boundary

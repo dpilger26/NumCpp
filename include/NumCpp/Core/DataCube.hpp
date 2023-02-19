@@ -84,7 +84,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        const NdArray<dtype>& at(uint32 inIndex) const
+        [[nodiscard]] const NdArray<dtype>& at(uint32 inIndex) const
         {
             return cube_.at(inIndex);
         }
@@ -114,7 +114,7 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cbegin() const noexcept
+        [[nodiscard]] const_iterator cbegin() const noexcept
         {
             return cube_.cbegin();
         }
@@ -171,7 +171,7 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cend() const noexcept
+        [[nodiscard]] const_iterator cend() const noexcept
         {
             return cube_.cend();
         }
@@ -191,7 +191,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        const Shape& shape() const noexcept
+        [[nodiscard]] const Shape& shape() const noexcept
         {
             return elementShape_;
         }
@@ -201,7 +201,7 @@ namespace nc
         ///
         /// @return size
         ///
-        uint32 sizeZ() const noexcept
+        [[nodiscard]] uint32 sizeZ() const noexcept
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -244,7 +244,7 @@ namespace nc
         /// @param inIndex: the flattend 2d index (row, col) to slice
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inIndex) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inIndex) const
         {
             if (inIndex < 0)
             {
@@ -268,7 +268,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inIndex, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inIndex, Slice inSliceZ) const
         {
             if (inIndex < 0)
             {
@@ -293,7 +293,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inRow, int32 inCol) const
         {
             if (inRow < 0)
             {
@@ -323,7 +323,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -353,7 +353,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(Slice inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(Slice inRow, int32 inCol) const
         {
             if (inCol < 0)
             {
@@ -377,7 +377,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(Slice inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inCol < 0)
             {
@@ -401,7 +401,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAll(int32 inRow, Slice inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAll(int32 inRow, Slice inCol) const
         {
             if (inRow < 0)
             {
@@ -425,7 +425,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZ(int32 inRow, Slice inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZ(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -485,7 +485,7 @@ namespace nc
         /// @param inIndex: the flattend 2d index (row, col) to slice
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inIndex) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inIndex) const
         {
             if (inIndex < 0)
             {
@@ -507,7 +507,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inIndex, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inIndex, Slice inSliceZ) const
         {
             if (inIndex < 0)
             {
@@ -535,7 +535,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inRow, int32 inCol) const
         {
             if (inRow < 0)
             {
@@ -568,7 +568,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inRow, int32 inCol, Slice inSliceZ) const
         {
             if (inRow < 0)
             {
@@ -605,7 +605,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(Slice inRow, int32 inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(Slice inRow, int32 inCol) const
         {
             auto numRows = inRow.numElements(elementShape_.rows);
             if (numRows > elementShape_.rows)
@@ -634,7 +634,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(Slice inRow, int32 inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(Slice inRow, int32 inCol, Slice inSliceZ) const
         {
             auto numRows = inRow.numElements(elementShape_.rows);
             if (numRows > elementShape_.rows)
@@ -668,7 +668,7 @@ namespace nc
         /// @param inCol
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZAllat(int32 inRow, Slice inCol) const
+        [[nodiscard]] NdArray<dtype> sliceZAllat(int32 inRow, Slice inCol) const
         {
             auto numCols = inCol.numElements(elementShape_.cols);
             if (numCols > elementShape_.cols)
@@ -697,7 +697,7 @@ namespace nc
         /// @param inSliceZ: the slice dimensions of the z-axis
         /// @return NdArray
         ///
-        NdArray<dtype> sliceZat(int32 inRow, Slice inCol, Slice inSliceZ) const
+        [[nodiscard]] NdArray<dtype> sliceZat(int32 inRow, Slice inCol, Slice inSliceZ) const
         {
             auto numCols = inCol.numElements(elementShape_.cols);
             if (numCols > elementShape_.cols)

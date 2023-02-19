@@ -979,7 +979,7 @@ namespace nc
         /// @param inStepSize (default 1)
         /// @return Slice
         ///
-        Slice cSlice(index_type inStartIdx = 0, uint32 inStepSize = 1) const noexcept
+        [[nodiscard]] Slice cSlice(index_type inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.cols, inStepSize);
         }
@@ -993,7 +993,7 @@ namespace nc
         /// @param inStepSize (default 1)
         /// @return Slice
         ///
-        Slice rSlice(index_type inStartIdx = 0, uint32 inStepSize = 1) const noexcept
+        [[nodiscard]] Slice rSlice(index_type inStartIdx = 0, uint32 inStepSize = 1) const noexcept
         {
             return Slice(inStartIdx, shape_.rows, inStepSize);
         }
@@ -1026,7 +1026,7 @@ namespace nc
         /// @param inIndex
         /// @return value
         ///
-        const_reference at(index_type inIndex) const
+        [[nodiscard]] const_reference at(index_type inIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -1079,7 +1079,7 @@ namespace nc
         /// @param inColIndex
         /// @return value
         ///
-        const_reference at(index_type inRowIndex, index_type inColIndex) const
+        [[nodiscard]] const_reference at(index_type inRowIndex, index_type inColIndex) const
         {
             // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
@@ -1109,7 +1109,7 @@ namespace nc
         /// @param inSlice
         /// @return Ndarray
         ///
-        NdArray<dtype> at(const Slice& inSlice) const
+        [[nodiscard]] NdArray<dtype> at(const Slice& inSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1124,7 +1124,7 @@ namespace nc
         /// @param inColSlice
         /// @return Ndarray
         ///
-        NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
+        [[nodiscard]] NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1139,7 +1139,7 @@ namespace nc
         /// @param inColIndex
         /// @return Ndarray
         ///
-        NdArray<dtype> at(const Slice& inRowSlice, index_type inColIndex) const
+        [[nodiscard]] NdArray<dtype> at(const Slice& inRowSlice, index_type inColIndex) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1154,7 +1154,7 @@ namespace nc
         /// @param inColSlice
         /// @return Ndarray
         ///
-        NdArray<dtype> at(index_type inRowIndex, const Slice& inColSlice) const
+        [[nodiscard]] NdArray<dtype> at(index_type inRowIndex, const Slice& inColSlice) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1169,7 +1169,8 @@ namespace nc
         /// @param colIndices
         /// @return Ndarray
         ///
-        NdArray<dtype> at(const NdArray<index_type>& rowIndices, const NdArray<index_type>& colIndices) const
+        [[nodiscard]] NdArray<dtype> at(const NdArray<index_type>& rowIndices,
+                                        const NdArray<index_type>& colIndices) const
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
@@ -1208,7 +1209,7 @@ namespace nc
         /// const iterator to the beginning of the flattened array
         /// @return const_iterator
         ///
-        const_iterator begin() const noexcept
+        [[nodiscard]] const_iterator begin() const noexcept
         {
             return cbegin();
         }
@@ -1220,7 +1221,7 @@ namespace nc
         /// @param inRow
         /// @return const_iterator
         ///
-        const_iterator begin(size_type inRow) const
+        [[nodiscard]] const_iterator begin(size_type inRow) const
         {
             return cbegin(inRow);
         }
@@ -1231,7 +1232,7 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cbegin() const noexcept
+        [[nodiscard]] const_iterator cbegin() const noexcept
         {
             return const_iterator(array_);
         }
@@ -1243,7 +1244,7 @@ namespace nc
         /// @param inRow
         /// @return const_iterator
         ///
-        const_iterator cbegin(size_type inRow) const
+        [[nodiscard]] const_iterator cbegin(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
@@ -1285,7 +1286,7 @@ namespace nc
         /// const column_iterator to the beginning of the flattened array
         /// @return const_column_iterator
         ///
-        const_column_iterator colbegin() const noexcept
+        [[nodiscard]] const_column_iterator colbegin() const noexcept
         {
             return ccolbegin();
         }
@@ -1297,7 +1298,7 @@ namespace nc
         /// @param inCol
         /// @return const_column_iterator
         ///
-        const_column_iterator colbegin(size_type inCol) const
+        [[nodiscard]] const_column_iterator colbegin(size_type inCol) const
         {
             return ccolbegin(inCol);
         }
@@ -1308,7 +1309,7 @@ namespace nc
         ///
         /// @return const_column_iterator
         ///
-        const_column_iterator ccolbegin() const noexcept
+        [[nodiscard]] const_column_iterator ccolbegin() const noexcept
         {
             return const_column_iterator(array_, shape_.rows, shape_.cols);
         }
@@ -1320,7 +1321,7 @@ namespace nc
         /// @param inCol
         /// @return const_column_iterator
         ///
-        const_column_iterator ccolbegin(size_type inCol) const
+        [[nodiscard]] const_column_iterator ccolbegin(size_type inCol) const
         {
             if (inCol >= shape_.cols)
             {
@@ -1362,7 +1363,7 @@ namespace nc
         /// const iterator to the beginning of the flattened array
         /// @return const_iterator
         ///
-        const_reverse_iterator rbegin() const noexcept
+        [[nodiscard]] const_reverse_iterator rbegin() const noexcept
         {
             return crbegin();
         }
@@ -1374,7 +1375,7 @@ namespace nc
         /// @param inRow
         /// @return const_iterator
         ///
-        const_reverse_iterator rbegin(size_type inRow) const
+        [[nodiscard]] const_reverse_iterator rbegin(size_type inRow) const
         {
             return crbegin(inRow);
         }
@@ -1385,7 +1386,7 @@ namespace nc
         ///
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator crbegin() const noexcept
+        [[nodiscard]] const_reverse_iterator crbegin() const noexcept
         {
             return const_reverse_iterator(cend());
         }
@@ -1397,7 +1398,7 @@ namespace nc
         /// @param inRow
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator crbegin(size_type inRow) const
+        [[nodiscard]] const_reverse_iterator crbegin(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
@@ -1439,7 +1440,7 @@ namespace nc
         /// const iterator to the beginning of the flattened array
         /// @return const_iterator
         ///
-        const_reverse_column_iterator rcolbegin() const noexcept
+        [[nodiscard]] const_reverse_column_iterator rcolbegin() const noexcept
         {
             return crcolbegin();
         }
@@ -1451,7 +1452,7 @@ namespace nc
         /// @param inCol
         /// @return const_iterator
         ///
-        const_reverse_column_iterator rcolbegin(size_type inCol) const
+        [[nodiscard]] const_reverse_column_iterator rcolbegin(size_type inCol) const
         {
             return crcolbegin(inCol);
         }
@@ -1462,7 +1463,7 @@ namespace nc
         ///
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator crcolbegin() const noexcept
+        [[nodiscard]] const_reverse_column_iterator crcolbegin() const noexcept
         {
             return const_reverse_column_iterator(ccolend());
         }
@@ -1474,7 +1475,7 @@ namespace nc
         /// @param inCol
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator crcolbegin(size_type inCol) const
+        [[nodiscard]] const_reverse_column_iterator crcolbegin(size_type inCol) const
         {
             if (inCol >= shape_.cols)
             {
@@ -1516,7 +1517,7 @@ namespace nc
         /// const iterator to 1 past the end of the flattened array
         /// @return const_iterator
         ///
-        const_iterator end() const noexcept
+        [[nodiscard]] const_iterator end() const noexcept
         {
             return cend();
         }
@@ -1528,7 +1529,7 @@ namespace nc
         /// @param inRow
         /// @return const_iterator
         ///
-        const_iterator end(size_type inRow) const
+        [[nodiscard]] const_iterator end(size_type inRow) const
         {
             return cend(inRow);
         }
@@ -1539,7 +1540,7 @@ namespace nc
         ///
         /// @return const_iterator
         ///
-        const_iterator cend() const noexcept
+        [[nodiscard]] const_iterator cend() const noexcept
         {
             return cbegin() += size_;
         }
@@ -1551,7 +1552,7 @@ namespace nc
         /// @param inRow
         /// @return const_iterator
         ///
-        const_iterator cend(size_type inRow) const
+        [[nodiscard]] const_iterator cend(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
@@ -1593,7 +1594,7 @@ namespace nc
         /// const_reverse_iterator to 1 past the end of the flattened array
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator rend() const noexcept
+        [[nodiscard]] const_reverse_iterator rend() const noexcept
         {
             return crend();
         }
@@ -1605,7 +1606,7 @@ namespace nc
         /// @param inRow
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator rend(size_type inRow) const
+        [[nodiscard]] const_reverse_iterator rend(size_type inRow) const
         {
             return crend(inRow);
         }
@@ -1616,7 +1617,7 @@ namespace nc
         ///
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator crend() const noexcept
+        [[nodiscard]] const_reverse_iterator crend() const noexcept
         {
             return crbegin() += size_;
         }
@@ -1628,7 +1629,7 @@ namespace nc
         /// @param inRow
         /// @return const_reverse_iterator
         ///
-        const_reverse_iterator crend(size_type inRow) const
+        [[nodiscard]] const_reverse_iterator crend(size_type inRow) const
         {
             if (inRow >= shape_.rows)
             {
@@ -1670,7 +1671,7 @@ namespace nc
         /// const column_iterator to 1 past the end of the flattened array
         /// @return const_column_iterator
         ///
-        const_column_iterator colend() const noexcept
+        [[nodiscard]] const_column_iterator colend() const noexcept
         {
             return ccolend();
         }
@@ -1682,7 +1683,7 @@ namespace nc
         /// @param inCol
         /// @return const_column_iterator
         ///
-        const_column_iterator colend(size_type inCol) const
+        [[nodiscard]] const_column_iterator colend(size_type inCol) const
         {
             return ccolend(inCol);
         }
@@ -1693,7 +1694,7 @@ namespace nc
         ///
         /// @return const_column_iterator
         ///
-        const_column_iterator ccolend() const noexcept
+        [[nodiscard]] const_column_iterator ccolend() const noexcept
         {
             return ccolbegin() += size_;
         }
@@ -1705,7 +1706,7 @@ namespace nc
         /// @param inCol
         /// @return const_column_iterator
         ///
-        const_column_iterator ccolend(size_type inCol) const
+        [[nodiscard]] const_column_iterator ccolend(size_type inCol) const
         {
             if (inCol >= shape_.cols)
             {
@@ -1747,7 +1748,7 @@ namespace nc
         /// const_reverse_column_iterator to 1 past the end of the flattened array
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator rcolend() const noexcept
+        [[nodiscard]] const_reverse_column_iterator rcolend() const noexcept
         {
             return crcolend();
         }
@@ -1759,7 +1760,7 @@ namespace nc
         /// @param inCol
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator rcolend(size_type inCol) const
+        [[nodiscard]] const_reverse_column_iterator rcolend(size_type inCol) const
         {
             return crcolend(inCol);
         }
@@ -1770,7 +1771,7 @@ namespace nc
         ///
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator crcolend() const noexcept
+        [[nodiscard]] const_reverse_column_iterator crcolend() const noexcept
         {
             return crcolbegin() += size_;
         }
@@ -1782,7 +1783,7 @@ namespace nc
         /// @param inCol
         /// @return const_reverse_column_iterator
         ///
-        const_reverse_column_iterator crcolend(size_type inCol) const
+        [[nodiscard]] const_reverse_column_iterator crcolend(size_type inCol) const
         {
             if (inCol >= shape_.cols)
             {
@@ -1801,7 +1802,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<bool> all(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<bool> all(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1845,7 +1846,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<bool> any(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<bool> any(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1890,7 +1891,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1937,7 +1938,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -1983,7 +1984,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2047,7 +2048,7 @@ namespace nc
                  std::enable_if_t<std::is_same_v<dtype_, dtype>, int>  = 0,
                  std::enable_if_t<std::is_arithmetic_v<dtype_>, int>   = 0,
                  std::enable_if_t<std::is_arithmetic_v<dtypeOut>, int> = 0>
-        NdArray<dtypeOut> astype() const
+        [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
             stl_algorithms::transform(cbegin(),
@@ -2072,7 +2073,7 @@ namespace nc
                  std::enable_if_t<std::is_same_v<dtype_, dtype>, int> = 0,
                  std::enable_if_t<std::is_arithmetic_v<dtype_>, int>  = 0,
                  std::enable_if_t<is_complex_v<dtypeOut>, int>        = 0>
-        NdArray<dtypeOut> astype() const
+        [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
 
@@ -2098,7 +2099,7 @@ namespace nc
                  std::enable_if_t<std::is_same_v<dtype_, dtype>, int> = 0,
                  std::enable_if_t<is_complex_v<dtype_>, int>          = 0,
                  std::enable_if_t<is_complex_v<dtypeOut>, int>        = 0>
-        NdArray<dtypeOut> astype() const
+        [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
 
@@ -2131,7 +2132,7 @@ namespace nc
                  std::enable_if_t<std::is_same_v<dtype_, dtype>, int>  = 0,
                  std::enable_if_t<is_complex_v<dtype_>, int>           = 0,
                  std::enable_if_t<std::is_arithmetic_v<dtypeOut>, int> = 0>
-        NdArray<dtypeOut> astype() const
+        [[nodiscard]] NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
 
@@ -2148,7 +2149,7 @@ namespace nc
         ///
         /// @return dtype
         ///
-        const_reference back() const noexcept
+        [[nodiscard]] const_reference back() const noexcept
         {
             return *(cend() - 1);
         }
@@ -2170,7 +2171,7 @@ namespace nc
         ///
         /// @return dtype
         ///
-        const_reference back(size_type row) const
+        [[nodiscard]] const_reference back(size_type row) const
         {
             return *(cend(row) - 1);
         }
@@ -2234,7 +2235,7 @@ namespace nc
         /// @param inMax: max value to clip to
         /// @return clipped value
         ///
-        NdArray<dtype> clip(value_type inMin, value_type inMax) const
+        [[nodiscard]] NdArray<dtype> clip(value_type inMin, value_type inMax) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2286,7 +2287,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return bool
         ///
-        NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<bool> contains(value_type inValue, Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2327,7 +2328,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype> copy() const
+        [[nodiscard]] NdArray<dtype> copy() const
         {
             return NdArray<dtype>(*this);
         }
@@ -2341,7 +2342,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2393,7 +2394,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2451,7 +2452,7 @@ namespace nc
         /// Returns the raw pointer to the underlying data
         /// @return const_pointer
         ///
-        const_pointer data() const noexcept
+        [[nodiscard]] const_pointer data() const noexcept
         {
             return array_;
         }
@@ -2480,7 +2481,7 @@ namespace nc
         /// @param inAxis: (Optional, default ROW) axis the offset is applied to
         /// @return NdArray
         ///
-        NdArray<dtype> diagonal(index_type inOffset = 0, Axis inAxis = Axis::ROW) const
+        [[nodiscard]] NdArray<dtype> diagonal(index_type inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             switch (inAxis)
             {
@@ -2530,7 +2531,7 @@ namespace nc
         /// @param inOtherArray
         /// @return dot product
         ///
-        NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
+        [[nodiscard]] NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2603,7 +2604,7 @@ namespace nc
         ///
         /// @return Endian
         ///
-        Endian endianess() const noexcept
+        [[nodiscard]] Endian endianess() const noexcept
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
 
@@ -2632,7 +2633,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<uint32> flatnonzero() const
+        [[nodiscard]] NdArray<uint32> flatnonzero() const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2658,7 +2659,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype> flatten() const
+        [[nodiscard]] NdArray<dtype> flatten() const
         {
             NdArray<dtype> outArray(1, size_);
             stl_algorithms::copy(cbegin(), cend(), outArray.begin());
@@ -2671,7 +2672,7 @@ namespace nc
         ///
         /// @return dtype
         ///
-        const_reference front() const noexcept
+        [[nodiscard]] const_reference front() const noexcept
         {
             return *cbegin();
         }
@@ -2693,7 +2694,7 @@ namespace nc
         ///
         /// @return dtype
         ///
-        const_reference front(size_type row) const
+        [[nodiscard]] const_reference front(size_type row) const
         {
             return *cbegin(row);
         }
@@ -2716,7 +2717,7 @@ namespace nc
         /// @param inIndices
         /// @return values
         ///
-        NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
+        [[nodiscard]] NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
         {
             return operator[](inIndices);
         }
@@ -2730,7 +2731,7 @@ namespace nc
         /// @param inMask
         /// @return values
         ///
-        NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
+        [[nodiscard]] NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
             return operator[](inMask);
         }
@@ -2766,7 +2767,7 @@ namespace nc
         /// @param inAxis
         /// @return boolean
         ///
-        NdArray<bool> issorted(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<bool> issorted(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2819,7 +2820,7 @@ namespace nc
         ///
         /// @return array element
         ///
-        value_type item() const
+        [[nodiscard]] value_type item() const
         {
             if (size_ != 1)
             {
@@ -2838,7 +2839,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> max(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> max(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2882,7 +2883,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> min(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> min(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2928,7 +2929,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> median(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> median(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3030,7 +3031,7 @@ namespace nc
         ///
         /// @return number of bytes
         ///
-        uint64 nbytes() const noexcept
+        [[nodiscard]] uint64 nbytes() const noexcept
         {
             return static_cast<uint64>(sizeof(dtype) * size_);
         }
@@ -3045,7 +3046,7 @@ namespace nc
         /// @param inEndianess
         /// @return NdArray
         ///
-        NdArray<dtype> newbyteorder(Endian inEndianess) const
+        [[nodiscard]] NdArray<dtype> newbyteorder(Endian inEndianess) const
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -3208,7 +3209,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<bool> none(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<bool> none(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3262,7 +3263,7 @@ namespace nc
         ///
         /// @return uint32
         ///
-        uint32 numCols() const noexcept
+        [[nodiscard]] uint32 numCols() const noexcept
         {
             return shape_.cols;
         }
@@ -3274,7 +3275,7 @@ namespace nc
         ///
         /// @return uint32
         ///
-        uint32 numRows() const noexcept
+        [[nodiscard]] uint32 numRows() const noexcept
         {
             return shape_.rows;
         }
@@ -3399,7 +3400,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> prod(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> prod(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3443,7 +3444,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3819,7 +3820,7 @@ namespace nc
         /// @param inNumCols
         /// @return NdArray
         ///
-        NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const
+        [[nodiscard]] NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const
         {
             NdArray<dtype> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
 
@@ -3860,7 +3861,7 @@ namespace nc
         /// @param inRepeatShape
         /// @return NdArray
         ///
-        NdArray<dtype> repeat(const Shape& inRepeatShape) const
+        [[nodiscard]] NdArray<dtype> repeat(const Shape& inRepeatShape) const
         {
             return repeat(inRepeatShape.rows, inRepeatShape.cols);
         }
@@ -4068,7 +4069,7 @@ namespace nc
         /// @param inNumDecimals (default 0)
         /// @return NdArray
         ///
-        NdArray<dtype> round(uint8 inNumDecimals = 0) const
+        [[nodiscard]] NdArray<dtype> round(uint8 inNumDecimals = 0) const
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -4102,7 +4103,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        Shape shape() const noexcept
+        [[nodiscard]] Shape shape() const noexcept
         {
             return shape_;
         }
@@ -4115,7 +4116,7 @@ namespace nc
         ///
         /// @return size
         ///
-        size_type size() const noexcept
+        [[nodiscard]] size_type size() const noexcept
         {
             return size_;
         }
@@ -4172,7 +4173,7 @@ namespace nc
         ///
         /// @return string
         ///
-        std::string str() const
+        [[nodiscard]] std::string str() const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4208,7 +4209,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        NdArray<dtype> sum(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] NdArray<dtype> sum(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4249,7 +4250,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype> swapaxes() const
+        [[nodiscard]] NdArray<dtype> swapaxes() const
         {
             return transpose();
         }
@@ -4349,7 +4350,7 @@ namespace nc
         ///
         /// @return NdArray<index_type>
         ///
-        NdArray<uint32> toIndices(Slice inSlice, Axis inAxis = Axis::ROW) const
+        [[nodiscard]] NdArray<uint32> toIndices(Slice inSlice, Axis inAxis = Axis::ROW) const
         {
             uint32 numElements = 0;
             switch (inAxis)
@@ -4397,7 +4398,7 @@ namespace nc
         ///
         /// @return std::vector
         ///
-        std::vector<dtype> toStlVector() const
+        [[nodiscard]] std::vector<dtype> toStlVector() const
         {
             return std::vector<dtype>(cbegin(), cend());
         }
@@ -4414,7 +4415,7 @@ namespace nc
         ///
         /// @return value
         ///
-        value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        [[nodiscard]] value_type trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4467,7 +4468,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype> transpose() const
+        [[nodiscard]] NdArray<dtype> transpose() const
         {
             NdArray<dtype> transArray(shape_.cols, shape_.rows);
             for (uint32 row = 0; row < shape_.rows; ++row)

@@ -481,18 +481,18 @@ namespace NdArrayInterface
         test2.end(0);
 
         test2.resizeFast({ 10, 10 });
-        test2 = TestStruct{ 666, 357, 3.14519, true };
-        test2.rSlice();
-        test2.cSlice();
+        test2                              = TestStruct{ 666, 357, 3.14519, true };
+        [[maybe_unused]] const auto slice1 = test2.rSlice();
+        [[maybe_unused]] const auto slice2 = test2.cSlice();
         test2.back();
         test2.column(0);
-        test2.copy();
+        [[maybe_unused]] const auto c = test2.copy();
         test2.data();
-        test2.diagonal();
+        [[maybe_unused]] const auto d = test2.diagonal();
         test2.dump("test.bin");
         remove("test.bin");
         test2.fill(TestStruct{ 0, 1, 6.5, false });
-        test2.flatten();
+        [[maybe_unused]] const auto f = test2.flatten();
         test2.front();
         test2[0];
         test2(0, 0);
@@ -501,20 +501,20 @@ namespace NdArrayInterface
         test2.isempty();
         test2.isflat();
         test2.issquare();
-        test2.nbytes();
-        test2.numRows();
-        test2.numCols();
+        [[maybe_unused]] const auto nb   = test2.nbytes();
+        [[maybe_unused]] const auto rows = test2.numRows();
+        [[maybe_unused]] const auto cols = test2.numCols();
         test2.put(0, TestStruct{ 0, 1, 6.5, false });
         test2.ravel();
-        test2.repeat({ 2, 2 });
+        [[maybe_unused]] const auto r = test2.repeat({ 2, 2 });
         test2.reshape(test2.size(), 1);
         test2.resizeFast(1, 1);
         test2.resizeSlow(10, 10);
         test2.row(0);
-        test2.shape();
-        test2.size();
-        test2.swapaxes();
-        test2.transpose();
+        [[maybe_unused]] const auto s1 = test2.shape();
+        [[maybe_unused]] const auto s2 = test2.size();
+        [[maybe_unused]] const auto s3 = test2.swapaxes();
+        [[maybe_unused]] const auto t  = test2.transpose();
 
         return true;
     }

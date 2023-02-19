@@ -41,54 +41,51 @@
 
 #include <type_traits>
 
-namespace nc
+namespace nc::special
 {
-    namespace special
+    //============================================================================
+    // Method Description:
+    /// Exponential integral Ei.
+    /// NOTE: Use of this function requires either using the Boost
+    /// includes or a C++17 compliant compiler.
+    ///
+    /// @param inX: value
+    /// @return calculated-result-type
+    ///
+    template<typename dtype>
+    auto expint(dtype inX)
     {
-        //============================================================================
-        // Method Description:
-        /// Exponential integral Ei.
-        /// NOTE: Use of this function requires either using the Boost
-        /// includes or a C++17 compliant compiler.
-        ///
-        /// @param inX: value
-        /// @return calculated-result-type
-        ///
-        template<typename dtype>
-        auto expint(dtype inX)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
 #ifdef __cpp_lib_math_special_functions
-            return std::expint(inX);
+        return std::expint(inX);
 #else
-            return boost::math::expint(inX);
+        return boost::math::expint(inX);
 #endif
-        }
+    }
 
-        //============================================================================
-        // Method Description:
-        /// Exponential integral Ei.
-        /// NOTE: Use of this function requires either using the Boost
-        /// includes or a C++17 compliant compiler.
-        ///
-        /// @param inArrayX: value
-        /// @return NdArray
-        ///
-        template<typename dtype>
-        auto expint(const NdArray<dtype>& inArrayX)
-        {
-            NdArray<decltype(expint(dtype{ 0 }))> returnArray(inArrayX.shape());
+    //============================================================================
+    // Method Description:
+    /// Exponential integral Ei.
+    /// NOTE: Use of this function requires either using the Boost
+    /// includes or a C++17 compliant compiler.
+    ///
+    /// @param inArrayX: value
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    auto expint(const NdArray<dtype>& inArrayX)
+    {
+        NdArray<decltype(expint(dtype{ 0 }))> returnArray(inArrayX.shape());
 
-            stl_algorithms::transform(
-                inArrayX.cbegin(),
-                inArrayX.cend(),
-                returnArray.begin(),
-                [](dtype inX) -> auto{ return expint(inX); });
+        stl_algorithms::transform(
+            inArrayX.cbegin(),
+            inArrayX.cend(),
+            returnArray.begin(),
+            [](dtype inX) -> auto{ return expint(inX); });
 
-            return returnArray;
-        }
-    } // namespace special
-} // namespace nc
+        return returnArray;
+    }
+} // namespace nc::special
 
 #endif // #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)

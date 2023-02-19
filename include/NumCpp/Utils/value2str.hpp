@@ -33,25 +33,22 @@
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 
-namespace nc
+namespace nc::utils
 {
-    namespace utils
+    //============================================================================
+    /// Converts the value into a string
+    ///
+    /// @param inValue
+    ///
+    /// @return std::string
+    ///
+    template<typename dtype>
+    std::string value2str(dtype inValue)
     {
-        //============================================================================
-        /// Converts the value into a string
-        ///
-        /// @param inValue
-        ///
-        /// @return std::string
-        ///
-        template<typename dtype>
-        std::string value2str(dtype inValue)
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            std::stringstream ss;
-            ss << inValue;
-            return ss.str();
-        }
-    } // namespace utils
-} // namespace nc
+        std::stringstream ss;
+        ss << inValue;
+        return ss.str();
+    }
+} // namespace nc::utils

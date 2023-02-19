@@ -74,7 +74,7 @@ namespace nc
             auto fractionalSecond = static_cast<double>(tpSubSeconds.count() % Duration::period::den) /
                                     static_cast<double>(Duration::period::den);
             auto    time = Clock::to_time_t(std::chrono::time_point_cast<Clock::duration>(tp));
-            std::tm tm;
+            std::tm tm{};
 #ifdef _MSC_VER
             gmtime_s(&tm, &time);
 #else
@@ -367,7 +367,7 @@ namespace nc
             const auto fractionalSeconds = static_cast<double>(timeSinceEpoch % Duration::period::den) /
                                            static_cast<double>(Duration::period::den);
 
-            std::tm tm;
+            std::tm tm{};
 #ifdef _MSC_VER
             gmtime_s(&tm, &secondsFromEpoch);
 #else

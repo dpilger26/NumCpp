@@ -33,24 +33,21 @@
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
 #include "NumCpp/Core/Internal/TypeTraits.hpp"
 
-namespace nc
+namespace nc::utils
 {
-    namespace utils
+    //============================================================================
+    /// Raises the input value to a floating point power
+    ///
+    /// @param inValue
+    /// @param inPower
+    ///
+    /// @return inValue raised to inPower
+    ///
+    template<typename dtype1, typename dtype2>
+    auto powerf(dtype1 inValue, const dtype2 inPower) noexcept
     {
-        //============================================================================
-        /// Raises the input value to a floating point power
-        ///
-        /// @param inValue
-        /// @param inPower
-        ///
-        /// @return inValue raised to inPower
-        ///
-        template<typename dtype1, typename dtype2>
-        auto powerf(dtype1 inValue, const dtype2 inPower) noexcept
-        {
-            STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype1);
+        STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype1);
 
-            return std::pow(inValue, inPower);
-        }
-    } // namespace utils
-} // namespace nc
+        return std::pow(inValue, inPower);
+    }
+} // namespace nc::utils

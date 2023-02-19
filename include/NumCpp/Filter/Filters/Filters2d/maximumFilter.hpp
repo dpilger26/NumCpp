@@ -33,50 +33,47 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::filter
 {
-    namespace filter
+    //============================================================================
+    // Method Description:
+    /// Calculates a multidimensional maximum filter.
+    ///
+    /// SciPy Reference:
+    /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter
+    ///
+    /// @param inImageArray
+    /// @param inSize: square size of the kernel to apply
+    /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+    /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray,
+                                 uint32                inSize,
+                                 Boundary              inBoundaryType  = Boundary::REFLECT,
+                                 dtype                 inConstantValue = 0)
     {
-        //============================================================================
-        // Method Description:
-        /// Calculates a multidimensional maximum filter.
-        ///
-        /// SciPy Reference:
-        /// https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter
-        ///
-        /// @param inImageArray
-        /// @param inSize: square size of the kernel to apply
-        /// @param inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
-        /// @param inConstantValue: contant value if boundary = 'constant' (default 0)
-        /// @return NdArray
-        ///
-        template<typename dtype>
-        NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray,
-                                     uint32                inSize,
-                                     Boundary              inBoundaryType  = Boundary::REFLECT,
-                                     dtype                 inConstantValue = 0)
+        NdArray<dtype> arrayWithBoundary =
+            boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+        NdArray<dtype> output(inImageArray.shape());
+
+        const Shape  inShape      = inImageArray.shape();
+        const uint32 boundarySize = inSize / 2; // integer division
+        const uint32 endPointRow  = boundarySize + inShape.rows;
+        const uint32 endPointCol  = boundarySize + inShape.cols;
+
+        for (uint32 row = boundarySize; row < endPointRow; ++row)
         {
-            NdArray<dtype> arrayWithBoundary =
-                boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
-
-            const Shape  inShape      = inImageArray.shape();
-            const uint32 boundarySize = inSize / 2; // integer division
-            const uint32 endPointRow  = boundarySize + inShape.rows;
-            const uint32 endPointCol  = boundarySize + inShape.cols;
-
-            for (uint32 row = boundarySize; row < endPointRow; ++row)
+            for (uint32 col = boundarySize; col < endPointCol; ++col)
             {
-                for (uint32 col = boundarySize; col < endPointCol; ++col)
-                {
-                    NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
-                                                              Slice(col - boundarySize, col + boundarySize + 1));
+                NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                                                          Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = window.max().item();
-                }
+                output(row - boundarySize, col - boundarySize) = window.max().item();
             }
-
-            return output;
         }
-    } // namespace filter
-} // namespace nc
+
+        return output;
+    }
+} // namespace nc::filter

@@ -33,36 +33,33 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
-namespace nc
+namespace nc::random
 {
-    namespace random
+    namespace detail
     {
-        namespace detail
-        {
-            //============================================================================
-            // Method Description:
-            /// Modify a sequence in-place by shuffling its contents.
-            ///
-            /// @param generator: instance of a random number generator
-            /// @param inArray
-            ///
-            template<typename dtype, typename GeneratorType = std::mt19937>
-            void shuffle(GeneratorType& generator, NdArray<dtype>& inArray)
-            {
-                std::shuffle(inArray.begin(), inArray.end(), generator);
-            }
-        } // namespace detail
-
         //============================================================================
         // Method Description:
         /// Modify a sequence in-place by shuffling its contents.
         ///
+        /// @param generator: instance of a random number generator
         /// @param inArray
         ///
-        template<typename dtype>
-        void shuffle(NdArray<dtype>& inArray)
+        template<typename dtype, typename GeneratorType = std::mt19937>
+        void shuffle(GeneratorType& generator, NdArray<dtype>& inArray)
         {
-            return detail::shuffle(generator_, inArray);
+            std::shuffle(inArray.begin(), inArray.end(), generator);
         }
-    } // namespace random
-} // namespace nc
+    } // namespace detail
+
+    //============================================================================
+    // Method Description:
+    /// Modify a sequence in-place by shuffling its contents.
+    ///
+    /// @param inArray
+    ///
+    template<typename dtype>
+    void shuffle(NdArray<dtype>& inArray)
+    {
+        return detail::shuffle(generator_, inArray);
+    }
+} // namespace nc::random

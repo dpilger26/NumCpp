@@ -29,25 +29,22 @@
 
 #include <random>
 
-namespace nc
+namespace nc::random
 {
-    namespace random
-    {
-        /// generator function
-        static std::mt19937_64 generator_;
+    /// generator function
+    static std::mt19937_64 generator_;
 
-        //============================================================================
-        // Method Description:
-        /// Seeds the random number generator
-        ///
-        /// NumPy Reference:
-        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
-        ///
-        /// @param inSeed
-        ///
-        inline void seed(int inSeed)
-        {
-            generator_.seed(inSeed);
-        }
-    } // namespace random
-} // namespace nc
+    //============================================================================
+    // Method Description:
+    /// Seeds the random number generator
+    ///
+    /// NumPy Reference:
+    /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
+    ///
+    /// @param inSeed
+    ///
+    inline void seed(int inSeed)
+    {
+        generator_.seed(inSeed);
+    }
+} // namespace nc::random

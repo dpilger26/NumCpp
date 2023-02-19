@@ -36,28 +36,24 @@
 #include "NumCpp/ImageProcessing/ClusterMaker.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::imageProcessing
 {
-    namespace imageProcessing
+    //============================================================================
+    // Method Description:
+    /// Clusters exceedance pixels from an image
+    ///
+    /// @param inImageArray
+    /// @param inExceedances
+    /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
+    /// @return std::vector<Cluster>
+    ///
+    template<typename dtype>
+    std::vector<Cluster<dtype>>
+        clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
     {
-        //============================================================================
-        // Method Description:
-        /// Clusters exceedance pixels from an image
-        ///
-        /// @param inImageArray
-        /// @param inExceedances
-        /// @param inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
-        /// @return std::vector<Cluster>
-        ///
-        template<typename dtype>
-        std::vector<Cluster<dtype>> clusterPixels(const NdArray<dtype>& inImageArray,
-                                                  const NdArray<bool>&  inExceedances,
-                                                  uint8                 inBorderWidth = 0)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-            ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
-            return std::vector<Cluster<dtype>>(clusterMaker.begin(), clusterMaker.end());
-        }
-    } // namespace imageProcessing
-} // namespace nc
+        ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
+        return std::vector<Cluster<dtype>>(clusterMaker.begin(), clusterMaker.end());
+    }
+} // namespace nc::imageProcessing

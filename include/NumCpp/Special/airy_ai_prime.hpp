@@ -35,50 +35,47 @@
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
-namespace nc
+namespace nc::special
 {
-    namespace special
+    //============================================================================
+    // Method Description:
+    /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
+    /// http://mathworld.wolfram.com/AiryFunctions.html
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param inValue
+    /// @return calculated-result-type
+    ///
+    template<typename dtype>
+    auto airy_ai_prime(dtype inValue)
     {
-        //============================================================================
-        // Method Description:
-        /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
-        /// http://mathworld.wolfram.com/AiryFunctions.html
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param inValue
-        /// @return calculated-result-type
-        ///
-        template<typename dtype>
-        auto airy_ai_prime(dtype inValue)
-        {
-            STATIC_ASSERT_ARITHMETIC(dtype);
+        STATIC_ASSERT_ARITHMETIC(dtype);
 
-            return boost::math::airy_ai_prime(inValue);
-        }
+        return boost::math::airy_ai_prime(inValue);
+    }
 
-        //============================================================================
-        // Method Description:
-        /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
-        /// http://mathworld.wolfram.com/AiryFunctions.html
-        /// NOTE: Use of this function requires using the Boost includes.
-        ///
-        /// @param inArray
-        /// @return NdArray
-        ///
-        template<typename dtype>
-        auto airy_ai_prime(const NdArray<dtype>& inArray)
-        {
-            NdArray<decltype(airy_ai_prime(dtype{ 0 }))> returnArray(inArray.shape());
+    //============================================================================
+    // Method Description:
+    /// The derivative of the first linearly independent solution to the differential equation y'' - yz = 0.
+    /// http://mathworld.wolfram.com/AiryFunctions.html
+    /// NOTE: Use of this function requires using the Boost includes.
+    ///
+    /// @param inArray
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    auto airy_ai_prime(const NdArray<dtype>& inArray)
+    {
+        NdArray<decltype(airy_ai_prime(dtype{ 0 }))> returnArray(inArray.shape());
 
-            stl_algorithms::transform(
-                inArray.cbegin(),
-                inArray.cend(),
-                returnArray.begin(),
-                [](dtype inValue) -> auto{ return airy_ai_prime(inValue); });
+        stl_algorithms::transform(
+            inArray.cbegin(),
+            inArray.cend(),
+            returnArray.begin(),
+            [](dtype inValue) -> auto{ return airy_ai_prime(inValue); });
 
-            return returnArray;
-        }
-    } // namespace special
-} // namespace nc
+        return returnArray;
+    }
+} // namespace nc::special
 
 #endif // #ifndef NUMCPP_NO_USE_BOOST

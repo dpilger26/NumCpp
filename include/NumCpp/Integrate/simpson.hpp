@@ -35,38 +35,33 @@
 
 #include "NumCpp/Core/Types.hpp"
 
-namespace nc
+namespace nc::integrate
 {
-    namespace integrate
+    //============================================================================
+    // Method Description:
+    /// Performs Newton-Cotes Simpson integration of the input function
+    ///
+    /// @param low: the lower bound of the integration
+    /// @param high: the upper bound of the integration
+    /// @param n: the number of subdivisions
+    /// @param f: the function to integrate over
+    ///
+    /// @return double
+    ///
+    inline double
+        simpson(const double low, const double high, const uint32 n, const std::function<double(double)>& f) noexcept
     {
-        //============================================================================
-        // Method Description:
-        /// Performs Newton-Cotes Simpson integration of the input function
-        ///
-        /// @param low: the lower bound of the integration
-        /// @param high: the upper bound of the integration
-        /// @param n: the number of subdivisions
-        /// @param f: the function to integrate over
-        ///
-        /// @return double
-        ///
-        inline double simpson(const double                         low,
-                              const double                         high,
-                              const uint32                         n,
-                              const std::function<double(double)>& f) noexcept
+        const double width = (high - low) / static_cast<double>(n);
+
+        double simpson_integral = 0.;
+        for (uint32 step = 0; step < n; ++step)
         {
-            const double width = (high - low) / static_cast<double>(n);
+            const double x1 = low + static_cast<double>(step) * width;
+            const double x2 = low + static_cast<double>(step + 1) * width;
 
-            double simpson_integral = 0.;
-            for (uint32 step = 0; step < n; ++step)
-            {
-                const double x1 = low + static_cast<double>(step) * width;
-                const double x2 = low + static_cast<double>(step + 1) * width;
-
-                simpson_integral += (x2 - x1) / 6. * (f(x1) + 4. * f(0.5 * (x1 + x2)) + f(x2));
-            }
-
-            return simpson_integral;
+            simpson_integral += (x2 - x1) / 6. * (f(x1) + 4. * f(0.5 * (x1 + x2)) + f(x2));
         }
-    } // namespace integrate
-} // namespace nc
+
+        return simpson_integral;
+    }
+} // namespace nc::integrate

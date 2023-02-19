@@ -35,31 +35,28 @@
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 
-namespace nc
+namespace nc::imageProcessing
 {
-    namespace imageProcessing
+    //============================================================================
+    // Method Description:
+    /// Center of Mass centroids clusters
+    ///
+    /// @param inClusters
+    /// @return std::vector<Centroid>
+    ///
+    template<typename dtype>
+    std::vector<Centroid<dtype>> centroidClusters(const std::vector<Cluster<dtype>>& inClusters)
     {
-        //============================================================================
-        // Method Description:
-        /// Center of Mass centroids clusters
-        ///
-        /// @param inClusters
-        /// @return std::vector<Centroid>
-        ///
-        template<typename dtype>
-        std::vector<Centroid<dtype>> centroidClusters(const std::vector<Cluster<dtype>>& inClusters)
+        STATIC_ASSERT_ARITHMETIC(dtype);
+
+        std::vector<Centroid<dtype>> centroids;
+
+        centroids.reserve(inClusters.size());
+        for (auto& cluster : inClusters)
         {
-            STATIC_ASSERT_ARITHMETIC(dtype);
-
-            std::vector<Centroid<dtype>> centroids;
-
-            centroids.reserve(inClusters.size());
-            for (auto& cluster : inClusters)
-            {
-                centroids.emplace_back(cluster);
-            }
-
-            return centroids;
+            centroids.emplace_back(cluster);
         }
-    } // namespace imageProcessing
-} // namespace nc
+
+        return centroids;
+    }
+} // namespace nc::imageProcessing
