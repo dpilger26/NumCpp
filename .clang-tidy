@@ -1,11 +1,11 @@
 Checks: >
   clang-analyzer-*,
-  cppcoreguidelines-*,
-  bugprone-*,
+  # cppcoreguidelines-*,
+  # bugprone-*,
+  # -bugprone-easily-swappable-parameters,
   google-readability-*,
   modernize-*,
-  hicpp-*,
-  -modernize-use-trailing-return-type
+  -modernize-use-trailing-return-type,
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"

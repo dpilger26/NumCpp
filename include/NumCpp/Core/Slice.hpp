@@ -143,7 +143,7 @@ namespace nc
             /// convert the start value
             if (start < 0)
             {
-                start += inArraySize;
+                start += static_cast<int32>(inArraySize);
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
@@ -154,7 +154,7 @@ namespace nc
             /// convert the stop value
             if (stop < 0)
             {
-                stop += inArraySize;
+                stop += static_cast<int32>(inArraySize);
             }
             if (stop > static_cast<int32>(inArraySize))
             {

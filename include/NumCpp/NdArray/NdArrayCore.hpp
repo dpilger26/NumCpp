@@ -3626,7 +3626,6 @@ namespace nc
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<size_type> indices;
             for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
@@ -3653,7 +3652,6 @@ namespace nc
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
 
-            std::vector<size_type> indices;
             for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
                 put(row, inColIndex, inValue);
@@ -3677,7 +3675,6 @@ namespace nc
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
 
-            std::vector<size_type> indices;
             for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
             {
                 put(inRowIndex, col, inValue);
