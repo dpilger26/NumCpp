@@ -109,14 +109,13 @@ namespace nc
         /// the console
         /// @return ellapsed time in specified time units
         ///
-        uint64 toc(bool printElapsedTime = true)
+        TimeUnit toc(bool printElapsedTime = true)
         {
-            const auto duration =
-                static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
+            const auto duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_);
 
             if (printElapsedTime)
             {
-                std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
+                std::cout << name_ << "Elapsed Time = " << duration.count() << unit_ << std::endl;
             }
 
             return duration;
@@ -130,27 +129,27 @@ namespace nc
 
         void setUnits()
         {
-            if (std::is_same<TimeUnit, std::chrono::hours>::value)
+            if constexpr (std::is_same_v<TimeUnit, std::chrono::hours>)
             {
                 unit_ = " hours";
             }
-            else if (std::is_same<TimeUnit, std::chrono::minutes>::value)
+            else if constexpr (std::is_same_v<TimeUnit, std::chrono::minutes>)
             {
                 unit_ = " minutes";
             }
-            else if (std::is_same<TimeUnit, std::chrono::seconds>::value)
+            else if constexpr (std::is_same_v<TimeUnit, std::chrono::seconds>)
             {
                 unit_ = " seconds";
             }
-            else if (std::is_same<TimeUnit, std::chrono::milliseconds>::value)
+            else if constexpr (std::is_same_v<TimeUnit, std::chrono::milliseconds>)
             {
                 unit_ = " milliseconds";
             }
-            else if (std::is_same<TimeUnit, std::chrono::microseconds>::value)
+            else if constexpr (std::is_same_v<TimeUnit, std::chrono::microseconds>)
             {
                 unit_ = " microseconds";
             }
-            else if (std::is_same<TimeUnit, std::chrono::nanoseconds>::value)
+            else if constexpr (std::is_same_v<TimeUnit, std::chrono::nanoseconds>)
             {
                 unit_ = " nanoseconds";
             }

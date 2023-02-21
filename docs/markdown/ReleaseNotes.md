@@ -1,8 +1,8 @@
 # Release Notes
 
-## Version 2.9.0
+## Version 2.10.0
 
-*
+* added `timeit` function
 
 ## Version 2.9.0
 

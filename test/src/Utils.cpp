@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 void initUtils(pb11::module &m)
@@ -27,4 +26,11 @@ void initUtils(pb11::module &m)
     decltype(utils::powerf<int64, double>(int64{ 0 }, double{ 0 })) (*powerf_int64)(int64, double) =
         &utils::powerf<int64, double>;
     m.def("powerf", powerf_int64);
+
+    m.def("timeit",
+          [](uint32 numIterations, bool printResults, std::function<void(int, int)> function, int v1, int v2)
+          { utils::timeit<std::chrono::nanoseconds>(numIterations, printResults, function, v1, v2); });
+    m.def("timeit",
+          [](uint32 numIterations, bool printResults, std::function<int(int, int)> function, int v1, int v2)
+          { utils::timeit<std::chrono::nanoseconds>(numIterations, printResults, function, v1, v2); });
 }
