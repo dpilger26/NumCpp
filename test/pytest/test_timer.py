@@ -14,7 +14,7 @@ def test_timer():
     timer.tic()
     timer.sleep(SLEEP_TIME)
     elapsedTime = timer.toc(True)  # microseconds
-    assert np.abs(elapsedTime - SLEEP_TIME) < 0.1e6
+    assert np.abs(elapsedTime.count() - SLEEP_TIME) < 0.1e6
 
     SLEEP_TIME = int(np.random.randint(
         0, 10, [1, ]).item() * 1e6)  # microseconds
@@ -22,4 +22,4 @@ def test_timer():
     timer.tic()
     timer.sleep(SLEEP_TIME)
     elapsedTime = timer.toc(True)  # microseconds
-    assert np.abs(elapsedTime - SLEEP_TIME) < 0.1e6
+    assert np.abs(elapsedTime.count() - SLEEP_TIME) < 0.1e6

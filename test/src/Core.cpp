@@ -2,7 +2,6 @@
 
 #include "BindingsIncludes.hpp"
 
-
 //================================================================================
 
 namespace ShapeInterface
@@ -68,6 +67,8 @@ void initCore(pb11::module &m)
         .def("__str__", &Slice::str)
         .def("__eq__", &Slice::operator==)
         .def("__neq__", &Slice::operator!=);
+
+    pb11::class_<std::chrono::microseconds>(m, "ChronoMicroseconds").def("count", &std::chrono::microseconds::count);
 
     // Timer.hpp
     using MicroTimer = Timer<std::chrono::microseconds>;
