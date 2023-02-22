@@ -121,6 +121,7 @@ namespace nc::utils
             }
             else
             {
+                // cppcheck-suppress redundantAssignment
                 [[maybe_unused]] const ResultType functionResult = function(std::forward<Args&>(args)...);
             }
 

@@ -109,7 +109,7 @@ namespace nc::linalg
         ///
         NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.)
         {
-            double ss = 0.;
+            double ss{};
 
             if (inInput.size() != m_)
             {
@@ -171,25 +171,25 @@ namespace nc::linalg
         ///
         void decompose()
         {
-            bool   flag = true;
-            uint32 i    = 0;
-            uint32 its  = 0;
-            uint32 j    = 0;
-            uint32 jj   = 0;
-            uint32 k    = 0;
-            uint32 l    = 0;
-            uint32 nm   = 0;
+            bool   flag{};
+            uint32 i{};
+            uint32 its{};
+            uint32 j{};
+            uint32 jj{};
+            uint32 k{};
+            uint32 l{};
+            uint32 nm{};
 
-            double anorm = 0.;
-            double c     = 0.;
-            double f     = 0.;
-            double g     = 0.;
-            double h     = 0.;
-            double ss    = 0.;
-            double scale = 0.;
-            double x     = 0.;
-            double y     = 0.;
-            double z     = 0.;
+            double anorm{};
+            double c{};
+            double f{};
+            double g{};
+            double h{};
+            double ss{};
+            double scale{};
+            double x{};
+            double y{};
+            double z{};
 
             NdArray<double> rv1(n_, 1);
 
@@ -517,7 +517,7 @@ namespace nc::linalg
             uint32 ss  = 0;
             uint32 inc = 1;
 
-            double          sw = 0.;
+            double          sw{};
             NdArray<double> su(m_, 1);
             NdArray<double> sv(n_, 1);
 

@@ -50,13 +50,9 @@ namespace nc
     {
         const auto numRows       = inArray.numRows();
         auto       uniqueIndices = unique(indices);
-        for (auto& index : uniqueIndices)
-        {
-            if (index < 0)
-            {
-                index += numRows;
-            }
-        }
+        stl_algorithms::for_each(uniqueIndices.begin(),
+                                 uniqueIndices.end(),
+                                 [numRows](auto& index) noexcept -> void { index += index < 0 ? numRows : 0; });
         uniqueIndices = unique(uniqueIndices);
 
         std::vector<NdArray<dtype>> splits{};

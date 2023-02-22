@@ -32,6 +32,7 @@
 #include <vector>
 
 #include "NumCpp/Core/Internal/StaticAsserts.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/ImageProcessing/Centroid.hpp"
 #include "NumCpp/ImageProcessing/Cluster.hpp"
 
@@ -49,14 +50,11 @@ namespace nc::imageProcessing
     {
         STATIC_ASSERT_ARITHMETIC(dtype);
 
-        std::vector<Centroid<dtype>> centroids;
-
-        centroids.reserve(inClusters.size());
-        for (auto& cluster : inClusters)
-        {
-            centroids.emplace_back(cluster);
-        }
-
+        std::vector<Centroid<dtype>> centroids(inClusters.size());
+        stl_algorithms::transform(inClusters.begin(),
+                                  inClusters.end(),
+                                  centroids.begin(),
+                                  [](const auto& cluster) -> Centroid<dtype> { return Centroid<dtype>(cluster); });
         return centroids;
     }
 } // namespace nc::imageProcessing

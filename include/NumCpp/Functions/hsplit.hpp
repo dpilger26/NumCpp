@@ -29,6 +29,7 @@
 
 #include <vector>
 
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Functions/unique.hpp"
 #include "NumCpp/NdArray.hpp"
 
@@ -50,13 +51,9 @@ namespace nc
     {
         const auto numCols       = inArray.numCols();
         auto       uniqueIndices = unique(indices);
-        for (auto& index : uniqueIndices)
-        {
-            if (index < 0)
-            {
-                index += numCols;
-            }
-        }
+        stl_algorithms::for_each(uniqueIndices.begin(),
+                                 uniqueIndices.end(),
+                                 [numCols](auto& index) noexcept -> void { index += index < 0 ? numCols : 0; });
         uniqueIndices = unique(uniqueIndices);
 
         std::vector<NdArray<dtype>> splits{};

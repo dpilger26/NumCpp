@@ -110,7 +110,7 @@ namespace nc::coordinates
         /// @param inY
         /// @param inZ
         ///
-        Coordinate(double inX, double inY, double inZ) noexcept :
+        Coordinate(double inX, double inY, double inZ) :
             x_(inX),
             y_(inY),
             z_(inZ)
@@ -324,7 +324,7 @@ namespace nc::coordinates
         //============================================================================
         /// Converts polar coordinates to cartesian coordinates
         ///
-        void cartesianToPolar() noexcept
+        void cartesianToPolar()
         {
             double degreesRa = rad2deg(std::atan2(y_, x_));
             if (degreesRa < 0)

@@ -4,9 +4,6 @@
 * issue #170: insert()
 * issue #74, #147, #174: broadcasting
 
-* setup job for clang-tidy
-* setup job for cpp-check
-
 ```cpp
 template<typename RowIndices,
             typename ColIndices,

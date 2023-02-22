@@ -28,6 +28,7 @@
 #pragma once
 
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <type_traits>
 #include <utility>
@@ -92,10 +93,8 @@ namespace nc::polynomial
             }
             else
             {
-                for (auto value : inValues)
-                {
-                    coefficients_.push_back(value);
-                }
+                coefficients_.resize(inValues.size());
+                stl_algorithms::copy(inValues.begin(), inValues.end(), coefficients_.begin());
             }
         }
 
@@ -408,14 +407,12 @@ namespace nc::polynomial
         ///
         dtype operator()(dtype inValue) const noexcept
         {
-            dtype polyValue = 0;
-            uint8 power     = 0;
-            for (auto& coefficient : coefficients_)
-            {
-                polyValue += coefficient * utils::power(inValue, power++);
-            }
-
-            return polyValue;
+            uint8 power = 0;
+            return std::accumulate(coefficients_.begin(),
+                                   coefficients_.end(),
+                                   dtype{ 0 },
+                                   [&power, inValue](dtype polyValue, const auto& coefficient) noexcept -> dtype
+                                   { return polyValue + coefficient * utils::power(inValue, power++); });
         }
 
         //============================================================================

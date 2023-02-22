@@ -1039,7 +1039,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
 
-            return operator[](inIndex);
+            return operator[](inIndex); // cppcheck-suppress returnTempReference
         }
 
         //============================================================================
@@ -1101,7 +1101,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
 
-            return operator()(inRowIndex, inColIndex);
+            return operator()(inRowIndex, inColIndex); // cppcheck-suppress returnTempReference
         }
 
         //============================================================================
@@ -3328,7 +3328,8 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            { return lhs < rhs; }; // cppcheck-suppress returnTempReference
 
             switch (inAxis)
             {
@@ -3806,7 +3807,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& ravel() noexcept
+        NdArray<dtype>& ravel()
         {
             reshape(size_);
             return *this;
@@ -4136,7 +4137,8 @@ namespace nc
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool { return lhs < rhs; };
+            const auto comparitor = [](dtype lhs, dtype rhs) noexcept -> bool
+            { return lhs < rhs; }; // cppcheck-suppress returnTempReference
 
             switch (inAxis)
             {

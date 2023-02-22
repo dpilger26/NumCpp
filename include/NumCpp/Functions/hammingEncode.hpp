@@ -33,6 +33,7 @@
 #include <bitset>
 #include <cmath>
 #include <cstdlib>
+#include <numeric>
 #include <stdexcept>
 #include <type_traits>
 #include <vector>
@@ -235,13 +236,11 @@ namespace nc::edac
         template<std::size_t DataBits, typename IntType, std::enable_if_t<std::is_integral_v<IntType>, int> = 0>
         bool calculateParity(const std::bitset<DataBits>& data, IntType parityBit)
         {
-            bool parity = false;
-            for (const auto i : dataBitsCovered(DataBits, parityBit))
-            {
-                parity ^= data[i];
-            }
-
-            return parity;
+            const auto bitsCovered = dataBitsCovered(DataBits, parityBit);
+            return std::accumulate(bitsCovered.begin(),
+                                   bitsCovered.end(),
+                                   false,
+                                   [&data](bool parity, const auto value) noexcept -> bool { return parity ^= value; });
         }
 
         //============================================================================
