@@ -2573,6 +2573,7 @@ def test_digitize():
     cBins.setArray(bins)
     assert np.array_equal(NumCpp.digitize(cX, cBins).flatten(), np.digitize(x, bins))
 
+
 ####################################################################################
 def test_divide():
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -3626,6 +3627,7 @@ def test_histogram():
     histogram = NumCpp.histogram(cArray, cBinEdges)
     h, _ = np.histogram(data, binEdges)
     assert np.array_equal(histogram.flatten().astype(np.int32), h)
+
 
 def test_hsplit():
     shapeInput = np.random.randint(80, 100, [2, ])
@@ -8035,6 +8037,8 @@ def test_vsplit():
         assert np.array_equal(cResult[i], result[i])
 
 ####################################################################################
+
+
 def test_vstack():
     shapeInput = np.random.randint(20, 100, [2, ])
     shape1 = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

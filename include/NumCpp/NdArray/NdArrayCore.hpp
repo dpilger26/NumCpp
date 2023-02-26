@@ -66,6 +66,70 @@
 
 namespace nc
 {
+    namespace type_traits
+    {
+        //============================================================================
+        // Class Description:
+        /// Template class for determining if dtype is a valid index type for NdArray
+        ///
+        template<typename>
+        struct is_ndarray_int : std::false_type
+        {
+        };
+
+        //============================================================================
+        // Class Description:
+        /// Template class for determining if dtype is a valid index typefor NdArray
+        ///
+
+        template<typename dtype, typename Allocator>
+        struct is_ndarray_int<NdArray<dtype, Allocator>>
+        {
+            static constexpr bool value = std::is_integral_v<dtype>;
+        };
+
+        //============================================================================
+        // Class Description:
+        /// is_ndarray_int helper
+        ///
+        template<typename T>
+        constexpr bool is_ndarray_int_v = is_ndarray_int<T>::value;
+
+        //============================================================================
+        // Class Description:
+        /// Template class for determining if dtype is an unsigned integer type
+        ///
+        template<typename>
+        struct is_ndarray_signed_int : std::false_type
+        {
+        };
+
+        //============================================================================
+        // Class Description:
+        /// Template class for determining if dtype is an unsigned integer type
+        ///
+
+        template<typename dtype, typename Allocator>
+        struct is_ndarray_signed_int<NdArray<dtype, Allocator>>
+        {
+            static constexpr bool value = std::is_signed_v<dtype>;
+        };
+
+        //============================================================================
+        // Class Description:
+        /// is_ndarray_int helper
+        ///
+        template<typename T>
+        constexpr bool is_ndarray_signed_int_v = is_ndarray_signed_int<T>::value;
+
+        //============================================================================
+        // Class Description:
+        /// is_ndarray_int
+        ///
+        template<typename T>
+        using ndarray_int_concept = std::enable_if_t<is_ndarray_int_v<T>, int>;
+    } // namespace type_traits
+
     //================================================================================
     // Class Description:
     /// Holds 1D and 2D arrays, the main work horse of the NumCpp library
@@ -81,6 +145,7 @@ namespace nc
         using AllocTraits = std::allocator_traits<AllocType>;
 
     public:
+        using self_type       = NdArray<dtype, Allocator>;
         using value_type      = dtype;
         using allocator_type  = Allocator;
         using pointer         = typename AllocTraits::pointer;
@@ -518,7 +583,7 @@ namespace nc
         ///
         /// @param inOtherArray
         ///
-        NdArray(const NdArray<dtype>& inOtherArray) :
+        NdArray(const self_type& inOtherArray) :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_)
@@ -536,7 +601,7 @@ namespace nc
         ///
         /// @param inOtherArray
         ///
-        NdArray(NdArray<dtype>&& inOtherArray) noexcept :
+        NdArray(self_type&& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
@@ -565,7 +630,7 @@ namespace nc
         /// @param rhs
         /// @return NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(const NdArray<dtype>& rhs)
+        self_type& operator=(const self_type& rhs)
         {
             if (&rhs != this)
             {
@@ -589,7 +654,7 @@ namespace nc
         /// @param inValue
         /// @return NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(value_type inValue) noexcept
+        self_type& operator=(value_type inValue) noexcept
         {
             if (array_ != nullptr)
             {
@@ -606,7 +671,7 @@ namespace nc
         /// @param rhs
         /// @return NdArray<dtype>
         ///
-        NdArray<dtype>& operator=(NdArray<dtype>&& rhs) noexcept
+        self_type& operator=(self_type&& rhs) noexcept
         {
             if (&rhs != this)
             {
@@ -634,12 +699,7 @@ namespace nc
         ///
         reference operator[](index_type inIndex) noexcept
         {
-            if (inIndex < 0)
-            {
-                inIndex += size_;
-            }
-
-            return array_[inIndex];
+            return const_cast<reference>(const_cast<const self_type*>(this)->operator[](inIndex));
         }
 
         //============================================================================
@@ -649,7 +709,7 @@ namespace nc
         /// @param inIndex
         /// @return value
         ///
-        const_reference operator[](index_type inIndex) const noexcept
+        [[nodiscard]] const_reference operator[](index_type inIndex) const noexcept
         {
             if (inIndex < 0)
             {
@@ -669,17 +729,7 @@ namespace nc
         ///
         reference operator()(index_type inRowIndex, index_type inColIndex) noexcept
         {
-            if (inRowIndex < 0)
-            {
-                inRowIndex += shape_.rows;
-            }
-
-            if (inColIndex < 0)
-            {
-                inColIndex += shape_.cols;
-            }
-
-            return array_[inRowIndex * shape_.cols + inColIndex];
+            return const_cast<reference>(const_cast<const self_type*>(this)->operator()(inRowIndex, inColIndex));
         }
 
         //============================================================================
@@ -690,7 +740,7 @@ namespace nc
         /// @param inColIndex
         /// @return value
         ///
-        const_reference operator()(index_type inRowIndex, index_type inColIndex) const noexcept
+        [[nodiscard]] const_reference operator()(index_type inRowIndex, index_type inColIndex) const noexcept
         {
             if (inRowIndex < 0)
             {
@@ -707,72 +757,45 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// 1D Slicing access operator with bounds checking.
+        /// 1D Slicing access operator with no bounds checking
         /// returned array is of the range [start, stop).
         ///
         /// @param inSlice
         /// @return NdArray
         ///
-        NdArray<dtype> operator[](const Slice& inSlice) const
+        [[nodiscard]] self_type operator[](Slice inSlice) const
         {
-            Slice inSliceCopy(inSlice);
-
-            size_type      counter = 0;
-            NdArray<dtype> returnArray(1, inSliceCopy.numElements(size_));
-            for (index_type i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
-            {
-                returnArray[counter++] = at(i);
-            }
-
-            return returnArray;
+            return operator[](toIndices(inSlice, Axis::NONE));
         }
 
         //============================================================================
         // Method Description:
-        /// Returns the values from the input mask
+        /// Returns the values from the input mask with no bounds checking
         ///
         /// @param inMask
         /// @return NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<bool>& inMask) const
+        [[nodiscard]] self_type operator[](const NdArray<bool>& inMask) const
         {
-            if (inMask.shape() != shape_)
-            {
-                THROW_INVALID_ARGUMENT_ERROR(
-                    "input inMask must have the same shape as the NdArray it will be masking.");
-            }
-
-            auto indices  = inMask.flatnonzero();
-            auto outArray = NdArray<dtype>(1, indices.size());
-            for (size_type i = 0; i < indices.size(); ++i)
-            {
-                outArray[i] = operator[](indices[i]);
-            }
-
-            return outArray;
+            return operator[](inMask.flatnonzero());
         }
 
         //============================================================================
         // Method Description:
-        /// Returns the values from the input indices
+        /// Returns the values from the input indices with no bounds checking
         ///
         /// @param inIndices
         /// @return NdArray
         ///
         ///
-        template<typename Indices, std::enable_if_t<std::is_same_v<Indices, NdArray<size_type>>, int> = 0>
-        NdArray<dtype> operator[](const Indices& inIndices) const
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type operator[](const Indices& inIndices) const
         {
-            if (inIndices.max().item() > size_ - 1)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input indices must be less than the array size.");
-            }
-
-            auto      outArray = NdArray<dtype>(1, static_cast<size_type>(inIndices.size()));
+            auto      outArray = self_type(1, static_cast<size_type>(inIndices.size()));
             size_type i        = 0;
             for (auto& index : inIndices)
             {
-                outArray[i++] = operator[](index);
+                outArray[i++] = operator[](static_cast<index_type>(index));
             }
 
             return outArray;
@@ -780,90 +803,59 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// 2D Slicing access operator with bounds checking.
+        /// 2D Slicing access operator with no bounds checking
         /// returned array is of the range [start, stop).
         ///
         /// @param inRowSlice
         /// @param inColSlice
         /// @return NdArray
         ///
-        NdArray<dtype> operator()(Slice inRowSlice, Slice inColSlice) const
+        [[nodiscard]] self_type operator()(Slice inRowSlice, Slice inColSlice) const
         {
-            NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), inColSlice.numElements(shape_.cols));
-
-            size_type rowCounter = 0;
-            size_type colCounter = 0;
-            for (index_type row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
-            {
-                for (index_type col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
-                {
-                    returnArray(rowCounter, colCounter++) = at(row, col);
-                }
-                colCounter = 0;
-                ++rowCounter;
-            }
-
-            return returnArray;
+            return operator()(toIndices(inRowSlice, Axis::ROW), toIndices(inColSlice, Axis::COL));
         }
 
         //============================================================================
         // Method Description:
-        /// 2D Slicing access operator with bounds checking.
+        /// 2D Slicing access operator with no bounds checking
         /// returned array is of the range [start, stop).
         ///
         /// @param inRowSlice
         /// @param inColIndex
         /// @return NdArray
         ///
-        NdArray<dtype> operator()(Slice inRowSlice, index_type inColIndex) const
+        [[nodiscard]] self_type operator()(Slice inRowSlice, index_type inColIndex) const
         {
-            NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), 1);
-
-            size_type rowCounter = 0;
-            for (index_type row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
-            {
-                returnArray(rowCounter++, 0) = at(row, inColIndex);
-            }
-
-            return returnArray;
+            const NdArray<index_type> colIndices = { inColIndex };
+            return                    operator()(toIndices(inRowSlice, Axis::ROW), colIndices);
         }
 
         //============================================================================
         // Method Description:
-        /// 2D Slicing access operator with bounds checking.
+        /// 2D Slicing access operator with no bounds checking
         /// returned array is of the range [start, stop).
         ///
         /// @param inRowIndex
         /// @param inColSlice
         /// @return NdArray
         ///
-        NdArray<dtype> operator()(index_type inRowIndex, Slice inColSlice) const
+        [[nodiscard]] self_type operator()(index_type inRowIndex, Slice inColSlice) const
         {
-            NdArray<dtype> returnArray(1, inColSlice.numElements(shape_.cols));
-
-            size_type colCounter = 0;
-            for (index_type col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
-            {
-                returnArray(0, colCounter++) = at(inRowIndex, col);
-            }
-
-            return returnArray;
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return                    operator()(rowIndices, toIndices(inColSlice, Axis::COL));
         }
 
         //============================================================================
         // Method Description:
-        /// 2D index access operator with bounds checking.
+        /// 2D index access operator with no bounds checking
         /// returned array is of the range.
         ///
         /// @param rowIndices
         /// @param colIndex
         /// @return NdArray
         ///
-        template<typename Indices,
-                 std::enable_if_t<std::is_same_v<Indices, NdArray<index_type>> ||
-                                      std::is_same_v<Indices, NdArray<size_type>>,
-                                  int> = 0>
-        NdArray<dtype> operator()(const Indices& rowIndices, index_type colIndex) const
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type operator()(const Indices& rowIndices, index_type colIndex) const
         {
             const NdArray<index_type> colIndices = { colIndex };
             return                    operator()(rowIndices, colIndices);
@@ -871,36 +863,30 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// 2D index access operator with bounds checking.
+        /// 2D index access operator with no bounds checking
         /// returned array is of the range.
         ///
         /// @param rowIndices
         /// @param colSlice
         /// @return NdArray
         ///
-        template<typename Indices,
-                 std::enable_if_t<std::is_same_v<Indices, NdArray<index_type>> ||
-                                      std::is_same_v<Indices, NdArray<size_type>>,
-                                  int> = 0>
-        NdArray<dtype> operator()(const Indices& rowIndices, Slice colSlice) const
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type operator()(const Indices& rowIndices, Slice colSlice) const
         {
             return operator()(rowIndices, toIndices(colSlice, Axis::COL));
         }
 
         //============================================================================
         // Method Description:
-        /// 2D index access operator with bounds checking.
+        /// 2D index access operator with no bounds checking
         /// returned array is of the range.
         ///
         /// @param rowIndex
         /// @param colIndices
         /// @return NdArray
         ///
-        template<typename Indices,
-                 std::enable_if_t<std::is_same_v<Indices, NdArray<index_type>> ||
-                                      std::is_same_v<Indices, NdArray<size_type>>,
-                                  int> = 0>
-        NdArray<dtype> operator()(index_type rowIndex, const Indices& colIndices) const
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type operator()(index_type rowIndex, const Indices& colIndices) const
         {
             const NdArray<index_type> rowIndices = { rowIndex };
             return                    operator()(rowIndices, colIndices);
@@ -908,25 +894,22 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// 2D index access operator with bounds checking.
+        /// 2D index access operator with no bounds checking
         /// returned array is of the range.
         ///
         /// @param rowSlice
         /// @param colIndices
         /// @return NdArray
         ///
-        template<typename Indices,
-                 std::enable_if_t<std::is_same_v<Indices, NdArray<index_type>> ||
-                                      std::is_same_v<Indices, NdArray<size_type>>,
-                                  int> = 0>
-        NdArray<dtype> operator()(Slice rowSlice, const Indices& colIndices) const
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type operator()(Slice rowSlice, const Indices& colIndices) const
         {
             return operator()(toIndices(rowSlice, Axis::ROW), colIndices);
         }
 
         //============================================================================
         // Method Description:
-        /// 2D index access operator with bounds checking.
+        /// 2D index access operator with no bounds checking
         /// returned array is of the range.
         ///
         /// @param rowIndices
@@ -935,35 +918,19 @@ namespace nc
         ///
         template<typename RowIndices,
                  typename ColIndices,
-                 std::enable_if_t<std::is_same_v<RowIndices, NdArray<index_type>> ||
-                                      std::is_same_v<RowIndices, NdArray<size_type>>,
-                                  int> = 0,
-                 std::enable_if_t<std::is_same_v<ColIndices, NdArray<index_type>> ||
-                                      std::is_same_v<ColIndices, NdArray<size_type>>,
-                                  int> = 0>
-        NdArray<dtype> operator()(RowIndices rowIndices, ColIndices colIndices) const
+                 type_traits::ndarray_int_concept<RowIndices> = 0,
+                 type_traits::ndarray_int_concept<ColIndices> = 0>
+        [[nodiscard]] self_type operator()(const RowIndices& rowIndices, const ColIndices& colIndices) const
         {
-            rowIndices.sort();
-            colIndices.sort();
-
-            std::vector<index_type> rowIndicesUnique(rowIndices.size());
-            std::vector<index_type> colIndicesUnique(colIndices.size());
-
-            const auto lastRow =
-                stl_algorithms::unique_copy(rowIndices.begin(), rowIndices.end(), rowIndicesUnique.begin());
-            const auto lastCol =
-                stl_algorithms::unique_copy(colIndices.begin(), colIndices.end(), colIndicesUnique.begin());
-
-            NdArray<dtype> returnArray(static_cast<size_type>(lastRow - rowIndicesUnique.begin()),
-                                       static_cast<size_type>(lastCol - colIndicesUnique.begin()));
+            self_type returnArray(rowIndices.size(), colIndices.size());
 
             size_type rowCounter = 0;
-            for (auto rowIter = rowIndicesUnique.begin(); rowIter != lastRow; ++rowIter)
+            for (auto rowIter = rowIndices.begin(); rowIter != rowIndices.end(); ++rowIter)
             {
                 size_type colCounter = 0;
-                for (auto colIter = colIndicesUnique.begin(); colIter != lastCol; ++colIter)
+                for (auto colIter = colIndices.begin(); colIter != colIndices.end(); ++colIter)
                 {
-                    returnArray(rowCounter, colCounter++) = at(*rowIter, *colIter);
+                    returnArray(rowCounter, colCounter++) = operator()(*rowIter, *colIter);
                 }
 
                 ++rowCounter;
@@ -1009,16 +976,7 @@ namespace nc
         ///
         reference at(index_type inIndex)
         {
-            // this doesn't allow for calling the first element as -size_...
-            // but why would you really want to do that anyway?
-            if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
-            {
-                std::string errStr = "Input index " + utils::num2str(inIndex);
-                errStr += " is out of bounds for array of size " + utils::num2str(size_) + ".";
-                THROW_INVALID_ARGUMENT_ERROR(errStr);
-            }
-
-            return operator[](inIndex);
+            return const_cast<reference>(const_cast<const self_type*>(this)->at(inIndex));
         }
 
         //============================================================================
@@ -1052,25 +1010,7 @@ namespace nc
         ///
         reference at(index_type inRowIndex, index_type inColIndex)
         {
-            // this doesn't allow for calling the first element as -size_...
-            // but why would you really want to do that anyway?
-            if (std::abs(inRowIndex) > static_cast<index_type>(shape_.rows - 1))
-            {
-                std::string errStr = "Row index " + utils::num2str(inRowIndex);
-                errStr += " is out of bounds for array of size " + utils::num2str(shape_.rows) + ".";
-                THROW_INVALID_ARGUMENT_ERROR(errStr);
-            }
-
-            // this doesn't allow for calling the first element as -size_...
-            // but why would you really want to that anyway?
-            if (std::abs(inColIndex) > static_cast<index_type>(shape_.cols - 1))
-            {
-                std::string errStr = "Column index " + utils::num2str(inColIndex);
-                errStr += " is out of bounds for array of size " + utils::num2str(shape_.cols) + ".";
-                THROW_INVALID_ARGUMENT_ERROR(errStr);
-            }
-
-            return operator()(inRowIndex, inColIndex);
+            return const_cast<reference>(const_cast<const self_type*>(this)->at(inRowIndex, inColIndex));
         }
 
         //============================================================================
@@ -1111,11 +1051,55 @@ namespace nc
         /// @param inSlice
         /// @return Ndarray
         ///
-        [[nodiscard]] NdArray<dtype> at(const Slice& inSlice) const
+        [[nodiscard]] self_type at(const Slice& inSlice) const
         {
-            // the slice operator already provides bounds checking. just including
-            // the at method for completeness
-            return operator[](inSlice);
+            return at(toIndices(inSlice, Axis::NONE));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 1D access method with bounds checking
+        ///
+        /// @param inMask
+        /// @return Ndarray
+        ///
+        [[nodiscard]] self_type at(const NdArray<bool>& inMask) const
+        {
+            if (inMask.shape() != shape_)
+            {
+                THROW_INVALID_ARGUMENT_ERROR("Input mask must have the same dimensions as array.");
+            }
+
+            return operator[](inMask);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 1D access method with bounds checking
+        ///
+        /// @param inIndices
+        /// @return Ndarray
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type at(const Indices& inIndices) const
+        {
+            stl_algorithms::for_each(inIndices.begin(),
+                                     inIndices.end(),
+                                     [this](auto index)
+                                     {
+                                         auto indexSigned = static_cast<index_type>(index);
+                                         if (indexSigned < 0)
+                                         {
+                                             indexSigned += size_;
+                                         }
+
+                                         if (indexSigned < 0 || indexSigned > static_cast<index_type>(size_ - 1))
+                                         {
+                                             THROW_INVALID_ARGUMENT_ERROR("Index exceeds matrix dimensions");
+                                         }
+                                     });
+
+            return operator[](inIndices);
         }
 
         //============================================================================
@@ -1126,11 +1110,9 @@ namespace nc
         /// @param inColSlice
         /// @return Ndarray
         ///
-        [[nodiscard]] NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
+        [[nodiscard]] self_type at(const Slice& inRowSlice, const Slice& inColSlice) const
         {
-            // the slice operator already provides bounds checking. just including
-            // the at method for completeness
-            return operator()(inRowSlice, inColSlice);
+            return at(toIndices(inRowSlice, Axis::ROW), toIndices(inColSlice, Axis::COL));
         }
 
         //============================================================================
@@ -1141,11 +1123,10 @@ namespace nc
         /// @param inColIndex
         /// @return Ndarray
         ///
-        [[nodiscard]] NdArray<dtype> at(const Slice& inRowSlice, index_type inColIndex) const
+        [[nodiscard]] self_type at(const Slice& inRowSlice, index_type inColIndex) const
         {
-            // the slice operator already provides bounds checking. just including
-            // the at method for completeness
-            return operator()(inRowSlice, inColIndex);
+            const NdArray<index_type> colIndices = { inColIndex };
+            return at(toIndices(inRowSlice, Axis::ROW), colIndices);
         }
 
         //============================================================================
@@ -1156,11 +1137,68 @@ namespace nc
         /// @param inColSlice
         /// @return Ndarray
         ///
-        [[nodiscard]] NdArray<dtype> at(index_type inRowIndex, const Slice& inColSlice) const
+        [[nodiscard]] self_type at(index_type inRowIndex, const Slice& inColSlice) const
         {
-            // the slice operator already provides bounds checking. just including
-            // the at method for completeness
-            return operator()(inRowIndex, inColSlice);
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return at(rowIndices, toIndices(inColSlice, Axis::COL));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 2D access method with bounds checking
+        ///
+        /// @param rowIndices
+        /// @param colIndex
+        /// @return Ndarray
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type at(const Indices& rowIndices, index_type colIndex) const
+        {
+            const NdArray<index_type> colIndices = { colIndex };
+            return at(rowIndices, colIndices);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 2D access method with bounds checking
+        ///
+        /// @param rowIndices
+        /// @param colSlice
+        /// @return Ndarray
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type at(const Indices& rowIndices, Slice colSlice) const
+        {
+            return at(rowIndices, toIndices(colSlice, Axis::COL));
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 2D access method with bounds checking
+        ///
+        /// @param rowIndex
+        /// @param colIndices
+        /// @return Ndarray
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type at(index_type rowIndex, const Indices& colIndices) const
+        {
+            const NdArray<index_type> rowIndices = { rowIndex };
+            return at(rowIndices, colIndices);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// const 2D access method with bounds checking
+        ///
+        /// @param rowSlice
+        /// @param colIndices
+        /// @return Ndarray
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        [[nodiscard]] self_type at(Slice rowSlice, const Indices& colIndices) const
+        {
+            return at(toIndices(rowSlice, Axis::ROW), colIndices);
         }
 
         //============================================================================
@@ -1171,11 +1209,44 @@ namespace nc
         /// @param colIndices
         /// @return Ndarray
         ///
-        [[nodiscard]] NdArray<dtype> at(const NdArray<index_type>& rowIndices,
-                                        const NdArray<index_type>& colIndices) const
+        template<typename RowIndices,
+                 typename ColIndices,
+                 type_traits::ndarray_int_concept<RowIndices> = 0,
+                 type_traits::ndarray_int_concept<ColIndices> = 0>
+        [[nodiscard]] self_type at(const RowIndices& rowIndices, const ColIndices& colIndices) const
         {
-            // the slice operator already provides bounds checking. just including
-            // the at method for completeness
+            stl_algorithms::for_each(rowIndices.begin(),
+                                     rowIndices.end(),
+                                     [this](auto row)
+                                     {
+                                         auto rowSigned = static_cast<index_type>(row);
+                                         if (rowSigned < 0)
+                                         {
+                                             rowSigned += shape_.rows;
+                                         }
+
+                                         if (rowSigned < 0 || rowSigned > static_cast<index_type>(shape_.rows - 1))
+                                         {
+                                             THROW_INVALID_ARGUMENT_ERROR("Row index exceeds matrix dimensions");
+                                         }
+                                     });
+
+            stl_algorithms::for_each(colIndices.begin(),
+                                     colIndices.end(),
+                                     [this](auto col)
+                                     {
+                                         auto colSigned = static_cast<index_type>(col);
+                                         if (colSigned < 0)
+                                         {
+                                             colSigned += shape_.cols;
+                                         }
+
+                                         if (colSigned < 0 || colSigned > static_cast<index_type>(shape_.cols - 1))
+                                         {
+                                             THROW_INVALID_ARGUMENT_ERROR("Column index exceeds matrix dimensions");
+                                         }
+                                     });
+
             return operator()(rowIndices, colIndices);
         }
 
@@ -1184,7 +1255,7 @@ namespace nc
         /// iterator to the beginning of the flattened array
         /// @return iterator
         ///
-        iterator begin() noexcept
+        [[nodiscard]] iterator begin() noexcept
         {
             return iterator(array_);
         }
@@ -1196,7 +1267,7 @@ namespace nc
         /// @param inRow
         /// @return iterator
         ///
-        iterator begin(size_type inRow)
+        [[nodiscard]] iterator begin(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
@@ -1261,7 +1332,7 @@ namespace nc
         /// column_iterator to the beginning of the flattened array
         /// @return column_iterator
         ///
-        column_iterator colbegin() noexcept
+        [[nodiscard]] column_iterator colbegin() noexcept
         {
             return column_iterator(array_, shape_.rows, shape_.cols);
         }
@@ -1273,7 +1344,7 @@ namespace nc
         /// @param inCol
         /// @return column_iterator
         ///
-        column_iterator colbegin(size_type inCol)
+        [[nodiscard]] column_iterator colbegin(size_type inCol)
         {
             if (inCol >= shape_.cols)
             {
@@ -1338,7 +1409,7 @@ namespace nc
         /// reverse_iterator to the beginning of the flattened array
         /// @return reverse_iterator
         ///
-        reverse_iterator rbegin() noexcept
+        [[nodiscard]] reverse_iterator rbegin() noexcept
         {
             return reverse_iterator(end());
         }
@@ -1350,7 +1421,7 @@ namespace nc
         /// @param inRow
         /// @return reverse_iterator
         ///
-        reverse_iterator rbegin(size_type inRow)
+        [[nodiscard]] reverse_iterator rbegin(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
@@ -1415,7 +1486,7 @@ namespace nc
         /// reverse_column_iterator to the beginning of the flattened array
         /// @return reverse_column_iterator
         ///
-        reverse_column_iterator rcolbegin() noexcept
+        [[nodiscard]] reverse_column_iterator rcolbegin() noexcept
         {
             return reverse_column_iterator(colend());
         }
@@ -1427,7 +1498,7 @@ namespace nc
         /// @param inCol
         /// @return reverse_column_iterator
         ///
-        reverse_column_iterator rcolbegin(size_type inCol)
+        [[nodiscard]] reverse_column_iterator rcolbegin(size_type inCol)
         {
             if (inCol >= shape_.cols)
             {
@@ -1492,7 +1563,7 @@ namespace nc
         /// iterator to 1 past the end of the flattened array
         /// @return iterator
         ///
-        iterator end() noexcept
+        [[nodiscard]] iterator end() noexcept
         {
             return begin() += size_;
         }
@@ -1504,7 +1575,7 @@ namespace nc
         /// @param inRow
         /// @return iterator
         ///
-        iterator end(size_type inRow)
+        [[nodiscard]] iterator end(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
@@ -1569,7 +1640,7 @@ namespace nc
         /// reverse_iterator to 1 past the end of the flattened array
         /// @return reverse_iterator
         ///
-        reverse_iterator rend() noexcept
+        [[nodiscard]] reverse_iterator rend() noexcept
         {
             return rbegin() += size_;
         }
@@ -1581,7 +1652,7 @@ namespace nc
         /// @param inRow
         /// @return reverse_iterator
         ///
-        reverse_iterator rend(size_type inRow)
+        [[nodiscard]] reverse_iterator rend(size_type inRow)
         {
             if (inRow >= shape_.rows)
             {
@@ -1646,7 +1717,7 @@ namespace nc
         /// column_iterator to 1 past the end of the flattened array
         /// @return column_iterator
         ///
-        column_iterator colend() noexcept
+        [[nodiscard]] column_iterator colend() noexcept
         {
             return colbegin() += size_;
         }
@@ -1658,7 +1729,7 @@ namespace nc
         /// @param inCol
         /// @return column_iterator
         ///
-        column_iterator colend(size_type inCol)
+        [[nodiscard]] column_iterator colend(size_type inCol)
         {
             if (inCol >= shape_.cols)
             {
@@ -1723,7 +1794,7 @@ namespace nc
         /// reverse_column_iterator to 1 past the end of the flattened array
         /// @return reverse_column_iterator
         ///
-        reverse_column_iterator rcolend() noexcept
+        [[nodiscard]] reverse_column_iterator rcolend() noexcept
         {
             return rcolbegin() += size_;
         }
@@ -1735,7 +1806,7 @@ namespace nc
         /// @param inCol
         /// @return reverse_column_iterator
         ///
-        reverse_column_iterator rcolend(size_type inCol)
+        [[nodiscard]] reverse_column_iterator rcolend(size_type inCol)
         {
             if (inCol >= shape_.cols)
             {
@@ -2197,7 +2268,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& byteswap() noexcept
+        self_type& byteswap() noexcept
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -2237,11 +2308,11 @@ namespace nc
         /// @param inMax: max value to clip to
         /// @return clipped value
         ///
-        [[nodiscard]] NdArray<dtype> clip(value_type inMin, value_type inMax) const
+        [[nodiscard]] self_type clip(value_type inMin, value_type inMax) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
-            NdArray<dtype> outArray(shape_);
+            self_type outArray(shape_);
             stl_algorithms::transform(cbegin(),
                                       cend(),
                                       outArray.begin(),
@@ -2276,7 +2347,7 @@ namespace nc
         ///
         /// @return Shape
         ///
-        NdArray<dtype> column(size_type inColumn)
+        [[nodiscard]] self_type column(size_type inColumn)
         {
             return operator()(rSlice(), inColumn);
         }
@@ -2330,9 +2401,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> copy() const
+        [[nodiscard]] self_type copy() const
         {
-            return NdArray<dtype>(*this);
+            return self_type(*this);
         }
 
         //============================================================================
@@ -2344,7 +2415,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type cumprod(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2352,7 +2423,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray(1, size_);
+                    self_type returnArray(1, size_);
                     returnArray[0] = front();
                     for (size_type i = 1; i < size_; ++i)
                     {
@@ -2363,7 +2434,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    self_type returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(row, 0) = operator()(row, 0);
@@ -2396,7 +2467,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type cumsum(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2404,7 +2475,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray(1, size_);
+                    self_type returnArray(1, size_);
                     returnArray[0] = front();
                     for (size_type i = 1; i < size_; ++i)
                     {
@@ -2415,7 +2486,7 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(shape_);
+                    self_type returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(row, 0) = operator()(row, 0);
@@ -2444,7 +2515,7 @@ namespace nc
         /// Returns the raw pointer to the underlying data
         /// @return pointer
         ///
-        pointer data() noexcept
+        [[nodiscard]] pointer data() noexcept
         {
             return array_;
         }
@@ -2466,7 +2537,7 @@ namespace nc
         /// to the underlying data.
         /// @return pointer
         ///
-        pointer dataRelease() noexcept
+        [[nodiscard]] pointer dataRelease() noexcept
         {
             ownsPtr_ = false;
             return data();
@@ -2483,7 +2554,7 @@ namespace nc
         /// @param inAxis: (Optional, default ROW) axis the offset is applied to
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> diagonal(index_type inOffset = 0, Axis inAxis = Axis::ROW) const
+        [[nodiscard]] self_type diagonal(index_type inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             switch (inAxis)
             {
@@ -2507,7 +2578,7 @@ namespace nc
                         ++col;
                     }
 
-                    return NdArray<dtype>(diagnolValues);
+                    return self_type(diagnolValues);
                 }
                 case Axis::ROW:
                 {
@@ -2533,21 +2604,21 @@ namespace nc
         /// @param inOtherArray
         /// @return dot product
         ///
-        [[nodiscard]] NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
+        [[nodiscard]] self_type dot(const self_type& inOtherArray) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtype          dotProduct  = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
-                NdArray<dtype> returnArray = { dotProduct };
+                dtype     dotProduct  = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
+                self_type returnArray = { dotProduct };
                 return returnArray;
             }
             if (shape_.cols == inOtherArray.shape_.rows)
             {
                 // 2D array, use matrix multiplication
-                NdArray<dtype> returnArray(shape_.rows, inOtherArray.shape_.cols);
-                auto           otherArrayT = inOtherArray.transpose();
+                self_type returnArray(shape_.rows, inOtherArray.shape_.cols);
+                auto      otherArrayT = inOtherArray.transpose();
 
                 for (uint32 i = 0; i < shape_.rows; ++i)
                 {
@@ -2567,7 +2638,7 @@ namespace nc
             errStr += " are not consistent.";
             THROW_INVALID_ARGUMENT_ERROR(errStr);
 
-            return NdArray<dtype>(); // get rid of compiler warning
+            return self_type(); // get rid of compiler warning
         }
 
         //============================================================================
@@ -2622,7 +2693,7 @@ namespace nc
         /// @param inFillValue
         /// @return None
         ///
-        NdArray<dtype>& fill(value_type inFillValue) noexcept
+        self_type& fill(value_type inFillValue) noexcept
         {
             stl_algorithms::fill(begin(), end(), inFillValue);
             return *this;
@@ -2661,9 +2732,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> flatten() const
+        [[nodiscard]] self_type flatten() const
         {
-            NdArray<dtype> outArray(1, size_);
+            self_type outArray(1, size_);
             stl_algorithms::copy(cbegin(), cend(), outArray.begin());
             return outArray;
         }
@@ -2719,7 +2790,7 @@ namespace nc
         /// @param inIndices
         /// @return values
         ///
-        [[nodiscard]] NdArray<dtype> getByIndices(const NdArray<size_type>& inIndices) const
+        [[nodiscard]] self_type getByIndices(const NdArray<size_type>& inIndices) const
         {
             return operator[](inIndices);
         }
@@ -2733,7 +2804,7 @@ namespace nc
         /// @param inMask
         /// @return values
         ///
-        [[nodiscard]] NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
+        [[nodiscard]] self_type getByMask(const NdArray<bool>& inMask) const
         {
             return operator[](inMask);
         }
@@ -2844,7 +2915,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> max(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type max(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2854,12 +2925,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::max_element(cbegin(), cend(), comparitor) };
+                    self_type returnArray = { *stl_algorithms::max_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::max_element(cbegin(row), cend(row), comparitor);
@@ -2888,7 +2959,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> min(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type min(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2898,12 +2969,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { *stl_algorithms::min_element(cbegin(), cend(), comparitor) };
+                    self_type returnArray = { *stl_algorithms::min_element(cbegin(), cend(), comparitor) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = *stl_algorithms::min_element(cbegin(row), cend(row), comparitor);
@@ -2934,7 +3005,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> median(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type median(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -2949,7 +3020,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> copyArray(*this);
+                    self_type copyArray(*this);
 
                     const size_type middleIdx = size_ / 2; // integer division
                     stl_algorithms::nth_element(copyArray.begin(),
@@ -2973,8 +3044,8 @@ namespace nc
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> copyArray(*this);
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type copyArray(*this);
+                    self_type returnArray(1, shape_.rows);
 
                     const bool isEven = shape_.cols % 2 == 0;
                     for (uint32 row = 0; row < shape_.rows; ++row)
@@ -3019,7 +3090,7 @@ namespace nc
         /// Fills the array with nans.
         ///
         ///
-        NdArray<dtype>& nans() noexcept
+        self_type& nans() noexcept
 
         {
             STATIC_ASSERT_FLOAT(dtype);
@@ -3051,7 +3122,7 @@ namespace nc
         /// @param inEndianess
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> newbyteorder(Endian inEndianess) const
+        [[nodiscard]] self_type newbyteorder(Endian inEndianess) const
         {
             STATIC_ASSERT_INTEGER(dtype);
 
@@ -3071,7 +3142,7 @@ namespace nc
                         {
                             if (nativeIsLittle)
                             {
-                                NdArray<dtype> outArray(shape_);
+                                self_type outArray(shape_);
 
                                 stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3095,7 +3166,7 @@ namespace nc
                             }
                             else
                             {
-                                NdArray<dtype> outArray(shape_);
+                                self_type outArray(shape_);
 
                                 stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3119,7 +3190,7 @@ namespace nc
                         {
                             if (nativeIsLittle)
                             {
-                                NdArray<dtype> outArray(shape_);
+                                self_type outArray(shape_);
 
                                 stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3139,7 +3210,7 @@ namespace nc
                         }
                         case Endian::LITTLE:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            self_type outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3168,7 +3239,7 @@ namespace nc
                             }
                             else
                             {
-                                NdArray<dtype> outArray(shape_);
+                                self_type outArray(shape_);
 
                                 stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3178,7 +3249,7 @@ namespace nc
                         }
                         case Endian::BIG:
                         {
-                            NdArray<dtype> outArray(shape_);
+                            self_type outArray(shape_);
 
                             stl_algorithms::transform(cbegin(), end(), outArray.begin(), endian::byteSwap<dtype>);
 
@@ -3266,7 +3337,7 @@ namespace nc
         /// Returns the number of columns in the array
         ///
         ///
-        /// @return uint32
+        /// @return size_type
         ///
         [[nodiscard]] size_type numCols() const noexcept
         {
@@ -3278,7 +3349,7 @@ namespace nc
         /// Returns the number of rows in the array
         ///
         ///
-        /// @return uint32
+        /// @return size_type
         ///
         [[nodiscard]] size_type numRows() const noexcept
         {
@@ -3290,7 +3361,7 @@ namespace nc
         /// Fills the array with ones
         ///
         ///
-        NdArray<dtype>& ones() noexcept
+        self_type& ones() noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3324,7 +3395,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return None
         ///
-        NdArray<dtype>& partition(size_type inKth, Axis inAxis = Axis::NONE)
+        self_type& partition(size_type inKth, Axis inAxis = Axis::NONE)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3369,7 +3440,7 @@ namespace nc
                         THROW_INVALID_ARGUMENT_ERROR(errStr);
                     }
 
-                    NdArray<dtype> transposedArray = transpose();
+                    self_type transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         stl_algorithms::nth_element(transposedArray.begin(row),
@@ -3406,7 +3477,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> prod(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type prod(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3414,13 +3485,13 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    dtype          product = std::accumulate(cbegin(), cend(), dtype{ 1 }, std::multiplies<dtype>());
-                    NdArray<dtype> returnArray = { product };
+                    dtype     product     = std::accumulate(cbegin(), cend(), dtype{ 1 }, std::multiplies<dtype>());
+                    self_type returnArray = { product };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) =
@@ -3450,7 +3521,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type ptp(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -3460,13 +3531,13 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    const auto     result      = stl_algorithms::minmax_element(cbegin(), cend(), comparitor);
-                    NdArray<dtype> returnArray = { *result.second - *result.first };
+                    const auto result      = stl_algorithms::minmax_element(cbegin(), cend(), comparitor);
+                    self_type  returnArray = { *result.second - *result.first };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         const auto result   = stl_algorithms::minmax_element(cbegin(row), cend(row), comparitor);
@@ -3496,7 +3567,7 @@ namespace nc
         /// @param inIndex
         /// @param inValue
         ///
-        NdArray<dtype>& put(index_type inIndex, value_type inValue)
+        self_type& put(index_type inIndex, const value_type& inValue)
         {
             at(inIndex) = inValue;
 
@@ -3513,11 +3584,9 @@ namespace nc
         /// @param inCol
         /// @param inValue
         ///
-        NdArray<dtype>& put(index_type inRow, index_type inCol, value_type inValue)
+        self_type& put(index_type inRow, index_type inCol, const value_type& inValue)
         {
-            at(inRow, inCol) = inValue;
-
-            return *this;
+            return put(inRow * shape_.cols + inCol, inValue);
         }
 
         //============================================================================
@@ -3528,8 +3597,10 @@ namespace nc
         ///
         /// @param inIndices
         /// @param inValue
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const NdArray<size_type>& inIndices, value_type inValue)
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(const Indices& inIndices, const value_type& inValue)
         {
             for (auto index : inIndices)
             {
@@ -3547,8 +3618,10 @@ namespace nc
         ///
         /// @param inIndices
         /// @param inValues
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const NdArray<size_type>& inIndices, const NdArray<dtype>& inValues)
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(const Indices& inIndices, const self_type& inValues)
         {
             if (inIndices.size() != inValues.size())
             {
@@ -3572,18 +3645,11 @@ namespace nc
         ///
         /// @param inSlice
         /// @param inValue
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inSlice, value_type inValue)
+        self_type& put(const Slice& inSlice, const value_type& inValue)
         {
-            Slice inSliceCopy(inSlice);
-            inSliceCopy.makePositiveAndValidate(size_);
-
-            for (index_type i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
-            {
-                put(i, inValue);
-            }
-
-            return *this;
+            return put(toIndices(inSlice, Axis::NONE), inValue);
         }
 
         //============================================================================
@@ -3594,19 +3660,75 @@ namespace nc
         ///
         /// @param inSlice
         /// @param inValues
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inSlice, const NdArray<dtype>& inValues)
+        self_type& put(const Slice& inSlice, const self_type& inValues)
         {
-            Slice inSliceCopy(inSlice);
-            inSliceCopy.makePositiveAndValidate(size_);
+            return put(toIndices(inSlice, Axis::NONE), inValues);
+        }
 
-            std::vector<size_type> indices;
-            for (index_type i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
-            {
-                indices.push_back(static_cast<size_type>(i));
-            }
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input value.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param rowIndices
+        /// @param colIndices
+        /// @param inValue
+        /// @return reference to self
+        ///
+        template<typename RowIndices,
+                 typename ColIndices,
+                 type_traits::ndarray_int_concept<RowIndices> = 0,
+                 type_traits::ndarray_int_concept<ColIndices> = 0>
+        self_type& put(const RowIndices& inRowIndices, const ColIndices& inColIndices, const value_type& inValue)
+        {
+            stl_algorithms::for_each(inRowIndices.begin(),
+                                     inRowIndices.end(),
+                                     [this, &inColIndices, &inValue](const auto row)
+                                     {
+                                         stl_algorithms::for_each(inColIndices.begin(),
+                                                                  inColIndices.end(),
+                                                                  [this, &row, &inValue](const auto col)
+                                                                  { put(row, col, inValue); });
+                                     });
 
-            return put(NdArray<size_type>(indices), inValues);
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input value.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param rowIndices
+        /// @param inColSlice
+        /// @param inValue
+        /// @return reference to self
+        ///
+        template<typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+        self_type& put(const RowIndices& inRowIndices, const Slice& inColSlice, const value_type& inValue)
+        {
+            return put(inRowIndices, toIndices(inColSlice, Axis::COL), inValue);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input value.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowSlice
+        /// @param colIndices
+        /// @param inValue
+        /// @return reference to self
+        ///
+        template<typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+        self_type& put(const Slice& inRowSlice, const ColIndices& inColIndices, const value_type& inValue)
+        {
+            return put(toIndices(inRowSlice, Axis::ROW), inColIndices, inValue);
         }
 
         //============================================================================
@@ -3618,24 +3740,29 @@ namespace nc
         /// @param inRowSlice
         /// @param inColSlice
         /// @param inValue
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, value_type inValue)
+        self_type& put(const Slice& inRowSlice, const Slice& inColSlice, const value_type& inValue)
         {
-            Slice inRowSliceCopy(inRowSlice);
-            Slice inColSliceCopy(inColSlice);
+            return put(toIndices(inRowSlice, Axis::ROW), toIndices(inColSlice, Axis::COL), inValue);
+        }
 
-            inRowSliceCopy.makePositiveAndValidate(shape_.rows);
-            inColSliceCopy.makePositiveAndValidate(shape_.cols);
-
-            for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
-            {
-                for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
-                {
-                    put(row, col, inValue);
-                }
-            }
-
-            return *this;
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input value.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndices
+        /// @param inColIndex
+        /// @param inValue
+        /// @return reference to self
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(const Indices& inRowIndices, index_type inColIndex, const value_type& inValue)
+        {
+            const NdArray<index_type> colIndices = { inColIndex };
+            return put(inRowIndices, colIndices, inValue);
         }
 
         //============================================================================
@@ -3647,18 +3774,30 @@ namespace nc
         /// @param inRowSlice
         /// @param inColIndex
         /// @param inValue
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, index_type inColIndex, value_type inValue)
+        self_type& put(const Slice& inRowSlice, index_type inColIndex, const value_type& inValue)
         {
-            Slice inRowSliceCopy(inRowSlice);
-            inRowSliceCopy.makePositiveAndValidate(shape_.rows);
+            const NdArray<index_type> colIndices = { inColIndex };
+            return put(toIndices(inRowSlice, Axis::ROW), colIndices, inValue);
+        }
 
-            for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
-            {
-                put(row, inColIndex, inValue);
-            }
-
-            return *this;
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input value.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndex
+        /// @param inColIndices
+        /// @param inValue
+        /// @return reference to self
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(index_type inRowIndex, const Indices& inColIndices, const value_type& inValue)
+        {
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return put(rowIndices, inColIndices, inValue);
         }
 
         //============================================================================
@@ -3670,18 +3809,78 @@ namespace nc
         /// @param inRowIndex
         /// @param inColSlice
         /// @param inValue
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(index_type inRowIndex, const Slice& inColSlice, value_type inValue)
+        self_type& put(index_type inRowIndex, const Slice& inColSlice, const value_type& inValue)
         {
-            Slice inColSliceCopy(inColSlice);
-            inColSliceCopy.makePositiveAndValidate(shape_.cols);
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return put(rowIndices, toIndices(inColSlice, Axis::COL), inValue);
+        }
 
-            for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
-            {
-                put(inRowIndex, col, inValue);
-            }
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input values.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndices
+        /// @param inColIndices
+        /// @param inValues
+        /// @return reference to self
+        ///
+        template<typename RowIndices,
+                 typename ColIndices,
+                 type_traits::ndarray_int_concept<RowIndices> = 0,
+                 type_traits::ndarray_int_concept<ColIndices> = 0>
+        self_type& put(const RowIndices& inRowIndices, const ColIndices& inColIndices, const self_type& inValues)
+        {
+            std::vector<size_type> indices;
+            indices.reserve(inRowIndices.size() * inColIndices.size());
+            stl_algorithms::for_each(inRowIndices.begin(),
+                                     inRowIndices.end(),
+                                     [this, &inColIndices, &indices](const auto row)
+                                     {
+                                         stl_algorithms::for_each(inColIndices.begin(),
+                                                                  inColIndices.end(),
+                                                                  [this, &row, &indices](const auto col)
+                                                                  { indices.push_back(row * shape_.cols + col); });
+                                     });
 
-            return *this;
+            return put(NdArray<size_type>(indices.data(), indices.size(), false), inValues);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input values.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndices
+        /// @param inColSlice
+        /// @param inValues
+        /// @return reference to self
+        ///
+        template<typename RowIndices, type_traits::ndarray_int_concept<RowIndices> = 0>
+        self_type& put(const RowIndices& inRowIndices, Slice inColSlice, const self_type& inValues)
+        {
+            return put(inRowIndices, toIndices(inColSlice, Axis::COL), inValues);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input values.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowSlice
+        /// @param inColIndices
+        /// @param inValues
+        /// @return reference to self
+        ///
+        template<typename ColIndices, type_traits::ndarray_int_concept<ColIndices> = 0>
+        self_type& put(Slice inRowSlice, const ColIndices& inColIndices, const self_type& inValues)
+        {
+            return put(toIndices(inRowSlice, Axis::ROW), inColIndices, inValues);
         }
 
         //============================================================================
@@ -3693,26 +3892,29 @@ namespace nc
         /// @param inRowSlice
         /// @param inColSlice
         /// @param inValues
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        self_type& put(Slice inRowSlice, Slice inColSlice, const self_type& inValues)
         {
-            Slice inRowSliceCopy(inRowSlice);
-            Slice inColSliceCopy(inColSlice);
+            return put(toIndices(inRowSlice, Axis::ROW), toIndices(inColSlice, Axis::COL), inValues);
+        }
 
-            inRowSliceCopy.makePositiveAndValidate(shape_.rows);
-            inColSliceCopy.makePositiveAndValidate(shape_.cols);
-
-            std::vector<size_type> indices;
-            for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
-            {
-                for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
-                {
-                    const size_type index = row * shape_.cols + col;
-                    indices.push_back(index);
-                }
-            }
-
-            return put(NdArray<size_type>(indices), inValues);
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input values.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndices
+        /// @param inColIndex
+        /// @param inValues
+        /// @return reference to self
+        ///
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(const Indices& inRowIndices, index_type inColIndex, const self_type& inValues)
+        {
+            const NdArray<index_type> colIndices = { inColIndex };
+            return put(inRowIndices, colIndices, inValues);
         }
 
         //============================================================================
@@ -3724,20 +3926,12 @@ namespace nc
         /// @param inRowSlice
         /// @param inColIndex
         /// @param inValues
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(const Slice& inRowSlice, index_type inColIndex, const NdArray<dtype>& inValues)
+        self_type& put(const Slice& inRowSlice, index_type inColIndex, const self_type& inValues)
         {
-            Slice inRowSliceCopy(inRowSlice);
-            inRowSliceCopy.makePositiveAndValidate(shape_.rows);
-
-            std::vector<size_type> indices;
-            for (index_type row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
-            {
-                const size_type index = row * shape_.cols + inColIndex;
-                indices.push_back(index);
-            }
-
-            return put(NdArray<size_type>(indices), inValues);
+            const NdArray<index_type> colIndices = { inColIndex };
+            return put(toIndices(inRowSlice, Axis::ROW), colIndices, inValues);
         }
 
         //============================================================================
@@ -3749,20 +3943,30 @@ namespace nc
         /// @param inRowIndex
         /// @param inColSlice
         /// @param inValues
+        /// @return reference to self
         ///
-        NdArray<dtype>& put(index_type inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        self_type& put(index_type inRowIndex, const Indices& inColIndices, const self_type& inValues)
         {
-            Slice inColSliceCopy(inColSlice);
-            inColSliceCopy.makePositiveAndValidate(shape_.cols);
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return put(rowIndices, inColIndices, inValues);
+        }
 
-            std::vector<size_type> indices;
-            for (index_type col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
-            {
-                const size_type index = inRowIndex * shape_.cols + col;
-                indices.push_back(index);
-            }
-
-            return put(NdArray<size_type>(indices), inValues);
+        //============================================================================
+        // Method Description:
+        /// Set the slice indices to the input values.
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
+        ///
+        /// @param inRowIndex
+        /// @param inColSlice
+        /// @param inValues
+        /// @return reference to self
+        ///
+        self_type& put(index_type inRowIndex, const Slice& inColSlice, const self_type& inValues)
+        {
+            const NdArray<index_type> rowIndices = { inRowIndex };
+            return put(rowIndices, toIndices(inColSlice, Axis::COL), inValues);
         }
 
         //============================================================================
@@ -3772,7 +3976,7 @@ namespace nc
         /// @param inMask
         /// @param inValue
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, value_type inValue)
+        self_type& putMask(const NdArray<bool>& inMask, const value_type& inValue)
         {
             if (inMask.shape() != shape_)
             {
@@ -3789,7 +3993,7 @@ namespace nc
         /// @param inMask
         /// @param inValues
         ///
-        NdArray<dtype>& putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        self_type& putMask(const NdArray<bool>& inMask, const self_type& inValues)
         {
             if (inMask.shape() != shape_)
             {
@@ -3807,7 +4011,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        NdArray<dtype>& ravel()
+        self_type& ravel()
         {
             reshape(size_);
             return *this;
@@ -3823,9 +4027,9 @@ namespace nc
         /// @param inNumCols
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> repeat(size_type inNumRows, size_type inNumCols) const
+        [[nodiscard]] self_type repeat(size_type inNumRows, size_type inNumCols) const
         {
-            NdArray<dtype> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
+            self_type returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
 
             for (size_type row = 0; row < inNumRows; ++row)
             {
@@ -3864,7 +4068,7 @@ namespace nc
         /// @param inRepeatShape
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> repeat(const Shape& inRepeatShape) const
+        [[nodiscard]] self_type repeat(const Shape& inRepeatShape) const
         {
             return repeat(inRepeatShape.rows, inRepeatShape.cols);
         }
@@ -3876,11 +4080,12 @@ namespace nc
         /// @param oldValue: the value to replace
         /// @param newValue: the value to replace with
         ///
-        void replace(value_type oldValue, value_type newValue)
+        self_type& replace(value_type oldValue, value_type newValue)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
             stl_algorithms::replace(begin(), end(), oldValue, newValue);
+            return *this;
         }
 
         //============================================================================
@@ -3894,7 +4099,7 @@ namespace nc
         ///
         /// @param inSize
         ///
-        NdArray<dtype>& reshape(size_type inSize)
+        self_type& reshape(size_type inSize)
         {
             if (inSize != size_)
             {
@@ -3921,7 +4126,7 @@ namespace nc
         /// @param inNumRows
         /// @param inNumCols
         ///
-        NdArray<dtype>& reshape(index_type inNumRows, index_type inNumCols)
+        self_type& reshape(index_type inNumRows, index_type inNumCols)
         {
             if (inNumRows < 0)
             {
@@ -3971,7 +4176,7 @@ namespace nc
         ///
         /// @param inShape
         ///
-        NdArray<dtype>& reshape(const Shape& inShape)
+        self_type& reshape(const Shape& inShape)
         {
             return reshape(inShape.rows, inShape.cols);
         }
@@ -3986,7 +4191,7 @@ namespace nc
         /// @param inNumRows
         /// @param inNumCols
         ///
-        NdArray<dtype>& resizeFast(size_type inNumRows, size_type inNumCols)
+        self_type& resizeFast(size_type inNumRows, size_type inNumCols)
         {
             newArray(Shape(inNumRows, inNumCols));
             return *this;
@@ -4001,7 +4206,7 @@ namespace nc
         ///
         /// @param inShape
         ///
-        NdArray<dtype>& resizeFast(const Shape& inShape)
+        self_type& resizeFast(const Shape& inShape)
         {
             return resizeFast(inShape.rows, inShape.cols);
         }
@@ -4018,7 +4223,7 @@ namespace nc
         /// @param inNumRows
         /// @param inNumCols
         ///
-        NdArray<dtype>& resizeSlow(size_type inNumRows, size_type inNumCols)
+        self_type& resizeSlow(size_type inNumRows, size_type inNumCols)
         {
             std::vector<dtype> oldData(size_);
             stl_algorithms::copy(begin(), end(), oldData.begin());
@@ -4057,7 +4262,7 @@ namespace nc
         ///
         /// @param inShape
         ///
-        NdArray<dtype>& resizeSlow(const Shape& inShape)
+        self_type& resizeSlow(const Shape& inShape)
         {
             return resizeSlow(inShape.rows, inShape.cols);
         }
@@ -4072,13 +4277,13 @@ namespace nc
         /// @param inNumDecimals (default 0)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> round(uint8 inNumDecimals = 0) const
+        [[nodiscard]] self_type round(uint8 inNumDecimals = 0) const
         {
             STATIC_ASSERT_FLOAT(dtype);
 
-            NdArray<dtype> returnArray(shape_);
-            const double   multFactor = utils::power(10., inNumDecimals);
-            const auto     function   = [multFactor](dtype value) noexcept -> dtype
+            self_type    returnArray(shape_);
+            const double multFactor = utils::power(10., inNumDecimals);
+            const auto   function   = [multFactor](dtype value) noexcept -> dtype
             { return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor); };
 
             stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
@@ -4093,9 +4298,9 @@ namespace nc
         ///
         /// @return Shape
         ///
-        NdArray<dtype> row(size_type inRow)
+        [[nodiscard]] self_type row(size_type inRow)
         {
-            return NdArray<dtype>(cbegin(inRow), cend(inRow));
+            return self_type(cbegin(inRow), cend(inRow));
         }
 
         //============================================================================
@@ -4133,7 +4338,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return size
         ///
-        NdArray<dtype>& sort(Axis inAxis = Axis::NONE)
+        self_type& sort(Axis inAxis = Axis::NONE)
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4157,7 +4362,7 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
+                    self_type transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         stl_algorithms::sort(transposedArray.begin(row), transposedArray.end(row), comparitor);
@@ -4213,7 +4418,7 @@ namespace nc
         /// @param inAxis (Optional, default NONE)
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> sum(Axis inAxis = Axis::NONE) const
+        [[nodiscard]] self_type sum(Axis inAxis = Axis::NONE) const
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 
@@ -4221,12 +4426,12 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { std::accumulate(cbegin(), cend(), dtype{ 0 }) };
+                    self_type returnArray = { std::accumulate(cbegin(), cend(), dtype{ 0 }) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    self_type returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(cbegin(row), cend(row), dtype{ 0 });
@@ -4254,7 +4459,7 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> swapaxes() const
+        [[nodiscard]] self_type swapaxes() const
         {
             return transpose();
         }
@@ -4265,13 +4470,16 @@ namespace nc
         ///
         /// @param colIdx1
         /// @param colIdx2
+        /// @return reference to self
         ///
-        void swapCols(index_type colIdx1, index_type colIdx2) noexcept
+        self_type& swapCols(index_type colIdx1, index_type colIdx2) noexcept
         {
             for (index_type row = 0; row < static_cast<index_type>(shape_.rows); ++row)
             {
                 std::swap(operator()(row, colIdx1), operator()(row, colIdx2));
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -4281,12 +4489,15 @@ namespace nc
         /// @param rowIdx1
         /// @param rowIdx2
         ///
-        void swapRows(index_type rowIdx1, index_type rowIdx2) noexcept
+        /// @return reference to self
+        self_type& swapRows(index_type rowIdx1, index_type rowIdx2) noexcept
         {
             for (index_type col = 0; col < static_cast<index_type>(shape_.cols); ++col)
             {
                 std::swap(operator()(rowIdx1, col), operator()(rowIdx2, col));
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -4354,7 +4565,7 @@ namespace nc
         ///
         /// @return NdArray<index_type>
         ///
-        [[nodiscard]] NdArray<size_type> toIndices(Slice inSlice, Axis inAxis = Axis::ROW) const
+        [[nodiscard]] NdArray<size_type> toIndices(Slice inSlice, Axis inAxis = Axis::NONE) const
         {
             size_type numElements = 0;
             switch (inAxis)
@@ -4473,9 +4684,9 @@ namespace nc
         ///
         /// @return NdArray
         ///
-        [[nodiscard]] NdArray<dtype> transpose() const
+        [[nodiscard]] self_type transpose() const
         {
-            NdArray<dtype> transArray(shape_.cols, shape_.rows);
+            self_type transArray(shape_.cols, shape_.rows);
             for (uint32 row = 0; row < shape_.rows; ++row)
             {
                 for (uint32 col = 0; col < shape_.cols; ++col)
@@ -4491,7 +4702,7 @@ namespace nc
         /// Fills the array with zeros
         ///
         ///
-        NdArray<dtype>& zeros() noexcept
+        self_type& zeros() noexcept
         {
             STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype);
 

@@ -2,7 +2,11 @@
 
 ## Version 2.10.0
 
+* additional `NdArray` access operator overloads and `at()` overloads
+* additional `put()` overloads to `NdArray`
+* fixed **Issue #170**: slice and put with various integer index types
 * added `timeit` function
+* various minor performance improvements
 
 ## Version 2.9.0
 

@@ -481,20 +481,20 @@ namespace NdArrayInterface
         test1.resizeFast({ 10, 10 });
         test1 = testStruct;
 
-        test7.begin();
-        test5_1.begin(0);
-        test5_2.end();
-        test2.end(0);
+        [[maybe_unused]] const auto beg  = test7.begin();
+        [[maybe_unused]] const auto beg0 = test5_1.begin(0);
+        [[maybe_unused]] const auto end  = test5_2.end();
+        [[maybe_unused]] const auto end0 = test2.end(0);
 
         test2.resizeFast({ 10, 10 });
         test2                              = TestStruct{ 666, 357, 3.14519, true };
         [[maybe_unused]] const auto slice1 = test2.rSlice();
         [[maybe_unused]] const auto slice2 = test2.cSlice();
         test2.back();
-        test2.column(0);
-        [[maybe_unused]] const auto c = test2.copy();
-        test2.data();
-        [[maybe_unused]] const auto d = test2.diagonal();
+        [[maybe_unused]] const auto fr      = test2.column(0);
+        [[maybe_unused]] const auto c       = test2.copy();
+        [[maybe_unused]] const auto dataPtr = test2.data();
+        [[maybe_unused]] const auto d       = test2.diagonal();
         test2.dump("test.bin");
         remove("test.bin");
         test2.fill(TestStruct{ 0, 1, 6.5, false });
@@ -516,11 +516,11 @@ namespace NdArrayInterface
         test2.reshape(test2.size(), 1);
         test2.resizeFast(1, 1);
         test2.resizeSlow(10, 10);
-        test2.row(0);
-        [[maybe_unused]] const auto s1 = test2.shape();
-        [[maybe_unused]] const auto s2 = test2.size();
-        [[maybe_unused]] const auto s3 = test2.swapaxes();
-        [[maybe_unused]] const auto t  = test2.transpose();
+        [[maybe_unused]] const auto row0 = test2.row(0);
+        [[maybe_unused]] const auto s1   = test2.shape();
+        [[maybe_unused]] const auto s2   = test2.size();
+        [[maybe_unused]] const auto s3   = test2.swapaxes();
+        [[maybe_unused]] const auto t    = test2.transpose();
 
         return true;
     }
@@ -586,6 +586,127 @@ namespace NdArrayInterface
     pbArrayGeneric argsort(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return nc2pybind(self.argsort(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype atValueFlat(NdArray<dtype>& self, int32 inIndex)
+    {
+        return self.at(inIndex);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype atValueFlatConst(const NdArray<dtype>& self, int32 inIndex)
+    {
+        return self.at(inIndex);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype atValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return self.at(inRow, inCol);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype atValueRowColConst(const NdArray<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return self.at(inRow, inCol);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atMask(const NdArray<dtype>& self, const NdArray<bool>& mask)
+    {
+        return nc2pybind(self.at(mask));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atIndices(const NdArray<dtype>& self, const NdArray<int32>& indices)
+    {
+        return nc2pybind(self.at(indices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atSlice1D(const NdArray<dtype>& self, const Slice& inSlice)
+    {
+        return nc2pybind(self.at(inSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atSlice2D(const NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
+    {
+        return nc2pybind(self.at(inRowSlice, inColSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atSlice2DCol(const NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
+    {
+        return nc2pybind(self.at(inRowSlice, inColIndex));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atSlice2DRow(const NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
+    {
+        return nc2pybind(self.at(inRowIndex, inColSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
+    {
+        return nc2pybind(self.at(rowIndices, colIndex));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atIndicesSlice(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, Slice colSlice)
+    {
+        return nc2pybind(self.at(rowIndices, colSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atScalerIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self.at(rowIndex, colIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric atSliceIndices(const NdArray<dtype>& self, Slice rowSlice, const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self.at(rowSlice, colIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        atIndices2D(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, const NdArray<int32>& colIndices)
+    {
+        return nc2pybind(self.at(rowIndices, colIndices));
     }
 
     //================================================================================
@@ -776,7 +897,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndices(const NdArray<dtype>& self, const NdArray<typename NdArray<dtype>::size_type>& indices)
+    pbArrayGeneric getIndices(const NdArray<dtype>& self, const NdArray<int32>& indices)
     {
         return nc2pybind(self[indices]);
     }
@@ -982,6 +1103,26 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric putIndices1DValue(NdArray<dtype>& self, const NdArray<int32>& inIndices, dtype inValue)
+    {
+        self.put(inIndices, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        putIndices1DValues(NdArray<dtype>& self, const NdArray<int32>& inIndices, pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inIndices, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
     {
         self.put(inSlice, inValue);
@@ -1001,10 +1142,58 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric putIndices2DValue(NdArray<dtype>&       self,
+                                     const NdArray<int32>& inRowIndices,
+                                     const NdArray<int32>& inColIndices,
+                                     dtype                 inValue)
+    {
+        self.put(inRowIndices, inColIndices, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowIndicesColSliceValues(NdArray<dtype>&       self,
+                                               const NdArray<int32>& inRowIndices,
+                                               const Slice&          inColSlice,
+                                               pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inRowIndices, inColSlice, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowSliceColIndicesValues(NdArray<dtype>&       self,
+                                               const Slice&          inRowSlice,
+                                               const NdArray<int32>& inColIndices,
+                                               pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inRowSlice, inColIndices, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric
         putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inSliceRow, inSliceCol, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        putIndices2DValueRow(NdArray<dtype>& self, int32 inRowIndex, const NdArray<int32>& inColIndices, dtype inValue)
+    {
+        self.put(inRowIndex, inColIndices, inValue);
         return nc2pybind(self);
     }
 
@@ -1020,9 +1209,56 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric
+        putIndices2DValueCol(NdArray<dtype>& self, const NdArray<int32>& inRowIndices, int32 inColIndex, dtype inValue)
+    {
+        self.put(inRowIndices, inColIndex, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric putSlice2DValueCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
     {
         self.put(inSliceRow, inColIndex, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValues(NdArray<dtype>&       self,
+                                      const NdArray<int32>& inRowIndices,
+                                      const NdArray<int32>& inColIndices,
+                                      pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inRowIndices, inColIndices, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowIndicesColSliceValue(NdArray<dtype>&       self,
+                                              const NdArray<int32>& inRowIndices,
+                                              const Slice&          inColSlice,
+                                              dtype                 inValue)
+    {
+        self.put(inRowIndices, inColSlice, inValue);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowSliceColIndicesValue(NdArray<dtype>&       self,
+                                              const Slice&          inRowSlice,
+                                              const NdArray<int32>& inColIndices,
+                                              dtype                 inValue)
+    {
+        self.put(inRowSlice, inColIndices, inValue);
         return nc2pybind(self);
     }
 
@@ -1042,6 +1278,19 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric putIndices2DValuesRow(NdArray<dtype>&       self,
+                                         int32                 inRowIndex,
+                                         const NdArray<int32>& inColIndices,
+                                         pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inRowIndex, inColIndices, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric putSlice2DValuesRow(NdArray<dtype>& self,
                                        int32           inRowIndex,
                                        const Slice&    inSliceCol,
@@ -1049,6 +1298,19 @@ namespace NdArrayInterface
     {
         NdArray<dtype> inValues = pybind2nc(inArrayValues);
         self.put(inRowIndex, inSliceCol, inValues);
+        return nc2pybind(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValuesCol(NdArray<dtype>&       self,
+                                         const NdArray<int32>& inRowIndices,
+                                         int32                 inColIndex,
+                                         pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        self.put(inRowIndices, inColIndex, inValues);
         return nc2pybind(self);
     }
 
@@ -2380,30 +2642,6 @@ void initNdArray(pb11::module& m)
         .def("__ge__", IteratorInterface::operatorGreaterEqual<NdArrayComplexDoubleConstReverseColumnIterator>)
         .def("__getitem__", &IteratorInterface::access<NdArrayComplexDoubleConstReverseColumnIterator>);
 
-    NdArrayDouble::reference (NdArrayDouble::*atSingleScaler)(int32)                          = &NdArrayDouble::at;
-    NdArrayDouble::const_reference (NdArrayDouble::*atSingleScalerConst)(int32) const         = &NdArrayDouble::at;
-    NdArrayDouble::reference (NdArrayDouble::*atRowColScalers)(int32, int32)                  = &NdArrayDouble::at;
-    NdArrayDouble::const_reference (NdArrayDouble::*atRowColScalersConst)(int32, int32) const = &NdArrayDouble::at;
-    NdArrayDouble (NdArrayDouble::*atSlice)(const Slice&) const                               = &NdArrayDouble::at;
-    NdArrayDouble (NdArrayDouble::*atSliceSlice)(const Slice&, const Slice&) const            = &NdArrayDouble::at;
-    NdArrayDouble (NdArrayDouble::*atSliceInt)(const Slice&, int32) const                     = &NdArrayDouble::at;
-    NdArrayDouble (NdArrayDouble::*atIntSlice)(int32, const Slice&) const                     = &NdArrayDouble::at;
-
-    NdArrayComplexDouble::reference (NdArrayComplexDouble::*atComplexSingleScaler)(int32) = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::const_reference (NdArrayComplexDouble::*atComplexSingleScalerConst)(int32) const =
-        &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::reference (NdArrayComplexDouble::*atComplexRowColScalers)(int32, int32) =
-        &NdArrayComplexDouble::at;
-    NdArrayComplexDouble::const_reference (NdArrayComplexDouble::*atComplexRowColScalersConst)(int32, int32) const =
-        &NdArrayComplexDouble::at;
-    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSlice)(const Slice&) const = &NdArrayComplexDouble::at;
-    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSliceSlice)(const Slice&, const Slice&) const =
-        &NdArrayComplexDouble::at;
-    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexSliceInt)(const Slice&, int32) const =
-        &NdArrayComplexDouble::at;
-    NdArrayComplexDouble (NdArrayComplexDouble::*atComplexIntSlice)(int32, const Slice&) const =
-        &NdArrayComplexDouble::at;
-
     NdArrayDoubleIterator (NdArrayDouble::*begin)()                                            = &NdArrayDouble::begin;
     NdArrayDoubleIterator (NdArrayDouble::*beginRow)(NdArrayDouble::size_type)                 = &NdArrayDouble::begin;
     NdArrayDoubleConstIterator (NdArrayDouble::*beginConst)() const                            = &NdArrayDouble::cbegin;
@@ -2583,14 +2821,21 @@ void initNdArray(pb11::module& m)
         .def("get", &NdArrayInterface::getScalerIndices<double>)
         .def("get", &NdArrayInterface::getSliceIndices<double>)
         .def("get", &NdArrayInterface::getIndices2D<double>)
-        .def("at", atSingleScaler, pb11::return_value_policy::copy)
-        .def("atConst", atSingleScalerConst, pb11::return_value_policy::copy)
-        .def("at", atRowColScalers, pb11::return_value_policy::copy)
-        .def("atConst", atRowColScalersConst, pb11::return_value_policy::copy)
-        .def("at", atSlice)
-        .def("at", atSliceSlice)
-        .def("at", atSliceInt)
-        .def("at", atIntSlice)
+        .def("at", &NdArrayInterface::atValueFlat<double>)
+        .def("atConst", &NdArrayInterface::atValueFlatConst<double>)
+        .def("at", &NdArrayInterface::atValueRowCol<double>)
+        .def("atConst", &NdArrayInterface::atValueRowColConst<double>)
+        .def("at", &NdArrayInterface::atMask<double>)
+        .def("at", &NdArrayInterface::atIndices<double>)
+        .def("at", &NdArrayInterface::atSlice1D<double>)
+        .def("at", &NdArrayInterface::atSlice2D<double>)
+        .def("at", &NdArrayInterface::atSlice2DRow<double>)
+        .def("at", &NdArrayInterface::atSlice2DCol<double>)
+        .def("at", &NdArrayInterface::atIndicesScaler<double>)
+        .def("at", &NdArrayInterface::atIndicesSlice<double>)
+        .def("at", &NdArrayInterface::atScalerIndices<double>)
+        .def("at", &NdArrayInterface::atSliceIndices<double>)
+        .def("at", &NdArrayInterface::atIndices2D<double>)
         .def("begin", begin)
         .def("begin", beginRow)
         .def("colbegin", colbegin)
@@ -2673,13 +2918,25 @@ void initNdArray(pb11::module& m)
         .def("ptp", &NdArrayInterface::ptp<double>)
         .def("put", &NdArrayInterface::putFlat<double>)
         .def("put", &NdArrayInterface::putRowCol<double>)
+        .def("put", &NdArrayInterface::putIndices1DValue<double>)
+        .def("put", &NdArrayInterface::putIndices1DValues<double>)
         .def("put", &NdArrayInterface::putSlice1DValue<double>)
         .def("put", &NdArrayInterface::putSlice1DValues<double>)
+        .def("put", &NdArrayInterface::putIndices2DValue<double>)
+        .def("put", &NdArrayInterface::putRowIndicesColSliceValue<double>)
+        .def("put", &NdArrayInterface::putRowSliceColIndicesValue<double>)
         .def("put", &NdArrayInterface::putSlice2DValue<double>)
+        .def("put", &NdArrayInterface::putIndices2DValueRow<double>)
         .def("put", &NdArrayInterface::putSlice2DValueRow<double>)
+        .def("put", &NdArrayInterface::putIndices2DValueCol<double>)
         .def("put", &NdArrayInterface::putSlice2DValueCol<double>)
+        .def("put", &NdArrayInterface::putIndices2DValues<double>)
+        .def("put", &NdArrayInterface::putRowIndicesColSliceValues<double>)
+        .def("put", &NdArrayInterface::putRowSliceColIndicesValues<double>)
         .def("put", &NdArrayInterface::putSlice2DValues<double>)
+        .def("put", &NdArrayInterface::putIndices2DValuesRow<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesRow<double>)
+        .def("put", &NdArrayInterface::putIndices2DValuesCol<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
         .def("putMask", &NdArrayInterface::putMaskSingle<double>)
         .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
@@ -3057,14 +3314,26 @@ void initNdArray(pb11::module& m)
         .def("get", &NdArrayInterface::getSlice2D<ComplexDouble>)
         .def("get", &NdArrayInterface::getSlice2DRow<ComplexDouble>)
         .def("get", &NdArrayInterface::getSlice2DCol<ComplexDouble>)
-        .def("at", atComplexSingleScaler, pb11::return_value_policy::copy)
-        .def("atConst", atComplexSingleScalerConst, pb11::return_value_policy::copy)
-        .def("at", atComplexRowColScalers, pb11::return_value_policy::copy)
-        .def("atConst", atComplexRowColScalersConst, pb11::return_value_policy::copy)
-        .def("at", atComplexSlice)
-        .def("at", atComplexSliceSlice)
-        .def("at", atComplexSliceInt)
-        .def("at", atComplexIntSlice)
+        .def("get", &NdArrayInterface::getIndicesScaler<ComplexDouble>)
+        .def("get", &NdArrayInterface::getIndicesSlice<ComplexDouble>)
+        .def("get", &NdArrayInterface::getScalerIndices<ComplexDouble>)
+        .def("get", &NdArrayInterface::getSliceIndices<ComplexDouble>)
+        .def("get", &NdArrayInterface::getIndices2D<ComplexDouble>)
+        .def("at", &NdArrayInterface::atValueFlat<ComplexDouble>)
+        .def("atConst", &NdArrayInterface::atValueFlatConst<ComplexDouble>)
+        .def("at", &NdArrayInterface::atValueRowCol<ComplexDouble>)
+        .def("atConst", &NdArrayInterface::atValueRowColConst<ComplexDouble>)
+        .def("at", &NdArrayInterface::atMask<ComplexDouble>)
+        .def("at", &NdArrayInterface::atIndices<ComplexDouble>)
+        .def("at", &NdArrayInterface::atSlice1D<ComplexDouble>)
+        .def("at", &NdArrayInterface::atSlice2D<ComplexDouble>)
+        .def("at", &NdArrayInterface::atSlice2DRow<ComplexDouble>)
+        .def("at", &NdArrayInterface::atSlice2DCol<ComplexDouble>)
+        .def("at", &NdArrayInterface::atIndicesScaler<ComplexDouble>)
+        .def("at", &NdArrayInterface::atIndicesSlice<ComplexDouble>)
+        .def("at", &NdArrayInterface::atScalerIndices<ComplexDouble>)
+        .def("at", &NdArrayInterface::atSliceIndices<ComplexDouble>)
+        .def("at", &NdArrayInterface::atIndices2D<ComplexDouble>)
         .def("begin", beginComplex)
         .def("begin", beginRowComplex)
         .def("colbegin", colbeginComplex)
@@ -3154,13 +3423,25 @@ void initNdArray(pb11::module& m)
         .def("ptp", &NdArrayInterface::ptp<ComplexDouble>)
         .def("put", &NdArrayInterface::putFlat<ComplexDouble>)
         .def("put", &NdArrayInterface::putRowCol<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices1DValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices1DValues<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice1DValue<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice1DValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putRowIndicesColSliceValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putRowSliceColIndicesValue<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValue<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValueRow<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValueRow<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValueCol<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValueCol<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putRowIndicesColSliceValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putRowSliceColIndicesValues<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValues<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValuesRow<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValuesRow<ComplexDouble>)
+        .def("put", &NdArrayInterface::putIndices2DValuesCol<ComplexDouble>)
         .def("put", &NdArrayInterface::putSlice2DValuesCol<ComplexDouble>)
         .def("putMask", &NdArrayInterface::putMaskSingle<ComplexDouble>)
         .def("putMask", &NdArrayInterface::putMaskMultiple<ComplexDouble>)

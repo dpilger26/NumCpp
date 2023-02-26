@@ -147,8 +147,7 @@ namespace nc
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize) +
-                                             ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize));
             }
 
             /// convert the stop value
@@ -158,8 +157,7 @@ namespace nc
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize) +
-                                             ".");
+                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize));
             }
 
             /// do some error checking
