@@ -45,15 +45,18 @@ namespace nc
     ///
     /// @return NdArray
     ///
-    template<typename dtype>
-    std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const NdArray<int32>& indices)
+    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    std::vector<NdArray<dtype>> vsplit(const NdArray<dtype>& inArray, const Indices& indices)
     {
         const auto numRows       = inArray.numRows();
-        auto       uniqueIndices = unique(indices);
-        stl_algorithms::for_each(uniqueIndices.begin(),
-                                 uniqueIndices.end(),
-                                 [numRows](auto& index) noexcept -> void { index += index < 0 ? numRows : 0; });
-        uniqueIndices = unique(uniqueIndices);
+        auto       uniqueIndices = unique(indices).template astype<int32>();
+        if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+        {
+            stl_algorithms::for_each(uniqueIndices.begin(),
+                                     uniqueIndices.end(),
+                                     [numRows](auto& index) noexcept -> void { index += index < 0 ? numRows : 0; });
+            uniqueIndices = unique(uniqueIndices);
+        }
 
         std::vector<NdArray<dtype>> splits{};
         splits.reserve(uniqueIndices.size() + 1);
