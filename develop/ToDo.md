@@ -3,9 +3,7 @@
 * replace uint32 with size_type and int32 with index_type where applicable
 
 * issue #177: slice with integer index types
-  * put() function overloads
   * deleteIndices()
-  * take()
 
 * add 3d operator(row, col, z) to DataCube
 * issue #170: insert()

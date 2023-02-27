@@ -1999,6 +1999,253 @@ namespace FunctionsInterface
         return nc2pybind(proj(inArray));
     }
 
+    template<typename dtype>
+    pbArrayGeneric putFlat(NdArray<dtype>& inArray, int32 inIndex, dtype inValue)
+    {
+        put(inArray, inIndex, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowCol(NdArray<dtype>& inArray, int32 inRow, int32 inCol, dtype inValue)
+    {
+        put(inArray, inRow, inCol, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices1DValue(NdArray<dtype>& inArray, const NdArray<int32>& inIndices, dtype inValue)
+    {
+        put(inArray, inIndices, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        putIndices1DValues(NdArray<dtype>& inArray, const NdArray<int32>& inIndices, pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inIndices, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice1DValue(NdArray<dtype>& inArray, const Slice& inSlice, dtype inValue)
+    {
+        put(inArray, inSlice, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice1DValues(NdArray<dtype>& inArray, const Slice& inSlice, pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inSlice, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValue(NdArray<dtype>&       inArray,
+                                     const NdArray<int32>& inRowIndices,
+                                     const NdArray<int32>& inColIndices,
+                                     dtype                 inValue)
+    {
+        put(inArray, inRowIndices, inColIndices, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowIndicesColSliceValues(NdArray<dtype>&       inArray,
+                                               const NdArray<int32>& inRowIndices,
+                                               const Slice&          inColSlice,
+                                               pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowIndices, inColSlice, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowSliceColIndicesValues(NdArray<dtype>&       inArray,
+                                               const Slice&          inRowSlice,
+                                               const NdArray<int32>& inColIndices,
+                                               pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowSlice, inColIndices, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        putSlice2DValue(NdArray<dtype>& inArray, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+    {
+        put(inArray, inSliceRow, inSliceCol, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValueRow(NdArray<dtype>&       inArray,
+                                        int32                 inRowIndex,
+                                        const NdArray<int32>& inColIndices,
+                                        dtype                 inValue)
+    {
+        put(inArray, inRowIndex, inColIndices, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice2DValueRow(NdArray<dtype>& inArray, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
+    {
+        put(inArray, inRowIndex, inSliceCol, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValueCol(NdArray<dtype>&       inArray,
+                                        const NdArray<int32>& inRowIndices,
+                                        int32                 inColIndex,
+                                        dtype                 inValue)
+    {
+        put(inArray, inRowIndices, inColIndex, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice2DValueCol(NdArray<dtype>& inArray, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
+    {
+        put(inArray, inSliceRow, inColIndex, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValues(NdArray<dtype>&       inArray,
+                                      const NdArray<int32>& inRowIndices,
+                                      const NdArray<int32>& inColIndices,
+                                      pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowIndices, inColIndices, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowIndicesColSliceValue(NdArray<dtype>&       inArray,
+                                              const NdArray<int32>& inRowIndices,
+                                              const Slice&          inColSlice,
+                                              dtype                 inValue)
+    {
+        put(inArray, inRowIndices, inColSlice, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putRowSliceColIndicesValue(NdArray<dtype>&       inArray,
+                                              const Slice&          inRowSlice,
+                                              const NdArray<int32>& inColIndices,
+                                              dtype                 inValue)
+    {
+        put(inArray, inRowSlice, inColIndices, inValue);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice2DValues(NdArray<dtype>& inArray,
+                                    const Slice&    inSliceRow,
+                                    const Slice&    inSliceCol,
+                                    pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inSliceRow, inSliceCol, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValuesRow(NdArray<dtype>&       inArray,
+                                         int32                 inRowIndex,
+                                         const NdArray<int32>& inColIndices,
+                                         pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowIndex, inColIndices, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice2DValuesRow(NdArray<dtype>& inArray,
+                                       int32           inRowIndex,
+                                       const Slice&    inSliceCol,
+                                       pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowIndex, inSliceCol, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putIndices2DValuesCol(NdArray<dtype>&       inArray,
+                                         const NdArray<int32>& inRowIndices,
+                                         int32                 inColIndex,
+                                         pbArray<dtype>&       inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inRowIndices, inColIndex, inValues);
+        return nc2pybind(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric putSlice2DValuesCol(NdArray<dtype>& inArray,
+                                       const Slice&    inSliceRow,
+                                       int32           inColIndex,
+                                       pbArray<dtype>& inArrayValues)
+    {
+        NdArray<dtype> inValues = pybind2nc(inArrayValues);
+        put(inArray, inSliceRow, inColIndex, inValues);
+        return nc2pybind(inArray);
+    }
+
     //================================================================================
 
     template<typename dtype>
@@ -3139,10 +3386,50 @@ void initFunctions(pb11::module& m)
     m.def("projArray", &FunctionsInterface::projArray<double>);
     m.def("ptp", &ptp<double>);
     m.def("ptp", &ptp<ComplexDouble>);
-    NdArray<double>& (*putDoubleValue)(NdArray<double>&, const NdArray<uint32>&, double) = &put<double>;
-    m.def("put", putDoubleValue, pb11::return_value_policy::reference);
-    NdArray<double>& (*putDoubleArray)(NdArray<double>&, const NdArray<uint32>&, const NdArray<double>&) = &put<double>;
-    m.def("put", putDoubleArray, pb11::return_value_policy::reference);
+    m.def("put", &FunctionsInterface::putFlat<double>);
+    m.def("put", &FunctionsInterface::putFlat<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putRowCol<double>);
+    m.def("put", &FunctionsInterface::putRowCol<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices1DValue<double>);
+    m.def("put", &FunctionsInterface::putIndices1DValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices1DValues<double>);
+    m.def("put", &FunctionsInterface::putIndices1DValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice1DValue<double>);
+    m.def("put", &FunctionsInterface::putSlice1DValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice1DValues<double>);
+    m.def("put", &FunctionsInterface::putSlice1DValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValue<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putRowIndicesColSliceValue<double>);
+    m.def("put", &FunctionsInterface::putRowIndicesColSliceValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putRowSliceColIndicesValue<double>);
+    m.def("put", &FunctionsInterface::putRowSliceColIndicesValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValue<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValue<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValueRow<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValueRow<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValueRow<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValueRow<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValueCol<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValueCol<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValueCol<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValueCol<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValues<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putRowIndicesColSliceValues<double>);
+    m.def("put", &FunctionsInterface::putRowIndicesColSliceValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putRowSliceColIndicesValues<double>);
+    m.def("put", &FunctionsInterface::putRowSliceColIndicesValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValues<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValues<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValuesRow<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValuesRow<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValuesRow<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValuesRow<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putIndices2DValuesCol<double>);
+    m.def("put", &FunctionsInterface::putIndices2DValuesCol<ComplexDouble>);
+    m.def("put", &FunctionsInterface::putSlice2DValuesCol<double>);
+    m.def("put", &FunctionsInterface::putSlice2DValuesCol<ComplexDouble>);
     m.def("putmask", &FunctionsInterface::putmask<double>);
     m.def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
 
