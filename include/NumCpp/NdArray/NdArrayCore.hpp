@@ -3586,7 +3586,9 @@ namespace nc
         ///
         self_type& put(index_type inRow, index_type inCol, const value_type& inValue)
         {
-            return put(inRow * shape_.cols + inCol, inValue);
+            at(inRow, inCol) = inValue;
+
+            return *this;
         }
 
         //============================================================================
@@ -3690,7 +3692,7 @@ namespace nc
                                      {
                                          stl_algorithms::for_each(inColIndices.begin(),
                                                                   inColIndices.end(),
-                                                                  [this, &row, &inValue](const auto col)
+                                                                  [this, row, &inValue](const auto col)
                                                                   { put(row, col, inValue); });
                                      });
 
@@ -3836,15 +3838,42 @@ namespace nc
         {
             std::vector<size_type> indices;
             indices.reserve(inRowIndices.size() * inColIndices.size());
-            stl_algorithms::for_each(inRowIndices.begin(),
-                                     inRowIndices.end(),
-                                     [this, &inColIndices, &indices](const auto row)
-                                     {
-                                         stl_algorithms::for_each(inColIndices.begin(),
-                                                                  inColIndices.end(),
-                                                                  [this, &row, &indices](const auto col)
-                                                                  { indices.push_back(row * shape_.cols + col); });
-                                     });
+            std::for_each(inRowIndices.begin(),
+                          inRowIndices.end(),
+                          [this, &inColIndices, &indices](auto row)
+                          {
+                              if constexpr (std::is_signed_v<decltype(row)>)
+                              {
+                                  if (row < 0)
+                                  {
+                                      row += shape_.rows;
+                                  }
+                                  // still
+                                  if (row < 0)
+                                  {
+                                      THROW_INVALID_ARGUMENT_ERROR("row index exceeds matrix dimensions");
+                                  }
+                              }
+                              std::for_each(inColIndices.begin(),
+                                            inColIndices.end(),
+                                            [this, row, &indices](auto col)
+                                            {
+                                                if constexpr (std::is_signed_v<decltype(col)>)
+                                                {
+                                                    if (col < 0)
+                                                    {
+                                                        col += shape_.cols;
+                                                    }
+                                                    // still
+                                                    if (col < 0)
+                                                    {
+                                                        THROW_INVALID_ARGUMENT_ERROR(
+                                                            "col index exceeds matrix dimensions");
+                                                    }
+                                                }
+                                                indices.push_back(row * shape_.cols + col);
+                                            });
+                          });
 
             return put(NdArray<size_type>(indices.data(), indices.size(), false), inValues);
         }
