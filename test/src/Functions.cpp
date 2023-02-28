@@ -935,6 +935,14 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric deleteIndicesIndices(const NdArray<dtype>& inArray, const NdArray<int32>& inIndices, Axis inAxis)
+    {
+        return nc2pybind(deleteIndices(inArray, inIndices, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis inAxis)
     {
         return nc2pybind(deleteIndices(inArray, inIndices, inAxis));
@@ -3093,6 +3101,7 @@ void initFunctions(pb11::module& m)
     m.def("degreesScaler", &FunctionsInterface::degreesScaler<double>);
     m.def("degreesArray", &FunctionsInterface::degreesArray<double>);
     m.def("deleteIndicesScaler", &FunctionsInterface::deleteIndicesScaler<double>);
+    m.def("deleteIndicesIndices", &FunctionsInterface::deleteIndicesIndices<double>);
     m.def("deleteIndicesSlice", &FunctionsInterface::deleteIndicesSlice<double>);
     m.def("diag", &FunctionsInterface::diag<double>);
     m.def("diag", &FunctionsInterface::diag<ComplexDouble>);

@@ -2343,36 +2343,6 @@ def test_deleteIndices():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
-    cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.NONE).flatten(),
-                          np.delete(data, indicesPy, axis=None))
-
-    shapeInput = np.asarray([100, 100])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
-    cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.ROW),
-                          np.delete(data, indicesPy, axis=0))
-
-    shapeInput = np.asarray([100, 100])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
-    indices = NumCpp.Slice(0, 100, 4)
-    indicesPy = slice(0, 99, 4)
-    cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.COL),
-                          np.delete(data, indicesPy, axis=1))
-
-    shapeInput = np.asarray([100, 100])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(1, 100, [shape.rows, shape.cols])
     index = np.random.randint(0, shape.size(), [1, ]).item()
     cArray.setArray(data)
     assert np.array_equal(NumCpp.deleteIndicesScaler(cArray, index, NumCpp.Axis.NONE).flatten(),
@@ -2395,6 +2365,69 @@ def test_deleteIndices():
     cArray.setArray(data)
     assert np.array_equal(NumCpp.deleteIndicesScaler(
         cArray, index, NumCpp.Axis.COL), np.delete(data, index, axis=1))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    indices = NumCpp.Slice(0, 100, 4)
+    indicesPy = slice(0, 99, 4)
+    cArray.setArray(data)
+    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.NONE).flatten(),
+                          np.delete(data, indicesPy, axis=None))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    indices = NumCpp.Slice(0, 100, 4)
+    indicesPy = slice(0, 99, 4)
+    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.ROW),
+                          np.delete(data, indicesPy, axis=0))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    indices = NumCpp.Slice(0, 100, 4)
+    indicesPy = slice(0, 99, 4)
+    assert np.array_equal(NumCpp.deleteIndicesSlice(cArray, indices, NumCpp.Axis.COL),
+                          np.delete(data, indicesPy, axis=1))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    indicesPy = np.arange(0, 100, 4).astype(np.int32)
+    cIndices = NumCpp.NdArrayInt32(1, indicesPy.size)
+    cIndices.setArray(indicesPy)
+    assert np.array_equal(NumCpp.deleteIndicesIndices(cArray, cIndices, NumCpp.Axis.NONE).flatten(),
+                          np.delete(data, indicesPy, axis=None))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    indicesPy = np.arange(0, 100, 4).astype(np.int32)
+    cIndices = NumCpp.NdArrayInt32(1, indicesPy.size)
+    cIndices.setArray(indicesPy)
+    assert np.array_equal(NumCpp.deleteIndicesIndices(cArray, cIndices, NumCpp.Axis.ROW),
+                          np.delete(data, indicesPy, axis=0))
+
+    shapeInput = np.asarray([100, 100])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    indicesPy = np.arange(0, 100, 4).astype(np.int32)
+    cIndices = NumCpp.NdArrayInt32(1, indicesPy.size)
+    cIndices.setArray(indicesPy)
+    assert np.array_equal(NumCpp.deleteIndicesIndices(cArray, cIndices, NumCpp.Axis.COL),
+                          np.delete(data, indicesPy, axis=1))
 
 
 ####################################################################################

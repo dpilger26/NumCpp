@@ -3,7 +3,7 @@
 * replace uint32 with size_type and int32 with index_type where applicable
 
 * issue #177: slice with integer index types
-  * deleteIndices()
+  * multithread tests not passing
 
 * add 3d operator(row, col, z) to DataCube
 * issue #170: insert()

@@ -31,6 +31,7 @@
 #include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Functions/unique.hpp"
@@ -38,93 +39,217 @@
 
 namespace nc
 {
+    namespace detail
+    {
+        //============================================================================
+        // Method Description:
+        /// Return a new array with sub-arrays deleted.
+        ///
+        /// @param inArray
+        /// @param inIndices
+        /// @return NdArray
+        ///
+        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        NdArray<dtype> deleteFlatIndices(const NdArray<dtype>& inArray, Indices inIndices)
+        {
+            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            {
+                const auto arraySize = inArray.size();
+                stl_algorithms::for_each(inIndices.begin(),
+                                         inIndices.end(),
+                                         [arraySize](auto& value)
+                                         {
+                                             if (value < 0)
+                                             {
+                                                 value += arraySize;
+                                             }
+                                         });
+            }
+
+            auto indices = unique(inIndices);
+
+            std::vector<dtype> values;
+            values.reserve(indices.size());
+            for (int32 i = 0; i < static_cast<int32>(inArray.size()); ++i)
+            {
+                if (std::binary_search(indices.begin(), indices.end(), i))
+                {
+                    continue;
+                }
+
+                values.push_back(inArray[i]);
+            }
+
+            return NdArray<dtype>(values);
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Return a new array with sub-arrays along the row axis deleted.
+        ///
+        /// @param inArray
+        /// @param inIndices
+        /// @return NdArray
+        ///
+        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        NdArray<dtype> deleteRowIndices(const NdArray<dtype>& inArray, Indices inIndices)
+        {
+            const auto arrayRows = static_cast<int32>(inArray.numRows());
+            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            {
+                stl_algorithms::for_each(inIndices.begin(),
+                                         inIndices.end(),
+                                         [arrayRows](auto& value)
+                                         {
+                                             if (value < 0)
+                                             {
+                                                 value += arrayRows;
+                                             }
+                                         });
+            }
+
+            auto indices = unique(inIndices);
+
+            uint32 indicesSize = 0;
+            std::for_each(indices.begin(),
+                          indices.end(),
+                          [arrayRows, &indicesSize](auto& value)
+                          {
+                              if constexpr (std::is_signed_v<decltype(value)>)
+                              {
+                                  if (value >= 0 && value < arrayRows)
+                                  {
+                                      ++indicesSize;
+                                  }
+                              }
+                              else
+                              {
+                                  if (value < arrayRows)
+                                  {
+                                      ++indicesSize;
+                                  }
+                              }
+                          });
+
+            const auto     arrayCols = static_cast<int32>(inArray.numCols());
+            NdArray<dtype> returnArray(arrayRows - indicesSize, arrayCols);
+
+            uint32 rowCounter = 0;
+            for (int32 row = 0; row < arrayRows; ++row)
+            {
+                if (std::binary_search(indices.begin(), indices.end(), row))
+                {
+                    continue;
+                }
+
+                for (int32 col = 0; col < arrayCols; ++col)
+                {
+                    returnArray(rowCounter, col) = inArray(row, col);
+                }
+
+                ++rowCounter;
+            }
+
+            return returnArray;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Return a new array with sub-arrays along the col axis deleted.
+        ///
+        /// @param inArray
+        /// @param inIndices
+        /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
+        /// @return NdArray
+        ///
+        template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+        NdArray<dtype> deleteColumnIndices(const NdArray<dtype>& inArray, Indices inIndices)
+        {
+            const auto arrayCols = static_cast<int32>(inArray.numCols());
+            if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+            {
+                stl_algorithms::for_each(inIndices.begin(),
+                                         inIndices.end(),
+                                         [arrayCols](auto& value)
+                                         {
+                                             if (value < 0)
+                                             {
+                                                 value += arrayCols;
+                                             }
+                                         });
+            }
+
+            auto indices = unique(inIndices);
+
+            uint32 indicesSize = 0;
+            std::for_each(indices.begin(),
+                          indices.end(),
+                          [arrayCols, &indicesSize](auto& value)
+                          {
+                              if constexpr (std::is_signed_v<decltype(value)>)
+                              {
+                                  if (value >= 0 && value < arrayCols)
+                                  {
+                                      ++indicesSize;
+                                  }
+                              }
+                              else
+                              {
+                                  if (value < arrayCols)
+                                  {
+                                      ++indicesSize;
+                                  }
+                              }
+                          });
+
+            const auto     arrayRows = static_cast<int32>(inArray.numRows());
+            NdArray<dtype> returnArray(arrayRows, arrayCols - indicesSize);
+
+            uint32 colCounter = 0;
+            for (int32 col = 0; col < arrayCols; ++col)
+            {
+                if (std::binary_search(indices.begin(), indices.end(), col))
+                {
+                    continue;
+                }
+
+                for (int32 row = 0; row < arrayRows; ++row)
+                {
+                    returnArray(row, colCounter) = inArray(row, col);
+                }
+
+                ++colCounter;
+            }
+
+            return returnArray;
+        }
+    } // namespace detail
+
     //============================================================================
     // Method Description:
     /// Return a new array with sub-arrays along an axis deleted.
     ///
     /// @param inArray
-    /// @param inArrayIdxs
-    /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
+    /// @param inIndices
+    /// @param inAxis (Optional, default NONE) if NONE the indices will be applied to the flattened array
     /// @return NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype>
-        deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
+    template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Indices& inIndices, Axis inAxis = Axis::NONE)
     {
-        // make sure that the indices are unique first
-        NdArray<uint32> indices = unique(inArrayIdxs);
-
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                std::vector<dtype> values;
-                for (uint32 i = 0; i < inArray.size(); ++i)
-                {
-                    if (indices.contains(i).item())
-                    {
-                        continue;
-                    }
-
-                    values.push_back(inArray[i]);
-                }
-
-                return NdArray<dtype>(values);
+                return detail::deleteFlatIndices(inArray, inIndices);
             }
             case Axis::ROW:
             {
-                const Shape inShape = inArray.shape();
-                if (indices.max().item() >= inShape.rows)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of rows in the array.");
-                }
-
-                const uint32   numNewRows = inShape.rows - indices.size();
-                NdArray<dtype> returnArray(numNewRows, inShape.cols);
-
-                uint32 rowCounter = 0;
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    if (indices.contains(row).item())
-                    {
-                        continue;
-                    }
-
-                    for (uint32 col = 0; col < inShape.cols; ++col)
-                    {
-                        returnArray(rowCounter, col) = inArray(row, col);
-                    }
-                    ++rowCounter;
-                }
-
-                return returnArray;
+                return detail::deleteRowIndices(inArray, inIndices);
             }
             case Axis::COL:
             {
-                const Shape inShape = inArray.shape();
-                if (indices.max().item() >= inShape.cols)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of cols in the array.");
-                }
-
-                const uint32   numNewCols = inShape.cols - indices.size();
-                NdArray<dtype> returnArray(inShape.rows, numNewCols);
-
-                for (uint32 row = 0; row < inShape.rows; ++row)
-                {
-                    uint32 colCounter = 0;
-                    for (uint32 col = 0; col < inShape.cols; ++col)
-                    {
-                        if (indices.contains(col).item())
-                        {
-                            continue;
-                        }
-
-                        returnArray(row, colCounter++) = inArray(row, col);
-                    }
-                }
-
-                return returnArray;
+                return detail::deleteColumnIndices(inArray, inIndices);
             }
             default:
             {
@@ -144,37 +269,34 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, Slice inIndicesSlice, Axis inAxis = Axis::NONE)
     {
-        Slice sliceCopy(inIndicesSlice);
-
         switch (inAxis)
         {
             case Axis::NONE:
             {
-                sliceCopy.makePositiveAndValidate(inArray.size());
+                inIndicesSlice.makePositiveAndValidate(inArray.size());
                 break;
             }
             case Axis::ROW:
             {
-                sliceCopy.makePositiveAndValidate(inArray.shape().cols);
+                inIndicesSlice.makePositiveAndValidate(inArray.numRows());
                 break;
             }
             case Axis::COL:
             {
-                sliceCopy.makePositiveAndValidate(inArray.shape().rows);
+                inIndicesSlice.makePositiveAndValidate(inArray.numCols());
                 break;
             }
         }
 
-        std::vector<uint32> indices;
-        for (auto i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop);
-             i += sliceCopy.step)
+        std::vector<int32> indices;
+        for (auto i = inIndicesSlice.start; i < inIndicesSlice.stop; i += inIndicesSlice.step)
         {
             indices.push_back(i);
         }
 
-        return deleteIndices(inArray, NdArray<uint32>(indices), inAxis);
+        return deleteIndices(inArray, NdArray<int32>(indices.data(), indices.size(), false), inAxis);
     }
 
     //============================================================================
@@ -187,9 +309,9 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, int32 inIndex, Axis inAxis = Axis::NONE)
     {
-        NdArray<uint32> inIndices = { inIndex };
+        NdArray<int32> inIndices = { inIndex };
         return deleteIndices(inArray, inIndices, inAxis);
     }
 } // namespace nc
