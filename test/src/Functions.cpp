@@ -1442,6 +1442,75 @@ namespace FunctionsInterface
         return nc::inner(pybind2nc(a), pybind2nc(b));
     }
 
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertIndexScalar(const NdArray<dtype>& arr, int32 index, const dtype& value)
+    {
+        return nc2pybind(insert(arr, index, value));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertIndexArray(const NdArray<dtype>& arr, int32 index, const NdArray<dtype>& values)
+    {
+        return nc2pybind(insert(arr, index, values));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertIndexScalarAxis(const NdArray<dtype>& arr, int32 index, const dtype& value, Axis axis)
+    {
+        return nc2pybind(insert(arr, index, value, axis));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertIndexArrayAxis(const NdArray<dtype>& arr, int32 index, const NdArray<dtype>& values, Axis axis)
+    {
+        return nc2pybind(insert(arr, index, values, axis));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        insertIndicesScalar(const NdArray<dtype>& arr, const NdArray<int32>& indices, const dtype& value, Axis axis)
+    {
+        return nc2pybind(insert(arr, indices, value, axis));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertSliceScalar(const NdArray<dtype>& arr, const Slice& slice, const dtype& value, Axis axis)
+    {
+        return nc2pybind(insert(arr, slice, value, axis));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric insertIndicesArray(const NdArray<dtype>& arr,
+                                      const NdArray<int32>& indices,
+                                      const NdArray<dtype>& values,
+                                      Axis                  axis)
+    {
+        return nc2pybind(insert(arr, indices, values, axis));
+    }
+
+    //============================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        insertSliceArray(const NdArray<dtype>& arr, const Slice& slice, const NdArray<dtype>& values, Axis axis)
+    {
+        return nc2pybind(insert(arr, slice, values, axis));
+    }
+
     //================================================================================
 
     template<typename dtype>
@@ -3230,6 +3299,14 @@ void initFunctions(pb11::module& m)
     m.def("imagScaler", &FunctionsInterface::imagScaler<double>);
     m.def("imagArray", &FunctionsInterface::imagArray<double>);
     m.def("inner", &FunctionsInterface::inner<double>);
+    m.def("insert", &FunctionsInterface::insertIndexScalar<double>);
+    m.def("insert", &FunctionsInterface::insertIndexArray<double>);
+    m.def("insert", &FunctionsInterface::insertIndexScalarAxis<double>);
+    m.def("insert", &FunctionsInterface::insertIndexArrayAxis<double>);
+    m.def("insert", &FunctionsInterface::insertIndicesScalar<double>);
+    m.def("insert", &FunctionsInterface::insertSliceScalar<double>);
+    m.def("insert", &FunctionsInterface::insertIndicesArray<double>);
+    m.def("insert", &FunctionsInterface::insertSliceArray<double>);
     m.def("interp", &FunctionsInterface::interp<double>);
     m.def("intersect1d", &intersect1d<uint32>);
     m.def("invert", &invert<uint32>);

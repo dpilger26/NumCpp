@@ -31,6 +31,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -201,6 +202,24 @@ namespace nc
                 ++num;
             }
             return num;
+        }
+
+        //============================================================================
+        /// Returns the indices that coorespond to the slice
+        /// be aware that this method will also make the slice all
+        /// positive!
+        ///
+        /// @param inArrayDimSize: the size of the dimension that is being sliced
+        ///
+        std::vector<uint32> toIndices(uint32 inArrayDimSize)
+        {
+            std::vector<uint32> indices;
+            indices.reserve(numElements(inArrayDimSize));
+            for (int32 i = start; i <= stop; i += step)
+            {
+                indices.push_back(static_cast<uint32>(i));
+            }
+            return indices;
         }
 
         //============================================================================

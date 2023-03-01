@@ -104,9 +104,19 @@ namespace nc
         ///
         /// @return iterator
         ///
-        iterator begin() noexcept
+        [[nodiscard]] iterator begin() noexcept
         {
             return cube_.begin();
+        }
+
+        //============================================================================
+        /// Returns an const_iterator to the first 2d z "slice" of the cube.
+        ///
+        /// @return const_iterator
+        ///
+        [[nodiscard]] const_iterator begin() const noexcept
+        {
+            return cube_.cbegin();
         }
 
         //============================================================================
@@ -161,9 +171,19 @@ namespace nc
         ///
         /// @return iterator
         ///
-        iterator end() noexcept
+        [[nodiscard]] iterator end() noexcept
         {
             return cube_.end();
+        }
+
+        //============================================================================
+        /// Returns an const_iterator to 1 past the last 2d z "slice" of the cube.
+        ///
+        /// @return const_iterator
+        ///
+        [[nodiscard]] const_iterator end() const noexcept
+        {
+            return cube_.cend();
         }
 
         //============================================================================

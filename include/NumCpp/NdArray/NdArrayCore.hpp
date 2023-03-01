@@ -2594,6 +2594,37 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        /// Return size of the axis dimension
+        ///
+        /// @param inAxis: the array axis
+        /// @return size of the dimension
+        ///
+        [[nodiscard]] size_type dimSize(Axis inAxis) const noexcept
+        {
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    return size();
+                }
+                case Axis::ROW:
+                {
+                    return numRows();
+                }
+                case Axis::COL:
+                {
+                    return numCols();
+                }
+                default:
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("Unimplemented axis type.");
+                    return {}; // get rid of compiler warning
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         /// Dot product of two arrays.
         ///
         /// For 2-D arrays it is equivalent to matrix multiplication,

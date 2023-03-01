@@ -66,3 +66,13 @@ def test_set():
     assert cSlice.start == start and cSlice.stop == stop and cSlice.step == step
 
     cSlice.print()
+
+
+####################################################################################
+def test_numElements():
+    pass
+
+
+####################################################################################
+def test_toIndices():
+    pass
