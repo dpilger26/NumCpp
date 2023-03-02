@@ -2493,8 +2493,12 @@ def test_diagonal():
 
 
 ####################################################################################
-def test_dimsize():
-    pass
+def test_dimSize():
+    shapeInput = np.random.randint(20, 100, [2, ])
+    cArray = NumCpp.NdArray(NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item()))
+    assert cArray.dimSize(NumCpp.Axis.NONE) == np.prod(shapeInput)
+    assert cArray.dimSize(NumCpp.Axis.ROW) == shapeInput[0]
+    assert cArray.dimSize(NumCpp.Axis.COL) == shapeInput[1]
 
 
 ####################################################################################

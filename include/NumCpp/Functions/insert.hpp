@@ -27,6 +27,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Internal/Error.hpp"
+#include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -35,7 +37,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    /// Insert values along the given axis before the given indices.
+    /// Insert values before the given indices.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.insert.html
     ///
@@ -47,12 +49,13 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> insert(const NdArray<dtype>& arr, int32 index, const dtype& value)
     {
-        return {};
+        const NdArray<dtype> values = { value };
+        return insert(arr, index, values);
     }
 
     //============================================================================
     // Method Description:
-    /// Insert values along the given axis before the given indices.
+    /// Insert values before the given indices.
     ///
     /// NumPy Reference: https://numpy.org/doc/stable/reference/generated/numpy.insert.html
     ///
@@ -64,7 +67,35 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> insert(const NdArray<dtype>& arr, int32 index, const NdArray<dtype>& values)
     {
-        return {};
+        if (index < 0)
+        {
+            index += arr.size();
+            if (index < 0)
+            {
+                index = 0;
+            }
+        }
+        else if (index > static_cast<int32>(arr.size()))
+        {
+            index = arr.size();
+        }
+
+        auto result = NdArray<dtype>(1, arr.size() + values.size());
+
+        if (index > 0)
+        {
+            const auto sliceFront = Slice(index);
+            result.put(sliceFront, arr[sliceFront]);
+        }
+
+        result.put(Slice(index, index + values.size()), values.flatten());
+
+        if (index < static_cast<int32>(arr.size()))
+        {
+            result.put(result.cSlice(index + values.size()), arr[Slice(index, arr.size())]);
+        }
+
+        return result;
     }
 
     //============================================================================
@@ -82,26 +113,8 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> insert(const NdArray<dtype>& arr, int32 index, const dtype& value, Axis axis)
     {
-        switch (axis)
-        {
-            case Axis::NONE:
-            {
-                return insert(arr, index, value);
-            }
-            case Axis::ROW:
-            {
-                return {};
-            }
-            case Axis::COL:
-            {
-                return {};
-            }
-            default:
-            {
-                // get rid of compiler warning
-                return {};
-            }
-        }
+        const NdArray<dtype> values = { value };
+        return insert(arr, index, values, axis);
     }
 
     //============================================================================
@@ -156,7 +169,8 @@ namespace nc
     template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
     NdArray<dtype> insert(const NdArray<dtype>& arr, const Indices& indices, const dtype& value, Axis axis = Axis::NONE)
     {
-        return {};
+        const NdArray<dtype> values = { value };
+        return insert(arr, indices, values, axis);
     }
 
     //============================================================================
@@ -191,8 +205,10 @@ namespace nc
     /// @return index: index before which values are inserted.
     ///
     template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
-    NdArray<dtype>
-        insert(const NdArray<dtype>& arr, const Indices& indices, const NdArray<dtype>& values, Axis axis = Axis::NONE)
+    NdArray<dtype> insert(const NdArray<dtype>& /*arr*/,
+                          const Indices& /*indices*/,
+                          const NdArray<dtype>& /*values*/,
+                          Axis /*axis = Axis::NONE*/)
     {
         return {};
     }

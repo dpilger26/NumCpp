@@ -215,7 +215,7 @@ namespace nc
         {
             std::vector<uint32> indices;
             indices.reserve(numElements(inArrayDimSize));
-            for (int32 i = start; i <= stop; i += step)
+            for (int32 i = start; i < stop; i += step)
             {
                 indices.push_back(static_cast<uint32>(i));
             }
