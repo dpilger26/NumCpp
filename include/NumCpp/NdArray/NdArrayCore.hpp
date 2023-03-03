@@ -3656,7 +3656,11 @@ namespace nc
         template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inIndices, const self_type& inValues)
         {
-            if (inIndices.size() != inValues.size())
+            if (inValues.size() == 1)
+            {
+                return put(inIndices, inValues.item());
+            }
+            else if (inIndices.size() != inValues.size())
             {
                 THROW_INVALID_ARGUMENT_ERROR("Input indices do not match values dimensions.");
             }

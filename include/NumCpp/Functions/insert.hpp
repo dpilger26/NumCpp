@@ -140,11 +140,97 @@ namespace nc
             }
             case Axis::ROW:
             {
-                return {};
+                if (!(values.size() == arr.numCols() || values.size() == 1 || values.numCols() == arr.numCols()))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
+                }
+
+                if (index < 0)
+                {
+                    index += arr.numRows();
+                    if (index < 0)
+                    {
+                        index = 0;
+                    }
+                }
+                else if (index > static_cast<int32>(arr.numRows()))
+                {
+                    index = arr.numRows();
+                }
+
+                auto result = NdArray<dtype>();
+                if (values.size() == arr.numCols() || values.size() == 1)
+                {
+                    result.resizeFast(arr.numRows() + 1, arr.numCols());
+                }
+                else if (values.numCols() == arr.numCols())
+                {
+                    result.resizeFast(arr.numRows() + values.numRows(), arr.numCols());
+                }
+
+                if (index > 0)
+                {
+                    const auto sliceFront = Slice(index);
+                    result.put(sliceFront, result.cSlice(), arr(sliceFront, arr.cSlice()));
+                }
+
+                result.put(Slice(index, index + values.numRows()), result.cSlice(), values);
+
+                if (index < static_cast<int32>(arr.numRows()))
+                {
+                    result.put(result.rSlice(index + values.numRows()),
+                               result.cSlice(),
+                               arr(arr.rSlice(index), arr.cSlice()));
+                }
+
+                return result;
             }
             case Axis::COL:
             {
-                return {};
+                if (!(values.size() == arr.numRows() || values.size() == 1 || values.numRows() == arr.numRows()))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
+                }
+
+                if (index < 0)
+                {
+                    index += arr.numCols();
+                    if (index < 0)
+                    {
+                        index = 0;
+                    }
+                }
+                else if (index > static_cast<int32>(arr.numCols()))
+                {
+                    index = arr.numCols();
+                }
+
+                auto result = NdArray<dtype>();
+                if (values.size() == arr.numRows() || values.size() == 1)
+                {
+                    result.resizeFast(arr.numRows(), arr.numCols() + 1);
+                }
+                else if (values.numCols() == arr.numCols())
+                {
+                    result.resizeFast(arr.numRows(), arr.numCols() + values.numCols());
+                }
+
+                if (index > 0)
+                {
+                    const auto sliceFront = Slice(index);
+                    result.put(result.rSlice(), sliceFront, arr(arr.rSlice(), sliceFront));
+                }
+
+                result.put(result.rSlice(), Slice(index, index + values.numCols()), values);
+
+                if (index < static_cast<int32>(arr.numCols()))
+                {
+                    result.put(result.rSlice(),
+                               result.cSlice(index + values.numCols()),
+                               arr(arr.rSlice(), arr.cSlice(index)));
+                }
+
+                return result;
             }
             default:
             {

@@ -66,16 +66,27 @@ namespace nc
         int32      lowerIdx = 0;
         for (const auto index : uniqueIndices)
         {
-            if (static_cast<uint32>(index) > numCols)
+            if (index < 0)
+            {
+                continue;
+            }
+            else if (index == 0 || index == static_cast<int32>(numCols) - 1)
+            {
+                splits.push_back(NdArray<dtype>(Shape(inArray.numRows(), 0)));
+                continue;
+            }
+            else if (index >= static_cast<int32>(numCols) - 1)
             {
                 break;
             }
-
-            splits.push_back(inArray(rSlice, { lowerIdx, index }));
-            lowerIdx = index;
+            else
+            {
+                splits.push_back(inArray(rSlice, { lowerIdx, index }));
+                lowerIdx = index;
+            }
         }
 
-        if (static_cast<uint32>(lowerIdx) < numCols)
+        if (lowerIdx < static_cast<int32>(numCols))
         {
             splits.push_back(inArray(rSlice, { lowerIdx, static_cast<int32>(numCols) }));
         }
