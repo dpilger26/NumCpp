@@ -146,8 +146,8 @@ namespace nc
     /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
     ///
     /// @param inArray
-    /// @param rowIndices
-    /// @param colIndices
+    /// @param inRowIndices
+    /// @param inColIndices
     /// @param inValue
     /// @return reference to self
     ///
@@ -172,7 +172,7 @@ namespace nc
     /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
     ///
     /// @param inArray
-    /// @param rowIndices
+    /// @param inRowIndices
     /// @param inColSlice
     /// @param inValue
     /// @return reference to self
@@ -193,7 +193,7 @@ namespace nc
     ///
     /// @param inArray
     /// @param inRowSlice
-    /// @param colIndices
+    /// @param inColIndices
     /// @param inValue
     /// @return reference to self
     ///
@@ -436,12 +436,12 @@ namespace nc
     ///
     /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
     ///
+    /// @param inArray
     /// @param inRowIndex
-    /// @param inColSlice
+    /// @param inColIndices
     /// @param inValues
     /// @return reference to self
     ///
-    /// @param inArray
     template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
     NdArray<dtype>&
         put(NdArray<dtype>& inArray, int32 inRowIndex, const Indices& inColIndices, const NdArray<dtype>& inValues)

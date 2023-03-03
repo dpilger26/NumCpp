@@ -159,7 +159,6 @@ namespace nc
         ///
         /// @param inArray
         /// @param inIndices
-        /// @param inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
         /// @return NdArray
         ///
         template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>

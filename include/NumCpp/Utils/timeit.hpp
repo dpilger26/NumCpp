@@ -92,8 +92,9 @@ namespace nc::utils
     //============================================================================
     /// Timing of a function
     ///
+    /// @param numIterations: number of iterations for the timing statistics
+    /// @param printResults: bool true to print the results
     /// @param function: the function to time
-    /// @param numItererations: number of iterations for the timing statistics
     /// @param args: the arguements that are forwarded to the function input
     ///
     /// @return timing statistics

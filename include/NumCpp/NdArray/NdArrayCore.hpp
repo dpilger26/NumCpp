@@ -3710,8 +3710,8 @@ namespace nc
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param rowIndices
-        /// @param colIndices
+        /// @param inRowIndices
+        /// @param inColIndices
         /// @param inValue
         /// @return reference to self
         ///
@@ -3740,7 +3740,7 @@ namespace nc
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
-        /// @param rowIndices
+        /// @param inRowIndices
         /// @param inColSlice
         /// @param inValue
         /// @return reference to self
@@ -3758,7 +3758,7 @@ namespace nc
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
         /// @param inRowSlice
-        /// @param colIndices
+        /// @param inColIndices
         /// @param inValue
         /// @return reference to self
         ///
@@ -4005,7 +4005,7 @@ namespace nc
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///
         /// @param inRowIndex
-        /// @param inColSlice
+        /// @param inColIndices
         /// @param inValues
         /// @return reference to self
         ///

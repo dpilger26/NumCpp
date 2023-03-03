@@ -8163,12 +8163,6 @@ def test_split():
     cIndices = NumCpp.NdArrayInt32(indices.size)
     cIndices.setArray(indices.astype(np.int32))
     result = np.split(data, indices, axis=1)
-    print(shapeInput)
-    print('')
-    print(data)
-    print('')
-    print(indices)
-    print(result)
     cResult = NumCpp.split(cArray, cIndices, NumCpp.Axis.COL)
     assert len(cResult) == len(result)
     for i in range(len(result)):
