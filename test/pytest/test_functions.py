@@ -3898,13 +3898,101 @@ def test_insert():
     assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
                           np.insert(data, index, value, axis=None))
 
+    # insertIndexScalarAxis ROW
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = np.random.randint(1, shape.rows, 1).item()
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.ROW),
+                          np.insert(data, index, value, axis=0))
+
+    # negative index
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = -5
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.ROW),
+                          np.insert(data, index, value, axis=0))
+
+    # edge case index 0
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = 0
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.ROW),
+                          np.insert(data, index, value, axis=0))
+
+    # edge case index last
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = shape.rows
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.ROW),
+                          np.insert(data, index, value, axis=0))
+
+    # insertIndexScalarAxis COL
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = np.random.randint(1, shape.cols, 1).item()
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.COL),
+                          np.insert(data, index, value, axis=1))
+
+    # negative index
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = -5
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.COL),
+                          np.insert(data, index, value, axis=1))
+
+    # edge case index 0
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = 0
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.COL),
+                          np.insert(data, index, value, axis=1))
+
+    # edge case index last
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    data = np.random.randint(0, 100, shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    cArray.setArray(data)
+    index = shape.cols
+    value = 666
+    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.COL),
+                          np.insert(data, index, value, axis=1))
+
     # insertIndexArrayAxis None
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     data = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
-    index = np.random.randint(0, data.size + 1, 1).item()
+    index = np.random.randint(1, data.size, 1).item()
     values = np.random.randint(100, 200, np.random.randint(10, 50))
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
@@ -3949,50 +4037,6 @@ def test_insert():
     cValues.setArray(values)
     assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
                           np.insert(data, index, values, axis=None))
-
-    # insertIndexScalarAxis Row
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = np.random.randint(0, data.size + 1, 1).item()
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # negative index
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = -5
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # edge case index 0
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = 0
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # edge case index last
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = data.size
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
 
     # insertIndexArrayAxis Row
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4000,12 +4044,12 @@ def test_insert():
     data = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
-    index = np.random.randint(0, data.size + 1, 1).item()
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    index = np.random.randint(1, shape.rows, 1).item()
+    values = np.random.randint(100, 200, [shape.cols, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.ROW),
+                          np.insert(data, index, values, axis=0))
 
     # negative index
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4014,11 +4058,11 @@ def test_insert():
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
     index = -5
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    values = np.random.randint(100, 200, [shape.cols, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.ROW),
+                          np.insert(data, index, values, axis=0))
 
     # edge case index 0
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4027,11 +4071,11 @@ def test_insert():
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
     index = 0
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    values = np.random.randint(100, 200, [shape.cols, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.ROW),
+                          np.insert(data, index, values, axis=0))
 
     # edge case index last
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4039,56 +4083,12 @@ def test_insert():
     data = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
-    index = data.size
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    index = shape.rows
+    values = np.random.randint(100, 200, [shape.cols, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
-
-    # insertIndexScalarAxis Col
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = np.random.randint(0, data.size + 1, 1).item()
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # negative index
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = -5
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # edge case index 0
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = 0
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
-
-    # edge case index last
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    data = np.random.randint(0, 100, shapeInput)
-    cArray = NumCpp.NdArray(shape)
-    cArray.setArray(data)
-    index = data.size
-    value = 666
-    assert np.array_equal(NumCpp.insert(cArray, index, value, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, value, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.ROW),
+                          np.insert(data, index, values, axis=0))
 
     # insertIndexArrayAxis Col
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4096,12 +4096,12 @@ def test_insert():
     data = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
-    index = np.random.randint(0, data.size + 1, 1).item()
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    index = np.random.randint(1, shape.cols, 1).item()
+    values = np.random.randint(100, 200, [shape.rows, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.COL),
+                          np.insert(data, index, values, axis=1))
 
     # negative index
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4110,11 +4110,11 @@ def test_insert():
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
     index = -5
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    values = np.random.randint(100, 200, [shape.rows, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.COL),
+                          np.insert(data, index, values, axis=1))
 
     # edge case index 0
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4123,11 +4123,11 @@ def test_insert():
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
     index = 0
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    values = np.random.randint(100, 200, [shape.rows, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.COL),
+                          np.insert(data, index, values, axis=1))
 
     # edge case index last
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4135,12 +4135,13 @@ def test_insert():
     data = np.random.randint(0, 100, shapeInput)
     cArray = NumCpp.NdArray(shape)
     cArray.setArray(data)
-    index = data.size
-    values = np.random.randint(100, 200, np.random.randint(10, 50))
+    index = shape.cols
+    values = np.random.randint(100, 200, [shape.rows, ])
     cValues = NumCpp.NdArray(1, values.size)
     cValues.setArray(values)
-    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.NONE).flatten(),
-                          np.insert(data, index, values, axis=None))
+    assert np.array_equal(NumCpp.insert(cArray, index, cValues, NumCpp.Axis.COL),
+                          np.insert(data, index, values, axis=1))
+
 
 ####################################################################################
 def test_interp():

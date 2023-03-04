@@ -158,14 +158,17 @@ namespace nc
                     index = arr.numRows();
                 }
 
-                auto result = NdArray<dtype>();
+                auto  result = NdArray<dtype>();
+                int32 valuesSize{};
                 if (values.size() == arr.numCols() || values.size() == 1)
                 {
                     result.resizeFast(arr.numRows() + 1, arr.numCols());
+                    valuesSize = 1;
                 }
                 else if (values.numCols() == arr.numCols())
                 {
                     result.resizeFast(arr.numRows() + values.numRows(), arr.numCols());
+                    valuesSize = values.numRows();
                 }
 
                 if (index > 0)
@@ -174,11 +177,11 @@ namespace nc
                     result.put(sliceFront, result.cSlice(), arr(sliceFront, arr.cSlice()));
                 }
 
-                result.put(Slice(index, index + values.numRows()), result.cSlice(), values);
+                result.put(Slice(index, index + valuesSize), result.cSlice(), values);
 
                 if (index < static_cast<int32>(arr.numRows()))
                 {
-                    result.put(result.rSlice(index + values.numRows()),
+                    result.put(result.rSlice(index + valuesSize),
                                result.cSlice(),
                                arr(arr.rSlice(index), arr.cSlice()));
                 }
@@ -205,14 +208,17 @@ namespace nc
                     index = arr.numCols();
                 }
 
-                auto result = NdArray<dtype>();
+                auto  result = NdArray<dtype>();
+                int32 valuesSize{};
                 if (values.size() == arr.numRows() || values.size() == 1)
                 {
                     result.resizeFast(arr.numRows(), arr.numCols() + 1);
+                    valuesSize = 1;
                 }
-                else if (values.numCols() == arr.numCols())
+                else if (values.numRows() == arr.numRows())
                 {
                     result.resizeFast(arr.numRows(), arr.numCols() + values.numCols());
+                    valuesSize = values.numCols();
                 }
 
                 if (index > 0)
@@ -221,12 +227,12 @@ namespace nc
                     result.put(result.rSlice(), sliceFront, arr(arr.rSlice(), sliceFront));
                 }
 
-                result.put(result.rSlice(), Slice(index, index + values.numCols()), values);
+                result.put(result.rSlice(), Slice(index, index + valuesSize), values);
 
                 if (index < static_cast<int32>(arr.numCols()))
                 {
                     result.put(result.rSlice(),
-                               result.cSlice(index + values.numCols()),
+                               result.cSlice(index + valuesSize),
                                arr(arr.rSlice(), arr.cSlice(index)));
                 }
 
