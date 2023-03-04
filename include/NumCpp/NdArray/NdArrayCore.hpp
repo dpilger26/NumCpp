@@ -3728,7 +3728,7 @@ namespace nc
                                          stl_algorithms::for_each(inColIndices.begin(),
                                                                   inColIndices.end(),
                                                                   [this, row, &inValue](const auto col)
-                                                                  { put(row, col, inValue); });
+                                                                  { this->put(row, col, inValue); });
                                      });
 
             return *this;
