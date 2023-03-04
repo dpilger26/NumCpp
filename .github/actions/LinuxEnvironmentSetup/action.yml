@@ -30,4 +30,4 @@ runs:
         sudo apt update
         sudo apt install -y clang
         sudo apt install -y libboost-all-dev
-        if ${{inputs.use_clang}} then CXX=clang++ CC=clang; fi
+        if ${{inputs.use_clang}}; then CXX=clang++ CC=clang; fi
