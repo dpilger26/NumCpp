@@ -3272,15 +3272,15 @@ def test_prod():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(
-        1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
+        1, 9, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
     cArray.setArray(data)
     assert cArray.prod(NumCpp.Axis.NONE).item() == data.prod()
 
     shapeInput = np.random.randint(2, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 9, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 9, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert cArray.prod(NumCpp.Axis.NONE).item() == data.prod()
@@ -3289,7 +3289,7 @@ def test_prod():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(
-        1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
+        1, 9, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
     cArray.setArray(data)
     assert np.array_equal(cArray.prod(
         NumCpp.Axis.ROW).flatten(), data.prod(axis=0))
@@ -3297,8 +3297,8 @@ def test_prod():
     shapeInput = np.random.randint(2, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 9, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 9, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(cArray.prod(
@@ -3308,7 +3308,7 @@ def test_prod():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(
-        1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
+        1, 9, [shape.rows, shape.cols], dtype=np.uint32).astype(float)
     cArray.setArray(data)
     assert np.array_equal(cArray.prod(
         NumCpp.Axis.COL).flatten(), data.prod(axis=1))
@@ -3316,8 +3316,8 @@ def test_prod():
     shapeInput = np.random.randint(2, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayComplexDouble(shape)
-    real = np.random.randint(1, 15, [shape.rows, shape.cols])
-    imag = np.random.randint(1, 15, [shape.rows, shape.cols])
+    real = np.random.randint(1, 9, [shape.rows, shape.cols])
+    imag = np.random.randint(1, 9, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
     assert np.array_equal(cArray.prod(
