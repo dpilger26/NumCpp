@@ -30,4 +30,4 @@ runs:
         sudo apt update
         sudo apt install -y clang
         sudo apt install -y libboost-all-dev
-        if ${{inputs.use_clang}}; then echo "Setting Compiler to clang"; echo "export CXX=clang++" >> ~/.bashrc; echo "export CC=clang" >> ~/.bashrc; source ~/.bashrc; fi
+        if ${{inputs.use_clang}}; then echo "Setting Compiler to clang"; echo "export CXX=usr/bin/clang++" >> ~/.bashrc; echo "export CC=usr/bin/clang" >> ~/.bashrc; source ~/.bashrc; fi
