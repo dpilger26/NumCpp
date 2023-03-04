@@ -166,11 +166,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: OFF
           shell: bash -l {0}
@@ -187,11 +188,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: OFF
           shell: bash -l {0}
@@ -207,12 +209,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Environment
-        uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true      
+        uses: ./.github/actions/LinuxEnvironmentSetup   
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: ON
           shell: bash -l {0}
@@ -229,11 +232,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: ON
           shell: bash -l {0}
@@ -250,11 +254,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: OFF
           shell: bash -l {0}
@@ -271,11 +276,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: OFF
           shell: bash -l {0}
@@ -292,11 +298,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: ON
           shell: bash -l {0}
@@ -313,11 +320,12 @@ jobs:
 
       - name: Configure Environment
         uses: ./.github/actions/LinuxEnvironmentSetup
-        with:
-          use_clang: true
 
       - name: Build and Test
         uses: ./.github/actions/BuildTestInstall
+        env:
+          CC: clang
+          CXX: clang++
         with:
           numcpp_no_use_boost: ON
           shell: bash -l {0}

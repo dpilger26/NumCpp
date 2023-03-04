@@ -1,12 +1,6 @@
 name: Linux Environment Setup
 description: "Sets up the linux environment"
 
-inputs:
-  use_clang:
-    description: “Configure clang as the build tools”
-    required: false
-    default: false
-
 runs:
   using: "composite"
   steps:
@@ -30,4 +24,3 @@ runs:
         sudo apt update
         sudo apt install -y libboost-all-dev
         sudo apt install -y clang --install-suggests
-        if ${{inputs.use_clang}}; then echo "Setting Compiler to clang"; echo "export CXX=usr/bin/clang++" >> ~/.bashrc; echo "export CC=usr/bin/clang" >> ~/.bashrc; source ~/.bashrc; fi
