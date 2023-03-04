@@ -3,7 +3,7 @@ description: "Sets up the linux environment"
 
 inputs:
   use_clang:
-    description: “Configure clang and the built tools”
+    description: “Configure clang as the build tools”
     required: false
     default: false
 
@@ -30,4 +30,4 @@ runs:
         sudo apt update
         sudo apt install -y clang
         sudo apt install -y libboost-all-dev
-        if [${{inputs.use_clang}}] then CXX=clang++ CC=clang fi
+        if ${{inputs.use_clang}} then CXX=clang++ CC=clang; fi
