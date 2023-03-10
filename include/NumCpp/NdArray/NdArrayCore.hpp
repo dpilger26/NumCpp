@@ -948,7 +948,7 @@ namespace nc
         /// @param inStepSize (default 1)
         /// @return Slice
         ///
-        [[nodiscard]] Slice cSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const noexcept
+        [[nodiscard]] Slice cSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const
         {
             return Slice(inStartIdx, shape_.cols, inStepSize); // NOLINT(modernize-return-braced-init-list)
         }
@@ -962,7 +962,7 @@ namespace nc
         /// @param inStepSize (default 1)
         /// @return Slice
         ///
-        [[nodiscard]] Slice rSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const noexcept
+        [[nodiscard]] Slice rSlice(index_type inStartIdx = 0, size_type inStepSize = 1) const
         {
             return Slice(inStartIdx, shape_.rows, inStepSize); // NOLINT(modernize-return-braced-init-list)
         }
@@ -2123,13 +2123,20 @@ namespace nc
                  std::enable_if_t<std::is_arithmetic_v<dtypeOut>, int> = 0>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
-            NdArray<dtypeOut> outArray(shape_);
-            stl_algorithms::transform(cbegin(),
-                                      cend(),
-                                      outArray.begin(),
-                                      [](dtype value) -> dtypeOut { return static_cast<dtypeOut>(value); });
+            if constexpr (std::is_same_v<dtypeOut, dtype>)
+            {
+                return *this;
+            }
+            else
+            {
+                NdArray<dtypeOut> outArray(shape_);
+                stl_algorithms::transform(cbegin(),
+                                          cend(),
+                                          outArray.begin(),
+                                          [](dtype value) -> dtypeOut { return static_cast<dtypeOut>(value); });
 
-            return outArray;
+                return outArray;
+            }
         }
 
         //============================================================================
@@ -2174,21 +2181,19 @@ namespace nc
                  std::enable_if_t<is_complex_v<dtypeOut>, int>        = 0>
         [[nodiscard]] NdArray<dtypeOut> astype() const
         {
-            NdArray<dtypeOut> outArray(shape_);
-
-            if (std::is_same_v<dtypeOut, dtype>)
+            if constexpr (std::is_same_v<dtypeOut, dtype>)
             {
-                std::copy(cbegin(), cend(), outArray.begin());
+                return *this;
             }
             else
             {
                 const auto function = [](const_reference value) noexcept -> dtypeOut
                 { return complex_cast<typename dtypeOut::value_type>(value); };
 
+                NdArray<dtypeOut> outArray(shape_);
                 stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+                return outArray;
             }
-
-            return outArray;
         }
 
         //============================================================================
@@ -2864,6 +2869,17 @@ namespace nc
         bool isflat() const noexcept
         {
             return shape_.rows == 1 || shape_.cols == 1;
+        }
+
+        //============================================================================
+        // Method Description:
+        /// Return if the NdArray is scalar
+        ///
+        /// @return boolean
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        bool isscalar() const noexcept
+        {
+            return size_ == 1;
         }
 
         //============================================================================
@@ -3656,7 +3672,7 @@ namespace nc
         template<typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
         self_type& put(const Indices& inIndices, const self_type& inValues)
         {
-            if (inValues.size() == 1)
+            if (inValues.isscalar())
             {
                 return put(inIndices, inValues.item());
             }
@@ -4064,7 +4080,16 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input inMask must be the same shape as the array it is masking.");
             }
 
-            return put(inMask.flatnonzero(), inValues);
+            if (inValues.isscalar())
+            {
+                put(inMask.flatnonzero(), inValues.item());
+            }
+            else
+            {
+                put(inMask.flatnonzero(), inValues);
+            }
+
+            return *this;
         }
 
         //============================================================================

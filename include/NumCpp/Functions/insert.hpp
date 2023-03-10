@@ -27,10 +27,15 @@
 ///
 #pragma once
 
+#include <cmath>
+#include <utility>
+#include <vector>
+
 #include "NumCpp/Core/Internal/Error.hpp"
 #include "NumCpp/Core/Internal/StlAlgorithms.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Functions/ones_like.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc
@@ -70,30 +75,25 @@ namespace nc
         if (index < 0)
         {
             index += arr.size();
+            // still
             if (index < 0)
             {
-                index = 0;
+                THROW_INVALID_ARGUMENT_ERROR("index out of range");
             }
         }
         else if (index > static_cast<int32>(arr.size()))
         {
-            index = arr.size();
+            THROW_INVALID_ARGUMENT_ERROR("index out of range");
         }
 
-        auto result = NdArray<dtype>(1, arr.size() + values.size());
+        const auto valuesSlice = Slice(index, index + values.size());
+        auto       result      = NdArray<dtype>(1, arr.size() + values.size());
+        result.put(valuesSlice, values);
 
-        if (index > 0)
-        {
-            const auto sliceFront = Slice(index);
-            result.put(sliceFront, arr[sliceFront]);
-        }
-
-        result.put(Slice(index, index + values.size()), values.flatten());
-
-        if (index < static_cast<int32>(arr.size()))
-        {
-            result.put(result.cSlice(index + values.size()), arr[Slice(index, arr.size())]);
-        }
+        NdArray<bool> mask(result.shape());
+        mask.fill(true);
+        mask.put(valuesSlice, false);
+        result.putMask(mask, arr.flatten());
 
         return result;
     }
@@ -140,7 +140,7 @@ namespace nc
             }
             case Axis::ROW:
             {
-                if (!(values.size() == arr.numCols() || values.size() == 1 || values.numCols() == arr.numCols()))
+                if (!(values.size() == arr.numCols() || values.isscalar() || values.numCols() == arr.numCols()))
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
                 }
@@ -148,19 +148,20 @@ namespace nc
                 if (index < 0)
                 {
                     index += arr.numRows();
+                    // still
                     if (index < 0)
                     {
-                        index = 0;
+                        THROW_INVALID_ARGUMENT_ERROR("index out of range");
                     }
                 }
                 else if (index > static_cast<int32>(arr.numRows()))
                 {
-                    index = arr.numRows();
+                    THROW_INVALID_ARGUMENT_ERROR("index out of range");
                 }
 
                 auto  result = NdArray<dtype>();
                 int32 valuesSize{};
-                if (values.size() == arr.numCols() || values.size() == 1)
+                if (values.size() == arr.numCols() || values.isscalar())
                 {
                     result.resizeFast(arr.numRows() + 1, arr.numCols());
                     valuesSize = 1;
@@ -171,26 +172,17 @@ namespace nc
                     valuesSize = values.numRows();
                 }
 
-                if (index > 0)
-                {
-                    const auto sliceFront = Slice(index);
-                    result.put(sliceFront, result.cSlice(), arr(sliceFront, arr.cSlice()));
-                }
+                auto mask = ones_like<bool>(result);
+                mask.put(Slice(index, index + valuesSize), mask.cSlice(), false);
 
-                result.put(Slice(index, index + valuesSize), result.cSlice(), values);
-
-                if (index < static_cast<int32>(arr.numRows()))
-                {
-                    result.put(result.rSlice(index + valuesSize),
-                               result.cSlice(),
-                               arr(arr.rSlice(index), arr.cSlice()));
-                }
+                result.putMask(mask, arr);
+                result.putMask(!mask, values);
 
                 return result;
             }
             case Axis::COL:
             {
-                if (!(values.size() == arr.numRows() || values.size() == 1 || values.numRows() == arr.numRows()))
+                if (!(values.size() == arr.numRows() || values.isscalar() || values.numRows() == arr.numRows()))
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
                 }
@@ -198,19 +190,20 @@ namespace nc
                 if (index < 0)
                 {
                     index += arr.numCols();
+                    // still
                     if (index < 0)
                     {
-                        index = 0;
+                        THROW_INVALID_ARGUMENT_ERROR("index out of range");
                     }
                 }
                 else if (index > static_cast<int32>(arr.numCols()))
                 {
-                    index = arr.numCols();
+                    THROW_INVALID_ARGUMENT_ERROR("index out of range");
                 }
 
                 auto  result = NdArray<dtype>();
                 int32 valuesSize{};
-                if (values.size() == arr.numRows() || values.size() == 1)
+                if (values.size() == arr.numRows() || values.isscalar())
                 {
                     result.resizeFast(arr.numRows(), arr.numCols() + 1);
                     valuesSize = 1;
@@ -221,20 +214,11 @@ namespace nc
                     valuesSize = values.numCols();
                 }
 
-                if (index > 0)
-                {
-                    const auto sliceFront = Slice(index);
-                    result.put(result.rSlice(), sliceFront, arr(arr.rSlice(), sliceFront));
-                }
+                auto mask = ones_like<bool>(result);
+                mask.put(mask.rSlice(), Slice(index, index + valuesSize), false);
 
-                result.put(result.rSlice(), Slice(index, index + valuesSize), values);
-
-                if (index < static_cast<int32>(arr.numCols()))
-                {
-                    result.put(result.rSlice(),
-                               result.cSlice(index + valuesSize),
-                               arr(arr.rSlice(), arr.cSlice(index)));
-                }
+                result.putMask(mask, arr);
+                result.putMask(!mask, values);
 
                 return result;
             }
@@ -297,12 +281,148 @@ namespace nc
     /// @return index: index before which values are inserted.
     ///
     template<typename dtype, typename Indices, type_traits::ndarray_int_concept<Indices> = 0>
-    NdArray<dtype> insert(const NdArray<dtype>& /*arr*/,
-                          const Indices& /*indices*/,
-                          const NdArray<dtype>& /*values*/,
-                          Axis /*axis = Axis::NONE*/)
+    NdArray<dtype>
+        insert(const NdArray<dtype>& arr, const Indices& indices, const NdArray<dtype>& values, Axis axis = Axis::NONE)
     {
-        return {};
+        const auto isScalarValue = values.isscalar();
+
+        switch (axis)
+        {
+            case Axis::NONE:
+            {
+                if (!isScalarValue && indices.size() != values.size())
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("could not broadcast values into indices");
+                }
+
+                const auto arrSize = static_cast<int32>(arr.size());
+
+                std::vector<std::pair<int32, dtype>> indexValues;
+                indexValues.reserve(indices.size());
+                if (isScalarValue)
+                {
+                    const auto value = values.front();
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              std::back_inserter(indexValues),
+                                              [arrSize, value](auto index) -> std::pair<int32, dtype>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrSize;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrSize)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), value);
+                                              });
+                }
+                else
+                {
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              values.begin(),
+                                              std::back_inserter(indexValues),
+                                              [arrSize](auto index, const auto& value) -> std::pair<int32, dtype>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrSize;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrSize)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), value);
+                                              });
+                }
+
+                stl_algorithms::sort(indexValues.begin(),
+                                     indexValues.end(),
+                                     [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                     { return indexValue1.first < indexValue2.first; });
+                auto indexValuesUnique = std::vector<typename decltype(indexValues)::value_type>{};
+                stl_algorithms::unique_copy(indexValues.begin(),
+                                            indexValues.end(),
+                                            std::back_inserter(indexValuesUnique),
+                                            [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                            { return indexValue1.first == indexValue2.first; });
+
+                auto result = NdArray<dtype>(1, arr.size() + indexValuesUnique.size());
+
+                auto  mask    = ones_like<bool>(result);
+                int32 counter = 0;
+                std::for_each(indexValuesUnique.begin(),
+                              indexValuesUnique.end(),
+                              [&counter, &mask](auto& indexValue) noexcept -> void
+                              { mask[indexValue.first + counter++] = false; });
+
+                result.putMask(mask, arr.flatten());
+
+                auto valuesSorted = [&indexValuesUnique]
+                {
+                    std::vector<dtype> values_;
+                    values_.reserve(indexValuesUnique.size());
+                    std::transform(indexValuesUnique.begin(),
+                                   indexValuesUnique.end(),
+                                   std::back_inserter(values_),
+                                   [](const auto& indexValue) { return indexValue.second; });
+                    return values_;
+                }();
+
+                result.putMask(!mask, NdArray<dtype>(valuesSorted.data(), valuesSorted.size(), false));
+
+                return result;
+            }
+            case Axis::ROW:
+            {
+                if (!(values.size() == arr.numCols() || values.isscalar() ||
+                      (values.numCols() == arr.numCols() && values.numRows() == indices.size())))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
+                }
+
+                // const auto arrNumRows = static_cast<int32>(arr.numRows());
+
+                return {};
+            }
+            case Axis::COL:
+            {
+                if (!(values.size() == arr.numRows() || values.isscalar() || values.numRows() == arr.numRows() ||
+                      (values.numRows() == arr.numRows() && values.numCols() == indices.size())))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
+                }
+
+                // const auto arrNumCols = static_cast<int32>(arr.numCols());
+
+                return {};
+            }
+            default:
+            {
+                // get rid of compiler warning
+                return {};
+            }
+        }
     }
 
     //============================================================================

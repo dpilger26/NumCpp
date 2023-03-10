@@ -2743,6 +2743,17 @@ def test_isflat():
 
 
 ####################################################################################
+def test_isscalar():
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(*shapeInput)
+    cArray = NumCpp.NdArray(shape)
+    assert not cArray.isscalar()
+
+    shape = NumCpp.Shape(1, 1)
+    cArray = NumCpp.NdArray(shape)
+    assert cArray.isscalar()
+
+####################################################################################
 def test_issorted():
     shapeInput = np.random.randint(2, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

@@ -5,7 +5,6 @@
 * issue #170: insert()
   * unit test all insert() overloads
 
-* setup more pipeline jobs for clang and different version
 * run clang-tidy
 * run cppcheck
 * rebuild documentation

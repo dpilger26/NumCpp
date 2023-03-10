@@ -20,13 +20,12 @@
 ## Testing
 
 **C++ Standards:**  
-[![C++14](https://img.shields.io/badge/C%2B%2B-14-blue.svg)](https://isocpp.org/std/the-standard)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/std/the-standard)
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org/std/the-standard)
 
 **Compilers:**  
 Visual Studio: 2022  
-GNU: 11.2  
+GNU: 11.3
 Clang: 14  
 
 **Boost Versions:**  
