@@ -360,11 +360,11 @@ namespace nc
                                      [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
                                      { return indexValue1.first < indexValue2.first; });
                 auto indexValuesUnique = std::vector<typename decltype(indexValues)::value_type>{};
-                stl_algorithms::unique_copy(indexValues.begin(),
-                                            indexValues.end(),
-                                            std::back_inserter(indexValuesUnique),
-                                            [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
-                                            { return indexValue1.first == indexValue2.first; });
+                std::unique_copy(indexValues.begin(),
+                                 indexValues.end(),
+                                 std::back_inserter(indexValuesUnique),
+                                 [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                 { return indexValue1.first == indexValue2.first; });
 
                 auto result = NdArray<dtype>(1, arr.size() + indexValuesUnique.size());
 
