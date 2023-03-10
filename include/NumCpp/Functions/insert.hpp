@@ -297,14 +297,13 @@ namespace nc
 
                 const auto arrSize = static_cast<int32>(arr.size());
 
-                std::vector<std::pair<int32, dtype>> indexValues;
-                indexValues.reserve(indices.size());
+                std::vector<std::pair<int32, dtype>> indexValues(indices.size());
                 if (isScalarValue)
                 {
                     const auto value = values.front();
                     stl_algorithms::transform(indices.begin(),
                                               indices.end(),
-                                              std::back_inserter(indexValues),
+                                              indexValues.begin(),
                                               [arrSize, value](auto index) -> std::pair<int32, dtype>
                                               {
                                                   if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
@@ -332,7 +331,7 @@ namespace nc
                     stl_algorithms::transform(indices.begin(),
                                               indices.end(),
                                               values.begin(),
-                                              std::back_inserter(indexValues),
+                                              indexValues.begin(),
                                               [arrSize](auto index, const auto& value) -> std::pair<int32, dtype>
                                               {
                                                   if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
