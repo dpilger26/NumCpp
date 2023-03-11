@@ -375,7 +375,7 @@ namespace nc
                               [&counter, &mask](auto& indexValue) noexcept -> void
                               { mask[indexValue.first + counter++] = false; });
 
-                result.putMask(mask, arr.flatten());
+                result.putMask(mask, arr);
 
                 auto valuesSorted = [&indexValuesUnique]
                 {
@@ -394,27 +394,255 @@ namespace nc
             }
             case Axis::ROW:
             {
-                if (!(values.size() == arr.numCols() || values.isscalar() ||
-                      (values.numCols() == arr.numCols() && values.numRows() == indices.size())))
+                const auto arrNumRows = static_cast<int32>(arr.numRows());
+
+                std::vector<std::pair<int32, NdArray<dtype>>> indexValues(indices.size());
+                if (values.isscalar())
+                {
+                    const auto value    = values.front();
+                    auto       valueRow = NdArray<dtype>(1, arr.numCols());
+                    valueRow.fill(value);
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              indexValues.begin(),
+                                              [arrNumRows, &valueRow](auto index) -> std::pair<int32, NdArray<dtype>>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrNumRows;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrNumRows)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), valueRow);
+                                              });
+                }
+                else if (values.size() == arr.numCols())
+                {
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              indexValues.begin(),
+                                              [arrNumRows, &values](auto index) -> std::pair<int32, NdArray<dtype>>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrNumRows;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrNumRows)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), values);
+                                              });
+                }
+                else if (values.numCols() == arr.numCols() && values.numRows() == indices.size())
+                {
+                    int32 counter = 0;
+                    std::transform(indices.begin(),
+                                   indices.end(),
+                                   indexValues.begin(),
+                                   [arrNumRows, &values, &counter](auto index) -> std::pair<int32, NdArray<dtype>>
+                                   {
+                                       if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                       {
+                                           if (index < 0)
+                                           {
+                                               index += arrNumRows;
+                                           }
+                                           // still
+                                           if (index < 0)
+                                           {
+                                               THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                           }
+                                       }
+                                       if (static_cast<int32>(index) > arrNumRows)
+                                       {
+                                           THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                       }
+
+                                       return std::make_pair(static_cast<int32>(index),
+                                                             values(counter++, values.cSlice()));
+                                   });
+                }
+                else
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
                 }
 
-                // const auto arrNumRows = static_cast<int32>(arr.numRows());
+                stl_algorithms::sort(indexValues.begin(),
+                                     indexValues.end(),
+                                     [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                     { return indexValue1.first < indexValue2.first; });
+                auto indexValuesUnique = std::vector<typename decltype(indexValues)::value_type>{};
+                std::unique_copy(indexValues.begin(),
+                                 indexValues.end(),
+                                 std::back_inserter(indexValuesUnique),
+                                 [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                 { return indexValue1.first == indexValue2.first; });
 
-                return {};
+                auto result = NdArray<dtype>(arrNumRows + indexValuesUnique.size(), arr.numCols());
+
+                auto  mask    = ones_like<bool>(result);
+                int32 counter = 0;
+                std::for_each(indexValuesUnique.begin(),
+                              indexValuesUnique.end(),
+                              [&counter, &mask](auto& indexValue) noexcept -> void
+                              { mask.put(indexValue.first + counter++, mask.cSlice(), false); });
+
+                result.putMask(mask, arr);
+
+                counter = 0;
+                for (const auto& [index, values_] : indexValuesUnique)
+                {
+                    result.put(index + counter++, result.cSlice(), values_);
+                }
+
+                return result;
             }
             case Axis::COL:
             {
-                if (!(values.size() == arr.numRows() || values.isscalar() || values.numRows() == arr.numRows() ||
-                      (values.numRows() == arr.numRows() && values.numCols() == indices.size())))
+                const auto arrNumCols = static_cast<int32>(arr.numCols());
+
+                std::vector<std::pair<int32, NdArray<dtype>>> indexValues(indices.size());
+                if (values.isscalar())
+                {
+                    const auto value    = values.front();
+                    auto       valueRow = NdArray<dtype>(arr.numRows(), 1);
+                    valueRow.fill(value);
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              indexValues.begin(),
+                                              [arrNumCols, &valueRow](auto index) -> std::pair<int32, NdArray<dtype>>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrNumCols;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrNumCols)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), valueRow);
+                                              });
+                }
+                else if (values.size() == arr.numRows())
+                {
+                    stl_algorithms::transform(indices.begin(),
+                                              indices.end(),
+                                              indexValues.begin(),
+                                              [arrNumCols, &values](auto index) -> std::pair<int32, NdArray<dtype>>
+                                              {
+                                                  if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                                  {
+                                                      if (index < 0)
+                                                      {
+                                                          index += arrNumCols;
+                                                      }
+                                                      // still
+                                                      if (index < 0)
+                                                      {
+                                                          THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                      }
+                                                  }
+                                                  if (static_cast<int32>(index) > arrNumCols)
+                                                  {
+                                                      THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                                  }
+
+                                                  return std::make_pair(static_cast<int32>(index), values);
+                                              });
+                }
+                else if (values.numRows() == arr.numRows() && values.numCols() == indices.size())
+                {
+                    int32 counter = 0;
+                    std::transform(indices.begin(),
+                                   indices.end(),
+                                   indexValues.begin(),
+                                   [arrNumCols, &values, &counter](auto index) -> std::pair<int32, NdArray<dtype>>
+                                   {
+                                       if constexpr (type_traits::is_ndarray_signed_int_v<Indices>)
+                                       {
+                                           if (index < 0)
+                                           {
+                                               index += arrNumCols;
+                                           }
+                                           // still
+                                           if (index < 0)
+                                           {
+                                               THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                           }
+                                       }
+                                       if (static_cast<int32>(index) > arrNumCols)
+                                       {
+                                           THROW_INVALID_ARGUMENT_ERROR("index out of range");
+                                       }
+
+                                       return std::make_pair(static_cast<int32>(index),
+                                                             values(values.rSlice(), counter++));
+                                   });
+                }
+                else
                 {
                     THROW_INVALID_ARGUMENT_ERROR("input values shape cannot be broadcast to input array dimensions");
                 }
 
-                // const auto arrNumCols = static_cast<int32>(arr.numCols());
+                stl_algorithms::sort(indexValues.begin(),
+                                     indexValues.end(),
+                                     [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                     { return indexValue1.first < indexValue2.first; });
+                auto indexValuesUnique = std::vector<typename decltype(indexValues)::value_type>{};
+                std::unique_copy(indexValues.begin(),
+                                 indexValues.end(),
+                                 std::back_inserter(indexValuesUnique),
+                                 [](const auto& indexValue1, const auto& indexValue2) noexcept -> bool
+                                 { return indexValue1.first == indexValue2.first; });
 
-                return {};
+                auto result = NdArray<dtype>(arrNumCols + indexValuesUnique.size(), arr.numRows());
+
+                auto  mask    = ones_like<bool>(result);
+                int32 counter = 0;
+                std::for_each(indexValuesUnique.begin(),
+                              indexValuesUnique.end(),
+                              [&counter, &mask](auto& indexValue) noexcept -> void
+                              { mask.put(indexValue.first + counter++, mask.cSlice(), false); });
+
+                result.putMask(mask, arr.transpose());
+
+                counter = 0;
+                for (const auto& [index, values_] : indexValuesUnique)
+                {
+                    result.put(index + counter++, result.cSlice(), values_);
+                }
+
+                return result.transpose();
             }
             default:
             {
