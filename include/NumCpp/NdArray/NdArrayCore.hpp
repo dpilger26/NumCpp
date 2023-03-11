@@ -2945,7 +2945,7 @@ namespace nc
         ///
         [[nodiscard]] value_type item() const
         {
-            if (size_ != 1)
+            if (!isscalar())
             {
                 THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scaler");
             }

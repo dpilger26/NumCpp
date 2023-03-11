@@ -5,9 +5,10 @@
 * additional `NdArray` access operator overloads and `at` overloads
 * additional `put` overloads to `NdArray`
 * added `dimSize` method to `NdArray`
-* added `timeit` function
+* added broadcasting for `minimum` and `maximum` functions for **Issue #74**
 * added `insert` function for **Issue #170** <https://numpy.org/doc/stable/reference/generated/numpy.insert.html>
 * fixed **Issue #177**: slice and put with various integer index types
+* added `timeit` function
 * various performance improvements
 
 ## Version 2.9.0

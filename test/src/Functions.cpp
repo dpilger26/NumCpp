@@ -1811,9 +1811,25 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    pbArrayGeneric maximumArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(nc::maximum(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric maximumArrayScalar(const NdArray<dtype>& inArray, const dtype& inValue)
+    {
+        return nc2pybind(nc::maximum(inArray, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric maximumScalarArray(const dtype& inValue, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::maximum(inValue, inArray));
     }
 
     //================================================================================
@@ -1835,9 +1851,25 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    pbArrayGeneric minimumArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(nc::minimum(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric minimumArrayScalar(const NdArray<dtype>& inArray, const dtype& inValue)
+    {
+        return nc2pybind(nc::minimum(inArray, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric minimumScalarArray(const dtype& inValue, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(nc::minimum(inValue, inArray));
     }
 
     //================================================================================
@@ -3371,8 +3403,12 @@ void initFunctions(pb11::module& m)
     m.def("matmul", &FunctionsInterface::matmul<ComplexDouble, double>);
     m.def("max", &FunctionsInterface::max<double>);
     m.def("max", &FunctionsInterface::max<ComplexDouble>);
-    m.def("maximum", &FunctionsInterface::maximum<double>);
-    m.def("maximum", &FunctionsInterface::maximum<ComplexDouble>);
+    m.def("maximum", &FunctionsInterface::maximumArrays<double>);
+    m.def("maximum", &FunctionsInterface::maximumArrays<ComplexDouble>);
+    m.def("maximum", &FunctionsInterface::maximumArrayScalar<double>);
+    m.def("maximum", &FunctionsInterface::maximumArrayScalar<ComplexDouble>);
+    m.def("maximum", &FunctionsInterface::maximumScalarArray<double>);
+    m.def("maximum", &FunctionsInterface::maximumScalarArray<ComplexDouble>);
     NdArray<double> (*meanDouble)(const NdArray<double>&, Axis) = &mean<double>;
     m.def("mean", meanDouble);
     NdArray<ComplexDouble> (*meanComplexDouble)(const NdArray<ComplexDouble>&, Axis) = &mean<double>;
@@ -3381,8 +3417,12 @@ void initFunctions(pb11::module& m)
     m.def("meshgrid", &FunctionsInterface::meshgrid<double>);
     m.def("min", &FunctionsInterface::min<double>);
     m.def("min", &FunctionsInterface::min<ComplexDouble>);
-    m.def("minimum", &FunctionsInterface::minimum<double>);
-    m.def("minimum", &FunctionsInterface::minimum<ComplexDouble>);
+    m.def("minimum", &FunctionsInterface::minimumArrays<double>);
+    m.def("minimum", &FunctionsInterface::minimumArrays<ComplexDouble>);
+    m.def("minimum", &FunctionsInterface::minimumArrayScalar<double>);
+    m.def("minimum", &FunctionsInterface::minimumArrayScalar<ComplexDouble>);
+    m.def("minimum", &FunctionsInterface::minimumScalarArray<double>);
+    m.def("minimum", &FunctionsInterface::minimumScalarArray<ComplexDouble>);
     m.def("mod", &mod<uint32>);
     m.def("multiply", &FunctionsInterface::multiply<NdArray<double>, NdArray<double>>);
     m.def("multiply", &FunctionsInterface::multiply<NdArray<double>, double>);
