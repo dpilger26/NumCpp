@@ -39,11 +39,99 @@ namespace nc::broadcast
 {
     //============================================================================
     // Method Description:
+    /// Broadcasting template function for in-place operations
+    ///
+    /// @param function
+    /// @param inArray1
+    /// @param inArray2
+    /// @param additionalFunctionArgs
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtypeIn1, typename dtypeIn2, typename Function, typename... AdditionalFunctionArgs>
+    NdArray<dtypeIn1>& broadcaster(NdArray<dtypeIn1>&       inArray1,
+                                   const NdArray<dtypeIn2>& inArray2,
+                                   const Function&          function,
+                                   const AdditionalFunctionArgs&&... additionalFunctionArgs)
+    {
+        if (inArray1.shape() == inArray2.shape())
+        {
+            stl_algorithms::transform(
+                inArray1.cbegin(),
+                inArray1.cend(),
+                inArray2.cbegin(),
+                inArray1.begin(),
+                [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeIn1 {
+                    return function(inValue1,
+                                    inValue2,
+                                    std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
+                });
+        }
+        else if (inArray2.isscalar())
+        {
+            const auto value = inArray2.item();
+            stl_algorithms::transform(
+                inArray1.cbegin(),
+                inArray1.cend(),
+                inArray1.begin(),
+                [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1
+                { return function(inValue, value, std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...); });
+        }
+        else if (inArray2.isflat())
+        {
+            if (inArray2.numRows() > 1 && inArray2.numRows() == inArray1.numRows())
+            {
+                for (uint32 row = 0; row < inArray1.numRows(); ++row)
+                {
+                    const auto value = inArray2[row];
+                    stl_algorithms::transform(
+                        inArray1.cbegin(row),
+                        inArray1.cend(row),
+                        inArray1.begin(row),
+                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1 {
+                            return function(inValue,
+                                            value,
+                                            std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
+                        });
+                }
+            }
+            else if (inArray2.numCols() > 1 && inArray2.numCols() == inArray1.numCols())
+            {
+                for (uint32 col = 0; col < inArray1.numCols(); ++col)
+                {
+                    const auto value = inArray2[col];
+                    stl_algorithms::transform(
+                        inArray1.ccolbegin(col),
+                        inArray1.ccolend(col),
+                        inArray1.colbegin(col),
+                        [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeIn1 {
+                            return function(inValue,
+                                            value,
+                                            std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
+                        });
+                }
+            }
+            else
+            {
+                THROW_INVALID_ARGUMENT_ERROR("operands could not be broadcast together");
+            }
+        }
+        else
+        {
+            THROW_INVALID_ARGUMENT_ERROR("operands could not be broadcast together");
+        }
+
+        return inArray1;
+    }
+
+    //============================================================================
+    // Method Description:
     /// Broadcasting template function
     ///
     /// @param function
     /// @param inArray1
     /// @param inArray2
+    /// @param additionalFunctionArgs
     ///
     /// @return NdArray
     ///
@@ -67,8 +155,7 @@ namespace nc::broadcast
                     inArray1.cend(),
                     inArray2.cbegin(),
                     returnArray.begin(),
-                    [&function, &additionalFunctionArgs...](const dtypeIn1& inValue1,
-                                                            const dtypeIn2& inValue2) -> dtypeOut {
+                    [&function, &additionalFunctionArgs...](const auto& inValue1, const auto& inValue2) -> dtypeOut {
                         return function(inValue1,
                                         inValue2,
                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -79,10 +166,21 @@ namespace nc::broadcast
         }
         else if (inArray1.isscalar())
         {
-            return broadcaster<dtypeOut>(inArray2,
-                                         inArray1,
-                                         function,
-                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
+            const auto value = inArray1.item();
+            return [&inArray2, &value, &function, &additionalFunctionArgs...]
+            {
+                NdArray<dtypeOut> returnArray(inArray2.shape());
+                stl_algorithms::transform(
+                    inArray2.cbegin(),
+                    inArray2.cend(),
+                    returnArray.begin(),
+                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
+                        return function(inValue,
+                                        value,
+                                        std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
+                    });
+                return returnArray;
+            }();
         }
         else if (inArray2.isscalar())
         {
@@ -94,7 +192,7 @@ namespace nc::broadcast
                     inArray1.cbegin(),
                     inArray1.cend(),
                     returnArray.begin(),
-                    [&value, &function, &additionalFunctionArgs...](const dtypeIn1& inValue) -> dtypeOut {
+                    [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
                         return function(inValue,
                                         value,
                                         std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);
@@ -159,7 +257,7 @@ namespace nc::broadcast
                             inArray1.cbegin(row),
                             inArray1.cend(row),
                             returnArray.begin(row),
-                            [&value, &function, &additionalFunctionArgs...](const dtypeIn1& inValue) -> dtypeOut {
+                            [&value, &function, &additionalFunctionArgs...](const auto& inValue) -> dtypeOut {
                                 return function(inValue,
                                                 value,
                                                 std::forward<AdditionalFunctionArgs>(additionalFunctionArgs)...);

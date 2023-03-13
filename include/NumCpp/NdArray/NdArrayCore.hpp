@@ -2868,7 +2868,7 @@ namespace nc
         // NOLINTNEXTLINE(modernize-use-nodiscard)
         bool isflat() const noexcept
         {
-            return shape_.rows == 1 || shape_.cols == 1;
+            return !isscalar() && (shape_.rows == 1 || shape_.cols == 1);
         }
 
         //============================================================================
