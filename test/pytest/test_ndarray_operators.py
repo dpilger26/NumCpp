@@ -965,15 +965,87 @@ def test_multiply_equal():
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
 
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
     # (1) Complex Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(shape.rows, 1)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhsC), lhs * rhs)
@@ -984,7 +1056,7 @@ def test_multiply_equal():
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArray(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
@@ -1004,9 +1076,9 @@ def test_multiply_equal():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + \
-        1j * np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          1j * np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100)) + 1j * \
-        float(np.random.randint(0, 100))
+          float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhs), lhs * rhs)
 
@@ -1015,7 +1087,7 @@ def test_multiply_equal():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + \
-        1j * np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          1j * np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiplyEqual(lhsC, rhs), lhs * rhs)
@@ -1034,15 +1106,111 @@ def test_multiply():
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
 
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
     # (1) Complex Arrays
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(1, shape.cols)
+    rhsC = NumCpp.NdArrayComplexDouble(shape.rows, 1)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
@@ -1054,7 +1222,55 @@ def test_multiply():
     rhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArrayComplexDouble(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArrayComplexDouble(shape.rows, 1)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
@@ -1065,8 +1281,56 @@ def test_multiply():
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     rhsC = NumCpp.NdArray(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast scalar
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float) + 1j * \
+          np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArrayComplexDouble(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
     lhsC.setArray(lhs)
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhsC), lhs * rhs)
@@ -1085,9 +1349,9 @@ def test_multiply():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
-    rhs = float(np.random.randint(0, 100)) + 1j * \
-        float(np.random.randint(0, 100))
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = float(np.random.randint(0, 100)) * 1j * \
+          float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhs), lhs * rhs)
 
@@ -1105,9 +1369,9 @@ def test_multiply():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     rhsC = NumCpp.NdArrayComplexDouble(shape)
     rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     lhs = float(np.random.randint(0, 100)) + 1j * \
-        float(np.random.randint(0, 100))
+          float(np.random.randint(0, 100))
     rhsC.setArray(rhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhs, rhsC), lhs * rhs)
 
@@ -1117,7 +1381,7 @@ def test_multiply():
     lhsC = NumCpp.NdArray(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100)) + 1j * \
-        float(np.random.randint(0, 100))
+          float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhs), lhs * rhs)
 
@@ -1127,7 +1391,7 @@ def test_multiply():
     lhsC = NumCpp.NdArray(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100)) + 1j * \
-        float(np.random.randint(0, 100))
+          float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(rhs, lhsC), rhs * lhs)
 
@@ -1136,7 +1400,7 @@ def test_multiply():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(lhsC, rhs), lhs * rhs)
@@ -1146,7 +1410,7 @@ def test_multiply():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     lhsC = NumCpp.NdArrayComplexDouble(shape)
     lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float) + 1j * \
-        np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+          np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
     rhs = float(np.random.randint(0, 100))
     lhsC.setArray(lhs)
     assert np.array_equal(NumCpp.operatorMultiply(rhs, lhsC), rhs * lhs)
