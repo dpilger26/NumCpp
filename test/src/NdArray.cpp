@@ -1957,6 +1957,15 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric operatorModulusEqualArray(NdArray<dtype> inArray1, const NdArray<dtype>& inArray2)
+    {
+        inArray1 %= inArray2;
+        return nc2pybind(inArray1);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     pbArrayGeneric operatorModulusScaler(const NdArray<dtype>& inArray, dtype inScaler)
     {
         return nc2pybind(inArray % inScaler);
@@ -3101,10 +3110,12 @@ void initNdArray(pb11::module& m)
     m.def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>);
     m.def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
 
+    m.def("operatorModulusEqualArray", &NdArrayInterface::operatorModulusEqualArray<uint32>);
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>);
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>);
 
+    m.def("operatorModulusEqualArray", &NdArrayInterface::operatorModulusEqualArray<double>);
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<double>);
     m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<double>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<double>);

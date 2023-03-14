@@ -983,40 +983,19 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        if (lhs.shape() != rhs.shape())
+        if constexpr (std::is_integral_v<dtype>)
         {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+            return broadcast::broadcaster(lhs, rhs, std::modulus<dtype>());
         }
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), std::modulus<dtype>());
-
-        return lhs;
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Modulus the elements of two arrays
-    ///
-    /// @param lhs
-    /// @param rhs
-    /// @return NdArray
-    ///
-    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
-    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
-    {
-        if (lhs.shape() != rhs.shape())
+        else
         {
-            THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
+            const auto function = [](const dtype value1, const dtype value2) -> dtype
+            { return std::fmod(value1, value2); };
+            return broadcast::broadcaster(lhs, rhs, function);
         }
-
-        const auto function = [](const dtype value1, const dtype value2) -> dtype { return std::fmod(value1, value2); };
-
-        stl_algorithms::transform(lhs.begin(), lhs.end(), rhs.cbegin(), lhs.begin(), function);
-
-        return lhs;
     }
 
     //============================================================================
@@ -1027,30 +1006,19 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
     {
-        const auto function = [rhs](dtype& value) -> dtype { return value %= rhs; };
-
-        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
-
-        return lhs;
-    }
-
-    //============================================================================
-    // Method Description:
-    /// Modulus the scaler to the array
-    ///
-    /// @param lhs
-    /// @param rhs
-    /// @return NdArray
-    ///
-    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
-    NdArray<dtype>& operator%=(NdArray<dtype>& lhs, dtype rhs)
-    {
-        const auto function = [rhs](dtype& value) -> void { value = std::fmod(value, rhs); };
-
-        stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        if constexpr (std::is_integral_v<dtype>)
+        {
+            const auto function = [rhs](dtype& value) -> dtype { return value %= rhs; };
+            stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        }
+        else
+        {
+            const auto function = [rhs](dtype& value) -> void { value = std::fmod(value, rhs); };
+            stl_algorithms::for_each(lhs.begin(), lhs.end(), function);
+        }
 
         return lhs;
     }
@@ -1063,12 +1031,19 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype> || std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype> operator%(const NdArray<dtype>& lhs, const NdArray<dtype>& rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray %= rhs;
-        return returnArray;
+        if constexpr (std::is_integral_v<dtype>)
+        {
+            return broadcast::broadcaster<dtype>(lhs, rhs, std::modulus<dtype>());
+        }
+        else
+        {
+            const auto function = [](const dtype value1, const dtype value2) -> dtype
+            { return std::fmod(value1, value2); };
+            return broadcast::broadcaster<dtype>(lhs, rhs, function);
+        }
     }
 
     //============================================================================
@@ -1080,11 +1055,10 @@ namespace nc
     /// @return NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> operator%(const NdArray<dtype>& lhs, dtype rhs)
+    NdArray<dtype> operator%(NdArray<dtype> lhs, dtype rhs)
     {
-        auto returnArray = NdArray<dtype>(lhs);
-        returnArray %= rhs;
-        return returnArray;
+        lhs %= rhs;
+        return lhs;
     }
 
     //============================================================================
@@ -1095,7 +1069,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_integral<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_integral_v<dtype>, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
@@ -1115,7 +1089,7 @@ namespace nc
     /// @param rhs
     /// @return NdArray
     ///
-    template<typename dtype, std::enable_if_t<std::is_floating_point<dtype>::value, int> = 0>
+    template<typename dtype, std::enable_if_t<std::is_floating_point_v<dtype>, int> = 0>
     NdArray<dtype> operator%(dtype lhs, const NdArray<dtype>& rhs)
     {
         NdArray<dtype> returnArray(rhs.shape());
