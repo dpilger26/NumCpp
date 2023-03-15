@@ -275,7 +275,7 @@ def test_operators():
     shape = np.random.randint(1, 100, [2, ])
     data = np.random.randint(0, 100, shape)
     value = np.random.randint(0, 100)
-    cArray = NumCpp.testAssignementScalerOperator(data, value)
+    cArray = NumCpp.testAssignementScalarOperator(data, value)
     assert cArray.shape == data.shape
     assert np.all(cArray == value)
 
@@ -284,7 +284,7 @@ def test_operators():
     imag = np.random.randint(1, 100, shape)
     data = real + 1j * imag
     value = np.random.randint(0, 100)
-    cArray = NumCpp.testAssignementScalerOperator(data, value)
+    cArray = NumCpp.testAssignementScalarOperator(data, value)
     assert cArray.shape == data.shape
     assert np.all(cArray == value)
 
@@ -584,7 +584,7 @@ def test_access_operators():
     assert np.array_equal(cArray.get(row, NumCpp.Slice(startCol, stopCol, stepCol)).flatten(),
                           data[row, startCol:stopCol:stepCol])
 
-    # getIndicesScaler
+    # getIndicesScalar
     shapeInput = np.random.randint(100, 500, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -646,7 +646,7 @@ def test_access_operators():
     assert np.array_equal(cArray.get(cRowIndices, NumCpp.Slice(startCol, stopCol, stepCol)),
                           data[rowIndices, startCol:stopCol:stepCol])
 
-    # getScalerIndices
+    # getScalarIndices
     shapeInput = np.random.randint(100, 500, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -994,7 +994,7 @@ def test_at():
     assert np.array_equal(cArray.at(row, NumCpp.Slice(startCol, stopCol, stepCol)).flatten(),
                           data[row, startCol:stopCol:stepCol])
 
-    # atIndicesScaler
+    # atIndicesScalar
     shapeInput = np.random.randint(100, 500, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1056,7 +1056,7 @@ def test_at():
     assert np.array_equal(cArray.at(cRowIndices, NumCpp.Slice(startCol, stopCol, stepCol)),
                           data[rowIndices, startCol:stopCol:stepCol])
 
-    # atScalerIndices
+    # atScalarIndices
     shapeInput = np.random.randint(100, 500, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

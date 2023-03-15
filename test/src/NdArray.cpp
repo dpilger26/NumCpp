@@ -431,7 +431,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename T>
-    pbArrayGeneric testAssignementScalerOperator(pbArray<T> inArray, T value)
+    pbArrayGeneric testAssignementScalarOperator(pbArray<T> inArray, T value)
     {
         auto ncArray = pybind2nc(inArray);
         ncArray      = value;
@@ -671,7 +671,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric atIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
+    pbArrayGeneric atIndicesScalar(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
     {
         return nc2pybind(self.at(rowIndices, colIndex));
     }
@@ -687,7 +687,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric atScalerIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
+    pbArrayGeneric atScalarIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
     {
         return nc2pybind(self.at(rowIndex, colIndices));
     }
@@ -937,7 +937,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getIndicesScaler(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
+    pbArrayGeneric getIndicesScalar(const NdArray<dtype>& self, const NdArray<int32>& rowIndices, int32 colIndex)
     {
         return nc2pybind(self(rowIndices, colIndex));
     }
@@ -953,7 +953,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric getScalerIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
+    pbArrayGeneric getScalarIndices(const NdArray<dtype>& self, int32 rowIndex, const NdArray<int32>& colIndices)
     {
         return nc2pybind(self(rowIndex, colIndices));
     }
@@ -1538,7 +1538,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorPlusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorPlusEqualScalar(NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs += rhs);
     }
@@ -1546,7 +1546,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorPlusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorPlusEqualComplexArrayArithScalar(NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs += rhs);
     }
@@ -1580,7 +1580,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorPlusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorPlusArrayScalar(const NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1588,7 +1588,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    pbArrayGeneric operatorPlusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorPlusScalarArray(dtype lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1596,7 +1596,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    pbArrayGeneric operatorPlusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    pbArrayGeneric operatorPlusArithArrayComplexScalar(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1604,7 +1604,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    pbArrayGeneric operatorPlusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorPlusComplexScalarArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1612,7 +1612,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    pbArrayGeneric operatorPlusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorPlusComplexArrayArithScalar(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1620,7 +1620,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    pbArrayGeneric operatorPlusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorPlusArithScalarComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs + rhs);
     }
@@ -1653,7 +1653,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorMinusEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorMinusEqualScalar(NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs -= rhs);
     }
@@ -1661,7 +1661,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorMinusEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorMinusEqualComplexArrayArithScalar(NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs -= rhs);
     }
@@ -1695,7 +1695,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorMinusArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorMinusArrayScalar(const NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1703,7 +1703,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    pbArrayGeneric operatorMinusScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMinusScalarArray(dtype lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1711,7 +1711,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    pbArrayGeneric operatorMinusArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    pbArrayGeneric operatorMinusArithArrayComplexScalar(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1719,7 +1719,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    pbArrayGeneric operatorMinusComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMinusComplexScalarArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1727,7 +1727,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    pbArrayGeneric operatorMinusComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorMinusComplexArrayArithScalar(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1735,7 +1735,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    pbArrayGeneric operatorMinusArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorMinusArithScalarComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs - rhs);
     }
@@ -1760,7 +1760,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorMultiplyEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorMultiplyEqualScalar(NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs *= rhs);
     }
@@ -1768,7 +1768,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorMultiplyEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorMultiplyEqualComplexArrayArithScalar(NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs *= rhs);
     }
@@ -1802,7 +1802,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorMultiplyArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorMultiplyArrayScalar(const NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1810,7 +1810,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    pbArrayGeneric operatorMultiplyScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMultiplyScalarArray(dtype lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1818,7 +1818,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    pbArrayGeneric operatorMultiplyArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    pbArrayGeneric operatorMultiplyArithArrayComplexScalar(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1826,7 +1826,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    pbArrayGeneric operatorMultiplyComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorMultiplyComplexScalarArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1834,7 +1834,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    pbArrayGeneric operatorMultiplyComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorMultiplyComplexArrayArithScalar(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1842,7 +1842,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    pbArrayGeneric operatorMultiplyArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorMultiplyArithScalarComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs * rhs);
     }
@@ -1867,7 +1867,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (3)
-    pbArrayGeneric operatorDivideEqualScaler(NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorDivideEqualScalar(NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs /= rhs);
     }
@@ -1875,7 +1875,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorDivideEqualComplexArrayArithScaler(NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorDivideEqualComplexArrayArithScalar(NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs /= rhs);
     }
@@ -1909,7 +1909,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (4)
-    pbArrayGeneric operatorDivideArrayScaler(const NdArray<dtype>& lhs, dtype rhs)
+    pbArrayGeneric operatorDivideArrayScalar(const NdArray<dtype>& lhs, dtype rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1917,7 +1917,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (5)
-    pbArrayGeneric operatorDivideScalerArray(dtype lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorDivideScalarArray(dtype lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1925,7 +1925,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (6)
-    pbArrayGeneric operatorDivideArithArrayComplexScaler(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
+    pbArrayGeneric operatorDivideArithArrayComplexScalar(const NdArray<dtype>& lhs, const std::complex<dtype>& rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1933,7 +1933,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (7)
-    pbArrayGeneric operatorDivideComplexScalerArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
+    pbArrayGeneric operatorDivideComplexScalarArithArray(const std::complex<dtype>& lhs, const NdArray<dtype>& rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1941,7 +1941,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (8)
-    pbArrayGeneric operatorDivideComplexArrayArithScaler(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
+    pbArrayGeneric operatorDivideComplexArrayArithScalar(const NdArray<std::complex<dtype>>& lhs, dtype rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1949,7 +1949,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype> // (9)
-    pbArrayGeneric operatorDivideArithScalerComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
+    pbArrayGeneric operatorDivideArithScalarComplexArray(dtype lhs, const NdArray<std::complex<dtype>>& rhs)
     {
         return nc2pybind(lhs / rhs);
     }
@@ -1966,17 +1966,17 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorModulusScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric operatorModulusScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inArray % inScaler);
+        return nc2pybind(inArray % inScalar);
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorModulusScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorModulusScalarReversed(dtype inScalar, const NdArray<dtype>& inArray)
     {
-        return nc2pybind(inScaler % inArray);
+        return nc2pybind(inScalar % inArray);
     }
 
     //================================================================================
@@ -1990,17 +1990,26 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseOrScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric operatorBitwiseOrEqualArray(NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2pybind(inArray | inScaler);
+        inArray1 |= inArray2;
+        return nc2pybind(inArray1);
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseOrScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorBitwiseOrScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inScaler | inArray);
+        return nc2pybind(inArray | inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric operatorBitwiseOrScalarReversed(dtype inScalar, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(inScalar | inArray);
     }
 
     //================================================================================
@@ -2014,17 +2023,26 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseAndScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric operatorBitwiseAndEqualArray(NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2pybind(inArray & inScaler);
+        inArray1 &= inArray2;
+        return nc2pybind(inArray1);
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseAndScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorBitwiseAndScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inScaler & inArray);
+        return nc2pybind(inArray & inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric operatorBitwiseAndScalarReversed(dtype inScalar, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(inScalar & inArray);
     }
 
     //================================================================================
@@ -2038,17 +2056,26 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseXorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric operatorBitwiseXorEqualArray(NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2pybind(inArray ^ inScaler);
+        inArray1 ^= inArray2;
+        return nc2pybind(inArray1);
     }
 
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorBitwiseXorScalerReversed(dtype inScaler, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorBitwiseXorScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inScaler ^ inArray);
+        return nc2pybind(inArray ^ inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric operatorBitwiseXorScalarReversed(dtype inScalar, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(inScalar ^ inArray);
     }
 
     //================================================================================
@@ -2126,7 +2153,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorEqualityScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray == inValue);
     }
@@ -2134,7 +2161,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorEqualityScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue == inArray);
     }
@@ -2150,7 +2177,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorNotEqualityScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorNotEqualityScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray != inValue);
     }
@@ -2158,7 +2185,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorNotEqualityScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorNotEqualityScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue != inArray);
     }
@@ -2174,7 +2201,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorLessScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorLessScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray < inValue);
     }
@@ -2182,7 +2209,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorLessScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorLessScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue < inArray);
     }
@@ -2198,7 +2225,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorGreaterScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorGreaterScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray > inValue);
     }
@@ -2206,7 +2233,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorGreaterScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorGreaterScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue > inArray);
     }
@@ -2222,7 +2249,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorLessEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorLessEqualScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray <= inValue);
     }
@@ -2230,7 +2257,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorLessEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorLessEqualScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue <= inArray);
     }
@@ -2246,7 +2273,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorGreaterEqualScaler(const NdArray<dtype>& inArray, dtype inValue)
+    pbArrayGeneric operatorGreaterEqualScalar(const NdArray<dtype>& inArray, dtype inValue)
     {
         return nc2pybind(inArray >= inValue);
     }
@@ -2254,7 +2281,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric operatorGreaterEqualScalerReversed(dtype inValue, const NdArray<dtype>& inArray)
+    pbArrayGeneric operatorGreaterEqualScalarReversed(dtype inValue, const NdArray<dtype>& inArray)
     {
         return nc2pybind(inValue >= inArray);
     }
@@ -2801,8 +2828,8 @@ void initNdArray(pb11::module& m)
     m.def("testMoveConstructor", &NdArrayInterface::testMoveConstructor<ComplexDouble>);
     m.def("testAssignementOperator", &NdArrayInterface::testAssignementOperator<double>);
     m.def("testAssignementOperator", &NdArrayInterface::testAssignementOperator<ComplexDouble>);
-    m.def("testAssignementScalerOperator", &NdArrayInterface::testAssignementScalerOperator<double>);
-    m.def("testAssignementScalerOperator", &NdArrayInterface::testAssignementScalerOperator<ComplexDouble>);
+    m.def("testAssignementScalarOperator", &NdArrayInterface::testAssignementScalarOperator<double>);
+    m.def("testAssignementScalarOperator", &NdArrayInterface::testAssignementScalarOperator<ComplexDouble>);
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<double>);
     m.def("testMoveAssignementOperator", &NdArrayInterface::testMoveAssignementOperator<ComplexDouble>);
 
@@ -2825,9 +2852,9 @@ void initNdArray(pb11::module& m)
         .def("get", &NdArrayInterface::getSlice2D<double>)
         .def("get", &NdArrayInterface::getSlice2DRow<double>)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
-        .def("get", &NdArrayInterface::getIndicesScaler<double>)
+        .def("get", &NdArrayInterface::getIndicesScalar<double>)
         .def("get", &NdArrayInterface::getIndicesSlice<double>)
-        .def("get", &NdArrayInterface::getScalerIndices<double>)
+        .def("get", &NdArrayInterface::getScalarIndices<double>)
         .def("get", &NdArrayInterface::getSliceIndices<double>)
         .def("get", &NdArrayInterface::getIndices2D<double>)
         .def("at", &NdArrayInterface::atValueFlat<double>)
@@ -2840,9 +2867,9 @@ void initNdArray(pb11::module& m)
         .def("at", &NdArrayInterface::atSlice2D<double>)
         .def("at", &NdArrayInterface::atSlice2DRow<double>)
         .def("at", &NdArrayInterface::atSlice2DCol<double>)
-        .def("at", &NdArrayInterface::atIndicesScaler<double>)
+        .def("at", &NdArrayInterface::atIndicesScalar<double>)
         .def("at", &NdArrayInterface::atIndicesSlice<double>)
-        .def("at", &NdArrayInterface::atScalerIndices<double>)
+        .def("at", &NdArrayInterface::atScalarIndices<double>)
         .def("at", &NdArrayInterface::atSliceIndices<double>)
         .def("at", &NdArrayInterface::atIndices2D<double>)
         .def("begin", begin)
@@ -2982,22 +3009,22 @@ void initNdArray(pb11::module& m)
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<double>);                   // (1)
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualArray<ComplexDouble>);            // (1)
     m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithArray<double>);  // (2)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<double>);                  // (3)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScaler<ComplexDouble>);           // (3)
-    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithScaler<double>); // (4)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScalar<double>);                  // (3)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualScalar<ComplexDouble>);           // (3)
+    m.def("operatorPlusEqual", &NdArrayInterface::operatorPlusEqualComplexArrayArithScalar<double>); // (4)
 
     m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<double>);                   // (1)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusArray<ComplexDouble>);            // (1)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexArray<double>);  // (2)
     m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithArray<double>);  // (3)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<double>);             // (4)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScaler<ComplexDouble>);      // (4)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<double>);             // (5)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalerArray<ComplexDouble>);      // (5)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexScaler<double>); // (6)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexScalerArithArray<double>); // (7)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithScaler<double>); // (8)
-    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithScalerComplexArray<double>); // (9)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScalar<double>);             // (4)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArrayScalar<ComplexDouble>);      // (4)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalarArray<double>);             // (5)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusScalarArray<ComplexDouble>);      // (5)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithArrayComplexScalar<double>); // (6)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexScalarArithArray<double>); // (7)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusComplexArrayArithScalar<double>); // (8)
+    m.def("operatorPlus", &NdArrayInterface::operatorPlusArithScalarComplexArray<double>); // (9)
 
     m.def("operatorNegative", &NdArrayInterface::operatorNegative<double>);
     m.def("operatorNegative", &NdArrayInterface::operatorNegative<ComplexDouble>);
@@ -3005,102 +3032,102 @@ void initNdArray(pb11::module& m)
     m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<double>);                   // (1)
     m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualArray<ComplexDouble>);            // (1)
     m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithArray<double>);  // (2)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<double>);                  // (3)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScaler<ComplexDouble>);           // (3)
-    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithScaler<double>); // (4)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScalar<double>);                  // (3)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualScalar<ComplexDouble>);           // (3)
+    m.def("operatorMinusEqual", &NdArrayInterface::operatorMinusEqualComplexArrayArithScalar<double>); // (4)
 
     m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<double>);                   // (1)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusArray<ComplexDouble>);            // (1)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexArray<double>);  // (2)
     m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithArray<double>);  // (3)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<double>);             // (4)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScaler<ComplexDouble>);      // (4)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<double>);             // (5)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalerArray<ComplexDouble>);      // (5)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexScaler<double>); // (6)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexScalerArithArray<double>); // (7)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithScaler<double>); // (8)
-    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithScalerComplexArray<double>); // (9)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScalar<double>);             // (4)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArrayScalar<ComplexDouble>);      // (4)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalarArray<double>);             // (5)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusScalarArray<ComplexDouble>);      // (5)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithArrayComplexScalar<double>); // (6)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexScalarArithArray<double>); // (7)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusComplexArrayArithScalar<double>); // (8)
+    m.def("operatorMinus", &NdArrayInterface::operatorMinusArithScalarComplexArray<double>); // (9)
 
     m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<double>);                   // (1)
     m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualArray<ComplexDouble>);            // (1)
     m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithArray<double>);  // (2)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<double>);                  // (3)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScaler<ComplexDouble>);           // (3)
-    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithScaler<double>); // (4)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScalar<double>);                  // (3)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualScalar<ComplexDouble>);           // (3)
+    m.def("operatorMultiplyEqual", &NdArrayInterface::operatorMultiplyEqualComplexArrayArithScalar<double>); // (4)
 
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<double>);                   // (1)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArray<ComplexDouble>);            // (1)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexArray<double>);  // (2)
     m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithArray<double>);  // (3)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<double>);             // (4)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScaler<ComplexDouble>);      // (4)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<double>);             // (5)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalerArray<ComplexDouble>);      // (5)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexScaler<double>); // (6)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexScalerArithArray<double>); // (7)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithScaler<double>); // (8)
-    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithScalerComplexArray<double>); // (9)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScalar<double>);             // (4)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArrayScalar<ComplexDouble>);      // (4)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalarArray<double>);             // (5)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyScalarArray<ComplexDouble>);      // (5)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithArrayComplexScalar<double>); // (6)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexScalarArithArray<double>); // (7)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyComplexArrayArithScalar<double>); // (8)
+    m.def("operatorMultiply", &NdArrayInterface::operatorMultiplyArithScalarComplexArray<double>); // (9)
 
     m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<double>);                   // (1)
     m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualArray<ComplexDouble>);            // (1)
     m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithArray<double>);  // (2)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<double>);                  // (3)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScaler<ComplexDouble>);           // (3)
-    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithScaler<double>); // (4)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScalar<double>);                  // (3)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualScalar<ComplexDouble>);           // (3)
+    m.def("operatorDivideEqual", &NdArrayInterface::operatorDivideEqualComplexArrayArithScalar<double>); // (4)
 
     m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<double>);                   // (1)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideArray<ComplexDouble>);            // (1)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexArray<double>);  // (2)
     m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithArray<double>);  // (3)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<double>);             // (4)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScaler<ComplexDouble>);      // (4)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<double>);             // (5)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalerArray<ComplexDouble>);      // (5)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexScaler<double>); // (6)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexScalerArithArray<double>); // (7)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithScaler<double>); // (8)
-    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithScalerComplexArray<double>); // (9)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScalar<double>);             // (4)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArrayScalar<ComplexDouble>);      // (4)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalarArray<double>);             // (5)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideScalarArray<ComplexDouble>);      // (5)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithArrayComplexScalar<double>); // (6)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexScalarArithArray<double>); // (7)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideComplexArrayArithScalar<double>); // (8)
+    m.def("operatorDivide", &NdArrayInterface::operatorDivideArithScalarComplexArray<double>); // (9)
 
-    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<double>);
-    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<ComplexDouble>);
-    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<double>);
-    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalerReversed<ComplexDouble>);
+    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>);
+    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<ComplexDouble>);
+    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalarReversed<double>);
+    m.def("operatorEquality", &NdArrayInterface::operatorEqualityScalarReversed<ComplexDouble>);
     m.def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>);
     m.def("operatorEquality", &NdArrayInterface::operatorEqualityArray<ComplexDouble>);
 
-    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>);
-    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<ComplexDouble>);
-    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<double>);
-    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalerReversed<ComplexDouble>);
+    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>);
+    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<ComplexDouble>);
+    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalarReversed<double>);
+    m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalarReversed<ComplexDouble>);
     m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>);
     m.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<ComplexDouble>);
 
-    m.def("operatorLess", &NdArrayInterface::operatorLessScaler<double>);
-    m.def("operatorLess", &NdArrayInterface::operatorLessScaler<ComplexDouble>);
-    m.def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<double>);
-    m.def("operatorLess", &NdArrayInterface::operatorLessScalerReversed<ComplexDouble>);
+    m.def("operatorLess", &NdArrayInterface::operatorLessScalar<double>);
+    m.def("operatorLess", &NdArrayInterface::operatorLessScalar<ComplexDouble>);
+    m.def("operatorLess", &NdArrayInterface::operatorLessScalarReversed<double>);
+    m.def("operatorLess", &NdArrayInterface::operatorLessScalarReversed<ComplexDouble>);
     m.def("operatorLess", &NdArrayInterface::operatorLessArray<double>);
     m.def("operatorLess", &NdArrayInterface::operatorLessArray<ComplexDouble>);
 
-    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<double>);
-    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<ComplexDouble>);
-    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<double>);
-    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalerReversed<ComplexDouble>);
+    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<double>);
+    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<ComplexDouble>);
+    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalarReversed<double>);
+    m.def("operatorGreater", &NdArrayInterface::operatorGreaterScalarReversed<ComplexDouble>);
     m.def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>);
     m.def("operatorGreater", &NdArrayInterface::operatorGreaterArray<ComplexDouble>);
 
-    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<double>);
-    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<ComplexDouble>);
-    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<double>);
-    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalerReversed<ComplexDouble>);
+    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<double>);
+    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<ComplexDouble>);
+    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalarReversed<double>);
+    m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalarReversed<ComplexDouble>);
     m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>);
     m.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<ComplexDouble>);
 
-    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<double>);
-    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<ComplexDouble>);
-    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<double>);
-    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalerReversed<ComplexDouble>);
+    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<double>);
+    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<ComplexDouble>);
+    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalarReversed<double>);
+    m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalarReversed<ComplexDouble>);
     m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>);
     m.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<ComplexDouble>);
 
@@ -3111,25 +3138,28 @@ void initNdArray(pb11::module& m)
     m.def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
 
     m.def("operatorModulusEqualArray", &NdArrayInterface::operatorModulusEqualArray<uint32>);
-    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>);
-    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<uint32>);
+    m.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>);
+    m.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalarReversed<uint32>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>);
 
     m.def("operatorModulusEqualArray", &NdArrayInterface::operatorModulusEqualArray<double>);
-    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<double>);
-    m.def("operatorModulusScaler", &NdArrayInterface::operatorModulusScalerReversed<double>);
+    m.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<double>);
+    m.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalarReversed<double>);
     m.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<double>);
 
-    m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScaler<uint32>);
-    m.def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScalerReversed<uint32>);
+    m.def("operatorBitwiseOrEqualArray", &NdArrayInterface::operatorBitwiseOrEqualArray<uint32>);
+    m.def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalar<uint32>);
+    m.def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalarReversed<uint32>);
     m.def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>);
 
-    m.def("operatorBitwiseAndScaler", &NdArrayInterface::operatorBitwiseAndScaler<uint32>);
-    m.def("operatorBitwiseAndScaler", &NdArrayInterface::operatorBitwiseAndScalerReversed<uint32>);
+    m.def("operatorBitwiseAndEqualArray", &NdArrayInterface::operatorBitwiseAndEqualArray<uint32>);
+    m.def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalar<uint32>);
+    m.def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalarReversed<uint32>);
     m.def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>);
 
-    m.def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScaler<uint32>);
-    m.def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScalerReversed<uint32>);
+    m.def("operatorBitwiseXorEqualArray", &NdArrayInterface::operatorBitwiseXorEqualArray<uint32>);
+    m.def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalar<uint32>);
+    m.def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalarReversed<uint32>);
     m.def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>);
 
     m.def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>);
@@ -3327,9 +3357,9 @@ void initNdArray(pb11::module& m)
         .def("get", &NdArrayInterface::getSlice2D<ComplexDouble>)
         .def("get", &NdArrayInterface::getSlice2DRow<ComplexDouble>)
         .def("get", &NdArrayInterface::getSlice2DCol<ComplexDouble>)
-        .def("get", &NdArrayInterface::getIndicesScaler<ComplexDouble>)
+        .def("get", &NdArrayInterface::getIndicesScalar<ComplexDouble>)
         .def("get", &NdArrayInterface::getIndicesSlice<ComplexDouble>)
-        .def("get", &NdArrayInterface::getScalerIndices<ComplexDouble>)
+        .def("get", &NdArrayInterface::getScalarIndices<ComplexDouble>)
         .def("get", &NdArrayInterface::getSliceIndices<ComplexDouble>)
         .def("get", &NdArrayInterface::getIndices2D<ComplexDouble>)
         .def("at", &NdArrayInterface::atValueFlat<ComplexDouble>)
@@ -3342,9 +3372,9 @@ void initNdArray(pb11::module& m)
         .def("at", &NdArrayInterface::atSlice2D<ComplexDouble>)
         .def("at", &NdArrayInterface::atSlice2DRow<ComplexDouble>)
         .def("at", &NdArrayInterface::atSlice2DCol<ComplexDouble>)
-        .def("at", &NdArrayInterface::atIndicesScaler<ComplexDouble>)
+        .def("at", &NdArrayInterface::atIndicesScalar<ComplexDouble>)
         .def("at", &NdArrayInterface::atIndicesSlice<ComplexDouble>)
-        .def("at", &NdArrayInterface::atScalerIndices<ComplexDouble>)
+        .def("at", &NdArrayInterface::atScalarIndices<ComplexDouble>)
         .def("at", &NdArrayInterface::atSliceIndices<ComplexDouble>)
         .def("at", &NdArrayInterface::atIndices2D<ComplexDouble>)
         .def("begin", beginComplex)

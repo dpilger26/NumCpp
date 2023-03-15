@@ -319,15 +319,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Adds the scaler to the vector
+        /// Adds the scalar to the vector
         ///
-        /// @param scaler
+        /// @param scalar
         /// @return Vec2
         ///
-        Vec2& operator+=(double scaler) noexcept
+        Vec2& operator+=(double scalar) noexcept
         {
-            x += scaler;
-            y += scaler;
+            x += scalar;
+            y += scalar;
             return *this;
         }
 
@@ -347,15 +347,15 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Subtracts the scaler from the vector
+        /// Subtracts the scalar from the vector
         ///
-        /// @param scaler
+        /// @param scalar
         /// @return Vec2
         ///
-        Vec2& operator-=(double scaler) noexcept
+        Vec2& operator-=(double scalar) noexcept
         {
-            x -= scaler;
-            y -= scaler;
+            x -= scalar;
+            y -= scalar;
             return *this;
         }
 
@@ -377,13 +377,13 @@ namespace nc
         // Method Description:
         /// Scalar mulitplication
         ///
-        /// @param scaler
+        /// @param scalar
         /// @return Vec2
         ///
-        Vec2& operator*=(double scaler) noexcept
+        Vec2& operator*=(double scalar) noexcept
         {
-            x *= scaler;
-            y *= scaler;
+            x *= scalar;
+            y *= scalar;
             return *this;
         }
 
@@ -391,20 +391,20 @@ namespace nc
         // Method Description:
         /// Scalar division
         ///
-        /// @param scaler
+        /// @param scalar
         /// @return Vec2
         ///
-        Vec2& operator/=(double scaler) noexcept
+        Vec2& operator/=(double scalar) noexcept
         {
-            x /= scaler;
-            y /= scaler;
+            x /= scalar;
+            y /= scalar;
             return *this;
         }
     };
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the vector
+    /// Adds the scalar to the vector
     ///
     /// @param lhs
     /// @param rhs
@@ -417,7 +417,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Adds the scaler to the vector
+    /// Adds the scalar to the vector
     ///
     /// @param lhs
     /// @param rhs
@@ -454,7 +454,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the vector
+    /// Subtracts the scalar from the vector
     ///
     /// @param lhs
     /// @param rhs
@@ -467,7 +467,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    /// Subtracts the scaler from the vector
+    /// Subtracts the scalar from the vector
     ///
     /// @param lhs
     /// @param rhs

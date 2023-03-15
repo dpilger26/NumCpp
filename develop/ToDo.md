@@ -5,6 +5,8 @@
 ### Broadcasting
 
 * issue #147: multiply (and other operator) broadcasting
+* issue #174: more broadcasting generally
+  * survey of remaining function
 
 * run clang-tidy
 * run cppcheck
@@ -12,8 +14,6 @@
 * merge to main / tag / create release
 
 ## Version 2.11.0
-
-* issue #174: more broadcasting generally
 
 * run clang-tidy
 * run cppcheck

@@ -23,11 +23,11 @@ def test_seed():
 ####################################################################################
 def test_abs():
     randValue = np.random.randint(-100, -1, [1, ]).astype(float).item()
-    assert NumCpp.absScaler(randValue) == np.abs(randValue)
+    assert NumCpp.absScalar(randValue) == np.abs(randValue)
 
     components = np.random.randint(-100, -1, [2, ]).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.absScaler(value), 9) == np.round(np.abs(value), 9)
+    assert np.round(NumCpp.absScalar(value), 9) == np.round(np.abs(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -382,7 +382,7 @@ def test_amin():
 def test_angle():
     components = np.random.randint(-100, -1, [2, ]).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.angleScaler(value), 9) == np.round(np.angle(value), 9)  # noqa
+    assert np.round(NumCpp.angleScalar(value), 9) == np.round(np.angle(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -507,12 +507,12 @@ def test_arange():
 ####################################################################################
 def test_arccos():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.arccosScaler(value),
+    assert np.round(NumCpp.arccosScalar(value),
                     9) == np.round(np.arccos(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arccosScaler(value),
+    assert np.round(NumCpp.arccosScalar(value),
                     9) == np.round(np.arccos(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -536,12 +536,12 @@ def test_arccos():
 ####################################################################################
 def test_arccosh():
     value = np.abs(np.random.rand(1).item()) + 1
-    assert np.round(NumCpp.arccoshScaler(value),
+    assert np.round(NumCpp.arccoshScalar(value),
                     9) == np.round(np.arccosh(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arccoshScaler(value),
+    assert np.round(NumCpp.arccoshScalar(value),
                     9) == np.round(np.arccosh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -565,12 +565,12 @@ def test_arccosh():
 ####################################################################################
 def test_arcsin():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.arcsinScaler(value),
+    assert np.round(NumCpp.arcsinScalar(value),
                     9) == np.round(np.arcsin(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arcsinScaler(value),
+    assert np.round(NumCpp.arcsinScalar(value),
                     9) == np.round(np.arcsin(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -594,12 +594,12 @@ def test_arcsin():
 ####################################################################################
 def test_arcsinh():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.arcsinhScaler(value),
+    assert np.round(NumCpp.arcsinhScalar(value),
                     9) == np.round(np.arcsinh(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arcsinhScaler(value),
+    assert np.round(NumCpp.arcsinhScalar(value),
                     9) == np.round(np.arcsinh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -623,12 +623,12 @@ def test_arcsinh():
 ####################################################################################
 def test_arctan():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.arctanScaler(value),
+    assert np.round(NumCpp.arctanScalar(value),
                     9) == np.round(np.arctan(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arctanScaler(value),
+    assert np.round(NumCpp.arctanScalar(value),
                     9) == np.round(np.arctan(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -652,7 +652,7 @@ def test_arctan():
 ####################################################################################
 def test_arctan2():
     xy = np.random.rand(2) * 2 - 1
-    assert np.round(NumCpp.arctan2Scaler(xy[1], xy[0]), 9) == np.round(
+    assert np.round(NumCpp.arctan2Scalar(xy[1], xy[0]), 9) == np.round(
         np.arctan2(xy[1], xy[0]), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -671,12 +671,12 @@ def test_arctan2():
 ####################################################################################
 def test_arctanh():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.arctanhScaler(value),
+    assert np.round(NumCpp.arctanhScalar(value),
                     9) == np.round(np.arctanh(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.arctanhScaler(value),
+    assert np.round(NumCpp.arctanhScalar(value),
                     9) == np.round(np.arctanh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -924,7 +924,7 @@ def test_around():
     value = np.abs(np.random.rand(1).item()) * \
         np.random.randint(1, 10, [1, ]).item()
     numDecimalsRound = np.random.randint(0, 10, [1, ]).astype(np.uint8).item()
-    assert NumCpp.aroundScaler(value, numDecimalsRound) == np.round(
+    assert NumCpp.aroundScalar(value, numDecimalsRound) == np.round(
         value, numDecimalsRound)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -1594,7 +1594,7 @@ def test_clip():
     value = np.random.randint(0, 100, [1, ]).item()
     minValue = np.random.randint(0, 10, [1, ]).item()
     maxValue = np.random.randint(90, 100, [1, ]).item()
-    assert NumCpp.clipScaler(value, minValue, maxValue) == np.clip(
+    assert NumCpp.clipScalar(value, minValue, maxValue) == np.clip(
         value, minValue, maxValue)
 
     value = np.random.randint(0, 100, [1, ]).item(
@@ -1603,7 +1603,7 @@ def test_clip():
     ) + 1j * np.random.randint(0, 10, [1, ]).item()
     maxValue = np.random.randint(90, 100, [1, ]).item(
     ) + 1j * np.random.randint(0, 100, [1, ]).item()
-    assert NumCpp.clipScaler(value, minValue, maxValue) == np.clip(value, minValue, maxValue)  # noqa
+    assert NumCpp.clipScalar(value, minValue, maxValue) == np.clip(value, minValue, maxValue)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1659,11 +1659,11 @@ def test_column_stack():
 def test_complex():
     real = np.random.rand(1).astype(float).item()
     value = complex(real)
-    assert np.round(NumCpp.complexScaler(real), 9) == np.round(value, 9)
+    assert np.round(NumCpp.complexScalar(real), 9) == np.round(value, 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.complexScaler(
+    assert np.round(NumCpp.complexScalar(
         components[0], components[1]), 9) == np.round(value, 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -1762,7 +1762,7 @@ def test_concatenate():
 def test_conj():
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.conjScaler(value), 9) == np.round(np.conj(value), 9)
+    assert np.round(NumCpp.conjScalar(value), 9) == np.round(np.conj(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1898,11 +1898,11 @@ def test_corrcoef():
 ####################################################################################
 def test_cos():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9)
+    assert np.round(NumCpp.cosScalar(value), 9) == np.round(np.cos(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9)
+    assert np.round(NumCpp.cosScalar(value), 9) == np.round(np.cos(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1925,11 +1925,11 @@ def test_cos():
 ####################################################################################
 def test_cosh():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.coshScaler(value), 9) == np.round(np.cosh(value), 9)
+    assert np.round(NumCpp.coshScalar(value), 9) == np.round(np.cosh(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.coshScaler(value), 9) == np.round(np.cosh(value), 9)
+    assert np.round(NumCpp.coshScalar(value), 9) == np.round(np.cosh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2310,7 +2310,7 @@ def test_cumsum():
 ####################################################################################
 def test_deg2rad():
     value = np.abs(np.random.rand(1).item()) * 360
-    assert np.round(NumCpp.deg2radScaler(value),
+    assert np.round(NumCpp.deg2radScalar(value),
                     9) == np.round(np.deg2rad(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -2325,7 +2325,7 @@ def test_deg2rad():
 ####################################################################################
 def test_degrees():
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    assert np.round(NumCpp.degreesScaler(value),
+    assert np.round(NumCpp.degreesScalar(value),
                     9) == np.round(np.degrees(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -2345,7 +2345,7 @@ def test_deleteIndices():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     index = np.random.randint(0, shape.size(), [1, ]).item()
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesScaler(cArray, index, NumCpp.Axis.NONE).flatten(),
+    assert np.array_equal(NumCpp.deleteIndicesScalar(cArray, index, NumCpp.Axis.NONE).flatten(),
                           np.delete(data, index, axis=None))
 
     shapeInput = np.asarray([100, 100])
@@ -2354,7 +2354,7 @@ def test_deleteIndices():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     index = np.random.randint(0, 100, [1, ]).item()
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesScaler(
+    assert np.array_equal(NumCpp.deleteIndicesScalar(
         cArray, index, NumCpp.Axis.ROW), np.delete(data, index, axis=0))
 
     shapeInput = np.asarray([100, 100])
@@ -2363,7 +2363,7 @@ def test_deleteIndices():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     index = np.random.randint(0, 100, [1, ]).item()
     cArray.setArray(data)
-    assert np.array_equal(NumCpp.deleteIndicesScaler(
+    assert np.array_equal(NumCpp.deleteIndicesScalar(
         cArray, index, NumCpp.Axis.COL), np.delete(data, index, axis=1))
 
     shapeInput = np.asarray([100, 100])
@@ -2912,14 +2912,14 @@ def test_extract():
 ####################################################################################
 def test_exp2():
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9)
+    assert np.round(NumCpp.expScalar(value), 9) == np.round(np.exp(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9)
+    assert np.round(NumCpp.expScalar(value), 9) == np.round(np.exp(value), 9)
 
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.exp2Scaler(value), 9) == np.round(np.exp2(value), 9)
+    assert np.round(NumCpp.exp2Scalar(value), 9) == np.round(np.exp2(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2950,12 +2950,12 @@ def test_exp():
         cArray), 9), np.round(np.exp(data), 9))
 
     value = np.abs(np.random.rand(1).item())
-    assert np.round(NumCpp.expm1Scaler(value),
+    assert np.round(NumCpp.expm1Scalar(value),
                     9) == np.round(np.expm1(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.expm1Scaler(value),
+    assert np.round(NumCpp.expm1Scalar(value),
                     9) == np.round(np.expm1(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -3061,7 +3061,7 @@ def test_findN():
 ####################################################################################
 def test_fix():
     value = np.random.randn(1).item() * 100
-    assert NumCpp.fixScaler(value) == np.fix(value)
+    assert NumCpp.fixScalar(value) == np.fix(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3129,7 +3129,7 @@ def test_flipud():
 ####################################################################################
 def test_floor():
     value = np.random.randn(1).item() * 100
-    assert NumCpp.floorScaler(value) == np.floor(value)
+    assert NumCpp.floorScalar(value) == np.floor(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3143,7 +3143,7 @@ def test_floor():
 def test_floor_divide():
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.floor_divideScaler(
+    assert NumCpp.floor_divideScalar(
         value1, value2) == np.floor_divide(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -3162,7 +3162,7 @@ def test_floor_divide():
 def test_fmax():
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.fmaxScaler(value1, value2) == np.fmax(value1, value2)
+    assert NumCpp.fmaxScalar(value1, value2) == np.fmax(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3180,7 +3180,7 @@ def test_fmax():
 def test_fmin():
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.fminScaler(value1, value2) == np.fmin(value1, value2)
+    assert NumCpp.fminScalar(value1, value2) == np.fmin(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3198,7 +3198,7 @@ def test_fmin():
 def test_fmod():
     value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
-    assert NumCpp.fmodScalerInt(value1, value2) == np.fmod(value1, value2)
+    assert NumCpp.fmodScalarInt(value1, value2) == np.fmod(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3215,7 +3215,7 @@ def test_fmod():
 
     value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
-    assert NumCpp.fmodScalerFloat(value1, value2) == np.fmod(value1, value2)
+    assert NumCpp.fmodScalarFloat(value1, value2) == np.fmod(value1, value2)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3484,7 +3484,7 @@ def test_gcd():
     if not NumCpp.NUMCPP_NO_USE_BOOST or NumCpp.STL_GCD_LCM:
         value1 = np.random.randint(1, 1000, [1, ]).item()
         value2 = np.random.randint(1, 1000, [1, ]).item()
-        assert NumCpp.gcdScaler(value1, value2) == np.gcd(value1, value2)
+        assert NumCpp.gcdScalar(value1, value2) == np.gcd(value1, value2)
 
     if not NumCpp.NUMCPP_NO_USE_BOOST:
         size = np.random.randint(20, 100, [1, ]).item()
@@ -3709,12 +3709,12 @@ def test_hstack():
 def test_hypot():
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.hypotScaler(value1, value2) == np.hypot(value1, value2)
+    assert NumCpp.hypotScalar(value1, value2) == np.hypot(value1, value2)
 
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
     value3 = np.random.randn(1).item() * 100 + 1000
-    assert (np.round(NumCpp.hypotScalerTriple(value1, value2, value3), 9) ==
+    assert (np.round(NumCpp.hypotScalarTriple(value1, value2, value3), 9) ==
             np.round(np.sqrt(value1**2 + value2**2 + value3**2), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -3744,7 +3744,7 @@ def test_identity():
 def test_imag():
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.imagScaler(value), 9) == np.round(np.imag(value), 9)  # noqa
+    assert np.round(NumCpp.imagScalar(value), 9) == np.round(np.imag(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4696,10 +4696,10 @@ def test_isclose():
 ####################################################################################
 def test_isinf():
     value = np.random.randn(1).item() * 100 + 1000
-    assert not NumCpp.isinfScaler(value)
+    assert not NumCpp.isinfScalar(value)
 
-    assert NumCpp.isinfScaler(np.inf)
-    assert NumCpp.isinfScaler(-np.inf)
+    assert NumCpp.isinfScalar(np.inf)
+    assert NumCpp.isinfScalar(-np.inf)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4713,10 +4713,10 @@ def test_isinf():
 ####################################################################################
 def test_isposinf():
     value = np.random.randn(1).item() * 100 + 1000
-    assert not NumCpp.isposinfScaler(value)
+    assert not NumCpp.isposinfScalar(value)
 
-    assert NumCpp.isposinfScaler(np.inf)
-    assert not NumCpp.isposinfScaler(-np.inf)
+    assert NumCpp.isposinfScalar(np.inf)
+    assert not NumCpp.isposinfScalar(-np.inf)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4731,10 +4731,10 @@ def test_isposinf():
 ####################################################################################
 def test_isneginf():
     value = np.random.randn(1).item() * 100 + 1000
-    assert not NumCpp.isneginfScaler(value)
+    assert not NumCpp.isneginfScalar(value)
 
-    assert not NumCpp.isneginfScaler(np.inf)
-    assert NumCpp.isneginfScaler(-np.inf)
+    assert not NumCpp.isneginfScalar(np.inf)
+    assert NumCpp.isneginfScalar(-np.inf)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4749,7 +4749,7 @@ def test_isneginf():
 ####################################################################################
 def test_isnan():
     value = np.random.randn(1).item() * 100 + 1000
-    assert NumCpp.isnanScaler(value) == np.isnan(value)
+    assert NumCpp.isnanScalar(value) == np.isnan(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4774,7 +4774,7 @@ def test_lcm():
     if not NumCpp.NUMCPP_NO_USE_BOOST or NumCpp.STL_GCD_LCM:
         value1 = np.random.randint(1, 1000, [1, ]).item()
         value2 = np.random.randint(1, 1000, [1, ]).item()
-        assert NumCpp.lcmScaler(value1, value2) == np.lcm(value1, value2)
+        assert NumCpp.lcmScalar(value1, value2) == np.lcm(value1, value2)
 
     if not NumCpp.NUMCPP_NO_USE_BOOST:
         size = np.random.randint(2, 10, [1, ]).item()
@@ -4788,7 +4788,7 @@ def test_lcm():
 def test_ldexp():
     value1 = np.random.randn(1).item() * 100
     value2 = np.random.randint(1, 20, [1, ]).item()
-    assert np.round(NumCpp.ldexpScaler(value1, value2),
+    assert np.round(NumCpp.ldexpScalar(value1, value2),
                     9) == np.round(np.ldexp(value1, value2), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4908,11 +4908,11 @@ def test_linspace():
 ####################################################################################
 def test_log():
     value = np.random.randn(1).item() * 100 + 1000
-    assert np.round(NumCpp.logScaler(value), 9) == np.round(np.log(value), 9)
+    assert np.round(NumCpp.logScalar(value), 9) == np.round(np.log(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.logScaler(value), 9) == np.round(np.log(value), 9)
+    assert np.round(NumCpp.logScalar(value), 9) == np.round(np.log(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4936,7 +4936,7 @@ def test_log():
 def test_logb():
     value = np.random.randn(1).item() * 100 + 1000
     base = np.random.randn(1).item() * 2 + 10
-    assert np.round(NumCpp.logbScaler(value, base), 9) == np.round(
+    assert np.round(NumCpp.logbScalar(value, base), 9) == np.round(
         np.log(value) / np.log(base), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4963,12 +4963,12 @@ def test_logspace():
 ####################################################################################
 def test_log10():
     value = np.random.randn(1).item() * 100 + 1000
-    assert np.round(NumCpp.log10Scaler(value),
+    assert np.round(NumCpp.log10Scalar(value),
                     9) == np.round(np.log10(value), 9)
 
     components = np.random.randn(2).astype(float) * 100 + 100
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.log10Scaler(value),
+    assert np.round(NumCpp.log10Scalar(value),
                     9) == np.round(np.log10(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -4992,7 +4992,7 @@ def test_log10():
 ####################################################################################
 def test_log1p():
     value = np.random.randn(1).item() * 100 + 1000
-    assert np.round(NumCpp.log1pScaler(value),
+    assert np.round(NumCpp.log1pScalar(value),
                     9) == np.round(np.log1p(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -5007,7 +5007,7 @@ def test_log1p():
 ####################################################################################
 def test_log2():
     value = np.random.randn(1).item() * 100 + 1000
-    assert np.round(NumCpp.log2Scaler(value), 9) == np.round(np.log2(value), 9)
+    assert np.round(NumCpp.log2Scalar(value), 9) == np.round(np.log2(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -5021,7 +5021,7 @@ def test_log2():
 ####################################################################################
 def test_logaddexp():
     values = np.random.rand(2) * 10
-    assert np.round(NumCpp.logaddexpScaler(*values), 9) == np.round(np.logaddexp(*values), 9)
+    assert np.round(NumCpp.logaddexpScalar(*values), 9) == np.round(np.logaddexp(*values), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -5038,7 +5038,7 @@ def test_logaddexp():
 ####################################################################################
 def test_logaddexp2():
     values = np.random.rand(2) * 10
-    assert np.round(NumCpp.logaddexp2Scaler(*values), 9) == np.round(np.logaddexp2(*values), 9)
+    assert np.round(NumCpp.logaddexp2Scalar(*values), 9) == np.round(np.logaddexp2(*values), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -6620,7 +6620,7 @@ def test_negative():
 ####################################################################################
 def test_newbyteorderArray():
     value = np.random.randint(1, 100, [1, ]).item()
-    assert (NumCpp.newbyteorderScaler(value, NumCpp.Endian.BIG) ==
+    assert (NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG) ==
             np.asarray([value], dtype=np.uint32).newbyteorder().item())
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -7248,7 +7248,7 @@ def test_place():
 ####################################################################################
 def test_polar():
     components = np.random.rand(2).astype(float)
-    assert NumCpp.polarScaler(components[0], components[1])
+    assert NumCpp.polarScalar(components[0], components[1])
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -7269,7 +7269,7 @@ def test_power():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     exponent = np.random.randint(0, 5, [1, ]).item()
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.powerArrayScaler(cArray, exponent), 9),
+    assert np.array_equal(np.round(NumCpp.powerArrayScalar(cArray, exponent), 9),
                           np.round(np.power(data, exponent), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -7279,7 +7279,7 @@ def test_power():
         np.random.rand(shape.rows, shape.cols)
     exponent = np.random.randint(0, 5, [1, ]).item()
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.powerArrayScaler(cArray, exponent), 9),
+    assert np.array_equal(np.round(NumCpp.powerArrayScalar(cArray, exponent), 9),
                           np.round(np.power(data, exponent), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -7316,7 +7316,7 @@ def test_powerf():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     exponent = np.random.rand(1).item() * 3
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.powerfArrayScaler(cArray, exponent), 9),
+    assert np.array_equal(np.round(NumCpp.powerfArrayScalar(cArray, exponent), 9),
                           np.round(np.power(data, exponent), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -7326,7 +7326,7 @@ def test_powerf():
         np.random.rand(shape.rows, shape.cols)
     exponent = np.random.rand(1).item() * 3
     cArray.setArray(data)
-    assert np.array_equal(np.round(NumCpp.powerfArrayScaler(cArray, exponent), 9),
+    assert np.array_equal(np.round(NumCpp.powerfArrayScalar(cArray, exponent), 9),
                           np.round(np.power(data, exponent), 9))
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -7413,7 +7413,7 @@ def test_prod():
 def test_proj():
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert NumCpp.projScaler(value)
+    assert NumCpp.projScalar(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8275,7 +8275,7 @@ def test_put():
 ####################################################################################
 def test_rad2deg():
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    assert np.round(NumCpp.rad2degScaler(value),
+    assert np.round(NumCpp.rad2degScalar(value),
                     8) == np.round(np.rad2deg(value), 8)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -8290,7 +8290,7 @@ def test_rad2deg():
 ####################################################################################
 def test_radians():
     value = np.abs(np.random.rand(1).item()) * 360
-    assert np.round(NumCpp.radiansScaler(value),
+    assert np.round(NumCpp.radiansScalar(value),
                     9) == np.round(np.radians(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -8317,7 +8317,7 @@ def test_ravel():
 def test_real():
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.realScaler(value), 9) == np.round(np.real(value), 9)  # noqa
+    assert np.round(NumCpp.realScalar(value), 9) == np.round(np.real(value), 9)  # noqa
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8355,7 +8355,7 @@ def test_remainder():
     # numpy and cmath remainders are calculated differently, so convert for testing purposes
     values = np.random.rand(2) * 100
     values = np.sort(values)
-    res = NumCpp.remainderScaler(values[1].item(), values[0].item())
+    res = NumCpp.remainderScalar(values[1].item(), values[0].item())
     if res < 0:
         res += values[0].item()
     assert np.round(res, 9) == np.round(np.remainder(values[1], values[0]), 9)
@@ -8497,7 +8497,7 @@ def test_right_shift():
 ####################################################################################
 def test_rint():
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    assert NumCpp.rintScaler(value) == np.rint(value)
+    assert NumCpp.rintScalar(value) == np.rint(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8609,7 +8609,7 @@ def test_rot90():
 ####################################################################################
 def test_round():
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    assert NumCpp.roundScaler(value, 10) == np.round(value, 10)
+    assert NumCpp.roundScalar(value, 10) == np.round(value, 10)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8735,11 +8735,11 @@ def test_shape():
 ####################################################################################
 def test_sign():
     value = np.random.randn(1).item() * 100
-    assert NumCpp.signScaler(value) == np.sign(value)
+    assert NumCpp.signScalar(value) == np.sign(value)
 
     value = np.random.randn(1).item() * 100 + 1j * \
         np.random.randn(1).item() * 100
-    assert NumCpp.signScaler(value) == np.sign(value)
+    assert NumCpp.signScalar(value) == np.sign(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8761,7 +8761,7 @@ def test_sign():
 ####################################################################################
 def test_signbit():
     value = np.random.randn(1).item() * 100
-    assert NumCpp.signbitScaler(value) == np.signbit(value)
+    assert NumCpp.signbitScalar(value) == np.signbit(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8774,11 +8774,11 @@ def test_signbit():
 ####################################################################################
 def test_sin():
     value = np.random.randn(1).item()
-    assert np.round(NumCpp.sinScaler(value), 9) == np.round(np.sin(value), 9)
+    assert np.round(NumCpp.sinScalar(value), 9) == np.round(np.sin(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.sinScaler(value), 9) == np.round(np.sin(value), 9)
+    assert np.round(NumCpp.sinScalar(value), 9) == np.round(np.sin(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8801,7 +8801,7 @@ def test_sin():
 ####################################################################################
 def test_sinc():
     value = np.random.randn(1)
-    assert np.round(NumCpp.sincScaler(value.item()),
+    assert np.round(NumCpp.sincScalar(value.item()),
                     9) == np.round(np.sinc(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -8816,10 +8816,10 @@ def test_sinc():
 ####################################################################################
 def test_sinh():
     value = np.random.randn(1).item()
-    assert np.round(NumCpp.sinhScaler(value), 9) == np.round(np.sinh(value), 9)
+    assert np.round(NumCpp.sinhScalar(value), 9) == np.round(np.sinh(value), 9)
 
     value = np.random.randn(1).item() + 1j * np.random.randn(1).item()
-    assert np.round(NumCpp.sinhScaler(value), 9) == np.round(np.sinh(value), 9)
+    assert np.round(NumCpp.sinhScalar(value), 9) == np.round(np.sinh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8947,11 +8947,11 @@ def test_split():
 ####################################################################################
 def test_sqrt():
     value = np.random.randint(1, 100, [1, ]).item()
-    assert np.round(NumCpp.sqrtScaler(value), 9) == np.round(np.sqrt(value), 9)
+    assert np.round(NumCpp.sqrtScalar(value), 9) == np.round(np.sqrt(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.sqrtScaler(value), 9) == np.round(np.sqrt(value), 9)
+    assert np.round(NumCpp.sqrtScalar(value), 9) == np.round(np.sqrt(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -8974,12 +8974,12 @@ def test_sqrt():
 ####################################################################################
 def test_square():
     value = np.random.randint(1, 100, [1, ]).item()
-    assert np.round(NumCpp.squareScaler(value),
+    assert np.round(NumCpp.squareScalar(value),
                     9) == np.round(np.square(value), 9)
 
     value = np.random.randint(1, 100, [1, ]).item(
     ) + 1j * np.random.randint(1, 100, [1, ]).item()
-    assert np.round(NumCpp.squareScaler(value),
+    assert np.round(NumCpp.squareScalar(value),
                     9) == np.round(np.square(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
@@ -9328,11 +9328,11 @@ def test_swapCols():
 ####################################################################################
 def test_tan():
     value = np.random.rand(1).item() * np.pi
-    assert np.round(NumCpp.tanScaler(value), 9) == np.round(np.tan(value), 9)
+    assert np.round(NumCpp.tanScalar(value), 9) == np.round(np.tan(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.tanScaler(value), 9) == np.round(np.tan(value), 9)
+    assert np.round(NumCpp.tanScalar(value), 9) == np.round(np.tan(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -9382,11 +9382,11 @@ def test_take():
 ####################################################################################
 def test_tanh():
     value = np.random.rand(1).item() * np.pi
-    assert np.round(NumCpp.tanhScaler(value), 9) == np.round(np.tanh(value), 9)
+    assert np.round(NumCpp.tanhScalar(value), 9) == np.round(np.tanh(value), 9)
 
     components = np.random.rand(2).astype(float)
     value = complex(components[0], components[1])
-    assert np.round(NumCpp.tanhScaler(value), 9) == np.round(np.tanh(value), 9)
+    assert np.round(NumCpp.tanhScalar(value), 9) == np.round(np.tanh(value), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -9809,7 +9809,7 @@ def test_trim_zeros():
 ####################################################################################
 def test_trunc():
     value = np.random.rand(1).item() * np.pi
-    assert NumCpp.truncScaler(value) == np.trunc(value)
+    assert NumCpp.truncScalar(value) == np.trunc(value)
 
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -9901,7 +9901,7 @@ def test_unpackbits():
 ####################################################################################
 def test_unwrap():
     value = np.random.randn(1).item() * 3 * np.pi
-    assert np.round(NumCpp.unwrapScaler(value), 9) == np.round(
+    assert np.round(NumCpp.unwrapScalar(value), 9) == np.round(
         np.arctan2(np.sin(value), np.cos(value)), 9)
 
     shapeInput = np.random.randint(20, 100, [2, ])

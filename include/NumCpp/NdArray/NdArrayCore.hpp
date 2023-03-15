@@ -649,7 +649,7 @@ namespace nc
         //============================================================================
         // Method Description:
         /// Assignment operator, sets the entire array to a single
-        /// scaler value.
+        /// scalar value.
         ///
         /// @param inValue
         /// @return NdArray<dtype>
@@ -2722,7 +2722,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Fill the array with a scaler value.
+        /// Fill the array with a scalar value.
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
         ///
@@ -2937,7 +2937,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        /// Copy an element of an array to a standard C++ scaler and return it.
+        /// Copy an element of an array to a standard C++ scalar and return it.
         ///
         /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
         ///
@@ -2947,7 +2947,7 @@ namespace nc
         {
             if (!isscalar())
             {
-                THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scaler");
+                THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scalar");
             }
 
             return front();

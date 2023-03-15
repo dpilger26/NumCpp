@@ -10,7 +10,7 @@
 namespace FunctionsInterface
 {
     template<typename dtype>
-    auto absScaler(dtype inValue) -> decltype(abs(inValue)) // trailing return type to help gcc
+    auto absScalar(dtype inValue) -> decltype(abs(inValue)) // trailing return type to help gcc
     {
         return abs(inValue);
     }
@@ -98,7 +98,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype angleScaler(const std::complex<dtype>& inValue)
+    dtype angleScalar(const std::complex<dtype>& inValue)
     {
         return angle(inValue);
     }
@@ -122,7 +122,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccosScaler(dtype inValue) -> decltype(arccos(inValue)) // trailing return type to help gcc
+    auto arccosScalar(dtype inValue) -> decltype(arccos(inValue)) // trailing return type to help gcc
     {
         return arccos(inValue);
     }
@@ -138,7 +138,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arccoshScaler(dtype inValue) -> decltype(arccosh(inValue)) // trailing return type to help gcc
+    auto arccoshScalar(dtype inValue) -> decltype(arccosh(inValue)) // trailing return type to help gcc
     {
         return arccosh(inValue);
     }
@@ -154,7 +154,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinScaler(dtype inValue) -> decltype(arcsin(inValue)) // trailing return type to help gcc
+    auto arcsinScalar(dtype inValue) -> decltype(arcsin(inValue)) // trailing return type to help gcc
     {
         return arcsin(inValue);
     }
@@ -170,7 +170,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arcsinhScaler(dtype inValue) -> decltype(arcsinh(inValue)) // trailing return type to help gcc
+    auto arcsinhScalar(dtype inValue) -> decltype(arcsinh(inValue)) // trailing return type to help gcc
     {
         return arcsinh(inValue);
     }
@@ -186,7 +186,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanScaler(dtype inValue) -> decltype(arctan(inValue)) // trailing return type to help gcc
+    auto arctanScalar(dtype inValue) -> decltype(arctan(inValue)) // trailing return type to help gcc
     {
         return arctan(inValue);
     }
@@ -202,7 +202,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctan2Scaler(dtype inY, dtype inX)
+    dtype arctan2Scalar(dtype inY, dtype inX)
     {
         return arctan2(inY, inX);
     }
@@ -218,7 +218,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto arctanhScaler(dtype inValue) -> decltype(arctanh(inValue)) // trailing return type to help gcc
+    auto arctanhScalar(dtype inValue) -> decltype(arctanh(inValue)) // trailing return type to help gcc
     {
         return arctanh(inValue);
     }
@@ -234,7 +234,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype aroundScaler(dtype inValue, uint8 inNumDecimals)
+    dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
     {
         return around(inValue, inNumDecimals);
     }
@@ -624,9 +624,9 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric andOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric andOperatorScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inArray && inScaler);
+        return nc2pybind(inArray && inScalar);
     }
 
     //================================================================================
@@ -640,9 +640,9 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric orOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    pbArrayGeneric orOperatorScalar(const NdArray<dtype>& inArray, dtype inScalar)
     {
-        return nc2pybind(inArray || inScaler);
+        return nc2pybind(inArray || inScalar);
     }
 
     //================================================================================
@@ -656,7 +656,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cbrtScaler(dtype inValue)
+    dtype cbrtScalar(dtype inValue)
     {
         return cbrt(inValue);
     }
@@ -672,7 +672,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ceilScaler(dtype inValue)
+    dtype ceilScalar(dtype inValue)
     {
         return ceil(inValue);
     }
@@ -696,7 +696,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype clipScaler(dtype inValue, dtype inMinValue, dtype inMaxValue)
+    dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
         return clip(inValue, inMinValue, inMaxValue);
     }
@@ -723,7 +723,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> complexScalerSingle(dtype inReal)
+    std::complex<dtype> complexScalarSingle(dtype inReal)
     {
         return nc::complex(inReal);
     }
@@ -731,7 +731,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> complexScaler(dtype inReal, dtype inImag)
+    std::complex<dtype> complexScalar(dtype inReal, dtype inImag)
     {
         return nc::complex(inReal, inImag);
     }
@@ -755,7 +755,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> conjScaler(const std::complex<dtype>& inValue)
+    std::complex<dtype> conjScalar(const std::complex<dtype>& inValue)
     {
         return nc::conj(inValue);
     }
@@ -815,7 +815,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto cosScaler(dtype inValue) -> decltype(cos(inValue)) // trailing return type to help gcc
+    auto cosScalar(dtype inValue) -> decltype(cos(inValue)) // trailing return type to help gcc
     {
         return cos(inValue);
     }
@@ -831,7 +831,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto coshScaler(dtype inValue) -> decltype(cosh(inValue)) // trailing return type to help gcc
+    auto coshScalar(dtype inValue) -> decltype(cosh(inValue)) // trailing return type to help gcc
     {
         return cosh(inValue);
     }
@@ -895,7 +895,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype deg2radScaler(dtype inValue)
+    dtype deg2radScalar(dtype inValue)
     {
         return deg2rad(inValue);
     }
@@ -911,7 +911,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype degreesScaler(dtype inValue)
+    dtype degreesScalar(dtype inValue)
     {
         return degrees(inValue);
     }
@@ -927,7 +927,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric deleteIndicesScaler(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
+    pbArrayGeneric deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
         return nc2pybind(deleteIndices(inArray, inIndex, inAxis));
     }
@@ -1039,7 +1039,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto expScaler(dtype inValue) -> decltype(exp(inValue)) // trailing return type to help gcc
+    auto expScalar(dtype inValue) -> decltype(exp(inValue)) // trailing return type to help gcc
     {
         return exp(inValue);
     }
@@ -1055,7 +1055,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype exp2Scaler(dtype inValue)
+    dtype exp2Scalar(dtype inValue)
     {
         return exp2(inValue);
     }
@@ -1071,7 +1071,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expm1Scaler(dtype inValue)
+    dtype expm1Scalar(dtype inValue)
     {
         return expm1(inValue);
     }
@@ -1125,7 +1125,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fixScaler(dtype inValue)
+    dtype fixScalar(dtype inValue)
     {
         return fix(inValue);
     }
@@ -1141,7 +1141,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floorScaler(dtype inValue)
+    dtype floorScalar(dtype inValue)
     {
         return floor(inValue);
     }
@@ -1157,7 +1157,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floor_divideScaler(dtype inValue1, dtype inValue2)
+    dtype floor_divideScalar(dtype inValue1, dtype inValue2)
     {
         return floor_divide(inValue1, inValue2);
     }
@@ -1173,7 +1173,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fmaxScaler(dtype inValue1, dtype inValue2)
+    dtype fmaxScalar(dtype inValue1, dtype inValue2)
     {
         return fmax(inValue1, inValue2);
     }
@@ -1189,7 +1189,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fminScaler(dtype inValue1, dtype inValue2)
+    dtype fminScalar(dtype inValue1, dtype inValue2)
     {
         return fmin(inValue1, inValue2);
     }
@@ -1203,7 +1203,7 @@ namespace FunctionsInterface
     }
 
     template<typename dtype>
-    dtype fmodScaler(dtype inValue1, dtype inValue2)
+    dtype fmodScalar(dtype inValue1, dtype inValue2)
     {
         return fmod(inValue1, inValue2);
     }
@@ -1305,7 +1305,7 @@ namespace FunctionsInterface
 
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype gcdScaler(dtype inValue1, dtype inValue2)
+    dtype gcdScalar(dtype inValue1, dtype inValue2)
     {
         return gcd(inValue1, inValue2);
     }
@@ -1397,7 +1397,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScaler(dtype inValue1, dtype inValue2)
+    dtype hypotScalar(dtype inValue1, dtype inValue2)
     {
         return hypot(inValue1, inValue2);
     }
@@ -1405,7 +1405,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3)
+    dtype hypotScalarTriple(dtype inValue1, dtype inValue2, dtype inValue3)
     {
         return hypot(inValue1, inValue2, inValue3);
     }
@@ -1421,7 +1421,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype imagScaler(const std::complex<dtype>& inValue)
+    dtype imagScalar(const std::complex<dtype>& inValue)
     {
         return nc::imag(inValue);
     }
@@ -1522,7 +1522,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isinfScaler(dtype inValue)
+    bool isinfScalar(dtype inValue)
     {
         return nc::isinf(inValue);
     }
@@ -1538,7 +1538,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isposinfScaler(dtype inValue)
+    bool isposinfScalar(dtype inValue)
     {
         return nc::isposinf(inValue);
     }
@@ -1554,7 +1554,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isneginfScaler(dtype inValue)
+    bool isneginfScalar(dtype inValue)
     {
         return nc::isneginf(inValue);
     }
@@ -1570,7 +1570,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isnanScaler(dtype inValue)
+    bool isnanScalar(dtype inValue)
     {
         return nc::isnan(inValue);
     }
@@ -1595,7 +1595,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ldexpScaler(dtype inValue1, uint8 inValue2)
+    dtype ldexpScalar(dtype inValue1, uint8 inValue2)
     {
         return ldexp(inValue1, inValue2);
     }
@@ -1656,7 +1656,7 @@ namespace FunctionsInterface
 
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
     template<typename dtype>
-    dtype lcmScaler(dtype inValue1, dtype inValue2)
+    dtype lcmScalar(dtype inValue1, dtype inValue2)
     {
         return lcm(inValue1, inValue2);
     }
@@ -1675,7 +1675,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto logScaler(dtype inValue) -> decltype(log(inValue)) // trailing return type to help gcc
+    auto logScalar(dtype inValue) -> decltype(log(inValue)) // trailing return type to help gcc
     {
         return log(inValue);
     }
@@ -1691,7 +1691,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto logbScaler(dtype inValue, dtype base) -> decltype(logb(inValue)) // trailing return type to help gcc
+    auto logbScalar(dtype inValue, dtype base) -> decltype(logb(inValue)) // trailing return type to help gcc
     {
         return logb(inValue, base);
     }
@@ -1715,7 +1715,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto log10Scaler(dtype inValue) -> decltype(log10(inValue)) // trailing return type to help gcc
+    auto log10Scalar(dtype inValue) -> decltype(log10(inValue)) // trailing return type to help gcc
     {
         return log10(inValue);
     }
@@ -1731,7 +1731,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log1pScaler(dtype inValue)
+    dtype log1pScalar(dtype inValue)
     {
         return log1p(inValue);
     }
@@ -1747,7 +1747,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log2Scaler(dtype inValue)
+    dtype log2Scalar(dtype inValue)
     {
         return log2(inValue);
     }
@@ -1763,7 +1763,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype logaddexpScaler(dtype x1, dtype x2)
+    dtype logaddexpScalar(dtype x1, dtype x2)
     {
         return logaddexp(x1, x2);
     }
@@ -1779,7 +1779,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype logaddexp2Scaler(dtype x1, dtype x2)
+    dtype logaddexp2Scalar(dtype x1, dtype x2)
     {
         return logaddexp2(x1, x2);
     }
@@ -1891,7 +1891,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype newbyteorderScaler(dtype inValue, Endian inEndianess)
+    dtype newbyteorderScalar(dtype inValue, Endian inEndianess)
     {
         return newbyteorder(inValue, inEndianess);
     }
@@ -1907,7 +1907,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype1, typename dtype2>
-    double nth_rootScaler(dtype1 inValue, dtype2 inRoot)
+    double nth_rootScalar(dtype1 inValue, dtype2 inRoot)
     {
         return nth_root(inValue, inRoot);
     }
@@ -2047,7 +2047,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> polarScaler(dtype mag, dtype angle)
+    std::complex<dtype> polarScalar(dtype mag, dtype angle)
     {
         return polar(mag, angle);
     }
@@ -2063,7 +2063,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
+    pbArrayGeneric powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         return nc2pybind(nc::power(inArray, inExponent));
     }
@@ -2079,7 +2079,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric powerfArrayScaler(const NdArray<dtype>& inArray, dtype inExponent)
+    pbArrayGeneric powerfArrayScalar(const NdArray<dtype>& inArray, dtype inExponent)
     {
         return nc2pybind(nc::powerf(inArray, inExponent));
     }
@@ -2095,7 +2095,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    std::complex<dtype> projScaler(const std::complex<dtype>& inValue)
+    std::complex<dtype> projScalar(const std::complex<dtype>& inValue)
     {
         return nc::proj(inValue);
     }
@@ -2366,7 +2366,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric putmaskScaler(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
+    pbArrayGeneric putmaskScalar(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
         return nc2pybind(putmask(inArray, inMask, inValue));
     }
@@ -2374,7 +2374,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rad2degScaler(dtype inValue)
+    dtype rad2degScalar(dtype inValue)
     {
         return rad2deg(inValue);
     }
@@ -2390,7 +2390,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype radiansScaler(dtype inValue)
+    dtype radiansScalar(dtype inValue)
     {
         return radians(inValue);
     }
@@ -2422,7 +2422,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype realScaler(const std::complex<dtype>& inValue)
+    dtype realScalar(const std::complex<dtype>& inValue)
     {
         return nc::real(inValue);
     }
@@ -2438,7 +2438,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype remainderScaler(dtype inValue1, dtype inValue2)
+    dtype remainderScalar(dtype inValue1, dtype inValue2)
     {
         return remainder(inValue1, inValue2);
     }
@@ -2526,7 +2526,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rintScaler(dtype inValue)
+    dtype rintScalar(dtype inValue)
     {
         return rint(inValue);
     }
@@ -2542,7 +2542,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype roundScaler(dtype inValue, uint8 inDecimals)
+    dtype roundScalar(dtype inValue, uint8 inDecimals)
     {
         return round(inValue, inDecimals);
     }
@@ -2569,7 +2569,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    int8 signScaler(dtype inValue)
+    int8 signScalar(dtype inValue)
     {
         return sign(inValue);
     }
@@ -2585,7 +2585,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    bool signbitScaler(dtype inValue)
+    bool signbitScalar(dtype inValue)
     {
         return signbit(inValue);
     }
@@ -2601,7 +2601,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinScaler(dtype inValue) -> decltype(sin(inValue)) // trailing return type to help gcc
+    auto sinScalar(dtype inValue) -> decltype(sin(inValue)) // trailing return type to help gcc
     {
         return sin(inValue);
     }
@@ -2617,7 +2617,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype sincScaler(dtype inValue)
+    dtype sincScalar(dtype inValue)
     {
         return sinc(inValue);
     }
@@ -2633,7 +2633,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sinhScaler(dtype inValue) -> decltype(sinh(inValue)) // trailing return type to help gcc
+    auto sinhScalar(dtype inValue) -> decltype(sinh(inValue)) // trailing return type to help gcc
     {
         return sinh(inValue);
     }
@@ -2663,7 +2663,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto sqrtScaler(dtype inValue) -> decltype(sqrt(inValue)) // trailing return type to help gcc
+    auto sqrtScalar(dtype inValue) -> decltype(sqrt(inValue)) // trailing return type to help gcc
     {
         return sqrt(inValue);
     }
@@ -2679,7 +2679,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype squareScaler(dtype inValue)
+    dtype squareScalar(dtype inValue)
     {
         return square(inValue);
     }
@@ -2723,7 +2723,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanScaler(dtype inValue) -> decltype(tan(inValue)) // trailing return type to help gcc
+    auto tanScalar(dtype inValue) -> decltype(tan(inValue)) // trailing return type to help gcc
     {
         return tan(inValue);
     }
@@ -2739,7 +2739,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    auto tanhScaler(dtype inValue) -> decltype(tanh(inValue)) // trailing return type to help gcc
+    auto tanhScalar(dtype inValue) -> decltype(tanh(inValue)) // trailing return type to help gcc
     {
         return tanh(inValue);
     }
@@ -2859,7 +2859,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    double truncScaler(dtype inValue)
+    double truncScalar(dtype inValue)
     {
         return trunc(inValue);
     }
@@ -2889,7 +2889,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype unwrapScaler(dtype inValue)
+    dtype unwrapScalar(dtype inValue)
     {
         return unwrap(inValue);
     }
@@ -2954,7 +2954,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric whereScalerArray(const NdArray<bool>& inMask, const NdArray<dtype>& inA, dtype inB)
+    pbArrayGeneric whereScalarArray(const NdArray<bool>& inMask, const NdArray<dtype>& inA, dtype inB)
     {
         return nc2pybind(nc::where(inMask, inA, inB));
     }
@@ -2962,7 +2962,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric whereArrayScaler(const NdArray<bool>& inMask, dtype inA, const NdArray<dtype>& inB)
+    pbArrayGeneric whereArrayScalar(const NdArray<bool>& inMask, dtype inA, const NdArray<dtype>& inB)
     {
         return nc2pybind(nc::where(inMask, inA, inB));
     }
@@ -2970,7 +2970,7 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
-    pbArrayGeneric whereScalerScaler(const NdArray<bool>& inMask, dtype inA, dtype inB)
+    pbArrayGeneric whereScalarScalar(const NdArray<bool>& inMask, dtype inA, dtype inB)
     {
         return nc2pybind(nc::where(inMask, inA, inB));
     }
@@ -3013,9 +3013,9 @@ namespace FunctionsInterface
 void initFunctions(pb11::module& m)
 {
     // Functions.hpp
-    m.def("absScaler", &FunctionsInterface::absScaler<double>);
+    m.def("absScalar", &FunctionsInterface::absScalar<double>);
     m.def("absArray", &FunctionsInterface::absArray<double>);
-    m.def("absScaler", &FunctionsInterface::absScaler<ComplexDouble>);
+    m.def("absScalar", &FunctionsInterface::absScalar<ComplexDouble>);
     m.def("absArray", &FunctionsInterface::absArray<ComplexDouble>);
     m.def("add", &FunctionsInterface::add<NdArray<double>, NdArray<double>>);
     m.def("add", &FunctionsInterface::add<NdArray<double>, double>);
@@ -3037,38 +3037,38 @@ void initFunctions(pb11::module& m)
     m.def("amax", &FunctionsInterface::amaxArray<ComplexDouble>);
     m.def("amin", &FunctionsInterface::aminArray<double>);
     m.def("amin", &FunctionsInterface::aminArray<ComplexDouble>);
-    m.def("angleScaler", &FunctionsInterface::angleScaler<double>);
+    m.def("angleScalar", &FunctionsInterface::angleScalar<double>);
     m.def("angleArray", &FunctionsInterface::angleArray<double>);
     m.def("any", &FunctionsInterface::anyArray<double>);
     m.def("any", &FunctionsInterface::anyArray<ComplexDouble>);
     m.def("append", &append<double>);
     m.def("applyPoly1d", &applyPoly1d<double>);
     m.def("arange", &FunctionsInterface::arangeArray<double>);
-    m.def("arccosScaler", &FunctionsInterface::arccosScaler<double>);
+    m.def("arccosScalar", &FunctionsInterface::arccosScalar<double>);
     m.def("arccosArray", &FunctionsInterface::arccosArray<double>);
-    m.def("arccosScaler", &FunctionsInterface::arccosScaler<ComplexDouble>);
+    m.def("arccosScalar", &FunctionsInterface::arccosScalar<ComplexDouble>);
     m.def("arccosArray", &FunctionsInterface::arccosArray<ComplexDouble>);
-    m.def("arccoshScaler", &FunctionsInterface::arccoshScaler<double>);
+    m.def("arccoshScalar", &FunctionsInterface::arccoshScalar<double>);
     m.def("arccoshArray", &FunctionsInterface::arccoshArray<double>);
-    m.def("arccoshScaler", &FunctionsInterface::arccoshScaler<ComplexDouble>);
+    m.def("arccoshScalar", &FunctionsInterface::arccoshScalar<ComplexDouble>);
     m.def("arccoshArray", &FunctionsInterface::arccoshArray<ComplexDouble>);
-    m.def("arcsinScaler", &FunctionsInterface::arcsinScaler<double>);
+    m.def("arcsinScalar", &FunctionsInterface::arcsinScalar<double>);
     m.def("arcsinArray", &FunctionsInterface::arcsinArray<double>);
-    m.def("arcsinScaler", &FunctionsInterface::arcsinScaler<ComplexDouble>);
+    m.def("arcsinScalar", &FunctionsInterface::arcsinScalar<ComplexDouble>);
     m.def("arcsinArray", &FunctionsInterface::arcsinArray<ComplexDouble>);
-    m.def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<double>);
+    m.def("arcsinhScalar", &FunctionsInterface::arcsinhScalar<double>);
     m.def("arcsinhArray", &FunctionsInterface::arcsinhArray<double>);
-    m.def("arcsinhScaler", &FunctionsInterface::arcsinhScaler<ComplexDouble>);
+    m.def("arcsinhScalar", &FunctionsInterface::arcsinhScalar<ComplexDouble>);
     m.def("arcsinhArray", &FunctionsInterface::arcsinhArray<ComplexDouble>);
-    m.def("arctanScaler", &FunctionsInterface::arctanScaler<double>);
+    m.def("arctanScalar", &FunctionsInterface::arctanScalar<double>);
     m.def("arctanArray", &FunctionsInterface::arctanArray<double>);
-    m.def("arctanScaler", &FunctionsInterface::arctanScaler<ComplexDouble>);
+    m.def("arctanScalar", &FunctionsInterface::arctanScalar<ComplexDouble>);
     m.def("arctanArray", &FunctionsInterface::arctanArray<ComplexDouble>);
-    m.def("arctan2Scaler", &FunctionsInterface::arctan2Scaler<double>);
+    m.def("arctan2Scalar", &FunctionsInterface::arctan2Scalar<double>);
     m.def("arctan2Array", &FunctionsInterface::arctan2Array<double>);
-    m.def("arctanhScaler", &FunctionsInterface::arctanhScaler<double>);
+    m.def("arctanhScalar", &FunctionsInterface::arctanhScalar<double>);
     m.def("arctanhArray", &FunctionsInterface::arctanhArray<double>);
-    m.def("arctanhScaler", &FunctionsInterface::arctanhScaler<ComplexDouble>);
+    m.def("arctanhScalar", &FunctionsInterface::arctanhScalar<ComplexDouble>);
     m.def("arctanhArray", &FunctionsInterface::arctanhArray<ComplexDouble>);
     m.def("argmax", &FunctionsInterface::argmaxArray<double>);
     m.def("argmax", &FunctionsInterface::argmaxArray<ComplexDouble>);
@@ -3078,7 +3078,7 @@ void initFunctions(pb11::module& m)
     m.def("argsort", &FunctionsInterface::argsortArray<ComplexDouble>);
     m.def("argwhere", &FunctionsInterface::argwhere<double>);
     m.def("argwhere", &FunctionsInterface::argwhere<ComplexDouble>);
-    m.def("aroundScaler", &FunctionsInterface::aroundScaler<double>);
+    m.def("aroundScalar", &FunctionsInterface::aroundScalar<double>);
     m.def("aroundArray", &FunctionsInterface::aroundArray<double>);
     m.def("array_equal", &array_equal<double>);
     m.def("array_equal", &array_equal<ComplexDouble>);
@@ -3148,26 +3148,26 @@ void initFunctions(pb11::module& m)
     m.def("bitwise_xor", &FunctionsInterface::bitwise_xor<uint64>);
     m.def("blackman", &FunctionsInterface::blackman);
     m.def("andOperatorArray", &FunctionsInterface::andOperatorArray<uint64>);
-    m.def("andOperatorScaler", &FunctionsInterface::andOperatorScaler<uint64>);
+    m.def("andOperatorScalar", &FunctionsInterface::andOperatorScalar<uint64>);
     m.def("orOperatorArray", &FunctionsInterface::orOperatorArray<uint64>);
-    m.def("orOperatorScaler", &FunctionsInterface::orOperatorScaler<uint64>);
+    m.def("orOperatorScalar", &FunctionsInterface::orOperatorScalar<uint64>);
     m.def("byteswap", &FunctionsInterface::byteswap<uint64>);
 
-    m.def("cbrtScaler", &FunctionsInterface::cbrtScaler<double>);
+    m.def("cbrtScalar", &FunctionsInterface::cbrtScalar<double>);
     m.def("cbrtArray", &FunctionsInterface::cbrtArray<double>);
-    m.def("ceilScaler", &FunctionsInterface::ceilScaler<double>);
+    m.def("ceilScalar", &FunctionsInterface::ceilScalar<double>);
     m.def("centerOfMass", &FunctionsInterface::centerOfMass<double>);
     m.def("ceilArray", &FunctionsInterface::ceilArray<double>);
-    m.def("clipScaler", &FunctionsInterface::clipScaler<double>);
-    m.def("clipScaler", &FunctionsInterface::clipScaler<ComplexDouble>);
+    m.def("clipScalar", &FunctionsInterface::clipScalar<double>);
+    m.def("clipScalar", &FunctionsInterface::clipScalar<ComplexDouble>);
     m.def("clipArray", &FunctionsInterface::clipArray<double>);
     m.def("clipArray", &FunctionsInterface::clipArray<ComplexDouble>);
     m.def("column_stack", &FunctionsInterface::column_stack<double>);
-    m.def("complexScaler", &FunctionsInterface::complexScalerSingle<double>);
-    m.def("complexScaler", &FunctionsInterface::complexScaler<double>);
+    m.def("complexScalar", &FunctionsInterface::complexScalarSingle<double>);
+    m.def("complexScalar", &FunctionsInterface::complexScalar<double>);
     m.def("complexArray", &FunctionsInterface::complexArraySingle<double>);
     m.def("complexArray", &FunctionsInterface::complexArray<double>);
-    m.def("conjScaler", &FunctionsInterface::conjScaler<double>);
+    m.def("conjScalar", &FunctionsInterface::conjScalar<double>);
     m.def("conjArray", &FunctionsInterface::conjArray<double>);
     m.def("concatenate", &FunctionsInterface::concatenate<double>);
     m.def("contains", &contains<double>);
@@ -3176,12 +3176,12 @@ void initFunctions(pb11::module& m)
     m.def("copysign", &FunctionsInterface::copySign<double>);
     m.def("copyto", &FunctionsInterface::copyto<double>);
     m.def("corrcoef", &FunctionsInterface::corrcoef<double>);
-    m.def("cosScaler", &FunctionsInterface::cosScaler<double>);
-    m.def("cosScaler", &FunctionsInterface::cosScaler<ComplexDouble>);
+    m.def("cosScalar", &FunctionsInterface::cosScalar<double>);
+    m.def("cosScalar", &FunctionsInterface::cosScalar<ComplexDouble>);
     m.def("cosArray", &FunctionsInterface::cosArray<double>);
     m.def("cosArray", &FunctionsInterface::cosArray<ComplexDouble>);
-    m.def("coshScaler", &FunctionsInterface::coshScaler<double>);
-    m.def("coshScaler", &FunctionsInterface::coshScaler<ComplexDouble>);
+    m.def("coshScalar", &FunctionsInterface::coshScalar<double>);
+    m.def("coshScalar", &FunctionsInterface::coshScalar<ComplexDouble>);
     m.def("coshArray", &FunctionsInterface::coshArray<double>);
     m.def("coshArray", &FunctionsInterface::coshArray<ComplexDouble>);
     m.def("count_nonzero", &FunctionsInterface::count_nonzero<double>);
@@ -3197,11 +3197,11 @@ void initFunctions(pb11::module& m)
     m.def("cumsum", &FunctionsInterface::cumsumArray<double>);
     m.def("cumsum", &FunctionsInterface::cumsumArray<ComplexDouble>);
 
-    m.def("deg2radScaler", &FunctionsInterface::deg2radScaler<double>);
+    m.def("deg2radScalar", &FunctionsInterface::deg2radScalar<double>);
     m.def("deg2radArray", &FunctionsInterface::deg2radArray<double>);
-    m.def("degreesScaler", &FunctionsInterface::degreesScaler<double>);
+    m.def("degreesScalar", &FunctionsInterface::degreesScalar<double>);
     m.def("degreesArray", &FunctionsInterface::degreesArray<double>);
-    m.def("deleteIndicesScaler", &FunctionsInterface::deleteIndicesScaler<double>);
+    m.def("deleteIndicesScalar", &FunctionsInterface::deleteIndicesScalar<double>);
     m.def("deleteIndicesIndices", &FunctionsInterface::deleteIndicesIndices<double>);
     m.def("deleteIndicesSlice", &FunctionsInterface::deleteIndicesSlice<double>);
     m.def("diag", &FunctionsInterface::diag<double>);
@@ -3239,14 +3239,14 @@ void initFunctions(pb11::module& m)
     m.def("equal", &FunctionsInterface::equal<double>);
     m.def("equal", &FunctionsInterface::equal<ComplexDouble>);
     m.def("extract", &FunctionsInterface::extract<double>);
-    m.def("expScaler", &FunctionsInterface::expScaler<double>);
-    m.def("expScaler", &FunctionsInterface::expScaler<ComplexDouble>);
+    m.def("expScalar", &FunctionsInterface::expScalar<double>);
+    m.def("expScalar", &FunctionsInterface::expScalar<ComplexDouble>);
     m.def("expArray", &FunctionsInterface::expArray<double>);
     m.def("expArray", &FunctionsInterface::expArray<ComplexDouble>);
-    m.def("exp2Scaler", &FunctionsInterface::exp2Scaler<double>);
+    m.def("exp2Scalar", &FunctionsInterface::exp2Scalar<double>);
     m.def("exp2Array", &FunctionsInterface::exp2Array<double>);
-    m.def("expm1Scaler", &FunctionsInterface::expm1Scaler<double>);
-    m.def("expm1Scaler", &FunctionsInterface::expm1Scaler<ComplexDouble>);
+    m.def("expm1Scalar", &FunctionsInterface::expm1Scalar<double>);
+    m.def("expm1Scalar", &FunctionsInterface::expm1Scalar<ComplexDouble>);
     m.def("expm1Array", &FunctionsInterface::expm1Array<double>);
     m.def("expm1Array", &FunctionsInterface::expm1Array<ComplexDouble>);
     m.def("eye1D", &FunctionsInterface::eye1D<double>);
@@ -3259,7 +3259,7 @@ void initFunctions(pb11::module& m)
     m.def("fillDiagonal", &fillDiagonal<double>);
     m.def("find", &FunctionsInterface::find);
     m.def("findN", &FunctionsInterface::findN);
-    m.def("fixScaler", &FunctionsInterface::fixScaler<double>);
+    m.def("fixScalar", &FunctionsInterface::fixScalar<double>);
     m.def("fixArray", &FunctionsInterface::fixArray<double>);
     m.def("flatten", &flatten<double>);
     m.def("flatnonzero", &flatnonzero<double>);
@@ -3267,21 +3267,21 @@ void initFunctions(pb11::module& m)
     m.def("flip", &flip<double>);
     m.def("fliplr", &fliplr<double>);
     m.def("flipud", &flipud<double>);
-    m.def("floorScaler", &FunctionsInterface::floorScaler<double>);
+    m.def("floorScalar", &FunctionsInterface::floorScalar<double>);
     m.def("floorArray", &FunctionsInterface::floorArray<double>);
-    m.def("floor_divideScaler", &FunctionsInterface::floor_divideScaler<double>);
+    m.def("floor_divideScalar", &FunctionsInterface::floor_divideScalar<double>);
     m.def("floor_divideArray", &FunctionsInterface::floor_divideArray<double>);
-    m.def("fmaxScaler", &FunctionsInterface::fmaxScaler<double>);
-    m.def("fmaxScaler", &FunctionsInterface::fmaxScaler<ComplexDouble>);
+    m.def("fmaxScalar", &FunctionsInterface::fmaxScalar<double>);
+    m.def("fmaxScalar", &FunctionsInterface::fmaxScalar<ComplexDouble>);
     m.def("fmaxArray", &FunctionsInterface::fmaxArray<double>);
     m.def("fmaxArray", &FunctionsInterface::fmaxArray<ComplexDouble>);
-    m.def("fminScaler", &FunctionsInterface::fminScaler<double>);
-    m.def("fminScaler", &FunctionsInterface::fminScaler<ComplexDouble>);
+    m.def("fminScalar", &FunctionsInterface::fminScalar<double>);
+    m.def("fminScalar", &FunctionsInterface::fminScalar<ComplexDouble>);
     m.def("fminArray", &FunctionsInterface::fminArray<double>);
     m.def("fminArray", &FunctionsInterface::fminArray<ComplexDouble>);
-    m.def("fmodScalerInt", &FunctionsInterface::fmodScaler<uint32>);
+    m.def("fmodScalarInt", &FunctionsInterface::fmodScalar<uint32>);
     m.def("fmodArrayInt", &FunctionsInterface::fmodArray<uint32>);
-    m.def("fmodScalerFloat", &FunctionsInterface::fmodScaler<double>);
+    m.def("fmodScalarFloat", &FunctionsInterface::fmodScalar<double>);
     m.def("fmodArrayFloat", &FunctionsInterface::fmodArray<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<double>);
     m.def("frombuffer", &FunctionsInterface::frombuffer<ComplexDouble>);
@@ -3303,7 +3303,7 @@ void initFunctions(pb11::module& m)
     m.def("full_likeComplex", &full_like<ComplexDouble>);
 
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("gcdScaler", &FunctionsInterface::gcdScaler<uint32>);
+    m.def("gcdScalar", &FunctionsInterface::gcdScalar<uint32>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
     m.def("gcdArray", &FunctionsInterface::gcdArray<uint32>);
@@ -3322,13 +3322,13 @@ void initFunctions(pb11::module& m)
     m.def("histogram", &FunctionsInterface::histogramWithEdges<double>);
     m.def("hsplit", &FunctionsInterface::hsplit<double>);
     m.def("hstack", &FunctionsInterface::hstack<double>);
-    m.def("hypotScaler", &FunctionsInterface::hypotScaler<double>);
-    m.def("hypotScalerTriple", &FunctionsInterface::hypotScalerTriple<double>);
+    m.def("hypotScalar", &FunctionsInterface::hypotScalar<double>);
+    m.def("hypotScalarTriple", &FunctionsInterface::hypotScalarTriple<double>);
     m.def("hypotArray", &FunctionsInterface::hypotArray<double>);
 
     m.def("identity", &identity<double>);
     m.def("identityComplex", &identity<ComplexDouble>);
-    m.def("imagScaler", &FunctionsInterface::imagScaler<double>);
+    m.def("imagScalar", &FunctionsInterface::imagScalar<double>);
     m.def("imagArray", &FunctionsInterface::imagArray<double>);
     m.def("inner", &FunctionsInterface::inner<double>);
     m.def("insert", &FunctionsInterface::insertIndexScalar<double>);
@@ -3343,13 +3343,13 @@ void initFunctions(pb11::module& m)
     m.def("intersect1d", &intersect1d<uint32>);
     m.def("invert", &invert<uint32>);
     m.def("isclose", &isclose<double>);
-    m.def("isinfScaler", &FunctionsInterface::isinfScaler<double>);
+    m.def("isinfScalar", &FunctionsInterface::isinfScalar<double>);
     m.def("isinfArray", &FunctionsInterface::isinfArray<double>);
-    m.def("isposinfScaler", &FunctionsInterface::isposinfScaler<double>);
+    m.def("isposinfScalar", &FunctionsInterface::isposinfScalar<double>);
     m.def("isposinfArray", &FunctionsInterface::isposinfArray<double>);
-    m.def("isneginfScaler", &FunctionsInterface::isneginfScaler<double>);
+    m.def("isneginfScalar", &FunctionsInterface::isneginfScalar<double>);
     m.def("isneginfArray", &FunctionsInterface::isneginfArray<double>);
-    m.def("isnanScaler", &FunctionsInterface::isnanScaler<double>);
+    m.def("isnanScalar", &FunctionsInterface::isnanScalar<double>);
     m.def("isnanArray", &FunctionsInterface::isnanArray<double>);
 
 #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)
@@ -3357,12 +3357,12 @@ void initFunctions(pb11::module& m)
 #endif
 
 #if defined(__cpp_lib_gcd_lcm) || !defined(NUMCPP_NO_USE_BOOST)
-    m.def("lcmScaler", &FunctionsInterface::lcmScaler<uint32>);
+    m.def("lcmScalar", &FunctionsInterface::lcmScalar<uint32>);
 #endif
 #ifndef NUMCPP_NO_USE_BOOST
     m.def("lcmArray", &FunctionsInterface::lcmArray<uint32>);
 #endif
-    m.def("ldexpScaler", &FunctionsInterface::ldexpScaler<double>);
+    m.def("ldexpScalar", &FunctionsInterface::ldexpScalar<double>);
     m.def("ldexpArray", &FunctionsInterface::ldexpArray<double>);
     m.def("left_shift", &left_shift<uint32>);
     m.def("less", &less<double>);
@@ -3371,26 +3371,26 @@ void initFunctions(pb11::module& m)
     m.def("less_equal", &less_equal<ComplexDouble>);
     m.def("linspace", &linspace<double>);
     m.def("load", &load<double>);
-    m.def("logScaler", &FunctionsInterface::logScaler<double>);
+    m.def("logScalar", &FunctionsInterface::logScalar<double>);
     m.def("logArray", &FunctionsInterface::logArray<double>);
-    m.def("logScaler", &FunctionsInterface::logScaler<ComplexDouble>);
+    m.def("logScalar", &FunctionsInterface::logScalar<ComplexDouble>);
     m.def("logArray", &FunctionsInterface::logArray<ComplexDouble>);
-    m.def("logbScaler", &FunctionsInterface::logbScaler<double>);
+    m.def("logbScalar", &FunctionsInterface::logbScalar<double>);
     m.def("logbArray", &FunctionsInterface::logbArray<double>);
     m.def("logspace", &FunctionsInterface::logspace<double>);
-    m.def("log10Scaler", &FunctionsInterface::log10Scaler<double>);
+    m.def("log10Scalar", &FunctionsInterface::log10Scalar<double>);
     m.def("log10Array", &FunctionsInterface::log10Array<ComplexDouble>);
-    m.def("log10Scaler", &FunctionsInterface::log10Scaler<ComplexDouble>);
+    m.def("log10Scalar", &FunctionsInterface::log10Scalar<ComplexDouble>);
     m.def("log10Array", &FunctionsInterface::log10Array<double>);
-    m.def("log1pScaler", &FunctionsInterface::log1pScaler<double>);
+    m.def("log1pScalar", &FunctionsInterface::log1pScalar<double>);
     m.def("log1pArray", &FunctionsInterface::log1pArray<double>);
-    m.def("log2Scaler", &FunctionsInterface::log2Scaler<double>);
+    m.def("log2Scalar", &FunctionsInterface::log2Scalar<double>);
     m.def("log2Array", &FunctionsInterface::log2Array<double>);
-    m.def("logaddexpScaler", &FunctionsInterface::logaddexpScaler<double>);
+    m.def("logaddexpScalar", &FunctionsInterface::logaddexpScalar<double>);
     m.def("logaddexpArray", &FunctionsInterface::logaddexpArray<double>);
-    m.def("logaddexpScaler", &FunctionsInterface::logaddexpScaler<ComplexDouble>);
+    m.def("logaddexpScalar", &FunctionsInterface::logaddexpScalar<ComplexDouble>);
     m.def("logaddexpArray", &FunctionsInterface::logaddexpArray<ComplexDouble>);
-    m.def("logaddexp2Scaler", &FunctionsInterface::logaddexp2Scaler<double>);
+    m.def("logaddexp2Scalar", &FunctionsInterface::logaddexp2Scalar<double>);
     m.def("logaddexp2Array", &FunctionsInterface::logaddexp2Array<double>);
     m.def("logical_and", &logical_and<double>);
     m.def("logical_not", &logical_not<double>);
@@ -3460,9 +3460,9 @@ void initFunctions(pb11::module& m)
     m.def("nbytes", &nbytes<ComplexDouble>);
     m.def("negative", &negative<double>);
     m.def("negative", &negative<ComplexDouble>);
-    m.def("newbyteorderScaler", &FunctionsInterface::newbyteorderScaler<uint32>);
+    m.def("newbyteorderScalar", &FunctionsInterface::newbyteorderScalar<uint32>);
     m.def("newbyteorderArray", &FunctionsInterface::newbyteorderArray<uint32>);
-    m.def("nth_rootScaler", &FunctionsInterface::nth_rootScaler<double, double>);
+    m.def("nth_rootScalar", &FunctionsInterface::nth_rootScalar<double, double>);
     m.def("nth_rootArray", &FunctionsInterface::nth_rootArray<double, double>);
     m.def("none", &FunctionsInterface::noneArray<double>);
     m.def("none", &FunctionsInterface::noneArray<ComplexDouble>);
@@ -3496,19 +3496,19 @@ void initFunctions(pb11::module& m)
     m.def("partition", &partition<ComplexDouble>);
     m.def("percentile", &percentile<double>);
     m.def("place", &place<double>);
-    m.def("polarScaler", &FunctionsInterface::polarScaler<double>);
+    m.def("polarScalar", &FunctionsInterface::polarScalar<double>);
     m.def("polarArray", &FunctionsInterface::polarArray<double>);
-    m.def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<double>);
+    m.def("powerArrayScalar", &FunctionsInterface::powerArrayScalar<double>);
     m.def("powerArrayArray", &FunctionsInterface::powerArrayArray<double>);
-    m.def("powerArrayScaler", &FunctionsInterface::powerArrayScaler<ComplexDouble>);
+    m.def("powerArrayScalar", &FunctionsInterface::powerArrayScalar<ComplexDouble>);
     m.def("powerArrayArray", &FunctionsInterface::powerArrayArray<ComplexDouble>);
-    m.def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<double>);
+    m.def("powerfArrayScalar", &FunctionsInterface::powerfArrayScalar<double>);
     m.def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<double>);
-    m.def("powerfArrayScaler", &FunctionsInterface::powerfArrayScaler<ComplexDouble>);
+    m.def("powerfArrayScalar", &FunctionsInterface::powerfArrayScalar<ComplexDouble>);
     m.def("powerfArrayArray", &FunctionsInterface::powerfArrayArray<ComplexDouble>);
     m.def("prod", &prod<double>);
     m.def("prod", &prod<ComplexDouble>);
-    m.def("projScaler", &FunctionsInterface::projScaler<double>);
+    m.def("projScalar", &FunctionsInterface::projScalar<double>);
     m.def("projArray", &FunctionsInterface::projArray<double>);
     m.def("ptp", &ptp<double>);
     m.def("ptp", &ptp<ComplexDouble>);
@@ -3557,18 +3557,18 @@ void initFunctions(pb11::module& m)
     m.def("put", &FunctionsInterface::putSlice2DValuesCol<double>);
     m.def("put", &FunctionsInterface::putSlice2DValuesCol<ComplexDouble>);
     m.def("putmask", &FunctionsInterface::putmask<double>);
-    m.def("putmaskScaler", &FunctionsInterface::putmaskScaler<double>);
+    m.def("putmaskScalar", &FunctionsInterface::putmaskScalar<double>);
 
-    m.def("rad2degScaler", &FunctionsInterface::rad2degScaler<double>);
+    m.def("rad2degScalar", &FunctionsInterface::rad2degScalar<double>);
     m.def("rad2degArray", &FunctionsInterface::rad2degArray<double>);
-    m.def("radiansScaler", &FunctionsInterface::radiansScaler<double>);
+    m.def("radiansScalar", &FunctionsInterface::radiansScalar<double>);
     m.def("radiansArray", &FunctionsInterface::radiansArray<double>);
     m.def("ravel", &FunctionsInterface::ravel<double>, pb11::return_value_policy::reference);
     m.def("reciprocal", &FunctionsInterface::reciprocal<double>);
     m.def("reciprocal", &FunctionsInterface::reciprocal<ComplexDouble>);
-    m.def("realScaler", &FunctionsInterface::realScaler<double>);
+    m.def("realScalar", &FunctionsInterface::realScalar<double>);
     m.def("realArray", &FunctionsInterface::realArray<double>);
-    m.def("remainderScaler", &FunctionsInterface::remainderScaler<double>);
+    m.def("remainderScalar", &FunctionsInterface::remainderScalar<double>);
     m.def("remainderArray", &FunctionsInterface::remainderArray<double>);
     m.def("replace", &FunctionsInterface::replace<double>);
     m.def("replace", &FunctionsInterface::replace<ComplexDouble>);
@@ -3581,7 +3581,7 @@ void initFunctions(pb11::module& m)
     m.def("resizeSlow", &FunctionsInterface::resizeSlow<double>, pb11::return_value_policy::reference);
     m.def("resizeSlowList", &FunctionsInterface::resizeSlowList<double>, pb11::return_value_policy::reference);
     m.def("right_shift", &right_shift<uint32>);
-    m.def("rintScaler", &FunctionsInterface::rintScaler<double>);
+    m.def("rintScalar", &FunctionsInterface::rintScalar<double>);
     m.def("rintArray", &FunctionsInterface::rintArray<double>);
     NdArray<double> (*rmsDouble)(const NdArray<double>&, Axis) = &rms<double>;
     m.def("rms", rmsDouble);
@@ -3589,7 +3589,7 @@ void initFunctions(pb11::module& m)
     m.def("rms", rmsComplexDouble);
     m.def("roll", &roll<double>);
     m.def("rot90", &rot90<double>);
-    m.def("roundScaler", &FunctionsInterface::roundScaler<double>);
+    m.def("roundScalar", &FunctionsInterface::roundScalar<double>);
     m.def("roundArray", &FunctionsInterface::roundArray<double>);
     m.def("row_stack", &FunctionsInterface::row_stack<double>);
 
@@ -3598,32 +3598,32 @@ void initFunctions(pb11::module& m)
     m.def("select", &FunctionsInterface::selectInitializerList<double>);
     m.def("setdiff1d", &setdiff1d<uint32>);
     m.def("setdiff1d", &setdiff1d<std::complex<double>>);
-    m.def("signScaler", &FunctionsInterface::signScaler<double>);
-    m.def("signScaler", &FunctionsInterface::signScaler<ComplexDouble>);
+    m.def("signScalar", &FunctionsInterface::signScalar<double>);
+    m.def("signScalar", &FunctionsInterface::signScalar<ComplexDouble>);
     m.def("signArray", &FunctionsInterface::signArray<double>);
     m.def("signArray", &FunctionsInterface::signArray<ComplexDouble>);
-    m.def("signbitScaler", &FunctionsInterface::signbitScaler<double>);
+    m.def("signbitScalar", &FunctionsInterface::signbitScalar<double>);
     m.def("signbitArray", &FunctionsInterface::signbitArray<double>);
-    m.def("sinScaler", &FunctionsInterface::sinScaler<double>);
-    m.def("sinScaler", &FunctionsInterface::sinScaler<ComplexDouble>);
+    m.def("sinScalar", &FunctionsInterface::sinScalar<double>);
+    m.def("sinScalar", &FunctionsInterface::sinScalar<ComplexDouble>);
     m.def("sinArray", &FunctionsInterface::sinArray<double>);
     m.def("sinArray", &FunctionsInterface::sinArray<ComplexDouble>);
-    m.def("sincScaler", &FunctionsInterface::sincScaler<double>);
+    m.def("sincScalar", &FunctionsInterface::sincScalar<double>);
     m.def("sincArray", &FunctionsInterface::sincArray<double>);
-    m.def("sinhScaler", &FunctionsInterface::sinhScaler<ComplexDouble>);
-    m.def("sinhScaler", &FunctionsInterface::sinhScaler<double>);
+    m.def("sinhScalar", &FunctionsInterface::sinhScalar<ComplexDouble>);
+    m.def("sinhScalar", &FunctionsInterface::sinhScalar<double>);
     m.def("sinhArray", &FunctionsInterface::sinhArray<double>);
     m.def("sinhArray", &FunctionsInterface::sinhArray<ComplexDouble>);
     m.def("size", &size<double>);
     m.def("sort", &sort<double>);
     m.def("sort", &sort<ComplexDouble>);
     m.def("split", &FunctionsInterface::split<double>);
-    m.def("sqrtScaler", &FunctionsInterface::sqrtScaler<double>);
-    m.def("sqrtScaler", &FunctionsInterface::sqrtScaler<ComplexDouble>);
+    m.def("sqrtScalar", &FunctionsInterface::sqrtScalar<double>);
+    m.def("sqrtScalar", &FunctionsInterface::sqrtScalar<ComplexDouble>);
     m.def("sqrtArray", &FunctionsInterface::sqrtArray<double>);
     m.def("sqrtArray", &FunctionsInterface::sqrtArray<ComplexDouble>);
-    m.def("squareScaler", &FunctionsInterface::squareScaler<double>);
-    m.def("squareScaler", &FunctionsInterface::squareScaler<ComplexDouble>);
+    m.def("squareScalar", &FunctionsInterface::squareScalar<double>);
+    m.def("squareScalar", &FunctionsInterface::squareScalar<ComplexDouble>);
     m.def("squareArray", &FunctionsInterface::squareArray<double>);
     m.def("squareArray", &FunctionsInterface::squareArray<ComplexDouble>);
     m.def("stack", &FunctionsInterface::stack<double>);
@@ -3651,12 +3651,12 @@ void initFunctions(pb11::module& m)
     m.def("swapCols", &nc::swapCols<double>);
 
     m.def("take", &FunctionsInterface::take<double>);
-    m.def("tanScaler", &FunctionsInterface::tanScaler<double>);
-    m.def("tanScaler", &FunctionsInterface::tanScaler<ComplexDouble>);
+    m.def("tanScalar", &FunctionsInterface::tanScalar<double>);
+    m.def("tanScalar", &FunctionsInterface::tanScalar<ComplexDouble>);
     m.def("tanArray", &FunctionsInterface::tanArray<double>);
     m.def("tanArray", &FunctionsInterface::tanArray<ComplexDouble>);
-    m.def("tanhScaler", &FunctionsInterface::tanhScaler<double>);
-    m.def("tanhScaler", &FunctionsInterface::tanhScaler<ComplexDouble>);
+    m.def("tanhScalar", &FunctionsInterface::tanhScalar<double>);
+    m.def("tanhScalar", &FunctionsInterface::tanhScalar<ComplexDouble>);
     m.def("tanhArray", &FunctionsInterface::tanhArray<double>);
     m.def("tanhArray", &FunctionsInterface::tanhArray<ComplexDouble>);
     m.def("tileRectangle", &FunctionsInterface::tileRectangle<double>);
@@ -3684,7 +3684,7 @@ void initFunctions(pb11::module& m)
     m.def("triuArray", &FunctionsInterface::triuArray<ComplexDouble>);
     m.def("trim_zeros", &trim_zeros<double>);
     m.def("trim_zeros", &trim_zeros<ComplexDouble>);
-    m.def("truncScaler", &FunctionsInterface::truncScaler<double>);
+    m.def("truncScalar", &FunctionsInterface::truncScalar<double>);
     m.def("truncArray", &FunctionsInterface::truncArray<double>);
 
     m.def("union1d", &union1d<uint32>);
@@ -3693,7 +3693,7 @@ void initFunctions(pb11::module& m)
     m.def("unique", &unique<std::complex<double>>);
     m.def("unpackbitsBigEndian", &FunctionsInterface::unpackbitsBigEndian);
     m.def("unpackbitsLittleEndian", &FunctionsInterface::unpackbitsLittleEndian);
-    m.def("unwrapScaler", &FunctionsInterface::unwrapScaler<double>);
+    m.def("unwrapScalar", &FunctionsInterface::unwrapScalar<double>);
     m.def("unwrapArray", &FunctionsInterface::unwrapArray<double>);
 
     pbArrayGeneric (*vanderDouble)(const NdArray<double>&, bool increasing) = &FunctionsInterface::vander<double>;
@@ -3716,12 +3716,12 @@ void initFunctions(pb11::module& m)
 
     m.def("where", &FunctionsInterface::whereArrayArray<double>);
     m.def("where", &FunctionsInterface::whereArrayArray<ComplexDouble>);
-    m.def("where", &FunctionsInterface::whereArrayScaler<double>);
-    m.def("where", &FunctionsInterface::whereArrayScaler<ComplexDouble>);
-    m.def("where", &FunctionsInterface::whereScalerArray<double>);
-    m.def("where", &FunctionsInterface::whereScalerArray<ComplexDouble>);
-    m.def("where", &FunctionsInterface::whereScalerScaler<double>);
-    m.def("where", &FunctionsInterface::whereScalerScaler<ComplexDouble>);
+    m.def("where", &FunctionsInterface::whereArrayScalar<double>);
+    m.def("where", &FunctionsInterface::whereArrayScalar<ComplexDouble>);
+    m.def("where", &FunctionsInterface::whereScalarArray<double>);
+    m.def("where", &FunctionsInterface::whereScalarArray<ComplexDouble>);
+    m.def("where", &FunctionsInterface::whereScalarScalar<double>);
+    m.def("where", &FunctionsInterface::whereScalarScalar<ComplexDouble>);
 
     m.def("zerosSquare", &FunctionsInterface::zerosSquare<double>);
     m.def("zerosSquareComplex", &FunctionsInterface::zerosSquare<ComplexDouble>);

@@ -159,7 +159,7 @@ def test_chebyshev():
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_chebyt(order, x)
-        valueCpp = NumCpp.chebyshev_t_Scaler(order, x)
+        valueCpp = NumCpp.chebyshev_t_Scalar(order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -177,7 +177,7 @@ def test_chebyshev():
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_chebyu(order, x)
-        valueCpp = NumCpp.chebyshev_u_Scaler(order, x)
+        valueCpp = NumCpp.chebyshev_u_Scalar(order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -201,7 +201,7 @@ def test_hermite():
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_hermite(order, x)
-        valueCpp = NumCpp.hermite_Scaler(order, x)
+        valueCpp = NumCpp.hermite_Scalar(order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -225,7 +225,7 @@ def test_laguerre():
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_laguerre(order, x)
-        valueCpp = NumCpp.laguerre_Scaler1(order, x)
+        valueCpp = NumCpp.laguerre_Scalar1(order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -244,7 +244,7 @@ def test_laguerre():
         degree = np.random.randint(0, 10, [1, ]).item()
         x = np.random.rand(1).item()
         valuePy = sp.eval_genlaguerre(degree, order, x)
-        valueCpp = NumCpp.laguerre_Scaler2(order, degree, x)
+        valueCpp = NumCpp.laguerre_Scalar2(order, degree, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -269,7 +269,7 @@ def test_legendre():
     for order in range(ORDER_MAX):
         x = np.random.rand(1).item()
         valuePy = sp.eval_legendre(order, x)
-        valueCpp = NumCpp.legendre_p_Scaler1(order, x)
+        valueCpp = NumCpp.legendre_p_Scalar1(order, x)
         assert np.round(valuePy, DECIMALS_ROUND) == np.round(
             valueCpp, DECIMALS_ROUND)
 
@@ -289,7 +289,7 @@ def test_legendre():
             x = np.random.rand(1).item()
             degree = np.random.randint(order, ORDER_MAX)
             valuePy = sp.lpmn(order, degree, x)[0][order, degree]
-            valueCpp = NumCpp.legendre_p_Scaler2(order, degree, x)
+            valueCpp = NumCpp.legendre_p_Scalar2(order, degree, x)
             try:
                 assert np.round(valuePy, DECIMALS_ROUND) == np.round(valueCpp, DECIMALS_ROUND), \
                     f'order={order}, degree={degree}, x={x}'
@@ -302,7 +302,7 @@ def test_legendre():
         for order in range(ORDER_MAX):
             x = np.random.rand(1).item()
             valuePy = sp.lqn(order, x)[0][order]
-            valueCpp = NumCpp.legendre_q_Scaler(order, x)
+            valueCpp = NumCpp.legendre_q_Scalar(order, x)
             assert np.round(valuePy, DECIMALS_ROUND) == np.round(
                 valueCpp, DECIMALS_ROUND)
 

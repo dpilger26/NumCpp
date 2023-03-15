@@ -199,7 +199,7 @@ def test_normal():
 ####################################################################################
 def test_permutation():
     size = np.random.randint(50, 100)
-    permutation = NumCpp.permutationScaler(size).flatten()
+    permutation = NumCpp.permutationScalar(size).flatten()
     assert permutation.size == size
     assert np.array_equal(np.sort(permutation), np.arange(size).astype(float))
 

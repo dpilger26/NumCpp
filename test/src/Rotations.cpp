@@ -75,9 +75,9 @@ namespace RotationsInterface
 
     //================================================================================
 
-    pbArray<double> multiplyScaler(const rotations::Quaternion& inQuat, double inScaler)
+    pbArray<double> multiplyScalar(const rotations::Quaternion& inQuat, double inScalar)
     {
-        const rotations::Quaternion returnQuat = inQuat * inScaler;
+        const rotations::Quaternion returnQuat = inQuat * inScalar;
         return nc2pybind(returnQuat.toNdArray());
     }
 
@@ -204,7 +204,7 @@ void initRotations(pb11::module& m)
         .def("__add__", &rotations::Quaternion::operator+)
         .def("__sub__", &RotationsInterface::subtract)
         .def("__neg__", &RotationsInterface::negative)
-        .def("__mul__", &RotationsInterface::multiplyScaler)
+        .def("__mul__", &RotationsInterface::multiplyScalar)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
         .def("__mul__", &RotationsInterface::multiplyArray)
         .def("__truediv__", &rotations::Quaternion::operator/)

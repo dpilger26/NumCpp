@@ -38,7 +38,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Return coordinate matrices from coordinate vectors.
-    /// Make 2D coordinate arrays for vectorized evaluations of 2D scaler
+    /// Make 2D coordinate arrays for vectorized evaluations of 2D scalar
     /// vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
     /// If input arrays are not one dimensional they will be flattened.
     ///
@@ -83,7 +83,7 @@ namespace nc
     //============================================================================
     // Method Description:
     /// Return coordinate matrices from coordinate vectors.
-    /// Make 2D coordinate arrays for vectorized evaluations of 2D scaler
+    /// Make 2D coordinate arrays for vectorized evaluations of 2D scalar
     /// vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
     ///
     /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
