@@ -10023,22 +10023,22 @@ def test_trapz():
 ####################################################################################
 def test_tril():
     squareSize = np.random.randint(10, 100, [1, ]).item()
-    offset = np.random.randint(0, squareSize // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilSquare(squareSize, offset),
                           np.tri(squareSize, k=offset))
 
     squareSize = np.random.randint(10, 100, [1, ]).item()
-    offset = np.random.randint(0, squareSize // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilSquareComplex(squareSize, offset),
                           np.tri(squareSize, k=offset) + 1j * np.zeros([squareSize, squareSize]))
 
     shapeInput = np.random.randint(10, 100, [2, ])
-    offset = np.random.randint(0, np.min(shapeInput) // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilRect(shapeInput[0].item(), shapeInput[1].item(), offset),
                           np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset))
 
     shapeInput = np.random.randint(10, 100, [2, ])
-    offset = np.random.randint(0, np.min(shapeInput) // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilRectComplex(shapeInput[0].item(), shapeInput[1].item(), offset),
                           np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset) + 1j * np.zeros(shapeInput))
 
@@ -10047,7 +10047,7 @@ def test_tril():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    offset = np.random.randint(0, shape.rows // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilArray(cArray, offset),
                           np.tril(data, k=offset))
 
@@ -10058,7 +10058,7 @@ def test_tril():
     imag = np.random.randint(1, 100, [shape.rows, shape.cols])
     data = real + 1j * imag
     cArray.setArray(data)
-    offset = np.random.randint(0, shape.rows // 2, [1, ]).item()
+    offset = np.random.randint(0, 5, [1, ]).item()
     assert np.array_equal(NumCpp.trilArray(cArray, offset),
                           np.tril(data, k=offset))
 

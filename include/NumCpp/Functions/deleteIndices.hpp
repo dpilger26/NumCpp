@@ -113,7 +113,7 @@ namespace nc
             uint32 indicesSize = 0;
             std::for_each(indices.begin(),
                           indices.end(),
-                          [arrayRows, &indicesSize](auto& value)
+                          [arrayRows, &indicesSize](const auto& value)
                           {
                               if constexpr (std::is_signed_v<decltype(value)>)
                               {
@@ -183,7 +183,7 @@ namespace nc
             uint32 indicesSize = 0;
             std::for_each(indices.begin(),
                           indices.end(),
-                          [arrayCols, &indicesSize](auto& value)
+                          [arrayCols, &indicesSize](const auto& value)
                           {
                               if constexpr (std::is_signed_v<decltype(value)>)
                               {
