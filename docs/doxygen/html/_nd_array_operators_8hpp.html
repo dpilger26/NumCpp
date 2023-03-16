@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,8 +123,10 @@ $(document).ready(function(){initNavTree('_nd_array_operators_8hpp.html',''); in
 <code>#include &quot;<a class="el" href="_stl_algorithms_8hpp_source.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_type_traits_8hpp_source.html">NumCpp/Core/Internal/TypeTraits.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="complex_8hpp_source.html">NumCpp/Functions/complex.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_nd_array_broadcast_8hpp_source.html">NumCpp/NdArray/NdArrayBroadcast.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_nd_array_core_8hpp_source.html">NumCpp/NdArray/NdArrayCore.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="essentially_equal_8hpp_source.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="essentially_equal_complex_8hpp_source.html">NumCpp/Utils/essentiallyEqualComplex.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_nd_array_operators_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -143,30 +149,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a631e6eb2bf338af6af8487fd2d94b0a8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a631e6eb2bf338af6af8487fd2d94b0a8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a631e6eb2bf338af6af8487fd2d94b0a8">nc::operator!=</a> (dtype inValue, const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a631e6eb2bf338af6af8487fd2d94b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54ce1f6f396a09dddabae0f02d9aeeeb"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a54ce1f6f396a09dddabae0f02d9aeeeb"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a54ce1f6f396a09dddabae0f02d9aeeeb">nc::operator%</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
-<tr class="separator:a54ce1f6f396a09dddabae0f02d9aeeeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c703ec4985bf1bc6ea5c4a32fd72fcf"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a6c703ec4985bf1bc6ea5c4a32fd72fcf"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a6c703ec4985bf1bc6ea5c4a32fd72fcf">nc::operator%</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a6c703ec4985bf1bc6ea5c4a32fd72fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2360d92e17c3bf8956f1ab391f0022a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a78af84a4555db3ffecf4d609e43f9e69"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral_v&lt; dtype &gt;||std::is_floating_point_v&lt; dtype &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a78af84a4555db3ffecf4d609e43f9e69"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a78af84a4555db3ffecf4d609e43f9e69">nc::operator%</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
+<tr class="separator:a78af84a4555db3ffecf4d609e43f9e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2360d92e17c3bf8956f1ab391f0022a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral_v&lt; dtype &gt;, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:af2360d92e17c3bf8956f1ab391f0022a"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#af2360d92e17c3bf8956f1ab391f0022a">nc::operator%</a> (dtype lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:af2360d92e17c3bf8956f1ab391f0022a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dfaa5d06ddc26868216477f53b56b46"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:a0dfaa5d06ddc26868216477f53b56b46"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a0dfaa5d06ddc26868216477f53b56b46">nc::operator%=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
-<tr class="separator:a0dfaa5d06ddc26868216477f53b56b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b9a9ad49ab9cdaa1b3434038c6c983a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:a9b9a9ad49ab9cdaa1b3434038c6c983a"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9b9a9ad49ab9cdaa1b3434038c6c983a">nc::operator%=</a> (NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a9b9a9ad49ab9cdaa1b3434038c6c983a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3da2320c058c3a22713cad51b1d7f2"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:aad3da2320c058c3a22713cad51b1d7f2"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aad3da2320c058c3a22713cad51b1d7f2">nc::operator%</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:aad3da2320c058c3a22713cad51b1d7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133ad116e8bb3248eceb6868308350c9"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral_v&lt; dtype &gt;||std::is_floating_point_v&lt; dtype &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a133ad116e8bb3248eceb6868308350c9"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a133ad116e8bb3248eceb6868308350c9">nc::operator%=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
+<tr class="separator:a133ad116e8bb3248eceb6868308350c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6cf0ec47d66a0ab6c60d55d06c4c5b"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral_v&lt; dtype &gt;||std::is_floating_point_v&lt; dtype &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aef6cf0ec47d66a0ab6c60d55d06c4c5b"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aef6cf0ec47d66a0ab6c60d55d06c4c5b">nc::operator%=</a> (NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
+<tr class="separator:aef6cf0ec47d66a0ab6c60d55d06c4c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c80b9ed3ff24fb25fb794e22a3467e6"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a0c80b9ed3ff24fb25fb794e22a3467e6"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a0c80b9ed3ff24fb25fb794e22a3467e6">nc::operator&amp;</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a0c80b9ed3ff24fb25fb794e22a3467e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12d6f6d2a62496d8fe53f8b2daf0b6a8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a12d6f6d2a62496d8fe53f8b2daf0b6a8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a12d6f6d2a62496d8fe53f8b2daf0b6a8">nc::operator&amp;</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a12d6f6d2a62496d8fe53f8b2daf0b6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa9c45bb88e88461db334c8b933217e3"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:aaa9c45bb88e88461db334c8b933217e3"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aaa9c45bb88e88461db334c8b933217e3">nc::operator&amp;</a> (dtype lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:aaa9c45bb88e88461db334c8b933217e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a27b6be40cf5b5a1adbe7f40ba87986"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a2a27b6be40cf5b5a1adbe7f40ba87986"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a2a27b6be40cf5b5a1adbe7f40ba87986">nc::operator&amp;</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a2a27b6be40cf5b5a1adbe7f40ba87986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9c15b56f7dc1eb4ce63b15285c7f8b1"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:aa9c15b56f7dc1eb4ce63b15285c7f8b1"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aa9c15b56f7dc1eb4ce63b15285c7f8b1">nc::operator&amp;&amp;</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:aa9c15b56f7dc1eb4ce63b15285c7f8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,15 +197,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af4f34a2e6e8b9011cb2d2fc5c564e10a"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:af4f34a2e6e8b9011cb2d2fc5c564e10a"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#af4f34a2e6e8b9011cb2d2fc5c564e10a">nc::operator*</a> (const NdArray&lt; dtype &gt; &amp;lhs, const std::complex&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:af4f34a2e6e8b9011cb2d2fc5c564e10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf6f57d9d17019d8756b86bfa1019bc1"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:abf6f57d9d17019d8756b86bfa1019bc1"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#abf6f57d9d17019d8756b86bfa1019bc1">nc::operator*</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:abf6f57d9d17019d8756b86bfa1019bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34212756103e0c821034e5469f0f0ed7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a34212756103e0c821034e5469f0f0ed7"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a34212756103e0c821034e5469f0f0ed7">nc::operator*</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a34212756103e0c821034e5469f0f0ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a0ff185c891d6c5af3d7150bc645dc8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a9a0ff185c891d6c5af3d7150bc645dc8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9a0ff185c891d6c5af3d7150bc645dc8">nc::operator*</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a9a0ff185c891d6c5af3d7150bc645dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7865c90c232341c387b0105ac4fdbfd9"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a7865c90c232341c387b0105ac4fdbfd9"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a7865c90c232341c387b0105ac4fdbfd9">nc::operator*</a> (const std::complex&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a7865c90c232341c387b0105ac4fdbfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +209,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a199168f4bff489c9ad1d0755e573c6aa"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a199168f4bff489c9ad1d0755e573c6aa"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a199168f4bff489c9ad1d0755e573c6aa">nc::operator*</a> (dtype lhs, const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;rhs)</td></tr>
 <tr class="separator:a199168f4bff489c9ad1d0755e573c6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a4bb236ed667771e5bf648df5bb9b7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a51a4bb236ed667771e5bf648df5bb9b7"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a51a4bb236ed667771e5bf648df5bb9b7">nc::operator*</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a51a4bb236ed667771e5bf648df5bb9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a612c488d26e432551627abd77fbfa9"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1a612c488d26e432551627abd77fbfa9"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a1a612c488d26e432551627abd77fbfa9">nc::operator*</a> (NdArray&lt; std::complex&lt; dtype &gt;&gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a1a612c488d26e432551627abd77fbfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a3674baebda83b99ba3b18ca4a59d3"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:af0a3674baebda83b99ba3b18ca4a59d3"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#af0a3674baebda83b99ba3b18ca4a59d3">nc::operator*=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:af0a3674baebda83b99ba3b18ca4a59d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,15 +236,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acf7b3bfdc67df0619847cd06cb2f0519"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:acf7b3bfdc67df0619847cd06cb2f0519"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#acf7b3bfdc67df0619847cd06cb2f0519">nc::operator+</a> (const NdArray&lt; dtype &gt; &amp;lhs, const std::complex&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:acf7b3bfdc67df0619847cd06cb2f0519"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a050e6920070ccd078fc357b3ef0198e1"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a050e6920070ccd078fc357b3ef0198e1"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a050e6920070ccd078fc357b3ef0198e1">nc::operator+</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a050e6920070ccd078fc357b3ef0198e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44bd86bfac8783b176ecb2242d3ae93f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a44bd86bfac8783b176ecb2242d3ae93f"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a44bd86bfac8783b176ecb2242d3ae93f">nc::operator+</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a44bd86bfac8783b176ecb2242d3ae93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d00329ee55367cc78bb5ec002d177cf"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a2d00329ee55367cc78bb5ec002d177cf"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a2d00329ee55367cc78bb5ec002d177cf">nc::operator+</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a2d00329ee55367cc78bb5ec002d177cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7a4dd062b1c5d1f495741e11947f3b5"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ae7a4dd062b1c5d1f495741e11947f3b5"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ae7a4dd062b1c5d1f495741e11947f3b5">nc::operator+</a> (const std::complex&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:ae7a4dd062b1c5d1f495741e11947f3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,6 +248,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a9c2f64fa5154e84e1b33b518f75b2ee8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9c2f64fa5154e84e1b33b518f75b2ee8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9c2f64fa5154e84e1b33b518f75b2ee8">nc::operator+</a> (dtype lhs, const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;rhs)</td></tr>
 <tr class="separator:a9c2f64fa5154e84e1b33b518f75b2ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b4781ae8669de59441043ec369f14f2"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a5b4781ae8669de59441043ec369f14f2"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a5b4781ae8669de59441043ec369f14f2">nc::operator+</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a5b4781ae8669de59441043ec369f14f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1251d70e34241eacb15bc5cdd93ae687"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1251d70e34241eacb15bc5cdd93ae687"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a1251d70e34241eacb15bc5cdd93ae687">nc::operator+</a> (NdArray&lt; std::complex&lt; dtype &gt;&gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a1251d70e34241eacb15bc5cdd93ae687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1dfa157bab28851bf97d9982df3f2f3"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ad1dfa157bab28851bf97d9982df3f2f3"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ad1dfa157bab28851bf97d9982df3f2f3">nc::operator++</a> (NdArray&lt; dtype &gt; &amp;lhs, int)</td></tr>
 <tr class="separator:ad1dfa157bab28851bf97d9982df3f2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,15 +284,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1c852c2418c1b5eac6da53972f82233e"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a1c852c2418c1b5eac6da53972f82233e"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a1c852c2418c1b5eac6da53972f82233e">nc::operator-</a> (const NdArray&lt; dtype &gt; &amp;lhs, const std::complex&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a1c852c2418c1b5eac6da53972f82233e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b0eb6f1f7c4c55004478a3eb99c5367"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a9b0eb6f1f7c4c55004478a3eb99c5367"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9b0eb6f1f7c4c55004478a3eb99c5367">nc::operator-</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a9b0eb6f1f7c4c55004478a3eb99c5367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88d16d314b7e1427529122d2434223e0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a88d16d314b7e1427529122d2434223e0"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a88d16d314b7e1427529122d2434223e0">nc::operator-</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a88d16d314b7e1427529122d2434223e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d459ed977535f74996fe4820343138d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a9d459ed977535f74996fe4820343138d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9d459ed977535f74996fe4820343138d">nc::operator-</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a9d459ed977535f74996fe4820343138d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305a3e10402251fc06871a84f8941298"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a305a3e10402251fc06871a84f8941298"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a305a3e10402251fc06871a84f8941298">nc::operator-</a> (const std::complex&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a305a3e10402251fc06871a84f8941298"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,6 +296,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a5e63a7dbcbc5bf2e9e5ad41c0169df34"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a5e63a7dbcbc5bf2e9e5ad41c0169df34"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a5e63a7dbcbc5bf2e9e5ad41c0169df34">nc::operator-</a> (dtype lhs, const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;rhs)</td></tr>
 <tr class="separator:a5e63a7dbcbc5bf2e9e5ad41c0169df34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a248b06cf9ac5d20f7e3f0366237a27"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a3a248b06cf9ac5d20f7e3f0366237a27"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a3a248b06cf9ac5d20f7e3f0366237a27">nc::operator-</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a3a248b06cf9ac5d20f7e3f0366237a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50953a5d77b75bf15b64f08f1a4efa79"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a50953a5d77b75bf15b64f08f1a4efa79"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a50953a5d77b75bf15b64f08f1a4efa79">nc::operator-</a> (NdArray&lt; std::complex&lt; dtype &gt;&gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a50953a5d77b75bf15b64f08f1a4efa79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1ac162f983d66eec0f6189325bd1720"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ab1ac162f983d66eec0f6189325bd1720"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ab1ac162f983d66eec0f6189325bd1720">nc::operator--</a> (NdArray&lt; dtype &gt; &amp;lhs, int)</td></tr>
 <tr class="separator:ab1ac162f983d66eec0f6189325bd1720"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -323,15 +329,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1eee81e10b382e6b0474508725831a4f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a1eee81e10b382e6b0474508725831a4f"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a1eee81e10b382e6b0474508725831a4f">nc::operator/</a> (const NdArray&lt; dtype &gt; &amp;lhs, const std::complex&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a1eee81e10b382e6b0474508725831a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dda3a7297e38679bf172d870090da1d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a4dda3a7297e38679bf172d870090da1d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a4dda3a7297e38679bf172d870090da1d">nc::operator/</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a4dda3a7297e38679bf172d870090da1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bec4dbe25db0a2ec84e5999458a2c02"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a4bec4dbe25db0a2ec84e5999458a2c02"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a4bec4dbe25db0a2ec84e5999458a2c02">nc::operator/</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a4bec4dbe25db0a2ec84e5999458a2c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58862db40468f4be62b860990cf05336"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a58862db40468f4be62b860990cf05336"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a58862db40468f4be62b860990cf05336">nc::operator/</a> (const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a58862db40468f4be62b860990cf05336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2ca407e7579acac2ca6496c4196d15"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a8d2ca407e7579acac2ca6496c4196d15"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8d2ca407e7579acac2ca6496c4196d15">nc::operator/</a> (const std::complex&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a8d2ca407e7579acac2ca6496c4196d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -341,6 +341,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a06365d71ef5c147fee8e571b9fef7313"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a06365d71ef5c147fee8e571b9fef7313"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a06365d71ef5c147fee8e571b9fef7313">nc::operator/</a> (dtype lhs, const NdArray&lt; std::complex&lt; dtype &gt;&gt; &amp;rhs)</td></tr>
 <tr class="separator:a06365d71ef5c147fee8e571b9fef7313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53c2c775df43b727d2c671a8d2509e4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ab53c2c775df43b727d2c671a8d2509e4"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ab53c2c775df43b727d2c671a8d2509e4">nc::operator/</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:ab53c2c775df43b727d2c671a8d2509e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f16f64d5030a8c31058c5422a0349c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a31f16f64d5030a8c31058c5422a0349c"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; std::complex&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a31f16f64d5030a8c31058c5422a0349c">nc::operator/</a> (NdArray&lt; std::complex&lt; dtype &gt;&gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:a31f16f64d5030a8c31058c5422a0349c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad554e38d21aec306a8e3e4cd4ca990a2"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ad554e38d21aec306a8e3e4cd4ca990a2"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ad554e38d21aec306a8e3e4cd4ca990a2">nc::operator/=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:ad554e38d21aec306a8e3e4cd4ca990a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -416,12 +422,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae4befd8a03420464348fdfcc71b106bb"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ae4befd8a03420464348fdfcc71b106bb"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ae4befd8a03420464348fdfcc71b106bb">nc::operator^</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:ae4befd8a03420464348fdfcc71b106bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6be940ce9eed012ca0fac881d884411"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:aa6be940ce9eed012ca0fac881d884411"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aa6be940ce9eed012ca0fac881d884411">nc::operator^</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:aa6be940ce9eed012ca0fac881d884411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4f0fce9397ab714d3567d454f143835"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:af4f0fce9397ab714d3567d454f143835"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#af4f0fce9397ab714d3567d454f143835">nc::operator^</a> (dtype lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:af4f0fce9397ab714d3567d454f143835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa012a6effc5b0c08d5ae5dcf2e3bc55d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:aa012a6effc5b0c08d5ae5dcf2e3bc55d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aa012a6effc5b0c08d5ae5dcf2e3bc55d">nc::operator^</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:aa012a6effc5b0c08d5ae5dcf2e3bc55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d3d77fe59d533d1301aea0112e38fa8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a8d3d77fe59d533d1301aea0112e38fa8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8d3d77fe59d533d1301aea0112e38fa8">nc::operator^=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a8d3d77fe59d533d1301aea0112e38fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -431,12 +437,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a2dd868d584e1d65748cf04957eb97d99"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a2dd868d584e1d65748cf04957eb97d99"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a2dd868d584e1d65748cf04957eb97d99">nc::operator|</a> (const NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a2dd868d584e1d65748cf04957eb97d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129a0c61ca191919674576a76ee7fd93"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a129a0c61ca191919674576a76ee7fd93"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a129a0c61ca191919674576a76ee7fd93">nc::operator|</a> (const NdArray&lt; dtype &gt; &amp;lhs, dtype rhs)</td></tr>
-<tr class="separator:a129a0c61ca191919674576a76ee7fd93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50e6d418c92ccd6d7a2cf42a899a2203"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a50e6d418c92ccd6d7a2cf42a899a2203"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a50e6d418c92ccd6d7a2cf42a899a2203">nc::operator|</a> (dtype lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a50e6d418c92ccd6d7a2cf42a899a2203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62408c1f575842e427c5baae5b96084"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ac62408c1f575842e427c5baae5b96084"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac62408c1f575842e427c5baae5b96084">nc::operator|</a> (NdArray&lt; dtype &gt; lhs, dtype rhs)</td></tr>
+<tr class="separator:ac62408c1f575842e427c5baae5b96084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a958f4fd964269c7affaaff0e30b4dc01"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a958f4fd964269c7affaaff0e30b4dc01"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a958f4fd964269c7affaaff0e30b4dc01">nc::operator|=</a> (NdArray&lt; dtype &gt; &amp;lhs, const NdArray&lt; dtype &gt; &amp;rhs)</td></tr>
 <tr class="separator:a958f4fd964269c7affaaff0e30b4dc01"><td class="memSeparator" colspan="2">&#160;</td></tr>

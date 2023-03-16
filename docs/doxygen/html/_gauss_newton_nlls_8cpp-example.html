@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -135,13 +139,13 @@ Testing</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// In a biology experiment studying the relation between substrate concentration [S] and reaction rate in</span></div>
 <div class="line">    <span class="comment">// an enzyme-mediated reaction, the data in the following table were obtained.</span></div>
-<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> sMeasured = { 0.038, 0.194, 0.425, 0.626, 1.253, 2.5, 3.74 };</div>
+<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> sMeasured    = { 0.038, 0.194, 0.425, 0.626, 1.253, 2.5, 3.74 };</div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> rateMeasured = { 0.05, 0.127, 0.094, 0.2122, 0.2729, 0.2665, 0.3317 };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// It is desired to find a curve (model function) of the form</span></div>
 <div class="line">    FunctionType <span class="keyword">function</span> = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s = coordinates.<a name="a1"></a><a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s     = coordinates.<a name="a1"></a><a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
@@ -151,7 +155,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta1</span></div>
 <div class="line">    FunctionType delFdelBeta1 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> s / (beta2 + s);</div>
@@ -160,7 +164,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta2</span></div>
 <div class="line">    FunctionType delFdelBeta2 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> s     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
@@ -169,18 +173,16 @@ Testing</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// starting with the initial estimates of beta1Guess and beta2Guess and calculating after 5 iterations</span></div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> numIterations = 5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta1Guess = 0.9;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta2Guess = 0.2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta1Guess    = 0.9;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta2Guess    = 0.2;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
-<div class="line">    <span class="keyword">auto</span> [betas, <a name="a3"></a><a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a name="a4"></a><a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, sMeasured.<a name="a5"></a><a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), rateMeasured,</div>
-<div class="line">        <span class="keyword">function</span>, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> results = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, sMeasured.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), rateMeasured,</div>
-<div class="line">        <span class="keyword">function</span>, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; betas = results.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a> = results.second;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">    <span class="keyword">auto</span> [betas, <a name="a3"></a><a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a name="a4"></a><a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations,</div>
+<div class="line">                                                    sMeasured.<a name="a5"></a><a class="code" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">transpose</a>(),</div>
+<div class="line">                                                    rateMeasured,</div>
+<div class="line">                                                    <span class="keyword">function</span>,</div>
+<div class="line">                                                    { delFdelBeta1, delFdelBeta2 },</div>
+<div class="line">                                                    beta1Guess,</div>
+<div class="line">                                                    beta2Guess);</div>
 <div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;==========Wikipedia Example==========\n&quot;</span>;</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;beta values = &quot;</span> &lt;&lt; betas;</div>
@@ -190,13 +192,14 @@ Testing</h1>
 <div class="line"><span class="keywordtype">void</span> exponentialExample()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// United States population (in millions) and the corresponding year:</span></div>
-<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> year = nc::arange&lt;double&gt;(1.0, 9.0); <span class="comment">// just use time points rather than the year</span></div>
+<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> year       = nc::arange&lt;double&gt;(1.0, 9.0); <span class="comment">// just use time points rather than the year</span></div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> population = { 8.3, 11.0, 14.7, 19.7, 26.7, 35.2, 44.4, 55.9 };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// It is desired to find a curve (model function) of the form</span></div>
-<div class="line">    FunctionType exponentialFunction = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType exponentialFunction = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates,</div>
+<div class="line">                                          <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
@@ -206,7 +209,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta1</span></div>
 <div class="line">    FunctionType delFdelBeta1 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="namespacenc.html#ad7e555d480465930a7ac44f4ab39eea7">nc::exp</a>(beta2 * t);</div>
@@ -215,7 +218,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta2</span></div>
 <div class="line">    FunctionType delFdelBeta2 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line"> </div>
@@ -224,18 +227,16 @@ Testing</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// starting with the initial estimates of beta1Guess and beta2Guess and calculating after 5 iterations</span></div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> numIterations = 5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta1Guess = 6.0;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta2Guess = 0.3;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta1Guess    = 6.0;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta2Guess    = 0.3;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
-<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, year.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), population,</div>
-<div class="line">        exponentialFunction, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> results = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, year.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), population,</div>
-<div class="line">        exponentialFunction, {delFdelBeta1, delFdelBeta2}, beta1Guess, beta2Guess);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; betas = results.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a> = results.second;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations,</div>
+<div class="line">                                                    year.<a class="code" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">transpose</a>(),</div>
+<div class="line">                                                    population,</div>
+<div class="line">                                                    exponentialFunction,</div>
+<div class="line">                                                    { delFdelBeta1, delFdelBeta2 },</div>
+<div class="line">                                                    beta1Guess,</div>
+<div class="line">                                                    beta2Guess);</div>
 <div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;==========Exponential Population Example==========\n&quot;</span>;</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;beta values = &quot;</span> &lt;&lt; betas;</div>
@@ -245,13 +246,14 @@ Testing</h1>
 <div class="line"><span class="keywordtype">void</span> sinusoidalExample()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Average monthly high temperatures for Baton Rouge, LA:</span></div>
-<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> month = nc::arange&lt;double&gt;(1.0, 13.0);</div>
+<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> month       = nc::arange&lt;double&gt;(1.0, 13.0);</div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> temperature = { 61.0, 65.0, 72.0, 78.0, 85.0, 90.0, 92.0, 92.0, 88.0, 81.0, 72.0, 63.0 };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// It is desired to find a curve (model function) of the form</span></div>
-<div class="line">    FunctionType sinusodialFunction = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType sinusodialFunction = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates,</div>
+<div class="line">                                         <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta3 = betas.at(2);</div>
@@ -263,7 +265,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta1</span></div>
 <div class="line">    FunctionType delFdelBeta1 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta3 = betas.at(2);</div>
 <div class="line"> </div>
@@ -273,7 +275,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta2</span></div>
 <div class="line">    FunctionType delFdelBeta2 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta3 = betas.at(2);</div>
@@ -284,7 +286,7 @@ Testing</h1>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta3</span></div>
 <div class="line">    FunctionType delFdelBeta3 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> t     = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta1 = betas.at(0);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta2 = betas.at(1);</div>
 <div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> beta3 = betas.at(2);</div>
@@ -293,29 +295,25 @@ Testing</h1>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of function with respect to beta4</span></div>
-<div class="line">    FunctionType delFdelBeta4 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*coordinates*/</span>, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*betas*/</span>) -&gt; <span class="keywordtype">double</span></div>
-<div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> 1.0;</div>
-<div class="line">    };</div>
+<div class="line">    FunctionType delFdelBeta4 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*coordinates*/</span>,</div>
+<div class="line">                                   <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*betas*/</span>) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> 1.0; };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// starting with the initial estimates and calculating after 5 iterations</span></div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> numIterations = 5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta1Guess = 17.0;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta2Guess = 0.5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta3Guess = 10.5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> beta4Guess = 77.0;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta1Guess    = 17.0;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta2Guess    = 0.5;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta3Guess    = 10.5;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     beta4Guess    = 77.0;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
-<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, month.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), temperature,</div>
-<div class="line">        sinusodialFunction, {delFdelBeta1, delFdelBeta2, delFdelBeta3, delFdelBeta4},</div>
-<div class="line">        beta1Guess, beta2Guess, beta3Guess, beta4Guess);</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> results = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, month.<a class="code" href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">transpose</a>(), temperature,</div>
-<div class="line">        sinusodialFunction, {delFdelBeta1, delFdelBeta2, delFdelBeta3, delFdelBeta4},</div>
-<div class="line">        beta1Guess, beta2Guess, beta3Guess, beta4Guess);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; betas = results.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a> = results.second;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations,</div>
+<div class="line">                                                    month.<a class="code" href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">transpose</a>(),</div>
+<div class="line">                                                    temperature,</div>
+<div class="line">                                                    sinusodialFunction,</div>
+<div class="line">                                                    { delFdelBeta1, delFdelBeta2, delFdelBeta3, delFdelBeta4 },</div>
+<div class="line">                                                    beta1Guess,</div>
+<div class="line">                                                    beta2Guess,</div>
+<div class="line">                                                    beta3Guess,</div>
+<div class="line">                                                    beta4Guess);</div>
 <div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;==========Sinusodial Temperature Example==========\n&quot;</span>;</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;beta values = &quot;</span> &lt;&lt; betas;</div>
@@ -325,54 +323,49 @@ Testing</h1>
 <div class="line"><span class="comment">// https://en.wikipedia.org/wiki/Gaussian_function</span></div>
 <div class="line"><span class="keywordtype">double</span> baseGaussianFunction(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas)</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(1);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(1);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> a = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(2);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(3);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(4);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(5);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> a      = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(2);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(3);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(4);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(5);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> a * <a class="code" href="namespacenc.html#ad7e555d480465930a7ac44f4ab39eea7">nc::exp</a>(-(<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(x - x0) / (2.0 * <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaX)) + <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(y - y0) / (2.0 * <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaY))));</div>
+<div class="line">    <span class="keywordflow">return</span> a * <a class="code" href="namespacenc.html#ad7e555d480465930a7ac44f4ab39eea7">nc::exp</a>(-(<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(x - x0) / (2.0 * <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaX)) +</div>
+<div class="line">                         <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(y - y0) / (2.0 * <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaY))));</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// It is desired to find a curve (model function) of the form</span></div>
 <div class="line"><span class="keywordtype">double</span> gaussianFunction(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas)</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> dcOffset = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(1);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> dcOffset = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(1);</div>
 <div class="line">    <span class="keywordflow">return</span> baseGaussianFunction(coordinates, betas) + dcOffset;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> twoDimensionalGaussianExample()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// create some data points to describe a two-dimensional gaussian function</span></div>
-<div class="line">    <span class="keyword">auto</span> coords = nc::arange&lt;double&gt;(-3.0, 3.1, 0.1);</div>
-<div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
-<div class="line">    <span class="keyword">auto</span> [y, x] = nc::meshgrid&lt;double&gt;(coords, coords);</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> grid = nc::meshgrid&lt;double&gt;(coords, coords);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; y = grid.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; x = grid.second;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line">    <span class="keyword">auto</span> coordinates = <a name="a9"></a><a class="code" href="namespacenc.html#a5f89d7fdd9706dd37cfbaa5e78e17f5f">nc::vstack</a>({x.flatten(), y.flatten()}).<a name="a10"></a><a class="code" href="namespacenc.html#aa6c78ac10e4c3aa446716f80aa1a72ca">transpose</a>();</div>
+<div class="line">    <span class="keyword">auto</span> coords      = nc::arange&lt;double&gt;(-3.0, 3.1, 0.1);</div>
+<div class="line">    <span class="keyword">auto</span> [y, x]      = nc::meshgrid&lt;double&gt;(coords, coords);</div>
+<div class="line">    <span class="keyword">auto</span> coordinates = <a name="a9"></a><a class="code" href="namespacenc.html#a5f89d7fdd9706dd37cfbaa5e78e17f5f">nc::vstack</a>({ x.flatten(), y.flatten() }).<a name="a10"></a><a class="code" href="namespacenc.html#aa6c78ac10e4c3aa446716f80aa1a72ca">transpose</a>();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// randomize some truth values for the model parameters</span></div>
 <div class="line">    <a name="a11"></a><a class="code" href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a>(666); <span class="comment">// set the random seed for repeatability</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// make some random &quot;truth&quot; parameters for generating data</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> aTruth = nc::random::randFloat&lt;double&gt;(900.0, 1100.0);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> aTruth        = nc::random::randFloat&lt;double&gt;(900.0, 1100.0);</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> dcOffsetTruth = nc::random::randFloat&lt;double&gt;(90.0, 100.0);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x0Truth = nc::random::randFloat&lt;double&gt;(-0.5, 0.5);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y0Truth = nc::random::randFloat&lt;double&gt;(-0.5, 0.5);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaXTruth = nc::random::randFloat&lt;double&gt;(0.9, 1.1);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaYTruth = nc::random::randFloat&lt;double&gt;(0.9, 1.1);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> x0Truth       = nc::random::randFloat&lt;double&gt;(-0.5, 0.5);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> y0Truth       = nc::random::randFloat&lt;double&gt;(-0.5, 0.5);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaXTruth   = nc::random::randFloat&lt;double&gt;(0.9, 1.1);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> sigmaYTruth   = nc::random::randFloat&lt;double&gt;(0.9, 1.1);</div>
 <div class="line"> </div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> betasTruth = { aTruth, dcOffsetTruth, x0Truth, y0Truth, sigmaXTruth, sigmaYTruth };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// make some &quot;measurements&quot;</span></div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> measurements(1, coordinates.<a name="a12"></a><a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>().<a name="a13"></a><a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> cSlice = coordinates.<a name="a14"></a><a class="code" href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">cSlice</a>();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span>          cSlice = coordinates.<a name="a14"></a><a class="code" href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">cSlice</a>();</div>
 <div class="line">    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> i = 0; i &lt; measurements.size(); ++i)</div>
 <div class="line">    {</div>
 <div class="line">        measurements[i] = gaussianFunction(coordinates(i, cSlice), betasTruth);</div>
@@ -383,82 +376,81 @@ Testing</h1>
 <div class="line">    measurements += noise;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to a</span></div>
-<div class="line">    FunctionType delFdelA = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType delFdelA = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates_, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> a = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
-<div class="line">        <span class="keywordflow">return</span> baseGaussianFunction(coordinates, betas) / a;</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> a = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
+<div class="line">        <span class="keywordflow">return</span> baseGaussianFunction(coordinates_, betas) / a;</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to dcOffset</span></div>
-<div class="line">    FunctionType delFdelDcOffset = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*coordinates*/</span>, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*betas*/</span>) -&gt; <span class="keywordtype">double</span></div>
-<div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> 1.0;</div>
-<div class="line">    };</div>
+<div class="line">    FunctionType delFdelDcOffset = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*coordinates*/</span>,</div>
+<div class="line">                                      <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; <span class="comment">/*betas*/</span>) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> 1.0; };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to x0</span></div>
-<div class="line">    FunctionType delFdelX0 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType delFdelX0 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates_, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x_ = coordinates_.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(2);</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(4);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(2);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(4);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> (x - x0) / <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaX) * baseGaussianFunction(coordinates, betas);</div>
+<div class="line">        <span class="keywordflow">return</span> (x_ - x0) / <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaX) * baseGaussianFunction(coordinates_, betas);</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to y0</span></div>
-<div class="line">    FunctionType delFdelY0 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType delFdelY0 = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates_, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(1);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y_ = coordinates_.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(1);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(3);</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(5);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(3);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(5);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> (y - y0) / <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaY) * baseGaussianFunction(coordinates, betas);</div>
+<div class="line">        <span class="keywordflow">return</span> (y_ - y0) / <a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(sigmaY) * baseGaussianFunction(coordinates_, betas);</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to sigmaX</span></div>
-<div class="line">    FunctionType delFdelSigmaX = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType delFdelSigmaX = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates_, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(0);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x_ = coordinates_.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(0);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(2);</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(4);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> x0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(2);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaX = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(4);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> (<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(x - x0) / <a name="a15"></a><a class="code" href="namespacenc.html#a1f059635ecfc805979db6973dfa29008">nc::power</a>(sigmaX, 3)) * baseGaussianFunction(coordinates, betas);</div>
+<div class="line">        <span class="keywordflow">return</span> (<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(x_ - x0) / <a name="a15"></a><a class="code" href="namespacenc.html#a1f059635ecfc805979db6973dfa29008">nc::power</a>(sigmaX, 3)) * baseGaussianFunction(coordinates_, betas);</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// partial derivative of gaussianFunction with respect to sigmaY</span></div>
-<div class="line">    FunctionType delFdelSigmaY = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
+<div class="line">    FunctionType delFdelSigmaY = [](<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; coordinates_, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>&amp; betas) -&gt; <span class="keywordtype">double</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y = coordinates.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(1);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y_ = coordinates_.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(1);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y0 = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(2);</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">at</a>(4);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> y0     = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(2);</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> sigmaY = betas.<a class="code" href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">at</a>(4);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> (<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(y - y0) / <a class="code" href="namespacenc.html#a1f059635ecfc805979db6973dfa29008">nc::power</a>(sigmaY, 3)) * baseGaussianFunction(coordinates, betas);</div>
+<div class="line">        <span class="keywordflow">return</span> (<a class="code" href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a>(y_ - y0) / <a class="code" href="namespacenc.html#a1f059635ecfc805979db6973dfa29008">nc::power</a>(sigmaY, 3)) * baseGaussianFunction(coordinates_, betas);</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// starting with the initial estimates of and calculating after 5 iterations</span></div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a> numIterations = 5;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> aGuess = aTruth + nc::random::randN&lt;double&gt;() * 5.0;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> dcOffsetGuess = dcOffsetTruth + nc::random::randN&lt;double&gt;() * 5.0;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> x0Guess = x0Truth + nc::random::randN&lt;double&gt;() * 0.2;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> y0Guess = y0Truth + nc::random::randN&lt;double&gt;() * 0.2;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> sigmaXGuess = sigmaXTruth + nc::random::randN&lt;double&gt;() * 0.2;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> sigmaYGuess = sigmaYTruth + nc::random::randN&lt;double&gt;() * 0.2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     aGuess        = aTruth + nc::random::randN&lt;double&gt;() * 5.0;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     dcOffsetGuess = dcOffsetTruth + nc::random::randN&lt;double&gt;() * 5.0;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     x0Guess       = x0Truth + nc::random::randN&lt;double&gt;() * 0.2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     y0Guess       = y0Truth + nc::random::randN&lt;double&gt;() * 0.2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     sigmaXGuess   = sigmaXTruth + nc::random::randN&lt;double&gt;() * 0.2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span>     sigmaYGuess   = sigmaYTruth + nc::random::randN&lt;double&gt;() * 0.2;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
-<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, coordinates, measurements,</div>
-<div class="line">        FunctionType(gaussianFunction), {delFdelA, delFdelDcOffset, delFdelX0, delFdelY0, delFdelSigmaX, delFdelSigmaY},</div>
-<div class="line">        aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess);</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> results = <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations, coordinates, measurements,</div>
-<div class="line">        FunctionType(gaussianFunction), {delFdelA, delFdelDcOffset, delFdelX0, delFdelY0, delFdelSigmaX, delFdelSigmaY},</div>
-<div class="line">        aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; betas = results.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a> = results.second;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">    <span class="keyword">auto</span> [betas, <a class="code" href="namespacenc.html#a4e858c717929038ef196af3c4b4c53ae">rms</a>] =</div>
+<div class="line">        <a class="code" href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a>(numIterations,</div>
+<div class="line">                                    coordinates,</div>
+<div class="line">                                    measurements,</div>
+<div class="line">                                    FunctionType(gaussianFunction),</div>
+<div class="line">                                    { delFdelA, delFdelDcOffset, delFdelX0, delFdelY0, delFdelSigmaX, delFdelSigmaY },</div>
+<div class="line">                                    aGuess,</div>
+<div class="line">                                    dcOffsetGuess,</div>
+<div class="line">                                    x0Guess,</div>
+<div class="line">                                    y0Guess,</div>
+<div class="line">                                    sigmaXGuess,</div>
+<div class="line">                                    sigmaYGuess);</div>
 <div class="line"> </div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> initialGuess = { aGuess, dcOffsetGuess, x0Guess, y0Guess, sigmaXGuess, sigmaYGuess };</div>
 <div class="line"> </div>
@@ -480,13 +472,13 @@ Testing</h1>
 <div class="line">}</div>
 <div class="ttc" id="a_num_cpp_8hpp_html"><div class="ttname"><a href="_num_cpp_8hpp.html">NumCpp.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a29eabba849b35a3095cd341fa1c7b123"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29eabba849b35a3095cd341fa1c7b123">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(int32 inStartIdx=0, uint32 inStepSize=1) const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:969</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a3ae4c372620db7cf0211867dcb886b48"><div class="ttname"><a href="classnc_1_1_nd_array.html#a3ae4c372620db7cf0211867dcb886b48">nc::NdArray::at</a></div><div class="ttdeci">reference at(int32 inIndex)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:995</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a78c99f8306415d8e0ac0e03bb69c6d29"><div class="ttname"><a href="classnc_1_1_nd_array.html#a78c99f8306415d8e0ac0e03bb69c6d29">nc::NdArray::transpose</a></div><div class="ttdeci">NdArray&lt; dtype &gt; transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4457</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a29c62da7ad489f4fc0bc706800820807"><div class="ttname"><a href="classnc_1_1_nd_array.html#a29c62da7ad489f4fc0bc706800820807">nc::NdArray::transpose</a></div><div class="ttdeci">self_type transpose() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4775</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a47f1037d52dfcaff73a992f2779b56f7"><div class="ttname"><a href="classnc_1_1_nd_array.html#a47f1037d52dfcaff73a992f2779b56f7">nc::NdArray::at</a></div><div class="ttdeci">reference at(index_type inIndex)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:977</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_af03b916770d04f63d82f46110d294cd8"><div class="ttname"><a href="classnc_1_1_nd_array.html#af03b916770d04f63d82f46110d294cd8">nc::NdArray::cSlice</a></div><div class="ttdeci">Slice cSlice(index_type inStartIdx=0, size_type inStepSize=1) const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:951</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_aff0f97e94666284100b584e13d27def3"><div class="ttname"><a href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; double &gt;, double &gt; gaussNewtonNlls(const uint32 numIterations, const NdArray&lt; dtype &gt; &amp;coordinates, const NdArray&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</div><div class="ttdef"><b>Definition:</b> gaussNewtonNlls.hpp:79</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:48</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_aff0f97e94666284100b584e13d27def3"><div class="ttname"><a href="namespacenc_1_1linalg.html#aff0f97e94666284100b584e13d27def3">nc::linalg::gaussNewtonNlls</a></div><div class="ttdeci">std::pair&lt; NdArray&lt; double &gt;, double &gt; gaussNewtonNlls(const uint32 numIterations, const NdArray&lt; dtype &gt; &amp;coordinates, const NdArray&lt; dtype &gt; &amp;measurements, const std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt; &amp;function, const std::array&lt; std::function&lt; dtype(const NdArray&lt; dtype &gt; &amp;, const NdArray&lt; dtype &gt; &amp;)&gt;, sizeof...(Params)&gt; &amp;derivatives, Params... initialGuess)</div><div class="ttdef"><b>Definition:</b> gaussNewtonNlls.hpp:77</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_html_a1f059635ecfc805979db6973dfa29008"><div class="ttname"><a href="namespacenc.html#a1f059635ecfc805979db6973dfa29008">nc::power</a></div><div class="ttdeci">constexpr dtype power(dtype inValue, uint8 inExponent) noexcept</div><div class="ttdef"><b>Definition:</b> Functions/power.hpp:52</div></div>
 <div class="ttc" id="anamespacenc_html_a282e72a93afe2e6554e0f17f21dd7b9e"><div class="ttname"><a href="namespacenc.html#a282e72a93afe2e6554e0f17f21dd7b9e">nc::square</a></div><div class="ttdeci">constexpr dtype square(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> square.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_a3fa4e582cdeef0716309ad51378f2983"><div class="ttname"><a href="namespacenc.html#a3fa4e582cdeef0716309ad51378f2983">nc::sin</a></div><div class="ttdeci">auto sin(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> sin.hpp:49</div></div>

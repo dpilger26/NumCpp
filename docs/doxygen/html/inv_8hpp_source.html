@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -120,114 +124,110 @@ $(document).ready(function(){initNavTree('inv_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="essentially_equal_8hpp.html">NumCpp/Utils/essentiallyEqual.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1linalg.html">nc::linalg</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>linalg</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">   56</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">inv</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> != inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input array must be square.&quot;</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> inArrayDouble = inArray.template astype&lt;double&gt;();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;int&gt;</a>    incidence     = nc::zeros&lt;int&gt;(inShape);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> - 1; ++k)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">   54</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">inv</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> != inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(<span class="stringliteral">&quot;input array must be square.&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> inArrayDouble = inArray.template astype&lt;double&gt;();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;int&gt;</a>    incidence     = nc::zeros&lt;int&gt;(inShape);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> - 1; ++k)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArrayDouble(k, k), 0.))</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArrayDouble(k, k), 0.))</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> l = k;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keywordflow">while</span> (l &lt; inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> &amp;&amp; <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArrayDouble(k, l), 0.))</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        ++l;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    inArrayDouble.<a class="code" href="classnc_1_1_nd_array.html#abe23114cef0a3f9d5a3b04de6d29d028">swapRows</a>(k, l);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    incidence(k, k) = 1;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    incidence(k, l) = 1;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> l = k;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">while</span> (l &lt; inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> &amp;&amp; <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArrayDouble(k, l), 0.))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    ++l;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                inArrayDouble.<a class="code" href="classnc_1_1_nd_array.html#ae0f1b80a8d376b49cfb926cd561fcd7a">swapRows</a>(k, l);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                incidence(k, k) = 1;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                incidence(k, l) = 1;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> result(inShape);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> result(inShape);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                result(k, k) = -1. / inArrayDouble(k, k);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> k = 0; k &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++k)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            result(k, k) = -1. / inArrayDouble(k, k);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = 0; i &lt; inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>; ++i)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> = 0; <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> &lt; inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>; ++<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="keywordflow">if</span> ((i - k) &amp;&amp; (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keywordflow">if</span> ((i - k) &amp;&amp; (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                            result(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) =</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                inArrayDouble(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) + inArrayDouble(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) * inArrayDouble(i, k) * result(k, k);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((i - k) &amp;&amp; !(<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                            result(i, k) = inArrayDouble(i, k) * result(k, k);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!(i - k) &amp;&amp; (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                            result(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) = inArrayDouble(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) * result(k, k);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        result(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) = inArrayDouble(i, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) + inArrayDouble(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) * inArrayDouble(i, k) * result(k, k);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((i - k) &amp;&amp; !(<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        result(i, k) = inArrayDouble(i, k) * result(k, k);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!(i - k) &amp;&amp; (<a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a> - k))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        result(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) = inArrayDouble(k, <a class="code" href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">j</a>) * result(k, k);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            inArrayDouble = result;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                inArrayDouble = result;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            result *= -1.;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>) - 1; i &gt;= 0; --i)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (incidence(i, i) != 1)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordtype">int</span> k = 0;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">for</span> (; k &lt; static_cast&lt;int&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>); ++k)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">if</span> ((k - i) &amp;&amp; incidence(i, k) != 0)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        result.<a class="code" href="classnc_1_1_nd_array.html#a88cea1308a5fbcae59756158ef00f5d2">swapCols</a>(i, k);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    } <span class="comment">// namespace linalg</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        result *= -1.;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>) - 1; i &gt;= 0; --i)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">if</span> (incidence(i, i) != 1)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordtype">int</span> k = 0;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">for</span> (; k &lt; static_cast&lt;int&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>); ++k)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">if</span> ((k - i) &amp;&amp; incidence(i, k) != 0)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    result.<a class="code" href="classnc_1_1_nd_array.html#a1c0d34522214a9f4500e240ec7873a1c">swapCols</a>(i, k);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <span class="comment">// namespace nc::linalg</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:49</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:56</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a88cea1308a5fbcae59756158ef00f5d2"><div class="ttname"><a href="classnc_1_1_nd_array.html#a88cea1308a5fbcae59756158ef00f5d2">nc::NdArray::swapCols</a></div><div class="ttdeci">void swapCols(int32 colIdx1, int32 colIdx2) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4251</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_abe23114cef0a3f9d5a3b04de6d29d028"><div class="ttname"><a href="classnc_1_1_nd_array.html#abe23114cef0a3f9d5a3b04de6d29d028">nc::NdArray::swapRows</a></div><div class="ttdeci">void swapRows(int32 rowIdx1, int32 rowIdx2) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4266</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a1c0d34522214a9f4500e240ec7873a1c"><div class="ttname"><a href="classnc_1_1_nd_array.html#a1c0d34522214a9f4500e240ec7873a1c">nc::NdArray::swapCols</a></div><div class="ttdeci">self_type &amp; swapCols(index_type colIdx1, index_type colIdx2) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4563</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ae0f1b80a8d376b49cfb926cd561fcd7a"><div class="ttname"><a href="classnc_1_1_nd_array.html#ae0f1b80a8d376b49cfb926cd561fcd7a">nc::NdArray::swapRows</a></div><div class="ttdeci">self_type &amp; swapRows(index_type rowIdx1, index_type rowIdx2) noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4581</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
 <div class="ttc" id="adet_8hpp_html"><div class="ttname"><a href="det_8hpp.html">det.hpp</a></div></div>
 <div class="ttc" id="aessentially_equal_8hpp_html"><div class="ttname"><a href="essentially_equal_8hpp.html">essentiallyEqual.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_ae36553eb100d8f2c2167e8ecadf2a9fc"><div class="ttname"><a href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:56</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:51</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_a0e933571f05ee6af915fc327260517e9"><div class="ttname"><a href="namespacenc_1_1constants.html#a0e933571f05ee6af915fc327260517e9">nc::constants::j</a></div><div class="ttdeci">constexpr auto j</div><div class="ttdef"><b>Definition:</b> Constants.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html"><div class="ttname"><a href="namespacenc_1_1linalg.html">nc::linalg</a></div><div class="ttdef"><b>Definition:</b> cholesky.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_ae36553eb100d8f2c2167e8ecadf2a9fc"><div class="ttname"><a href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:54</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="azeros_8hpp_html"><div class="ttname"><a href="zeros_8hpp.html">zeros.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

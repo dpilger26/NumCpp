@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -120,82 +124,79 @@ $(document).ready(function(){initNavTree('laguerre_8hpp_source.html',''); initRe
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;boost/math/special_functions/laguerre.hpp&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1polynomial.html">nc::polynomial</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>polynomial</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">   57</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, dtype x)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_math_special_functions</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">std::laguerre</a>(n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">boost::math::laguerre</a>(n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#ad7fef1e52b0054b5894995ee1ed94340">   80</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> m, dtype x)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_math_special_functions</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> std::assoc_laguerre(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">boost::math::laguerre</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a55e940d8393b196ebce707ac8b0df5b9">  102</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArrayX)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> returnArray(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">   55</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, dtype x)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_math_special_functions</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">std::laguerre</a>(n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">boost::math::laguerre</a>(n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#ad7fef1e52b0054b5894995ee1ed94340">   78</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> m, dtype x)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#ifdef __cpp_lib_math_special_functions</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> std::assoc_laguerre(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">boost::math::laguerre</a>(m, n, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(x));</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a55e940d8393b196ebce707ac8b0df5b9">  100</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArrayX)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> returnArray(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keyword">function</span> = [n](dtype x) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(n, x); };</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keyword">function</span> = [n](dtype x) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(n, x); };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArrayX.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), <span class="keyword">function</span>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArrayX.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), <span class="keyword">function</span>);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">  125</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> m, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArrayX)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> returnArray(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">  123</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> n, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> m, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArrayX)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> returnArray(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>());</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keyword">function</span> = [n, m](dtype x) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(n, m, x); };</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keyword">function</span> = [n, m](dtype x) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">laguerre</a>(n, m, x); };</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArrayX.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), <span class="keyword">function</span>);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <a class="code" href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">stl_algorithms::transform</a>(inArrayX.<a class="code" href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">cbegin</a>(), inArrayX.<a class="code" href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">cend</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), <span class="keyword">function</span>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    } <span class="comment">// namespace polynomial</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;} <span class="comment">// namespace nc</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace nc::polynomial</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if defined(__cpp_lib_math_special_functions) || !defined(NUMCPP_NO_USE_BOOST)</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1221</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1529</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1171</div></div>
-<div class="ttc" id="anamespacenc_1_1polynomial_html_a9a3c9fb31c548094a1ce7ec927f28bee"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">nc::polynomial::laguerre</a></div><div class="ttdeci">NdArray&lt; double &gt; laguerre(uint32 n, uint32 m, const NdArray&lt; dtype &gt; &amp;inArrayX)</div><div class="ttdef"><b>Definition:</b> laguerre.hpp:125</div></div>
-<div class="ttc" id="anamespacenc_1_1polynomial_html_aa2c08952d8dfd2cccfbcd6da40b49f4f"><div class="ttname"><a href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">nc::polynomial::laguerre</a></div><div class="ttdeci">double laguerre(uint32 n, dtype x)</div><div class="ttdef"><b>Definition:</b> laguerre.hpp:57</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:784</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1308</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aa16bc96e4bbafbc8a06743f3e4a10a6a"><div class="ttname"><a href="classnc_1_1_nd_array.html#aa16bc96e4bbafbc8a06743f3e4a10a6a">nc::NdArray::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1616</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1258</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html"><div class="ttname"><a href="namespacenc_1_1polynomial.html">nc::polynomial</a></div><div class="ttdef"><b>Definition:</b> chebyshev_t.hpp:39</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html_a9a3c9fb31c548094a1ce7ec927f28bee"><div class="ttname"><a href="namespacenc_1_1polynomial.html#a9a3c9fb31c548094a1ce7ec927f28bee">nc::polynomial::laguerre</a></div><div class="ttdeci">NdArray&lt; double &gt; laguerre(uint32 n, uint32 m, const NdArray&lt; dtype &gt; &amp;inArrayX)</div><div class="ttdef"><b>Definition:</b> laguerre.hpp:123</div></div>
+<div class="ttc" id="anamespacenc_1_1polynomial_html_aa2c08952d8dfd2cccfbcd6da40b49f4f"><div class="ttname"><a href="namespacenc_1_1polynomial.html#aa2c08952d8dfd2cccfbcd6da40b49f4f">nc::polynomial::laguerre</a></div><div class="ttdeci">double laguerre(uint32 n, dtype x)</div><div class="ttdef"><b>Definition:</b> laguerre.hpp:55</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_a616d5dabd547326285946d0014361ab4"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#a616d5dabd547326285946d0014361ab4">nc::stl_algorithms::transform</a></div><div class="ttdeci">OutputIt transform(InputIt first, InputIt last, OutputIt destination, UnaryOperation unaryFunction)</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:775</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

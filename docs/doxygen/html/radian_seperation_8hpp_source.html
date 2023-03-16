@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -111,31 +115,28 @@ $(document).ready(function(){initNavTree('radian_seperation_8hpp_source.html',''
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_coordinate_8hpp.html">NumCpp/Coordinates/Coordinate.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1coordinates.html">nc::coordinates</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">namespace </span>coordinates</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">   45</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">radianSeperation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a>&amp; inCoordinate1, <span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a>&amp; inCoordinate2)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> inCoordinate1.<a class="code" href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">radianSeperation</a>(inCoordinate2);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespacenc_1_1coordinates.html#a712fd847123cfde7948c36ca59c6a435">   59</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">radianSeperation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inVector1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inVector2)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a> inCoord1(inVector1);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> inCoord1.<a class="code" href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">radianSeperation</a>(inVector2);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    } <span class="comment">// namespace coordinates</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">   43</a></span>&#160;<span class="comment"></span>    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">radianSeperation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a>&amp; inCoordinate1, <span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a>&amp; inCoordinate2)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> inCoordinate1.<a class="code" href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">radianSeperation</a>(inCoordinate2);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacenc_1_1coordinates.html#a712fd847123cfde7948c36ca59c6a435">   57</a></span>&#160;<span class="comment"></span>    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">radianSeperation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inVector1, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a>&amp; inVector2)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1coordinates_1_1_coordinate.html">Coordinate</a> inCoord1(inVector1);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> inCoord1.<a class="code" href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">radianSeperation</a>(inVector2);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace nc::coordinates</span></div>
 <div class="ttc" id="a_coordinate_8hpp_html"><div class="ttname"><a href="_coordinate_8hpp.html">Coordinate.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassnc_1_1coordinates_1_1_coordinate_html"><div class="ttname"><a href="classnc_1_1coordinates_1_1_coordinate.html">nc::coordinates::Coordinate</a></div><div class="ttdoc">Holds a full coordinate object.</div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:51</div></div>
-<div class="ttc" id="aclassnc_1_1coordinates_1_1_coordinate_html_a169974783c87c9bbc89ccb4ea2ea4123"><div class="ttname"><a href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">nc::coordinates::Coordinate::radianSeperation</a></div><div class="ttdeci">double radianSeperation(const Coordinate &amp;inOtherCoordinate) const</div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:235</div></div>
-<div class="ttc" id="anamespacenc_1_1coordinates_html_aa009e573b47b51d34d3aae0b152566c8"><div class="ttname"><a href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">nc::coordinates::radianSeperation</a></div><div class="ttdeci">double radianSeperation(const Coordinate &amp;inCoordinate1, const Coordinate &amp;inCoordinate2)</div><div class="ttdef"><b>Definition:</b> radianSeperation.hpp:45</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1coordinates_1_1_coordinate_html"><div class="ttname"><a href="classnc_1_1coordinates_1_1_coordinate.html">nc::coordinates::Coordinate</a></div><div class="ttdoc">Holds a full coordinate object.</div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:49</div></div>
+<div class="ttc" id="aclassnc_1_1coordinates_1_1_coordinate_html_a169974783c87c9bbc89ccb4ea2ea4123"><div class="ttname"><a href="classnc_1_1coordinates_1_1_coordinate.html#a169974783c87c9bbc89ccb4ea2ea4123">nc::coordinates::Coordinate::radianSeperation</a></div><div class="ttdeci">double radianSeperation(const Coordinate &amp;inOtherCoordinate) const</div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:233</div></div>
+<div class="ttc" id="anamespacenc_1_1coordinates_html"><div class="ttname"><a href="namespacenc_1_1coordinates.html">nc::coordinates</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1coordinates_html_aa009e573b47b51d34d3aae0b152566c8"><div class="ttname"><a href="namespacenc_1_1coordinates.html#aa009e573b47b51d34d3aae0b152566c8">nc::coordinates::radianSeperation</a></div><div class="ttdeci">double radianSeperation(const Coordinate &amp;inCoordinate1, const Coordinate &amp;inCoordinate2)</div><div class="ttdef"><b>Definition:</b> radianSeperation.hpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

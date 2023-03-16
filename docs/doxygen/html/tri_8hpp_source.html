@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -134,7 +138,7 @@ $(document).ready(function(){initNavTree('tri_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inN);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#acac210ad3d3bd973be4bece6e6b625ed">zeros</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#a06839899d60027b7fabec78bb10d7724">zeros</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = rowStart; row &lt; inN; ++row)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; row + colStart + 1 - rowStart; ++col)</div>
@@ -170,7 +174,7 @@ $(document).ready(function(){initNavTree('tri_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inN, inM);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#acac210ad3d3bd973be4bece6e6b625ed">zeros</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#a06839899d60027b7fabec78bb10d7724">zeros</a>();</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = rowStart; row &lt; inN; ++row)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; row + colStart + 1 - rowStart; ++col)</div>
@@ -199,8 +203,8 @@ $(document).ready(function(){initNavTree('tri_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape  = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">auto</span>        outArray = inArray.<a class="code" href="classnc_1_1_nd_array.html#a1f2d2aacc254129f36b0557a661e6664">copy</a>();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        outArray.putMask(triu&lt;bool&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>, inOffset + 1), 0);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">auto</span>        outArray = inArray.<a class="code" href="classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31">copy</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        outArray.<a class="code" href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">putMask</a>(triu&lt;bool&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>, inOffset + 1), 0);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> outArray;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
@@ -226,7 +230,7 @@ $(document).ready(function(){initNavTree('tri_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        }</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inN, inM);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#ac6e5a0c875c593a6bc1970745af3684b">ones</a>();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#a1964070b6cd015052040582ecfb37b8d">ones</a>();</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> row = rowStart; row &lt; inN; ++row)</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        {</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> col = 0; col &lt; row + colStart + 1 - rowStart; ++col)</div>
@@ -261,21 +265,22 @@ $(document).ready(function(){initNavTree('tri_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a>(dtype);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keyword">const</span> <a class="code" href="classnc_1_1_shape.html">Shape</a> inShape  = inArray.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keyword">auto</span>        outArray = inArray.<a class="code" href="classnc_1_1_nd_array.html#a1f2d2aacc254129f36b0557a661e6664">copy</a>();</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        outArray.putMask(tril&lt;bool&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>, inOffset - 1), 0);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keyword">auto</span>        outArray = inArray.<a class="code" href="classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31">copy</a>();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        outArray.<a class="code" href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">putMask</a>(tril&lt;bool&gt;(inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>, inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>, inOffset - 1), 0);</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> outArray;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    }</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:49</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:56</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a1f2d2aacc254129f36b0557a661e6664"><div class="ttname"><a href="classnc_1_1_nd_array.html#a1f2d2aacc254129f36b0557a661e6664">nc::NdArray::copy</a></div><div class="ttdeci">NdArray&lt; dtype &gt; copy() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2317</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ac6e5a0c875c593a6bc1970745af3684b"><div class="ttname"><a href="classnc_1_1_nd_array.html#ac6e5a0c875c593a6bc1970745af3684b">nc::NdArray::ones</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; ones() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3274</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_acac210ad3d3bd973be4bece6e6b625ed"><div class="ttname"><a href="classnc_1_1_nd_array.html#acac210ad3d3bd973be4bece6e6b625ed">nc::NdArray::zeros</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; zeros() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4475</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a06839899d60027b7fabec78bb10d7724"><div class="ttname"><a href="classnc_1_1_nd_array.html#a06839899d60027b7fabec78bb10d7724">nc::NdArray::zeros</a></div><div class="ttdeci">self_type &amp; zeros() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4793</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a1964070b6cd015052040582ecfb37b8d"><div class="ttname"><a href="classnc_1_1_nd_array.html#a1964070b6cd015052040582ecfb37b8d">nc::NdArray::ones</a></div><div class="ttdeci">self_type &amp; ones() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3410</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a5ae6d993d5c8d41eee61ddca0b9f2b31"><div class="ttname"><a href="classnc_1_1_nd_array.html#a5ae6d993d5c8d41eee61ddca0b9f2b31">nc::NdArray::copy</a></div><div class="ttdeci">self_type copy() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2409</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_aff976966fee721aed8ce19a367a350dd"><div class="ttname"><a href="classnc_1_1_nd_array.html#aff976966fee721aed8ce19a367a350dd">nc::NdArray::putMask</a></div><div class="ttdeci">self_type &amp; putMask(const NdArray&lt; bool &gt; &amp;inMask, const value_type &amp;inValue)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4058</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>

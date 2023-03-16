@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -114,45 +118,39 @@ $(document).ready(function(){initNavTree('trim_boundary2d_8hpp_source.html','');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1filter_1_1boundary.html">nc::filter::boundary</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">namespace </span>filter</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">namespace </span>boundary</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">   51</a></span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">trimBoundary2d</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageWithBoundary, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inSize)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="classnc_1_1_shape.html">Shape</a>  inShape      = inImageWithBoundary.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> boundarySize = inSize / 2; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> -= boundarySize * 2;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> -= boundarySize * 2;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> inImageWithBoundary(<a class="code" href="classnc_1_1_slice.html">Slice</a>(boundarySize, boundarySize + inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>),</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                           <a class="code" href="classnc_1_1_slice.html">Slice</a>(boundarySize, boundarySize + inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        } <span class="comment">// namespace boundary</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }     <span class="comment">// namespace filter</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">   47</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">trimBoundary2d</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inImageWithBoundary, <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> inSize)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classnc_1_1_shape.html">Shape</a>  inShape      = inImageWithBoundary.<a class="code" href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">shape</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> boundarySize = inSize / 2; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> -= boundarySize * 2;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> -= boundarySize * 2;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> inImageWithBoundary(<a class="code" href="classnc_1_1_slice.html">Slice</a>(boundarySize, boundarySize + inShape.<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                   <a class="code" href="classnc_1_1_slice.html">Slice</a>(boundarySize, boundarySize + inShape.<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace nc::filter::boundary</span></div>
 <div class="ttc" id="a_core_2_shape_8hpp_html"><div class="ttname"><a href="_core_2_shape_8hpp.html">Shape.hpp</a></div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_slice_8hpp_html"><div class="ttname"><a href="_slice_8hpp.html">Slice.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4092</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a2d1b4adfe3c9897ffe3dca45e357b2b4"><div class="ttname"><a href="classnc_1_1_nd_array.html#a2d1b4adfe3c9897ffe3dca45e357b2b4">nc::NdArray::shape</a></div><div class="ttdeci">Shape shape() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4402</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html"><div class="ttname"><a href="classnc_1_1_shape.html">nc::Shape</a></div><div class="ttdoc">A Shape Class for NdArrays.</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:41</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_a6f89f699dea6eb89eef19e00c92b223a"><div class="ttname"><a href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">nc::Shape::rows</a></div><div class="ttdeci">uint32 rows</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:44</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
-<div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:44</div></div>
-<div class="ttc" id="anamespacenc_1_1filter_1_1boundary_html_aeff17b6fddc47bd2220fb912b2429162"><div class="ttname"><a href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">nc::filter::boundary::trimBoundary2d</a></div><div class="ttdeci">NdArray&lt; dtype &gt; trimBoundary2d(const NdArray&lt; dtype &gt; &amp;inImageWithBoundary, uint32 inSize)</div><div class="ttdef"><b>Definition:</b> trimBoundary2d.hpp:51</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1_slice_html"><div class="ttname"><a href="classnc_1_1_slice.html">nc::Slice</a></div><div class="ttdoc">A Class for slicing into NdArrays.</div><div class="ttdef"><b>Definition:</b> Slice.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_1_1boundary_html"><div class="ttname"><a href="namespacenc_1_1filter_1_1boundary.html">nc::filter::boundary</a></div><div class="ttdef"><b>Definition:</b> addBoundary1d.hpp:44</div></div>
+<div class="ttc" id="anamespacenc_1_1filter_1_1boundary_html_aeff17b6fddc47bd2220fb912b2429162"><div class="ttname"><a href="namespacenc_1_1filter_1_1boundary.html#aeff17b6fddc47bd2220fb912b2429162">nc::filter::boundary::trimBoundary2d</a></div><div class="ttdeci">NdArray&lt; dtype &gt; trimBoundary2d(const NdArray&lt; dtype &gt; &amp;inImageWithBoundary, uint32 inSize)</div><div class="ttdef"><b>Definition:</b> trimBoundary2d.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

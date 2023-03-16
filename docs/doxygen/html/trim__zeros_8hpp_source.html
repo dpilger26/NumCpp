@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -130,7 +134,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> = 0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> value : inArray)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span> (value != dtype{ 0 })</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(value, dtype{ 0 }))</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                }</div>
@@ -154,7 +158,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> = inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = inArray.<a class="code" href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">size</a>() - 1; i &gt; 0; --i)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">if</span> (inArray[i] != dtype{ 0 })</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArray[i], dtype{ 0 }))</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                }</div>
@@ -162,7 +166,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                --<a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a>;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> == 0 || (<a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> == 1 &amp;&amp; inArray[0] == dtype{ 0 }))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> == 0 || (<a class="code" href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">place</a> == 1 &amp;&amp; <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArray[0], dtype{ 0 })))</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(0);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
@@ -178,7 +182,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> placeBegin = 0;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> value : inArray)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span> (value != dtype{ 0 })</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(value, dtype{ 0 }))</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                }</div>
@@ -194,7 +198,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> placeEnd = inArray.size();</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> i = inArray.size() - 1; i &gt; 0; --i)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">if</span> (inArray[i] != dtype{ 0 })</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArray[i], dtype{ 0 }))</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
@@ -202,7 +206,7 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                --placeEnd;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">if</span> (placeEnd == 0 || (placeEnd == 1 &amp;&amp; inArray[0] == dtype{ 0 }))</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">if</span> (placeEnd == 0 || (placeEnd == 1 &amp;&amp; <a class="code" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">utils::essentiallyEqual</a>(inArray[0], dtype{ 0 })))</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>(0);</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            }</div>
@@ -218,17 +222,18 @@ $(document).ready(function(){initNavTree('trim__zeros_8hpp_source.html',''); ini
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_error_8hpp_html"><div class="ttname"><a href="_error_8hpp.html">Error.hpp</a></div></div>
-<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:36</div></div>
+<div class="ttc" id="a_error_8hpp_html_af2aff1172060367b9c5398fa097fa8fd"><div class="ttname"><a href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a></div><div class="ttdeci">#define THROW_INVALID_ARGUMENT_ERROR(msg)</div><div class="ttdef"><b>Definition:</b> Error.hpp:37</div></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:49</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a1589f74d429e30786c65cda69b17ab96"><div class="ttname"><a href="_static_asserts_8hpp.html#a1589f74d429e30786c65cda69b17ab96">STATIC_ASSERT_ARITHMETIC_OR_COMPLEX</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC_OR_COMPLEX(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:56</div></div>
 <div class="ttc" id="a_stl_algorithms_8hpp_html"><div class="ttname"><a href="_stl_algorithms_8hpp.html">StlAlgorithms.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4105</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1221</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1171</div></div>
-<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_ae62a4e197ec640aacea520220bd27cef"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">nc::stl_algorithms::copy</a></div><div class="ttdeci">OutputIt copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:99</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a055875abbe80163ca91328c0fa8ffbfa"><div class="ttname"><a href="classnc_1_1_nd_array.html#a055875abbe80163ca91328c0fa8ffbfa">nc::NdArray::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4415</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a0bee49339bdc4d7edbeb5efa73133cc3"><div class="ttname"><a href="classnc_1_1_nd_array.html#a0bee49339bdc4d7edbeb5efa73133cc3">nc::NdArray::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1308</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1258</div></div>
+<div class="ttc" id="anamespacenc_1_1stl__algorithms_html_ae62a4e197ec640aacea520220bd27cef"><div class="ttname"><a href="namespacenc_1_1stl__algorithms.html#ae62a4e197ec640aacea520220bd27cef">nc::stl_algorithms::copy</a></div><div class="ttdeci">OutputIt copy(InputIt first, InputIt last, OutputIt destination) noexcept</div><div class="ttdef"><b>Definition:</b> StlAlgorithms.hpp:97</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a963b90e7c9a3b057a924298750ddf74c"><div class="ttname"><a href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">nc::utils::essentiallyEqual</a></div><div class="ttdeci">bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept</div><div class="ttdef"><b>Definition:</b> essentiallyEqual.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a171da00c79cfbc9500916b6ac4d3de70"><div class="ttname"><a href="namespacenc.html#a171da00c79cfbc9500916b6ac4d3de70">nc::place</a></div><div class="ttdeci">void place(NdArray&lt; dtype &gt; &amp;arr, const NdArray&lt; bool &gt; &amp;mask, const NdArray&lt; dtype &gt; &amp;vals)</div><div class="ttdef"><b>Definition:</b> place.hpp:48</div></div>
 <div class="ttc" id="anamespacenc_html_a56a856c99dddd37fe14d5639dd6c5622"><div class="ttname"><a href="namespacenc.html#a56a856c99dddd37fe14d5639dd6c5622">nc::trim_zeros</a></div><div class="ttdeci">NdArray&lt; dtype &gt; trim_zeros(const NdArray&lt; dtype &gt; &amp;inArray, const std::string &amp;inTrim=&quot;fb&quot;)</div><div class="ttdef"><b>Definition:</b> trim_zeros.hpp:52</div></div>

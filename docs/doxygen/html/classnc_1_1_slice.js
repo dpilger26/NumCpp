@@ -10,6 +10,7 @@ var classnc_1_1_slice =
     [ "operator==", "classnc_1_1_slice.html#a769815d8fbb98ba34101c18a21efbbf5", null ],
     [ "print", "classnc_1_1_slice.html#a24c1eb77b94d3120bb02868cc965c058", null ],
     [ "str", "classnc_1_1_slice.html#af8bc3bb19b48fd09c769fd1fa9860ed5", null ],
+    [ "toIndices", "classnc_1_1_slice.html#a2df7160b36a6273db7c1074a03c3b60b", null ],
     [ "operator<<", "classnc_1_1_slice.html#ad6889d2df295fef3796aebb769b8cac0", null ],
     [ "start", "classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f", null ],
     [ "step", "classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4", null ],

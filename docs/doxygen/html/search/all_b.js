@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['k_589',['k',['../classnc_1_1rotations_1_1_quaternion.html#aa2eee61d3a428a558f28d1bb6cc6a048',1,'nc::rotations::Quaternion']]],
-  ['kaiser_590',['kaiser',['../namespacenc.html#a40ad53a4a4ad1be06ca85bbf9f9e9d25',1,'nc']]],
-  ['kaiser_2ehpp_591',['kaiser.hpp',['../kaiser_8hpp.html',1,'']]]
+  ['k_593',['k',['../classnc_1_1rotations_1_1_quaternion.html#aa2eee61d3a428a558f28d1bb6cc6a048',1,'nc::rotations::Quaternion']]],
+  ['kaiser_594',['kaiser',['../namespacenc.html#a40ad53a4a4ad1be06ca85bbf9f9e9d25',1,'nc']]],
+  ['kaiser_2ehpp_595',['kaiser.hpp',['../kaiser_8hpp.html',1,'']]]
 ];

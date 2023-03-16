@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -110,11 +114,13 @@ $(document).ready(function(){initNavTree('minimum_8hpp.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;complex&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="_error_8hpp_source.html">NumCpp/Core/Internal/Error.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_static_asserts_8hpp_source.html">NumCpp/Core/Internal/StaticAsserts.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_stl_algorithms_8hpp_source.html">NumCpp/Core/Internal/StlAlgorithms.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_nd_array_broadcast_8hpp_source.html">NumCpp/NdArray/NdArrayBroadcast.hpp</a>&quot;</code><br />
 </div>
 <p><a href="minimum_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -125,6 +131,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac68cdec642c20635d9f0c7f4a3cf7b61"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ac68cdec642c20635d9f0c7f4a3cf7b61"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac68cdec642c20635d9f0c7f4a3cf7b61">nc::minimum</a> (const dtype &amp;inScalar, const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:ac68cdec642c20635d9f0c7f4a3cf7b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8170c399cdffe7b478e19d719d0084ce"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a8170c399cdffe7b478e19d719d0084ce"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8170c399cdffe7b478e19d719d0084ce">nc::minimum</a> (const NdArray&lt; dtype &gt; &amp;inArray, const dtype &amp;inScalar)</td></tr>
+<tr class="separator:a8170c399cdffe7b478e19d719d0084ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8499c0529d36d402e32b3990d31429e8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a8499c0529d36d402e32b3990d31429e8"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8499c0529d36d402e32b3990d31429e8">nc::minimum</a> (const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:a8499c0529d36d402e32b3990d31429e8"><td class="memSeparator" colspan="2">&#160;</td></tr>

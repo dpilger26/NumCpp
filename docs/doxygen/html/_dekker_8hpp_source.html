@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -115,131 +119,128 @@ $(document).ready(function(){initNavTree('_dekker_8hpp_source.html',''); initRes
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">NumCpp/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_iteration_8hpp.html">NumCpp/Roots/Iteration.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1roots.html">nc::roots</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>roots</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//================================================================================</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Class Description:</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html">   50</a></span>&#160;<span class="comment"></span>        <span class="keyword">class </span><a class="code" href="classnc_1_1roots_1_1_dekker.html">Dekker</a> : <span class="keyword">public</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html">Iteration</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">   60</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">Dekker</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon, std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>) noexcept :</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(epsilon),</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                f_(std::move(<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>))</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">   74</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">Dekker</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon, <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations, std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>) noexcept :</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(epsilon, maxNumIterations),</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                f_(std::move(<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>))</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a49413387fbe4d12e20569d175fa7f486">   84</a></span>&#160;<span class="comment"></span>            <a class="code" href="classnc_1_1roots_1_1_dekker.html#a49413387fbe4d12e20569d175fa7f486">~Dekker</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">   94</a></span>&#160;<span class="comment"></span>            <span class="keywordtype">double</span> <a class="code" href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">solve</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">resetNumberOfIterations</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordtype">double</span> fa = f_(a);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">double</span> fb = f_(b);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//================================================================================</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Class Description:</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html">   48</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="classnc_1_1roots_1_1_dekker.html">Dekker</a> : <span class="keyword">public</span> <a class="code" href="classnc_1_1roots_1_1_iteration.html">Iteration</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">   58</a></span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">Dekker</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon, std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>) noexcept :</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(epsilon),</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            f_(std::move(<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">   72</a></span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">Dekker</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon, <span class="keyword">const</span> <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> maxNumIterations, std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt; <a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>) noexcept :</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">Iteration</a>(epsilon, maxNumIterations),</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            f_(std::move(<a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>))</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a49413387fbe4d12e20569d175fa7f486">   82</a></span>&#160;<span class="comment"></span>        <a class="code" href="classnc_1_1roots_1_1_dekker.html#a49413387fbe4d12e20569d175fa7f486">~Dekker</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">   92</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">solve</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">resetNumberOfIterations</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordtype">double</span> fa = f_(a);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordtype">double</span> fb = f_(b);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            checkAndFixAlgorithmCriteria(a, b, fa, fb);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                checkAndFixAlgorithmCriteria(a, b, fa, fb);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">double</span> lastB  = a;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordtype">double</span> lastFb = fa;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">while</span> (std::fabs(fb) &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a> &amp;&amp; std::fabs(b - a) &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> s = calculateSecant(b, fb, lastB, lastFb);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">double</span> m = calculateBisection(a, b);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordtype">double</span> lastB  = a;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordtype">double</span> lastFb = fa;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">while</span> (std::fabs(fb) &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a> &amp;&amp; std::fabs(b - a) &gt; <a class="code" href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">epsilon_</a>)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> s = calculateSecant(b, fb, lastB, lastFb);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> m = calculateBisection(a, b);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                lastB = b;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    lastB = b;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                b = useSecantMethod(b, s, m) ? s : m;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    b = useSecantMethod(b, s, m) ? s : m;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    lastFb = fb;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    fb     = f_(b);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">if</span> (fa * fb &gt; 0 &amp;&amp; fb * lastFb &lt; 0)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        a = lastB;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    fa = f_(a);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    checkAndFixAlgorithmCriteria(a, b, fa, fb);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    <a class="code" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">incrementNumberOfIterations</a>();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keyword">const</span> std::function&lt;double(<span class="keywordtype">double</span>)&gt; f_;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">void</span> checkAndFixAlgorithmCriteria(<span class="keywordtype">double</span> &amp;a, <span class="keywordtype">double</span> &amp;b, <span class="keywordtype">double</span> &amp;fa, <span class="keywordtype">double</span> &amp;fb) noexcept</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment">// Algorithm works in range [a,b] if criteria f(a)*f(b) &lt; 0 and f(a) &gt; f(b) is fulfilled</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="keywordflow">if</span> (std::fabs(fa) &lt; std::fabs(fb))</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(a, b);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                    <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(fa, fb);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">double</span> calculateSecant(<span class="keywordtype">double</span> b, <span class="keywordtype">double</span> fb, <span class="keywordtype">double</span> lastB, <span class="keywordtype">double</span> lastFb) noexcept</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="comment">// No need to check division by 0, in this case the method returns NAN which is taken care by</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="comment">// useSecantMethod method</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keywordflow">return</span> b - fb * (b - lastB) / (fb - lastFb);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">double</span> calculateBisection(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) noexcept</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">return</span> 0.5 * (a + b);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment"></span>            <span class="keyword">static</span> <span class="keywordtype">bool</span> useSecantMethod(<span class="keywordtype">double</span> b, <span class="keywordtype">double</span> s, <span class="keywordtype">double</span> m) noexcept</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                <span class="comment">// Value s calculated by secant method has to be between m and b</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">return</span> (b &gt; m &amp;&amp; s &gt; m &amp;&amp; s &lt; b) || (b &lt; m &amp;&amp; s &gt; b &amp;&amp; s &lt; m);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        };</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    } <span class="comment">// namespace roots</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                lastFb = fb;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                fb     = f_(b);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">if</span> (fa * fb &gt; 0 &amp;&amp; fb * lastFb &lt; 0)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    a = lastB;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                fa = f_(a);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                checkAndFixAlgorithmCriteria(a, b, fa, fb);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <a class="code" href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">incrementNumberOfIterations</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">const</span> std::function&lt;double(<span class="keywordtype">double</span>)&gt; f_;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> checkAndFixAlgorithmCriteria(<span class="keywordtype">double</span> &amp;a, <span class="keywordtype">double</span> &amp;b, <span class="keywordtype">double</span> &amp;fa, <span class="keywordtype">double</span> &amp;fb) noexcept</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="comment">// Algorithm works in range [a,b] if criteria f(a)*f(b) &lt; 0 and f(a) &gt; f(b) is fulfilled</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">if</span> (std::fabs(fa) &lt; std::fabs(fb))</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(a, b);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <a class="code" href="namespacenc.html#a39da0502565b913855379ea1439047e1">std::swap</a>(fa, fb);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">double</span> calculateSecant(<span class="keywordtype">double</span> b, <span class="keywordtype">double</span> fb, <span class="keywordtype">double</span> lastB, <span class="keywordtype">double</span> lastFb) noexcept</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="comment">// No need to check division by 0, in this case the method returns NAN which is taken care by</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="comment">// useSecantMethod method</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">return</span> b - fb * (b - lastB) / (fb - lastFb);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">double</span> calculateBisection(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) noexcept</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">return</span> 0.5 * (a + b);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> useSecantMethod(<span class="keywordtype">double</span> b, <span class="keywordtype">double</span> s, <span class="keywordtype">double</span> m) noexcept</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="comment">// Value s calculated by secant method has to be between m and b</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">return</span> (b &gt; m &amp;&amp; s &gt; m &amp;&amp; s &lt; b) || (b &lt; m &amp;&amp; s &gt; b &amp;&amp; s &lt; m);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    };</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;} <span class="comment">// namespace nc::roots</span></div>
 <div class="ttc" id="a_iteration_8hpp_html"><div class="ttname"><a href="_iteration_8hpp.html">Iteration.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html">nc::roots::Dekker</a></div><div class="ttdef"><b>Definition:</b> Dekker.hpp:51</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html">nc::roots::Dekker</a></div><div class="ttdef"><b>Definition:</b> Dekker.hpp:49</div></div>
 <div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_a49413387fbe4d12e20569d175fa7f486"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#a49413387fbe4d12e20569d175fa7f486">nc::roots::Dekker::~Dekker</a></div><div class="ttdeci">~Dekker() override=default</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_a5da7506a8f371764d0fae321fe081111"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">nc::roots::Dekker::solve</a></div><div class="ttdeci">double solve(double a, double b)</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:94</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_a77b88bb369da2d03d34717b7d8e0a2ab"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">nc::roots::Dekker::Dekker</a></div><div class="ttdeci">Dekker(const double epsilon, std::function&lt; double(double)&gt; f) noexcept</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:60</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_ab0a5db20e82cfd3ef95810ccb7d8c4e6"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">nc::roots::Dekker::Dekker</a></div><div class="ttdeci">Dekker(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:74</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html">nc::roots::Iteration</a></div><div class="ttdoc">ABC for iteration classes to derive from.</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:48</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a2d7285a81c033d56ce8283b6dbfca136"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:56</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a5eafe219bb90f82da4ece84f012a411a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">nc::roots::Iteration::epsilon_</a></div><div class="ttdeci">const double epsilon_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:118</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a85e79a4794bc3a6ac6bc3564956737a2"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">nc::roots::Iteration::resetNumberOfIterations</a></div><div class="ttdeci">void resetNumberOfIterations() noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:96</div></div>
-<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ad0262a1a694e734ebc154c77f010bcff"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">nc::roots::Iteration::incrementNumberOfIterations</a></div><div class="ttdeci">void incrementNumberOfIterations()</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:107</div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:58</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_a5da7506a8f371764d0fae321fe081111"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#a5da7506a8f371764d0fae321fe081111">nc::roots::Dekker::solve</a></div><div class="ttdeci">double solve(double a, double b)</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:92</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_a77b88bb369da2d03d34717b7d8e0a2ab"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#a77b88bb369da2d03d34717b7d8e0a2ab">nc::roots::Dekker::Dekker</a></div><div class="ttdeci">Dekker(const double epsilon, std::function&lt; double(double)&gt; f) noexcept</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:58</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_dekker_html_ab0a5db20e82cfd3ef95810ccb7d8c4e6"><div class="ttname"><a href="classnc_1_1roots_1_1_dekker.html#ab0a5db20e82cfd3ef95810ccb7d8c4e6">nc::roots::Dekker::Dekker</a></div><div class="ttdeci">Dekker(const double epsilon, const uint32 maxNumIterations, std::function&lt; double(double)&gt; f) noexcept</div><div class="ttdef"><b>Definition:</b> Dekker.hpp:72</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html">nc::roots::Iteration</a></div><div class="ttdoc">ABC for iteration classes to derive from.</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:46</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a2d7285a81c033d56ce8283b6dbfca136"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a2d7285a81c033d56ce8283b6dbfca136">nc::roots::Iteration::Iteration</a></div><div class="ttdeci">Iteration(double epsilon) noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:54</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a5eafe219bb90f82da4ece84f012a411a"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a5eafe219bb90f82da4ece84f012a411a">nc::roots::Iteration::epsilon_</a></div><div class="ttdeci">const double epsilon_</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:116</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_a85e79a4794bc3a6ac6bc3564956737a2"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#a85e79a4794bc3a6ac6bc3564956737a2">nc::roots::Iteration::resetNumberOfIterations</a></div><div class="ttdeci">void resetNumberOfIterations() noexcept</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:94</div></div>
+<div class="ttc" id="aclassnc_1_1roots_1_1_iteration_html_ad0262a1a694e734ebc154c77f010bcff"><div class="ttname"><a href="classnc_1_1roots_1_1_iteration.html#ad0262a1a694e734ebc154c77f010bcff">nc::roots::Iteration::incrementNumberOfIterations</a></div><div class="ttdeci">void incrementNumberOfIterations()</div><div class="ttdef"><b>Definition:</b> Iteration.hpp:105</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:56</div></div>
+<div class="ttc" id="anamespacenc_1_1roots_html"><div class="ttname"><a href="namespacenc_1_1roots.html">nc::roots</a></div><div class="ttdef"><b>Definition:</b> Bisection.hpp:43</div></div>
 <div class="ttc" id="anamespacenc_html_a39da0502565b913855379ea1439047e1"><div class="ttname"><a href="namespacenc.html#a39da0502565b913855379ea1439047e1">nc::swap</a></div><div class="ttdeci">void swap(NdArray&lt; dtype &gt; &amp;inArray1, NdArray&lt; dtype &gt; &amp;inArray2) noexcept</div><div class="ttdef"><b>Definition:</b> swap.hpp:42</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->

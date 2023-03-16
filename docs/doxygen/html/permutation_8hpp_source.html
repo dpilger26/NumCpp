@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -115,67 +119,64 @@ $(document).ready(function(){initNavTree('permutation_8hpp_source.html',''); ini
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nd_array_8hpp.html">NumCpp/NdArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="generator_8hpp.html">NumCpp/Random/generator.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc.html">nc</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacenc_1_1random.html">nc::random</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">namespace </span>random</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">namespace </span>detail</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">   54</a></span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">permutation</a>(GeneratorType&amp; generator, dtype inValue)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray = <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(inValue);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">std::shuffle</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(), generator);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a529ffb72e772de302ea31b95bbf36159">   74</a></span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">permutation</a>(GeneratorType&amp; generator, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inArray);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <a class="code" href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">std::shuffle</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(), generator);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">return</span> returnArray;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        } <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">   94</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">permutation</a>(dtype inValue)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">detail::permutation</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inValue);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// Method Description:</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#ac2ddd4fda3731e5f66378b191804085f">  109</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">permutation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">detail::permutation</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inArray);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    } <span class="comment">// namespace random</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">// namespace nc</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">   52</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">permutation</a>(GeneratorType&amp; generator, dtype inValue)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray = <a class="code" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a>(inValue);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">std::shuffle</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(), generator);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype, <span class="keyword">typename</span> GeneratorType = std::mt19937&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacenc_1_1random_1_1detail.html#a529ffb72e772de302ea31b95bbf36159">   72</a></span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">permutation</a>(GeneratorType&amp; generator, <span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inArray);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">std::shuffle</a>(returnArray.<a class="code" href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">begin</a>(), returnArray.<a class="code" href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">end</a>(), generator);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">return</span> returnArray;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    } <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">   92</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">permutation</a>(dtype inValue)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">detail::permutation</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inValue);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">//============================================================================</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// Method Description:</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> dtype&gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespacenc_1_1random.html#ac2ddd4fda3731e5f66378b191804085f">  107</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">permutation</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">detail::permutation</a>(<a class="code" href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">generator_</a>, inArray);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <span class="comment">// namespace nc::random</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_static_asserts_8hpp_html"><div class="ttname"><a href="_static_asserts_8hpp.html">StaticAsserts.hpp</a></div></div>
-<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:37</div></div>
+<div class="ttc" id="a_static_asserts_8hpp_html_a36abb32368b91aed0d3133a4cfd5ae92"><div class="ttname"><a href="_static_asserts_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a></div><div class="ttdeci">#define STATIC_ASSERT_ARITHMETIC(dtype)</div><div class="ttdef"><b>Definition:</b> StaticAsserts.hpp:39</div></div>
 <div class="ttc" id="aarange_8hpp_html"><div class="ttname"><a href="arange_8hpp.html">arange.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a153d3032d72c24d233407a351d0f8174"><div class="ttname"><a href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">nc::NdArray::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1479</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1171</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a153d3032d72c24d233407a351d0f8174"><div class="ttname"><a href="classnc_1_1_nd_array.html#a153d3032d72c24d233407a351d0f8174">nc::NdArray::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1566</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ab57282e02905eeb2a932eeb73983221f"><div class="ttname"><a href="classnc_1_1_nd_array.html#ab57282e02905eeb2a932eeb73983221f">nc::NdArray::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:1258</div></div>
 <div class="ttc" id="agenerator_8hpp_html"><div class="ttname"><a href="generator_8hpp.html">generator.hpp</a></div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a08053ebe9d98a0d3cf2d41d362564f0c"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">nc::random::detail::permutation</a></div><div class="ttdeci">NdArray&lt; dtype &gt; permutation(GeneratorType &amp;generator, dtype inValue)</div><div class="ttdef"><b>Definition:</b> permutation.hpp:54</div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a2c57a153b2235305ccadf068e70146f9"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">nc::random::detail::shuffle</a></div><div class="ttdeci">void shuffle(GeneratorType &amp;generator, NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> shuffle.hpp:50</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_a01eed1c9d55b68fa4c93afef918dd3e0"><div class="ttname"><a href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">nc::random::permutation</a></div><div class="ttdeci">NdArray&lt; dtype &gt; permutation(dtype inValue)</div><div class="ttdef"><b>Definition:</b> permutation.hpp:94</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:37</div></div>
-<div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a08053ebe9d98a0d3cf2d41d362564f0c"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a08053ebe9d98a0d3cf2d41d362564f0c">nc::random::detail::permutation</a></div><div class="ttdeci">NdArray&lt; dtype &gt; permutation(GeneratorType &amp;generator, dtype inValue)</div><div class="ttdef"><b>Definition:</b> permutation.hpp:52</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_a2c57a153b2235305ccadf068e70146f9"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#a2c57a153b2235305ccadf068e70146f9">nc::random::detail::shuffle</a></div><div class="ttdeci">void shuffle(GeneratorType &amp;generator, NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> shuffle.hpp:48</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html"><div class="ttname"><a href="namespacenc_1_1random.html">nc::random</a></div><div class="ttdef"><b>Definition:</b> Random/bernoulli.hpp:41</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_a01eed1c9d55b68fa4c93afef918dd3e0"><div class="ttname"><a href="namespacenc_1_1random.html#a01eed1c9d55b68fa4c93afef918dd3e0">nc::random::permutation</a></div><div class="ttdeci">NdArray&lt; dtype &gt; permutation(dtype inValue)</div><div class="ttdef"><b>Definition:</b> permutation.hpp:92</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_aa541047e6b742f1c5251e72f3b7aec95"><div class="ttname"><a href="namespacenc_1_1random.html#aa541047e6b742f1c5251e72f3b7aec95">nc::random::generator_</a></div><div class="ttdeci">static std::mt19937_64 generator_</div><div class="ttdoc">generator function</div><div class="ttdef"><b>Definition:</b> generator.hpp:35</div></div>
 <div class="ttc" id="anamespacenc_html_a465e2385ac78ca4cc23928a4a0cd9f53"><div class="ttname"><a href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">nc::arange</a></div><div class="ttdeci">NdArray&lt; dtype &gt; arange(dtype inStart, dtype inStop, dtype inStep=1)</div><div class="ttdef"><b>Definition:</b> arange.hpp:59</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

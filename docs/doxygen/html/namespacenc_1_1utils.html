@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -103,27 +107,33 @@ $(document).ready(function(){initNavTree('namespacenc_1_1utils.html',''); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">nc::utils Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacenc_1_1utils_1_1timeit__detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils_1_1timeit__detail.html">timeit_detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a46e88717d4d32003bb449fd5cefd401c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a46e88717d4d32003bb449fd5cefd401c"><td class="memTemplItemLeft" align="right" valign="top">constexpr dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c">cube</a> (dtype inValue) noexcept</td></tr>
 <tr class="separator:a46e88717d4d32003bb449fd5cefd401c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a139da62fc9c51ae191e7451bb4edb706"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a139da62fc9c51ae191e7451bb4edb706"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a139da62fc9c51ae191e7451bb4edb706"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a139da62fc9c51ae191e7451bb4edb706">essentiallyEqual</a> (const std::complex&lt; dtype &gt; &amp;inValue1, const std::complex&lt; dtype &gt; &amp;inValue2) noexcept</td></tr>
 <tr class="separator:a139da62fc9c51ae191e7451bb4edb706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e935ef90aaa774b37e6ab4b5316e01f"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a7e935ef90aaa774b37e6ab4b5316e01f"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a7e935ef90aaa774b37e6ab4b5316e01f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a7e935ef90aaa774b37e6ab4b5316e01f">essentiallyEqual</a> (const std::complex&lt; dtype &gt; &amp;inValue1, const std::complex&lt; dtype &gt; &amp;inValue2, const std::complex&lt; dtype &gt; &amp;inEpsilon) noexcept</td></tr>
 <tr class="separator:a7e935ef90aaa774b37e6ab4b5316e01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a963b90e7c9a3b057a924298750ddf74c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a963b90e7c9a3b057a924298750ddf74c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a963b90e7c9a3b057a924298750ddf74c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a963b90e7c9a3b057a924298750ddf74c">essentiallyEqual</a> (dtype inValue1, dtype inValue2) noexcept</td></tr>
 <tr class="separator:a963b90e7c9a3b057a924298750ddf74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedd8afd691cf9f5a8f8e12c9ca33743a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aedd8afd691cf9f5a8f8e12c9ca33743a"><td class="memTemplParams" colspan="2">template&lt;typename dtype , std::enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aedd8afd691cf9f5a8f8e12c9ca33743a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#aedd8afd691cf9f5a8f8e12c9ca33743a">essentiallyEqual</a> (dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept</td></tr>
 <tr class="separator:aedd8afd691cf9f5a8f8e12c9ca33743a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5016e06ac7ca186ff6c110b314d30209"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a5016e06ac7ca186ff6c110b314d30209">gaussian</a> (double inX, double inY, double inSigma) noexcept</td></tr>
@@ -144,6 +154,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae792e10a24b7e5b8291a6c31a28a4512"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ae792e10a24b7e5b8291a6c31a28a4512"><td class="memTemplItemLeft" align="right" valign="top">constexpr dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#ae792e10a24b7e5b8291a6c31a28a4512">sqr</a> (dtype inValue) noexcept</td></tr>
 <tr class="separator:ae792e10a24b7e5b8291a6c31a28a4512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91bb89238269340670593827df9497e1"><td class="memTemplParams" colspan="2">template&lt;typename TimeUnit , typename Function , typename... Args&gt; </td></tr>
+<tr class="memitem:a91bb89238269340670593827df9497e1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structnc_1_1utils_1_1timeit__detail_1_1_result.html">timeit_detail::Result</a>&lt; TimeUnit &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a91bb89238269340670593827df9497e1">timeit</a> (<a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> numIterations, bool printResults, Function function, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a91bb89238269340670593827df9497e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83530b13c9cc3b01b9bd8b8d3113290a"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a83530b13c9cc3b01b9bd8b8d3113290a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a83530b13c9cc3b01b9bd8b8d3113290a">value2str</a> (dtype inValue)</td></tr>
 <tr class="separator:a83530b13c9cc3b01b9bd8b8d3113290a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,7 +204,7 @@ template&lt;typename dtype &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
+template&lt;typename dtype , std::enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -247,7 +260,7 @@ template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::va
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype , enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
+template&lt;typename dtype , std::enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -301,7 +314,7 @@ template&lt;typename dtype , enable_if_t&lt; std::is_floating_point&lt; dtype &g
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
+template&lt;typename dtype , std::enable_if_t&lt; std::is_integral&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -357,7 +370,7 @@ template&lt;typename dtype , enable_if_t&lt; std::is_integral&lt; dtype &gt;::va
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype , enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
+template&lt;typename dtype , std::enable_if_t&lt; std::is_floating_point&lt; dtype &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -716,6 +729,67 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>squared value </dd></dl>
+
+</div>
+</div>
+<a id="a91bb89238269340670593827df9497e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91bb89238269340670593827df9497e1">&#9670;&nbsp;</a></span>timeit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeUnit , typename Function , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnc_1_1utils_1_1timeit__detail_1_1_result.html">timeit_detail::Result</a>&lt;TimeUnit&gt; nc::utils::timeit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a>&#160;</td>
+          <td class="paramname"><em>numIterations</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>printResults</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Timing of a function</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numIterations</td><td>number of iterations for the timing statistics </td></tr>
+    <tr><td class="paramname">printResults</td><td>bool true to print the results </td></tr>
+    <tr><td class="paramname">function</td><td>the function to time </td></tr>
+    <tr><td class="paramname">args</td><td>the arguements that are forwarded to the function input</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>timing statistics </dd></dl>
 
 </div>
 </div>

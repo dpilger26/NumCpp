@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -107,18 +111,18 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 </div><!--header-->
 <div class="contents">
 <p>Examples from the Quick Start Guide in <a class="el" href="_r_e_a_d_m_e_8md.html">README.md</a> at <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a></p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include&quot;<a class="code" href="_num_cpp_8hpp.html">NumCpp.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_num_cpp_8hpp.html">NumCpp.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include&quot;boost/filesystem.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include&lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;boost/filesystem.hpp&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Containers</span></div>
-<div class="line">    <a name="_a0"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a> a0 = { {1, 2}, {3, 4} };</div>
-<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a> a1 = { {1, 2}, {3, 4}, {5, 6} };</div>
-<div class="line">    a1.<a name="a1"></a><a class="code" href="classnc_1_1_nd_array.html#ace0dfa53f15057e5f505a41b67f000bb">reshape</a>(2, 3);</div>
+<div class="line">    <a name="_a0"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a> a0 = { { 1, 2 }, { 3, 4 } };</div>
+<div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a> a1 = { { 1, 2 }, { 3, 4 }, { 5, 6 } };</div>
+<div class="line">    a1.<a name="a1"></a><a class="code" href="classnc_1_1_nd_array.html#a096deb5405a9b8de3a4770675cc364de">reshape</a>(2, 3);</div>
 <div class="line">    <span class="keyword">auto</span> a2 = a1.<a name="a2"></a><a class="code" href="classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc">astype</a>&lt;<span class="keywordtype">double</span>&gt;();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Initializers</span></div>
@@ -127,32 +131,32 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keyword">auto</span> a5 = nc::eye&lt;int&gt;(4);</div>
 <div class="line">    <span class="keyword">auto</span> a6 = nc::zeros&lt;int&gt;(3, 4);</div>
 <div class="line">    <span class="keyword">auto</span> a7 = <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(3, 4) = 0;</div>
-<div class="line">    <span class="keyword">auto</span> a8 = nc::ones&lt;int&gt;(3, 4);</div>
+<div class="line">    <span class="keyword">auto</span> a8                          = nc::ones&lt;int&gt;(3, 4);</div>
 <div class="line">    <span class="keyword">auto</span> a9 = <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(3, 4) = 1;</div>
-<div class="line">    <span class="keyword">auto</span> a10 = <a name="a3"></a><a class="code" href="namespacenc.html#a1c3fe37572a53d83154138b2de5d5e8b">nc::nans</a>(3, 4);</div>
+<div class="line">    <span class="keyword">auto</span> a10                         = <a name="a3"></a><a class="code" href="namespacenc.html#a1c3fe37572a53d83154138b2de5d5e8b">nc::nans</a>(3, 4);</div>
 <div class="line">    <span class="keyword">auto</span> a11 = <a name="_a4"></a><a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a>(3, 4) = <a name="a5"></a><a class="code" href="namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac">nc::constants::nan</a>;</div>
-<div class="line">    <span class="keyword">auto</span> a12 = nc::empty&lt;int&gt;(3, 4);</div>
-<div class="line">    <span class="keyword">auto</span> a13 = <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(3, 4);</div>
+<div class="line">    <span class="keyword">auto</span> a12                             = nc::empty&lt;int&gt;(3, 4);</div>
+<div class="line">    <span class="keyword">auto</span> a13                             = <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;int&gt;</a>(3, 4);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Slicing/Broadcasting</span></div>
-<div class="line">    <span class="keyword">auto</span> a14 = nc::random::randInt&lt;int&gt;({ 10, 10 }, 0, 100);</div>
-<div class="line">    <span class="keyword">auto</span> value = a14(2, 3);</div>
-<div class="line">    <span class="keyword">auto</span> slice = a14({ 2, 5 }, { 2, 5 });</div>
-<div class="line">    <span class="keyword">auto</span> rowSlice = a14(a14.rSlice(), 7);</div>
-<div class="line">    <span class="keyword">auto</span> values = a14[a14 &gt; 50];</div>
+<div class="line">    <span class="keyword">auto</span>                  a14      = nc::random::randInt&lt;int&gt;({ 10, 10 }, 0, 100);</div>
+<div class="line">    [[maybe_unused]] <span class="keyword">auto</span> value    = a14(2, 3);</div>
+<div class="line">    <span class="keyword">auto</span>                  slice    = a14({ 2, 5 }, { 2, 5 });</div>
+<div class="line">    <span class="keyword">auto</span>                  rowSlice = a14(a14.rSlice(), 7);</div>
+<div class="line">    <span class="keyword">auto</span>                  values   = a14[a14 &gt; 50];</div>
 <div class="line">    a14.putMask(a14 &gt; 50, 666);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// random</span></div>
 <div class="line">    <a name="a6"></a><a class="code" href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a>(666);</div>
-<div class="line">    <span class="keyword">auto</span> a15 = nc::random::randN&lt;double&gt;({3, 4});</div>
-<div class="line">    <span class="keyword">auto</span> a16 = nc::random::randInt&lt;int&gt;({3, 4}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> a17 = nc::random::rand&lt;double&gt;({3, 4});</div>
+<div class="line">    <span class="keyword">auto</span> a15 = nc::random::randN&lt;double&gt;({ 3, 4 });</div>
+<div class="line">    <span class="keyword">auto</span> a16 = nc::random::randInt&lt;int&gt;({ 3, 4 }, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span> a17 = nc::random::rand&lt;double&gt;({ 3, 4 });</div>
 <div class="line">    <span class="keyword">auto</span> a18 = <a name="a7"></a><a class="code" href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a>(a17, 3);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Concatenation</span></div>
-<div class="line">    <span class="keyword">auto</span> a = nc::random::randInt&lt;int&gt;({3, 4}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> b = nc::random::randInt&lt;int&gt;({3, 4}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> <a name="a8"></a><a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> = nc::random::randInt&lt;int&gt;({3, 4}, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span> a = nc::random::randInt&lt;int&gt;({ 3, 4 }, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span> b = nc::random::randInt&lt;int&gt;({ 3, 4 }, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span> <a name="a8"></a><a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> = nc::random::randInt&lt;int&gt;({ 3, 4 }, 0, 10);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">auto</span> a19 = <a name="a9"></a><a class="code" href="namespacenc.html#a1a0f59e4e74eff3ad3a24929d0db406a">nc::stack</a>({ a, b, <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> }, <a name="a10"></a><a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
 <div class="line">    <span class="keyword">auto</span> a20 = <a name="a11"></a><a class="code" href="namespacenc.html#a5f89d7fdd9706dd37cfbaa5e78e17f5f">nc::vstack</a>({ a, b, <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> });</div>
@@ -160,7 +164,7 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keyword">auto</span> a22 = <a name="a13"></a><a class="code" href="namespacenc.html#a95328595c782582b1e75e1c12e92bd81">nc::append</a>(a, b, <a name="a14"></a><a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">nc::Axis::COL</a>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Diagonal, Traingular, and Flip</span></div>
-<div class="line">    <span class="keyword">auto</span> d = nc::random::randInt&lt;int&gt;({5, 5}, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span> d   = nc::random::randInt&lt;int&gt;({ 5, 5 }, 0, 10);</div>
 <div class="line">    <span class="keyword">auto</span> a23 = <a name="a15"></a><a class="code" href="namespacenc.html#a8eeb67e5ad2a5b0567570a774b7fb1f3">nc::diagonal</a>(d);</div>
 <div class="line">    <span class="keyword">auto</span> a24 = <a name="a16"></a><a class="code" href="namespacenc.html#a05c4de5a2c55f32884dec4b1d5634a36">nc::triu</a>(a);</div>
 <div class="line">    <span class="keyword">auto</span> a25 = <a name="a17"></a><a class="code" href="namespacenc.html#aa5530b43e1ccdeeaded7a26fdcb43798">nc::tril</a>(a);</div>
@@ -182,13 +186,13 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    std::cout &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Logical</span></div>
-<div class="line">    <span class="keyword">auto</span> a29 = <a name="a21"></a><a class="code" href="namespacenc.html#ac0af750215d0444ad9f0208620ca206b">nc::where</a>(a &gt; 5, a, b);</div>
-<div class="line">    <span class="keyword">auto</span> a30 = <a name="a22"></a><a class="code" href="namespacenc.html#a2101c957472f0cefeda9d6b2b7bc6935">nc::any</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a31 = <a name="a23"></a><a class="code" href="namespacenc.html#ad5df164a8079cf9b22d25b6c62f1d10a">nc::all</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a32 = <a name="a24"></a><a class="code" href="namespacenc.html#a951c3f9acd6147a8e2be1ab2cda4d51c">nc::logical_and</a>(a, b);</div>
-<div class="line">    <span class="keyword">auto</span> a33 = <a name="a25"></a><a class="code" href="namespacenc.html#a0492e302b114ab15b996b1330604478b">nc::logical_or</a>(a, b);</div>
-<div class="line">    <span class="keyword">auto</span> a34 = <a name="a26"></a><a class="code" href="namespacenc.html#ae80bdb1c4ce59e2a74cad2d518f50e1e">nc::isclose</a>(a15, a17);</div>
-<div class="line">    <span class="keyword">auto</span> a35 = <a name="a27"></a><a class="code" href="namespacenc.html#ac2a107bb7ecfcf649c408069166ed1ea">nc::allclose</a>(a, b);</div>
+<div class="line">    <span class="keyword">auto</span>                  a29 = <a name="a21"></a><a class="code" href="namespacenc.html#ac0af750215d0444ad9f0208620ca206b">nc::where</a>(a &gt; 5, a, b);</div>
+<div class="line">    <span class="keyword">auto</span>                  a30 = <a name="a22"></a><a class="code" href="namespacenc.html#a2101c957472f0cefeda9d6b2b7bc6935">nc::any</a>(a);</div>
+<div class="line">    <span class="keyword">auto</span>                  a31 = <a name="a23"></a><a class="code" href="namespacenc.html#ad5df164a8079cf9b22d25b6c62f1d10a">nc::all</a>(a);</div>
+<div class="line">    <span class="keyword">auto</span>                  a32 = <a name="a24"></a><a class="code" href="namespacenc.html#a951c3f9acd6147a8e2be1ab2cda4d51c">nc::logical_and</a>(a, b);</div>
+<div class="line">    <span class="keyword">auto</span>                  a33 = <a name="a25"></a><a class="code" href="namespacenc.html#a0492e302b114ab15b996b1330604478b">nc::logical_or</a>(a, b);</div>
+<div class="line">    <span class="keyword">auto</span>                  a34 = <a name="a26"></a><a class="code" href="namespacenc.html#ae80bdb1c4ce59e2a74cad2d518f50e1e">nc::isclose</a>(a15, a17);</div>
+<div class="line">    [[maybe_unused]] <span class="keyword">auto</span> a35 = <a name="a27"></a><a class="code" href="namespacenc.html#ac2a107bb7ecfcf649c408069166ed1ea">nc::allclose</a>(a, b);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Comparisons</span></div>
 <div class="line">    <span class="keyword">auto</span> a36 = <a name="a28"></a><a class="code" href="namespacenc.html#a7440518ae70823ac15ea1711d8df7bfc">nc::equal</a>(a, b);</div>
@@ -199,9 +203,9 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line"><span class="preprocessor">#ifdef __cpp_structured_bindings</span></div>
 <div class="line">    <span class="keyword">auto</span> [rows, cols] = <a name="a30"></a><a class="code" href="namespacenc.html#a46ce9bcc6ba641e0550934b981175683">nc::nonzero</a>(a);</div>
 <div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    <span class="keyword">auto</span> rowsCols = <a class="code" href="namespacenc.html#a46ce9bcc6ba641e0550934b981175683">nc::nonzero</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span>&amp; rows = rowsCols.first;</div>
-<div class="line">    <span class="keyword">auto</span>&amp; cols = rowsCols.second;</div>
+<div class="line">    <span class="keyword">auto</span>  rowsCols = <a class="code" href="namespacenc.html#a46ce9bcc6ba641e0550934b981175683">nc::nonzero</a>(a);</div>
+<div class="line">    <span class="keyword">auto</span>&amp; rows     = rowsCols.first;</div>
+<div class="line">    <span class="keyword">auto</span>&amp; cols     = rowsCols.second;</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Minimum, Maximum, Sorting</span></div>
@@ -209,21 +213,21 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keyword">auto</span> value2 = <a name="a32"></a><a class="code" href="namespacenc.html#a4d5872f22ac07aeba503857cb5948bc1">nc::max</a>(a);</div>
 <div class="line">    <span class="keyword">auto</span> value3 = <a name="a33"></a><a class="code" href="namespacenc.html#ae26281f75850e9b94272228b56544bd5">nc::argmin</a>(a);</div>
 <div class="line">    <span class="keyword">auto</span> value4 = <a name="a34"></a><a class="code" href="namespacenc.html#a33dac7f03588175031847327655f0b5d">nc::argmax</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a41 = <a name="a35"></a><a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">nc::sort</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
-<div class="line">    <span class="keyword">auto</span> a42 = <a name="a36"></a><a class="code" href="namespacenc.html#a88c217359f5e295649dd0cabe648ce6a">nc::argsort</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">nc::Axis::COL</a>);</div>
-<div class="line">    <span class="keyword">auto</span> a43 = <a name="a37"></a><a class="code" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a44 = <a name="a38"></a><a class="code" href="namespacenc.html#adb6b7ca658c4d613fe0c4a695ba3542b">nc::setdiff1d</a>(a, b);</div>
-<div class="line">    <span class="keyword">auto</span> a45 = <a name="a39"></a><a class="code" href="namespacenc.html#a94701ce8e9c8a4bb6dd162da5d07eadd">nc::diff</a>(a);</div>
+<div class="line">    <span class="keyword">auto</span> a41    = <a name="a35"></a><a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">nc::sort</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a42    = <a name="a36"></a><a class="code" href="namespacenc.html#a88c217359f5e295649dd0cabe648ce6a">nc::argsort</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05">nc::Axis::COL</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a43    = <a name="a37"></a><a class="code" href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a>(a);</div>
+<div class="line">    <span class="keyword">auto</span> a44    = <a name="a38"></a><a class="code" href="namespacenc.html#adb6b7ca658c4d613fe0c4a695ba3542b">nc::setdiff1d</a>(a, b);</div>
+<div class="line">    <span class="keyword">auto</span> a45    = <a name="a39"></a><a class="code" href="namespacenc.html#a94701ce8e9c8a4bb6dd162da5d07eadd">nc::diff</a>(a);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Reducers</span></div>
 <div class="line">    <span class="keyword">auto</span> value5 = nc::sum&lt;int&gt;(a);</div>
-<div class="line">    <span class="keyword">auto</span> a46 = nc::sum&lt;int&gt;(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a46    = nc::sum&lt;int&gt;(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
 <div class="line">    <span class="keyword">auto</span> value6 = nc::prod&lt;int&gt;(a);</div>
-<div class="line">    <span class="keyword">auto</span> a47 = nc::prod&lt;int&gt;(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a47    = nc::prod&lt;int&gt;(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
 <div class="line">    <span class="keyword">auto</span> value7 = <a name="a40"></a><a class="code" href="namespacenc.html#ae215351046b49fec834d006fd35a4078">nc::mean</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a48 = <a class="code" href="namespacenc.html#ae215351046b49fec834d006fd35a4078">nc::mean</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a48    = <a class="code" href="namespacenc.html#ae215351046b49fec834d006fd35a4078">nc::mean</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
 <div class="line">    <span class="keyword">auto</span> value8 = <a name="a41"></a><a class="code" href="namespacenc.html#aebb0dfe3637c07f6a9f6e4f08cacf515">nc::count_nonzero</a>(a);</div>
-<div class="line">    <span class="keyword">auto</span> a49 = <a class="code" href="namespacenc.html#aebb0dfe3637c07f6a9f6e4f08cacf515">nc::count_nonzero</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
+<div class="line">    <span class="keyword">auto</span> a49    = <a class="code" href="namespacenc.html#aebb0dfe3637c07f6a9f6e4f08cacf515">nc::count_nonzero</a>(a, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7">nc::Axis::ROW</a>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// I/O</span></div>
 <div class="line">    a.print();</div>
@@ -245,10 +249,10 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keyword">auto</span> a53 = <a name="a44"></a><a class="code" href="namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9">nc::sign</a>(a);</div>
 <div class="line">    <span class="keyword">auto</span> a54 = <a name="a45"></a><a class="code" href="namespacenc.html#a12bfc5b4d937aa0366b70fb15270bd41">nc::remainder</a>(a, b);</div>
 <div class="line">    <span class="keyword">auto</span> a55 = <a name="a46"></a><a class="code" href="namespacenc.html#a5200696e06dadf4eca2f0d7332ed4af1">nc::clip</a>(a, 3, 8);</div>
-<div class="line">    <span class="keyword">auto</span> xp = nc::linspace&lt;double&gt;(0.0, 2.0 * <a name="a47"></a><a class="code" href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a>, 100);</div>
-<div class="line">    <span class="keyword">auto</span> fp = <a name="a48"></a><a class="code" href="namespacenc.html#a3fa4e582cdeef0716309ad51378f2983">nc::sin</a>(xp);</div>
-<div class="line">    <span class="keyword">auto</span> x = nc::linspace&lt;double&gt;(0.0, 2.0 * <a class="code" href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a>, 1000);</div>
-<div class="line">    <span class="keyword">auto</span> <a name="a49"></a><a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a> = <a name="a50"></a><a class="code" href="namespacenc.html#a5b9584eeac344f9d37beb6be475300ca">nc::interp</a>(x, xp, fp);</div>
+<div class="line">    <span class="keyword">auto</span> xp  = nc::linspace&lt;double&gt;(0.0, 2.0 * <a name="a47"></a><a class="code" href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a>, 100);</div>
+<div class="line">    <span class="keyword">auto</span> fp  = <a name="a48"></a><a class="code" href="namespacenc.html#a3fa4e582cdeef0716309ad51378f2983">nc::sin</a>(xp);</div>
+<div class="line">    <span class="keyword">auto</span> x   = nc::linspace&lt;double&gt;(0.0, 2.0 * <a class="code" href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a>, 1000);</div>
+<div class="line">    <span class="keyword">auto</span> <a name="a49"></a><a class="code" href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">f</a>   = <a name="a50"></a><a class="code" href="namespacenc.html#a5b9584eeac344f9d37beb6be475300ca">nc::interp</a>(x, xp, fp);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Exponential Functions</span></div>
 <div class="line">    <span class="keyword">auto</span> a56 = <a name="a51"></a><a class="code" href="namespacenc.html#ad7e555d480465930a7ac44f4ab39eea7">nc::exp</a>(a);</div>
@@ -274,20 +278,20 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Classification Functions</span></div>
 <div class="line">    <span class="keyword">auto</span> a70 = <a name="a63"></a><a class="code" href="namespacenc.html#ac28569da874c0b37a4c50c86b31a98ab">nc::isnan</a>(a.astype&lt;<span class="keywordtype">double</span>&gt;());</div>
-<div class="line">    <span class="comment">//nc::isinf(a);</span></div>
+<div class="line">    <span class="comment">// nc::isinf(a);</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Linear Algebra</span></div>
 <div class="line">    <span class="keyword">auto</span> a71 = nc::norm&lt;int&gt;(a);</div>
 <div class="line">    <span class="keyword">auto</span> a72 = nc::dot&lt;int&gt;(a, b.transpose());</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> a73 = nc::random::randInt&lt;int&gt;({3, 3}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> a74 = nc::random::randInt&lt;int&gt;({4, 3}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> a75 = nc::random::randInt&lt;int&gt;({1, 4}, 0, 10);</div>
-<div class="line">    <span class="keyword">auto</span> value9 = <a name="a64"></a><a class="code" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a>(a73);</div>
-<div class="line">    <span class="keyword">auto</span> a76 = <a name="a65"></a><a class="code" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a>(a73);</div>
-<div class="line">    <span class="keyword">auto</span> a77 = <a name="a66"></a><a class="code" href="namespacenc_1_1linalg.html#a9c15421c77e6b4b12fca1515596d1414">nc::linalg::lstsq</a>(a74, a75);</div>
-<div class="line">    <span class="keyword">auto</span> a78 = nc::linalg::matrix_power&lt;int&gt;(a73, 3);</div>
-<div class="line">    <span class="keyword">auto</span> a79 = nc::linalg::multi_dot&lt;int&gt;({ a, b.transpose(), <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> });</div>
+<div class="line">    <span class="keyword">auto</span>                  a73    = nc::random::randInt&lt;int&gt;({ 3, 3 }, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span>                  a74    = nc::random::randInt&lt;int&gt;({ 4, 3 }, 0, 10);</div>
+<div class="line">    <span class="keyword">auto</span>                  a75    = nc::random::randInt&lt;int&gt;({ 1, 4 }, 0, 10);</div>
+<div class="line">    [[maybe_unused]] <span class="keyword">auto</span> value9 = <a name="a64"></a><a class="code" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a>(a73);</div>
+<div class="line">    <span class="keyword">auto</span>                  a76    = <a name="a65"></a><a class="code" href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a>(a73);</div>
+<div class="line">    <span class="keyword">auto</span>                  a77    = <a name="a66"></a><a class="code" href="namespacenc_1_1linalg.html#a9c15421c77e6b4b12fca1515596d1414">nc::linalg::lstsq</a>(a74, a75);</div>
+<div class="line">    <span class="keyword">auto</span>                  a78    = nc::linalg::matrix_power&lt;int&gt;(a73, 3);</div>
+<div class="line">    <span class="keyword">auto</span>                  a79    = nc::linalg::multi_dot&lt;int&gt;({ a, b.transpose(), <a class="code" href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">c</a> });</div>
 <div class="line"> </div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> u;</div>
 <div class="line">    <a class="code" href="classnc_1_1_nd_array.html">nc::NdArray&lt;double&gt;</a> s;</div>
@@ -297,19 +301,19 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_num_cpp_8hpp_html"><div class="ttname"><a href="_num_cpp_8hpp.html">NumCpp.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a028372744b6c41150c339088b1d1a0dc"><div class="ttname"><a href="classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc">nc::NdArray::astype</a></div><div class="ttdeci">NdArray&lt; dtypeOut &gt; astype() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2037</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_ace0dfa53f15057e5f505a41b67f000bb"><div class="ttname"><a href="classnc_1_1_nd_array.html#ace0dfa53f15057e5f505a41b67f000bb">nc::NdArray::reshape</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; reshape(size_type inSize)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:3880</div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_a2f1219a120c9cc1434486d9de75a8221"><div class="ttname"><a href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a></div><div class="ttdeci">constexpr double pi</div><div class="ttdoc">Pi.</div><div class="ttdef"><b>Definition:</b> Constants.hpp:43</div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_ac3fc62713ed109e451648c67faab7581"><div class="ttname"><a href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">nc::constants::c</a></div><div class="ttdeci">constexpr double c</div><div class="ttdoc">speed of light</div><div class="ttdef"><b>Definition:</b> Constants.hpp:40</div></div>
-<div class="ttc" id="anamespacenc_1_1constants_html_af94758715a9a5157d7ca95ab89d390ac"><div class="ttname"><a href="namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac">nc::constants::nan</a></div><div class="ttdeci">const double nan</div><div class="ttdoc">NaN.</div><div class="ttdef"><b>Definition:</b> Constants.hpp:44</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_a560873e98ef9b3d8da501ad6feb121e9"><div class="ttname"><a href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> det.hpp:133</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_a9c15421c77e6b4b12fca1515596d1414"><div class="ttname"><a href="namespacenc_1_1linalg.html#a9c15421c77e6b4b12fca1515596d1414">nc::linalg::lstsq</a></div><div class="ttdeci">NdArray&lt; double &gt; lstsq(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12)</div><div class="ttdef"><b>Definition:</b> lstsq.hpp:59</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_acb38ad2613d50422afc539d005159055"><div class="ttname"><a href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</div><div class="ttdef"><b>Definition:</b> svd.hpp:53</div></div>
-<div class="ttc" id="anamespacenc_1_1linalg_html_ae36553eb100d8f2c2167e8ecadf2a9fc"><div class="ttname"><a href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:56</div></div>
-<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:58</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:48</div></div>
-<div class="ttc" id="anamespacenc_1_1random_html_ad60ec32743642bd0540fec0076043fed"><div class="ttname"><a href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a></div><div class="ttdeci">dtype choice(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> choice.hpp:101</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a028372744b6c41150c339088b1d1a0dc"><div class="ttname"><a href="classnc_1_1_nd_array.html#a028372744b6c41150c339088b1d1a0dc">nc::NdArray::astype</a></div><div class="ttdeci">NdArray&lt; dtypeOut &gt; astype() const</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:2124</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_a096deb5405a9b8de3a4770675cc364de"><div class="ttname"><a href="classnc_1_1_nd_array.html#a096deb5405a9b8de3a4770675cc364de">nc::NdArray::reshape</a></div><div class="ttdeci">self_type &amp; reshape(size_type inSize)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4190</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_a2f1219a120c9cc1434486d9de75a8221"><div class="ttname"><a href="namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221">nc::constants::pi</a></div><div class="ttdeci">constexpr double pi</div><div class="ttdoc">Pi.</div><div class="ttdef"><b>Definition:</b> Constants.hpp:39</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_ac3fc62713ed109e451648c67faab7581"><div class="ttname"><a href="namespacenc_1_1constants.html#ac3fc62713ed109e451648c67faab7581">nc::constants::c</a></div><div class="ttdeci">constexpr double c</div><div class="ttdoc">speed of light</div><div class="ttdef"><b>Definition:</b> Constants.hpp:36</div></div>
+<div class="ttc" id="anamespacenc_1_1constants_html_af94758715a9a5157d7ca95ab89d390ac"><div class="ttname"><a href="namespacenc_1_1constants.html#af94758715a9a5157d7ca95ab89d390ac">nc::constants::nan</a></div><div class="ttdeci">const double nan</div><div class="ttdoc">NaN.</div><div class="ttdef"><b>Definition:</b> Constants.hpp:40</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_a560873e98ef9b3d8da501ad6feb121e9"><div class="ttname"><a href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a></div><div class="ttdeci">auto det(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> det.hpp:131</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_a9c15421c77e6b4b12fca1515596d1414"><div class="ttname"><a href="namespacenc_1_1linalg.html#a9c15421c77e6b4b12fca1515596d1414">nc::linalg::lstsq</a></div><div class="ttdeci">NdArray&lt; double &gt; lstsq(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12)</div><div class="ttdef"><b>Definition:</b> lstsq.hpp:57</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_acb38ad2613d50422afc539d005159055"><div class="ttname"><a href="namespacenc_1_1linalg.html#acb38ad2613d50422afc539d005159055">nc::linalg::svd</a></div><div class="ttdeci">void svd(const NdArray&lt; dtype &gt; &amp;inArray, NdArray&lt; double &gt; &amp;outU, NdArray&lt; double &gt; &amp;outS, NdArray&lt; double &gt; &amp;outVt)</div><div class="ttdef"><b>Definition:</b> svd.hpp:51</div></div>
+<div class="ttc" id="anamespacenc_1_1linalg_html_ae36553eb100d8f2c2167e8ecadf2a9fc"><div class="ttname"><a href="namespacenc_1_1linalg.html#ae36553eb100d8f2c2167e8ecadf2a9fc">nc::linalg::inv</a></div><div class="ttdeci">NdArray&lt; double &gt; inv(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> inv.hpp:54</div></div>
+<div class="ttc" id="anamespacenc_1_1random_1_1detail_html_af5bfd54c6d5d0ad7e16e6e532b0dfb2e"><div class="ttname"><a href="namespacenc_1_1random_1_1detail.html#af5bfd54c6d5d0ad7e16e6e532b0dfb2e">nc::random::detail::f</a></div><div class="ttdeci">dtype f(GeneratorType &amp;generator, dtype inDofN, dtype inDofD)</div><div class="ttdef"><b>Definition:</b> f.hpp:56</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_ab7a11b67f4e9e18c7b01c7dc4db2fc71"><div class="ttname"><a href="namespacenc_1_1random.html#ab7a11b67f4e9e18c7b01c7dc4db2fc71">nc::random::seed</a></div><div class="ttdeci">void seed(int inSeed)</div><div class="ttdef"><b>Definition:</b> generator.hpp:46</div></div>
+<div class="ttc" id="anamespacenc_1_1random_html_ad60ec32743642bd0540fec0076043fed"><div class="ttname"><a href="namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed">nc::random::choice</a></div><div class="ttdeci">dtype choice(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> choice.hpp:99</div></div>
 <div class="ttc" id="anamespacenc_html_a0241fc364ae8002c42cd4d452c897e26"><div class="ttname"><a href="namespacenc.html#a0241fc364ae8002c42cd4d452c897e26">nc::flipud</a></div><div class="ttdeci">NdArray&lt; dtype &gt; flipud(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> flipud.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_html_a0492e302b114ab15b996b1330604478b"><div class="ttname"><a href="namespacenc.html#a0492e302b114ab15b996b1330604478b">nc::logical_or</a></div><div class="ttdeci">NdArray&lt; bool &gt; logical_or(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> logical_or.hpp:50</div></div>
 <div class="ttc" id="anamespacenc_html_a05c4de5a2c55f32884dec4b1d5634a36"><div class="ttname"><a href="namespacenc.html#a05c4de5a2c55f32884dec4b1d5634a36">nc::triu</a></div><div class="ttdeci">NdArray&lt; dtype &gt; triu(uint32 inN, uint32 inM, int32 inOffset=0)</div><div class="ttdef"><b>Definition:</b> tri.hpp:175</div></div>
@@ -354,7 +358,7 @@ $(document).ready(function(){initNavTree('_read_me_8cpp-example.html',''); initR
 <div class="ttc" id="anamespacenc_html_ac28569da874c0b37a4c50c86b31a98ab"><div class="ttname"><a href="namespacenc.html#ac28569da874c0b37a4c50c86b31a98ab">nc::isnan</a></div><div class="ttdeci">bool isnan(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> isnan.hpp:49</div></div>
 <div class="ttc" id="anamespacenc_html_ac2a107bb7ecfcf649c408069166ed1ea"><div class="ttname"><a href="namespacenc.html#ac2a107bb7ecfcf649c408069166ed1ea">nc::allclose</a></div><div class="ttdeci">bool allclose(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2, double inTolerance=1e-5)</div><div class="ttdef"><b>Definition:</b> allclose.hpp:54</div></div>
 <div class="ttc" id="anamespacenc_html_ac6c0da616068bc667891c0a460431de3"><div class="ttname"><a href="namespacenc.html#ac6c0da616068bc667891c0a460431de3">nc::not_equal</a></div><div class="ttdeci">NdArray&lt; bool &gt; not_equal(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> not_equal.hpp:46</div></div>
-<div class="ttc" id="anamespacenc_html_ad4832f2be01449e48737aa0e06792494"><div class="ttname"><a href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> unique.hpp:54</div></div>
+<div class="ttc" id="anamespacenc_html_ad4832f2be01449e48737aa0e06792494"><div class="ttname"><a href="namespacenc.html#ad4832f2be01449e48737aa0e06792494">nc::unique</a></div><div class="ttdeci">NdArray&lt; dtype &gt; unique(const NdArray&lt; dtype &gt; &amp;inArray)</div><div class="ttdef"><b>Definition:</b> unique.hpp:53</div></div>
 <div class="ttc" id="anamespacenc_html_ad5df164a8079cf9b22d25b6c62f1d10a"><div class="ttname"><a href="namespacenc.html#ad5df164a8079cf9b22d25b6c62f1d10a">nc::all</a></div><div class="ttdeci">NdArray&lt; bool &gt; all(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> all.hpp:46</div></div>
 <div class="ttc" id="anamespacenc_html_ad7e555d480465930a7ac44f4ab39eea7"><div class="ttname"><a href="namespacenc.html#ad7e555d480465930a7ac44f4ab39eea7">nc::exp</a></div><div class="ttdeci">auto exp(dtype inValue) noexcept</div><div class="ttdef"><b>Definition:</b> exp.hpp:49</div></div>
 <div class="ttc" id="anamespacenc_html_adb6b7ca658c4d613fe0c4a695ba3542b"><div class="ttname"><a href="namespacenc.html#adb6b7ca658c4d613fe0c4a695ba3542b">nc::setdiff1d</a></div><div class="ttdeci">NdArray&lt; dtype &gt; setdiff1d(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)</div><div class="ttdef"><b>Definition:</b> setdiff1d.hpp:54</div></div>

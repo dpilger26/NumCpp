@@ -1,8 +1,5 @@
 # TODO
 
-* rebuild documentation
-* merge to main / tag / create release
-
 ## Version 2.11.0
 
 * run clang-tidy

@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -154,25 +158,25 @@ $(document).ready(function(){initNavTree('_core_2_shape_8hpp_source.html',''); i
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">  104</a></span>&#160;<span class="comment"></span>        <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">size</a>() const noexcept</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">  104</a></span>&#160;<span class="comment"></span>        [[nodiscard]] <a class="code" href="namespacenc.html#af0f49663fb63332596e2e6327009d581">uint32</a> <a class="code" href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">size</a>() const noexcept</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> * <a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#a3c8d187f677e9a4cdbdf1906d612b596">  115</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="classnc_1_1_shape.html#a3c8d187f677e9a4cdbdf1906d612b596">isnull</a>() const noexcept</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#a3c8d187f677e9a4cdbdf1906d612b596">  115</a></span>&#160;<span class="comment"></span>        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classnc_1_1_shape.html#a3c8d187f677e9a4cdbdf1906d612b596">isnull</a>() const noexcept</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> == 0 &amp;&amp; <a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a> == 0;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">  125</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>() const noexcept</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">  125</a></span>&#160;<span class="comment"></span>        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classnc_1_1_shape.html#a939dd0ab6edf83b7abaf8b8c93a99152">issquare</a>() const noexcept</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a> == <a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="comment">//============================================================================</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4">  135</a></span>&#160;<span class="comment"></span>        std::string <a class="code" href="classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4">str</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4">  135</a></span>&#160;<span class="comment"></span>        [[nodiscard]] std::string <a class="code" href="classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4">str</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            std::string out = <span class="stringliteral">&quot;[&quot;</span> + <a class="code" href="namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6">utils::num2str</a>(<a class="code" href="classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a">rows</a>) + <span class="stringliteral">&quot;, &quot;</span> + <a class="code" href="namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6">utils::num2str</a>(<a class="code" href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">cols</a>) + <span class="stringliteral">&quot;]\n&quot;</span>;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">return</span> out;</div>
@@ -207,7 +211,7 @@ $(document).ready(function(){initNavTree('_core_2_shape_8hpp_source.html',''); i
 <div class="ttc" id="aclassnc_1_1_shape_html_aadb0e0d633d64e5eb5a4f9bef12b26c4"><div class="ttname"><a href="classnc_1_1_shape.html#aadb0e0d633d64e5eb5a4f9bef12b26c4">nc::Shape::str</a></div><div class="ttdeci">std::string str() const</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:135</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_aae1a3c997648aacaefb60d0e6d0bf10d"><div class="ttname"><a href="classnc_1_1_shape.html#aae1a3c997648aacaefb60d0e6d0bf10d">nc::Shape::cols</a></div><div class="ttdeci">uint32 cols</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:45</div></div>
 <div class="ttc" id="aclassnc_1_1_shape_html_ab29f87cc8479a2d0610a918cd9b08bbc"><div class="ttname"><a href="classnc_1_1_shape.html#ab29f87cc8479a2d0610a918cd9b08bbc">nc::Shape::size</a></div><div class="ttdeci">uint32 size() const noexcept</div><div class="ttdef"><b>Definition:</b> Core/Shape.hpp:104</div></div>
-<div class="ttc" id="anamespacenc_1_1utils_html_a16a6ad93c420ed7a003d9921bee1a7c6"><div class="ttname"><a href="namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6">nc::utils::num2str</a></div><div class="ttdeci">std::string num2str(dtype inNumber)</div><div class="ttdef"><b>Definition:</b> num2str.hpp:46</div></div>
+<div class="ttc" id="anamespacenc_1_1utils_html_a16a6ad93c420ed7a003d9921bee1a7c6"><div class="ttname"><a href="namespacenc_1_1utils.html#a16a6ad93c420ed7a003d9921bee1a7c6">nc::utils::num2str</a></div><div class="ttdeci">std::string num2str(dtype inNumber)</div><div class="ttdef"><b>Definition:</b> num2str.hpp:44</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_af0f49663fb63332596e2e6327009d581"><div class="ttname"><a href="namespacenc.html#af0f49663fb63332596e2e6327009d581">nc::uint32</a></div><div class="ttdeci">std::uint32_t uint32</div><div class="ttdef"><b>Definition:</b> Types.hpp:40</div></div>
 <div class="ttc" id="anum2str_8hpp_html"><div class="ttname"><a href="num2str_8hpp.html">num2str.hpp</a></div></div>

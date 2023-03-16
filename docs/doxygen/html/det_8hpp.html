@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -135,9 +139,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a560873e98ef9b3d8da501ad6feb121e9"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a560873e98ef9b3d8da501ad6feb121e9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html#a560873e98ef9b3d8da501ad6feb121e9">nc::linalg::det</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a560873e98ef9b3d8da501ad6feb121e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2169a5439fe9005c882f0faaa573bd7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:ac2169a5439fe9005c882f0faaa573bd7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg_1_1detail.html#ac2169a5439fe9005c882f0faaa573bd7">nc::linalg::detail::det</a> (const NdArray&lt; dtype &gt; &amp;inArray, uint32 order) -&gt; std::conditional_t&lt; is_integral_v&lt; dtype &gt;, int64, double &gt;</td></tr>
-<tr class="separator:ac2169a5439fe9005c882f0faaa573bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg_1_1detail.html#a636d3082932ef8a13aaf9c4201bf8f9d">nc::linalg::detail::det</a> (const NdArray&lt; dtype &gt; &amp;inArray, uint32 order) -&gt; std::conditional_t&lt; std::is_integral_v&lt; dtype &gt;, int64, double &gt;</td></tr>
+<tr class="separator:a636d3082932ef8a13aaf9c4201bf8f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a></dd></dl>

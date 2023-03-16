@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -106,7 +110,31 @@ $(document).ready(function(){initNavTree('md__home_dpilger__github__num_cpp_docs
 <div class="title">Release Notes </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Version 2.9.0</h1>
+<div class="textblock"><h1>Version 2.10.0</h1>
+<ul>
+<li>added broadcasting for all <code>NdArray</code> operators for <b>Issue #147</b> and <b>Issue #174</b></li>
+<li>added broadcasting for <code>minimum</code> and <code>maximum</code> functions for <b>Issue #74</b></li>
+<li>added broadcasting for:<ul>
+<li><code>fmin</code></li>
+<li><code>fmax</code></li>
+<li><code>fmod</code></li>
+<li><code>hypot</code></li>
+<li><code>logical_and</code></li>
+<li><code>logical_or</code></li>
+<li><code>logical_xor</code></li>
+<li><code>remainder</code></li>
+</ul>
+</li>
+<li>added <code>insert</code> function for <b>Issue #170</b> <a href="https://numpy.org/doc/stable/reference/generated/numpy.insert.html">https://numpy.org/doc/stable/reference/generated/numpy.insert.html</a></li>
+<li>fixed <b>Issue #177</b>: slice and put with various integer index types</li>
+<li>additional <code>NdArray</code> access operator overloads and <code>at</code> overloads</li>
+<li>additional <code>put</code> overloads to <code>NdArray</code></li>
+<li>added <code>dimSize</code> method to <code>NdArray</code></li>
+<li>added <code>timeit</code> function</li>
+<li>added overload of <code>hypot</code> for 3 <code>NdArray</code>s</li>
+<li>various performance improvements and bug fixes</li>
+</ul>
+<h1>Version 2.9.0</h1>
 <ul>
 <li>dropped support of C++14 standard, now requires C++17 or greater</li>
 <li>added a new <code>DateTime</code> class for working with date times</li>

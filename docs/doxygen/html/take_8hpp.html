@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -122,7 +126,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aab2dfd68c2d22ec51f55f9ddcba21b0c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Indices , enable_if_t&lt; is_same_v&lt; Indices, NdArray&lt; int32 &gt;&gt;||is_same_v&lt; Indices, NdArray&lt; uint32 &gt;&gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aab2dfd68c2d22ec51f55f9ddcba21b0c"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Indices , type_traits::ndarray_int_concept&lt; Indices &gt;  = 0&gt; </td></tr>
 <tr class="memitem:aab2dfd68c2d22ec51f55f9ddcba21b0c"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#aab2dfd68c2d22ec51f55f9ddcba21b0c">nc::take</a> (const NdArray&lt; dtype &gt; &amp;inArray, const Indices &amp;inIndices, Axis inAxis=Axis::NONE)</td></tr>
 <tr class="separator:aab2dfd68c2d22ec51f55f9ddcba21b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

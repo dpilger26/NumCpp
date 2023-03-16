@@ -35,6 +35,10 @@
     <script type="text/javascript">
         DoxygenAwesomeParagraphLink.init()
     </script>
+    <script type="text/javascript" src="../doxygen-awesome-css/doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
 </head>
 <body>
     <div id="top">
@@ -46,7 +50,7 @@
                         <td id="projectlogo"><img alt="Logo" src="NumCppLogoDoxygen.png" /></td>
                         <td id="projectalign" style="padding-left: 0.5em;">
                             <div id="projectname">NumCpp
-                                &#160;<span id="projectnumber">2.9.0</span>
+                                &#160;<span id="projectnumber">2.10.0</span>
                             </div>
                             <div id="projectbrief">A Templatized Header Only C++ Implementation of the Python NumPy Library</div>
                         </td>
@@ -119,14 +123,14 @@ $(document).ready(function(){initNavTree('sort_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">   46</a></span>&#160;    <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> <a class="code" href="namespacenc.html#a8273e1ecb5eafba97b7ed5b8f10a6cdf">sort</a>(<span class="keyword">const</span> <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a>&amp; inArray, <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis = <a class="code" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classnc_1_1_nd_array.html">NdArray&lt;dtype&gt;</a> returnArray(inArray);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#a3c0a24c292c340c58a6da5526654f3bb">sort</a>(inAxis);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        returnArray.<a class="code" href="classnc_1_1_nd_array.html#ac611e24471ec23ecd4ca16f65f7403e9">sort</a>(inAxis);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> returnArray;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace nc</span></div>
 <div class="ttc" id="a_nd_array_8hpp_html"><div class="ttname"><a href="_nd_array_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:72</div></div>
-<div class="ttc" id="aclassnc_1_1_nd_array_html_a3c0a24c292c340c58a6da5526654f3bb"><div class="ttname"><a href="classnc_1_1_nd_array.html#a3c0a24c292c340c58a6da5526654f3bb">nc::NdArray::sort</a></div><div class="ttdeci">NdArray&lt; dtype &gt; &amp; sort(Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4119</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html"><div class="ttname"><a href="classnc_1_1_nd_array.html">nc::NdArray</a></div><div class="ttdoc">Holds 1D and 2D arrays, the main work horse of the NumCpp library.</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:138</div></div>
+<div class="ttc" id="aclassnc_1_1_nd_array_html_ac611e24471ec23ecd4ca16f65f7403e9"><div class="ttname"><a href="classnc_1_1_nd_array.html#ac611e24471ec23ecd4ca16f65f7403e9">nc::NdArray::sort</a></div><div class="ttdeci">self_type &amp; sort(Axis inAxis=Axis::NONE)</div><div class="ttdef"><b>Definition:</b> NdArrayCore.hpp:4429</div></div>
 <div class="ttc" id="anamespacenc_html"><div class="ttname"><a href="namespacenc.html">nc</a></div><div class="ttdef"><b>Definition:</b> Coordinate.hpp:45</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">nc::Axis</a></div><div class="ttdeci">Axis</div><div class="ttdoc">Enum To describe an axis.</div><div class="ttdef"><b>Definition:</b> Types.hpp:47</div></div>
 <div class="ttc" id="anamespacenc_html_a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">nc::Axis::NONE</a></div><div class="ttdeci">@ NONE</div></div>
