@@ -71,19 +71,9 @@ namespace nc
     template<typename dtype>
     NdArray<double> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
-
-        NdArray<double> returnArray(inArray1.shape());
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) noexcept -> double
-                                  { return remainder(inValue1, inValue2); });
-
-        return returnArray;
+        return broadcast::broadcaster<double>(inArray1,
+                                              inArray2,
+                                              [](dtype inValue1, dtype inValue2) noexcept -> double
+                                              { return remainder(inValue1, inValue2); });
     }
 } // namespace nc

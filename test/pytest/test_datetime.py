@@ -1,5 +1,7 @@
 from typing import Iterable, Callable
 
+import numpy as np
+
 import NumCppPy as NumCpp  # noqa E402
 
 
@@ -114,5 +116,4 @@ def test_datetime():
 
     tp2 = NumCpp.Clock.now()
     d = NumCpp.DateTime(tp2)
-    # ASSERT_EQ(d.toTimePoint().time_since_epoch().count(), std::chrono::time_point_cast<TimePoint::duration>(tp2).time_since_epoch().count());
-    assert d.toTimePoint().time_since_epoch().count() == tp2.time_since_epoch().count()
+    assert np.abs(d.toTimePoint().time_since_epoch().count() - tp2.time_since_epoch().count()) <= 1

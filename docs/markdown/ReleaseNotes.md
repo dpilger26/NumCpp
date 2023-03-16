@@ -4,12 +4,22 @@
 
 * added broadcasting for all `NdArray` operators for **Issue #147** and **Issue #174**
 * added broadcasting for `minimum` and `maximum` functions for **Issue #74**
+* added broadcasting for:
+  * `fmin`
+  * `fmax`
+  * `fmod`
+  * `hypot`
+  * `logical_and`
+  * `logical_or`
+  * `logical_xor`
+  * `remainder`
 * added `insert` function for **Issue #170** <https://numpy.org/doc/stable/reference/generated/numpy.insert.html>
 * fixed **Issue #177**: slice and put with various integer index types
 * additional `NdArray` access operator overloads and `at` overloads
 * additional `put` overloads to `NdArray`
 * added `dimSize` method to `NdArray`
 * added `timeit` function
+* added overload of `hypot` for 3 `NdArray`s
 * various performance improvements and bug fixes
 
 ## Version 2.9.0

@@ -1189,6 +1189,22 @@ namespace FunctionsInterface
     //================================================================================
 
     template<typename dtype>
+    pbArrayGeneric fmaxArrayScalar(const NdArray<dtype>& inArray, dtype inValue)
+    {
+        return nc2pybind(fmax(inArray, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fmaxScalarArray(dtype inValue, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(fmax(inValue, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype fminScalar(dtype inValue1, dtype inValue2)
     {
         return fmin(inValue1, inValue2);
@@ -1201,6 +1217,24 @@ namespace FunctionsInterface
     {
         return nc2pybind(fmin(inArray1, inArray2));
     }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fminArrayScalar(const NdArray<dtype>& inArray, dtype inValue)
+    {
+        return nc2pybind(fmin(inArray, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric fminScalarArray(dtype inValue, const NdArray<dtype>& inArray)
+    {
+        return nc2pybind(fmin(inValue, inArray));
+    }
+
+    //================================================================================
 
     template<typename dtype>
     dtype fmodScalar(dtype inValue1, dtype inValue2)
@@ -1416,6 +1450,15 @@ namespace FunctionsInterface
     pbArrayGeneric hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2pybind(hypot(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    pbArrayGeneric
+        hypotArrayTriple(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3)
+    {
+        return nc2pybind(hypot(inArray1, inArray2, inArray3));
     }
 
     //================================================================================
@@ -3275,10 +3318,18 @@ void initFunctions(pb11::module& m)
     m.def("fmaxScalar", &FunctionsInterface::fmaxScalar<ComplexDouble>);
     m.def("fmaxArray", &FunctionsInterface::fmaxArray<double>);
     m.def("fmaxArray", &FunctionsInterface::fmaxArray<ComplexDouble>);
+    m.def("fmaxArrayScalar", &FunctionsInterface::fmaxArrayScalar<double>);
+    m.def("fmaxArrayScalar", &FunctionsInterface::fmaxArrayScalar<ComplexDouble>);
+    m.def("fmaxArrayScalar", &FunctionsInterface::fmaxScalarArray<double>);
+    m.def("fmaxArrayScalar", &FunctionsInterface::fmaxScalarArray<ComplexDouble>);
     m.def("fminScalar", &FunctionsInterface::fminScalar<double>);
     m.def("fminScalar", &FunctionsInterface::fminScalar<ComplexDouble>);
     m.def("fminArray", &FunctionsInterface::fminArray<double>);
     m.def("fminArray", &FunctionsInterface::fminArray<ComplexDouble>);
+    m.def("fminArrayScalar", &FunctionsInterface::fminArrayScalar<double>);
+    m.def("fminArrayScalar", &FunctionsInterface::fminArrayScalar<ComplexDouble>);
+    m.def("fminArrayScalar", &FunctionsInterface::fminScalarArray<double>);
+    m.def("fminArrayScalar", &FunctionsInterface::fminScalarArray<ComplexDouble>);
     m.def("fmodScalarInt", &FunctionsInterface::fmodScalar<uint32>);
     m.def("fmodArrayInt", &FunctionsInterface::fmodArray<uint32>);
     m.def("fmodScalarFloat", &FunctionsInterface::fmodScalar<double>);
@@ -3325,6 +3376,7 @@ void initFunctions(pb11::module& m)
     m.def("hypotScalar", &FunctionsInterface::hypotScalar<double>);
     m.def("hypotScalarTriple", &FunctionsInterface::hypotScalarTriple<double>);
     m.def("hypotArray", &FunctionsInterface::hypotArray<double>);
+    m.def("hypotArray", &FunctionsInterface::hypotArrayTriple<double>);
 
     m.def("identity", &identity<double>);
     m.def("identityComplex", &identity<ComplexDouble>);

@@ -4,10 +4,6 @@
 
 ### Broadcasting
 
-* issue #147: multiply (and other operator) broadcasting
-* issue #174: more broadcasting generally
-  * survey of remaining function
-
 * run clang-tidy
 * run cppcheck
 * rebuild documentation

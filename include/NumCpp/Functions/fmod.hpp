@@ -85,20 +85,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
-
-        NdArray<dtype> returnArray(inArray1.shape());
-
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) noexcept -> dtype
-                                  { return fmod(inValue1, inValue2); });
-
-        return returnArray;
+        return inArray1 % inArray2;
     }
 } // namespace nc

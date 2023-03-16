@@ -17,7 +17,7 @@ def factors(n):
 
 ####################################################################################
 def test_seed():
-    np.random.seed(26)
+    np.random.seed(666)
 
 
 ####################################################################################
@@ -3164,16 +3164,78 @@ def test_fmax():
     value2 = np.random.randn(1).item() * 100 + 1000
     assert NumCpp.fmaxScalar(value1, value2) == np.fmax(value1, value2)
 
-    shapeInput = np.random.randint(20, 100, [2, ])
+    # array scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
-    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.fmaxArray(
-        cArray1, cArray2), np.fmax(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, ], dtype=np.uint32).item()
+    lhsC.setArray(lhs)
+    assert np.array_equal(NumCpp.fmaxArrayScalar(lhsC, rhs), np.fmax(lhs, rhs))
+
+    # scalar array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    rhsC = NumCpp.NdArray(shape)
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    lhs = np.random.randint(1, 100, [1, ], dtype=np.uint32).item()
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArrayScalar(lhs, rhsC), np.fmax(lhs, rhs))
+
+    # array array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArray(lhsC, rhsC), np.fmax(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArray(lhsC, rhsC), np.fmax(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArray(lhsC, rhsC), np.fmax(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArray(lhsC, rhsC), np.fmax(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmaxArray(lhsC, rhsC), np.fmax(lhs, rhs))
 
 
 ####################################################################################
@@ -3182,16 +3244,78 @@ def test_fmin():
     value2 = np.random.randn(1).item() * 100 + 1000
     assert NumCpp.fminScalar(value1, value2) == np.fmin(value1, value2)
 
-    shapeInput = np.random.randint(20, 100, [2, ])
+    # array scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
-    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.fminArray(
-        cArray1, cArray2), np.fmin(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, ], dtype=np.uint32).item()
+    lhsC.setArray(lhs)
+    assert np.array_equal(NumCpp.fminArrayScalar(lhsC, rhs), np.fmin(lhs, rhs))
+
+    # scalar array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    rhsC = NumCpp.NdArray(shape)
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    lhs = np.random.randint(1, 100, [1, ], dtype=np.uint32).item()
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArrayScalar(lhs, rhsC), np.fmin(lhs, rhs))
+
+    # array array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArray(lhsC, rhsC), np.fmin(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArray(lhsC, rhsC), np.fmin(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArray(lhsC, rhsC), np.fmin(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArray(lhsC, rhsC), np.fmin(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fminArray(lhsC, rhsC), np.fmin(lhs, rhs))
 
 
 ####################################################################################
@@ -3217,18 +3341,64 @@ def test_fmod():
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000.5
     assert NumCpp.fmodScalarFloat(value1, value2) == np.fmod(value1, value2)
 
-    shapeInput = np.random.randint(20, 100, [2, ])
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    assert NumCpp.fmodScalarFloat(value1, value2) == np.fmod(value1, value2)
+
+    # array array
+    shapeInput = np.random.randint(2, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randint(
-        1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
-    data2 = np.random.randint(
-        1, 100, [shape.rows, shape.cols], dtype=np.uint32).astype(float) * 100 + 1000.5
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.fmodArrayFloat(
-        cArray1, cArray2), np.fmod(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmodArrayFloat(lhsC, rhsC), np.fmod(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmodArrayFloat(lhsC, rhsC), np.fmod(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmodArrayFloat(lhsC, rhsC), np.fmod(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmodArrayFloat(lhsC, rhsC), np.fmod(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(1, 100, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(1, 100, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.fmodArrayFloat(lhsC, rhsC), np.fmod(lhs, rhs))
 
 
 ####################################################################################
@@ -3727,6 +3897,75 @@ def test_hypot():
     cArray2.setArray(data2)
     assert np.array_equal(np.round(NumCpp.hypotArray(cArray1, cArray2), 9),
                           np.round(np.hypot(data1, data2), 9))
+
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    cArray3 = NumCpp.NdArray(shape)
+    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data3 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    assert np.array_equal(np.round(NumCpp.hypotArray(cArray1, cArray2, cArray3), 8),
+                          np.round(np.sqrt(data1**2 + data2**2 + data3**2), 8))
+    
+    # Arrays
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.hypotArray(lhsC, rhsC), np.hypot(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.hypotArray(lhsC, rhsC), np.hypot(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.hypotArray(lhsC, rhsC), np.hypot(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.hypotArray(lhsC, rhsC), np.hypot(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 100, [1, shape.cols]).astype(float)
+    rhs = np.random.randint(0, 100, [shape.rows, 1]).astype(float)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.hypotArray(lhsC, rhsC), np.hypot(lhs, rhs))
 
 
 ####################################################################################
@@ -5054,16 +5293,60 @@ def test_logaddexp2():
 
 ####################################################################################
 def test_logical_and():
-    shapeInput = np.random.randint(20, 100, [2, ])
+    # array array
+    shapeInput = np.random.randint(0, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    data2 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.logical_and(
-        cArray1, cArray2).getNumpyArray(), np.logical_and(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_and(lhsC, rhsC).getNumpyArray(), np.logical_and(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_and(lhsC, rhsC).getNumpyArray(), np.logical_and(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_and(lhsC, rhsC).getNumpyArray(), np.logical_and(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_and(lhsC, rhsC).getNumpyArray(), np.logical_and(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_and(lhsC, rhsC).getNumpyArray(), np.logical_and(lhs, rhs))
 
 
 ####################################################################################
@@ -5079,30 +5362,118 @@ def test_logical_not():
 
 ####################################################################################
 def test_logical_or():
-    shapeInput = np.random.randint(20, 100, [2, ])
+    # array array
+    shapeInput = np.random.randint(0, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    data2 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.logical_or(
-        cArray1, cArray2).getNumpyArray(), np.logical_or(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_or(lhsC, rhsC).getNumpyArray(), np.logical_or(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_or(lhsC, rhsC).getNumpyArray(), np.logical_or(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_or(lhsC, rhsC).getNumpyArray(), np.logical_or(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_or(lhsC, rhsC).getNumpyArray(), np.logical_or(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_or(lhsC, rhsC).getNumpyArray(), np.logical_or(lhs, rhs))
 
 
 ####################################################################################
 def test_logical_xor():
-    shapeInput = np.random.randint(20, 100, [2, ])
+    # array array
+    shapeInput = np.random.randint(0, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArray(shape)
-    cArray2 = NumCpp.NdArray(shape)
-    data1 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    data2 = np.random.randint(0, 20, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    assert np.array_equal(NumCpp.logical_xor(
-        cArray1, cArray2).getNumpyArray(), np.logical_xor(data1, data2))
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape)
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_xor(lhsC, rhsC).getNumpyArray(), np.logical_xor(lhs, rhs))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_xor(lhsC, rhsC).getNumpyArray(), np.logical_xor(lhs, rhs))
+
+    # broadcast row array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(1, shape.cols)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_xor(lhsC, rhsC).getNumpyArray(), np.logical_xor(lhs, rhs))
+
+    # broadcast col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(shape)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_xor(lhsC, rhsC).getNumpyArray(), np.logical_xor(lhs, rhs))
+
+    # broadcast row array col array
+    shapeInput = np.random.randint(2, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    lhs = np.random.randint(0, 2, [1, shape.cols], dtype=np.uint32)
+    rhs = np.random.randint(0, 2, [shape.rows, 1], dtype=np.uint32)
+    lhsC = NumCpp.NdArray(1, shape.cols)
+    rhsC = NumCpp.NdArray(shape.rows, 1)
+    lhsC.setArray(lhs)
+    rhsC.setArray(rhs)
+    assert np.array_equal(NumCpp.logical_xor(lhsC, rhsC).getNumpyArray(), np.logical_xor(lhs, rhs))
 
 
 ####################################################################################
@@ -8360,19 +8731,31 @@ def test_remainder():
         res += values[0].item()
     assert np.round(res, 9) == np.round(np.remainder(values[1], values[0]), 9)
 
-    # numpy and cmath remainders are calculated differently, so convert for testing purposes
+    # array array
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumCpp.NdArray(shape)
     cArray2 = NumCpp.NdArray(shape)
     data1 = np.random.rand(shape.rows, shape.cols) * 100 + 10
-    data2 = data1 - np.random.rand(shape.rows, shape.cols) * 10
+    data2 = np.random.rand(shape.rows, shape.cols) * 10
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     res = NumCpp.remainderArray(cArray1, cArray2)
     res[res < 0] = res[res < 0] + data2[res < 0]
-    assert np.array_equal(np.round(res, 9), np.round(
-        np.remainder(data1, data2), 9))
+    assert np.array_equal(np.round(res, 9), np.round(np.remainder(data1, data2), 9))
+
+    # broadcast scalar
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(1, 1)
+    data1 = np.random.rand(shape.rows, shape.cols) * 100 + 10
+    data2 = np.random.rand(1) * 10
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    res = NumCpp.remainderArray(cArray1, cArray2)
+    res[res < 0] = res[res < 0] + data2
+    assert np.array_equal(np.round(res, 9), np.round(np.remainder(data1, data2), 9))
 
 
 ####################################################################################

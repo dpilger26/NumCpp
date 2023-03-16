@@ -105,19 +105,41 @@ namespace nc
     template<typename dtype>
     NdArray<double> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
+        return broadcast::broadcaster<double>(inArray1,
+                                              inArray2,
+                                              [](dtype inValue1, dtype inValue2) noexcept -> double
+                                              { return hypot(inValue1, inValue2); });
+    }
+
+    //============================================================================
+    // Method Description:
+    /// Given the "legs" of a right triangle, return its hypotenuse.
+    ///
+    /// Equivalent to sqrt(x1**2 + x2**2), element - wise.
+    ///
+    /// NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
+    ///
+    ///
+    /// @param inArray1
+    /// @param inArray2
+    /// @param inArray3
+    ///
+    /// @return NdArray
+    ///
+    template<typename dtype>
+    NdArray<double>
+        hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3)
+    {
+        if (inArray1.size() != inArray2.size() || inArray1.size() != inArray3.size())
         {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
+            THROW_INVALID_ARGUMENT_ERROR("input array sizes are not consistant.");
         }
 
         NdArray<double> returnArray(inArray1.shape());
-
-        stl_algorithms::transform(inArray1.cbegin(),
-                                  inArray1.cend(),
-                                  inArray2.cbegin(),
-                                  returnArray.begin(),
-                                  [](dtype inValue1, dtype inValue2) noexcept -> double
-                                  { return hypot(inValue1, inValue2); });
+        for (typename NdArray<dtype>::size_type i = 0; i < inArray1.size(); ++i)
+        {
+            returnArray[i] = hypot(inArray1[i], inArray2[i], inArray3[i]);
+        }
 
         return returnArray;
     }
